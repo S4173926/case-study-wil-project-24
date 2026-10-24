@@ -1,0 +1,270 @@
+[
+  {
+    "id": "q01",
+    "question": "What training negatives does Dense Passage Retrieval use?"
+  },
+  {
+    "id": "q02",
+    "question": "How does ColBERT compute the relevance score between a query and a document?"
+  },
+  {
+    "id": "q03",
+    "question": "What is the difference between RAG-Sequence and RAG-Token?"
+  },
+  {
+    "id": "q04",
+    "question": "What serves as the non-parametric memory in the RAG model?"
+  },
+  {
+    "id": "q05",
+    "question": "How does Fusion-in-Decoder combine multiple retrieved passages?"
+  },
+  {
+    "id": "q06",
+    "question": "What learning signal is used to pre-train the REALM knowledge retriever?"
+  },
+  {
+    "id": "q07",
+    "question": "Which quality aspects does RAGAS measure for retrieval augmented generation?"
+  },
+  {
+    "id": "q08",
+    "question": "What are reflection tokens in Self-RAG used for?"
+  },
+  {
+    "id": "q09",
+    "question": "Which two chatbot approaches were implemented in Walert?"
+  },
+  {
+    "id": "q10",
+    "question": "Which retrieval models did Walert experiment with in its RAG pipeline?"
+  },
+  {
+    "id": "q11",
+    "question": "How did Walert perform on out-of-knowledge-base questions?"
+  },
+  {
+    "id": "q12",
+    "question": "How does REALM keep its document index up to date while the retriever parameters change during pre-training?"
+  },
+  {
+    "id": "q13",
+    "question": "Why does RAGAS describe its evaluation as reference-free?"
+  },
+  {
+    "id": "q14",
+    "question": "How do DPR and ColBERT differ in how they encode queries and passages for retrieval?"
+  },
+  {
+    "id": "q15",
+    "question": "Which retrieval methods do RAG and Fusion-in-Decoder use to fetch supporting passages?"
+  },
+  {
+    "id": "q16",
+    "question": "How do RAGAS and Self-RAG each check whether a generated answer is supported by the retrieved passages?"
+  },
+  {
+    "id": "q17",
+    "question": "How do REALM and RAG differ in when the retriever is trained?"
+  },
+  {
+    "id": "q18",
+    "question": "How does HyDE generate hypothetical documents for zero-shot dense retrieval?"
+  },
+  {
+    "id": "u02",
+    "question": "What is the monthly cloud hosting cost of deploying ColBERT on Kubernetes?"
+  },
+  {
+    "id": "u03",
+    "question": "Which paper in the collection evaluates retrieval on chest X-ray radiology reports?"
+  },
+  {
+    "id": "u04",
+    "question": "How does GraphRAG build community summaries from a knowledge graph?"
+  },
+  {
+    "id": "u05",
+    "question": "What sourdough fermentation schedule is recommended for rye flour?"
+  },
+  {
+    "id": "u06",
+    "question": "What Kubernetes autoscaling policy did the Walert team use for peak enrolment weeks?"
+  },
+  {
+    "id": "u07",
+    "question": "What learning rate was used to fine-tune the RAGAS judge model?"
+  },
+  {
+    "id": "n01",
+    "question": "How large is RETRO's retrieval database?"
+  },
+  {
+    "id": "n02",
+    "question": "What does Contriever find works better than the inverse Cloze task?"
+  },
+  {
+    "id": "n03",
+    "question": "How does ColBERTv2 reduce the space footprint of late interaction?"
+  },
+  {
+    "id": "n04",
+    "question": "According to Lost in the Middle, where in the input context do language models use relevant information best?"
+  },
+  {
+    "id": "n05",
+    "question": "When does FLARE retrieve documents to regenerate a sentence?"
+  },
+  {
+    "id": "n06",
+    "question": "What component does CRAG use to assess the quality of retrieved documents?"
+  },
+  {
+    "id": "n07",
+    "question": "How does REPLUG give retrieved documents to the language model?"
+  },
+  {
+    "id": "n08",
+    "question": "How many datasets does the BEIR benchmark include?"
+  },
+  {
+    "id": "n09",
+    "question": "How does ANCE select hard training negatives?"
+  },
+  {
+    "id": "n10",
+    "question": "How many training examples does Atlas need to reach over 42% accuracy on Natural Questions?"
+  },
+  {
+    "id": "n11",
+    "question": "Which method retrieves from a database of 2 trillion tokens?"
+  },
+  {
+    "id": "n12",
+    "question": "Which approach masks out low-confidence tokens before using a sentence as a retrieval query?"
+  },
+  {
+    "id": "c01",
+    "question": "How do RAGAS and ARES differ in how they score RAG systems?"
+  },
+  {
+    "id": "c02",
+    "question": "How does ColBERTv2 improve on ColBERT?"
+  },
+  {
+    "id": "c03",
+    "question": "How do Self-RAG and CRAG each judge whether retrieved documents are useful?"
+  },
+  {
+    "id": "u08",
+    "question": "How does ColPali retrieve documents from page images?"
+  },
+  {
+    "id": "H01",
+    "question": "How does ORQA train a retriever without labelled supporting passages, and what task does it use to pre-train that retriever?"
+  },
+  {
+    "id": "H02",
+    "question": "Under what circumstances can RECOMP leave out retrieved context entirely, and what does the compressor output?"
+  },
+  {
+    "id": "H03",
+    "question": "In monoT5, how is a query–document pair turned into a numerical relevance score for ranking?"
+  },
+  {
+    "id": "H04",
+    "question": "How is the small query rewriter trained in Rewrite-Retrieve-Read when the retriever and reader are frozen?"
+  },
+  {
+    "id": "H05",
+    "question": "How do SPLADE and Contriever differ in their retrieval representations and learning approach?"
+  },
+  {
+    "id": "H06",
+    "question": "How does monoBERT calculate a passage-relevance score compared with monoT5?"
+  },
+  {
+    "id": "H07",
+    "question": "How do RECOMP and Fusion-in-Decoder (FiD) differ in what they do with retrieved passages before an answer is generated?"
+  },
+  {
+    "id": "H08",
+    "question": "How do Rewrite-Retrieve-Read and Demonstrate–Search–Predict (DSP) use language models to influence the search queries they send to retrieval?"
+  },
+  {
+    "id": "H09",
+    "question": "What exactly do BEIR and ARES evaluate, and how is their evaluation methodology different?"
+  },
+  {
+    "id": "H10",
+    "question": "How many kilowatt-hours of electricity were required to train the final SPLADE ranking model?"
+  },
+  {
+    "id": "H11",
+    "question": "What prompt-injection attack success rate did RECOMP report for malicious instructions embedded in retrieved passages?"
+  },
+  {
+    "id": "H12",
+    "question": "What precise nDCG@10 difference between SPLADE and Contriever was measured on a shared Kannada legal-document retrieval benchmark?"
+  },
+  {
+    "id": "F01",
+    "question": "Why can Fusion-in-Decoder process more retrieved passages without making the encoder attend over all passages jointly? Explain where information from different passages is combined."
+  },
+  {
+    "id": "F02",
+    "question": "How does GTR make its query and passage encoders larger without increasing the size of the final retrieval embeddings?"
+  },
+  {
+    "id": "F03",
+    "question": "What does the FLOPS regularizer in SPLADE try to reduce, and what trade-off does it create between retrieval quality and efficiency?"
+  },
+  {
+    "id": "F04",
+    "question": "How does REPLUG combine language-model predictions when several different retrieved documents are relevant to the same question?"
+  },
+  {
+    "id": "F05",
+    "question": "In In-Context RALM, what is retrieval stride? What changes when the system retrieves more frequently?"
+  },
+  {
+    "id": "F06",
+    "question": "How does RAGAS estimate answer relevance without comparing the generated answer to a human-written reference answer?"
+  },
+  {
+    "id": "F07",
+    "question": "Why does Atlas jointly pre-train its retriever and reader, and how does its reader make use of multiple retrieved passages?"
+  },
+  {
+    "id": "F08",
+    "question": "When retrieved information is noisy, how do RECOMP and Corrective RAG (CRAG) differ in what they do before the model generates its answer?"
+  },
+  {
+    "id": "F09",
+    "question": "Compare RETRO and In-Context RALM: how is external retrieved text incorporated into language-model processing in each system?"
+  },
+  {
+    "id": "F10",
+    "question": "What different evaluation goals are served by BEIR and the LoTTE benchmark introduced with ColBERTv2?"
+  },
+  {
+    "id": "F11",
+    "question": "How do REPLUG and Fusion-in-Decoder combine information from multiple documents, and which method works with a frozen black-box language model?"
+  },
+  {
+    "id": "F12",
+    "question": "What measured p95 response latency did this Research Workbench achieve with 100 simultaneous users on an Apple M4 Mac? If no such measurement exists in the indexed collection, say so."
+  },
+  {
+    "id": "F13",
+    "question": "What exact cost per 1,000 queries was measured for RECOMP running on AWS in Sydney in October 2026? Answer only if that deployment measurement is supported by a source."
+  },
+  {
+    "id": "F14",
+    "question": "Which paper in this 30-paper collection reports improved diabetic-retinopathy diagnosis accuracy from using ColBERTv2? Cite the experiment or state that the collection does not establish it."
+  },
+  {
+    "id": "F15",
+    "question": "Does the indexed research prove that deployed retrieval-augmented generation systems have zero hallucinations? Identify the supporting experiment and error count, or explain why that claim is unsupported."
+  }
+]

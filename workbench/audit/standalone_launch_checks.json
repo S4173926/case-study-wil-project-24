@@ -1,0 +1,12 @@
+{
+  "passed": 6,
+  "checks": [
+    "Standalone launch without site-packages",
+    "Four-page HTML served by packaged runtime",
+    "Packaged API returns repaired two-paper explanation",
+    "Packaged original PDF endpoint returns PDF bytes",
+    "Export ZIP contains actual runs, no invented reviews",
+    "Occupied preferred ports 8877 and 8878 were skipped; printed 8879 used"
+  ],
+  "runtime": "Python -S (third-party site-packages disabled)"
+}

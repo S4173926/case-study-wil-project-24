@@ -1,0 +1,12 @@
+{
+  "portable_entry_contents_unchanged": 198,
+  "readable_payload_files_unchanged": 195,
+  "historical_text_blobs_scanned": 37,
+  "credential_pattern_findings": [],
+  "scan_limit": "Pattern checks only; not a guarantee that every possible secret is absent.",
+  "http_launcher": true,
+  "two_paper_F11_status": "source_linked_explanation",
+  "pdf_byte_equality": true,
+  "synthetic_reviews_shipped": false,
+  "native_macos_windows_newly_tested": false
+}

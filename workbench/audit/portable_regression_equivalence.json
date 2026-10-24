@@ -1,0 +1,562 @@
+{
+  "questions": 67,
+  "matches": 67,
+  "status_counts": {
+    "source_linked_explanation": 52,
+    "insufficient": 14,
+    "partial": 1
+  },
+  "fields_checked": [
+    "question",
+    "mode",
+    "blocks",
+    "citations",
+    "retrieved",
+    "status",
+    "missing",
+    "warnings",
+    "plan"
+  ],
+  "records": [
+    {
+      "run_id": "20261024T061243_11ea1171b5",
+      "question": "How does REALM keep its document index up to date while the retriever parameters change during pre-training?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061243_1b23fee399",
+      "question": "What serves as the non-parametric memory in the RAG model?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061243_20d600d637",
+      "question": "How does ColBERT compute the relevance score between a query and a document?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061243_4af197bf5c",
+      "question": "What are reflection tokens in Self-RAG used for?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061243_4d86af95c8",
+      "question": "How does Fusion-in-Decoder combine multiple retrieved passages?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061243_5963a49da8",
+      "question": "What training negatives does Dense Passage Retrieval use?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061243_7118a5d309",
+      "question": "What learning signal is used to pre-train the REALM knowledge retriever?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061243_91e0299c8e",
+      "question": "How did Walert perform on out-of-knowledge-base questions?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061243_9f27d7c1af",
+      "question": "Which two chatbot approaches were implemented in Walert?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061243_e9ba92308e",
+      "question": "What is the difference between RAG-Sequence and RAG-Token?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061243_ec15b1fb87",
+      "question": "Which retrieval models did Walert experiment with in its RAG pipeline?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061243_ecf5769d21",
+      "question": "Which quality aspects does RAGAS measure for retrieval augmented generation?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_03d486fd4f",
+      "question": "How many training examples does Atlas need to reach over 42% accuracy on Natural Questions?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_09d4b73975",
+      "question": "How does GraphRAG build community summaries from a knowledge graph?",
+      "mismatches": [],
+      "status": "insufficient"
+    },
+    {
+      "run_id": "20261024T061244_0cfea9d798",
+      "question": "How does monoBERT calculate a passage-relevance score compared with monoT5?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_0d175e7c50",
+      "question": "Which approach masks out low-confidence tokens before using a sentence as a retrieval query?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_0d4ac97873",
+      "question": "How do SPLADE and Contriever differ in their retrieval representations and learning approach?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_0d71d524eb",
+      "question": "How do Self-RAG and CRAG each judge whether retrieved documents are useful?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_0e3ea3b34b",
+      "question": "What prompt-injection attack success rate did RECOMP report for malicious instructions embedded in retrieved passages?",
+      "mismatches": [],
+      "status": "insufficient"
+    },
+    {
+      "run_id": "20261024T061244_127f07f93b",
+      "question": "How do DPR and ColBERT differ in how they encode queries and passages for retrieval?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_1b1ab01432",
+      "question": "How is the small query rewriter trained in Rewrite-Retrieve-Read when the retriever and reader are frozen?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_1e8ed90172",
+      "question": "Why does RAGAS describe its evaluation as reference-free?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_2c227bca00",
+      "question": "When does FLARE retrieve documents to regenerate a sentence?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_2dd0703b95",
+      "question": "How many datasets does the BEIR benchmark include?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_3628f4d920",
+      "question": "What component does CRAG use to assess the quality of retrieved documents?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_3fabdb74b4",
+      "question": "Compare RETRO and In-Context RALM: how is external retrieved text incorporated into language-model processing in each system?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_41e9e8f4af",
+      "question": "How do REPLUG and Fusion-in-Decoder combine information from multiple documents, and which method works with a frozen black-box language model?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_4453aa1c29",
+      "question": "How does RAGAS estimate answer relevance without comparing the generated answer to a human-written reference answer?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_44fa17ef8f",
+      "question": "How do REALM and RAG differ in when the retriever is trained?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_4ff21e9f2f",
+      "question": "How does ColBERTv2 improve on ColBERT?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_5a15a78c0e",
+      "question": "What does the FLOPS regularizer in SPLADE try to reduce, and what trade-off does it create between retrieval quality and efficiency?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_61cdf70f8c",
+      "question": "How large is RETRO's retrieval database?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_66e846c20d",
+      "question": "What measured p95 response latency did this Research Workbench achieve with 100 simultaneous users on an Apple M4 Mac? If no such measurement exists in the indexed collection, say so.",
+      "mismatches": [],
+      "status": "insufficient"
+    },
+    {
+      "run_id": "20261024T061244_6b2af1558d",
+      "question": "Does the indexed research prove that deployed retrieval-augmented generation systems have zero hallucinations? Identify the supporting experiment and error count, or explain why that claim is unsupported.",
+      "mismatches": [],
+      "status": "insufficient"
+    },
+    {
+      "run_id": "20261024T061244_6ff3b017a5",
+      "question": "What exactly do BEIR and ARES evaluate, and how is their evaluation methodology different?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_753a6ffe87",
+      "question": "In In-Context RALM, what is retrieval stride? What changes when the system retrieves more frequently?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_794e42b528",
+      "question": "Which retrieval methods do RAG and Fusion-in-Decoder use to fetch supporting passages?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_7c854fce11",
+      "question": "Why can Fusion-in-Decoder process more retrieved passages without making the encoder attend over all passages jointly? Explain where information from different passages is combined.",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_7d59130abd",
+      "question": "How does ColPali retrieve documents from page images?",
+      "mismatches": [],
+      "status": "insufficient"
+    },
+    {
+      "run_id": "20261024T061244_7e93400145",
+      "question": "How does GTR make its query and passage encoders larger without increasing the size of the final retrieval embeddings?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_7eef346185",
+      "question": "How do RAGAS and Self-RAG each check whether a generated answer is supported by the retrieved passages?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_85d91a10e5",
+      "question": "How does REPLUG give retrieved documents to the language model?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_86dc48da8e",
+      "question": "How does ColBERTv2 reduce the space footprint of late interaction?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_8d957d55de",
+      "question": "Which paper in the collection evaluates retrieval on chest X-ray radiology reports?",
+      "mismatches": [],
+      "status": "insufficient"
+    },
+    {
+      "run_id": "20261024T061244_8f154dedce",
+      "question": "When retrieved information is noisy, how do RECOMP and Corrective RAG (CRAG) differ in what they do before the model generates its answer?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_a1b31a361e",
+      "question": "How do RECOMP and Fusion-in-Decoder (FiD) differ in what they do with retrieved passages before an answer is generated?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_a4c5942e5e",
+      "question": "How do Rewrite-Retrieve-Read and Demonstrate\u2013Search\u2013Predict (DSP) use language models to influence the search queries they send to retrieval?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_a6ceb3143b",
+      "question": "What different evaluation goals are served by BEIR and the LoTTE benchmark introduced with ColBERTv2?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_b0511b7ada",
+      "question": "What Kubernetes autoscaling policy did the Walert team use for peak enrolment weeks?",
+      "mismatches": [],
+      "status": "insufficient"
+    },
+    {
+      "run_id": "20261024T061244_bb1255f0ed",
+      "question": "How do RAGAS and ARES differ in how they score RAG systems?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_bba1c1c2c5",
+      "question": "What learning rate was used to fine-tune the RAGAS judge model?",
+      "mismatches": [],
+      "status": "insufficient"
+    },
+    {
+      "run_id": "20261024T061244_bbc3420a27",
+      "question": "According to Lost in the Middle, where in the input context do language models use relevant information best?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_c3e301a36b",
+      "question": "Which paper in this 30-paper collection reports improved diabetic-retinopathy diagnosis accuracy from using ColBERTv2? Cite the experiment or state that the collection does not establish it.",
+      "mismatches": [],
+      "status": "insufficient"
+    },
+    {
+      "run_id": "20261024T061244_c5d3f1c557",
+      "question": "How does ORQA train a retriever without labelled supporting passages, and what task does it use to pre-train that retriever?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_c609903f7a",
+      "question": "How does REPLUG combine language-model predictions when several different retrieved documents are relevant to the same question?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_ca5c645480",
+      "question": "Why does Atlas jointly pre-train its retriever and reader, and how does its reader make use of multiple retrieved passages?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_ccf9f10319",
+      "question": "In monoT5, how is a query\u2013document pair turned into a numerical relevance score for ranking?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_d0c073abbb",
+      "question": "How does HyDE generate hypothetical documents for zero-shot dense retrieval?",
+      "mismatches": [],
+      "status": "partial"
+    },
+    {
+      "run_id": "20261024T061244_d90e2d4a44",
+      "question": "What sourdough fermentation schedule is recommended for rye flour?",
+      "mismatches": [],
+      "status": "insufficient"
+    },
+    {
+      "run_id": "20261024T061244_dd8cfee3a5",
+      "question": "What precise nDCG@10 difference between SPLADE and Contriever was measured on a shared Kannada legal-document retrieval benchmark?",
+      "mismatches": [],
+      "status": "insufficient"
+    },
+    {
+      "run_id": "20261024T061244_e0b9d8637b",
+      "question": "How does ANCE select hard training negatives?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_e676699ae7",
+      "question": "Under what circumstances can RECOMP leave out retrieved context entirely, and what does the compressor output?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_edfae989a8",
+      "question": "What is the monthly cloud hosting cost of deploying ColBERT on Kubernetes?",
+      "mismatches": [],
+      "status": "insufficient"
+    },
+    {
+      "run_id": "20261024T061244_f14f1cd3e3",
+      "question": "How many kilowatt-hours of electricity were required to train the final SPLADE ranking model?",
+      "mismatches": [],
+      "status": "insufficient"
+    },
+    {
+      "run_id": "20261024T061244_fae824c7d4",
+      "question": "Which method retrieves from a database of 2 trillion tokens?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    },
+    {
+      "run_id": "20261024T061244_fbda18791e",
+      "question": "What exact cost per 1,000 queries was measured for RECOMP running on AWS in Sydney in October 2026? Answer only if that deployment measurement is supported by a source.",
+      "mismatches": [],
+      "status": "insufficient"
+    },
+    {
+      "run_id": "20261024T061244_fcc3365c8e",
+      "question": "What does Contriever find works better than the inverse Cloze task?",
+      "mismatches": [],
+      "status": "source_linked_explanation"
+    }
+  ],
+  "corpus_integrity": {
+    "python": "3.13.5",
+    "papers": 30,
+    "passages": 1202,
+    "claims": 99,
+    "exact_evidence_links": 191,
+    "pdf_checks": [
+      {
+        "paper": "walert",
+        "hash_matches": true
+      },
+      {
+        "paper": "rag",
+        "hash_matches": true
+      },
+      {
+        "paper": "dpr",
+        "hash_matches": true
+      },
+      {
+        "paper": "colbert",
+        "hash_matches": true
+      },
+      {
+        "paper": "fid",
+        "hash_matches": true
+      },
+      {
+        "paper": "realm",
+        "hash_matches": true
+      },
+      {
+        "paper": "ragas",
+        "hash_matches": true
+      },
+      {
+        "paper": "selfrag",
+        "hash_matches": true
+      },
+      {
+        "paper": "retro",
+        "hash_matches": true
+      },
+      {
+        "paper": "atlas",
+        "hash_matches": true
+      },
+      {
+        "paper": "contriever",
+        "hash_matches": true
+      },
+      {
+        "paper": "ance",
+        "hash_matches": true
+      },
+      {
+        "paper": "gtr",
+        "hash_matches": true
+      },
+      {
+        "paper": "beir",
+        "hash_matches": true
+      },
+      {
+        "paper": "colbertv2",
+        "hash_matches": true
+      },
+      {
+        "paper": "monobert",
+        "hash_matches": true
+      },
+      {
+        "paper": "monot5",
+        "hash_matches": true
+      },
+      {
+        "paper": "splade",
+        "hash_matches": true
+      },
+      {
+        "paper": "icralm",
+        "hash_matches": true
+      },
+      {
+        "paper": "replug",
+        "hash_matches": true
+      },
+      {
+        "paper": "flare",
+        "hash_matches": true
+      },
+      {
+        "paper": "lostmiddle",
+        "hash_matches": true
+      },
+      {
+        "paper": "ares",
+        "hash_matches": true
+      },
+      {
+        "paper": "crag",
+        "hash_matches": true
+      },
+      {
+        "paper": "dsp",
+        "hash_matches": true
+      },
+      {
+        "paper": "queryrewrite",
+        "hash_matches": true
+      },
+      {
+        "paper": "t5cbqa",
+        "hash_matches": true
+      },
+      {
+        "paper": "orqa",
+        "hash_matches": true
+      },
+      {
+        "paper": "recomp",
+        "hash_matches": true
+      },
+      {
+        "paper": "ragsurvey",
+        "hash_matches": true
+      }
+    ],
+    "passed": true,
+    "hashes": {
+      "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+      "knowledge": "c2a7414285341994a878c213a286627538dc29515ada4d723505b2e46984b8b0",
+      "code": "06d56dd7f41923fc9ffa5f4157e846ce0397b251517dfe34b625234040efea10"
+    },
+    "notice": "Mechanical source integrity only. It does not establish correctness, completeness or stakeholder value."
+  },
+  "human_accuracy": "NOT_MEASURED",
+  "note": "Known development/regression cases; mechanical equivalence is not semantic accuracy."
+}

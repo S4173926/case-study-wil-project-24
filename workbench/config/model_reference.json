@@ -1,0 +1,5 @@
+{
+  "model": "mlx-community/Qwen2.5-3B-Instruct-4bit",
+  "revision": "4f83f8f146fdf28b512a06562b671d7af4fab457",
+  "source": "Model revision from the supplied RC1 Mac run; not a new model or accuracy claim."
+}

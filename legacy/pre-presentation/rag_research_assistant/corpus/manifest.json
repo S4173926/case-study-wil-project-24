@@ -1,0 +1,91 @@
+{
+  "corpus_name": "retrieval-augmented-qa-methods",
+  "topic": "Methods for retrieval-augmented question answering and its evaluation",
+  "selection_criteria": [
+    "Open access on arXiv (CC-BY or arXiv non-exclusive licence)",
+    "Proposes or evaluates a retrieval / RAG methodology, so cross-paper method comparison is meaningful",
+    "Overlapping vocabulary (retriever, passages, dense, BM25) so wrong-paper attribution is a real risk"
+  ],
+  "papers": [
+    {
+      "id": "walert",
+      "arxiv": "2401.07216",
+      "title_must_contain": "Walert",
+      "role": "baseline system to reproduce",
+      "aliases": [
+        "walert"
+      ]
+    },
+    {
+      "id": "rag",
+      "arxiv": "2005.11401",
+      "title_must_contain": "Retrieval-Augmented Generation",
+      "role": "RAG model",
+      "aliases": [
+        "rag model",
+        "rag-sequence",
+        "rag-token",
+        "lewis et al"
+      ]
+    },
+    {
+      "id": "dpr",
+      "arxiv": "2004.04906",
+      "title_must_contain": "Dense Passage Retrieval",
+      "role": "dense retriever",
+      "aliases": [
+        "dpr",
+        "dense passage retrieval",
+        "dense passage retriever"
+      ]
+    },
+    {
+      "id": "colbert",
+      "arxiv": "2004.12832",
+      "title_must_contain": "ColBERT",
+      "role": "late-interaction retriever",
+      "aliases": [
+        "colbert"
+      ]
+    },
+    {
+      "id": "fid",
+      "arxiv": "2007.01282",
+      "title_must_contain": "Passage Retrieval with Generative Models",
+      "role": "reader (Fusion-in-Decoder)",
+      "aliases": [
+        "fusion-in-decoder",
+        "fid"
+      ]
+    },
+    {
+      "id": "realm",
+      "arxiv": "2002.08909",
+      "title_must_contain": "REALM",
+      "role": "retrieval-augmented pre-training",
+      "aliases": [
+        "realm"
+      ]
+    },
+    {
+      "id": "ragas",
+      "arxiv": "2309.15217",
+      "title_must_contain": "RAGAS",
+      "role": "RAG evaluation metrics",
+      "aliases": [
+        "ragas"
+      ]
+    },
+    {
+      "id": "selfrag",
+      "arxiv": "2310.11511",
+      "title_must_contain": "Self-RAG",
+      "role": "adaptive retrieval + self-critique",
+      "aliases": [
+        "self-rag",
+        "selfrag"
+      ]
+    }
+  ],
+  "alias_notes": "Bare 'RAG' refers to the rag paper only when used as a name (e.g. 'REALM and RAG'), not as a generic noun ('its RAG pipeline')."
+}

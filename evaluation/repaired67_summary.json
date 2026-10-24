@@ -1,0 +1,881 @@
+{
+  "created_utc": "2026-10-24T06:12:44.611730+00:00",
+  "questions": 67,
+  "status_counts": {
+    "source_linked_explanation": 52,
+    "partial": 1,
+    "insufficient": 14
+  },
+  "human_accuracy": "NOT_MEASURED",
+  "independent_validation": "NOT_PERFORMED",
+  "evaluation_status": "development/regression; catalogue was curated with prior access to these questions",
+  "catalogue_intervention": "Added AI-curated source-linked knowledge; not a model-only improvement or zero-shot generalisation test.",
+  "question_file_sha256": "c4ecae4d38f0e8fefcb531fd5d99e07c8ecfc23d373bb102375d383870c38f40",
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "records": [
+    {
+      "question_id": "q01",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 2,
+      "cited_passages": 3,
+      "labelled_quotes": 2,
+      "labelled_quotes_in_cited_passages": 2,
+      "expected_papers_cited": [
+        "dpr"
+      ],
+      "elapsed_seconds": 0.013414832996204495
+    },
+    {
+      "question_id": "q02",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 1,
+      "cited_passages": 1,
+      "labelled_quotes": 2,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [
+        "colbert"
+      ],
+      "elapsed_seconds": 0.008861500013154
+    },
+    {
+      "question_id": "q03",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 2,
+      "cited_passages": 3,
+      "labelled_quotes": 2,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [
+        "rag"
+      ],
+      "elapsed_seconds": 0.005679374997271225
+    },
+    {
+      "question_id": "q04",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 1,
+      "cited_passages": 2,
+      "labelled_quotes": 1,
+      "labelled_quotes_in_cited_passages": 1,
+      "expected_papers_cited": [
+        "rag"
+      ],
+      "elapsed_seconds": 0.006249417026992887
+    },
+    {
+      "question_id": "q05",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 1,
+      "cited_passages": 1,
+      "labelled_quotes": 2,
+      "labelled_quotes_in_cited_passages": 2,
+      "expected_papers_cited": [
+        "fid"
+      ],
+      "elapsed_seconds": 0.008480916992994025
+    },
+    {
+      "question_id": "q06",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 1,
+      "cited_passages": 2,
+      "labelled_quotes": 1,
+      "labelled_quotes_in_cited_passages": 1,
+      "expected_papers_cited": [
+        "realm"
+      ],
+      "elapsed_seconds": 0.008579749992350116
+    },
+    {
+      "question_id": "q07",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 1,
+      "cited_passages": 1,
+      "labelled_quotes": 2,
+      "labelled_quotes_in_cited_passages": 2,
+      "expected_papers_cited": [
+        "ragas"
+      ],
+      "elapsed_seconds": 0.008314958977280185
+    },
+    {
+      "question_id": "q08",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 1,
+      "cited_passages": 2,
+      "labelled_quotes": 2,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [
+        "selfrag"
+      ],
+      "elapsed_seconds": 0.005553124996367842
+    },
+    {
+      "question_id": "q09",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 1,
+      "cited_passages": 1,
+      "labelled_quotes": 1,
+      "labelled_quotes_in_cited_passages": 1,
+      "expected_papers_cited": [
+        "walert"
+      ],
+      "elapsed_seconds": 0.005537749995710328
+    },
+    {
+      "question_id": "q10",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 1,
+      "cited_passages": 1,
+      "labelled_quotes": 2,
+      "labelled_quotes_in_cited_passages": 2,
+      "expected_papers_cited": [
+        "walert"
+      ],
+      "elapsed_seconds": 0.006742041005054489
+    },
+    {
+      "question_id": "q11",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 1,
+      "cited_passages": 3,
+      "labelled_quotes": 1,
+      "labelled_quotes_in_cited_passages": 1,
+      "expected_papers_cited": [
+        "walert"
+      ],
+      "elapsed_seconds": 0.006456667004385963
+    },
+    {
+      "question_id": "q12",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 3,
+      "cited_passages": 4,
+      "labelled_quotes": 1,
+      "labelled_quotes_in_cited_passages": 1,
+      "expected_papers_cited": [
+        "realm"
+      ],
+      "elapsed_seconds": 0.011106916004791856
+    },
+    {
+      "question_id": "q13",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 2,
+      "cited_passages": 3,
+      "labelled_quotes": 1,
+      "labelled_quotes_in_cited_passages": 1,
+      "expected_papers_cited": [
+        "ragas"
+      ],
+      "elapsed_seconds": 0.005803333013318479
+    },
+    {
+      "question_id": "q14",
+      "category": "comparison",
+      "status": "source_linked_explanation",
+      "claim_count": 2,
+      "cited_passages": 4,
+      "labelled_quotes": 2,
+      "labelled_quotes_in_cited_passages": 2,
+      "expected_papers_cited": [
+        "colbert",
+        "dpr"
+      ],
+      "elapsed_seconds": 0.008720875019207597
+    },
+    {
+      "question_id": "q15",
+      "category": "comparison",
+      "status": "source_linked_explanation",
+      "claim_count": 2,
+      "cited_passages": 4,
+      "labelled_quotes": 3,
+      "labelled_quotes_in_cited_passages": 1,
+      "expected_papers_cited": [
+        "fid",
+        "rag"
+      ],
+      "elapsed_seconds": 0.008552375016734004
+    },
+    {
+      "question_id": "q16",
+      "category": "comparison",
+      "status": "source_linked_explanation",
+      "claim_count": 2,
+      "cited_passages": 3,
+      "labelled_quotes": 2,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [
+        "ragas",
+        "selfrag"
+      ],
+      "elapsed_seconds": 0.010919374995864928
+    },
+    {
+      "question_id": "q17",
+      "category": "comparison",
+      "status": "source_linked_explanation",
+      "claim_count": 3,
+      "cited_passages": 5,
+      "labelled_quotes": 2,
+      "labelled_quotes_in_cited_passages": 1,
+      "expected_papers_cited": [
+        "rag",
+        "realm"
+      ],
+      "elapsed_seconds": 0.00742016700678505
+    },
+    {
+      "question_id": "q18",
+      "category": "single",
+      "status": "partial",
+      "claim_count": 1,
+      "cited_passages": 1,
+      "labelled_quotes": 1,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [
+        "ragsurvey"
+      ],
+      "elapsed_seconds": 0.00822558399522677
+    },
+    {
+      "question_id": "u02",
+      "category": "unsupported",
+      "status": "insufficient",
+      "claim_count": 0,
+      "cited_passages": 0,
+      "labelled_quotes": 0,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [],
+      "elapsed_seconds": 0.003305916005047038
+    },
+    {
+      "question_id": "u03",
+      "category": "unsupported",
+      "status": "insufficient",
+      "claim_count": 0,
+      "cited_passages": 0,
+      "labelled_quotes": 0,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [],
+      "elapsed_seconds": 0.018453249998856336
+    },
+    {
+      "question_id": "u04",
+      "category": "unsupported",
+      "status": "insufficient",
+      "claim_count": 0,
+      "cited_passages": 0,
+      "labelled_quotes": 0,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [],
+      "elapsed_seconds": 0.014629374985815957
+    },
+    {
+      "question_id": "u05",
+      "category": "unsupported",
+      "status": "insufficient",
+      "claim_count": 0,
+      "cited_passages": 0,
+      "labelled_quotes": 0,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [],
+      "elapsed_seconds": 0.013282583997352049
+    },
+    {
+      "question_id": "u06",
+      "category": "unsupported",
+      "status": "insufficient",
+      "claim_count": 0,
+      "cited_passages": 0,
+      "labelled_quotes": 0,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [],
+      "elapsed_seconds": 0.005866584018804133
+    },
+    {
+      "question_id": "u07",
+      "category": "unsupported",
+      "status": "insufficient",
+      "claim_count": 0,
+      "cited_passages": 0,
+      "labelled_quotes": 0,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [],
+      "elapsed_seconds": 0.003923791984561831
+    },
+    {
+      "question_id": "n01",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 1,
+      "cited_passages": 1,
+      "labelled_quotes": 1,
+      "labelled_quotes_in_cited_passages": 1,
+      "expected_papers_cited": [
+        "retro"
+      ],
+      "elapsed_seconds": 0.006002957990858704
+    },
+    {
+      "question_id": "n02",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 1,
+      "cited_passages": 2,
+      "labelled_quotes": 1,
+      "labelled_quotes_in_cited_passages": 1,
+      "expected_papers_cited": [
+        "contriever"
+      ],
+      "elapsed_seconds": 0.007352957996772602
+    },
+    {
+      "question_id": "n03",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 1,
+      "cited_passages": 2,
+      "labelled_quotes": 1,
+      "labelled_quotes_in_cited_passages": 1,
+      "expected_papers_cited": [
+        "colbertv2"
+      ],
+      "elapsed_seconds": 0.0064858749974519014
+    },
+    {
+      "question_id": "n04",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 1,
+      "cited_passages": 1,
+      "labelled_quotes": 1,
+      "labelled_quotes_in_cited_passages": 1,
+      "expected_papers_cited": [
+        "lostmiddle"
+      ],
+      "elapsed_seconds": 0.008978375000879169
+    },
+    {
+      "question_id": "n05",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 1,
+      "cited_passages": 1,
+      "labelled_quotes": 1,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [
+        "flare"
+      ],
+      "elapsed_seconds": 0.0074494159780442715
+    },
+    {
+      "question_id": "n06",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 1,
+      "cited_passages": 2,
+      "labelled_quotes": 1,
+      "labelled_quotes_in_cited_passages": 1,
+      "expected_papers_cited": [
+        "crag"
+      ],
+      "elapsed_seconds": 0.00787812500493601
+    },
+    {
+      "question_id": "n07",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 1,
+      "cited_passages": 1,
+      "labelled_quotes": 1,
+      "labelled_quotes_in_cited_passages": 1,
+      "expected_papers_cited": [
+        "replug"
+      ],
+      "elapsed_seconds": 0.007233540993183851
+    },
+    {
+      "question_id": "n08",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 1,
+      "cited_passages": 2,
+      "labelled_quotes": 1,
+      "labelled_quotes_in_cited_passages": 1,
+      "expected_papers_cited": [
+        "beir"
+      ],
+      "elapsed_seconds": 0.006132917013019323
+    },
+    {
+      "question_id": "n09",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 2,
+      "cited_passages": 2,
+      "labelled_quotes": 1,
+      "labelled_quotes_in_cited_passages": 1,
+      "expected_papers_cited": [
+        "ance"
+      ],
+      "elapsed_seconds": 0.006347499991534278
+    },
+    {
+      "question_id": "n10",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 1,
+      "cited_passages": 1,
+      "labelled_quotes": 1,
+      "labelled_quotes_in_cited_passages": 1,
+      "expected_papers_cited": [
+        "atlas"
+      ],
+      "elapsed_seconds": 0.008656541001982987
+    },
+    {
+      "question_id": "n11",
+      "category": "unnamed",
+      "status": "source_linked_explanation",
+      "claim_count": 1,
+      "cited_passages": 1,
+      "labelled_quotes": 1,
+      "labelled_quotes_in_cited_passages": 1,
+      "expected_papers_cited": [
+        "retro"
+      ],
+      "elapsed_seconds": 0.006180583004606888
+    },
+    {
+      "question_id": "n12",
+      "category": "unnamed",
+      "status": "source_linked_explanation",
+      "claim_count": 2,
+      "cited_passages": 3,
+      "labelled_quotes": 1,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [
+        "flare"
+      ],
+      "elapsed_seconds": 0.02064495798549615
+    },
+    {
+      "question_id": "c01",
+      "category": "comparison",
+      "status": "source_linked_explanation",
+      "claim_count": 6,
+      "cited_passages": 10,
+      "labelled_quotes": 2,
+      "labelled_quotes_in_cited_passages": 2,
+      "expected_papers_cited": [
+        "ares",
+        "ragas"
+      ],
+      "elapsed_seconds": 0.007421707996400073
+    },
+    {
+      "question_id": "c02",
+      "category": "comparison",
+      "status": "source_linked_explanation",
+      "claim_count": 4,
+      "cited_passages": 6,
+      "labelled_quotes": 2,
+      "labelled_quotes_in_cited_passages": 2,
+      "expected_papers_cited": [
+        "colbert",
+        "colbertv2"
+      ],
+      "elapsed_seconds": 0.0038333749980665743
+    },
+    {
+      "question_id": "c03",
+      "category": "comparison",
+      "status": "source_linked_explanation",
+      "claim_count": 2,
+      "cited_passages": 4,
+      "labelled_quotes": 2,
+      "labelled_quotes_in_cited_passages": 1,
+      "expected_papers_cited": [
+        "crag",
+        "selfrag"
+      ],
+      "elapsed_seconds": 0.009938000002875924
+    },
+    {
+      "question_id": "u08",
+      "category": "unsupported",
+      "status": "insufficient",
+      "claim_count": 0,
+      "cited_passages": 0,
+      "labelled_quotes": 0,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [],
+      "elapsed_seconds": 0.019166249985573813
+    },
+    {
+      "question_id": "H01",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 3,
+      "cited_passages": 4,
+      "labelled_quotes": 2,
+      "labelled_quotes_in_cited_passages": 1,
+      "expected_papers_cited": [
+        "orqa"
+      ],
+      "elapsed_seconds": 0.012209792010253295
+    },
+    {
+      "question_id": "H02",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 2,
+      "cited_passages": 2,
+      "labelled_quotes": 2,
+      "labelled_quotes_in_cited_passages": 2,
+      "expected_papers_cited": [
+        "recomp"
+      ],
+      "elapsed_seconds": 0.01086583299911581
+    },
+    {
+      "question_id": "H03",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 1,
+      "cited_passages": 1,
+      "labelled_quotes": 2,
+      "labelled_quotes_in_cited_passages": 1,
+      "expected_papers_cited": [
+        "monot5"
+      ],
+      "elapsed_seconds": 0.008028707990888506
+    },
+    {
+      "question_id": "H04",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 2,
+      "cited_passages": 2,
+      "labelled_quotes": 2,
+      "labelled_quotes_in_cited_passages": 2,
+      "expected_papers_cited": [
+        "queryrewrite"
+      ],
+      "elapsed_seconds": 0.009111458988627419
+    },
+    {
+      "question_id": "H05",
+      "category": "comparison",
+      "status": "source_linked_explanation",
+      "claim_count": 4,
+      "cited_passages": 7,
+      "labelled_quotes": 3,
+      "labelled_quotes_in_cited_passages": 2,
+      "expected_papers_cited": [
+        "contriever",
+        "splade"
+      ],
+      "elapsed_seconds": 0.008478541014483199
+    },
+    {
+      "question_id": "H06",
+      "category": "comparison",
+      "status": "source_linked_explanation",
+      "claim_count": 2,
+      "cited_passages": 2,
+      "labelled_quotes": 4,
+      "labelled_quotes_in_cited_passages": 3,
+      "expected_papers_cited": [
+        "monobert",
+        "monot5"
+      ],
+      "elapsed_seconds": 0.006437875010306016
+    },
+    {
+      "question_id": "H07",
+      "category": "comparison",
+      "status": "source_linked_explanation",
+      "claim_count": 2,
+      "cited_passages": 3,
+      "labelled_quotes": 3,
+      "labelled_quotes_in_cited_passages": 1,
+      "expected_papers_cited": [
+        "fid",
+        "recomp"
+      ],
+      "elapsed_seconds": 0.010730165988206863
+    },
+    {
+      "question_id": "H08",
+      "category": "comparison",
+      "status": "source_linked_explanation",
+      "claim_count": 2,
+      "cited_passages": 4,
+      "labelled_quotes": 3,
+      "labelled_quotes_in_cited_passages": 2,
+      "expected_papers_cited": [
+        "dsp",
+        "queryrewrite"
+      ],
+      "elapsed_seconds": 0.010782708006445318
+    },
+    {
+      "question_id": "H09",
+      "category": "comparison",
+      "status": "source_linked_explanation",
+      "claim_count": 6,
+      "cited_passages": 9,
+      "labelled_quotes": 4,
+      "labelled_quotes_in_cited_passages": 4,
+      "expected_papers_cited": [
+        "ares",
+        "beir"
+      ],
+      "elapsed_seconds": 0.01001741600339301
+    },
+    {
+      "question_id": "H10",
+      "category": "unsupported",
+      "status": "insufficient",
+      "claim_count": 0,
+      "cited_passages": 0,
+      "labelled_quotes": 0,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [],
+      "elapsed_seconds": 0.0056345000048168
+    },
+    {
+      "question_id": "H11",
+      "category": "unsupported",
+      "status": "insufficient",
+      "claim_count": 0,
+      "cited_passages": 0,
+      "labelled_quotes": 0,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [],
+      "elapsed_seconds": 0.007029499975033104
+    },
+    {
+      "question_id": "H12",
+      "category": "unsupported",
+      "status": "insufficient",
+      "claim_count": 0,
+      "cited_passages": 0,
+      "labelled_quotes": 0,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [],
+      "elapsed_seconds": 0.006921583000803366
+    },
+    {
+      "question_id": "F01",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 2,
+      "cited_passages": 1,
+      "labelled_quotes": 0,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [
+        "fid"
+      ],
+      "elapsed_seconds": 0.015259500010870397
+    },
+    {
+      "question_id": "F02",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 1,
+      "cited_passages": 1,
+      "labelled_quotes": 0,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [
+        "gtr"
+      ],
+      "elapsed_seconds": 0.010543290991336107
+    },
+    {
+      "question_id": "F03",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 1,
+      "cited_passages": 4,
+      "labelled_quotes": 0,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [
+        "splade"
+      ],
+      "elapsed_seconds": 0.010598958004266024
+    },
+    {
+      "question_id": "F04",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 1,
+      "cited_passages": 1,
+      "labelled_quotes": 0,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [
+        "replug"
+      ],
+      "elapsed_seconds": 0.010524290992179886
+    },
+    {
+      "question_id": "F05",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 1,
+      "cited_passages": 1,
+      "labelled_quotes": 0,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [
+        "icralm"
+      ],
+      "elapsed_seconds": 0.009212959004798904
+    },
+    {
+      "question_id": "F06",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 3,
+      "cited_passages": 5,
+      "labelled_quotes": 0,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [
+        "ragas"
+      ],
+      "elapsed_seconds": 0.008695333992363885
+    },
+    {
+      "question_id": "F07",
+      "category": "single",
+      "status": "source_linked_explanation",
+      "claim_count": 2,
+      "cited_passages": 2,
+      "labelled_quotes": 0,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [
+        "atlas"
+      ],
+      "elapsed_seconds": 0.011082875018473715
+    },
+    {
+      "question_id": "F08",
+      "category": "comparison",
+      "status": "source_linked_explanation",
+      "claim_count": 4,
+      "cited_passages": 5,
+      "labelled_quotes": 0,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [
+        "crag",
+        "recomp"
+      ],
+      "elapsed_seconds": 0.013457708002533764
+    },
+    {
+      "question_id": "F09",
+      "category": "comparison",
+      "status": "source_linked_explanation",
+      "claim_count": 2,
+      "cited_passages": 2,
+      "labelled_quotes": 0,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [
+        "icralm",
+        "retro"
+      ],
+      "elapsed_seconds": 0.010356790997320786
+    },
+    {
+      "question_id": "F10",
+      "category": "comparison",
+      "status": "source_linked_explanation",
+      "claim_count": 2,
+      "cited_passages": 4,
+      "labelled_quotes": 0,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [
+        "beir",
+        "colbertv2"
+      ],
+      "elapsed_seconds": 0.008201249991543591
+    },
+    {
+      "question_id": "F11",
+      "category": "comparison",
+      "status": "source_linked_explanation",
+      "claim_count": 3,
+      "cited_passages": 3,
+      "labelled_quotes": 0,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [
+        "fid",
+        "replug"
+      ],
+      "elapsed_seconds": 0.012612582999281585
+    },
+    {
+      "question_id": "F12",
+      "category": "unsupported",
+      "status": "insufficient",
+      "claim_count": 0,
+      "cited_passages": 0,
+      "labelled_quotes": 0,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [],
+      "elapsed_seconds": 0.00831291699432768
+    },
+    {
+      "question_id": "F13",
+      "category": "unsupported",
+      "status": "insufficient",
+      "claim_count": 0,
+      "cited_passages": 0,
+      "labelled_quotes": 0,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [],
+      "elapsed_seconds": 0.0074292079953011125
+    },
+    {
+      "question_id": "F14",
+      "category": "unsupported",
+      "status": "insufficient",
+      "claim_count": 0,
+      "cited_passages": 0,
+      "labelled_quotes": 0,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [],
+      "elapsed_seconds": 0.00912354199681431
+    },
+    {
+      "question_id": "F15",
+      "category": "unsupported",
+      "status": "insufficient",
+      "claim_count": 0,
+      "cited_passages": 0,
+      "labelled_quotes": 0,
+      "labelled_quotes_in_cited_passages": 0,
+      "expected_papers_cited": [],
+      "elapsed_seconds": 0.032876540994038805
+    }
+  ],
+  "notice": "Output availability and labelled-quote coverage are not semantic answer correctness. Source-only and partial outputs must be scored separately."
+}

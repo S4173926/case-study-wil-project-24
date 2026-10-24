@@ -1,0 +1,13 @@
+commit	author_date	author_name	message
+0673faef8e1552ea7f6e9e0db3abe4696ef9df3c	2026-08-14T14:57:57+10:00	s4135606	Initial commit
+ee651068153e600b55e92d6e32da4f410653768c	2026-08-14T15:04:32+10:00	s4135606	Add files via upload
+ed07118d880fef2713494c3974c51f5c6a895f57	2026-08-14T15:07:38+10:00	s4135606	Update README.md
+baed33f0b8037b46c690fef212735532f3c5c701	2026-08-14T18:04:48+10:00	s4135606	Add files via upload
+d6d44c2bcd9f339f2d80fa4d56b6726ff5adc112	2026-09-29T07:17:38Z	Claude	Add source-grounded RAG research assistant evaluation prototype
+9a58e69616ede8b3493c2b86ba2eec71e4d1fbf8	2026-09-29T07:45:17Z	Claude	Run the evaluation on the real arXiv corpus and add paper-aware routing
+27d69a2c9e8a14774180332e6ef069b8ab840e8a	2026-09-29T07:45:44Z	Claude	Report: dark color-scheme on dark tokens, named page title
+eb084c0787f260350ff5779b49ca6801444bea3c	2026-10-03T14:15:19Z	Claude	Add 5-minute project presentation (6 slides with speaker notes)
+6938ec5faa93e164356c211e44797171a4ff250c	2026-10-04T01:22:36Z	Claude	Presentation: clarify that "Qery" is the PDF extraction bug, not a typo
+7693b696a9dcfa387f47c2895881c9313d71922c	2026-10-04T04:28:59Z	Claude	Presentation: speaker notes for Dhanush, Imranjit and Deboprio
+c6e2bb0ce2ccea9451809d529e8d4de272e47f66	2026-10-04T08:59:01Z	Claude	Presentation: Chetan presents slides 4-5
+46998430f757e9cca1adbb563264ad1fb2afe377	2026-10-04T09:06:30Z	Claude	Presentation: add closing slide on the scaling roadmap

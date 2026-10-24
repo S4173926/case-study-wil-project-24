@@ -1,0 +1,20 @@
+# Secrets and local environments
+.env
+.env.*
+*.pem
+*.key
+.venv/
+venv/
+node_modules/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+Thumbs.db
+# New local observations are private until deliberately reviewed for sharing.
+Research_Workbench_Data/
+workbench/results/reviews/
+workbench/results/pilot/
+workbench/results/import_conflicts/
+workbench/results/migration/
+# Do not blanket-ignore evaluation/ or the archived history.

@@ -1,0 +1,136 @@
+{
+  "python": "3.13.5",
+  "papers": 30,
+  "passages": 1202,
+  "claims": 99,
+  "exact_evidence_links": 191,
+  "pdf_checks": [
+    {
+      "paper": "walert",
+      "hash_matches": true
+    },
+    {
+      "paper": "rag",
+      "hash_matches": true
+    },
+    {
+      "paper": "dpr",
+      "hash_matches": true
+    },
+    {
+      "paper": "colbert",
+      "hash_matches": true
+    },
+    {
+      "paper": "fid",
+      "hash_matches": true
+    },
+    {
+      "paper": "realm",
+      "hash_matches": true
+    },
+    {
+      "paper": "ragas",
+      "hash_matches": true
+    },
+    {
+      "paper": "selfrag",
+      "hash_matches": true
+    },
+    {
+      "paper": "retro",
+      "hash_matches": true
+    },
+    {
+      "paper": "atlas",
+      "hash_matches": true
+    },
+    {
+      "paper": "contriever",
+      "hash_matches": true
+    },
+    {
+      "paper": "ance",
+      "hash_matches": true
+    },
+    {
+      "paper": "gtr",
+      "hash_matches": true
+    },
+    {
+      "paper": "beir",
+      "hash_matches": true
+    },
+    {
+      "paper": "colbertv2",
+      "hash_matches": true
+    },
+    {
+      "paper": "monobert",
+      "hash_matches": true
+    },
+    {
+      "paper": "monot5",
+      "hash_matches": true
+    },
+    {
+      "paper": "splade",
+      "hash_matches": true
+    },
+    {
+      "paper": "icralm",
+      "hash_matches": true
+    },
+    {
+      "paper": "replug",
+      "hash_matches": true
+    },
+    {
+      "paper": "flare",
+      "hash_matches": true
+    },
+    {
+      "paper": "lostmiddle",
+      "hash_matches": true
+    },
+    {
+      "paper": "ares",
+      "hash_matches": true
+    },
+    {
+      "paper": "crag",
+      "hash_matches": true
+    },
+    {
+      "paper": "dsp",
+      "hash_matches": true
+    },
+    {
+      "paper": "queryrewrite",
+      "hash_matches": true
+    },
+    {
+      "paper": "t5cbqa",
+      "hash_matches": true
+    },
+    {
+      "paper": "orqa",
+      "hash_matches": true
+    },
+    {
+      "paper": "recomp",
+      "hash_matches": true
+    },
+    {
+      "paper": "ragsurvey",
+      "hash_matches": true
+    }
+  ],
+  "passed": true,
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "c2a7414285341994a878c213a286627538dc29515ada4d723505b2e46984b8b0",
+    "code": "963b26cbd73b8976de18eed9c58babac161e76b78b04869beead70e7eb11826f"
+  },
+  "notice": "Mechanical source integrity only. It does not establish correctness, completeness or stakeholder value."
+}

@@ -1,0 +1,3438 @@
+{
+  "version": 1,
+  "provenance": "Reusable paper-specific propositions drafted with language-model support and checked against linked source spans during development. Independent source review is not established by this catalogue. No benchmark question-answer pairs are loaded into answer selection.",
+  "claims": [
+    {
+      "id": "fid.architecture",
+      "paper_id": "fid",
+      "facets": [
+        "inference",
+        "representation",
+        "purpose"
+      ],
+      "text": "Fusion-in-Decoder (FiD) concatenates the question with each retrieved passage and its title, then encodes each passage independently. The decoder attends across the concatenated encoded representations of all passages to generate the answer. Evidence is therefore fused in the decoder, rather than by jointly encoding all passages.",
+      "evidence": [
+        {
+          "source_id": "fid:s0007",
+          "quote": "More precisely, each retrieved passage and its title are concatenated with the question, and processed independently from other passages by the encoder.",
+          "start": 818,
+          "end": 970,
+          "source_sha256": "be8701e992b06510fdf9d7efdb0ee0268d6dcb9fe41dd0c46c18dc32ba399313"
+        },
+        {
+          "source_id": "fid:s0007",
+          "quote": "Finally, the decoder performs attention over the concatenation of the resulting representations of all the retrieved passages.",
+          "start": 1077,
+          "end": 1203,
+          "source_sha256": "be8701e992b06510fdf9d7efdb0ee0268d6dcb9fe41dd0c46c18dc32ba399313"
+        },
+        {
+          "source_id": "fid:s0007",
+          "quote": "The model thus performs evidence fusion in the decoder only, and we refer to it as Fusion-in-Decoder.",
+          "start": 1204,
+          "end": 1305,
+          "source_sha256": "be8701e992b06510fdf9d7efdb0ee0268d6dcb9fe41dd0c46c18dc32ba399313"
+        }
+      ],
+      "tags": [
+        "passage processing",
+        "encoder",
+        "decoder",
+        "fusion",
+        "combine evidence",
+        "architecture",
+        "before generating answer"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "fid.retriever",
+      "paper_id": "fid",
+      "facets": [
+        "retrieval"
+      ],
+      "text": "The FiD experiments retrieve support passages with either BM25 or Dense Passage Retrieval (DPR). BM25 uses lexical term statistics; DPR scores dense question and passage representations by their dot product.",
+      "evidence": [
+        {
+          "source_id": "fid:s0006",
+          "quote": "For the retrieval of support passages, we consider two methods: BM25 (Robertson et al., 1995) and DPR (Karpukhin et al., 2020).",
+          "start": 1102,
+          "end": 1229,
+          "source_sha256": "6f896c2c7501d9397bc0b4390398df0330721e45aaf56844e3b41ce37edd8ce5"
+        },
+        {
+          "source_id": "fid:s0007",
+          "quote": "The ranking function is the dot product between the query and passage representations.",
+          "start": 361,
+          "end": 447,
+          "source_sha256": "be8701e992b06510fdf9d7efdb0ee0268d6dcb9fe41dd0c46c18dc32ba399313"
+        }
+      ],
+      "tags": [
+        "BM25",
+        "DPR",
+        "fetch passages",
+        "sparse dense"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "fid.scaling",
+      "paper_id": "fid",
+      "facets": [
+        "efficiency",
+        "limitations"
+      ],
+      "text": "Independent passage encoding avoids encoder self-attention across every passage at once. The paper describes encoder processing as scaling linearly with the number of passages, while the decoder still combines information across them. This is an architectural efficiency claim, not a measurement of electricity or hosting cost.",
+      "evidence": [
+        {
+          "source_id": "fid:s0007",
+          "quote": "Processing passages independently in the encoder allows to scale to large number of contexts, as it only performs self attention over one context at a time.",
+          "start": 1455,
+          "end": 1611,
+          "source_sha256": "be8701e992b06510fdf9d7efdb0ee0268d6dcb9fe41dd0c46c18dc32ba399313"
+        },
+        {
+          "source_id": "fid:s0007",
+          "quote": "This means that the computation time of the model grows linearly with the number of passages, instead of quadratically.",
+          "start": 1612,
+          "end": 1731,
+          "source_sha256": "be8701e992b06510fdf9d7efdb0ee0268d6dcb9fe41dd0c46c18dc32ba399313"
+        }
+      ],
+      "tags": [
+        "scalability",
+        "cost",
+        "context",
+        "many passages",
+        "linear"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "fid.evaluation",
+      "paper_id": "fid",
+      "facets": [
+        "evaluation"
+      ],
+      "text": "FiD is evaluated on open-domain question answering, including Natural Questions, TriviaQA and SQuAD. Its evaluation uses exact match to judge whether a generated answer matches an accepted answer; these are question-answering results rather than a guarantee of correct long-form scientific synthesis.",
+      "evidence": [
+        {
+          "source_id": "fid:s0009",
+          "quote": "(2019): • NaturalQuestions (Kwiatkowski et al., 2019) contains questions corresponding to Google search queries.",
+          "start": 175,
+          "end": 287,
+          "source_sha256": "c1ac7a2022b47c70d46893eb56632a78dfd25a26567c4a3ef530c2627cee664f"
+        },
+        {
+          "source_id": "fid:s0009",
+          "quote": "• TriviaQA (Joshi et al., 2017) contains questions gathered from trivia and quiz-league NaturalQuestions TriviaQA 41 42 43 44 45 46 47 66 64 62 60 58 56 40 54 5 10 25 50 100 SQuAD 34 36 38 40 42 44 46 48 50 5 10 25 50 100 Number of passages 5 10 25 50 100 Number of passages Number of passages Figure 3: Performance of Fusion-in-Decoder (base) on valid sets as a function of the number of retrieved passages.",
+          "start": 387,
+          "end": 795,
+          "source_sha256": "c1ac7a2022b47c70d46893eb56632a78dfd25a26567c4a3ef530c2627cee664f"
+        },
+        {
+          "source_id": "fid:s0009",
+          "quote": "Predicted answers are evaluated with the standard exact match metric (EM), as introduced by Rajpurkar et al.",
+          "start": 1466,
+          "end": 1574,
+          "source_sha256": "c1ac7a2022b47c70d46893eb56632a78dfd25a26567c4a3ef530c2627cee664f"
+        }
+      ],
+      "tags": [
+        "benchmarks",
+        "metrics",
+        "exact match",
+        "EM",
+        "datasets"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "recomp.compression",
+      "paper_id": "recomp",
+      "facets": [
+        "inference",
+        "representation",
+        "purpose"
+      ],
+      "text": "RECOMP adds a Retrieve–Compress–Prepend step before a language model answers. It turns the retrieved documents into a shorter, query-focused textual summary and prepends that summary to the model input. The intervention is a shorter textual input before downstream generation.",
+      "evidence": [
+        {
+          "source_id": "recomp:s0002",
+          "quote": "To overcome such limitations, we propose RECOMP (Retrieve, Compress, Prepend), an intermediate step for RALMs which compresses retrieved documents into a textual summary prior to in-context augmentation.",
+          "start": 1018,
+          "end": 1221,
+          "source_sha256": "7809a3b6ad997daf61fa220bef715ab42de8428ef1d2c372745c3e43bdd1761f"
+        },
+        {
+          "source_id": "recomp:s0003",
+          "quote": "Both compressors implement multi-document query-focused summarization (Xu & Lapata, 2020), where we summarize retrieved evidence document set with respect to the input query.",
+          "start": 669,
+          "end": 843,
+          "source_sha256": "35910d5cfa7ece98ade292b64d4ca41afc92ae76875820340c2db36bbe2a1220"
+        }
+      ],
+      "tags": [
+        "process passages",
+        "before generating answer",
+        "compression",
+        "prepending",
+        "input",
+        "summaries"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "recomp.variants",
+      "paper_id": "recomp",
+      "facets": [
+        "inference",
+        "representation"
+      ],
+      "text": "RECOMP has two compressor variants. The extractive compressor selects useful sentences from the retrieved documents; the abstractive compressor writes a summary that synthesises information across multiple documents.",
+      "evidence": [
+        {
+          "source_id": "recomp:s0001",
+          "quote": "We present two compressors – an extractive compressor which selects useful sentences from retrieved documents and an abstractive compressor which generates summaries by synthesizing information from multiple documents.",
+          "start": 493,
+          "end": 711,
+          "source_sha256": "c0feddc5000c237a65e7d7f01b505dd63217239c1e083aeaeb66341e791a5b62"
+        }
+      ],
+      "tags": [
+        "extractive",
+        "abstractive",
+        "variants",
+        "summarization"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "recomp.selective",
+      "paper_id": "recomp",
+      "facets": [
+        "condition",
+        "inference"
+      ],
+      "text": "When retrieved documents are irrelevant to the input or offer no additional useful information to the language model, RECOMP can return an empty string, or empty summary. In that case no retrieved summary is added to the model input. This is selective augmentation, not a requirement to use every retrieved document.",
+      "evidence": [
+        {
+          "source_id": "recomp:s0001",
+          "quote": "If the retrieved documents are irrelevant to the input or offer no additional information to LM, our compressor can return an empty string, implementing selective augmentation.",
+          "start": 879,
+          "end": 1055,
+          "source_sha256": "c0feddc5000c237a65e7d7f01b505dd63217239c1e083aeaeb66341e791a5b62"
+        },
+        {
+          "source_id": "recomp:s0002",
+          "quote": "To satisfy both efficiency and effectiveness constraints, our compressor strategically performs selective augmentation by generating an empty summary when the retrieved documents are irrelevant or unhelpful for target task.",
+          "start": 1442,
+          "end": 1665,
+          "source_sha256": "7809a3b6ad997daf61fa220bef715ab42de8428ef1d2c372745c3e43bdd1761f"
+        }
+      ],
+      "tags": [
+        "leave out context",
+        "omit",
+        "when",
+        "circumstances",
+        "empty string",
+        "unhelpful",
+        "additional information"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "recomp.training",
+      "paper_id": "recomp",
+      "facets": [
+        "training",
+        "supervision"
+      ],
+      "text": "The extractive compressor is trained with a contrastive objective to select sentences that help produce the target output. The abstractive compressor is distilled from a larger language model; its generated training summaries are filtered using downstream task performance, rather than only an intrinsic summarisation score.",
+      "evidence": [
+        {
+          "source_id": "recomp:s0003",
+          "quote": "Our extractive compressor is trained with a contrastive learning objective to identify sentences that lead to target outputs, and our abstractive compressor is distilled (West et al., 2022) from an extreme-scale LM (e.g.",
+          "start": 1007,
+          "end": 1227,
+          "source_sha256": "35910d5cfa7ece98ade292b64d4ca41afc92ae76875820340c2db36bbe2a1220"
+        },
+        {
+          "source_id": "recomp:s0011",
+          "quote": "In contrast to prior work (Jung et al., 2023) which use intrinsic summarization metric for filtering, we use the LM’s performance on the end task with the generated summaries prepended for filtering.",
+          "start": 256,
+          "end": 455,
+          "source_sha256": "63d92da94b400554bf2686fdaed98ed5e9bb01b643839b08defdbf73436eac59"
+        }
+      ],
+      "tags": [
+        "train",
+        "learning objective",
+        "distillation",
+        "filter summaries"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "recomp.evaluation",
+      "paper_id": "recomp",
+      "facets": [
+        "evaluation",
+        "limitations"
+      ],
+      "text": "RECOMP evaluates language modelling and open-domain question answering, studying the trade-off between shorter input and downstream performance. For QA it reports exact match and token-level F1.",
+      "evidence": [
+        {
+          "source_id": "recomp:s0001",
+          "quote": "We evaluate our approach on language modeling task and open domain question answering task.",
+          "start": 1056,
+          "end": 1147,
+          "source_sha256": "c0feddc5000c237a65e7d7f01b505dd63217239c1e083aeaeb66341e791a5b62"
+        },
+        {
+          "source_id": "recomp:s0017",
+          "quote": "We report Exact Match (EM) and F1token-level F1 of answer strings to measure end task performance.",
+          "start": 305,
+          "end": 403,
+          "source_sha256": "eccab4968d723b9a1a61545e47b75788c8f26c1e6edaa4a82fc9f43c10bd8202"
+        }
+      ],
+      "tags": [
+        "metrics",
+        "evaluation",
+        "compression ratio",
+        "language modelling",
+        "exact match",
+        "F1"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "orqa.supervision",
+      "paper_id": "orqa",
+      "facets": [
+        "training",
+        "supervision",
+        "purpose"
+      ],
+      "text": "ORQA jointly learns retrieval and reading from question–answer string pairs, without needing labelled supporting passages. The supporting evidence is a latent variable: the model must discover which retrieved passages can explain the answer rather than being given the correct passage for each question.",
+      "evidence": [
+        {
+          "source_id": "orqa:s0001",
+          "quote": "We show for the first time that it is possible to jointly learn the retriever and reader from question-answer string pairs and without any IR system.",
+          "start": 321,
+          "end": 470,
+          "source_sha256": "1123b6ac25d071d98697e6db85e74966a3891514b172599aaf73c5f9bff8d62c"
+        },
+        {
+          "source_id": "orqa:s0001",
+          "quote": "In this setting, evidence retrieval from all of Wikipedia is treated as a latent variable.",
+          "start": 471,
+          "end": 561,
+          "source_sha256": "1123b6ac25d071d98697e6db85e74966a3891514b172599aaf73c5f9bff8d62c"
+        }
+      ],
+      "tags": [
+        "without labelled passages",
+        "supervision",
+        "training data",
+        "weak supervision",
+        "latent retrieval"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "orqa.ict",
+      "paper_id": "orqa",
+      "facets": [
+        "training",
+        "supervision"
+      ],
+      "text": "ORQA first pre-trains its retriever with the Inverse Cloze Task (ICT). A sentence sampled from text acts as a pseudo-question, and the surrounding text acts as pseudo-evidence. The retriever learns to identify that context among candidates in the batch, providing an initial retrieval ability before question-answer fine-tuning.",
+      "evidence": [
+        {
+          "source_id": "orqa:s0003",
+          "quote": "In ICT, a sentence is treated as a pseudoquestion, and its context is treated as pseudoevidence.",
+          "start": 716,
+          "end": 812,
+          "source_sha256": "dbae846fdcec01aa7f09cc3621a846f682796fdf71646efb9285fdf0759de595"
+        },
+        {
+          "source_id": "orqa:s0003",
+          "quote": "Given a pseudo-question, ICT requires selecting the corresponding pseudo-evidence out of the candidates in a batch.",
+          "start": 813,
+          "end": 928,
+          "source_sha256": "dbae846fdcec01aa7f09cc3621a846f682796fdf71646efb9285fdf0759de595"
+        }
+      ],
+      "tags": [
+        "pretrain",
+        "inverse cloze",
+        "ICT",
+        "sentence context",
+        "pseudo-question"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "orqa.finetuning",
+      "paper_id": "orqa",
+      "facets": [
+        "training",
+        "inference"
+      ],
+      "text": "During downstream QA learning, ORQA optimises the marginal likelihood of answer-matching derivations. It fine-tunes the question encoder and reader while keeping the evidence-block encoder fixed. Stored block embeddings can therefore be reused even though the trainable question encoder changes which top-ranked evidence is retrieved.",
+      "evidence": [
+        {
+          "source_id": "orqa:s0015",
+          "quote": "Given a gold answer string a, we find all (possibly spuriously) correct derivations in the beam, and optimize their marginal log-likelihood: Lfull(q, a) = −log X X s∈b, a=TEXT(s) P ′(b, s|q) b∈TOP(k) where a = TEXT(s) indicates whether the answer string a matches exactly the span s.",
+          "start": 317,
+          "end": 600,
+          "source_sha256": "9b05b8667601e4f9a12b88150d12b1c981007f0f8bf2a8854908d5100601c576"
+        },
+        {
+          "source_id": "orqa:s0015",
+          "quote": "As previously mentioned, we fine-tune all parameters except those in the evidence block encoder.",
+          "start": 1328,
+          "end": 1424,
+          "source_sha256": "9b05b8667601e4f9a12b88150d12b1c981007f0f8bf2a8854908d5100601c576"
+        },
+        {
+          "source_id": "orqa:s0014",
+          "quote": "ince fixed block encoders already provide a useful representation for retrieval, we can precompute all block encodings in the evidence corpus.",
+          "start": 1,
+          "end": 143,
+          "source_sha256": "2356d6cdc2358b1a35e93ec2b69d04617b2778e3b4e8d14597077012fc36ae80"
+        }
+      ],
+      "tags": [
+        "fine tuning",
+        "marginal likelihood",
+        "index",
+        "question encoder",
+        "reader",
+        "fixed block encoder"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "orqa.representation",
+      "paper_id": "orqa",
+      "facets": [
+        "representation",
+        "retrieval"
+      ],
+      "text": "ORQA represents a question and an evidence block using separate BERT-based encoders and projects them into dense 128-dimensional vectors. Retrieval scores are inner products; the reader then scores candidate answer spans in top-ranked evidence blocks.",
+      "evidence": [
+        {
+          "source_id": "orqa:s0009",
+          "quote": "hq = WqBERTQ(q)[CLS] hb = WbBERTB(b)[CLS] Sretr(b, q) = h⊤ q hb where Wq and Wb are matrices that project the BERT output into 128-dimensional vectors.",
+          "start": 1230,
+          "end": 1381,
+          "source_sha256": "5c642aee6c8d02b170ef55d73dc7563edd9d2a606469072bc368c9d07e616e3d"
+        },
+        {
+          "source_id": "orqa:s0010",
+          "quote": "Reader component The reader is a span-based variant of the reading comprehension model proposed in Devlin et al.",
+          "start": 343,
+          "end": 455,
+          "source_sha256": "d28c30ce864e07af91a601dce1dec9418895dcee4142da8ef2613f3dbbee0f73"
+        }
+      ],
+      "tags": [
+        "retrieval scoring",
+        "dense",
+        "inner product",
+        "BERT",
+        "reader"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "monobert.relevance",
+      "paper_id": "monobert",
+      "facets": [
+        "representation",
+        "inference"
+      ],
+      "text": "monoBERT treats passage reranking as binary relevance classification. It encodes the query and candidate passage together with BERT, feeds the [CLS] representation to a single-layer classifier, and ranks passages by the predicted probability of relevance.",
+      "evidence": [
+        {
+          "source_id": "monobert:s0003",
+          "quote": "(2018), we feed the query as sentence A and the passage text as sentence B.",
+          "start": 789,
+          "end": 864,
+          "source_sha256": "b9ae575bfdb62c6d31d932eddcdb1d1ae2949836ae13ce0ad9065459087bacc9"
+        },
+        {
+          "source_id": "monobert:s0003",
+          "quote": "We use a BERTLARGE model as a binary classification model, that is, we use the [CLS] vector as input to a single layer neural network to obtain the probability of the passage being relevant.",
+          "start": 1055,
+          "end": 1245,
+          "source_sha256": "b9ae575bfdb62c6d31d932eddcdb1d1ae2949836ae13ce0ad9065459087bacc9"
+        },
+        {
+          "source_id": "monobert:s0003",
+          "quote": "We compute this probability for each passage independently and obtain the final list of passages by ranking them with respect to these probabilities.",
+          "start": 1246,
+          "end": 1395,
+          "source_sha256": "b9ae575bfdb62c6d31d932eddcdb1d1ae2949836ae13ce0ad9065459087bacc9"
+        }
+      ],
+      "tags": [
+        "relevance score",
+        "passage score",
+        "probability",
+        "classifier",
+        "CLS",
+        "cross encoder"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "monobert.training",
+      "paper_id": "monobert",
+      "facets": [
+        "training",
+        "supervision"
+      ],
+      "text": "The BERT reranker starts from a pre-trained BERT model and fine-tunes it with cross-entropy loss on relevant and non-relevant passages. Its training candidates come from the top 1,000 BM25 results.",
+      "evidence": [
+        {
+          "source_id": "monobert:s0004",
+          "quote": "We start training from a pre-trained BERT model and fine-tune it to our re-ranking task using the cross-entropy loss: L = − X log(sj) − X log(1 −sj), (1) where Jpos is the set of indexes of the relevant passages and Jneg is the set of indexes of non-relevant passages in top-1,000 documents retrieved with BM25.",
+          "start": 150,
+          "end": 461,
+          "source_sha256": "de0d5abc866e1b2ffa4c9a14b0d93b40cc150d567130d1b47ef86e86c352ad71"
+        },
+        {
+          "source_id": "monobert:s0004",
+          "quote": "We start training from a pre-trained BERT model and fine-tune it to our re-ranking task using the cross-entropy loss: L = − X log(sj) − X log(1 −sj), (1) where Jpos is the set of indexes of the relevant passages and Jneg is the set of indexes of non-relevant passages in top-1,000 documents retrieved with BM25.",
+          "start": 150,
+          "end": 461,
+          "source_sha256": "de0d5abc866e1b2ffa4c9a14b0d93b40cc150d567130d1b47ef86e86c352ad71"
+        }
+      ],
+      "tags": [
+        "BM25 candidates",
+        "fine-tuning",
+        "cross entropy",
+        "labels"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "monobert.pipeline",
+      "paper_id": "monobert",
+      "facets": [
+        "retrieval",
+        "purpose"
+      ],
+      "text": "monoBERT is a reranker rather than the first-stage corpus searcher. A cheaper method such as BM25 first retrieves candidate documents; the more expensive BERT model then scores those candidates before an answer-generation stage uses the highest-ranked passages.",
+      "evidence": [
+        {
+          "source_id": "monobert:s0003",
+          "quote": "First, a large number (for example, a thousand) of possibly relevant documents to a given question are retrieved from a corpus by a standard mechanism, such as BM25.",
+          "start": 73,
+          "end": 238,
+          "source_sha256": "b9ae575bfdb62c6d31d932eddcdb1d1ae2949836ae13ce0ad9065459087bacc9"
+        },
+        {
+          "source_id": "monobert:s0003",
+          "quote": "In this paper, we describe how we implemented the second stage of this pipeline, passage re-ranking.",
+          "start": 498,
+          "end": 598,
+          "source_sha256": "b9ae575bfdb62c6d31d932eddcdb1d1ae2949836ae13ce0ad9065459087bacc9"
+        }
+      ],
+      "tags": [
+        "retrieval pipeline",
+        "reranker",
+        "cost",
+        "candidate documents"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "monot5.relevance",
+      "paper_id": "monot5",
+      "facets": [
+        "representation",
+        "inference"
+      ],
+      "text": "monoT5 formats the input as “Query: q Document: d Relevant:” and is fine-tuned to generate the relevance labels “true” or “false”. At ranking time it applies a softmax only to those two token logits, and uses the probability of “true” as the relevance score. It does not use the raw “true” logit alone or a softmax over the entire vocabulary.",
+      "evidence": [
+        {
+          "source_id": "monot5:s0004",
+          "quote": "For our task, the input sequence is: Query: q Document: d Relevant: (1) where q and d are the query and document texts, respectively.",
+          "start": 260,
+          "end": 393,
+          "source_sha256": "aaad9f1293092e98a4260aca3b564a51de8b9ec7f0f3d7179c4a2a06433c66a1"
+        },
+        {
+          "source_id": "monot5:s0004",
+          "quote": "At inference time, to compute probabilities for each query–documentpair (in a reranking setting), we apply a softmax only on the logits of the “true” and “false” tokens.",
+          "start": 652,
+          "end": 821,
+          "source_sha256": "aaad9f1293092e98a4260aca3b564a51de8b9ec7f0f3d7179c4a2a06433c66a1"
+        },
+        {
+          "source_id": "monot5:s0004",
+          "quote": "Other approaches, for example, reranking documents according to the logit of the “true” token or using logits of all tokens to compute the softmax, were not effective, i.e., the retrieval metrics were close to zero.",
+          "start": 981,
+          "end": 1196,
+          "source_sha256": "aaad9f1293092e98a4260aca3b564a51de8b9ec7f0f3d7179c4a2a06433c66a1"
+        }
+      ],
+      "tags": [
+        "numerical relevance",
+        "score",
+        "probability",
+        "true false",
+        "softmax",
+        "logits",
+        "ranking"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "monot5.training",
+      "paper_id": "monot5",
+      "facets": [
+        "training",
+        "supervision"
+      ],
+      "text": "monoT5 adapts a pre-trained sequence-to-sequence T5 model to document reranking by learning to generate the target words “true” and “false” from query–document examples. The output vocabulary supplies relevance labels, instead of adding the randomly initialised binary classification head used in a BERT classifier.",
+      "evidence": [
+        {
+          "source_id": "monot5:s0004",
+          "quote": "The model is fine-tuned to produce the words “true” or “false” depending on whether the document is relevant or not to the query.",
+          "start": 394,
+          "end": 523,
+          "source_sha256": "aaad9f1293092e98a4260aca3b564a51de8b9ec7f0f3d7179c4a2a06433c66a1"
+        },
+        {
+          "source_id": "monot5:s0013",
+          "quote": "While the approach can exploit pretrained knowledge when fine-tuning the latent representations, the final mapping (i.e., the fully-connected layer) needs to be, essentially, learned from scratch (since it is randomly initialized).",
+          "start": 1004,
+          "end": 1235,
+          "source_sha256": "9698b8c2208d6f99723f6bcaa7af321905e7cee7588ad762438256fb0e33af97"
+        }
+      ],
+      "tags": [
+        "training",
+        "target words",
+        "T5",
+        "data efficient",
+        "classification head"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "monot5.evaluation",
+      "paper_id": "monot5",
+      "facets": [
+        "evaluation",
+        "limitations"
+      ],
+      "text": "The paper trains on MS MARCO passage data and evaluates transfer to Robust04 without training on its relevance judgments. That distinction matters when comparing its zero-shot transfer results with methods that use the target collection for tuning.",
+      "evidence": [
+        {
+          "source_id": "monot5:s0009",
+          "quote": "The T5 models are trained only on MS MARCO passage data and thus represent zero-shot transfer.",
+          "start": 1066,
+          "end": 1160,
+          "source_sha256": "b3a63f8f7d7ad40aff8f71d56be9f8fe96df91a5860d823bc522ac6c5704920c"
+        },
+        {
+          "source_id": "monot5:s0010",
+          "quote": "In contrast, we apply inference directly using our model trained on the MS MARCO passage data; Robust04 relevance judgments were only used as a test set, which makes our results zero-shot.",
+          "start": 610,
+          "end": 798,
+          "source_sha256": "c5b605919b58ec90e12031c55cd61c0b53e8535205cc84ef222c488a85281315"
+        }
+      ],
+      "tags": [
+        "datasets",
+        "MS MARCO",
+        "Robust04",
+        "zero-shot transfer",
+        "evaluation"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "ragas.dimensions",
+      "paper_id": "ragas",
+      "facets": [
+        "evaluation",
+        "purpose"
+      ],
+      "text": "The original RAGAS paper evaluates three aspects of a RAG pipeline: faithfulness of the answer to its retrieved context, relevance of the answer to the question, and relevance or focus of the retrieved context. These are separate dimensions; a relevant answer is not automatically factually faithful.",
+      "evidence": [
+        {
+          "source_id": "ragas:s0008",
+          "quote": "First, Faithfulness refers to the idea that the answer should be grounded in the given context.",
+          "start": 448,
+          "end": 543,
+          "source_sha256": "ab3c8f658853b35359b82f38ab85e507766efd6e2bbda0a71a0f797b2889164b"
+        },
+        {
+          "source_id": "ragas:s0008",
+          "quote": "Second, Answer Relevance refers to the idea that the generated answer should address the actual question that was provided.",
+          "start": 904,
+          "end": 1027,
+          "source_sha256": "ab3c8f658853b35359b82f38ab85e507766efd6e2bbda0a71a0f797b2889164b"
+        },
+        {
+          "source_id": "ragas:s0008",
+          "quote": "Finally, Context Relevance refers to the idea that the retrieved context should be focused, containing as little irrelevant information as possible.",
+          "start": 1028,
+          "end": 1176,
+          "source_sha256": "ab3c8f658853b35359b82f38ab85e507766efd6e2bbda0a71a0f797b2889164b"
+        }
+      ],
+      "tags": [
+        "quality aspects",
+        "metrics",
+        "evaluate",
+        "context relevance",
+        "answer relevance",
+        "faithfulness"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "ragas.referencefree",
+      "paper_id": "ragas",
+      "facets": [
+        "supervision",
+        "evaluation"
+      ],
+      "text": "RAGAS is reference-free in the sense that its evaluation metrics can be computed without gold reference answers or ground-truth human annotations for the evaluated examples. The paper separately compares its metrics with human judgments to study whether the metrics are useful; that validation does not make gold annotations a required input to every score.",
+      "evidence": [
+        {
+          "source_id": "ragas:s0001",
+          "quote": "With Ragas, we put forward a suite of metrics which can be used to evaluate these different dimensions without having to rely on ground truth human annotations.",
+          "start": 728,
+          "end": 888,
+          "source_sha256": "6daab43ae2dc9827b01e3ed982e65544ebcf0fd12161dcc03a1828f40fed83c0"
+        },
+        {
+          "source_id": "ragas:s0012",
+          "quote": "We can then verify to what extent our metrics agree with human assessments of faithfulness, answer relevance and context relevance.",
+          "start": 138,
+          "end": 269,
+          "source_sha256": "93dd80dc0f4faec055268b1b178672b76c0771219d56237a02692c0e38245349"
+        }
+      ],
+      "tags": [
+        "reference-free",
+        "annotations",
+        "required",
+        "gold answers",
+        "human labels",
+        "evaluate methodology"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "ragas.faithfulness",
+      "paper_id": "ragas",
+      "facets": [
+        "evaluation",
+        "inference"
+      ],
+      "text": "RAGAS prompts a language model to split an answer into individual statements, checks each statement against the retrieved context, and calculates faithfulness as the fraction judged supported. This is model-based assessment, not independent proof that every judgment is correct.",
+      "evidence": [
+        {
+          "source_id": "ragas:s0009",
+          "quote": "To estimate faithfulness, we first use an LLM to extract a set of statements, S(as(q)).",
+          "start": 294,
+          "end": 381,
+          "source_sha256": "91782393564b5b73c8687b1ee4fa3adc9ea0d9621ea0521c04b5f44be3be0d92"
+        },
+        {
+          "source_id": "ragas:s0009",
+          "quote": "statement: [statement n] The final faithfulness score, F, is then computed as F = |V | |S| , where |V | is the number of statements that were supported according to the LLM and |S| is the total number of statements.",
+          "start": 1414,
+          "end": 1629,
+          "source_sha256": "91782393564b5b73c8687b1ee4fa3adc9ea0d9621ea0521c04b5f44be3be0d92"
+        }
+      ],
+      "tags": [
+        "supported claims",
+        "faithfulness score",
+        "verification",
+        "LLM prompts"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "ragas.relevance",
+      "paper_id": "ragas",
+      "facets": [
+        "evaluation",
+        "inference"
+      ],
+      "text": "For answer relevance, RAGAS generates possible questions from the answer and compares their embeddings with the original question. For context relevance, it asks an LLM to select sentences useful for the question and compares the number selected with the number of context sentences.",
+      "evidence": [
+        {
+          "source_id": "ragas:s0010",
+          "quote": "To estimate answer relevance, for the given answer as(q), we prompt the LLM to generate n potential questions qi based on as(q), as follows: Generate a question for the given answer.",
+          "start": 590,
+          "end": 772,
+          "source_sha256": "074dfb66672b54ec37d6d427a9133d71fd63dfeed87a760d4f5cded4aa345d8c"
+        },
+        {
+          "source_id": "ragas:s0011",
+          "quote": "To estimate context relevance, given a question q and its context c(q), the LLM extracts a subset of sentences, Sext, from c(q) that are crucial to answer q, using the following prompt: Please extract relevant sentences from the provided context that can potentially help answer the following question.",
+          "start": 84,
+          "end": 386,
+          "source_sha256": "9d58d9dd497a90ad98fbfe64f0720cd1288290f40d54ecedd1cc0ac81f91c752"
+        }
+      ],
+      "tags": [
+        "answer relevance",
+        "context relevance",
+        "embeddings",
+        "cosine",
+        "metrics"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "ares.dimensions",
+      "paper_id": "ares",
+      "facets": [
+        "evaluation",
+        "purpose"
+      ],
+      "text": "ARES evaluates context relevance, answer faithfulness and answer relevance for RAG systems. It assesses query–passage–answer triples and can score the retrieval and answer-generation components separately.",
+      "evidence": [
+        {
+          "source_id": "ares:s0003",
+          "quote": "Given a corpus of documents and a RAG system, ARES reports three evaluation scores: context relevance (is the retrieved information pertinent to the test question), answer faithfulness (is the response generated by the language model properly grounded in the retrieved context), and answer relevance (is the response also relevant to the question).",
+          "start": 723,
+          "end": 1071,
+          "source_sha256": "7275f6732441648ff896a701a740976b8a31677350acda19f313e29cfbb3029c"
+        }
+      ],
+      "tags": [
+        "evaluate",
+        "metrics",
+        "context relevance",
+        "answer faithfulness",
+        "answer relevance",
+        "component"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "ares.judges",
+      "paper_id": "ares",
+      "facets": [
+        "training",
+        "supervision",
+        "evaluation"
+      ],
+      "text": "ARES generates synthetic query–passage–answer data from the target corpus, including positive and negative examples, and fine-tunes lightweight judges for the evaluation tasks. This differs from relying only on fixed prompts for an off-the-shelf model to judge outputs.",
+      "evidence": [
+        {
+          "source_id": "ares:s0001",
+          "quote": "By creating its own synthetic training data, ARES finetunes lightweight LM judges to assess the quality of individual RAG components.",
+          "start": 333,
+          "end": 466,
+          "source_sha256": "5e208a16628946d69bc2e00e68905c0de72e08fac41d42b0838dab5c83014b70"
+        },
+        {
+          "source_id": "ares:s0008",
+          "quote": "The generated data represent both positive and negative examples of query–passage–answer triples (e.g., relevant/irrelevant passages and correct/incorrect answers).",
+          "start": 90,
+          "end": 254,
+          "source_sha256": "896cf29a9bea5c4a052adb31120dd9181df725b22948fb4c57e9eb4f6714967e"
+        }
+      ],
+      "tags": [
+        "synthetic data",
+        "judge training",
+        "fine tune",
+        "evaluation method"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "ares.ppi",
+      "paper_id": "ares",
+      "facets": [
+        "evaluation",
+        "supervision"
+      ],
+      "text": "ARES combines judge predictions with a smaller human-annotated validation set using prediction-powered inference (PPI). The annotations help estimate judge error, and PPI produces confidence intervals for system-level scores. A confidence interval for an aggregate score is not certification of every individual answer.",
+      "evidence": [
+        {
+          "source_id": "ares:s0012",
+          "quote": "PPI can leverage both the labeled datapoints and the ARES judge predictions on the non-annotated datapoints to construct confidence intervals for our RAG system’s performance.",
+          "start": 1554,
+          "end": 1729,
+          "source_sha256": "237749f7e73210936aaa2fd53958aa11c0ca2161b80b0fef8879457ccd1142ff"
+        },
+        {
+          "source_id": "ares:s0013",
+          "quote": "The PPI rectifier function allows us to estimate the errors of the LLM judge and generate confidence bounds for the success and failure rates of the RAG system, estimating context relevance, answer faithfulness, and answer relevance performance.",
+          "start": 931,
+          "end": 1176,
+          "source_sha256": "3bc186474bd3a7faf27a62fc4b94c67861098d747cf73731b43a98b49451b09c"
+        }
+      ],
+      "tags": [
+        "PPI",
+        "prediction-powered inference",
+        "human annotations",
+        "confidence intervals",
+        "system scores"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "ares.inputs",
+      "paper_id": "ares",
+      "facets": [
+        "supervision",
+        "limitations"
+      ],
+      "text": "The ARES setup requires an in-domain passage set, a human preference validation set of approximately 150 or more annotated examples, and a few in-domain question–answer demonstrations. Its use of synthetic data reduces annotation effort but does not eliminate human labels.",
+      "evidence": [
+        {
+          "source_id": "ares:s0007",
+          "quote": "There are three required inputs: an in-domain passage set, a human preference validation set of approximately 150 annotated datapoints (or more), and few-shot examples of in-domain queries and answers (five or more examples), which are used for prompting LLMs in synthetic data generation.",
+          "start": 42,
+          "end": 331,
+          "source_sha256": "9b9171640d09e448132e054a4868af4c5628c13d741c4774ddd76abf50b01d9e"
+        }
+      ],
+      "tags": [
+        "requirements",
+        "annotation data",
+        "human sample",
+        "cost",
+        "inputs"
+      ],
+      "metrics": [
+        "annotation_count"
+      ],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "dpr.encoding",
+      "paper_id": "dpr",
+      "facets": [
+        "representation",
+        "retrieval",
+        "purpose"
+      ],
+      "text": "Dense Passage Retrieval (DPR) uses separate BERT-based question and passage encoders to produce one dense vector for each input. It ranks passages using the inner product of the question and passage vectors, so passage representations can be precomputed for efficient search.",
+      "evidence": [
+        {
+          "source_id": "dpr:s0001",
+          "quote": "In this work, we show that retrieval can be practically implemented using dense representations alone, where embeddings are learned from a small number of questions and passages by a simple dualencoder framework.",
+          "start": 194,
+          "end": 406,
+          "source_sha256": "33a364c8602ac834e55a38b1f276ef48cd3c62e63b46776535014ff0c6004593"
+        },
+        {
+          "source_id": "dpr:s0008",
+          "quote": "We define the similarity between the question and the passage using the dot product of their vectors: sim(q, p) = EQ(q)⊺EP (p).",
+          "start": 702,
+          "end": 829,
+          "source_sha256": "6b208f38d7f6cc95e071abe62b9e55f2a60c50cf465a26b9701963ff8a84ce29"
+        },
+        {
+          "source_id": "dpr:s0008",
+          "quote": "(1) Although more expressive model forms for measuring the similarity between a question and a passage do exist, such as networks consisting of multiple layers of cross attentions, the similarity function needs to be decomposable so that the representations of the collection of passages can be precomputed.",
+          "start": 830,
+          "end": 1137,
+          "source_sha256": "6b208f38d7f6cc95e071abe62b9e55f2a60c50cf465a26b9701963ff8a84ce29"
+        }
+      ],
+      "tags": [
+        "dual encoder",
+        "single vector",
+        "question passage",
+        "dense",
+        "dot product",
+        "encoding",
+        "score"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "dpr.negatives",
+      "paper_id": "dpr",
+      "facets": [
+        "training",
+        "supervision"
+      ],
+      "text": "DPR learns from question–relevant-passage pairs. Its main setup uses in-batch negative passages, including other questions’ positive passages as negatives, and adds one BM25 hard-negative passage per question. The objective makes the relevant passage score higher than the sampled negatives.",
+      "evidence": [
+        {
+          "source_id": "dpr:s0011",
+          "quote": "Any (qi, pj) pair is a positive example when i = j, and negative otherwise.",
+          "start": 1098,
+          "end": 1173,
+          "source_sha256": "7f3a4d776fcebe5e104ba16398cf3da5838d9a25db32bb0504e05e9c984f4b0c"
+        },
+        {
+          "source_id": "dpr:s0016",
+          "quote": "The DPR model used in our main experiments is trained using the in-batch negative setting (Section 3.2) with a batch size of 128 and one additional BM25 negative passage per question.",
+          "start": 1069,
+          "end": 1252,
+          "source_sha256": "988c83b62477a0e935dee05531d0c4cd3af2c8b0e6ada41378378e8687a4d181"
+        }
+      ],
+      "tags": [
+        "training negatives",
+        "in-batch",
+        "hard negatives",
+        "supervision",
+        "BM25"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "dpr.objective",
+      "paper_id": "dpr",
+      "facets": [
+        "training"
+      ],
+      "text": "DPR’s training scheme compares question and passage pairs within a batch and optimises similarity between questions and their relevant passages. The paper studies the training design rather than introducing additional task-specific language-model pre-training.",
+      "evidence": [
+        {
+          "source_id": "dpr:s0004",
+          "quote": "n this paper, we address the question: can we train a better dense embedding model using only pairs of questions and passages (or answers), without additional pretraining? By leveraging the now standard BERT pretrained model (Devlin et al., 2019) and a dual-encoder architecture (Bromley et al., 1994), we focus on developing the right training scheme using a relatively small number of question and passage pairs.",
+          "start": 1,
+          "end": 415,
+          "source_sha256": "71c000681387c5ee904d0ade1a6f3bed1e990d90a991f7651ee6b270db33c997"
+        },
+        {
+          "source_id": "dpr:s0004",
+          "quote": "Through a series of careful ablation studies, our final solution is surprisingly simple: the embedding is optimized for maximizing inner products of the question and relevant passage vectors, with an objective comparing all pairs of questions and passages in a batch.",
+          "start": 416,
+          "end": 683,
+          "source_sha256": "71c000681387c5ee904d0ade1a6f3bed1e990d90a991f7651ee6b270db33c997"
+        }
+      ],
+      "tags": [
+        "objective",
+        "supervised learning",
+        "training signal"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "colbert.encoding",
+      "paper_id": "colbert",
+      "facets": [
+        "representation",
+        "retrieval",
+        "purpose"
+      ],
+      "text": "ColBERT encodes queries and documents independently with BERT but retains token-level vectors instead of collapsing the whole document into one vector. Its late-interaction step compares those contextualised vectors after encoding, allowing document encoding to be done offline.",
+      "evidence": [
+        {
+          "source_id": "colbert:s0001",
+          "quote": "ColBERT introduces a late interaction architecture that independently encodes the query and the document using BERT and then employs a cheap yet powerful interaction step that models their fine-grained similarity.",
+          "start": 587,
+          "end": 800,
+          "source_sha256": "4e799180928798d9b2635159e4b0a406fafef392f9d94d98baa9222f661b85b3"
+        },
+        {
+          "source_id": "colbert:s0005",
+          "quote": "As illustrated, every query embedding interacts with all document embeddings via a MaxSim operator, which computes maximum similarity (e.g., cosine similarity), and the scalar outputs of these operators are summed across query terms.",
+          "start": 1661,
+          "end": 1894,
+          "source_sha256": "b64313938af651b26ba51659613621b714beff8e6970ea59b69b48a6eccf5706"
+        }
+      ],
+      "tags": [
+        "late interaction",
+        "token-level",
+        "multi-vector",
+        "encoding",
+        "dense representations"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "colbert.maxsim",
+      "paper_id": "colbert",
+      "facets": [
+        "inference",
+        "retrieval"
+      ],
+      "text": "ColBERT computes MaxSim: for each query-token vector it takes the maximum similarity to a document-token vector, then sums those maxima across query tokens. This produces the query–document relevance score.",
+      "evidence": [
+        {
+          "source_id": "colbert:s0005",
+          "quote": "As illustrated, every query embedding interacts with all document embeddings via a MaxSim operator, which computes maximum similarity (e.g., cosine similarity), and the scalar outputs of these operators are summed across query terms.",
+          "start": 1661,
+          "end": 1894,
+          "source_sha256": "b64313938af651b26ba51659613621b714beff8e6970ea59b69b48a6eccf5706"
+        }
+      ],
+      "tags": [
+        "MaxSim",
+        "relevance score",
+        "sum maximum similarity",
+        "ranking",
+        "cosine"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "colbert.training",
+      "paper_id": "colbert",
+      "facets": [
+        "training",
+        "supervision"
+      ],
+      "text": "ColBERT trains on query, positive-document and negative-document triples. It scores each document individually and optimises a pairwise softmax cross-entropy loss over the positive and negative scores.",
+      "evidence": [
+        {
+          "source_id": "colbert:s0017",
+          "quote": "Given a triple ⟨q,d+,d−⟩with query q, positive document d+ and negative document d−, ColBERT is used to produce a score for each document individually and is optimized via pairwise sofmax cross-entropy loss over the computed scores of d+ and d−.",
+          "start": 718,
+          "end": 963,
+          "source_sha256": "e62dcf0ea425ca7326ef2fbf3600979ff331d09fc4d953b9417a4a9552967d95"
+        }
+      ],
+      "tags": [
+        "triples",
+        "loss",
+        "supervised",
+        "positive negative",
+        "cross entropy"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "colbert.offline",
+      "paper_id": "colbert",
+      "facets": [
+        "efficiency"
+      ],
+      "text": "ColBERT moves document encoding offline and reuses one query encoding across the documents being ranked. Its late-interaction design also supports retrieval through vector-similarity indexes rather than requiring full joint BERT encoding for every query–document pair.",
+      "evidence": [
+        {
+          "source_id": "colbert:s0006",
+          "quote": "Tis paradigm allows ColBERT to exploit deep LM-based representations while shifing the cost of encoding documents offline and amortizing the cost of encoding the query once across all ranked documents.",
+          "start": 234,
+          "end": 435,
+          "source_sha256": "40d9a75ca8c226d6562ee1dfcf58eb8b3ddd1f6bf90e2134fd72e402cd4645a2"
+        },
+        {
+          "source_id": "colbert:s0001",
+          "quote": "Beyond reducing the cost of re-ranking the documents retrieved by a traditional model, ColBERT’s pruning-friendly interaction mechanism enables leveraging vector-similarity indexes for end-to-end retrieval directly from a large document collection.",
+          "start": 1047,
+          "end": 1295,
+          "source_sha256": "4e799180928798d9b2635159e4b0a406fafef392f9d94d98baa9222f661b85b3"
+        }
+      ],
+      "tags": [
+        "offline encoding",
+        "efficiency",
+        "index",
+        "latency"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "rag.memory",
+      "paper_id": "rag",
+      "facets": [
+        "representation",
+        "retrieval",
+        "purpose"
+      ],
+      "text": "The original RAG model combines a pre-trained sequence-to-sequence generator as parametric memory with a dense vector index of Wikipedia as non-parametric memory. A DPR-initialised retriever uses a question encoder to retrieve relevant documents from that index.",
+      "evidence": [
+        {
+          "source_id": "rag:s0001",
+          "quote": "We introduce RAG models where the parametric memory is a pre-trained seq2seq model and the non-parametric memory is a dense vector index of Wikipedia, accessed with a pre-trained neural retriever.",
+          "start": 827,
+          "end": 1023,
+          "source_sha256": "09e697f8b656afe251eba6f7540a87daca46918bfd8bd0ca516eabb587521832"
+        },
+        {
+          "source_id": "rag:s0007",
+          "quote": "We use a pre-trained bi-encoder from DPR to initialize our retriever and to build the document index.",
+          "start": 537,
+          "end": 638,
+          "source_sha256": "bea7ba483f13726b1d3ba7ec63f4de7698aa6484e5424429f06ab3849821e386"
+        }
+      ],
+      "tags": [
+        "parametric memory",
+        "non-parametric memory",
+        "Wikipedia",
+        "DPR",
+        "retriever"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "rag.sequence_token",
+      "paper_id": "rag",
+      "facets": [
+        "inference"
+      ],
+      "text": "RAG-Sequence marginalises over a retrieved document for the whole output sequence, so one document conditions an entire candidate answer. RAG-Token marginalises at each output-token step, allowing different documents to contribute to different tokens.",
+      "evidence": [
+        {
+          "source_id": "rag:s0003",
+          "quote": "We marginalize the latent documents with a top-K approximation, either on a per-output basis (assuming the same document is responsible for all tokens) or a per-token basis (where different documents are responsible for different tokens).",
+          "start": 519,
+          "end": 757,
+          "source_sha256": "8cca9acaf0dc32b9aefe40a41deb2833d905debc79c6f198ab1d304ae47448e5"
+        }
+      ],
+      "tags": [
+        "RAG-Sequence",
+        "RAG-Token",
+        "marginalization",
+        "whole sequence",
+        "per token",
+        "formulations"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "rag.training",
+      "paper_id": "rag",
+      "facets": [
+        "training",
+        "supervision"
+      ],
+      "text": "RAG starts from a pre-trained DPR retriever and a BART generator, then fine-tunes the query encoder and generator on the downstream task. The paper keeps the document encoder and document index fixed during this fine-tuning.",
+      "evidence": [
+        {
+          "source_id": "rag:s0007",
+          "quote": "We use a pre-trained bi-encoder from DPR to initialize our retriever and to build the document index.",
+          "start": 537,
+          "end": 638,
+          "source_sha256": "bea7ba483f13726b1d3ba7ec63f4de7698aa6484e5424429f06ab3849821e386"
+        },
+        {
+          "source_id": "rag:s0009",
+          "quote": "We do not find this step necessary for strong performance, and keep the document encoder (and index) fixed, only fine-tuning the query encoder BERTq and the BART generator.",
+          "start": 489,
+          "end": 661,
+          "source_sha256": "c38adea268d9e59e3c162511832e05cb053a7f7dfbab70441461222bc0177e70"
+        }
+      ],
+      "tags": [
+        "when retriever trained",
+        "fine-tuning",
+        "fixed index",
+        "BART",
+        "DPR initialisation"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "realm.pretraining",
+      "paper_id": "realm",
+      "facets": [
+        "training",
+        "supervision",
+        "purpose"
+      ],
+      "text": "REALM pre-trains a learnable knowledge retriever using masked language modelling. Helpful documents receive learning signal through their contribution to predicting masked text, with document retrieval treated as a latent step. The model is then fine-tuned for open-domain question answering.",
+      "evidence": [
+        {
+          "source_id": "realm:s0001",
+          "quote": "For the first time, we show how to pretrain such a knowledge retriever in an unsupervised manner, using masked language modeling as the learning signal and backpropagating through a retrieval step that considers millions of documents.",
+          "start": 568,
+          "end": 802,
+          "source_sha256": "ed951ace95be280a19bc798988bac22513c6732af49a8e52361c3d7043bd1533"
+        },
+        {
+          "source_id": "realm:s0008",
+          "quote": "For pre-training, the task is masked language modeling: x is a sentence from a pre-training corpus X with some tokens masked out, and the model must predict the value of those missing tokens, y.",
+          "start": 715,
+          "end": 909,
+          "source_sha256": "4d5727db367133e573f0850507dc7a5ee74c61ffcf3ba7e9e2ac8b01056939e8"
+        }
+      ],
+      "tags": [
+        "pretrain",
+        "masked language model",
+        "learning signal",
+        "retriever training",
+        "MLM"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "realm.index",
+      "paper_id": "realm",
+      "facets": [
+        "training",
+        "efficiency"
+      ],
+      "text": "As retriever parameters change, REALM refreshes its index by asynchronously re-embedding and re-indexing documents every several hundred training steps. The index can be slightly stale between refreshes; scores and gradients for the retrieved top documents are recomputed using current parameters.",
+      "evidence": [
+        {
+          "source_id": "realm:s0012",
+          "quote": "Our solution is to “refresh” the index by asynchronously re-embedding and re-indexing all documents every several hundred training steps.",
+          "start": 827,
+          "end": 964,
+          "source_sha256": "72d7dd0686f1f2f889ff49b9ba8925870ed0c88f2264b5a2abbf727f10a803d8"
+        },
+        {
+          "source_id": "realm:s0012",
+          "quote": "We recompute p(z | x) and its gradient, using the fresh θ, for these top k documents after retrieving them.",
+          "start": 1078,
+          "end": 1185,
+          "source_sha256": "72d7dd0686f1f2f889ff49b9ba8925870ed0c88f2264b5a2abbf727f10a803d8"
+        }
+      ],
+      "tags": [
+        "stale index",
+        "refresh",
+        "asynchronous",
+        "re-embedding",
+        "training index"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "realm.masking",
+      "paper_id": "realm",
+      "facets": [
+        "training"
+      ],
+      "text": "REALM masks salient spans, such as named entities and dates, to favour training examples that need world knowledge rather than only local context. The paper uses a named-entity tagger and a date regular expression for that selection.",
+      "evidence": [
+        {
+          "source_id": "realm:s0014",
+          "quote": "To focus on problems that require world knowledge, we mask salient spans such as “United Kingdom” or “July 1969”.",
+          "start": 935,
+          "end": 1048,
+          "source_sha256": "0171b32c22764d4ec4906577a1982748ffe918ec5ff46e7e9a5cedda217a19e4"
+        },
+        {
+          "source_id": "realm:s0014",
+          "quote": "We use a BERT-based tagger trained on CoNLL-2003 data (Sang & De Meulder, 2003) to identify named entities, and a regular expression to identify dates.",
+          "start": 1049,
+          "end": 1200,
+          "source_sha256": "0171b32c22764d4ec4906577a1982748ffe918ec5ff46e7e9a5cedda217a19e4"
+        }
+      ],
+      "tags": [
+        "salient masking",
+        "entities",
+        "dates",
+        "training examples"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "realm.retrieval",
+      "paper_id": "realm",
+      "facets": [
+        "inference",
+        "retrieval"
+      ],
+      "text": "REALM decomposes prediction into retrieval followed by reading or prediction conditioned on retrieved text. The retriever is used during language-model pre-training as well as downstream fine-tuning and inference.",
+      "evidence": [
+        {
+          "source_id": "realm:s0001",
+          "quote": "To capture knowledge in a more modular and interpretable way, we augment language model pretraining with a latent knowledge retriever, which allows the model to retrieve and attend over documents from a large corpus such as Wikipedia, used during pre-training, fine-tuning and inference.",
+          "start": 280,
+          "end": 567,
+          "source_sha256": "ed951ace95be280a19bc798988bac22513c6732af49a8e52361c3d7043bd1533"
+        },
+        {
+          "source_id": "realm:s0008",
+          "quote": "REALM decomposes p(y | x) into two steps: retrieve, then predict.",
+          "start": 986,
+          "end": 1051,
+          "source_sha256": "4d5727db367133e573f0850507dc7a5ee74c61ffcf3ba7e9e2ac8b01056939e8"
+        }
+      ],
+      "tags": [
+        "inference",
+        "retrieve then predict",
+        "training stages"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "selfrag.tokens",
+      "paper_id": "selfrag",
+      "facets": [
+        "purpose",
+        "inference",
+        "condition"
+      ],
+      "text": "Self-RAG learns to generate reflection tokens alongside task output. Retrieval tokens indicate whether additional passages would help; critique tokens evaluate retrieved relevance, support for a generated segment and overall utility. Retrieval is therefore adaptive rather than mandatory for every segment.",
+      "evidence": [
+        {
+          "source_id": "selfrag:s0002",
+          "quote": "Reflection tokens are categorized into retrieval and critique tokens to indicate the need for retrieval and its generation quality respectively (Figure 1 right).",
+          "start": 1325,
+          "end": 1486,
+          "source_sha256": "4e9cf466a14ca0ac25ba5754495db0e995bdae8a8e3f2a1796ee3f140c0dcd77"
+        },
+        {
+          "source_id": "selfrag:s0002",
+          "quote": "If so, it outputs a retrieval token that calls a retriever model on demand (Step 1).",
+          "start": 1658,
+          "end": 1742,
+          "source_sha256": "4e9cf466a14ca0ac25ba5754495db0e995bdae8a8e3f2a1796ee3f140c0dcd77"
+        },
+        {
+          "source_id": "selfrag:s0013",
+          "quote": "At the end of the output, y (or yT ), C predicts the overall utility token ISUSE , and an augmented output with reflection tokens and the original input pair is added to Dgen.",
+          "start": 519,
+          "end": 694,
+          "source_sha256": "3313471a390dd5d5d8aa1acf150a23ff8ac1e821847bbc755fdcbf58d89f962a"
+        }
+      ],
+      "tags": [
+        "reflection tokens",
+        "when retrieve",
+        "adaptive retrieval",
+        "critique",
+        "relevance",
+        "utility"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "selfrag.support",
+      "paper_id": "selfrag",
+      "facets": [
+        "evaluation",
+        "inference"
+      ],
+      "text": "Self-RAG distinguishes passage relevance from support for the generated answer. ISREL assesses whether a passage is relevant; ISSUP assesses whether that passage supports the generation, and ISUSE assesses utility. These generated critique signals help select candidate continuations.",
+      "evidence": [
+        {
+          "source_id": "selfrag:s0013",
+          "quote": "For each passage, C further evaluates whether the passage is relevant and predicts ISREL .",
+          "start": 222,
+          "end": 312,
+          "source_sha256": "3313471a390dd5d5d8aa1acf150a23ff8ac1e821847bbc755fdcbf58d89f962a"
+        },
+        {
+          "source_id": "selfrag:s0013",
+          "quote": "If a passage is relevant, C further evaluates whether the passage supports the model generation and predicts ISSUP .",
+          "start": 313,
+          "end": 429,
+          "source_sha256": "3313471a390dd5d5d8aa1acf150a23ff8ac1e821847bbc755fdcbf58d89f962a"
+        },
+        {
+          "source_id": "selfrag:s0003",
+          "quote": "It then generates critique tokens to criticize its own output and choose best one (Step 3) in terms of factuality and overall quality.",
+          "start": 159,
+          "end": 293,
+          "source_sha256": "689ab58cb2e7ebdb259c904906cd66cbb00f545ccfb75887d7373a2aa28aca7a"
+        }
+      ],
+      "tags": [
+        "judge retrieved documents",
+        "answer support",
+        "ISREL",
+        "ISSUP",
+        "ISUSE",
+        "faithfulness"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "selfrag.training",
+      "paper_id": "selfrag",
+      "facets": [
+        "training",
+        "supervision"
+      ],
+      "text": "Self-RAG trains a generator on task examples interleaved with retrieved passages and reflection tokens. A critic creates the reflection-token annotations offline; the generator then learns text and reflection tokens through next-token prediction with an expanded vocabulary.",
+      "evidence": [
+        {
+          "source_id": "selfrag:s0003",
+          "quote": "Reflection tokens, inspired by reward models used in reinforcement learning (Ziegler et al., 2019; Ouyang et al., 2022), are inserted offline into the original corpus by a trained critic model.",
+          "start": 1266,
+          "end": 1459,
+          "source_sha256": "689ab58cb2e7ebdb259c904906cd66cbb00f545ccfb75887d7373a2aa28aca7a"
+        },
+        {
+          "source_id": "selfrag:s0010",
+          "quote": "SELF-RAG enables an arbitrary LM to generate text with reflection tokens by unifying them as next token predictions from the expanded model vocabulary (i.e., the original vocabulary plus reflection tokens).",
+          "start": 795,
+          "end": 1001,
+          "source_sha256": "31c3b354086f86cafee5369039db5c7800f77b1726eb350bd172c852f8181628"
+        }
+      ],
+      "tags": [
+        "critic training",
+        "reflection annotations",
+        "next token",
+        "offline supervision"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "walert.approaches",
+      "paper_id": "walert",
+      "facets": [
+        "purpose",
+        "inference"
+      ],
+      "text": "Walert implements two chatbot approaches: intent-based interaction using natural-language understanding, and retrieval-augmented generation. The intent-based path handles predefined intents, whereas the RAG path retrieves material from a knowledge base for more dynamic questions.",
+      "evidence": [
+        {
+          "source_id": "walert:s0005",
+          "quote": "wo different approaches were used to implement the prototype of our application: Intent-Based (IB) and RAG.",
+          "start": 1,
+          "end": 108,
+          "source_sha256": "18a1f17d80589deea1c08e0677350b94659675f38e35b06bc985040b08defcd3"
+        }
+      ],
+      "tags": [
+        "two approaches",
+        "intent based",
+        "NLU",
+        "chatbot",
+        "RAG"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "walert.retrieval",
+      "paper_id": "walert",
+      "facets": [
+        "retrieval",
+        "representation"
+      ],
+      "text": "The Walert RAG experiments compare Okapi BM25 and Dense Passage Retrieval (DPR), using Pyserini implementations. Retrieved passages are supplied to Falcon-7B-Instruct to generate an answer.",
+      "evidence": [
+        {
+          "source_id": "walert:s0011",
+          "quote": "For the retrieval model, we experimented with two approaches: (i) Okapi BM25 [17] with default parameters (k1 = 1.2; b= 0.75) and (ii) dense retrieval using Dense Passage Retrieval (DPR) [10] implementations in the pyserini toolkit [13].",
+          "start": 941,
+          "end": 1178,
+          "source_sha256": "0e605af00a0ce4c4e23892a29bf9ac7b7d8d00127603d87f3b363efdd24c6c6a"
+        },
+        {
+          "source_id": "walert:s0011",
+          "quote": "To generate a summary from the top-Kretrieved passages, we used the same LLM that was used to generate semantically equivalent variations of the questions for the IB approach, i.e., falcon-7b-instruct (refer Section 2.2) along with the following prompt to generate the summaries: Generate an answer to be synthesized with text-to-speech for a virtual assistant, the answer should be based on the retrieved documents for the following question.",
+          "start": 1179,
+          "end": 1622,
+          "source_sha256": "0e605af00a0ce4c4e23892a29bf9ac7b7d8d00127603d87f3b363efdd24c6c6a"
+        }
+      ],
+      "tags": [
+        "retrieval models",
+        "BM25",
+        "DPR",
+        "Falcon",
+        "pipeline"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "walert.evaluation",
+      "paper_id": "walert",
+      "facets": [
+        "evaluation",
+        "limitations"
+      ],
+      "text": "Walert evaluates components and end-to-end answers, including out-of-knowledge-base questions. Its intent-based approach identifies 80% of the unanswerable out-of-KB questions. The tested RAG approaches attempt to generate answers for most of those questions, illustrating why a generated response is not necessarily a successful response.",
+      "evidence": [
+        {
+          "source_id": "walert:s0004",
+          "quote": "The process allowed us to address challenges related to (i) handling private/sensitive information by deploying our instance of an open-source LLM; (ii) monitoring the problem of hallucinations (i.e., the introduction of facts that are not true) [9] and generation of inaccurate information by using a human-in-the-loop approach [6] and the inclusion of out of KB questions in our testbed; and (iii) evaluating the effectiveness of intent-based using Natural Language Understanding (NLU) and Retrieval-Augmented Generation (RAG), both at component and end-to-end levels.",
+          "start": 863,
+          "end": 1433,
+          "source_sha256": "bbb6d88131d4a273c0c6cba3923a18da4229aa15f1dea552c5533196a3b7fce8"
+        },
+        {
+          "source_id": "walert:s0015",
+          "quote": "Results also corroborate that IB performs significantly better than RAG approaches for Out of KB questions.",
+          "start": 1391,
+          "end": 1498,
+          "source_sha256": "6d6e1cd65b25c06da04ea985cf6fdd6d3b155a1c5c135b353ccfee76b4143eef"
+        },
+        {
+          "source_id": "walert:s0014",
+          "quote": "In terms of out-of-KB questions, IB performs substantially better than RAG approaches, being able to identify 80% of the unanswerable questions. RAGbased approaches fail by attempting to generate an answer for most of the questions, which means that it is likely to hallucinate instead of not warning the user about the lack of information in the KB.",
+          "start": 0,
+          "end": 350,
+          "source_sha256": "a68062a667c77c00e2e0fea32554d06b8a19466f64a0c035c20f1954e8e57e34"
+        }
+      ],
+      "tags": [
+        "out of knowledge base",
+        "unanswered",
+        "out-of-KB",
+        "evaluation",
+        "refusal"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "splade.representation",
+      "paper_id": "splade",
+      "facets": [
+        "representation",
+        "retrieval",
+        "purpose"
+      ],
+      "text": "SPLADE learns sparse lexical representations for queries and documents, including vocabulary expansion and term weighting. Sparse weights allow retrieval with an inverted index rather than requiring a dense nearest-neighbour representation.",
+      "evidence": [
+        {
+          "source_id": "splade:s0018",
+          "quote": "Our approach relies on in-batch negatives, logarithmic activation and FLOPS regularization to learn effective and efficient sparse representations.",
+          "start": 253,
+          "end": 400,
+          "source_sha256": "eea792043673c4c070c0ed6861e2a8aa36f1d750e0f090a83e307aa5ecd18f8d"
+        },
+        {
+          "source_id": "splade:s0018",
+          "quote": "SPLADE is an appealing candidate for initial retrieval: it rivals the latest state-of-the-art dense retrieval models, its training procedure is straightforward, its sparsity/FLOPS can be controlled explicitly through the regularization, and it can operate on inverted indexes.",
+          "start": 401,
+          "end": 677,
+          "source_sha256": "eea792043673c4c070c0ed6861e2a8aa36f1d750e0f090a83e307aa5ecd18f8d"
+        },
+        {
+          "source_id": "splade:s0001",
+          "quote": "In this work, we present a new first-stage ranker based on explicit sparsity regularization and a log-saturation effect on term weights, leading to highly sparse representations and competitive results with respect to state-ofthe-art dense and sparse methods.",
+          "start": 503,
+          "end": 762,
+          "source_sha256": "b29374baceffde1bb38fe25cf97df6b6f3bfb850e11a447352ec570abe127934"
+        }
+      ],
+      "tags": [
+        "sparse representations",
+        "lexical expansion",
+        "inverted index",
+        "retrieval"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "splade.learning",
+      "paper_id": "splade",
+      "facets": [
+        "training",
+        "supervision"
+      ],
+      "text": "SPLADE learns the ranking and sparsity objectives jointly. It combines in-batch-negative ranking loss with regularisation for query and document representations, and uses log-saturation of token weights to limit domination by individual terms.",
+      "evidence": [
+        {
+          "source_id": "splade:s0011",
+          "quote": "4) by jointly optimizing ranking and regularization losses: L = Lrank−IBN+ λqLq reg + λdLd reg (6) where Lreg is a sparse regularization (l1 or lFLOPS).",
+          "start": 1292,
+          "end": 1444,
+          "source_sha256": "cd35d4902f886e58b6cfdbad22a5badbc6f5c01517aab1016aef3a658d6ceb5c"
+        },
+        {
+          "source_id": "splade:s0010",
+          "quote": "2, by introducing a log-saturation effect which prevents some terms to dominate and naturally ensures sparsity in representations: wj= ∑︁ i∈t log \u00001 + ReLU(wij)\u0001 (4) While it is intuitive that using a log-saturation prevents some terms from dominating – drawing a parallel with axiomatic approaches in IR and log(tf) models [9] – the implied sparsity can seem surprising at first, but, according to our experiments, it obtains better experimental results and allows already to obtain sparse solutions without any regularization.",
+          "start": 203,
+          "end": 731,
+          "source_sha256": "dd7647f2eca06c3102ae8e9220756c2cecd71c25942153e01b310e0ab28bee04"
+        }
+      ],
+      "tags": [
+        "training",
+        "log saturation",
+        "in batch negatives",
+        "sparsity",
+        "loss",
+        "supervision"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "splade.efficiency",
+      "paper_id": "splade",
+      "facets": [
+        "efficiency",
+        "limitations"
+      ],
+      "text": "SPLADE's FLOPS regulariser approximates the operations needed to score query-document representations, which are related to retrieval time. It penalises high average term activations to encourage a more balanced sparse index. Increasing sparsity pressure can reduce retrieval work and index size, but can also sacrifice retrieval effectiveness; its strength therefore controls an effectiveness-efficiency trade-off rather than guaranteeing an accuracy improvement.",
+      "evidence": [
+        {
+          "source_id": "splade:s0011",
+          "quote": "[20] introduce the FLOPS regularizer, a smooth relaxation of the average number of floating-point operations necessary to compute the score of a document, and hence directly related to the retrieval time.",
+          "start": 340,
+          "end": 544,
+          "source_sha256": "cd35d4902f886e58b6cfdbad22a5badbc6f5c01517aab1016aef3a658d6ceb5c"
+        },
+        {
+          "source_id": "splade:s0001",
+          "quote": "We also explore the trade-off between effectiveness and efficiency, by controlling the contribution of the sparsity regularization.",
+          "start": 825,
+          "end": 956,
+          "source_sha256": "b29374baceffde1bb38fe25cf97df6b6f3bfb850e11a447352ec570abe127934"
+        },
+        {
+          "source_id": "splade:s0011",
+          "quote": "using lFLOPS thus pushes down high average term weight values, giving rise to a more balanced index.",
+          "start": 943,
+          "end": 1043,
+          "source_sha256": "cd35d4902f886e58b6cfdbad22a5badbc6f5c01517aab1016aef3a658d6ceb5c"
+        },
+        {
+          "source_id": "splade:s0016",
+          "quote": "Figure 1 illustrates the tradeoff between effectiveness (MRR@10) and efficiency (FLOPS), when we vary λqand λd(varying both implies that plots are not smooth).",
+          "start": 0,
+          "end": 159,
+          "source_sha256": "44e436aa856fc980fb9fac27c5e14e4675458f91b9fc5c0ef6ce7e9a9bce6409"
+        },
+        {
+          "source_id": "splade:s0017",
+          "quote": "In this case, representations are extremely sparse: documents and queries contain in average 18 and 6 non-zero values respectively, and we need less that 1.4 GB to store the index on disk.",
+          "start": 599,
+          "end": 787,
+          "source_sha256": "8da4b1e969118b591a24a9ebff95e9a539bf9a853d4711466f0d12261c056a30"
+        }
+      ],
+      "tags": [
+        "FLOPS regularizer",
+        "sparsity control",
+        "efficiency",
+        "regularization"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending",
+      "revision_note": "Source-detail correction after the F01-F15 challenge was opened; development intervention, independent human review still pending."
+    },
+    {
+      "id": "contriever.representation",
+      "paper_id": "contriever",
+      "facets": [
+        "representation",
+        "retrieval",
+        "purpose"
+      ],
+      "text": "Contriever is a dense retriever trained with contrastive learning without requiring labelled query–passage relevance pairs for its unsupervised pre-training. Its representation approach is dense rather than a sparse vocabulary-weight representation.",
+      "evidence": [
+        {
+          "source_id": "contriever:s0003",
+          "quote": "We thus propose to revisit how well contrastive learning performs to train dense retrievers without supervision.",
+          "start": 1304,
+          "end": 1416,
+          "source_sha256": "fae9d7f35f2db3cc32b9139197727eb29b8b5a860b70809018ce21c3343cd46b"
+        }
+      ],
+      "tags": [
+        "dense representations",
+        "unsupervised",
+        "retrieval",
+        "contrastive"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "contriever.training",
+      "paper_id": "contriever",
+      "facets": [
+        "training",
+        "supervision"
+      ],
+      "text": "Contriever forms positive pairs from different views of the same document, using independent random cropping and additional text perturbations. Its contrastive objective increases similarity for positive pairs relative to negative pairs.",
+      "evidence": [
+        {
+          "source_id": "contriever:s0015",
+          "quote": "A second difference between cropping and ICT is the fact that independent random cropping is symmetric: both the queries and documents follow the same distribution.",
+          "start": 745,
+          "end": 909,
+          "source_sha256": "52e8189719b7f789ae5973ee655c01b88c83e6e0c4ed3fd0cad693db911704d8"
+        },
+        {
+          "source_id": "contriever:s0015",
+          "quote": "We use these perturbations in addition to random cropping.",
+          "start": 1373,
+          "end": 1431,
+          "source_sha256": "52e8189719b7f789ae5973ee655c01b88c83e6e0c4ed3fd0cad693db911704d8"
+        },
+        {
+          "source_id": "contriever:s0013",
+          "quote": "This loss encourages positive pairs to have high scores and negative pairs to have low scores.",
+          "start": 664,
+          "end": 758,
+          "source_sha256": "650546ea0a242ec300eeae27bb4dc9156957215afbd8984bd345628d5d2627be"
+        }
+      ],
+      "tags": [
+        "positive pairs",
+        "random cropping",
+        "contrastive learning",
+        "training objective",
+        "augmentation"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "contriever.ict",
+      "paper_id": "contriever",
+      "facets": [
+        "training",
+        "evaluation"
+      ],
+      "text": "Contriever’s ablation study finds that independent cropping works better than the Inverse Cloze Task for its unsupervised retrieval setup. Cropping can give overlapping views with the same distribution, unlike the sentence-versus-surrounding-context construction of ICT.",
+      "evidence": [
+        {
+          "source_id": "contriever:s0004",
+          "quote": "We perform ablations to motivate our design choices, and show that cropping works better than the inverse Cloze task.",
+          "start": 320,
+          "end": 437,
+          "source_sha256": "878c89827673eeac27b02de34b32e2ede3a5da9d38bc5b82cb117e903dbe8734"
+        },
+        {
+          "source_id": "contriever:s0015",
+          "quote": "A second difference between cropping and ICT is the fact that independent random cropping is symmetric: both the queries and documents follow the same distribution.",
+          "start": 745,
+          "end": 909,
+          "source_sha256": "52e8189719b7f789ae5973ee655c01b88c83e6e0c4ed3fd0cad693db911704d8"
+        }
+      ],
+      "tags": [
+        "cropping better ICT",
+        "inverse cloze",
+        "ablation",
+        "data augmentation"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "contriever.momentum",
+      "paper_id": "contriever",
+      "facets": [
+        "training",
+        "efficiency"
+      ],
+      "text": "Contriever uses a momentum encoder for keys: its parameters are updated as an exponential moving average of the query encoder parameters. This supports contrastive training with a large collection of negative keys.",
+      "evidence": [
+        {
+          "source_id": "contriever:s0017",
+          "quote": "The parameters of the query network are updated with backpropagation and stochastic gradient descent, similarly to when using in-batch negatives, while the parameters of the key network, or Momentum encoder, is updated from the parameters of the query network by using a exponential moving average: θk ←mθk + (1 −m)θq, (2) where m is the momentum parameter that takes its value in [0, 1].",
+          "start": 572,
+          "end": 960,
+          "source_sha256": "6336ef4355d20db660f61383265cdd963ce5c515eb1c20aeb16639e03cf01e02"
+        },
+        {
+          "source_id": "contriever:s0017",
+          "quote": "The parameters of the query network are updated with backpropagation and stochastic gradient descent, similarly to when using in-batch negatives, while the parameters of the key network, or Momentum encoder, is updated from the parameters of the query network by using a exponential moving average: θk ←mθk + (1 −m)θq, (2) where m is the momentum parameter that takes its value in [0, 1].",
+          "start": 572,
+          "end": 960,
+          "source_sha256": "6336ef4355d20db660f61383265cdd963ce5c515eb1c20aeb16639e03cf01e02"
+        }
+      ],
+      "tags": [
+        "momentum encoder",
+        "negative keys",
+        "exponential moving average"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "colbertv2.compression",
+      "paper_id": "colbertv2",
+      "facets": [
+        "representation",
+        "efficiency",
+        "purpose"
+      ],
+      "text": "ColBERTv2 keeps late interaction’s token-level representations but compresses each vector using a nearby centroid and a residual. The paper reports a 6–10× reduction in space footprint, addressing the storage cost of keeping many vectors per document.",
+      "evidence": [
+        {
+          "source_id": "colbertv2:s0015",
+          "quote": "We encode each vector using its nearest centroid plus a residual.",
+          "start": 308,
+          "end": 373,
+          "source_sha256": "4f6fc1580b0f09b3a1f90a7b7b6bbab1c1ce23c59b7c8ce821ec64c0f34c7494"
+        },
+        {
+          "source_id": "colbertv2:s0001",
+          "quote": "We evaluate ColBERTv2 across a wide range of benchmarks, establishing state-of-the-art quality within and outside the training domain while reducing the space footprint of late interaction models by 6–10×.",
+          "start": 745,
+          "end": 950,
+          "source_sha256": "b879227ad78943fee78a83c68285d56c60824983b2555bd1d545376923bf9eee"
+        }
+      ],
+      "tags": [
+        "compression",
+        "residual",
+        "centroid",
+        "storage footprint",
+        "improve ColBERT"
+      ],
+      "metrics": [
+        "space_reduction"
+      ],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "colbertv2.training",
+      "paper_id": "colbertv2",
+      "facets": [
+        "training",
+        "supervision"
+      ],
+      "text": "ColBERTv2 combines residual compression with denoised supervision. Its training uses distillation from a cross-encoder and hard-negative mining to improve retrieval quality, rather than treating compression alone as the full contribution.",
+      "evidence": [
+        {
+          "source_id": "colbertv2:s0003",
+          "quote": "We couple those in ColBERTv2,1 a new late-interaction retriever that employs a simple combination of distillation from //github.com/stanford-futuredata/ColBERT a cross-encoder and hard-negative mining (§3.2) to boost quality beyond any existing method, and then uses a residual compression mechanism (§3.3) to reduce the space footprint of late interaction by 6–10× while preserving quality.",
+          "start": 1122,
+          "end": 1513,
+          "source_sha256": "17e849f387c190e5a5f3df90a09fa620bd6d2255848a23fef92e07d4b2397338"
+        },
+        {
+          "source_id": "colbertv2:s0003",
+          "quote": "We couple those in ColBERTv2,1 a new late-interaction retriever that employs a simple combination of distillation from //github.com/stanford-futuredata/ColBERT a cross-encoder and hard-negative mining (§3.2) to boost quality beyond any existing method, and then uses a residual compression mechanism (§3.3) to reduce the space footprint of late interaction by 6–10× while preserving quality.",
+          "start": 1122,
+          "end": 1513,
+          "source_sha256": "17e849f387c190e5a5f3df90a09fa620bd6d2255848a23fef92e07d4b2397338"
+        }
+      ],
+      "tags": [
+        "denoised supervision",
+        "distillation",
+        "hard negatives",
+        "training improvements"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "colbertv2.evaluation",
+      "paper_id": "colbertv2",
+      "facets": [
+        "evaluation"
+      ],
+      "text": "ColBERTv2 evaluates both in-domain and out-of-domain retrieval, and introduces LoTTE for long-tail information-seeking topics. This explicitly tests transfer beyond the training collection.",
+      "evidence": [
+        {
+          "source_id": "colbertv2:s0004",
+          "quote": "We introduce LoTTE, a new resource for outof-domain evaluation of retrievers.",
+          "start": 1373,
+          "end": 1450,
+          "source_sha256": "27268a254e6bb00735ef76954e46508d4cccd135d6d22a36708b82942351ae4f"
+        },
+        {
+          "source_id": "colbertv2:s0001",
+          "quote": "We evaluate ColBERTv2 across a wide range of benchmarks, establishing state-of-the-art quality within and outside the training domain while reducing the space footprint of late interaction models by 6–10×.",
+          "start": 745,
+          "end": 950,
+          "source_sha256": "b879227ad78943fee78a83c68285d56c60824983b2555bd1d545376923bf9eee"
+        }
+      ],
+      "tags": [
+        "LoTTE",
+        "evaluation",
+        "long tail",
+        "generalization",
+        "benchmarks"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "beir.purpose",
+      "paper_id": "beir",
+      "facets": [
+        "evaluation",
+        "purpose"
+      ],
+      "text": "BEIR is a heterogeneous benchmark for zero-shot information retrieval, not a judge of generated answers. The original benchmark includes 18 publicly available datasets across diverse retrieval tasks and domains, so it tests transfer beyond a narrow training distribution.",
+      "evidence": [
+        {
+          "source_id": "beir:s0001",
+          "quote": "We leverage a careful selection of 18 publicly available datasets from diverse text retrieval tasks and domains and evaluate 10 state-of-theart retrieval systems including lexical, sparse, dense, late-interaction and re-ranking architectures on the BEIR benchmark.",
+          "start": 430,
+          "end": 694,
+          "source_sha256": "12ba5fd099acb7ab4e8f8df8c0e69b1b4425acbdb08f0b40d5b703dc25eca940"
+        },
+        {
+          "source_id": "beir:s0008",
+          "quote": "EIR aims to provide a one-stop zero-shot evaluation benchmark for all diverse retrieval tasks.",
+          "start": 1,
+          "end": 95,
+          "source_sha256": "32b65b4572783e82266a9a31526b3897d00d8072df85943e0bee90d191482779"
+        }
+      ],
+      "tags": [
+        "datasets count",
+        "zero shot",
+        "retrieval evaluation",
+        "18",
+        "domains",
+        "benchmark"
+      ],
+      "metrics": [
+        "dataset_count"
+      ],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "beir.metric",
+      "paper_id": "beir",
+      "facets": [
+        "evaluation"
+      ],
+      "text": "BEIR uses nDCG@10 as a common ranking measure across its datasets. nDCG accommodates both binary and graded relevance judgments, making it useful for comparing ranked retrieval results across heterogeneous tasks.",
+      "evidence": [
+        {
+          "source_id": "beir:s0014",
+          "quote": "We find that Normalised Cumulative Discount Gain (nDCG@k) provides a good balance suitable for both tasks involving binary and graded relevance judgements.",
+          "start": 568,
+          "end": 723,
+          "source_sha256": "f8579ede3916f80ccbdfc7183c35b9797fcff40964149c476a7613513c0955a3"
+        },
+        {
+          "source_id": "beir:s0014",
+          "quote": "For our experiments, we utilize the Python interface of the official TREC evaluation tool [63] and compute nDCG@10 for all datasets.",
+          "start": 824,
+          "end": 956,
+          "source_sha256": "f8579ede3916f80ccbdfc7183c35b9797fcff40964149c476a7613513c0955a3"
+        }
+      ],
+      "tags": [
+        "nDCG@10",
+        "metrics",
+        "graded relevance",
+        "ranking effectiveness",
+        "methodology"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "beir.format",
+      "paper_id": "beir",
+      "facets": [
+        "representation",
+        "evaluation"
+      ],
+      "text": "BEIR standardises retrieval datasets as a corpus, queries and relevance judgments (qrels). Its software supports evaluation of different retrieval architectures on those collections using a common format.",
+      "evidence": [
+        {
+          "source_id": "beir:s0013",
+          "quote": "BEIR introduces a standard format (corpus, queries and qrels) and converts existing datasets in this easy universal data format, allowing to evaluate faster on an increasing number of datasets.",
+          "start": 1345,
+          "end": 1538,
+          "source_sha256": "5b3595fccfe52724aa7ed97760e7c76064650f53bd3e647be8f2ce2e5cc50ec7"
+        }
+      ],
+      "tags": [
+        "qrels",
+        "evaluation data",
+        "format",
+        "methodology"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "flare.trigger",
+      "paper_id": "flare",
+      "facets": [
+        "condition",
+        "inference"
+      ],
+      "text": "In FLARE’s direct method, the model first generates a temporary next sentence and checks its token probabilities. Retrieval is triggered if any token is below the confidence threshold; if all tokens meet the threshold, the sentence is accepted without extra retrieval. When triggered, the system retrieves relevant documents and regenerates the sentence using them.",
+      "evidence": [
+        {
+          "source_id": "flare:s0015",
+          "quote": "Since LMs tend to be well-calibrated that low probability/confidence often indicates a lack of knowledge (Jiang et al., 2021; Kadavath et al., 2022; Varshney et al., 2022), we actively trigger retrieval if any token of ˆst has a probability lower than a threshold θ ∈[0, 1].",
+          "start": 691,
+          "end": 965,
+          "source_sha256": "fcd46700dfc8abb2d31a1210be1d71a47ca02296c6260c95b3152ab1c49665b6"
+        },
+        {
+          "source_id": "flare:s0015",
+          "quote": "If the LM is confident about ˆst, we accept it without retrieving additional information; if not, we use ˆst to formulate search queries qt to retrieve relevant documents, and then regenerate the next sentence st.",
+          "start": 221,
+          "end": 434,
+          "source_sha256": "fcd46700dfc8abb2d31a1210be1d71a47ca02296c6260c95b3152ab1c49665b6"
+        }
+      ],
+      "tags": [
+        "when",
+        "circumstances",
+        "trigger",
+        "below threshold",
+        "low confidence",
+        "probability",
+        "regenerate sentence"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "flare.query",
+      "paper_id": "flare",
+      "facets": [
+        "retrieval",
+        "inference"
+      ],
+      "text": "FLARE uses the anticipated next sentence to formulate a forward-looking search query. Its implicit query formulation masks low-confidence tokens so that uncertain or erroneous words do not dominate retrieval; the retrieved evidence is then used to regenerate the sentence.",
+      "evidence": [
+        {
+          "source_id": "flare:s0014",
+          "quote": "Therefore, we propose a more direct way of forwardlooking active retrieval that uses the next sentence to decide when and what to retrieve.",
+          "start": 139,
+          "end": 278,
+          "source_sha256": "3db322a04bb0da1d6adb85d067a19f701eaa250e13e17bf94046c4955d61e08e"
+        },
+        {
+          "source_id": "flare:s0029",
+          "quote": "Retrieving directly with the complete sentence (β = 0) is worse than masking tokens with low probabilities, confirming our hypothesis that low-confidence erroneous tokens can distract retrievers.",
+          "start": 637,
+          "end": 832,
+          "source_sha256": "cf41074c40fa40412eb3d3119b1104caa6a35aaaba0927e40bb8f86af2f4fc40"
+        }
+      ],
+      "tags": [
+        "query formulation",
+        "masking",
+        "low confidence tokens",
+        "search query",
+        "future content"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "flare.variants",
+      "paper_id": "flare",
+      "facets": [
+        "purpose",
+        "inference"
+      ],
+      "text": "FLARE describes an instruction-based variant, which asks a model to emit retrieval queries when needed, and a direct variant, which uses a generated next sentence and token uncertainty to decide retrieval. These are distinct implementations of active retrieval during generation.",
+      "evidence": [
+        {
+          "source_id": "flare:s0011",
+          "quote": "The first method prompts the LM to generate retrieval queries when necessary while generating the answer using retrieval-encouraging instructions, denoted as FLAREinstruct.",
+          "start": 420,
+          "end": 592,
+          "source_sha256": "21ad36e4ae0b4bad3f26e890257294dc1644d44dcd5ba2e42e5df9eb4735bd73"
+        },
+        {
+          "source_id": "flare:s0011",
+          "quote": "The second method directly uses the LM’s generation as search queries, denoted as FLAREdirect, which iteratively generates the next sentence to gain insight into the future topic, and if uncertain tokens are present, retrieves relevant documents to regenerate the next sentence.",
+          "start": 593,
+          "end": 871,
+          "source_sha256": "21ad36e4ae0b4bad3f26e890257294dc1644d44dcd5ba2e42e5df9eb4735bd73"
+        }
+      ],
+      "tags": [
+        "FLAREinstruct",
+        "FLAREdirect",
+        "variants",
+        "active retrieval"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "flare.training",
+      "paper_id": "flare",
+      "facets": [
+        "training",
+        "efficiency"
+      ],
+      "text": "FLARE is an inference-time retrieval strategy and does not require additional model training in the paper’s setup. It gathers more information during long-form generation rather than performing one retrieval only at the start.",
+      "evidence": [
+        {
+          "source_id": "flare:s0006",
+          "quote": "FLARE is applicable to any existing LMs at inference time without additional training.",
+          "start": 200,
+          "end": 286,
+          "source_sha256": "1b01dfb9413a30bf0bde443bcf482efeed2ff026beb79dcdfca370f97809ce14"
+        },
+        {
+          "source_id": "flare:s0001",
+          "quote": "This is limiting, however, in more general scenarios involving generation of long texts, where continually gathering information throughout generation is essential.",
+          "start": 409,
+          "end": 573,
+          "source_sha256": "0507dadf7bd5d952aeb4154b6e1d1e0dceb845e6c415f869726aa8e73a76873a"
+        }
+      ],
+      "tags": [
+        "additional training",
+        "inference-time",
+        "long form"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "queryrewrite.method",
+      "paper_id": "queryrewrite",
+      "facets": [
+        "retrieval",
+        "inference",
+        "purpose"
+      ],
+      "text": "Rewrite–Retrieve–Read adapts the search query before retrieval. A language model rewrites the original input, a search engine retrieves context using that query, and a reader answers using the retrieved material. The trainable variant changes the small rewriter while keeping the retriever and reader frozen.",
+      "evidence": [
+        {
+          "source_id": "queryrewrite:s0001",
+          "quote": "We first prompt an LLM to generate the query, then use a web search engine to retrieve contexts.",
+          "start": 580,
+          "end": 676,
+          "source_sha256": "d4eea9ab025be62ecf58c1466dfb9e01ea99e56d12abecc70fedfb8728318f60"
+        },
+        {
+          "source_id": "queryrewrite:s0004",
+          "quote": "The black-box retriever and the reader form a frozen system.",
+          "start": 870,
+          "end": 930,
+          "source_sha256": "3b75ba798f03e39044008d359ddbef67fd3f45ce3cde916a325b156a73afab38"
+        }
+      ],
+      "tags": [
+        "Rewrite Retrieve Read",
+        "query rewriting",
+        "search queries",
+        "reader",
+        "frozen modules"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "queryrewrite.warmup",
+      "paper_id": "queryrewrite",
+      "facets": [
+        "training",
+        "supervision"
+      ],
+      "text": "The small rewriter is first warmed up with supervised training on pseudo query-rewriting examples. Examples whose rewritten query leads the reader to a correct prediction are retained, and the rewriter is fine-tuned with a log-likelihood objective.",
+      "evidence": [
+        {
+          "source_id": "queryrewrite:s0013",
+          "quote": "The collected samples are then filtered: Those that get correct predictions from the LLM reader are selected into the warm-up dataset, denoted as DTrain = {(x, ̃x)|ˆy = y}.",
+          "start": 404,
+          "end": 576,
+          "source_sha256": "993e671b8da9425f8dfc757788e10056f6fe7c4cb317788ddabc3916e79b79e3"
+        },
+        {
+          "source_id": "queryrewrite:s0013",
+          "quote": "The rewriter Gθ is finetuned on DTrain with the standard log-likelihood as the training objective, denoted as t logpθ( ˆ ̃xt | ̃x<t, x ).",
+          "start": 577,
+          "end": 714,
+          "source_sha256": "993e671b8da9425f8dfc757788e10056f6fe7c4cb317788ddabc3916e79b79e3"
+        }
+      ],
+      "tags": [
+        "warm-up",
+        "training stages",
+        "pseudo data",
+        "supervised initialization"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "queryrewrite.rl",
+      "paper_id": "queryrewrite",
+      "facets": [
+        "training",
+        "supervision",
+        "retrieval"
+      ],
+      "text": "After warm-up, the rewriter is trained with reinforcement learning using feedback from the downstream language-model reader. The aim is to learn search queries that improve the final task performance while the retrieval and reader modules stay frozen.",
+      "evidence": [
+        {
+          "source_id": "queryrewrite:s0013",
+          "quote": "Then we turn to reinforcement learning to align the rewriter to the following retriever and LLM reader.",
+          "start": 1034,
+          "end": 1137,
+          "source_sha256": "993e671b8da9425f8dfc757788e10056f6fe7c4cb317788ddabc3916e79b79e3"
+        },
+        {
+          "source_id": "queryrewrite:s0004",
+          "quote": "The rewriter is trained by reinforcement learning using the LLM performance as a reward, learning to adapt the retrieval query to improve the reader on downstream tasks.",
+          "start": 1075,
+          "end": 1244,
+          "source_sha256": "3b75ba798f03e39044008d359ddbef67fd3f45ce3cde916a325b156a73afab38"
+        }
+      ],
+      "tags": [
+        "reinforcement learning",
+        "reader reward",
+        "training rewriter",
+        "frozen reader"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "queryrewrite.evaluation",
+      "paper_id": "queryrewrite",
+      "facets": [
+        "evaluation"
+      ],
+      "text": "The query-rewriting paper evaluates open-domain question answering and multiple-choice question answering. This evaluates whether improved search queries help the downstream reader, not just whether a rewritten query sounds natural.",
+      "evidence": [
+        {
+          "source_id": "queryrewrite:s0001",
+          "quote": "Evaluation is conducted on downstream tasks, open-domain QA and multiple-choice QA.",
+          "start": 971,
+          "end": 1054,
+          "source_sha256": "d4eea9ab025be62ecf58c1466dfb9e01ea99e56d12abecc70fedfb8728318f60"
+        }
+      ],
+      "tags": [
+        "downstream tasks",
+        "evaluation",
+        "open domain",
+        "multiple choice"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "dsp.architecture",
+      "paper_id": "dsp",
+      "facets": [
+        "purpose",
+        "inference"
+      ],
+      "text": "Demonstrate–Search–Predict (DSP) composes language-model and retrieval-model operations into a program. It passes natural-language text between frozen components through three stages: bootstrapping demonstrations, searching for information and generating predictions.",
+      "evidence": [
+        {
+          "source_id": "dsp:s0003",
+          "quote": "We introduce the DEMONSTRATE–SEARCH–PREDICT (DSP) framework for in-context learning, which relies entirely on passing natural language text (and scores) between a frozen RM and LM.",
+          "start": 1565,
+          "end": 1745,
+          "source_sha256": "c268af07371696a0f1c92f5e81a8e67efd422a77768e1d18727b984ac5499248"
+        },
+        {
+          "source_id": "dsp:s0004",
+          "quote": "DSP introduces a number of composable functions that bootstrap training examples (DEMONSTRATE), gather information from a knowledge corpus (SEARCH), and generate grounded outputs (PREDICT), using them to systematically unify techniques from the retrieval-augmented NLP and the in-context learning literatures (Lee et al., 2019; Khattab et al., 2021a; Anantha et al., 2020; Gao et al., 2022; Izacard et al., 2022; Dohan et al., 2022; Zelikman et al., 2022; Zhang et al., 2022).",
+          "start": 181,
+          "end": 657,
+          "source_sha256": "efe37a6c4b9b05ba93dcc4a7cdd1fcb674d8ad727c55cf09b0b9e39a3ec12b78"
+        }
+      ],
+      "tags": [
+        "DSP",
+        "stages",
+        "frozen models",
+        "program",
+        "architecture"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "dsp.queries",
+      "paper_id": "dsp",
+      "facets": [
+        "retrieval",
+        "inference"
+      ],
+      "text": "DSP uses language-model transformations to rewrite conversational questions and to decompose complex questions into multiple retrieval queries. A later search hop can use passages retrieved in an earlier hop as context, so search queries can evolve with the evidence gathered.",
+      "evidence": [
+        {
+          "source_id": "dsp:s0020",
+          "quote": "Compositions & Extensions To illustrate a simple composition, we can equip a chatbot with the capacity for conversational multi-hop search by combining a query rewriting step, which produces a query that encompasses all of the relevant conversational context, with the multi-hop transformation, as follows.",
+          "start": 328,
+          "end": 634,
+          "source_sha256": "f07d9a631fa0f6c6da45c649991a997899438619f81d5473f12bb36e3d58f826"
+        },
+        {
+          "source_id": "dsp:s0012",
+          "quote": "When the LM is later invoked to conduct a transformation, say, generating a “second-hop” query during SEARCH, the psg1 field serves as context and the hop2 field serves as a label for this particular training example.",
+          "start": 1079,
+          "end": 1296,
+          "source_sha256": "fea4c81982ddd468a820bc8e23e6b0a7fcbfa90275616d02e3a6486ca619e653"
+        }
+      ],
+      "tags": [
+        "query generation",
+        "multi hop",
+        "rewriting",
+        "search queries",
+        "conversational context"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "dsp.demonstrations",
+      "paper_id": "dsp",
+      "facets": [
+        "training",
+        "supervision",
+        "retrieval",
+        "inference"
+      ],
+      "text": "DSP bootstraps intermediate demonstrations from labelled question–answer pairs. Successful pipeline attempts supply intermediate queries and passages, allowing in-context demonstrations without hand-labelling every retrieval hop or fine-tuning the frozen model weights.",
+      "evidence": [
+        {
+          "source_id": "dsp:s0012",
+          "quote": "DEMONSTRATE transforms a training question–answer pair to a fully-populated demonstration, including fields such as hop1 and hop2 (i.e., queries for multi-hop search) as well as psg1 and psg2.",
+          "start": 886,
+          "end": 1078,
+          "source_sha256": "fea4c81982ddd468a820bc8e23e6b0a7fcbfa90275616d02e3a6486ca619e653"
+        },
+        {
+          "source_id": "dsp:s0012",
+          "quote": "If the pipeline answers correctly (Line 7), the updated d is returned.",
+          "start": 779,
+          "end": 849,
+          "source_sha256": "fea4c81982ddd468a820bc8e23e6b0a7fcbfa90275616d02e3a6486ca619e653"
+        },
+        {
+          "source_id": "dsp:s0004",
+          "quote": "Although this program implements behaviors such as query generation, it requires no hand-labeled examples of these intermediate transformations (i.e., of the queries and passages of both retrieval hops).",
+          "start": 1465,
+          "end": 1668,
+          "source_sha256": "efe37a6c4b9b05ba93dcc4a7cdd1fcb674d8ad727c55cf09b0b9e39a3ec12b78"
+        }
+      ],
+      "tags": [
+        "demonstrations",
+        "bootstrap",
+        "weak supervision",
+        "in-context learning",
+        "frozen weights",
+        "search queries",
+        "query generation",
+        "language model prompts"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "dsp.fusion",
+      "paper_id": "dsp",
+      "facets": [
+        "retrieval"
+      ],
+      "text": "DSP can fuse retrieval results across multiple generated queries. The default fused-retrieval primitive uses a CombSUM variant that adds each passage’s probabilities across retrieval lists.",
+      "evidence": [
+        {
+          "source_id": "dsp:s0020",
+          "quote": "By default, DSP uses a variant of CombSUM (Fox & Shaw, 1994), assigning each passage the sum of its probabilities across retrieval lists.",
+          "start": 84,
+          "end": 221,
+          "source_sha256": "f07d9a631fa0f6c6da45c649991a997899438619f81d5473f12bb36e3d58f826"
+        }
+      ],
+      "tags": [
+        "fused retrieval",
+        "multiple queries",
+        "CombSUM",
+        "result fusion"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "crag.evaluator",
+      "paper_id": "crag",
+      "facets": [
+        "purpose",
+        "condition",
+        "inference",
+        "evaluation"
+      ],
+      "text": "Corrective RAG (CRAG) uses a lightweight evaluator to score the relevance of retrieved documents to the query. Its confidence assessment selects a Correct, Incorrect or Ambiguous action: refine retrieved knowledge when it is judged correct, discard inadequate retrieval and seek web evidence when it is incorrect, or combine refined internal and external evidence when the judgment is ambiguous.",
+      "evidence": [
+        {
+          "source_id": "crag:s0001",
+          "quote": "Specifically, a lightweight retrieval evaluator is designed to assess the overall quality of retrieved documents for a query, returning a confidence degree based on which different knowledge retrieval actions can be triggered.",
+          "start": 502,
+          "end": 728,
+          "source_sha256": "34df15f09ec19d796a9c5e32bf988e0140844873057e77ff4b0fbb24c44f687d"
+        },
+        {
+          "source_id": "crag:s0009",
+          "quote": "Figure 2 and Algorithm 1 present an overview of CRAG at inference, which designs corrective strategies to improve the robustness of generation. Given an input query and the retrieved documents from any retriever, a lightweight retrieval evaluator is constructed to estimate the relevance score of retrieved documents to the input query (Section 4.2). The relevance score is quantified into a total of three confidence degrees and then triggered the corresponding actions: {Correct, Incorrect, Ambiguous} (Section 4.3). If the action Correct is triggered, the retrieved documents will be refined into more precise knowledge strips. This refinement operation involves knowledge decomposition, filter, and recomposition (Section 4.4). If the action Incorrect is triggered, the retrieved documents will be discarded. Instead, web searches are resorted to and regarded as complementary knowledge sources for corrections (Section 4.5). Eventually, when it cannot confidently make a correct or incorrect judgment, a soft and balanced action Ambiguous which combines both of them is triggered. After optimizing the retrieval results, an arbitrary generative model can be adopted.",
+          "start": 0,
+          "end": 1171,
+          "source_sha256": "204218643158e638df4cb5b9dd3e53940acb82e32d3acfb91ad2a46124355195"
+        }
+      ],
+      "tags": [
+        "retrieval evaluator",
+        "document quality",
+        "confidence",
+        "corrective action",
+        "judge usefulness"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "crag.web",
+      "paper_id": "crag",
+      "facets": [
+        "retrieval",
+        "inference"
+      ],
+      "text": "CRAG can extend static-corpus retrieval with web search when the retrieved material is inadequate. The source describes web search as a way to augment retrieval rather than trusting the initial corpus results in every case.",
+      "evidence": [
+        {
+          "source_id": "crag:s0001",
+          "quote": "Since retrieval from static and limited corpora can only return suboptimal documents, large-scale web searches are utilized as an extension for augmenting the retrieval results.",
+          "start": 729,
+          "end": 906,
+          "source_sha256": "34df15f09ec19d796a9c5e32bf988e0140844873057e77ff4b0fbb24c44f687d"
+        }
+      ],
+      "tags": [
+        "web search",
+        "incorrect retrieval",
+        "external knowledge",
+        "fallback"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "crag.refinement",
+      "paper_id": "crag",
+      "facets": [
+        "inference",
+        "representation"
+      ],
+      "text": "CRAG uses a decompose–then–recompose procedure to refine retrieved documents: it focuses on useful information and filters irrelevant material before generation.",
+      "evidence": [
+        {
+          "source_id": "crag:s0001",
+          "quote": "Besides, a decompose-thenrecompose algorithm is designed for retrieved documents to selectively focus on key information and filter out irrelevant information in them.",
+          "start": 907,
+          "end": 1074,
+          "source_sha256": "34df15f09ec19d796a9c5e32bf988e0140844873057e77ff4b0fbb24c44f687d"
+        }
+      ],
+      "tags": [
+        "decompose recompose",
+        "knowledge refinement",
+        "filter irrelevant",
+        "passage processing"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "replug.method",
+      "paper_id": "replug",
+      "facets": [
+        "purpose",
+        "inference",
+        "representation"
+      ],
+      "text": "REPLUG treats the language model as a frozen black box. It augments the model by prepending retrieved documents to its input, rather than modifying the language model to add a specialised cross-attention architecture.",
+      "evidence": [
+        {
+          "source_id": "replug:s0001",
+          "quote": "Unlike prior retrieval-augmented LMs that train language models with special cross attention mechanisms to encode the retrieved text, REPLUG simply prepends retrieved documents to the input for the frozen black-box LM.",
+          "start": 171,
+          "end": 389,
+          "source_sha256": "673ba5ee3aa9ba77ab35d70c890040322f596a2aefd310b4a99b21324d3fa2e1"
+        }
+      ],
+      "tags": [
+        "black box",
+        "frozen LM",
+        "prepending",
+        "retrieved documents",
+        "input reformulation"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "replug.ensemble",
+      "paper_id": "replug",
+      "facets": [
+        "inference",
+        "efficiency"
+      ],
+      "text": "REPLUG prepends each retrieved document separately to the input context and runs the frozen language model separately for each document. It combines the resulting next-token probability distributions using a similarity-weighted average: document weights are the exponentiated document-context similarity scores, normalised across the retrieved set. This uses several documents without concatenating them all into one input window.",
+      "evidence": [
+        {
+          "source_id": "replug:s0010",
+          "quote": "We prepend each document d ∈D′ to x, pass this concatenation to the LM separately, and then ensemble output probabilities from all k passes.",
+          "start": 614,
+          "end": 754,
+          "source_sha256": "469a204bd5eda54aa7339a70c26c6551d9a1f130f247377e4e5bc67654567d82"
+        },
+        {
+          "source_id": "replug:s0010",
+          "quote": "Formally, given the input context x and its top-k relevant documents D′, the output probability of the next token y is computed as a weighted average ensemble: p(y | x, D′) = X p(y | d ◦x) · λ(d, x), where ◦denotes the concatenation of two sequences and the weight λ(d, x) is based on the similarity score between the document d and the input context x: λ(d, x) = es(d,x) P d∈D′ es(d,x)",
+          "start": 755,
+          "end": 1141,
+          "source_sha256": "469a204bd5eda54aa7339a70c26c6551d9a1f130f247377e4e5bc67654567d82"
+        }
+      ],
+      "tags": [
+        "separate passes",
+        "ensemble probabilities",
+        "context length",
+        "multiple documents",
+        "combine predictions",
+        "weighted probability distributions"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending",
+      "revision_note": "Source-detail correction after the F01-F15 challenge was opened; development intervention, independent human review still pending."
+    },
+    {
+      "id": "replug.training",
+      "paper_id": "replug",
+      "facets": [
+        "training",
+        "supervision"
+      ],
+      "text": "REPLUG LSR adapts the retriever to a frozen language model. It scores retrieved documents using the model, updates the retriever by minimising divergence between retrieval scores and the model-derived distribution, and refreshes the retrieval index asynchronously.",
+      "evidence": [
+        {
+          "source_id": "replug:s0011",
+          "quote": "As shown in Figure 3, our training algorithm consists of the four steps: (1) retrieving documents and computing the retrieval likelihood (§4.1), (2) scoring the retrieved documents by the language model (§4.2), (3) updating the retrieval model parameters by minimizing the KL divergence between the retrieval likelihood and the LM’s score distribution (§4.3), and (4) asynchronous update of the datastore index (§4.4).",
+          "start": 643,
+          "end": 1061,
+          "source_sha256": "d33fdb48307059df036c898a4e3b1c39d9a764b7b7f03697df6ec22da4a0f860"
+        },
+        {
+          "source_id": "replug:s0003",
+          "quote": "We use a training objective which prefers retrieving documents that improve language model perplexity, while treating the LM as a frozen, black-box scoring function.",
+          "start": 1289,
+          "end": 1454,
+          "source_sha256": "e113891fcc994eae7456b5b03c5ef940bff78111668f7e4403a26489f861144b"
+        }
+      ],
+      "tags": [
+        "LM supervised retrieval",
+        "LSR",
+        "KL divergence",
+        "training",
+        "perplexity",
+        "index refresh"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "retro.method",
+      "paper_id": "retro",
+      "facets": [
+        "purpose",
+        "inference",
+        "representation"
+      ],
+      "text": "RETRO augments language modelling with retrieved document chunks. It combines a frozen BERT retriever, a trainable encoder and chunked cross-attention to condition token predictions on neighbouring chunks retrieved from an external corpus.",
+      "evidence": [
+        {
+          "source_id": "retro:s0000",
+          "quote": "Retro combines a frozen Bert retriever, a differentiable encoder and a chunked cross-attention mechanism to predict tokens based on an order of magnitude more data than what is typically consumed during training.",
+          "start": 1046,
+          "end": 1258,
+          "source_sha256": "7bdc38b61fe322a3a4a4e9ad8f581ea3475a6a53bf0579741ab141feb2ff5340"
+        }
+      ],
+      "tags": [
+        "retrieved chunks",
+        "cross attention",
+        "BERT",
+        "architecture",
+        "token prediction"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "retro.database",
+      "paper_id": "retro",
+      "facets": [
+        "scale",
+        "retrieval"
+      ],
+      "text": "The RETRO paper reports a retrieval database containing 2 trillion tokens. That is the size of the external retrieval corpus, not the number of model parameters.",
+      "evidence": [
+        {
+          "source_id": "retro:s0000",
+          "quote": "With a 2 trillion token database, our Retrieval-Enhanced Transformer (Retro) obtains comparable performance to GPT-3 and Jurassic-1 on the Pile, despite using 25× fewer parameters.",
+          "start": 749,
+          "end": 929,
+          "source_sha256": "7bdc38b61fe322a3a4a4e9ad8f581ea3475a6a53bf0579741ab141feb2ff5340"
+        }
+      ],
+      "tags": [
+        "database size",
+        "2 trillion tokens",
+        "external memory",
+        "how large"
+      ],
+      "metrics": [
+        "database_tokens"
+      ],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "retro.training",
+      "paper_id": "retro",
+      "facets": [
+        "training"
+      ],
+      "text": "The paper typically trains RETRO from scratch, but also studies retrofitting pre-trained transformers with retrieval. Its retriever is frozen while the retrieval-enhanced language-modelling components learn to use the retrieved chunks.",
+      "evidence": [
+        {
+          "source_id": "retro:s0000",
+          "quote": "We typically train Retro from scratch, yet can also rapidly Retrofit pre-trained transformers with retrieval and still achieve good performance.",
+          "start": 1259,
+          "end": 1403,
+          "source_sha256": "7bdc38b61fe322a3a4a4e9ad8f581ea3475a6a53bf0579741ab141feb2ff5340"
+        },
+        {
+          "source_id": "retro:s0000",
+          "quote": "Retro combines a frozen Bert retriever, a differentiable encoder and a chunked cross-attention mechanism to predict tokens based on an order of magnitude more data than what is typically consumed during training.",
+          "start": 1046,
+          "end": 1258,
+          "source_sha256": "7bdc38b61fe322a3a4a4e9ad8f581ea3475a6a53bf0579741ab141feb2ff5340"
+        }
+      ],
+      "tags": [
+        "training",
+        "retrofit",
+        "frozen retriever",
+        "pretrained transformer"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "atlas.architecture",
+      "paper_id": "atlas",
+      "facets": [
+        "purpose",
+        "inference",
+        "representation"
+      ],
+      "text": "Atlas pairs a dense retriever with a T5 sequence-to-sequence reader using Fusion-in-Decoder. The reader concatenates the query to each retrieved document and encodes each document independently. It concatenates those encoder outputs, and its decoder uses cross-attention over the combined representations to generate the answer. The system is designed for few-shot knowledge-intensive tasks.",
+      "evidence": [
+        {
+          "source_id": "atlas:s0003",
+          "quote": "The retrieved documents are processed, along with the current context, by a sequence-to-sequence model using the Fusion-in-Decoder architecture (Izacard & Grave, 2020) that generates the corresponding output.",
+          "start": 1300,
+          "end": 1508,
+          "source_sha256": "f87a22b0004e640750ec017a37b2afd9e9799b3c304bc09e8a788b8cb6f2fac1"
+        },
+        {
+          "source_id": "atlas:s0003",
+          "quote": "Question answering: Where is the Bermuda Triangle? Western part of the North Atlantic Ocean Figure 1: We introduce Atlas, a retrieval-augmented language model that exhibits strong few-shot performance on knowledge tasks, and uses retrieval during both pre-training and fine-tuning.",
+          "start": 562,
+          "end": 843,
+          "source_sha256": "f87a22b0004e640750ec017a37b2afd9e9799b3c304bc09e8a788b8cb6f2fac1"
+        },
+        {
+          "source_id": "atlas:s0008",
+          "quote": "We rely on the Fusion-in-Decoder modification of sequence-to-sequence models, and process each document independently in the encoder (Izacard & Grave, 2020). We then concatenate the outputs of the encoder corresponding to the different documents, and perform cross-attention over this single sequence in the decoder. Following Izacard & Grave (2020), we concatenate the query to each document in the encoder.",
+          "start": 0,
+          "end": 408,
+          "source_sha256": "7fc2f69078c5e05617190d3a86559817182e3c484d719fe1c484dd04b8dd85cf"
+        }
+      ],
+      "tags": [
+        "few-shot",
+        "FiD reader",
+        "dense retriever",
+        "architecture",
+        "reader multiple passages",
+        "independent encoding",
+        "decoder cross attention"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending",
+      "revision_note": "Source-detail correction after the F01-F15 challenge was opened; development intervention, independent human review still pending."
+    },
+    {
+      "id": "atlas.training",
+      "paper_id": "atlas",
+      "facets": [
+        "training",
+        "supervision"
+      ],
+      "text": "Atlas jointly pre-trains its retriever and reader components. The paper finds this joint pre-training important for few-shot downstream performance and studies different pre-training objectives and schemes.",
+      "evidence": [
+        {
+          "source_id": "atlas:s0003",
+          "quote": "We find that jointly pre-training the components is crucial for few-shot performance, and we carefully evaluate a number of existing and novel pre-training tasks and schemes for this purpose.",
+          "start": 1676,
+          "end": 1867,
+          "source_sha256": "f87a22b0004e640750ec017a37b2afd9e9799b3c304bc09e8a788b8cb6f2fac1"
+        }
+      ],
+      "tags": [
+        "joint pretraining",
+        "few shot training",
+        "retriever reader"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "atlas.fewshot",
+      "paper_id": "atlas",
+      "facets": [
+        "evaluation",
+        "scale"
+      ],
+      "text": "Atlas reports over 42% accuracy on Natural Questions using 64 training examples. This is a specific few-shot result on that benchmark, not an all-task accuracy figure.",
+      "evidence": [
+        {
+          "source_id": "atlas:s0001",
+          "quote": "Notably, Atlas reaches over 42% accuracy on Natural Questions using only 64 examples, outperforming a 540B parameters model by 3% despite having 50x fewer parameters.",
+          "start": 810,
+          "end": 976,
+          "source_sha256": "0fa8f03303980ebd0056bf16c7df37143b0d6c928f60e869729349d8c8c30ed9"
+        }
+      ],
+      "tags": [
+        "64 examples",
+        "42 percent",
+        "Natural Questions",
+        "few shot result"
+      ],
+      "metrics": [
+        "training_example_count",
+        "qa_accuracy"
+      ],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "ance.negatives",
+      "paper_id": "ance",
+      "facets": [
+        "training",
+        "supervision",
+        "purpose"
+      ],
+      "text": "ANCE mines hard training negatives globally from the corpus using an approximate-nearest-neighbour (ANN) index. It is designed to avoid relying only on the easier negatives available in a local mini-batch.",
+      "evidence": [
+        {
+          "source_id": "ance:s0001",
+          "quote": "We then propose Approximate nearest neighbor Negative Contrastive Learning (ANCE), a learning mechanism that selects hard training negatives globally from the entire corpus, using an asynchronously updated ANN index.",
+          "start": 459,
+          "end": 675,
+          "source_sha256": "29718d7ea5bd1f0a215aa34ddbb61b3ef6a1cb0ed6baf82aa95f6363870759e8"
+        },
+        {
+          "source_id": "ance:s0003",
+          "quote": "However, as observed in recent research (Karpukhin et al., 2020), the in-batch local negatives, though effective in learning word or visual representations, are not significantly better than spare-retrieved negatives in representation learning for dense retrieval.",
+          "start": 429,
+          "end": 693,
+          "source_sha256": "1aed2dacaeb10c92f6fdd3077a1a06e5da2e1c13262ce5f8152080fd5cdd9f1d"
+        }
+      ],
+      "tags": [
+        "hard negatives",
+        "training",
+        "global corpus",
+        "mining",
+        "ANN"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "ance.index",
+      "paper_id": "ance",
+      "facets": [
+        "training",
+        "efficiency"
+      ],
+      "text": "ANCE updates the ANN index asynchronously as training changes the dense representations. The mined negatives therefore track the evolving model more closely than a permanently fixed negative pool.",
+      "evidence": [
+        {
+          "source_id": "ance:s0001",
+          "quote": "We then propose Approximate nearest neighbor Negative Contrastive Learning (ANCE), a learning mechanism that selects hard training negatives globally from the entire corpus, using an asynchronously updated ANN index.",
+          "start": 459,
+          "end": 675,
+          "source_sha256": "29718d7ea5bd1f0a215aa34ddbb61b3ef6a1cb0ed6baf82aa95f6363870759e8"
+        }
+      ],
+      "tags": [
+        "asynchronous index",
+        "training updates",
+        "negative mining"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "ance.representation",
+      "paper_id": "ance",
+      "facets": [
+        "representation",
+        "retrieval"
+      ],
+      "text": "ANCE uses dense representations for dot-product retrieval. Its central contribution is the training-negative selection mechanism.",
+      "evidence": [
+        {
+          "source_id": "ance:s0001",
+          "quote": "Our experiments demonstrate the effectiveness of ANCE on web search, question answering, and in a commercial search environment, showing ANCE dot-product retrieval nearly matches the accuracy of BERT-based cascade IR pipeline, while being 100x more efficient.",
+          "start": 676,
+          "end": 935,
+          "source_sha256": "29718d7ea5bd1f0a215aa34ddbb61b3ef6a1cb0ed6baf82aa95f6363870759e8"
+        },
+        {
+          "source_id": "ance:s0001",
+          "quote": "We then propose Approximate nearest neighbor Negative Contrastive Learning (ANCE), a learning mechanism that selects hard training negatives globally from the entire corpus, using an asynchronously updated ANN index.",
+          "start": 459,
+          "end": 675,
+          "source_sha256": "29718d7ea5bd1f0a215aa34ddbb61b3ef6a1cb0ed6baf82aa95f6363870759e8"
+        }
+      ],
+      "tags": [
+        "dense",
+        "dot product",
+        "retrieval representation"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "gtr.architecture",
+      "paper_id": "gtr",
+      "facets": [
+        "representation",
+        "purpose"
+      ],
+      "text": "Generalizable T5-based Retrievers (GTR) scale up a dual-encoder model while keeping its final embedding bottleneck fixed. Query and passage vectors are scored with a dot product; the study asks whether larger encoders generalise better across retrieval domains.",
+      "evidence": [
+        {
+          "source_id": "gtr:s0001",
+          "quote": "In this paper, we challenge this belief by scaling up the size of the dual encoder model while keeping the bottleneck embedding size fixed.",
+          "start": 381,
+          "end": 520,
+          "source_sha256": "9b53c70199541641911edccfff574735fd7fe774a7c800a65861712332738995"
+        },
+        {
+          "source_id": "gtr:s0001",
+          "quote": "One widespread belief is that the bottleneck layer of a dual encoder, where the final score is simply a dotproduct between a query vector and a passage vector, is too limited to make dual encoders an effective retrieval model for out-ofdomain generalization.",
+          "start": 122,
+          "end": 380,
+          "source_sha256": "9b53c70199541641911edccfff574735fd7fe774a7c800a65861712332738995"
+        }
+      ],
+      "tags": [
+        "dual encoder",
+        "T5",
+        "embedding bottleneck",
+        "generalization",
+        "dense vectors"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "gtr.training",
+      "paper_id": "gtr",
+      "facets": [
+        "training",
+        "evaluation"
+      ],
+      "text": "GTR uses multi-stage training and evaluates out-of-domain retrieval on BEIR. Its ablation finds strong out-of-domain performance using 10% of MS MARCO supervised data, a result tied to this experimental setup rather than a universal data requirement.",
+      "evidence": [
+        {
+          "source_id": "gtr:s0001",
+          "quote": "With multi-stage training, surprisingly, scaling up the model size brings significant improvement on a variety of retrieval tasks, especially for out-ofdomain generalization.",
+          "start": 521,
+          "end": 695,
+          "source_sha256": "9b53c70199541641911edccfff574735fd7fe774a7c800a65861712332738995"
+        },
+        {
+          "source_id": "gtr:s0001",
+          "quote": "Most surprisingly, our ablation study finds that GTR is very data efficient, as it only needs 10% of MS Marco supervised data to achieve the best out-of-domain performance.1",
+          "start": 898,
+          "end": 1071,
+          "source_sha256": "9b53c70199541641911edccfff574735fd7fe774a7c800a65861712332738995"
+        }
+      ],
+      "tags": [
+        "multi-stage training",
+        "MS MARCO",
+        "data efficiency",
+        "BEIR"
+      ],
+      "metrics": [
+        "training_data_fraction"
+      ],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "lostmiddle.position",
+      "paper_id": "lostmiddle",
+      "facets": [
+        "evaluation",
+        "limitations",
+        "purpose"
+      ],
+      "text": "Lost in the Middle studies where language models can use information in long input contexts. Performance is often strongest when relevant information is near the beginning or end and can degrade when it is in the middle. A larger context window therefore does not itself prove reliable use of all its contents.",
+      "evidence": [
+        {
+          "source_id": "lostmiddle:s0001",
+          "quote": "In particular, we observe that performance is often highest when relevant information occurs at the beginning or end of the input context, and significantly degrades when models must access relevant information in the middle of long contexts, even for explicitly long-context models.",
+          "start": 541,
+          "end": 824,
+          "source_sha256": "9597f645fa2ed241ae31cd867771e71ea15ede9d498117e1d1b409403c10aa88"
+        }
+      ],
+      "tags": [
+        "position",
+        "beginning",
+        "middle",
+        "end",
+        "long context",
+        "lost in the middle"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "lostmiddle.tasks",
+      "paper_id": "lostmiddle",
+      "facets": [
+        "evaluation"
+      ],
+      "text": "The paper tests multi-document question answering and key-value retrieval while changing where relevant information appears. Position-sensitive results provide a diagnostic of context use rather than a new retrieval architecture.",
+      "evidence": [
+        {
+          "source_id": "lostmiddle:s0001",
+          "quote": "We analyze the performance of language models on two tasks that require identifying relevant information in their input contexts: multi-document question answering and key-value retrieval.",
+          "start": 145,
+          "end": 333,
+          "source_sha256": "9597f645fa2ed241ae31cd867771e71ea15ede9d498117e1d1b409403c10aa88"
+        },
+        {
+          "source_id": "lostmiddle:s0001",
+          "quote": "We find that performance can degrade significantly when changing the position of relevant information, indicating that current language models do not robustly make use of information in long input contexts.",
+          "start": 334,
+          "end": 540,
+          "source_sha256": "9597f645fa2ed241ae31cd867771e71ea15ede9d498117e1d1b409403c10aa88"
+        }
+      ],
+      "tags": [
+        "tasks",
+        "multi document QA",
+        "key value retrieval",
+        "experimental design"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "icralm.method",
+      "paper_id": "icralm",
+      "facets": [
+        "purpose",
+        "inference",
+        "representation"
+      ],
+      "text": "In-Context Retrieval-Augmented Language Modelling (In-Context RALM) prepends grounding documents to a language model’s input while leaving its architecture unchanged. The paper does not require further training of the language model to use this form of retrieval augmentation.",
+      "evidence": [
+        {
+          "source_id": "icralm:s0001",
+          "quote": "This paper considers a simple alternative, which we dub In-Context RALM: leaving the LM architecture unchanged and prepending grounding documents to the input, without any further training of the LM.",
+          "start": 526,
+          "end": 725,
+          "source_sha256": "2e884f320c4c69fe43d6124e37e8f012e8d100d9619fa304e1b044c0779fe905"
+        }
+      ],
+      "tags": [
+        "frozen LM",
+        "unchanged architecture",
+        "prepend",
+        "context",
+        "training requirements"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "icralm.stride",
+      "paper_id": "icralm",
+      "facets": [
+        "inference",
+        "efficiency",
+        "condition"
+      ],
+      "text": "In-Context RALM defines retrieval stride as the number of generated tokens between retrieval operations. Retrieving less frequently reduces retrieval and prefix-recomputation overhead, while the paper reports stronger performance from smaller strides in its experiments.",
+      "evidence": [
+        {
+          "source_id": "icralm:s0010",
+          "quote": "We refer to s as the retrieval stride.",
+          "start": 435,
+          "end": 473,
+          "source_sha256": "99979e54a3d60ca96c3cdd426618e9b836959d4bddca7f0b6d13cc024d606a34"
+        },
+        {
+          "source_id": "icralm:s0010",
+          "quote": "In §5.2 we show that using smaller retrieval strides, i.e., retrieving as often as possible, is superior to using larger ones (though In-Context RALM with larger strides already provides large gains over vanilla LM).",
+          "start": 883,
+          "end": 1099,
+          "source_sha256": "99979e54a3d60ca96c3cdd426618e9b836959d4bddca7f0b6d13cc024d606a34"
+        }
+      ],
+      "tags": [
+        "retrieval stride",
+        "when retrieve",
+        "token interval",
+        "runtime cost",
+        "retrieval trigger",
+        "fixed interval",
+        "retrieval frequency"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "icralm.ranking",
+      "paper_id": "icralm",
+      "facets": [
+        "retrieval",
+        "training"
+      ],
+      "text": "The paper starts with off-the-shelf retrievers and also studies adapting the retrieval and ranking mechanism for the language-modelling task. Retrieval quality is evaluated by how much the retrieved material helps the unchanged language model.",
+      "evidence": [
+        {
+          "source_id": "icralm:s0001",
+          "quote": "We also demonstrate that the document retrieval and ranking mechanism can be specialized to the RALM setting to further boost performance.",
+          "start": 888,
+          "end": 1026,
+          "source_sha256": "2e884f320c4c69fe43d6124e37e8f012e8d100d9619fa304e1b044c0779fe905"
+        }
+      ],
+      "tags": [
+        "ranking",
+        "off the shelf",
+        "LM gains",
+        "specialized retrieval"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "t5cbqa.closedbook",
+      "paper_id": "t5cbqa",
+      "facets": [
+        "purpose",
+        "inference",
+        "representation"
+      ],
+      "text": "The closed-book T5 study answers questions using information stored in the language model’s parameters, rather than an external retrieval step at inference. It uses question input and generates literal answer text, making it a contrast to retrieval-augmented approaches.",
+      "evidence": [
+        {
+          "source_id": "t5cbqa:s0003",
+          "quote": "We refer to this task as “closed-book question answering”.",
+          "start": 1337,
+          "end": 1395,
+          "source_sha256": "07452514e8c38b10038f93f9d6ea285808a592f7e621b2d391075bd1fdbb39ce"
+        },
+        {
+          "source_id": "t5cbqa:s0011",
+          "quote": "To map question answering tasks to the text-to-text format, we simply feed the question with a task-specific prefix into the model as input and train it to predict the literal answer text as output.",
+          "start": 627,
+          "end": 825,
+          "source_sha256": "d5f57a7504ddd67475cb38cb2da85bff137d6292f8f723ad5aee3970dba1634b"
+        }
+      ],
+      "tags": [
+        "closed book",
+        "parametric knowledge",
+        "no retrieval",
+        "question answering"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "t5cbqa.size",
+      "paper_id": "t5cbqa",
+      "facets": [
+        "scale",
+        "evaluation"
+      ],
+      "text": "The study compares pre-trained T5 models of different sizes, including a largest model with approximately 11 billion parameters, to examine how model size affects stored knowledge and question-answering performance.",
+      "evidence": [
+        {
+          "source_id": "t5cbqa:s0004",
+          "quote": "(2019), the largest of which has around 11 billion parameters.",
+          "start": 306,
+          "end": 368,
+          "source_sha256": "11e18136d520830d526eec679e955254299f7aedfd0d902c4e4b021f3ec72c5a"
+        }
+      ],
+      "tags": [
+        "model size",
+        "11 billion",
+        "parameters",
+        "scaling"
+      ],
+      "metrics": [
+        "parameter_count"
+      ],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "t5cbqa.masking",
+      "paper_id": "t5cbqa",
+      "facets": [
+        "training"
+      ],
+      "text": "The study also continues pre-training with salient span masking before QA fine-tuning. It masks named entities and dates in mined Wikipedia sentences, aiming to focus training on information that requires world knowledge.",
+      "evidence": [
+        {
+          "source_id": "t5cbqa:s0011",
+          "quote": "This approach first uses BERT (Devlin et al., 2018) to mine sentences that contain salient spans (named entities and dates) from Wikipedia.",
+          "start": 1013,
+          "end": 1152,
+          "source_sha256": "d5f57a7504ddd67475cb38cb2da85bff137d6292f8f723ad5aee3970dba1634b"
+        },
+        {
+          "source_id": "t5cbqa:s0011",
+          "quote": "We experimented with using the same SSM data and objective to continue pretraining the T5 checkpoints for 100,000 additional steps before fine-tuning for question answering.",
+          "start": 1358,
+          "end": 1531,
+          "source_sha256": "d5f57a7504ddd67475cb38cb2da85bff137d6292f8f723ad5aee3970dba1634b"
+        }
+      ],
+      "tags": [
+        "salient span masking",
+        "SSM",
+        "pretraining",
+        "Wikipedia"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "ragsurvey.taxonomy",
+      "paper_id": "ragsurvey",
+      "facets": [
+        "purpose",
+        "evaluation"
+      ],
+      "text": "The survey organises retrieval-augmented generation into Naive, Advanced and Modular RAG, and reviews retrieval, generation and augmentation techniques. It is a survey of multiple approaches rather than one directly comparable trained model.",
+      "evidence": [
+        {
+          "source_id": "ragsurvey:s0000",
+          "quote": "This comprehensive review paper offers a detailed examination of the progression of RAG paradigms, encompassing the Naive RAG, the Advanced RAG, and the Modular RAG.",
+          "start": 1044,
+          "end": 1209,
+          "source_sha256": "d58981760354a922b1109af5353b3245b5ee293e2a5f157bc0e73afdb69cb2c2"
+        },
+        {
+          "source_id": "ragsurvey:s0000",
+          "quote": "It meticulously scrutinizes the tripartite foundation of RAG frameworks, which includes the retrieval, the generation and the augmentation techniques.",
+          "start": 1210,
+          "end": 1360,
+          "source_sha256": "d58981760354a922b1109af5353b3245b5ee293e2a5f157bc0e73afdb69cb2c2"
+        }
+      ],
+      "tags": [
+        "survey",
+        "taxonomy",
+        "naive advanced modular",
+        "overview"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    },
+    {
+      "id": "ragsurvey.hyde",
+      "paper_id": "ragsurvey",
+      "facets": [
+        "retrieval",
+        "representation",
+        "inference"
+      ],
+      "text": "The survey describes hypothetical document embeddings (HyDE) as using generated hypothetical content to guide retrieval through embedding similarity with real documents. This description is supported here by the survey; the original HyDE paper is not one of the separately indexed primary papers in this corpus.",
+      "evidence": [
+        {
+          "source_id": "ragsurvey:s0010",
+          "quote": "Additionally, employing sub-queries and hypothetical document embeddings (HyDE) [11] seeks to improve retrieval relevance by focusing on embedding similarities between generated answers and real documents.",
+          "start": 1605,
+          "end": 1810,
+          "source_sha256": "ec1d9bfd0df002a81c8c97ed9d731fb4a6947ebfa40a35f108c3b876bf6abfa1"
+        }
+      ],
+      "tags": [
+        "HyDE",
+        "hypothetical document",
+        "zero shot dense retrieval",
+        "generated answers"
+      ],
+      "metrics": [],
+      "author": "Language-model drafting with source-based development checks; independent human review pending",
+      "independent_human_review": "pending"
+    }
+  ]
+}

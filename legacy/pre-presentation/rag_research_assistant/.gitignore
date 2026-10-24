@@ -1,0 +1,5 @@
+# arXiv licences generally do not permit redistribution: commit the lock file, not the PDFs
+corpus/pdfs/
+data/
+__pycache__/
+.pytest_cache/

@@ -1,0 +1,4620 @@
+{
+  "derivation": {
+    "source_filename": "9hEOJ49W - case-study-wil-project-24.json",
+    "source_sha256": "78210b12382d49f1aac22be6709649c32be575531cffde5de1f6ad1469cb8194",
+    "purpose": "Project-evidence subset; excludes private profile metadata, card email addresses, background URLs and invite records.",
+    "original_not_modified": true,
+    "record_dates_preserved": true
+  },
+  "board": {
+    "id": "6a8a733f02646c624f70000b",
+    "name": "case study wil project 24",
+    "desc": "",
+    "url": "https://trello.com/b/9hEOJ49W/case-study-wil-project-24",
+    "dateLastActivity": "2026-10-02T05:44:57.589Z"
+  },
+  "members": [
+    {
+      "id": "69f046760f704a16f1397835",
+      "name": "Amritpal Singh Gill"
+    },
+    {
+      "id": "6a8a7db99834862154efa09e",
+      "name": "Chetan Bera"
+    },
+    {
+      "id": "69f046499d99c73a38aa00f3",
+      "name": "Deboprio Saha Argha"
+    },
+    {
+      "id": "69ef272612a30c3cbb0fc446",
+      "name": "Dhanush Sridhar"
+    },
+    {
+      "id": "69ef2b3da13373f826c97f28",
+      "name": "Imranjit Singh Kohli"
+    },
+    {
+      "id": "69e08a62e7e4f61d19c27a51",
+      "name": "Qiling Huang"
+    }
+  ],
+  "lists": [
+    {
+      "id": "6a8a868f0cbd838332708c9e",
+      "name": "To-Do",
+      "closed": false
+    },
+    {
+      "id": "6a8a869f4d7a16d92acb877e",
+      "name": "In-Progress",
+      "closed": false
+    },
+    {
+      "id": "6a8a86aacfafa9e493867181",
+      "name": "Blocked",
+      "closed": false
+    },
+    {
+      "id": "6a8a86ad0aa6070260c9f607",
+      "name": "Done",
+      "closed": false
+    }
+  ],
+  "cards": [
+    {
+      "id": "6abf39a267de30b843b6b954",
+      "number": 7,
+      "name": "S3. Validate routing on held-out questions - Deboprio",
+      "description": "Sprint 3 · 29 Sep–5 Oct 2026\n\nWrite a separate question set that wasn't used when designing +route, with evidence quotes, and re-run the evaluation to check the gain holds. Also investigate why MRR dropped (0.42 → 0.32).",
+      "list": "To-Do",
+      "closed": false,
+      "assigned_members": [
+        "Deboprio Saha Argha"
+      ],
+      "labels": [
+        "Sprint 3 | 29 Sep–5 Oct"
+      ],
+      "last_activity": "2026-10-02T05:42:17.523Z",
+      "completed_at": null,
+      "due_complete": false,
+      "url": "https://trello.com/c/5NVyRkpe"
+    },
+    {
+      "id": "6abf39dd94da1f263f5b8917",
+      "number": 8,
+      "name": "S3. Fix remaining extraction issues - Imranjit",
+      "description": "Sprint 3 · 29 Sep–5 Oct 2026\n\nStill open: garbled equations (DPR loss), a ColBERT font that drops the \"u\" in \"Query\" (\"Qery\"), and \"dual-encoder\" joined to \"dualencoder\" by the hyphen repair.",
+      "list": "To-Do",
+      "closed": false,
+      "assigned_members": [
+        "Imranjit Singh Kohli"
+      ],
+      "labels": [
+        "Sprint 3 | 29 Sep–5 Oct"
+      ],
+      "last_activity": "2026-10-02T05:42:06.696Z",
+      "completed_at": null,
+      "due_complete": false,
+      "url": "https://trello.com/c/q1pSCLpW"
+    },
+    {
+      "id": "6a8a88fa6368de83977ad0b3",
+      "number": 5,
+      "name": "S3. Milestone 2 report assembly - Chetan",
+      "description": "Sprint 3 · 29 Sep–5 Oct 2026\n\nPull together results, error analysis and team contributions for the next report.",
+      "list": "In-Progress",
+      "closed": false,
+      "assigned_members": [
+        "Chetan Bera"
+      ],
+      "labels": [
+        "Sprint 3 | 29 Sep–5 Oct"
+      ],
+      "last_activity": "2026-10-02T05:43:13.840Z",
+      "completed_at": null,
+      "due_complete": false,
+      "url": "https://trello.com/c/3iy2Yiu4"
+    },
+    {
+      "id": "6a8a884cb9682cc1a885d8dd",
+      "number": 3,
+      "name": "S3. Push experiment commits to GitHub - Amritpal",
+      "description": "Sprint 3 · 29 Sep–5 Oct 2026\n\nBlocked: GitHub refused the push with a 403 (access/permissions error), so retrying won't help.\nThe 3 experiment commits are saved in a git bundle file (rag-branch.bundle).\nTo unblock: fix the repository access permissions, or a team member pushes the bundle from their own clone.\nTeam decision: TEAM TO FILL IN, with the date.",
+      "list": "Blocked",
+      "closed": false,
+      "assigned_members": [
+        "Amritpal Singh Gill"
+      ],
+      "labels": [
+        "Sprint 3 | 29 Sep–5 Oct",
+        "Blocked"
+      ],
+      "last_activity": "2026-10-02T05:43:19.038Z",
+      "completed_at": null,
+      "due_complete": false,
+      "url": "https://trello.com/c/ZfUR6Pf7"
+    },
+    {
+      "id": "6abf3a7fad63480fb41f6d50",
+      "number": 9,
+      "name": "S3. Run RAG answer-generation experiment - Dhanush",
+      "description": "Sprint 3 · 29 Sep–5 Oct 2026\n\nWhat: the \"generation\" step of the RAG pipeline. A language model writes each answer from the retrieved passages, and every sentence must cite a passage or reply INSUFFICIENT_EVIDENCE.\n\nBlocked: the model API needs an access key, and the team doesn't have one yet.\n\nTeam decision: keep evaluating with the extractive generator so the sprint wasn't held up, and run this experiment once a key is available.\n\nOnce unblocked: re-run the evaluation with model-written answers on the baseline (fixed-200/bm25) and the best setup (fixed-400/hybrid+route). Compare citation support, currently 0.16–0.25 with the extractive generator, and faithfulness.",
+      "list": "Blocked",
+      "closed": false,
+      "assigned_members": [
+        "Dhanush Sridhar"
+      ],
+      "labels": [
+        "Blocked",
+        "Sprint 3 | 29 Sep–5 Oct"
+      ],
+      "last_activity": "2026-10-02T05:43:23.253Z",
+      "completed_at": null,
+      "due_complete": false,
+      "url": "https://trello.com/c/5ghu2L5s"
+    },
+    {
+      "id": "6a8a86c2d7c6fcb7c9fc0dd0",
+      "number": 1,
+      "name": "GitHub Repo",
+      "description": "",
+      "list": "Done",
+      "closed": false,
+      "assigned_members": [],
+      "labels": [],
+      "last_activity": "2026-08-23T05:36:04.367Z",
+      "completed_at": "2026-08-23T05:36:04.366Z",
+      "due_complete": true,
+      "url": "https://trello.com/c/KYWPhJgp"
+    },
+    {
+      "id": "6a8a86fbf9dd6dc1e340cf2b",
+      "number": 2,
+      "name": "Python Setup",
+      "description": "",
+      "list": "Done",
+      "closed": false,
+      "assigned_members": [],
+      "labels": [],
+      "last_activity": "2026-08-23T05:37:05.434Z",
+      "completed_at": "2026-08-23T05:37:05.433Z",
+      "due_complete": true,
+      "url": "https://trello.com/c/ni2TrJUS"
+    },
+    {
+      "id": "6a8a8857ae4c646fd9b68869",
+      "number": 4,
+      "name": "Final report assembly",
+      "description": "",
+      "list": "Done",
+      "closed": false,
+      "assigned_members": [],
+      "labels": [],
+      "last_activity": "2026-10-02T05:02:10.592Z",
+      "completed_at": "2026-08-23T12:41:39.398Z",
+      "due_complete": true,
+      "url": "https://trello.com/c/sPd9ug5O"
+    },
+    {
+      "id": "6a8a8960fe8d403a59f9fcbf",
+      "number": 6,
+      "name": "S1. Role allocation & sprint planning -Chetan",
+      "description": "Sprint 1 · 15–21 Sep 2026 (Week 6: corpus + baseline)\n\nAllocated roles across leadership, data engineering, ML, app development, DevOps/docs and QA/evaluation. Agreed the 3-week plan and the Walert baseline as the first technical task.",
+      "list": "Done",
+      "closed": false,
+      "assigned_members": [
+        "Chetan Bera"
+      ],
+      "labels": [
+        "Sprint 1 | 15 - 21 Sep"
+      ],
+      "last_activity": "2026-10-02T05:43:27.934Z",
+      "completed_at": null,
+      "due_complete": false,
+      "url": "https://trello.com/c/hXqujxkQ"
+    },
+    {
+      "id": "6abf3aed00bbf9c224014a01",
+      "number": 10,
+      "name": "S1 · GitHub repo + Python environment setup - Amritpal",
+      "description": "Sprint 1 · 15–21 Sep 2026\n\nPrivate repo: [https://github.com/S4173926/case-study-wil-project-24Connect](https://github.com/S4173926/case-study-wil-project-24Connect \"smartCard-inline\")  your Github account\nRepository structure, requirements.txt, .gitignore and environment setup.",
+      "list": "Done",
+      "closed": false,
+      "assigned_members": [
+        "Amritpal Singh Gill"
+      ],
+      "labels": [
+        "Sprint 1 | 15 - 21 Sep"
+      ],
+      "last_activity": "2026-10-02T05:43:33.736Z",
+      "completed_at": null,
+      "due_complete": false,
+      "url": "https://trello.com/c/QEt1M2vm"
+    },
+    {
+      "id": "6abf3b0eb8243710200740d1",
+      "number": 11,
+      "name": "S1. Data sourcing: select & version 8-paper corpus - Imranjit",
+      "description": "Sprint 1 · 15–21 Sep 2026\n\n8 open-access arXiv papers on retrieval-augmented QA: Walert, RAG, DPR, ColBERT, Fusion-in-Decoder, REALM, RAGAS, Self-RAG. Each download checked by title; arXiv version and SHA-256 recorded in corpus.lock.json.\nCorpus version: 17baac618aa0",
+      "list": "Done",
+      "closed": false,
+      "assigned_members": [
+        "Imranjit Singh Kohli"
+      ],
+      "labels": [
+        "Sprint 1 | 15 - 21 Sep"
+      ],
+      "last_activity": "2026-10-02T05:43:37.656Z",
+      "completed_at": null,
+      "due_complete": false,
+      "url": "https://trello.com/c/lAUo2BDm"
+    },
+    {
+      "id": "6abf3b2dc0cc511f034cd57d",
+      "number": 12,
+      "name": "S1. Build ground-truth question set (24 Qs) - Deboprio",
+      "description": "Sprint 1 · 15–21 Sep 2026\n\n24 questions in eval/questions.jsonl, written before any tuning:\n\n13 single-paper questions\n\n4 cross-paper comparisons\n\n7 unsupported questions the system should decline (e.g. \"How does GraphRAG build community summaries?\")\n\nEach answerable question lists its expected paper(s) and a verbatim evidence quote.",
+      "list": "Done",
+      "closed": false,
+      "assigned_members": [
+        "Deboprio Saha Argha"
+      ],
+      "labels": [
+        "Sprint 1 | 15 - 21 Sep"
+      ],
+      "last_activity": "2026-10-02T05:43:42.596Z",
+      "completed_at": null,
+      "due_complete": false,
+      "url": "https://trello.com/c/G3aceknu"
+    },
+    {
+      "id": "6abf3b4e787302d952774443",
+      "number": 13,
+      "name": "S1. RAG baseline: Walert-style 200-word + BM25 - Qiling",
+      "description": "Sprint 1 · 15–21 Sep 2026\n\nBaseline config fixed-200/bm25, following Walert's described setup (Okapi BM25, k1 = 1.2, b = 0.75, top-k 5). Walert indexed a FAQ knowledge base, so this is Walert-style.",
+      "list": "Done",
+      "closed": false,
+      "assigned_members": [
+        "Qiling Huang"
+      ],
+      "labels": [
+        "Sprint 1 | 15 - 21 Sep"
+      ],
+      "last_activity": "2026-10-02T05:43:48.095Z",
+      "completed_at": null,
+      "due_complete": false,
+      "url": "https://trello.com/c/soSv6Yfd"
+    },
+    {
+      "id": "6abf3b66c45a642ee2a7210b",
+      "number": 14,
+      "name": "S1. Command-line skeleton (fetch / ingest / ask) - Dhanush",
+      "description": "Sprint 1 · 15–21 Sep 2026\n\nrra/cli.py with commands: fetch, ingest, validate, experiment, report, ask.",
+      "list": "Done",
+      "closed": false,
+      "assigned_members": [
+        "Dhanush Sridhar"
+      ],
+      "labels": [
+        "Sprint 1 | 15 - 21 Sep"
+      ],
+      "last_activity": "2026-10-02T05:43:55.963Z",
+      "completed_at": null,
+      "due_complete": false,
+      "url": "https://trello.com/c/3gPzlqgT"
+    },
+    {
+      "id": "6abf3b84c7cecdb02e08b193",
+      "number": 15,
+      "name": "S2. PDF ingestion & text cleaning - Imranjit",
+      "description": "Sprint 2 · 22–28 Sep 2026 (Week 7: RAG prototype + experiments)\n\nTwo-column reading order; removes headers, footers, page numbers, references, footnotes and figure labels; repairs hyphenation; detects section headings.\nFixed: affiliations read as headings, abstract read after intro, figure labels mid-sentence.",
+      "list": "Done",
+      "closed": false,
+      "assigned_members": [
+        "Imranjit Singh Kohli"
+      ],
+      "labels": [
+        "Sprint 2 | 22 - 28 Sep"
+      ],
+      "last_activity": "2026-10-02T05:44:02.331Z",
+      "completed_at": null,
+      "due_complete": false,
+      "url": "https://trello.com/c/IIOqNHfv"
+    },
+    {
+      "id": "6abf3ba5c5f22303cf46f3dd",
+      "number": 16,
+      "name": "S2. Implement 4 chunking strategies - Imranjit",
+      "description": "Sprint 2 · 22–28 Sep 2026\n\nfixed-200, fixed-400, sentence-150 and section-150 chunkers (rra/chunking.py).",
+      "list": "Done",
+      "closed": false,
+      "assigned_members": [
+        "Imranjit Singh Kohli"
+      ],
+      "labels": [
+        "Sprint 2 | 22 - 28 Sep"
+      ],
+      "last_activity": "2026-10-02T05:44:12.685Z",
+      "completed_at": null,
+      "due_complete": false,
+      "url": "https://trello.com/c/vEcAH0Tj"
+    },
+    {
+      "id": "6abf3bbdafba67279bf0f3c4",
+      "number": 17,
+      "name": "S2. Validate extracted evidence - Deboprio",
+      "description": "print 2 · 22–28 Sep 2026\n\nvalidate command: stops a run if any ground-truth evidence quote no longer appears in the ingested text. Catches PDF-extraction regressions and wrong ground-truth entries. All quotes validate against corpus 17baac618aa0.",
+      "list": "Done",
+      "closed": false,
+      "assigned_members": [
+        "Deboprio Saha Argha"
+      ],
+      "labels": [
+        "Sprint 2 | 22 - 28 Sep"
+      ],
+      "last_activity": "2026-10-02T05:44:16.790Z",
+      "completed_at": null,
+      "due_complete": false,
+      "url": "https://trello.com/c/dItUNYiG"
+    },
+    {
+      "id": "6abf3bde891dc76428ff6a01",
+      "number": 18,
+      "name": "S2. Define evaluation metrics - Deboprio",
+      "description": "Sprint 2 · 22–28 Sep 2026\n\nRecall@5, MRR, paper recall@5, citation precision, citation support, faithfulness, unsupported flagged / false abstain.\nError labels: retrieval\\_miss, wrong\\_paper\\_cited, unfaithful\\_sentence, comparison\\_incomplete, false\\_abstain, answered_unsupported.",
+      "list": "Done",
+      "closed": false,
+      "assigned_members": [
+        "Deboprio Saha Argha"
+      ],
+      "labels": [
+        "Sprint 2 | 22 - 28 Sep"
+      ],
+      "last_activity": "2026-10-02T05:44:21.249Z",
+      "completed_at": null,
+      "due_complete": false,
+      "url": "https://trello.com/c/EY2CR9Ib"
+    },
+    {
+      "id": "6abf3bfe0c24845dfd345578",
+      "number": 19,
+      "name": "S2. Retrieval methods: BM25, TF-IDF, dense, hybrid - Qiling",
+      "description": "Sprint 2 · 22–28 Sep 2026\n\n4 retrievers in rra/retrieval.py. Hybrid uses reciprocal rank fusion of BM25 and dense. Dense uses sentence-transformers (MiniLM), with an offline LSA fallback.",
+      "list": "Done",
+      "closed": false,
+      "assigned_members": [
+        "Qiling Huang"
+      ],
+      "labels": [
+        "Sprint 2 | 22 - 28 Sep"
+      ],
+      "last_activity": "2026-10-02T05:44:25.490Z",
+      "completed_at": null,
+      "due_complete": false,
+      "url": "https://trello.com/c/A850ZjEN"
+    },
+    {
+      "id": "6abf3c1985b622337e084911",
+      "number": 20,
+      "name": "S2. Cited-answer generator + INSUFFICIENT_EVIDENCE gate - Dhanush",
+      "description": "Sprint 2 · 22–28 Sep 2026\n\nEvery answer sentence cites its source chunk, e.g. [dpr:11]. Replies INSUFFICIENT_EVIDENCE when retrieved passages don't cover the question.\nTwo generation modes:\n\nExtractive (offline): copies the best-matching retrieved sentences. Done, and used for all current results.\n\nLanguage-model generation: writes the answer from the same passages under the same citation rules. Set up but not yet run (see Blocked).",
+      "list": "Done",
+      "closed": false,
+      "assigned_members": [
+        "Dhanush Sridhar"
+      ],
+      "labels": [
+        "Sprint 2 | 22 - 28 Sep"
+      ],
+      "last_activity": "2026-10-02T05:44:30.569Z",
+      "completed_at": null,
+      "due_complete": false,
+      "url": "https://trello.com/c/rYiMQjMV"
+    },
+    {
+      "id": "6abf3c3e880b81ac175df4ef",
+      "number": 21,
+      "name": "S2. Pipeline tests & run instructions - Amritpal",
+      "description": "Sprint 2 · 22–28 Sep 2026\n\ntests/test_pipeline.py runs on synthetic PDFs without network. README documents every command.",
+      "list": "Done",
+      "closed": false,
+      "assigned_members": [
+        "Amritpal Singh Gill"
+      ],
+      "labels": [
+        "Sprint 2 | 22 - 28 Sep"
+      ],
+      "last_activity": "2026-10-02T05:44:35.773Z",
+      "completed_at": null,
+      "due_complete": false,
+      "url": "https://trello.com/c/Fr6RPthV"
+    },
+    {
+      "id": "6abf3c5de1d6531509d91b44",
+      "number": 22,
+      "name": "S2. Sprint 2 review & retrospective - Chetan",
+      "description": "Sprint 2 · 22–28 Sep 2026\n\nPlanning: 22 Sep 2026. Split the Week 7 prototype into tasks: ingestion/chunking, retrieval, answer generation and evaluation.\nStand-ups: no formal daily stand-ups. The team shared quick progress updates as tasks finished.\nReview: 26 Sep 2026. Compared BM25, TF-IDF, dense and hybrid retrieval against the Walert-style baseline.\nDecision at review: test all 20 chunking × retrieval combinations (carried into Sprint 3).\nRetrospective: the validation check paid off by catching extraction errors early. Working dates weren't recorded, so the team now updates Trello as tasks happen.",
+      "list": "Done",
+      "closed": false,
+      "assigned_members": [
+        "Chetan Bera"
+      ],
+      "labels": [
+        "Sprint 2 | 22 - 28 Sep"
+      ],
+      "last_activity": "2026-10-02T05:44:39.214Z",
+      "completed_at": null,
+      "due_complete": false,
+      "url": "https://trello.com/c/ieoAREKF"
+    },
+    {
+      "id": "6abf3c8628faf05e6dc2f4fb",
+      "number": 23,
+      "name": "S3. Evaluate all 20 retrieval configurations - Deboprio",
+      "description": "Sprint 3 · 29 Sep–5 Oct 2026 (Week 8: evaluation + refinement)\n\nEvaluation run 20260929-074348 UTC (29 Sep 2026, about 17:43 Melbourne time) on corpus 17baac618aa0, k = 5. Results in results/latest.json and results/report.html.\n\n| | Baseline fixed-200/bm25 | Best fixed-400/hybrid+route |\n|---|---|---|\n| Recall@5 | 0.59 | 0.71 |\n| MRR | 0.42 | 0.32 |\n| Citation precision | 0.81 | 1.00 |\n| Unsupported declined | 6/7 | 7/7 |",
+      "list": "Done",
+      "closed": false,
+      "assigned_members": [
+        "Deboprio Saha Argha"
+      ],
+      "labels": [
+        "Sprint 3 | 29 Sep–5 Oct"
+      ],
+      "last_activity": "2026-10-02T05:44:43.572Z",
+      "completed_at": null,
+      "due_complete": false,
+      "url": "https://trello.com/c/1a1PpfSQ"
+    },
+    {
+      "id": "6abf3ca6c867e3e90804d361",
+      "number": 24,
+      "name": "S3. Analyse retrieval failures - Deboprio",
+      "description": "Sprint 3 · 29 Sep–5 Oct 2026\n\nEvery failure labelled (retrieval\\_miss, wrong\\_paper_cited, and others).\nMain finding: wrong-paper retrieval. Shared words like \"retrieval\" and \"RAG\" outweighed the paper named in the question (e.g. RAG chunks outranked Walert's for a Walert question). Comparison questions often retrieved only one of their two papers.\nOther findings: dense (MiniLM) alone weakest (Recall@5 0.35–0.47); bigger chunks inflate recall; remaining misses mostly vocabulary mismatch.",
+      "list": "Done",
+      "closed": false,
+      "assigned_members": [
+        "Deboprio Saha Argha"
+      ],
+      "labels": [
+        "Sprint 3 | 29 Sep–5 Oct"
+      ],
+      "last_activity": "2026-10-02T05:44:48.657Z",
+      "completed_at": null,
+      "due_complete": false,
+      "url": "https://trello.com/c/En0nCv0t"
+    },
+    {
+      "id": "6abf3cc8b7dc9007aefd356e",
+      "number": 25,
+      "name": "S3. Paper-aware routing (+route) - Qiling",
+      "description": "Sprint 3 · 29 Sep–5 Oct 2026\n\nretrieval.PaperRouter shares the top-k slots among the papers a question names. Raised citation precision to 1.00 for every chunker; Recall@5 0.59 → 0.71 vs baseline.\nCaveat: designed after seeing failures on the same 24 questions, so it needs confirming on a held-out set (see To Do).",
+      "list": "Done",
+      "closed": false,
+      "assigned_members": [
+        "Qiling Huang"
+      ],
+      "labels": [
+        "Sprint 3 | 29 Sep–5 Oct"
+      ],
+      "last_activity": "2026-10-02T05:44:53.615Z",
+      "completed_at": null,
+      "due_complete": false,
+      "url": "https://trello.com/c/lO3pR08W"
+    },
+    {
+      "id": "6abf3d28e33465d5de3a04c0",
+      "number": 26,
+      "name": "S3. Publish evaluation report - Amritpal",
+      "description": "Sprint 3 · 29 Sep–5 Oct 2026\n\nresults/report.html, published as \"Paper-Grounded RAG Evaluation\": full grid of results and every per-question answer.",
+      "list": "Done",
+      "closed": false,
+      "assigned_members": [
+        "Amritpal Singh Gill"
+      ],
+      "labels": [
+        "Sprint 3 | 29 Sep–5 Oct"
+      ],
+      "last_activity": "2026-10-02T05:44:57.589Z",
+      "completed_at": null,
+      "due_complete": false,
+      "url": "https://trello.com/c/R5WSedTP"
+    }
+  ],
+  "actions": [
+    {
+      "id": "6abf44d929f1089b04b2a016",
+      "type": "addMemberToCard",
+      "date": "2026-10-02T05:44:57.605Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "idMember": "69f046760f704a16f1397835",
+        "card": {
+          "id": "6abf3d28e33465d5de3a04c0",
+          "name": "S3. Publish evaluation report - Amritpal",
+          "idShort": 26,
+          "shortLink": "R5WSedTP"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "member": {
+          "id": "69f046760f704a16f1397835",
+          "name": "Amritpal Singh Gill"
+        }
+      }
+    },
+    {
+      "id": "6abf44d530723a97a3af2563",
+      "type": "addMemberToCard",
+      "date": "2026-10-02T05:44:53.630Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "idMember": "69e08a62e7e4f61d19c27a51",
+        "card": {
+          "id": "6abf3cc8b7dc9007aefd356e",
+          "name": "S3. Paper-aware routing (+route) - Qiling",
+          "idShort": 25,
+          "shortLink": "lO3pR08W"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "member": {
+          "id": "69e08a62e7e4f61d19c27a51",
+          "name": "Qiling Huang"
+        }
+      }
+    },
+    {
+      "id": "6abf44d0485833efa113749b",
+      "type": "addMemberToCard",
+      "date": "2026-10-02T05:44:48.673Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "idMember": "69f046499d99c73a38aa00f3",
+        "card": {
+          "id": "6abf3ca6c867e3e90804d361",
+          "name": "S3. Analyse retrieval failures - Deboprio",
+          "idShort": 24,
+          "shortLink": "En0nCv0t"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "member": {
+          "id": "69f046499d99c73a38aa00f3",
+          "name": "Deboprio Saha Argha"
+        }
+      }
+    },
+    {
+      "id": "6abf44cb31728bc93db29bad",
+      "type": "addMemberToCard",
+      "date": "2026-10-02T05:44:43.589Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "idMember": "69f046499d99c73a38aa00f3",
+        "card": {
+          "id": "6abf3c8628faf05e6dc2f4fb",
+          "name": "S3. Evaluate all 20 retrieval configurations - Deboprio",
+          "idShort": 23,
+          "shortLink": "1a1PpfSQ"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "member": {
+          "id": "69f046499d99c73a38aa00f3",
+          "name": "Deboprio Saha Argha"
+        }
+      }
+    },
+    {
+      "id": "6abf44c7bb29cfdb6541b944",
+      "type": "addMemberToCard",
+      "date": "2026-10-02T05:44:39.231Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "idMember": "6a8a7db99834862154efa09e",
+        "card": {
+          "id": "6abf3c5de1d6531509d91b44",
+          "name": "S2. Sprint 2 review & retrospective - Chetan",
+          "idShort": 22,
+          "shortLink": "ieoAREKF"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "member": {
+          "id": "6a8a7db99834862154efa09e",
+          "name": "Chetan Bera"
+        }
+      }
+    },
+    {
+      "id": "6abf44c3393a257c0ad55b1a",
+      "type": "addMemberToCard",
+      "date": "2026-10-02T05:44:35.794Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "idMember": "69f046760f704a16f1397835",
+        "card": {
+          "id": "6abf3c3e880b81ac175df4ef",
+          "name": "S2. Pipeline tests & run instructions - Amritpal",
+          "idShort": 21,
+          "shortLink": "Fr6RPthV"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "member": {
+          "id": "69f046760f704a16f1397835",
+          "name": "Amritpal Singh Gill"
+        }
+      }
+    },
+    {
+      "id": "6abf44be1862060cde04b08e",
+      "type": "addMemberToCard",
+      "date": "2026-10-02T05:44:30.585Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "idMember": "69ef272612a30c3cbb0fc446",
+        "card": {
+          "id": "6abf3c1985b622337e084911",
+          "name": "S2. Cited-answer generator + INSUFFICIENT_EVIDENCE gate - Dhanush",
+          "idShort": 20,
+          "shortLink": "rYiMQjMV"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "member": {
+          "id": "69ef272612a30c3cbb0fc446",
+          "name": "Dhanush Sridhar"
+        }
+      }
+    },
+    {
+      "id": "6abf44b9298c9a91333ee995",
+      "type": "addMemberToCard",
+      "date": "2026-10-02T05:44:25.507Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "idMember": "69e08a62e7e4f61d19c27a51",
+        "card": {
+          "id": "6abf3bfe0c24845dfd345578",
+          "name": "S2. Retrieval methods: BM25, TF-IDF, dense, hybrid - Qiling",
+          "idShort": 19,
+          "shortLink": "A850ZjEN"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "member": {
+          "id": "69e08a62e7e4f61d19c27a51",
+          "name": "Qiling Huang"
+        }
+      }
+    },
+    {
+      "id": "6abf44b5d1158ba71a5f8df2",
+      "type": "addMemberToCard",
+      "date": "2026-10-02T05:44:21.270Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "idMember": "69f046499d99c73a38aa00f3",
+        "card": {
+          "id": "6abf3bde891dc76428ff6a01",
+          "name": "S2. Define evaluation metrics - Deboprio",
+          "idShort": 18,
+          "shortLink": "EY2CR9Ib"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "member": {
+          "id": "69f046499d99c73a38aa00f3",
+          "name": "Deboprio Saha Argha"
+        }
+      }
+    },
+    {
+      "id": "6abf44b00ddf1ee6de7a4039",
+      "type": "addMemberToCard",
+      "date": "2026-10-02T05:44:16.806Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "idMember": "69f046499d99c73a38aa00f3",
+        "card": {
+          "id": "6abf3bbdafba67279bf0f3c4",
+          "name": "S2. Validate extracted evidence - Deboprio",
+          "idShort": 17,
+          "shortLink": "dItUNYiG"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "member": {
+          "id": "69f046499d99c73a38aa00f3",
+          "name": "Deboprio Saha Argha"
+        }
+      }
+    },
+    {
+      "id": "6abf44ac9cb6cf963d5aff69",
+      "type": "addMemberToCard",
+      "date": "2026-10-02T05:44:12.699Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "idMember": "69ef2b3da13373f826c97f28",
+        "card": {
+          "id": "6abf3ba5c5f22303cf46f3dd",
+          "name": "S2. Implement 4 chunking strategies - Imranjit",
+          "idShort": 16,
+          "shortLink": "vEcAH0Tj"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "member": {
+          "id": "69ef2b3da13373f826c97f28",
+          "name": "Imranjit Singh Kohli"
+        }
+      }
+    },
+    {
+      "id": "6abf44a2012f445fcf301556",
+      "type": "addMemberToCard",
+      "date": "2026-10-02T05:44:02.342Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "idMember": "69ef2b3da13373f826c97f28",
+        "card": {
+          "id": "6abf3b84c7cecdb02e08b193",
+          "name": "S2. PDF ingestion & text cleaning - Imranjit",
+          "idShort": 15,
+          "shortLink": "IIOqNHfv"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "member": {
+          "id": "69ef2b3da13373f826c97f28",
+          "name": "Imranjit Singh Kohli"
+        }
+      }
+    },
+    {
+      "id": "6abf449bb7c6d3589359e0a0",
+      "type": "addMemberToCard",
+      "date": "2026-10-02T05:43:55.979Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "idMember": "69ef272612a30c3cbb0fc446",
+        "card": {
+          "id": "6abf3b66c45a642ee2a7210b",
+          "name": "S1. Command-line skeleton (fetch / ingest / ask) - Dhanush",
+          "idShort": 14,
+          "shortLink": "3gPzlqgT"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "member": {
+          "id": "69ef272612a30c3cbb0fc446",
+          "name": "Dhanush Sridhar"
+        }
+      }
+    },
+    {
+      "id": "6abf449473cba802b48f2136",
+      "type": "addMemberToCard",
+      "date": "2026-10-02T05:43:48.112Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "idMember": "69e08a62e7e4f61d19c27a51",
+        "card": {
+          "id": "6abf3b4e787302d952774443",
+          "name": "S1. RAG baseline: Walert-style 200-word + BM25 - Qiling",
+          "idShort": 13,
+          "shortLink": "soSv6Yfd"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "member": {
+          "id": "69e08a62e7e4f61d19c27a51",
+          "name": "Qiling Huang"
+        }
+      }
+    },
+    {
+      "id": "6abf448e253de8f1b358dad0",
+      "type": "addMemberToCard",
+      "date": "2026-10-02T05:43:42.610Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "idMember": "69f046499d99c73a38aa00f3",
+        "card": {
+          "id": "6abf3b2dc0cc511f034cd57d",
+          "name": "S1. Build ground-truth question set (24 Qs) - Deboprio",
+          "idShort": 12,
+          "shortLink": "G3aceknu"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "member": {
+          "id": "69f046499d99c73a38aa00f3",
+          "name": "Deboprio Saha Argha"
+        }
+      }
+    },
+    {
+      "id": "6abf4489b703b98294b078a6",
+      "type": "addMemberToCard",
+      "date": "2026-10-02T05:43:37.667Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "idMember": "69ef2b3da13373f826c97f28",
+        "card": {
+          "id": "6abf3b0eb8243710200740d1",
+          "name": "S1. Data sourcing: select & version 8-paper corpus - Imranjit",
+          "idShort": 11,
+          "shortLink": "lAUo2BDm"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "member": {
+          "id": "69ef2b3da13373f826c97f28",
+          "name": "Imranjit Singh Kohli"
+        }
+      }
+    },
+    {
+      "id": "6abf4485a1e9e9d8e0bb9f53",
+      "type": "addMemberToCard",
+      "date": "2026-10-02T05:43:33.757Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "idMember": "69f046760f704a16f1397835",
+        "card": {
+          "id": "6abf3aed00bbf9c224014a01",
+          "name": "S1 · GitHub repo + Python environment setup - Amritpal",
+          "idShort": 10,
+          "shortLink": "QEt1M2vm"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "member": {
+          "id": "69f046760f704a16f1397835",
+          "name": "Amritpal Singh Gill"
+        }
+      }
+    },
+    {
+      "id": "6abf447ff0d327addda027e5",
+      "type": "addMemberToCard",
+      "date": "2026-10-02T05:43:27.954Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "idMember": "6a8a7db99834862154efa09e",
+        "card": {
+          "id": "6a8a8960fe8d403a59f9fcbf",
+          "name": "S1. Role allocation & sprint planning -Chetan",
+          "idShort": 6,
+          "shortLink": "hXqujxkQ"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "member": {
+          "id": "6a8a7db99834862154efa09e",
+          "name": "Chetan Bera"
+        }
+      }
+    },
+    {
+      "id": "6abf447b75221f6a2eddab89",
+      "type": "addMemberToCard",
+      "date": "2026-10-02T05:43:23.268Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "idMember": "69ef272612a30c3cbb0fc446",
+        "card": {
+          "id": "6abf3a7fad63480fb41f6d50",
+          "name": "S3. Run RAG answer-generation experiment - Dhanush",
+          "idShort": 9,
+          "shortLink": "5ghu2L5s"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "member": {
+          "id": "69ef272612a30c3cbb0fc446",
+          "name": "Dhanush Sridhar"
+        }
+      }
+    },
+    {
+      "id": "6abf4477d0f71aaf169c55ca",
+      "type": "addMemberToCard",
+      "date": "2026-10-02T05:43:19.068Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "idMember": "69f046760f704a16f1397835",
+        "card": {
+          "id": "6a8a884cb9682cc1a885d8dd",
+          "name": "S3. Push experiment commits to GitHub - Amritpal",
+          "idShort": 3,
+          "shortLink": "ZfUR6Pf7"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "member": {
+          "id": "69f046760f704a16f1397835",
+          "name": "Amritpal Singh Gill"
+        }
+      }
+    },
+    {
+      "id": "6abf44717723d71f03ff7b5c",
+      "type": "addMemberToCard",
+      "date": "2026-10-02T05:43:13.859Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "idMember": "6a8a7db99834862154efa09e",
+        "card": {
+          "id": "6a8a88fa6368de83977ad0b3",
+          "name": "S3. Milestone 2 report assembly - Chetan",
+          "idShort": 5,
+          "shortLink": "3iy2Yiu4"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "member": {
+          "id": "6a8a7db99834862154efa09e",
+          "name": "Chetan Bera"
+        }
+      }
+    },
+    {
+      "id": "6abf443996d1d9c9cd11a7c5",
+      "type": "addMemberToCard",
+      "date": "2026-10-02T05:42:17.544Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "idMember": "69f046499d99c73a38aa00f3",
+        "card": {
+          "id": "6abf39a267de30b843b6b954",
+          "name": "S3. Validate routing on held-out questions - Deboprio",
+          "idShort": 7,
+          "shortLink": "5NVyRkpe"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "member": {
+          "id": "69f046499d99c73a38aa00f3",
+          "name": "Deboprio Saha Argha"
+        }
+      }
+    },
+    {
+      "id": "6abf442e0968b2ad213e8d59",
+      "type": "addMemberToCard",
+      "date": "2026-10-02T05:42:06.706Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "idMember": "69ef2b3da13373f826c97f28",
+        "card": {
+          "id": "6abf39dd94da1f263f5b8917",
+          "name": "S3. Fix remaining extraction issues - Imranjit",
+          "idShort": 8,
+          "shortLink": "q1pSCLpW"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "member": {
+          "id": "69ef2b3da13373f826c97f28",
+          "name": "Imranjit Singh Kohli"
+        }
+      }
+    },
+    {
+      "id": "6abf44277fac2b0da7c05c03",
+      "type": "updateCard",
+      "date": "2026-10-02T05:41:59.867Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "dueComplete": true
+        },
+        "card": {
+          "dueComplete": false,
+          "id": "6abf39dd94da1f263f5b8917",
+          "name": "S3. Fix remaining extraction issues - Imranjit",
+          "idShort": 8,
+          "shortLink": "q1pSCLpW"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a868f0cbd838332708c9e",
+          "name": "To-Do"
+        }
+      }
+    },
+    {
+      "id": "6abf4427b60100be294377c2",
+      "type": "updateCard",
+      "date": "2026-10-02T05:41:59.014Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "dueComplete": false
+        },
+        "card": {
+          "dueComplete": true,
+          "dateCompleted": "2026-10-02T05:41:58.998Z",
+          "id": "6abf39dd94da1f263f5b8917",
+          "name": "S3. Fix remaining extraction issues - Imranjit",
+          "idShort": 8,
+          "shortLink": "q1pSCLpW"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a868f0cbd838332708c9e",
+          "name": "To-Do"
+        }
+      }
+    },
+    {
+      "id": "6abf4274b08ec0fcae59a4d0",
+      "type": "updateCard",
+      "date": "2026-10-02T05:34:44.929Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": "Sprint 3 · 29 Sep–5 Oct 2026\n\nWhat: the \"generation\" step of the RAG pipeline. A language model writes each answer from the retrieved passages, and every sentence must cite a passage or reply INSUFFICIENT_EVIDENCE.\n\nBlocked: the model API needs an access key, and the team doesn't have one yet.\n\nOnce unblocked: re-run the evaluation with model-written answers on the baseline (fixed-200/bm25) and the best setup (fixed-400/hybrid+route). Compare citation support, currently 0.16–0.25 with the extractive generator, and faithfulness.\n\nTeam decision: TEAM TO FILL IN, with the date."
+        },
+        "card": {
+          "desc": "Sprint 3 · 29 Sep–5 Oct 2026\n\nWhat: the \"generation\" step of the RAG pipeline. A language model writes each answer from the retrieved passages, and every sentence must cite a passage or reply INSUFFICIENT_EVIDENCE.\n\nBlocked: the model API needs an access key, and the team doesn't have one yet.\n\nTeam decision: keep evaluating with the extractive generator so the sprint wasn't held up, and run this experiment once a key is available.\n\nOnce unblocked: re-run the evaluation with model-written answers on the baseline (fixed-200/bm25) and the best setup (fixed-400/hybrid+route). Compare citation support, currently 0.16–0.25 with the extractive generator, and faithfulness.",
+          "id": "6abf3a7fad63480fb41f6d50",
+          "name": "S3. Run RAG answer-generation experiment - Dhanush",
+          "idShort": 9,
+          "shortLink": "5ghu2L5s"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86aacfafa9e493867181",
+          "name": "Blocked"
+        }
+      }
+    },
+    {
+      "id": "6abf4261badfab5165c3f34d",
+      "type": "updateCard",
+      "date": "2026-10-02T05:34:25.323Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": "Sprint 2 · 22–28 Sep 2026\n\nTEAM TO FILL IN: the date of the review/retro, how it was held (meeting, call, chat), and what was decided."
+        },
+        "card": {
+          "desc": "Sprint 2 · 22–28 Sep 2026\n\nPlanning: 22 Sep 2026. Split the Week 7 prototype into tasks: ingestion/chunking, retrieval, answer generation and evaluation.\nStand-ups: no formal daily stand-ups. The team shared quick progress updates as tasks finished.\nReview: 26 Sep 2026. Compared BM25, TF-IDF, dense and hybrid retrieval against the Walert-style baseline.\nDecision at review: test all 20 chunking × retrieval combinations (carried into Sprint 3).\nRetrospective: the validation check paid off by catching extraction errors early. Working dates weren't recorded, so the team now updates Trello as tasks happen.",
+          "id": "6abf3c5de1d6531509d91b44",
+          "name": "S2. Sprint 2 review & retrospective - Chetan",
+          "idShort": 22,
+          "shortLink": "ieoAREKF"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf421bf3431d371a3878db",
+      "type": "updateCard",
+      "date": "2026-10-02T05:33:15.415Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "name": "Fix remaining extraction issues - Imranjit"
+        },
+        "card": {
+          "name": "S3. Fix remaining extraction issues - Imranjit",
+          "id": "6abf39dd94da1f263f5b8917",
+          "idShort": 8,
+          "shortLink": "q1pSCLpW"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a868f0cbd838332708c9e",
+          "name": "To-Do"
+        }
+      }
+    },
+    {
+      "id": "6abf3e6397c6b2b2989175a8",
+      "type": "updateCard",
+      "date": "2026-10-02T05:17:23.447Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700028",
+            "6a8a733f02646c624f700029"
+          ],
+          "id": "6a8a884cb9682cc1a885d8dd",
+          "name": "S3. Push experiment commits to GitHub - Amritpal",
+          "idShort": 3,
+          "shortLink": "ZfUR6Pf7"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700028",
+            "6a8a733f02646c624f700029"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86aacfafa9e493867181",
+          "name": "Blocked"
+        }
+      }
+    },
+    {
+      "id": "6abf3e62c401a29beb8645bd",
+      "type": "updateCard",
+      "date": "2026-10-02T05:17:22.622Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700028"
+          ],
+          "id": "6a8a884cb9682cc1a885d8dd",
+          "name": "S3. Push experiment commits to GitHub - Amritpal",
+          "idShort": 3,
+          "shortLink": "ZfUR6Pf7"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700028"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86aacfafa9e493867181",
+          "name": "Blocked"
+        }
+      }
+    },
+    {
+      "id": "6abf3e0c438abfc2cede6a84",
+      "type": "updateCard",
+      "date": "2026-10-02T05:15:56.891Z",
+      "actor": "Deboprio Saha Argha",
+      "data": {
+        "old": {
+          "desc": "Sprint 2 · 22–28 Sep 2026\nOwner (by Milestone 1 role): Qiling Huang, ML Engineer. Confirm by assigning yourself.\n\n4 retrievers in rra/retrieval.py. Hybrid uses reciprocal rank fusion of BM25 and dense. Dense uses sentence-transformers (MiniLM), with an offline LSA fallback."
+        },
+        "card": {
+          "desc": "Sprint 2 · 22–28 Sep 2026\n\n4 retrievers in rra/retrieval.py. Hybrid uses reciprocal rank fusion of BM25 and dense. Dense uses sentence-transformers (MiniLM), with an offline LSA fallback.",
+          "id": "6abf3bfe0c24845dfd345578",
+          "name": "S2. Retrieval methods: BM25, TF-IDF, dense, hybrid - Qiling",
+          "idShort": 19,
+          "shortLink": "A850ZjEN"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3e08c826c9dd3f2b08e3",
+      "type": "updateCard",
+      "date": "2026-10-02T05:15:52.832Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": ""
+        },
+        "card": {
+          "desc": "Sprint 3 · 29 Sep–5 Oct 2026\n\nresults/report.html, published as \"Paper-Grounded RAG Evaluation\": full grid of results and every per-question answer.",
+          "id": "6abf3d28e33465d5de3a04c0",
+          "name": "S3. Publish evaluation report - Amritpal",
+          "idShort": 26,
+          "shortLink": "R5WSedTP"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3e01c013b6657a6b85a1",
+      "type": "updateCard",
+      "date": "2026-10-02T05:15:45.397Z",
+      "actor": "Deboprio Saha Argha",
+      "data": {
+        "old": {
+          "desc": "print 2 · 22–28 Sep 2026\nOwner (by Milestone 1 role): Deboprio Saha Argha, QA & Evaluation. Confirm by assigning yourself.\n\nvalidate command: stops a run if any ground-truth evidence quote no longer appears in the ingested text. Catches PDF-extraction regressions and wrong ground-truth entries. All quotes validate against corpus 17baac618aa0."
+        },
+        "card": {
+          "desc": "print 2 · 22–28 Sep 2026\n\nvalidate command: stops a run if any ground-truth evidence quote no longer appears in the ingested text. Catches PDF-extraction regressions and wrong ground-truth entries. All quotes validate against corpus 17baac618aa0.",
+          "id": "6abf3bbdafba67279bf0f3c4",
+          "name": "S2. Validate extracted evidence - Deboprio",
+          "idShort": 17,
+          "shortLink": "dItUNYiG"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3df72d24fc59d9ec6489",
+      "type": "updateCard",
+      "date": "2026-10-02T05:15:35.263Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": "Sprint 2 · 22–28 Sep 2026\nOwner (by Milestone 1 role): Imranjit Singh Kohli, Data Engineer. Confirm by assigning yourself.\n\nfixed-200, fixed-400, sentence-150 and section-150 chunkers (rra/chunking.py)."
+        },
+        "card": {
+          "desc": "Sprint 2 · 22–28 Sep 2026\n\nfixed-200, fixed-400, sentence-150 and section-150 chunkers (rra/chunking.py).",
+          "id": "6abf3ba5c5f22303cf46f3dd",
+          "name": "S2. Implement 4 chunking strategies - Imranjit",
+          "idShort": 16,
+          "shortLink": "vEcAH0Tj"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3df322a4432cd08aca78",
+      "type": "updateCard",
+      "date": "2026-10-02T05:15:31.569Z",
+      "actor": "Deboprio Saha Argha",
+      "data": {
+        "old": {
+          "desc": "Sprint 2 · 22–28 Sep 2026 (Week 7: RAG prototype + experiments)\nOwner (by Milestone 1 role): Imranjit Singh Kohli, Data Engineer. Confirm by assigning yourself.\n\nTwo-column reading order; removes headers, footers, page numbers, references, footnotes and figure labels; repairs hyphenation; detects section headings.\nFixed: affiliations read as headings, abstract read after intro, figure labels mid-sentence."
+        },
+        "card": {
+          "desc": "Sprint 2 · 22–28 Sep 2026 (Week 7: RAG prototype + experiments)\n\nTwo-column reading order; removes headers, footers, page numbers, references, footnotes and figure labels; repairs hyphenation; detects section headings.\nFixed: affiliations read as headings, abstract read after intro, figure labels mid-sentence.",
+          "id": "6abf3b84c7cecdb02e08b193",
+          "name": "S2. PDF ingestion & text cleaning - Imranjit",
+          "idShort": 15,
+          "shortLink": "IIOqNHfv"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3defdd0e7b3f5c1d4682",
+      "type": "updateCard",
+      "date": "2026-10-02T05:15:27.742Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": "Sprint 2 · 22–28 Sep 2026\nOwner (by Milestone 1 role): Deboprio Saha Argha, QA & Evaluation. Confirm by assigning yourself.\n\nRecall@5, MRR, paper recall@5, citation precision, citation support, faithfulness, unsupported flagged / false abstain.\nError labels: retrieval\\_miss, wrong\\_paper\\_cited, unfaithful\\_sentence, comparison\\_incomplete, false\\_abstain, answered_unsupported."
+        },
+        "card": {
+          "desc": "Sprint 2 · 22–28 Sep 2026\n\nRecall@5, MRR, paper recall@5, citation precision, citation support, faithfulness, unsupported flagged / false abstain.\nError labels: retrieval\\_miss, wrong\\_paper\\_cited, unfaithful\\_sentence, comparison\\_incomplete, false\\_abstain, answered_unsupported.",
+          "id": "6abf3bde891dc76428ff6a01",
+          "name": "S2. Define evaluation metrics - Deboprio",
+          "idShort": 18,
+          "shortLink": "EY2CR9Ib"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3de4e337761a8ac088f4",
+      "type": "updateCard",
+      "date": "2026-10-02T05:15:16.303Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": ""
+        },
+        "card": {
+          "desc": "Sprint 2 · 22–28 Sep 2026\n\nTEAM TO FILL IN: the date of the review/retro, how it was held (meeting, call, chat), and what was decided.",
+          "id": "6abf3c5de1d6531509d91b44",
+          "name": "S2. Sprint 2 review & retrospective - Chetan",
+          "idShort": 22,
+          "shortLink": "ieoAREKF"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3dd4c3b8df53cfb705c6",
+      "type": "updateCard",
+      "date": "2026-10-02T05:15:00.489Z",
+      "actor": "Deboprio Saha Argha",
+      "data": {
+        "old": {
+          "desc": "Sprint 2 · 22–28 Sep 2026\nOwner (by Milestone 1 role): Dhanush Sridhar, Application Developer. Confirm by assigning yourself.\n\nEvery answer sentence cites its source chunk, e.g. [dpr:11]. Replies INSUFFICIENT_EVIDENCE when retrieved passages don't cover the question.\nTwo generation modes:\n\nExtractive (offline): copies the best-matching retrieved sentences. Done, and used for all current results.\n\nLanguage-model generation: writes the answer from the same passages under the same citation rules. Set up but not yet run (see Blocked)."
+        },
+        "card": {
+          "desc": "Sprint 2 · 22–28 Sep 2026\n\nEvery answer sentence cites its source chunk, e.g. [dpr:11]. Replies INSUFFICIENT_EVIDENCE when retrieved passages don't cover the question.\nTwo generation modes:\n\nExtractive (offline): copies the best-matching retrieved sentences. Done, and used for all current results.\n\nLanguage-model generation: writes the answer from the same passages under the same citation rules. Set up but not yet run (see Blocked).",
+          "id": "6abf3c1985b622337e084911",
+          "name": "S2. Cited-answer generator + INSUFFICIENT_EVIDENCE gate - Dhanush",
+          "idShort": 20,
+          "shortLink": "rYiMQjMV"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3dd2d181ac86ba996f36",
+      "type": "updateCard",
+      "date": "2026-10-02T05:14:58.545Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": "Sprint 1 · 15–21 Sep 2026\nOwner (by Milestone 1 role): Dhanush Sridhar, Application Developer. Confirm by assigning yourself.\n\nrra/cli.py with commands: fetch, ingest, validate, experiment, report, ask."
+        },
+        "card": {
+          "desc": "Sprint 1 · 15–21 Sep 2026\n\nrra/cli.py with commands: fetch, ingest, validate, experiment, report, ask.",
+          "id": "6abf3b66c45a642ee2a7210b",
+          "name": "S1. Command-line skeleton (fetch / ingest / ask) - Dhanush",
+          "idShort": 14,
+          "shortLink": "3gPzlqgT"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3dca4e03c7ac8d222c4e",
+      "type": "updateCard",
+      "date": "2026-10-02T05:14:50.625Z",
+      "actor": "Deboprio Saha Argha",
+      "data": {
+        "old": {
+          "desc": "Sprint 2 · 22–28 Sep 2026\nOwner (by Milestone 1 role): Amritpal Singh Gill, DevOps & Documentation. Confirm by assigning yourself.\n\ntests/test_pipeline.py runs on synthetic PDFs without network. README documents every command."
+        },
+        "card": {
+          "desc": "Sprint 2 · 22–28 Sep 2026\n\ntests/test_pipeline.py runs on synthetic PDFs without network. README documents every command.",
+          "id": "6abf3c3e880b81ac175df4ef",
+          "name": "S2. Pipeline tests & run instructions - Amritpal",
+          "idShort": 21,
+          "shortLink": "Fr6RPthV"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3dc8b30f511c2ae351fb",
+      "type": "updateCard",
+      "date": "2026-10-02T05:14:48.045Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": "Sprint 1 · 15–21 Sep 2026\nOwner (by Milestone 1 role): Qiling Huang, ML Engineer. Confirm by assigning yourself.\n\nBaseline config fixed-200/bm25, following Walert's described setup (Okapi BM25, k1 = 1.2, b = 0.75, top-k 5). Walert indexed a FAQ knowledge base, so this is Walert-style."
+        },
+        "card": {
+          "desc": "Sprint 1 · 15–21 Sep 2026\n\nBaseline config fixed-200/bm25, following Walert's described setup (Okapi BM25, k1 = 1.2, b = 0.75, top-k 5). Walert indexed a FAQ knowledge base, so this is Walert-style.",
+          "id": "6abf3b4e787302d952774443",
+          "name": "S1. RAG baseline: Walert-style 200-word + BM25 - Qiling",
+          "idShort": 13,
+          "shortLink": "soSv6Yfd"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3dbf6755e8cfa0c9f86b",
+      "type": "updateCard",
+      "date": "2026-10-02T05:14:39.726Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": ""
+        },
+        "card": {
+          "desc": "Sprint 1 · 15–21 Sep 2026\n\n24 questions in eval/questions.jsonl, written before any tuning:\n\n13 single-paper questions\n\n4 cross-paper comparisons\n\n7 unsupported questions the system should decline (e.g. \"How does GraphRAG build community summaries?\")\n\nEach answerable question lists its expected paper(s) and a verbatim evidence quote.",
+          "id": "6abf3b2dc0cc511f034cd57d",
+          "name": "S1. Build ground-truth question set (24 Qs) - Deboprio",
+          "idShort": 12,
+          "shortLink": "G3aceknu"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3dba5aa913484fac8a16",
+      "type": "updateCard",
+      "date": "2026-10-02T05:14:34.222Z",
+      "actor": "Deboprio Saha Argha",
+      "data": {
+        "old": {
+          "desc": "Sprint 3 · 29 Sep–5 Oct 2026 (Week 8: evaluation + refinement)\nOwner (by Milestone 1 role): Deboprio Saha Argha, QA & Evaluation. Confirm by assigning yourself.\n\nEvaluation run 20260929-074348 UTC (29 Sep 2026, about 17:43 Melbourne time) on corpus 17baac618aa0, k = 5. Results in results/latest.json and results/report.html.\n\n| | Baseline fixed-200/bm25 | Best fixed-400/hybrid+route |\n|---|---|---|\n| Recall@5 | 0.59 | 0.71 |\n| MRR | 0.42 | 0.32 |\n| Citation precision | 0.81 | 1.00 |\n| Unsupported declined | 6/7 | 7/7 |"
+        },
+        "card": {
+          "desc": "Sprint 3 · 29 Sep–5 Oct 2026 (Week 8: evaluation + refinement)\n\nEvaluation run 20260929-074348 UTC (29 Sep 2026, about 17:43 Melbourne time) on corpus 17baac618aa0, k = 5. Results in results/latest.json and results/report.html.\n\n| | Baseline fixed-200/bm25 | Best fixed-400/hybrid+route |\n|---|---|---|\n| Recall@5 | 0.59 | 0.71 |\n| MRR | 0.42 | 0.32 |\n| Citation precision | 0.81 | 1.00 |\n| Unsupported declined | 6/7 | 7/7 |",
+          "id": "6abf3c8628faf05e6dc2f4fb",
+          "name": "S3. Evaluate all 20 retrieval configurations - Deboprio",
+          "idShort": 23,
+          "shortLink": "1a1PpfSQ"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3db83ac8368d25c1af63",
+      "type": "updateCard",
+      "date": "2026-10-02T05:14:32.132Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": "Sprint 1 · 15–21 Sep 2026\nOwner (by Milestone 1 role): Imranjit Singh Kohli, Data Engineer. Confirm by assigning yourself.\n\n8 open-access arXiv papers on retrieval-augmented QA: Walert, RAG, DPR, ColBERT, Fusion-in-Decoder, REALM, RAGAS, Self-RAG. Each download checked by title; arXiv version and SHA-256 recorded in corpus.lock.json.\nCorpus version: 17baac618aa0"
+        },
+        "card": {
+          "desc": "Sprint 1 · 15–21 Sep 2026\n\n8 open-access arXiv papers on retrieval-augmented QA: Walert, RAG, DPR, ColBERT, Fusion-in-Decoder, REALM, RAGAS, Self-RAG. Each download checked by title; arXiv version and SHA-256 recorded in corpus.lock.json.\nCorpus version: 17baac618aa0",
+          "id": "6abf3b0eb8243710200740d1",
+          "name": "S1. Data sourcing: select & version 8-paper corpus - Imranjit",
+          "idShort": 11,
+          "shortLink": "lAUo2BDm"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3db00d1e4db2c7101cde",
+      "type": "updateCard",
+      "date": "2026-10-02T05:14:24.296Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": "Sprint 1 · 15–21 Sep 2026\nOwner (by Milestone 1 role): Amritpal Singh Gill, DevOps & Documentation. Confirm by assigning yourself.\n\nPrivate repo: [https://github.com/S4173926/case-study-wil-project-24Connect](https://github.com/S4173926/case-study-wil-project-24Connect \"smartCard-inline\")  your Github account\nRepository structure, requirements.txt, .gitignore and environment setup."
+        },
+        "card": {
+          "desc": "Sprint 1 · 15–21 Sep 2026\n\nPrivate repo: [https://github.com/S4173926/case-study-wil-project-24Connect](https://github.com/S4173926/case-study-wil-project-24Connect \"smartCard-inline\")  your Github account\nRepository structure, requirements.txt, .gitignore and environment setup.",
+          "id": "6abf3aed00bbf9c224014a01",
+          "name": "S1 · GitHub repo + Python environment setup - Amritpal",
+          "idShort": 10,
+          "shortLink": "QEt1M2vm"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3dafa3b4c0b70d000e0a",
+      "type": "updateCard",
+      "date": "2026-10-02T05:14:23.409Z",
+      "actor": "Deboprio Saha Argha",
+      "data": {
+        "old": {
+          "desc": "Sprint 3 · 29 Sep–5 Oct 2026\nOwner (by Milestone 1 role): Deboprio Saha Argha, QA & Evaluation. Confirm by assigning yourself.\n\nEvery failure labelled (retrieval\\_miss, wrong\\_paper_cited, and others).\nMain finding: wrong-paper retrieval. Shared words like \"retrieval\" and \"RAG\" outweighed the paper named in the question (e.g. RAG chunks outranked Walert's for a Walert question). Comparison questions often retrieved only one of their two papers.\nOther findings: dense (MiniLM) alone weakest (Recall@5 0.35–0.47); bigger chunks inflate recall; remaining misses mostly vocabulary mismatch."
+        },
+        "card": {
+          "desc": "Sprint 3 · 29 Sep–5 Oct 2026\n\nEvery failure labelled (retrieval\\_miss, wrong\\_paper_cited, and others).\nMain finding: wrong-paper retrieval. Shared words like \"retrieval\" and \"RAG\" outweighed the paper named in the question (e.g. RAG chunks outranked Walert's for a Walert question). Comparison questions often retrieved only one of their two papers.\nOther findings: dense (MiniLM) alone weakest (Recall@5 0.35–0.47); bigger chunks inflate recall; remaining misses mostly vocabulary mismatch.",
+          "id": "6abf3ca6c867e3e90804d361",
+          "name": "S3. Analyse retrieval failures - Deboprio",
+          "idShort": 24,
+          "shortLink": "En0nCv0t"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3da880f94b180c3c2f17",
+      "type": "updateCard",
+      "date": "2026-10-02T05:14:16.946Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": "Sprint 1 · 15–21 Sep 2026 (Week 6: corpus + baseline)\nOwner (by Milestone 1 role): Chetan Bera, Scrum Master. Confirm by assigning yourself.\n\nAllocated roles across leadership, data engineering, ML, app development, DevOps/docs and QA/evaluation. Agreed the 3-week plan and the Walert baseline as the first technical task."
+        },
+        "card": {
+          "desc": "Sprint 1 · 15–21 Sep 2026 (Week 6: corpus + baseline)\n\nAllocated roles across leadership, data engineering, ML, app development, DevOps/docs and QA/evaluation. Agreed the 3-week plan and the Walert baseline as the first technical task.",
+          "id": "6a8a8960fe8d403a59f9fcbf",
+          "name": "S1. Role allocation & sprint planning -Chetan",
+          "idShort": 6,
+          "shortLink": "hXqujxkQ"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3d9d4c884ff5d12303e8",
+      "type": "updateCard",
+      "date": "2026-10-02T05:14:05.407Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": ""
+        },
+        "card": {
+          "desc": "Sprint 3 · 29 Sep–5 Oct 2026\n\nWhat: the \"generation\" step of the RAG pipeline. A language model writes each answer from the retrieved passages, and every sentence must cite a passage or reply INSUFFICIENT_EVIDENCE.\n\nBlocked: the model API needs an access key, and the team doesn't have one yet.\n\nOnce unblocked: re-run the evaluation with model-written answers on the baseline (fixed-200/bm25) and the best setup (fixed-400/hybrid+route). Compare citation support, currently 0.16–0.25 with the extractive generator, and faithfulness.\n\nTeam decision: TEAM TO FILL IN, with the date.",
+          "id": "6abf3a7fad63480fb41f6d50",
+          "name": "S3. Run RAG answer-generation experiment - Dhanush",
+          "idShort": 9,
+          "shortLink": "5ghu2L5s"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86aacfafa9e493867181",
+          "name": "Blocked"
+        }
+      }
+    },
+    {
+      "id": "6abf3d9089ae64955b270ae0",
+      "type": "updateCard",
+      "date": "2026-10-02T05:13:52.479Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": ""
+        },
+        "card": {
+          "desc": "Sprint 3 · 29 Sep–5 Oct 2026\n\nBlocked: GitHub refused the push with a 403 (access/permissions error), so retrying won't help.\nThe 3 experiment commits are saved in a git bundle file (rag-branch.bundle).\nTo unblock: fix the repository access permissions, or a team member pushes the bundle from their own clone.\nTeam decision: TEAM TO FILL IN, with the date.",
+          "id": "6a8a884cb9682cc1a885d8dd",
+          "name": "S3. Push experiment commits to GitHub - Amritpal",
+          "idShort": 3,
+          "shortLink": "ZfUR6Pf7"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86aacfafa9e493867181",
+          "name": "Blocked"
+        }
+      }
+    },
+    {
+      "id": "6abf3d8924ef8fab2a60e145",
+      "type": "updateCard",
+      "date": "2026-10-02T05:13:45.841Z",
+      "actor": "Deboprio Saha Argha",
+      "data": {
+        "old": {
+          "desc": "Sprint 3 · 29 Sep–5 Oct 2026\nOwner (by Milestone 1 role): Qiling Huang, ML Engineer. Confirm by assigning yourself.\n\nretrieval.PaperRouter shares the top-k slots among the papers a question names. Raised citation precision to 1.00 for every chunker; Recall@5 0.59 → 0.71 vs baseline.\nCaveat: designed after seeing failures on the same 24 questions, so it needs confirming on a held-out set (see To Do)."
+        },
+        "card": {
+          "desc": "Sprint 3 · 29 Sep–5 Oct 2026\n\nretrieval.PaperRouter shares the top-k slots among the papers a question names. Raised citation precision to 1.00 for every chunker; Recall@5 0.59 → 0.71 vs baseline.\nCaveat: designed after seeing failures on the same 24 questions, so it needs confirming on a held-out set (see To Do).",
+          "id": "6abf3cc8b7dc9007aefd356e",
+          "name": "S3. Paper-aware routing (+route) - Qiling",
+          "idShort": 25,
+          "shortLink": "lO3pR08W"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3d747b588f2279e03e37",
+      "type": "updateCard",
+      "date": "2026-10-02T05:13:24.971Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": "Sprint 3 · 29 Sep–5 Oct 2026\nOwner (by Milestone 1 role): Chetan Bera, Project Lead. Confirm by assigning yourself.\n\nPull together results, error analysis and team contributions for the next report."
+        },
+        "card": {
+          "desc": "Sprint 3 · 29 Sep–5 Oct 2026\n\nPull together results, error analysis and team contributions for the next report.",
+          "id": "6a8a88fa6368de83977ad0b3",
+          "name": "S3. Milestone 2 report assembly - Chetan",
+          "idShort": 5,
+          "shortLink": "3iy2Yiu4"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a869f4d7a16d92acb877e",
+          "name": "In-Progress"
+        }
+      }
+    },
+    {
+      "id": "6abf3d6fb6d6de3f4c6657bb",
+      "type": "updateCard",
+      "date": "2026-10-02T05:13:19.178Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": "Sprint 3 · 29 Sep–5 Oct 2026\nOwner (by Milestone 1 role): Imranjit Singh Kohli, Data Engineer. Confirm by assigning yourself.\n\nStill open: garbled equations (DPR loss), a ColBERT font that drops the \"u\" in \"Query\" (\"Qery\"), and \"dual-encoder\" joined to \"dualencoder\" by the hyphen repair."
+        },
+        "card": {
+          "desc": "Sprint 3 · 29 Sep–5 Oct 2026\n\nStill open: garbled equations (DPR loss), a ColBERT font that drops the \"u\" in \"Query\" (\"Qery\"), and \"dual-encoder\" joined to \"dualencoder\" by the hyphen repair.",
+          "id": "6abf39dd94da1f263f5b8917",
+          "name": "Fix remaining extraction issues - Imranjit",
+          "idShort": 8,
+          "shortLink": "q1pSCLpW"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a868f0cbd838332708c9e",
+          "name": "To-Do"
+        }
+      }
+    },
+    {
+      "id": "6abf3d6043a398f5977ee9e3",
+      "type": "updateCard",
+      "date": "2026-10-02T05:13:04.453Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": "Sprint 3 · 29 Sep–5 Oct 2026\nOwner (by Milestone 1 role): Deboprio Saha Argha, QA & Evaluation. Confirm by assigning yourself.\n\nWrite a separate question set that wasn't used when designing +route, with evidence quotes, and re-run the evaluation to check the gain holds. Also investigate why MRR dropped (0.42 → 0.32)."
+        },
+        "card": {
+          "desc": "Sprint 3 · 29 Sep–5 Oct 2026\n\nWrite a separate question set that wasn't used when designing +route, with evidence quotes, and re-run the evaluation to check the gain holds. Also investigate why MRR dropped (0.42 → 0.32).",
+          "id": "6abf39a267de30b843b6b954",
+          "name": "S3. Validate routing on held-out questions - Deboprio",
+          "idShort": 7,
+          "shortLink": "5NVyRkpe"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a868f0cbd838332708c9e",
+          "name": "To-Do"
+        }
+      }
+    },
+    {
+      "id": "6abf3d2c4c884ff5d12242a3",
+      "type": "updateCard",
+      "date": "2026-10-02T05:12:12.026Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700028"
+          ],
+          "id": "6abf3d28e33465d5de3a04c0",
+          "name": "S3. Publish evaluation report - Amritpal",
+          "idShort": 26,
+          "shortLink": "R5WSedTP"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700028"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3d28e33465d5de3a04c8",
+      "type": "createCard",
+      "date": "2026-10-02T05:12:08.555Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "id": "6abf3d28e33465d5de3a04c0",
+          "name": "S3. Publish evaluation report - Amritpal",
+          "idShort": 26,
+          "shortLink": "R5WSedTP"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6abf3d121aa2fda950121020",
+      "type": "updateCard",
+      "date": "2026-10-02T05:11:46.637Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": ""
+        },
+        "card": {
+          "desc": "Sprint 3 · 29 Sep–5 Oct 2026\nOwner (by Milestone 1 role): Qiling Huang, ML Engineer. Confirm by assigning yourself.\n\nretrieval.PaperRouter shares the top-k slots among the papers a question names. Raised citation precision to 1.00 for every chunker; Recall@5 0.59 → 0.71 vs baseline.\nCaveat: designed after seeing failures on the same 24 questions, so it needs confirming on a held-out set (see To Do).",
+          "id": "6abf3cc8b7dc9007aefd356e",
+          "name": "S3. Paper-aware routing (+route) - Qiling",
+          "idShort": 25,
+          "shortLink": "lO3pR08W"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3d0ebc72a04c3340650e",
+      "type": "updateCard",
+      "date": "2026-10-02T05:11:42.555Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700028"
+          ],
+          "id": "6abf3cc8b7dc9007aefd356e",
+          "name": "S3. Paper-aware routing (+route) - Qiling",
+          "idShort": 25,
+          "shortLink": "lO3pR08W"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700028"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3cc8b7dc9007aefd3576",
+      "type": "createCard",
+      "date": "2026-10-02T05:10:32.093Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "id": "6abf3cc8b7dc9007aefd356e",
+          "name": "S3. Paper-aware routing (+route) - Qiling",
+          "idShort": 25,
+          "shortLink": "lO3pR08W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6abf3cb8b8243710200a0afa",
+      "type": "updateCard",
+      "date": "2026-10-02T05:10:16.402Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": ""
+        },
+        "card": {
+          "desc": "Sprint 3 · 29 Sep–5 Oct 2026\nOwner (by Milestone 1 role): Deboprio Saha Argha, QA & Evaluation. Confirm by assigning yourself.\n\nEvery failure labelled (retrieval\\_miss, wrong\\_paper_cited, and others).\nMain finding: wrong-paper retrieval. Shared words like \"retrieval\" and \"RAG\" outweighed the paper named in the question (e.g. RAG chunks outranked Walert's for a Walert question). Comparison questions often retrieved only one of their two papers.\nOther findings: dense (MiniLM) alone weakest (Recall@5 0.35–0.47); bigger chunks inflate recall; remaining misses mostly vocabulary mismatch.",
+          "id": "6abf3ca6c867e3e90804d361",
+          "name": "S3. Analyse retrieval failures - Deboprio",
+          "idShort": 24,
+          "shortLink": "En0nCv0t"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3caaf7bcc45844b5ee1a",
+      "type": "updateCard",
+      "date": "2026-10-02T05:10:02.717Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700028"
+          ],
+          "id": "6abf3ca6c867e3e90804d361",
+          "name": "S3. Analyse retrieval failures - Deboprio",
+          "idShort": 24,
+          "shortLink": "En0nCv0t"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700028"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3ca6c867e3e90804d369",
+      "type": "createCard",
+      "date": "2026-10-02T05:09:58.586Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "id": "6abf3ca6c867e3e90804d361",
+          "name": "S3. Analyse retrieval failures - Deboprio",
+          "idShort": 24,
+          "shortLink": "En0nCv0t"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6abf3c96cba6a469f2620e68",
+      "type": "updateCard",
+      "date": "2026-10-02T05:09:42.085Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": ""
+        },
+        "card": {
+          "desc": "Sprint 3 · 29 Sep–5 Oct 2026 (Week 8: evaluation + refinement)\nOwner (by Milestone 1 role): Deboprio Saha Argha, QA & Evaluation. Confirm by assigning yourself.\n\nEvaluation run 20260929-074348 UTC (29 Sep 2026, about 17:43 Melbourne time) on corpus 17baac618aa0, k = 5. Results in results/latest.json and results/report.html.\n\n| | Baseline fixed-200/bm25 | Best fixed-400/hybrid+route |\n|---|---|---|\n| Recall@5 | 0.59 | 0.71 |\n| MRR | 0.42 | 0.32 |\n| Citation precision | 0.81 | 1.00 |\n| Unsupported declined | 6/7 | 7/7 |",
+          "id": "6abf3c8628faf05e6dc2f4fb",
+          "name": "S3. Evaluate all 20 retrieval configurations - Deboprio",
+          "idShort": 23,
+          "shortLink": "1a1PpfSQ"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3c897a0afad1820e6adb",
+      "type": "updateCard",
+      "date": "2026-10-02T05:09:29.810Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700028"
+          ],
+          "id": "6abf3c8628faf05e6dc2f4fb",
+          "name": "S3. Evaluate all 20 retrieval configurations - Deboprio",
+          "idShort": 23,
+          "shortLink": "1a1PpfSQ"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700028"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3c8628faf05e6dc2f503",
+      "type": "createCard",
+      "date": "2026-10-02T05:09:26.584Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "id": "6abf3c8628faf05e6dc2f4fb",
+          "name": "S3. Evaluate all 20 retrieval configurations - Deboprio",
+          "idShort": 23,
+          "shortLink": "1a1PpfSQ"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6abf3c7c500c1fda01e42eb2",
+      "type": "updateCard",
+      "date": "2026-10-02T05:09:16.388Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700027"
+          ],
+          "id": "6abf3c5de1d6531509d91b44",
+          "name": "S2. Sprint 2 review & retrospective - Chetan",
+          "idShort": 22,
+          "shortLink": "ieoAREKF"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700027"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3c5de1d6531509d91b4c",
+      "type": "createCard",
+      "date": "2026-10-02T05:08:45.152Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "id": "6abf3c5de1d6531509d91b44",
+          "name": "S2. Sprint 2 review & retrospective - Chetan",
+          "idShort": 22,
+          "shortLink": "ieoAREKF"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6abf3c4b8a84a7f2bfa4d8ac",
+      "type": "updateCard",
+      "date": "2026-10-02T05:08:27.983Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": ""
+        },
+        "card": {
+          "desc": "Sprint 2 · 22–28 Sep 2026\nOwner (by Milestone 1 role): Amritpal Singh Gill, DevOps & Documentation. Confirm by assigning yourself.\n\ntests/test_pipeline.py runs on synthetic PDFs without network. README documents every command.",
+          "id": "6abf3c3e880b81ac175df4ef",
+          "name": "S2. Pipeline tests & run instructions - Amritpal",
+          "idShort": 21,
+          "shortLink": "Fr6RPthV"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3c47463fb794f47ae5c1",
+      "type": "updateCard",
+      "date": "2026-10-02T05:08:23.934Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700027"
+          ],
+          "id": "6abf3c3e880b81ac175df4ef",
+          "name": "S2. Pipeline tests & run instructions - Amritpal",
+          "idShort": 21,
+          "shortLink": "Fr6RPthV"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700027"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3c3e880b81ac175df559",
+      "type": "createCard",
+      "date": "2026-10-02T05:08:14.851Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "id": "6abf3c3e880b81ac175df4ef",
+          "name": "S2. Pipeline tests & run instructions - Amritpal",
+          "idShort": 21,
+          "shortLink": "Fr6RPthV"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6abf3c2c7fba5b02b37b7ce7",
+      "type": "updateCard",
+      "date": "2026-10-02T05:07:56.000Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700027"
+          ],
+          "id": "6abf3c1985b622337e084911",
+          "name": "S2. Cited-answer generator + INSUFFICIENT_EVIDENCE gate - Dhanush",
+          "idShort": 20,
+          "shortLink": "rYiMQjMV"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700027"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3c27de5e5078af4257a7",
+      "type": "updateCard",
+      "date": "2026-10-02T05:07:51.523Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": ""
+        },
+        "card": {
+          "desc": "Sprint 2 · 22–28 Sep 2026\nOwner (by Milestone 1 role): Dhanush Sridhar, Application Developer. Confirm by assigning yourself.\n\nEvery answer sentence cites its source chunk, e.g. [dpr:11]. Replies INSUFFICIENT_EVIDENCE when retrieved passages don't cover the question.\nTwo generation modes:\n\nExtractive (offline): copies the best-matching retrieved sentences. Done, and used for all current results.\n\nLanguage-model generation: writes the answer from the same passages under the same citation rules. Set up but not yet run (see Blocked).",
+          "id": "6abf3c1985b622337e084911",
+          "name": "S2. Cited-answer generator + INSUFFICIENT_EVIDENCE gate - Dhanush",
+          "idShort": 20,
+          "shortLink": "rYiMQjMV"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3c1985b622337e084919",
+      "type": "createCard",
+      "date": "2026-10-02T05:07:37.545Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "id": "6abf3c1985b622337e084911",
+          "name": "S2. Cited-answer generator + INSUFFICIENT_EVIDENCE gate - Dhanush",
+          "idShort": 20,
+          "shortLink": "rYiMQjMV"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6abf3c08534c77ccf85a52e7",
+      "type": "updateCard",
+      "date": "2026-10-02T05:07:20.991Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": ""
+        },
+        "card": {
+          "desc": "Sprint 2 · 22–28 Sep 2026\nOwner (by Milestone 1 role): Qiling Huang, ML Engineer. Confirm by assigning yourself.\n\n4 retrievers in rra/retrieval.py. Hybrid uses reciprocal rank fusion of BM25 and dense. Dense uses sentence-transformers (MiniLM), with an offline LSA fallback.",
+          "id": "6abf3bfe0c24845dfd345578",
+          "name": "S2. Retrieval methods: BM25, TF-IDF, dense, hybrid - Qiling",
+          "idShort": 19,
+          "shortLink": "A850ZjEN"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3c07f89f903b11b9109c",
+      "type": "updateCard",
+      "date": "2026-10-02T05:07:19.035Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700027"
+          ],
+          "id": "6abf3bfe0c24845dfd345578",
+          "name": "S2. Retrieval methods: BM25, TF-IDF, dense, hybrid - Qiling",
+          "idShort": 19,
+          "shortLink": "A850ZjEN"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700027"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3bfe0c24845dfd345580",
+      "type": "createCard",
+      "date": "2026-10-02T05:07:10.778Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "id": "6abf3bfe0c24845dfd345578",
+          "name": "S2. Retrieval methods: BM25, TF-IDF, dense, hybrid - Qiling",
+          "idShort": 19,
+          "shortLink": "A850ZjEN"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6abf3beb25703c79c6578773",
+      "type": "updateCard",
+      "date": "2026-10-02T05:06:51.544Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": ""
+        },
+        "card": {
+          "desc": "Sprint 2 · 22–28 Sep 2026\nOwner (by Milestone 1 role): Deboprio Saha Argha, QA & Evaluation. Confirm by assigning yourself.\n\nRecall@5, MRR, paper recall@5, citation precision, citation support, faithfulness, unsupported flagged / false abstain.\nError labels: retrieval\\_miss, wrong\\_paper\\_cited, unfaithful\\_sentence, comparison\\_incomplete, false\\_abstain, answered_unsupported.",
+          "id": "6abf3bde891dc76428ff6a01",
+          "name": "S2. Define evaluation metrics - Deboprio",
+          "idShort": 18,
+          "shortLink": "EY2CR9Ib"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3be9d19d52933c76c5a0",
+      "type": "updateCard",
+      "date": "2026-10-02T05:06:49.677Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700027"
+          ],
+          "id": "6abf3bde891dc76428ff6a01",
+          "name": "S2. Define evaluation metrics - Deboprio",
+          "idShort": 18,
+          "shortLink": "EY2CR9Ib"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700027"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3bde891dc76428ff6a09",
+      "type": "createCard",
+      "date": "2026-10-02T05:06:38.429Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "id": "6abf3bde891dc76428ff6a01",
+          "name": "S2. Define evaluation metrics - Deboprio",
+          "idShort": 18,
+          "shortLink": "EY2CR9Ib"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6abf3bcb8c0a9b34afe5b602",
+      "type": "updateCard",
+      "date": "2026-10-02T05:06:19.836Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": ""
+        },
+        "card": {
+          "desc": "print 2 · 22–28 Sep 2026\nOwner (by Milestone 1 role): Deboprio Saha Argha, QA & Evaluation. Confirm by assigning yourself.\n\nvalidate command: stops a run if any ground-truth evidence quote no longer appears in the ingested text. Catches PDF-extraction regressions and wrong ground-truth entries. All quotes validate against corpus 17baac618aa0.",
+          "id": "6abf3bbdafba67279bf0f3c4",
+          "name": "S2. Validate extracted evidence - Deboprio",
+          "idShort": 17,
+          "shortLink": "dItUNYiG"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3bc93b444efb93baba5c",
+      "type": "updateCard",
+      "date": "2026-10-02T05:06:17.959Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700027"
+          ],
+          "id": "6abf3bbdafba67279bf0f3c4",
+          "name": "S2. Validate extracted evidence - Deboprio",
+          "idShort": 17,
+          "shortLink": "dItUNYiG"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700027"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3bbdafba67279bf0f3cc",
+      "type": "createCard",
+      "date": "2026-10-02T05:06:05.684Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "id": "6abf3bbdafba67279bf0f3c4",
+          "name": "S2. Validate extracted evidence - Deboprio",
+          "idShort": 17,
+          "shortLink": "dItUNYiG"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6abf3bae6678f807257e118b",
+      "type": "updateCard",
+      "date": "2026-10-02T05:05:50.296Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": ""
+        },
+        "card": {
+          "desc": "Sprint 2 · 22–28 Sep 2026\nOwner (by Milestone 1 role): Imranjit Singh Kohli, Data Engineer. Confirm by assigning yourself.\n\nfixed-200, fixed-400, sentence-150 and section-150 chunkers (rra/chunking.py).",
+          "id": "6abf3ba5c5f22303cf46f3dd",
+          "name": "S2. Implement 4 chunking strategies - Imranjit",
+          "idShort": 16,
+          "shortLink": "vEcAH0Tj"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3bac2b4b05a841662543",
+      "type": "updateCard",
+      "date": "2026-10-02T05:05:48.747Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700027"
+          ],
+          "id": "6abf3ba5c5f22303cf46f3dd",
+          "name": "S2. Implement 4 chunking strategies - Imranjit",
+          "idShort": 16,
+          "shortLink": "vEcAH0Tj"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700027"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3ba5c5f22303cf46f3f5",
+      "type": "createCard",
+      "date": "2026-10-02T05:05:41.214Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "id": "6abf3ba5c5f22303cf46f3dd",
+          "name": "S2. Implement 4 chunking strategies - Imranjit",
+          "idShort": 16,
+          "shortLink": "vEcAH0Tj"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6abf3b93aae6f08f2eaf3989",
+      "type": "updateCard",
+      "date": "2026-10-02T05:05:23.148Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": ""
+        },
+        "card": {
+          "desc": "Sprint 2 · 22–28 Sep 2026 (Week 7: RAG prototype + experiments)\nOwner (by Milestone 1 role): Imranjit Singh Kohli, Data Engineer. Confirm by assigning yourself.\n\nTwo-column reading order; removes headers, footers, page numbers, references, footnotes and figure labels; repairs hyphenation; detects section headings.\nFixed: affiliations read as headings, abstract read after intro, figure labels mid-sentence.",
+          "id": "6abf3b84c7cecdb02e08b193",
+          "name": "S2. PDF ingestion & text cleaning - Imranjit",
+          "idShort": 15,
+          "shortLink": "IIOqNHfv"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3b91a502d2776918810f",
+      "type": "updateCard",
+      "date": "2026-10-02T05:05:21.794Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700027"
+          ],
+          "id": "6abf3b84c7cecdb02e08b193",
+          "name": "S2. PDF ingestion & text cleaning - Imranjit",
+          "idShort": 15,
+          "shortLink": "IIOqNHfv"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700027"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3b84c7cecdb02e08b19b",
+      "type": "createCard",
+      "date": "2026-10-02T05:05:08.605Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "id": "6abf3b84c7cecdb02e08b193",
+          "name": "S2. PDF ingestion & text cleaning - Imranjit",
+          "idShort": 15,
+          "shortLink": "IIOqNHfv"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6abf3b71b60100be2935a37e",
+      "type": "updateCard",
+      "date": "2026-10-02T05:04:49.085Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": ""
+        },
+        "card": {
+          "desc": "Sprint 1 · 15–21 Sep 2026\nOwner (by Milestone 1 role): Dhanush Sridhar, Application Developer. Confirm by assigning yourself.\n\nrra/cli.py with commands: fetch, ingest, validate, experiment, report, ask.",
+          "id": "6abf3b66c45a642ee2a7210b",
+          "name": "S1. Command-line skeleton (fetch / ingest / ask) - Dhanush",
+          "idShort": 14,
+          "shortLink": "3gPzlqgT"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3b6f7f607f9c2ec60529",
+      "type": "updateCard",
+      "date": "2026-10-02T05:04:47.095Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700026"
+          ],
+          "id": "6abf3b66c45a642ee2a7210b",
+          "name": "S1. Command-line skeleton (fetch / ingest / ask) - Dhanush",
+          "idShort": 14,
+          "shortLink": "3gPzlqgT"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700026"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3b67c45a642ee2a72113",
+      "type": "createCard",
+      "date": "2026-10-02T05:04:39.026Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "id": "6abf3b66c45a642ee2a7210b",
+          "name": "S1. Command-line skeleton (fetch / ingest / ask) - Dhanush",
+          "idShort": 14,
+          "shortLink": "3gPzlqgT"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6abf3b595f2187c6a17a892c",
+      "type": "updateCard",
+      "date": "2026-10-02T05:04:25.444Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": ""
+        },
+        "card": {
+          "desc": "Sprint 1 · 15–21 Sep 2026\nOwner (by Milestone 1 role): Qiling Huang, ML Engineer. Confirm by assigning yourself.\n\nBaseline config fixed-200/bm25, following Walert's described setup (Okapi BM25, k1 = 1.2, b = 0.75, top-k 5). Walert indexed a FAQ knowledge base, so this is Walert-style.",
+          "id": "6abf3b4e787302d952774443",
+          "name": "S1. RAG baseline: Walert-style 200-word + BM25 - Qiling",
+          "idShort": 13,
+          "shortLink": "soSv6Yfd"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3b572a1c565c84913c88",
+      "type": "updateCard",
+      "date": "2026-10-02T05:04:23.869Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700026"
+          ],
+          "id": "6abf3b4e787302d952774443",
+          "name": "S1. RAG baseline: Walert-style 200-word + BM25 - Qiling",
+          "idShort": 13,
+          "shortLink": "soSv6Yfd"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700026"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3b4e787302d95277444b",
+      "type": "createCard",
+      "date": "2026-10-02T05:04:14.800Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "id": "6abf3b4e787302d952774443",
+          "name": "S1. RAG baseline: Walert-style 200-word + BM25 - Qiling",
+          "idShort": 13,
+          "shortLink": "soSv6Yfd"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6abf3b377f729b9d772fa998",
+      "type": "updateCard",
+      "date": "2026-10-02T05:03:51.558Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700026"
+          ],
+          "id": "6abf3b2dc0cc511f034cd57d",
+          "name": "S1. Build ground-truth question set (24 Qs) - Deboprio",
+          "idShort": 12,
+          "shortLink": "G3aceknu"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700026"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3b2dc0cc511f034cd585",
+      "type": "createCard",
+      "date": "2026-10-02T05:03:41.900Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "id": "6abf3b2dc0cc511f034cd57d",
+          "name": "S1. Build ground-truth question set (24 Qs) - Deboprio",
+          "idShort": 12,
+          "shortLink": "G3aceknu"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6abf3b184532ed6db1a1646e",
+      "type": "updateCard",
+      "date": "2026-10-02T05:03:20.489Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700026"
+          ],
+          "id": "6abf3b0eb8243710200740d1",
+          "name": "S1. Data sourcing: select & version 8-paper corpus - Imranjit",
+          "idShort": 11,
+          "shortLink": "lAUo2BDm"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700026"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3b16d66e1104e837e626",
+      "type": "updateCard",
+      "date": "2026-10-02T05:03:18.435Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": ""
+        },
+        "card": {
+          "desc": "Sprint 1 · 15–21 Sep 2026\nOwner (by Milestone 1 role): Imranjit Singh Kohli, Data Engineer. Confirm by assigning yourself.\n\n8 open-access arXiv papers on retrieval-augmented QA: Walert, RAG, DPR, ColBERT, Fusion-in-Decoder, REALM, RAGAS, Self-RAG. Each download checked by title; arXiv version and SHA-256 recorded in corpus.lock.json.\nCorpus version: 17baac618aa0",
+          "id": "6abf3b0eb8243710200740d1",
+          "name": "S1. Data sourcing: select & version 8-paper corpus - Imranjit",
+          "idShort": 11,
+          "shortLink": "lAUo2BDm"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3b0eb8243710200740d9",
+      "type": "createCard",
+      "date": "2026-10-02T05:03:10.614Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "id": "6abf3b0eb8243710200740d1",
+          "name": "S1. Data sourcing: select & version 8-paper corpus - Imranjit",
+          "idShort": 11,
+          "shortLink": "lAUo2BDm"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6abf3aff33fb19575d12b4ba",
+      "type": "updateCard",
+      "date": "2026-10-02T05:02:55.052Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700026"
+          ],
+          "id": "6abf3aed00bbf9c224014a01",
+          "name": "S1 · GitHub repo + Python environment setup - Amritpal",
+          "idShort": 10,
+          "shortLink": "QEt1M2vm"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700026"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3afa08e76cf109892d55",
+      "type": "updateCard",
+      "date": "2026-10-02T05:02:50.082Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": ""
+        },
+        "card": {
+          "desc": "Sprint 1 · 15–21 Sep 2026\nOwner (by Milestone 1 role): Amritpal Singh Gill, DevOps & Documentation. Confirm by assigning yourself.\n\nPrivate repo: [https://github.com/S4173926/case-study-wil-project-24Connect](https://github.com/S4173926/case-study-wil-project-24Connect \"smartCard-inline\")  your Github account\nRepository structure, requirements.txt, .gitignore and environment setup.",
+          "id": "6abf3aed00bbf9c224014a01",
+          "name": "S1 · GitHub repo + Python environment setup - Amritpal",
+          "idShort": 10,
+          "shortLink": "QEt1M2vm"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3aed00bbf9c224014a09",
+      "type": "createCard",
+      "date": "2026-10-02T05:02:37.459Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "id": "6abf3aed00bbf9c224014a01",
+          "name": "S1 · GitHub repo + Python environment setup - Amritpal",
+          "idShort": 10,
+          "shortLink": "QEt1M2vm"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6abf3ae7fdc01b0342f7a5a5",
+      "type": "updateCard",
+      "date": "2026-10-02T05:02:31.360Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "name": "S3 · Run RAG answer-generation experiment - Dhanush"
+        },
+        "card": {
+          "name": "S3. Run RAG answer-generation experiment - Dhanush",
+          "id": "6abf3a7fad63480fb41f6d50",
+          "idShort": 9,
+          "shortLink": "5ghu2L5s"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86aacfafa9e493867181",
+          "name": "Blocked"
+        }
+      }
+    },
+    {
+      "id": "6abf3ae3843b281922b9e468",
+      "type": "updateCard",
+      "date": "2026-10-02T05:02:27.747Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "name": "S3 · Push experiment commits to GitHub - Amritpal"
+        },
+        "card": {
+          "name": "S3. Push experiment commits to GitHub - Amritpal",
+          "id": "6a8a884cb9682cc1a885d8dd",
+          "idShort": 3,
+          "shortLink": "ZfUR6Pf7"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86aacfafa9e493867181",
+          "name": "Blocked"
+        }
+      }
+    },
+    {
+      "id": "6abf3ad2cb3edec022ac05be",
+      "type": "updateCard",
+      "date": "2026-10-02T05:02:10.650Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "pos": 140737488404480
+        },
+        "card": {
+          "pos": 140737488379904,
+          "id": "6a8a8857ae4c646fd9b68869",
+          "name": "Final report assembly",
+          "idShort": 4,
+          "shortLink": "sPd9ug5O"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3acc73cba802b47f2c40",
+      "type": "updateCard",
+      "date": "2026-10-02T05:02:04.130Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700026"
+          ],
+          "id": "6a8a8960fe8d403a59f9fcbf",
+          "name": "S1. Role allocation & sprint planning -Chetan",
+          "idShort": 6,
+          "shortLink": "hXqujxkQ"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700026"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3ac5fa5eac4652fca10d",
+      "type": "updateCard",
+      "date": "2026-10-02T05:01:57.939Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": ""
+        },
+        "card": {
+          "desc": "Sprint 1 · 15–21 Sep 2026 (Week 6: corpus + baseline)\nOwner (by Milestone 1 role): Chetan Bera, Scrum Master. Confirm by assigning yourself.\n\nAllocated roles across leadership, data engineering, ML, app development, DevOps/docs and QA/evaluation. Agreed the 3-week plan and the Walert baseline as the first technical task.",
+          "id": "6a8a8960fe8d403a59f9fcbf",
+          "name": "S1. Role allocation & sprint planning -Chetan",
+          "idShort": 6,
+          "shortLink": "hXqujxkQ"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3abf24a2af831030e0ea",
+      "type": "updateCard",
+      "date": "2026-10-02T05:01:51.198Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "name": "Role Allocation"
+        },
+        "card": {
+          "name": "S1. Role allocation & sprint planning -Chetan",
+          "id": "6a8a8960fe8d403a59f9fcbf",
+          "idShort": 6,
+          "shortLink": "hXqujxkQ"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3ab0fcecab46e008f795",
+      "type": "updateCard",
+      "date": "2026-10-02T05:01:36.200Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "dueComplete": true
+        },
+        "card": {
+          "dueComplete": false,
+          "id": "6a8a8960fe8d403a59f9fcbf",
+          "name": "Role Allocation",
+          "idShort": 6,
+          "shortLink": "hXqujxkQ"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6abf3a8c1d117581f3bf3140",
+      "type": "updateCard",
+      "date": "2026-10-02T05:01:00.296Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700029",
+            "6a8a733f02646c624f700028"
+          ],
+          "id": "6abf3a7fad63480fb41f6d50",
+          "name": "S3 · Run RAG answer-generation experiment - Dhanush",
+          "idShort": 9,
+          "shortLink": "5ghu2L5s"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700029",
+            "6a8a733f02646c624f700028"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86aacfafa9e493867181",
+          "name": "Blocked"
+        }
+      }
+    },
+    {
+      "id": "6abf3a8b9a93e7cb311d0a64",
+      "type": "updateCard",
+      "date": "2026-10-02T05:00:59.666Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700029"
+          ],
+          "id": "6abf3a7fad63480fb41f6d50",
+          "name": "S3 · Run RAG answer-generation experiment - Dhanush",
+          "idShort": 9,
+          "shortLink": "5ghu2L5s"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700029"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86aacfafa9e493867181",
+          "name": "Blocked"
+        }
+      }
+    },
+    {
+      "id": "6abf3a8aa502d277691698f7",
+      "type": "updateCard",
+      "date": "2026-10-02T05:00:58.899Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700029",
+            "6a8a733f02646c624f700027"
+          ],
+          "id": "6abf3a7fad63480fb41f6d50",
+          "name": "S3 · Run RAG answer-generation experiment - Dhanush",
+          "idShort": 9,
+          "shortLink": "5ghu2L5s"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700029",
+            "6a8a733f02646c624f700027"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86aacfafa9e493867181",
+          "name": "Blocked"
+        }
+      }
+    },
+    {
+      "id": "6abf3a8a7e0029a015df5247",
+      "type": "updateCard",
+      "date": "2026-10-02T05:00:58.681Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700029"
+          ],
+          "id": "6abf3a7fad63480fb41f6d50",
+          "name": "S3 · Run RAG answer-generation experiment - Dhanush",
+          "idShort": 9,
+          "shortLink": "5ghu2L5s"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700029"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86aacfafa9e493867181",
+          "name": "Blocked"
+        }
+      }
+    },
+    {
+      "id": "6abf3a7fad63480fb41f6d6c",
+      "type": "createCard",
+      "date": "2026-10-02T05:00:47.957Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "id": "6abf3a7fad63480fb41f6d50",
+          "name": "S3 · Run RAG answer-generation experiment - Dhanush",
+          "idShort": 9,
+          "shortLink": "5ghu2L5s"
+        },
+        "list": {
+          "id": "6a8a86aacfafa9e493867181",
+          "name": "Blocked"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6abf3a6dc11a69565539cf6d",
+      "type": "updateCard",
+      "date": "2026-10-02T05:00:29.457Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700028",
+            "6a8a733f02646c624f700029"
+          ],
+          "id": "6a8a884cb9682cc1a885d8dd",
+          "name": "S3 · Push experiment commits to GitHub - Amritpal",
+          "idShort": 3,
+          "shortLink": "ZfUR6Pf7"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700028",
+            "6a8a733f02646c624f700029"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86aacfafa9e493867181",
+          "name": "Blocked"
+        }
+      }
+    },
+    {
+      "id": "6abf3a6bcd2bbafd1f98f110",
+      "type": "updateCard",
+      "date": "2026-10-02T05:00:27.860Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700028"
+          ],
+          "id": "6a8a884cb9682cc1a885d8dd",
+          "name": "S3 · Push experiment commits to GitHub - Amritpal",
+          "idShort": 3,
+          "shortLink": "ZfUR6Pf7"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700028"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86aacfafa9e493867181",
+          "name": "Blocked"
+        }
+      }
+    },
+    {
+      "id": "6abf3a5ffe09a1efefe849be",
+      "type": "updateCard",
+      "date": "2026-10-02T05:00:15.686Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "name": "Data Sourcing"
+        },
+        "card": {
+          "name": "S3 · Push experiment commits to GitHub - Amritpal",
+          "id": "6a8a884cb9682cc1a885d8dd",
+          "idShort": 3,
+          "shortLink": "ZfUR6Pf7"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86aacfafa9e493867181",
+          "name": "Blocked"
+        }
+      }
+    },
+    {
+      "id": "6abf3a4ed20afd528b9a3d15",
+      "type": "updateList",
+      "date": "2026-10-02T04:59:58.026Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "list": {
+          "name": "Blocked",
+          "id": "6a8a86aacfafa9e493867181"
+        },
+        "old": {
+          "name": "Review"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6abf3a45a0e7a687d11ecb10",
+      "type": "updateCard",
+      "date": "2026-10-02T04:59:49.724Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": ""
+        },
+        "card": {
+          "desc": "Sprint 3 · 29 Sep–5 Oct 2026\nOwner (by Milestone 1 role): Chetan Bera, Project Lead. Confirm by assigning yourself.\n\nPull together results, error analysis and team contributions for the next report.",
+          "id": "6a8a88fa6368de83977ad0b3",
+          "name": "S3. Milestone 2 report assembly - Chetan",
+          "idShort": 5,
+          "shortLink": "3iy2Yiu4"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a869f4d7a16d92acb877e",
+          "name": "In-Progress"
+        }
+      }
+    },
+    {
+      "id": "6abf3a44b7722c680941019a",
+      "type": "updateCard",
+      "date": "2026-10-02T04:59:48.675Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700028"
+          ],
+          "id": "6a8a88fa6368de83977ad0b3",
+          "name": "S3. Milestone 2 report assembly - Chetan",
+          "idShort": 5,
+          "shortLink": "3iy2Yiu4"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700028"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a869f4d7a16d92acb877e",
+          "name": "In-Progress"
+        }
+      }
+    },
+    {
+      "id": "6abf3a3802d4dee47d8a791d",
+      "type": "updateCard",
+      "date": "2026-10-02T04:59:36.069Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "name": "RAG Baseline"
+        },
+        "card": {
+          "name": "S3. Milestone 2 report assembly - Chetan",
+          "id": "6a8a88fa6368de83977ad0b3",
+          "idShort": 5,
+          "shortLink": "3iy2Yiu4"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a869f4d7a16d92acb877e",
+          "name": "In-Progress"
+        }
+      }
+    },
+    {
+      "id": "6abf3a038855a9a29c4bfdc4",
+      "type": "updateCard",
+      "date": "2026-10-02T04:58:43.808Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": ""
+        },
+        "card": {
+          "desc": "Sprint 3 · 29 Sep–5 Oct 2026\nOwner (by Milestone 1 role): Imranjit Singh Kohli, Data Engineer. Confirm by assigning yourself.\n\nStill open: garbled equations (DPR loss), a ColBERT font that drops the \"u\" in \"Query\" (\"Qery\"), and \"dual-encoder\" joined to \"dualencoder\" by the hyphen repair.",
+          "id": "6abf39dd94da1f263f5b8917",
+          "name": "Fix remaining extraction issues - Imranjit",
+          "idShort": 8,
+          "shortLink": "q1pSCLpW"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a868f0cbd838332708c9e",
+          "name": "To-Do"
+        }
+      }
+    },
+    {
+      "id": "6abf39f8d8e0e9ab237530dd",
+      "type": "updateCard",
+      "date": "2026-10-02T04:58:32.305Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": "Description\nSprint 3 · 29 Sep–5 Oct 2026\nOwner (by Milestone 1 role): Deboprio Saha Argha, QA & Evaluation. Confirm by assigning yourself.\n\nWrite a separate question set that wasn't used when designing +route, with evidence quotes, and re-run the evaluation to check the gain holds. Also investigate why MRR dropped (0.42 → 0.32)."
+        },
+        "card": {
+          "desc": "Sprint 3 · 29 Sep–5 Oct 2026\nOwner (by Milestone 1 role): Deboprio Saha Argha, QA & Evaluation. Confirm by assigning yourself.\n\nWrite a separate question set that wasn't used when designing +route, with evidence quotes, and re-run the evaluation to check the gain holds. Also investigate why MRR dropped (0.42 → 0.32).",
+          "id": "6abf39a267de30b843b6b954",
+          "name": "S3. Validate routing on held-out questions - Deboprio",
+          "idShort": 7,
+          "shortLink": "5NVyRkpe"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a868f0cbd838332708c9e",
+          "name": "To-Do"
+        }
+      }
+    },
+    {
+      "id": "6abf39edae782a23a9339bee",
+      "type": "updateCard",
+      "date": "2026-10-02T04:58:21.442Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": "Description\nEdit\nSprint 3 · 29 Sep–5 Oct 2026\nOwner (by Milestone 1 role): Deboprio Saha Argha, QA & Evaluation. Confirm by assigning yourself.\n\nWrite a separate question set that wasn't used when designing +route, with evidence quotes, and re-run the evaluation to check the gain holds. Also investigate why MRR dropped (0.42 → 0.32)."
+        },
+        "card": {
+          "desc": "Description\nSprint 3 · 29 Sep–5 Oct 2026\nOwner (by Milestone 1 role): Deboprio Saha Argha, QA & Evaluation. Confirm by assigning yourself.\n\nWrite a separate question set that wasn't used when designing +route, with evidence quotes, and re-run the evaluation to check the gain holds. Also investigate why MRR dropped (0.42 → 0.32).",
+          "id": "6abf39a267de30b843b6b954",
+          "name": "S3. Validate routing on held-out questions - Deboprio",
+          "idShort": 7,
+          "shortLink": "5NVyRkpe"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a868f0cbd838332708c9e",
+          "name": "To-Do"
+        }
+      }
+    },
+    {
+      "id": "6abf39e2efda3e3bc2e180ea",
+      "type": "updateCard",
+      "date": "2026-10-02T04:58:10.980Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700028"
+          ],
+          "id": "6abf39dd94da1f263f5b8917",
+          "name": "Fix remaining extraction issues - Imranjit",
+          "idShort": 8,
+          "shortLink": "q1pSCLpW"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700028"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a868f0cbd838332708c9e",
+          "name": "To-Do"
+        }
+      }
+    },
+    {
+      "id": "6abf39dd94da1f263f5b891f",
+      "type": "createCard",
+      "date": "2026-10-02T04:58:05.250Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "id": "6abf39dd94da1f263f5b8917",
+          "name": "Fix remaining extraction issues - Imranjit",
+          "idShort": 8,
+          "shortLink": "q1pSCLpW"
+        },
+        "list": {
+          "id": "6a8a868f0cbd838332708c9e",
+          "name": "To-Do"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6abf39c05f891033a7a6f28b",
+      "type": "updateCard",
+      "date": "2026-10-02T04:57:36.764Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700028"
+          ],
+          "id": "6abf39a267de30b843b6b954",
+          "name": "S3. Validate routing on held-out questions - Deboprio",
+          "idShort": 7,
+          "shortLink": "5NVyRkpe"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700028"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a868f0cbd838332708c9e",
+          "name": "To-Do"
+        }
+      }
+    },
+    {
+      "id": "6abf39c010469de923e0ae49",
+      "type": "updateCard",
+      "date": "2026-10-02T04:57:36.248Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [],
+          "id": "6abf39a267de30b843b6b954",
+          "name": "S3. Validate routing on held-out questions - Deboprio",
+          "idShort": 7,
+          "shortLink": "5NVyRkpe"
+        },
+        "old": {
+          "idLabels": []
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a868f0cbd838332708c9e",
+          "name": "To-Do"
+        }
+      }
+    },
+    {
+      "id": "6abf39c013a0a86b7ca56eb3",
+      "type": "updateCard",
+      "date": "2026-10-02T04:57:36.065Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700028"
+          ],
+          "id": "6abf39a267de30b843b6b954",
+          "name": "S3. Validate routing on held-out questions - Deboprio",
+          "idShort": 7,
+          "shortLink": "5NVyRkpe"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700028"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a868f0cbd838332708c9e",
+          "name": "To-Do"
+        }
+      }
+    },
+    {
+      "id": "6abf39bfbe73ba17c3df6b93",
+      "type": "updateCard",
+      "date": "2026-10-02T04:57:35.690Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [],
+          "id": "6abf39a267de30b843b6b954",
+          "name": "S3. Validate routing on held-out questions - Deboprio",
+          "idShort": 7,
+          "shortLink": "5NVyRkpe"
+        },
+        "old": {
+          "idLabels": []
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a868f0cbd838332708c9e",
+          "name": "To-Do"
+        }
+      }
+    },
+    {
+      "id": "6abf39b98db9d1612a8ca778",
+      "type": "updateCard",
+      "date": "2026-10-02T04:57:29.153Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "idLabels": [
+            "6a8a733f02646c624f700028"
+          ],
+          "id": "6abf39a267de30b843b6b954",
+          "name": "S3. Validate routing on held-out questions - Deboprio",
+          "idShort": 7,
+          "shortLink": "5NVyRkpe"
+        },
+        "old": {
+          "idLabels": [
+            "6a8a733f02646c624f700028"
+          ]
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a868f0cbd838332708c9e",
+          "name": "To-Do"
+        }
+      }
+    },
+    {
+      "id": "6abf39b33c7d861af1801421",
+      "type": "updateCard",
+      "date": "2026-10-02T04:57:23.304Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "old": {
+          "desc": ""
+        },
+        "card": {
+          "desc": "Description\nEdit\nSprint 3 · 29 Sep–5 Oct 2026\nOwner (by Milestone 1 role): Deboprio Saha Argha, QA & Evaluation. Confirm by assigning yourself.\n\nWrite a separate question set that wasn't used when designing +route, with evidence quotes, and re-run the evaluation to check the gain holds. Also investigate why MRR dropped (0.42 → 0.32).",
+          "id": "6abf39a267de30b843b6b954",
+          "name": "S3. Validate routing on held-out questions - Deboprio",
+          "idShort": 7,
+          "shortLink": "5NVyRkpe"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a868f0cbd838332708c9e",
+          "name": "To-Do"
+        }
+      }
+    },
+    {
+      "id": "6abf39a267de30b843b6b95c",
+      "type": "createCard",
+      "date": "2026-10-02T04:57:06.590Z",
+      "actor": "Imranjit Singh Kohli",
+      "data": {
+        "card": {
+          "id": "6abf39a267de30b843b6b954",
+          "name": "S3. Validate routing on held-out questions - Deboprio",
+          "idShort": 7,
+          "shortLink": "5NVyRkpe"
+        },
+        "list": {
+          "id": "6a8a868f0cbd838332708c9e",
+          "name": "To-Do"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6a8aea8a5f47ad89cd67f45f",
+      "type": "updateCard",
+      "date": "2026-08-23T12:41:46.596Z",
+      "actor": "Chetan Bera",
+      "data": {
+        "old": {
+          "idList": "6a8a868f0cbd838332708c9e"
+        },
+        "card": {
+          "idList": "6a8a869f4d7a16d92acb877e",
+          "id": "6a8a88fa6368de83977ad0b3",
+          "name": "RAG Baseline",
+          "idShort": 5,
+          "shortLink": "3iy2Yiu4"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "listBefore": {
+          "id": "6a8a868f0cbd838332708c9e",
+          "name": "To-Do"
+        },
+        "listAfter": {
+          "id": "6a8a869f4d7a16d92acb877e",
+          "name": "In-Progress"
+        }
+      }
+    },
+    {
+      "id": "6a8aea8877b760c456beb9fd",
+      "type": "updateCard",
+      "date": "2026-08-23T12:41:44.550Z",
+      "actor": "Chetan Bera",
+      "data": {
+        "old": {
+          "idList": "6a8a869f4d7a16d92acb877e"
+        },
+        "card": {
+          "idList": "6a8a86aacfafa9e493867181",
+          "id": "6a8a884cb9682cc1a885d8dd",
+          "name": "Data Sourcing",
+          "idShort": 3,
+          "shortLink": "ZfUR6Pf7"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "listBefore": {
+          "id": "6a8a869f4d7a16d92acb877e",
+          "name": "In-Progress"
+        },
+        "listAfter": {
+          "id": "6a8a86aacfafa9e493867181",
+          "name": "Review"
+        }
+      }
+    },
+    {
+      "id": "6a8aea85a52bfd60192923d7",
+      "type": "updateCard",
+      "date": "2026-08-23T12:41:41.973Z",
+      "actor": "Chetan Bera",
+      "data": {
+        "old": {
+          "pos": 140737488379904
+        },
+        "card": {
+          "pos": 140737488404480,
+          "id": "6a8a8857ae4c646fd9b68869",
+          "name": "Final report assembly",
+          "idShort": 4,
+          "shortLink": "sPd9ug5O"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6a8aea85a52bfd60192923b7",
+      "type": "updateCard",
+      "date": "2026-08-23T12:41:41.880Z",
+      "actor": "Chetan Bera",
+      "data": {
+        "old": {
+          "idList": "6a8a86aacfafa9e493867181"
+        },
+        "card": {
+          "idList": "6a8a86ad0aa6070260c9f607",
+          "id": "6a8a8857ae4c646fd9b68869",
+          "name": "Final report assembly",
+          "idShort": 4,
+          "shortLink": "sPd9ug5O"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "listBefore": {
+          "id": "6a8a86aacfafa9e493867181",
+          "name": "Review"
+        },
+        "listAfter": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6a8aea83629e5097e2a71bdb",
+      "type": "updateCard",
+      "date": "2026-08-23T12:41:39.414Z",
+      "actor": "Chetan Bera",
+      "data": {
+        "old": {
+          "dueComplete": false
+        },
+        "card": {
+          "dueComplete": true,
+          "dateCompleted": "2026-08-23T12:41:39.398Z",
+          "id": "6a8a8857ae4c646fd9b68869",
+          "name": "Final report assembly",
+          "idShort": 4,
+          "shortLink": "sPd9ug5O"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "case study wil project 24",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86aacfafa9e493867181",
+          "name": "Review"
+        }
+      }
+    },
+    {
+      "id": "6a8a8efd4a85b8a7ad7c77cb",
+      "type": "updateBoard",
+      "date": "2026-08-23T06:11:09.772Z",
+      "actor": "Qiling Huang",
+      "data": {
+        "board": {
+          "name": "case study wil project 24",
+          "id": "6a8a733f02646c624f70000b",
+          "shortLink": "9hEOJ49W"
+        },
+        "old": {
+          "name": "CaseStudy_Ass2"
+        }
+      }
+    },
+    {
+      "id": "6a8a8b639409ac1881adace6",
+      "type": "updateCard",
+      "date": "2026-08-23T05:55:47.802Z",
+      "actor": "Chetan Bera",
+      "data": {
+        "old": {
+          "dueComplete": false
+        },
+        "card": {
+          "dueComplete": true,
+          "dateCompleted": "2026-08-23T05:55:47.790Z",
+          "id": "6a8a8960fe8d403a59f9fcbf",
+          "name": "Role Allocation",
+          "idShort": 6,
+          "shortLink": "hXqujxkQ"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "CaseStudy_Ass2",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6a8a8960fe8d403a59f9fcd0",
+      "type": "createCard",
+      "date": "2026-08-23T05:47:12.861Z",
+      "actor": "Chetan Bera",
+      "data": {
+        "card": {
+          "id": "6a8a8960fe8d403a59f9fcbf",
+          "name": "Role Allocation",
+          "idShort": 6,
+          "shortLink": "hXqujxkQ"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "CaseStudy_Ass2",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6a8a88fa6368de83977ad0c4",
+      "type": "createCard",
+      "date": "2026-08-23T05:45:30.299Z",
+      "actor": "Chetan Bera",
+      "data": {
+        "card": {
+          "id": "6a8a88fa6368de83977ad0b3",
+          "name": "RAG Baseline",
+          "idShort": 5,
+          "shortLink": "3iy2Yiu4"
+        },
+        "list": {
+          "id": "6a8a868f0cbd838332708c9e",
+          "name": "To-Do"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "CaseStudy_Ass2",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6a8a88980983d9101625e1a7",
+      "type": "updateCard",
+      "date": "2026-08-23T05:43:52.620Z",
+      "actor": "Chetan Bera",
+      "data": {
+        "old": {
+          "idList": "6a8a86aacfafa9e493867181"
+        },
+        "card": {
+          "idList": "6a8a869f4d7a16d92acb877e",
+          "id": "6a8a884cb9682cc1a885d8dd",
+          "name": "Data Sourcing",
+          "idShort": 3,
+          "shortLink": "ZfUR6Pf7"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "CaseStudy_Ass2",
+          "shortLink": "9hEOJ49W"
+        },
+        "listBefore": {
+          "id": "6a8a86aacfafa9e493867181",
+          "name": "Review"
+        },
+        "listAfter": {
+          "id": "6a8a869f4d7a16d92acb877e",
+          "name": "In-Progress"
+        }
+      }
+    },
+    {
+      "id": "6a8a8857ae4c646fd9b6887a",
+      "type": "createCard",
+      "date": "2026-08-23T05:42:47.276Z",
+      "actor": "Chetan Bera",
+      "data": {
+        "card": {
+          "id": "6a8a8857ae4c646fd9b68869",
+          "name": "Final report assembly",
+          "idShort": 4,
+          "shortLink": "sPd9ug5O"
+        },
+        "list": {
+          "id": "6a8a86aacfafa9e493867181",
+          "name": "Review"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "CaseStudy_Ass2",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6a8a884cb9682cc1a885d8ee",
+      "type": "createCard",
+      "date": "2026-08-23T05:42:36.205Z",
+      "actor": "Chetan Bera",
+      "data": {
+        "card": {
+          "id": "6a8a884cb9682cc1a885d8dd",
+          "name": "Data Sourcing",
+          "idShort": 3,
+          "shortLink": "ZfUR6Pf7"
+        },
+        "list": {
+          "id": "6a8a86aacfafa9e493867181",
+          "name": "Review"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "CaseStudy_Ass2",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6a8a870119386e9934379435",
+      "type": "updateCard",
+      "date": "2026-08-23T05:37:05.446Z",
+      "actor": "Chetan Bera",
+      "data": {
+        "old": {
+          "dueComplete": false
+        },
+        "card": {
+          "dueComplete": true,
+          "dateCompleted": "2026-08-23T05:37:05.433Z",
+          "id": "6a8a86fbf9dd6dc1e340cf2b",
+          "name": "Python Setup",
+          "idShort": 2,
+          "shortLink": "ni2TrJUS"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "CaseStudy_Ass2",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6a8a86fbf9dd6dc1e340cf3c",
+      "type": "createCard",
+      "date": "2026-08-23T05:36:59.407Z",
+      "actor": "Chetan Bera",
+      "data": {
+        "card": {
+          "id": "6a8a86fbf9dd6dc1e340cf2b",
+          "name": "Python Setup",
+          "idShort": 2,
+          "shortLink": "ni2TrJUS"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "CaseStudy_Ass2",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6a8a86c4b097df0915515766",
+      "type": "updateCard",
+      "date": "2026-08-23T05:36:04.379Z",
+      "actor": "Chetan Bera",
+      "data": {
+        "old": {
+          "dueComplete": false
+        },
+        "card": {
+          "dueComplete": true,
+          "dateCompleted": "2026-08-23T05:36:04.366Z",
+          "id": "6a8a86c2d7c6fcb7c9fc0dd0",
+          "name": "GitHub Repo",
+          "idShort": 1,
+          "shortLink": "KYWPhJgp"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "CaseStudy_Ass2",
+          "shortLink": "9hEOJ49W"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        }
+      }
+    },
+    {
+      "id": "6a8a86c2d7c6fcb7c9fc0de1",
+      "type": "createCard",
+      "date": "2026-08-23T05:36:02.347Z",
+      "actor": "Chetan Bera",
+      "data": {
+        "card": {
+          "id": "6a8a86c2d7c6fcb7c9fc0dd0",
+          "name": "GitHub Repo",
+          "idShort": 1,
+          "shortLink": "KYWPhJgp"
+        },
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "CaseStudy_Ass2",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6a8a86ad0aa6070260c9f61b",
+      "type": "createList",
+      "date": "2026-08-23T05:35:41.950Z",
+      "actor": "Chetan Bera",
+      "data": {
+        "list": {
+          "id": "6a8a86ad0aa6070260c9f607",
+          "name": "Done"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "CaseStudy_Ass2",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6a8a86aacfafa9e493867195",
+      "type": "createList",
+      "date": "2026-08-23T05:35:38.366Z",
+      "actor": "Chetan Bera",
+      "data": {
+        "list": {
+          "id": "6a8a86aacfafa9e493867181",
+          "name": "Review"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "CaseStudy_Ass2",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6a8a869f4d7a16d92acb8786",
+      "type": "createList",
+      "date": "2026-08-23T05:35:27.730Z",
+      "actor": "Chetan Bera",
+      "data": {
+        "list": {
+          "id": "6a8a869f4d7a16d92acb877e",
+          "name": "In-Progress"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "CaseStudy_Ass2",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6a8a868f0cbd838332708ca4",
+      "type": "createList",
+      "date": "2026-08-23T05:35:11.285Z",
+      "actor": "Chetan Bera",
+      "data": {
+        "list": {
+          "id": "6a8a868f0cbd838332708c9e",
+          "name": "To-Do"
+        },
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "CaseStudy_Ass2",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6a8a7c1633dc6253b7ad3316",
+      "type": "addMemberToBoard",
+      "date": "2026-08-23T04:50:30.188Z",
+      "actor": "Qiling Huang",
+      "data": {
+        "memberType": "normal",
+        "idMemberAdded": "69ef272612a30c3cbb0fc446",
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "CaseStudy_Ass2",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6a8a74a1934b1b3c9caf5af5",
+      "type": "addMemberToBoard",
+      "date": "2026-08-23T04:18:41.301Z",
+      "actor": "Qiling Huang",
+      "data": {
+        "memberType": "normal",
+        "idMemberAdded": "69f046760f704a16f1397835",
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "CaseStudy_Ass2",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6a8a749531e5a65f47bd7e91",
+      "type": "addMemberToBoard",
+      "date": "2026-08-23T04:18:29.779Z",
+      "actor": "Qiling Huang",
+      "data": {
+        "memberType": "normal",
+        "idMemberAdded": "69f046499d99c73a38aa00f3",
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "CaseStudy_Ass2",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6a8a74870231cef90bfbe6bd",
+      "type": "addMemberToBoard",
+      "date": "2026-08-23T04:18:15.715Z",
+      "actor": "Qiling Huang",
+      "data": {
+        "memberType": "normal",
+        "idMemberAdded": "69ef2b3da13373f826c97f28",
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "CaseStudy_Ass2",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    },
+    {
+      "id": "6a8a733f02646c624f700034",
+      "type": "createBoard",
+      "date": "2026-08-23T04:12:47.947Z",
+      "actor": "Qiling Huang",
+      "data": {
+        "creationMethod": null,
+        "board": {
+          "id": "6a8a733f02646c624f70000b",
+          "name": "CaseStudy_Ass2",
+          "shortLink": "9hEOJ49W"
+        }
+      }
+    }
+  ]
+}

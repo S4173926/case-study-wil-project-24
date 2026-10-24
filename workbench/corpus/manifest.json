@@ -1,0 +1,300 @@
+{
+  "corpus_name": "retrieval-augmented-qa-methods-30",
+  "topic": "Methods for retrieval-augmented question answering and its evaluation",
+  "selection_criteria": [
+    "Open access on arXiv (CC-BY or arXiv non-exclusive licence)",
+    "Proposes or evaluates a retrieval / RAG methodology, so cross-paper method comparison is meaningful",
+    "Overlapping vocabulary (retriever, passages, dense, BM25) so wrong-paper attribution is a real risk"
+  ],
+  "papers": [
+    {
+      "id": "walert",
+      "arxiv": "2401.07216",
+      "title_must_contain": "Walert",
+      "role": "baseline system to reproduce",
+      "aliases": [
+        "walert"
+      ]
+    },
+    {
+      "id": "rag",
+      "arxiv": "2005.11401",
+      "title_must_contain": "Retrieval-Augmented Generation",
+      "role": "RAG model",
+      "aliases": [
+        "rag model",
+        "rag-sequence",
+        "rag-token",
+        "lewis et al"
+      ]
+    },
+    {
+      "id": "dpr",
+      "arxiv": "2004.04906",
+      "title_must_contain": "Dense Passage Retrieval",
+      "role": "dense retriever",
+      "aliases": [
+        "dpr",
+        "dense passage retrieval",
+        "dense passage retriever"
+      ]
+    },
+    {
+      "id": "colbert",
+      "arxiv": "2004.12832",
+      "title_must_contain": "ColBERT",
+      "role": "late-interaction retriever",
+      "aliases": [
+        "colbert"
+      ]
+    },
+    {
+      "id": "fid",
+      "arxiv": "2007.01282",
+      "title_must_contain": "Passage Retrieval with Generative Models",
+      "role": "reader (Fusion-in-Decoder)",
+      "aliases": [
+        "fusion-in-decoder",
+        "fid"
+      ]
+    },
+    {
+      "id": "realm",
+      "arxiv": "2002.08909",
+      "title_must_contain": "REALM",
+      "role": "retrieval-augmented pre-training",
+      "aliases": [
+        "realm"
+      ]
+    },
+    {
+      "id": "ragas",
+      "arxiv": "2309.15217",
+      "title_must_contain": "RAGAS",
+      "role": "RAG evaluation metrics",
+      "aliases": [
+        "ragas"
+      ]
+    },
+    {
+      "id": "selfrag",
+      "arxiv": "2310.11511",
+      "title_must_contain": "Self-RAG",
+      "role": "adaptive retrieval + self-critique",
+      "aliases": [
+        "self-rag",
+        "selfrag"
+      ]
+    },
+    {
+      "id": "retro",
+      "arxiv": "2112.04426",
+      "title_must_contain": "retrieving from trillions of tokens",
+      "role": "retrieval-augmented pre-training at scale",
+      "aliases": [
+        "retro"
+      ]
+    },
+    {
+      "id": "atlas",
+      "arxiv": "2208.03299",
+      "title_must_contain": "Atlas",
+      "role": "few-shot retrieval-augmented LM",
+      "aliases": [
+        "atlas"
+      ]
+    },
+    {
+      "id": "contriever",
+      "arxiv": "2112.09118",
+      "title_must_contain": "Unsupervised Dense Information Retrieval",
+      "role": "unsupervised dense retriever",
+      "aliases": [
+        "contriever"
+      ]
+    },
+    {
+      "id": "ance",
+      "arxiv": "2007.00808",
+      "title_must_contain": "Approximate Nearest Neighbor Negative Contrastive",
+      "role": "hard-negative dense retrieval",
+      "aliases": [
+        "ance"
+      ]
+    },
+    {
+      "id": "gtr",
+      "arxiv": "2112.07899",
+      "title_must_contain": "Large Dual Encoders",
+      "role": "scaled dual encoders",
+      "aliases": [
+        "gtr",
+        "large dual encoders"
+      ]
+    },
+    {
+      "id": "beir",
+      "arxiv": "2104.08663",
+      "title_must_contain": "BEIR",
+      "role": "zero-shot retrieval benchmark",
+      "aliases": [
+        "beir"
+      ]
+    },
+    {
+      "id": "colbertv2",
+      "arxiv": "2112.01488",
+      "title_must_contain": "ColBERTv2",
+      "role": "compressed late interaction",
+      "aliases": [
+        "colbertv2",
+        "colbert v2"
+      ]
+    },
+    {
+      "id": "monobert",
+      "arxiv": "1901.04085",
+      "title_must_contain": "Passage Re-ranking with BERT",
+      "role": "BERT re-ranker",
+      "aliases": [
+        "monobert",
+        "passage re-ranking with bert"
+      ]
+    },
+    {
+      "id": "monot5",
+      "arxiv": "2003.06713",
+      "title_must_contain": "Pretrained Sequence-to-Sequence Model",
+      "role": "seq2seq re-ranker",
+      "aliases": [
+        "monot5"
+      ]
+    },
+    {
+      "id": "splade",
+      "arxiv": "2107.05720",
+      "title_must_contain": "SPLADE",
+      "role": "learned sparse retrieval",
+      "aliases": [
+        "splade"
+      ]
+    },
+    {
+      "id": "icralm",
+      "arxiv": "2302.00083",
+      "title_must_contain": "In-Context Retrieval-Augmented",
+      "role": "in-context retrieval augmentation",
+      "aliases": [
+        "in-context ralm",
+        "in-context retrieval-augmented"
+      ]
+    },
+    {
+      "id": "replug",
+      "arxiv": "2301.12652",
+      "title_must_contain": "REPLUG",
+      "role": "retrieval for black-box LMs",
+      "aliases": [
+        "replug"
+      ]
+    },
+    {
+      "id": "flare",
+      "arxiv": "2305.06983",
+      "title_must_contain": "Active Retrieval Augmented Generation",
+      "role": "active (forward-looking) retrieval",
+      "aliases": [
+        "flare",
+        "active retrieval augmented generation"
+      ]
+    },
+    {
+      "id": "lostmiddle",
+      "arxiv": "2307.03172",
+      "title_must_contain": "Lost in the Middle",
+      "role": "how LMs use long contexts",
+      "aliases": [
+        "lost in the middle"
+      ]
+    },
+    {
+      "id": "ares",
+      "arxiv": "2311.09476",
+      "title_must_contain": "ARES",
+      "role": "RAG evaluation framework",
+      "aliases": [
+        "ares"
+      ]
+    },
+    {
+      "id": "crag",
+      "arxiv": "2401.15884",
+      "title_must_contain": "Corrective Retrieval Augmented Generation",
+      "role": "corrective RAG",
+      "aliases": [
+        "crag",
+        "corrective rag",
+        "corrective retrieval augmented generation"
+      ]
+    },
+    {
+      "id": "dsp",
+      "arxiv": "2212.14024",
+      "title_must_contain": "Demonstrate-Search-Predict",
+      "role": "composing retrieval and LMs",
+      "aliases": [
+        "dsp",
+        "demonstrate-search-predict"
+      ]
+    },
+    {
+      "id": "queryrewrite",
+      "arxiv": "2305.14283",
+      "title_must_contain": "Query Rewriting",
+      "role": "query rewriting for RAG",
+      "aliases": [
+        "query rewriting",
+        "rewrite-retrieve-read"
+      ]
+    },
+    {
+      "id": "t5cbqa",
+      "arxiv": "2002.08910",
+      "title_must_contain": "How Much Knowledge Can You Pack",
+      "role": "closed-book QA baseline",
+      "aliases": [
+        "closed-book t5",
+        "how much knowledge can you pack"
+      ]
+    },
+    {
+      "id": "orqa",
+      "arxiv": "1906.00300",
+      "title_must_contain": "Latent Retrieval",
+      "role": "latent retrieval for open-domain QA",
+      "aliases": [
+        "orqa"
+      ]
+    },
+    {
+      "id": "recomp",
+      "arxiv": "2310.04408",
+      "title_must_contain": "RECOMP",
+      "role": "context compression for RAG",
+      "aliases": [
+        "recomp"
+      ]
+    },
+    {
+      "id": "ragsurvey",
+      "arxiv": "2312.10997",
+      "title_must_contain": "A Survey",
+      "role": "survey of RAG for LLMs",
+      "aliases": [
+        "rag survey",
+        "survey of retrieval-augmented generation"
+      ]
+    }
+  ],
+  "alias_notes": "Bare 'RAG' refers to the rag paper only when used as a name (e.g. 'REALM and RAG'), not as a generic noun ('its RAG pipeline')."
+}

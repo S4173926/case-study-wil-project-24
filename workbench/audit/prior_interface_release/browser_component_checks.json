@@ -1,0 +1,104 @@
+{
+  "navigation": "Chromium component test; fetch bridged to real local HTTP API. Direct navigation is blocked by environment policy.",
+  "checks": [
+    {
+      "check": "Browser components load data from real local API",
+      "passed": true
+    },
+    {
+      "check": "Default shows 67 repaired questions rather than 82 saved versions",
+      "passed": true
+    },
+    {
+      "check": "Question ID search narrows to one repaired result",
+      "passed": true
+    },
+    {
+      "check": "Correct repaired F11 selected",
+      "passed": true
+    },
+    {
+      "check": "Selected F11 contains both paper sections",
+      "passed": true
+    },
+    {
+      "check": "Full selected run ID displayed",
+      "passed": true
+    },
+    {
+      "check": "Changing the selected filtered question resets all scores",
+      "passed": true
+    },
+    {
+      "check": "Source confirmation and notes do not leak into next question",
+      "passed": true
+    },
+    {
+      "check": "Reviewer identity retained",
+      "passed": true
+    },
+    {
+      "check": "Both historical and repaired F11 remain accessible",
+      "passed": true
+    },
+    {
+      "check": "Historical warning appears",
+      "passed": true
+    },
+    {
+      "check": "Historical missing-FID result not silently rewritten",
+      "passed": true
+    },
+    {
+      "check": "Multiword case-insensitive search works",
+      "passed": true
+    },
+    {
+      "check": "No-match search clears stale preview",
+      "passed": true
+    },
+    {
+      "check": "Unsupported-status filter returns 14 known refusal runs",
+      "passed": true
+    },
+    {
+      "check": "Unrelated evidence on refused question is collapsed and labelled",
+      "passed": true
+    },
+    {
+      "check": "A deliberate completed rating saves on the exact selected run",
+      "passed": true
+    },
+    {
+      "check": "Saved run identity correct",
+      "passed": true
+    },
+    {
+      "check": "Existing answer workflow still produces paper-specific explanation",
+      "passed": true
+    },
+    {
+      "check": "Changed-input warning remains visible",
+      "passed": true
+    },
+    {
+      "check": "Original source modal opens",
+      "passed": true
+    },
+    {
+      "check": "Mobile layout does not create horizontal scrolling",
+      "passed": true
+    },
+    {
+      "check": "No browser JavaScript errors",
+      "passed": true
+    },
+    {
+      "check": "Interface contains no provider or assistance banners",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "javascript_errors": [],
+  "data_boundary": "All synthetic reviews and asks were written in a disposable workspace; none is delivered as study data."
+}

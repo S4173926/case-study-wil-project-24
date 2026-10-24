@@ -1,0 +1,18 @@
+{
+  "release": "2.0-portable",
+  "scope": "Portable packaging and interface changes. Source claims, routing and clause-selection behavior preserved. UTF-8 I/O made explicit.",
+  "compatible_answer_sets": [
+    {
+      "label": "Repaired evaluation",
+      "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+      "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+      "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+    },
+    {
+      "label": "Previous final interface \u00b7 same answers",
+      "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+      "knowledge": "c2a7414285341994a878c213a286627538dc29515ada4d723505b2e46984b8b0",
+      "code": "963b26cbd73b8976de18eed9c58babac161e76b78b04869beead70e7eb11826f"
+    }
+  ]
+}

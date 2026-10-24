@@ -1,0 +1,48 @@
+{
+  "release": "1.2-final-interface",
+  "date": "2026-10-24",
+  "code_and_api_tests": {
+    "passed": 98,
+    "failed": 0,
+    "skipped": 0
+  },
+  "browser_component_checks": {
+    "passed": 24,
+    "failed": 0,
+    "javascript_errors": []
+  },
+  "browser_boundary": "Direct Chromium navigation is blocked by the execution environment. Components were exercised with their actual JavaScript, HTML and CSS, with fetch bridged to the real local HTTP API. Native Mac navigation and embedded PDF rendering were not tested in this finalisation run.",
+  "regression_equivalence": {
+    "questions": 67,
+    "same_answer_content_sources_status": 67,
+    "original_run_bytes_preserved": 67,
+    "status_counts": {
+      "source_linked_explanation": 52,
+      "partial": 1,
+      "insufficient": 14
+    }
+  },
+  "corpus": {
+    "original_pdfs": 30,
+    "pdf_hashes_matched": 30,
+    "passages": 1202,
+    "claims": 99,
+    "supporting_spans": 191
+  },
+  "branding_scan": {
+    "application_owned_text_files": 39,
+    "matches": 0,
+    "excluded": "Original research sources, quoted passages and historical evidence are preserved unchanged."
+  },
+  "knowledge_change": "Only author/provenance metadata wording changed. Factual texts, tags, facets, metrics and source evidence are unchanged.",
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "c2a7414285341994a878c213a286627538dc29515ada4d723505b2e46984b8b0",
+    "code": "963b26cbd73b8976de18eed9c58babac161e76b78b04869beead70e7eb11826f"
+  },
+  "new_human_ratings_created": 0,
+  "new_pilot_observations_created": 0,
+  "accuracy_status": "NOT_INDEPENDENTLY_MEASURED",
+  "dataset_status": "Known development/regression cases",
+  "optional_model": "Not run on Apple silicon during finalisation; default path requires no model."
+}

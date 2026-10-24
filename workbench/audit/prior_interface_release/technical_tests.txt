@@ -1,0 +1,106 @@
+test_actual_reviewer_names_listed (test_final_release.IndexTests.test_actual_reviewer_names_listed) ... ok
+test_all_170_records_available_not_truncated (test_final_release.IndexTests.test_all_170_records_available_not_truncated) ... ok
+test_compatible_hash_mismatch_not_accepted (test_final_release.IndexTests.test_compatible_hash_mismatch_not_accepted) ... ok
+test_corrupt_record_does_not_hide_valid_runs (test_final_release.IndexTests.test_corrupt_record_does_not_hide_valid_runs) ... ok
+test_current_version_identified (test_final_release.IndexTests.test_current_version_identified) ... ok
+test_exact_compatible_repair_retained (test_final_release.IndexTests.test_exact_compatible_repair_retained) ... ok
+test_mismatched_filename_is_unavailable (test_final_release.IndexTests.test_mismatched_filename_is_unavailable) ... ok
+test_native_question_id_preserved (test_final_release.IndexTests.test_native_question_id_preserved) ... ok
+test_old_code_not_current_without_explicit_compatibility (test_final_release.IndexTests.test_old_code_not_current_without_explicit_compatibility) ... ok
+test_paper_titles_available_for_search (test_final_release.IndexTests.test_paper_titles_available_for_search) ... ok
+test_question_id_inferred_only_for_display (test_final_release.IndexTests.test_question_id_inferred_only_for_display) ... ok
+test_review_names_are_not_invented (test_final_release.IndexTests.test_review_names_are_not_invented) ... ok
+test_all_three_record_categories_preserved (test_final_release.MigrationTests.test_all_three_record_categories_preserved) ... ok
+test_conflict_aborts_before_any_new_copy (test_final_release.MigrationTests.test_conflict_aborts_before_any_new_copy) ... ok
+test_copy_preserves_bytes_and_original (test_final_release.MigrationTests.test_copy_preserves_bytes_and_original) ... ok
+test_idempotent (test_final_release.MigrationTests.test_idempotent) ... ok
+test_identity_mismatch_rejected (test_final_release.MigrationTests.test_identity_mismatch_rejected) ... ok
+test_invalid_json_rejected_without_changes (test_final_release.MigrationTests.test_invalid_json_rejected_without_changes) ... ok
+test_missing_previous_workspace_is_ok (test_final_release.MigrationTests.test_missing_previous_workspace_is_ok) ... ok
+test_same_workspace_no_change (test_final_release.MigrationTests.test_same_workspace_no_change) ... ok
+test_symlink_rejected (test_final_release.MigrationTests.test_symlink_rejected) ... ok
+test_unrelated_files_are_not_imported (test_final_release.MigrationTests.test_unrelated_files_are_not_imported) ... ok
+test_historical_json_export_unmodified (test_final_release.PresentationTests.test_historical_json_export_unmodified) ... ok
+test_neutral_source_linked_interface (test_final_release.PresentationTests.test_neutral_source_linked_interface) ... ok
+test_scores_reset_on_run_change (test_final_release.PresentationTests.test_scores_reset_on_run_change) ... ok
+test_search_and_version_controls_present (test_final_release.PresentationTests.test_search_and_version_controls_present) ... ok
+test_source_context_warning_kept (test_final_release.PresentationTests.test_source_context_warning_kept) ... ok
+test_source_search_method_label_explicit (test_final_release.PresentationTests.test_source_search_method_label_explicit) ... ok
+test_atlas_architecture_contains_multi_passage_mechanism (test_selection_repair.SelectionRepairTests.test_atlas_architecture_contains_multi_passage_mechanism) ... ok
+test_contextual_when_does_not_delete_inference (test_selection_repair.SelectionRepairTests.test_contextual_when_does_not_delete_inference) ... ok
+test_corrective_rag_longest_entity_span (test_selection_repair.SelectionRepairTests.test_corrective_rag_longest_entity_span) ... ok
+test_deployment_measurements_not_replaced_by_method_details (test_selection_repair.SelectionRepairTests.test_deployment_measurements_not_replaced_by_method_details) ... ok
+test_evaluation_comparison_retains_ppi (test_selection_repair.SelectionRepairTests.test_evaluation_comparison_retains_ppi) ... ok
+test_exact_span_and_pending_review_remain (test_selection_repair.SelectionRepairTests.test_exact_span_and_pending_review_remain) ... ok
+test_explicit_original_rag_is_not_deleted (test_selection_repair.SelectionRepairTests.test_explicit_original_rag_is_not_deleted) ... ok
+test_fid_not_filtered_by_replug_specific_property (test_selection_repair.SelectionRepairTests.test_fid_not_filtered_by_replug_specific_property) ... ok
+test_fid_replug_reordered (test_selection_repair.SelectionRepairTests.test_fid_replug_reordered) ... ok
+test_noisy_evidence_decisions_and_mechanisms (test_selection_repair.SelectionRepairTests.test_noisy_evidence_decisions_and_mechanisms) ... ok
+test_query_construction_is_not_only_trigger (test_selection_repair.SelectionRepairTests.test_query_construction_is_not_only_trigger) ... ok
+test_relevance_metric_not_replaced_by_only_reference_free_label (test_selection_repair.SelectionRepairTests.test_relevance_metric_not_replaced_by_only_reference_free_label) ... ok
+test_removed_reader_block_fails_detected_coverage (test_selection_repair.SelectionRepairTests.test_removed_reader_block_fails_detected_coverage) ... ok
+test_reordered_parts_still_have_both (test_selection_repair.SelectionRepairTests.test_reordered_parts_still_have_both) ... ok
+test_replug_rephrasing (test_selection_repair.SelectionRepairTests.test_replug_rephrasing) ... ok
+test_replug_weighted_ensemble_is_selected (test_selection_repair.SelectionRepairTests.test_replug_weighted_ensemble_is_selected) ... ok
+test_representation_and_learning_in_same_clause (test_selection_repair.SelectionRepairTests.test_representation_and_learning_in_same_clause) ... ok
+test_retrieval_augmented_generic_label_not_another_paper (test_selection_repair.SelectionRepairTests.test_retrieval_augmented_generic_label_not_another_paper) ... ok
+test_splade_both_regularization_and_tradeoff (test_selection_repair.SelectionRepairTests.test_splade_both_regularization_and_tradeoff) ... ok
+test_supported_measurement_still_available (test_selection_repair.SelectionRepairTests.test_supported_measurement_still_available) ... ok
+test_training_and_reader_parts_both_preserved (test_selection_repair.SelectionRepairTests.test_training_and_reader_parts_both_preserved) ... ok
+test_unknown_parts_cannot_be_removed_by_optional_selector (test_selection_repair.SelectionRepairTests.test_unknown_parts_cannot_be_removed_by_optional_selector) ... ok
+test_unknown_second_part_is_visible (test_selection_repair.SelectionRepairTests.test_unknown_second_part_is_visible) ... ok
+test_unrelated_domain_question_not_answered_by_generic_benchmark (test_selection_repair.SelectionRepairTests.test_unrelated_domain_question_not_answered_by_generic_benchmark) ... ok
+test_zero_hallucination_claim_not_asserted (test_selection_repair.SelectionRepairTests.test_zero_hallucination_claim_not_asserted) ... ok
+test_catalogue_all_papers_have_supported_claims (test_workbench.CoreTests.test_catalogue_all_papers_have_supported_claims) ... ok
+test_deterministic_default (test_workbench.CoreTests.test_deterministic_default) ... ok
+test_empty_question_rejected (test_workbench.CoreTests.test_empty_question_rejected) ... ok
+test_evaluation_comparison_does_not_swap_ppi (test_workbench.CoreTests.test_evaluation_comparison_does_not_swap_ppi) ... ok
+test_every_displayed_block_is_a_catalogue_claim (test_workbench.CoreTests.test_every_displayed_block_is_a_catalogue_claim) ... ok
+test_export_has_submitted_question (test_workbench.CoreTests.test_export_has_submitted_question) ... ok
+test_failed_model_trace_is_preserved (test_workbench.CoreTests.test_failed_model_trace_is_preserved) ... ok
+test_flare_trigger_including_otherwise (test_workbench.CoreTests.test_flare_trigger_including_otherwise) ... ok
+test_invalid_output_mode (test_workbench.CoreTests.test_invalid_output_mode) ... ok
+test_invalid_retrieval_mode (test_workbench.CoreTests.test_invalid_retrieval_mode) ... ok
+test_irrelevant_named_question_not_filled_with_method (test_workbench.CoreTests.test_irrelevant_named_question_not_filled_with_method) ... ok
+test_misattributed_concept_not_relabelled (test_workbench.CoreTests.test_misattributed_concept_not_relabelled) ... ok
+test_model_selector_cannot_invent_claims (test_workbench.CoreTests.test_model_selector_cannot_invent_claims) ... ok
+test_modified_quote_rejected (test_workbench.CoreTests.test_modified_quote_rejected) ... ok
+test_names_not_confused (test_workbench.CoreTests.test_names_not_confused) ... ok
+test_numeric_measurements_not_invented (test_workbench.CoreTests.test_numeric_measurements_not_invented) ... ok
+test_original_pdf_hashes (test_workbench.CoreTests.test_original_pdf_hashes) ... ok
+test_orqa_pretraining_and_supervision (test_workbench.CoreTests.test_orqa_pretraining_and_supervision) ... ok
+test_plural_trigger_comparison (test_workbench.CoreTests.test_plural_trigger_comparison) ... ok
+test_recomp_empty_string (test_workbench.CoreTests.test_recomp_empty_string) ... ok
+test_recomp_fid_correct_mechanisms (test_workbench.CoreTests.test_recomp_fid_correct_mechanisms) ... ok
+test_runtime_never_reads_evaluation_files (test_workbench.CoreTests.test_runtime_never_reads_evaluation_files) ... ok
+test_search_is_not_a_generated_answer (test_workbench.CoreTests.test_search_is_not_a_generated_answer) ... ok
+test_superiority_question_has_explicit_limit (test_workbench.CoreTests.test_superiority_question_has_explicit_limit) ... ok
+test_too_long_question_rejected (test_workbench.CoreTests.test_too_long_question_rejected) ... ok
+test_unscoped_discovery_is_labelled (test_workbench.CoreTests.test_unscoped_discovery_is_labelled) ... ok
+test_wrong_paper_source_rejected (test_workbench.CoreTests.test_wrong_paper_source_rejected) ... ok
+test_cross_origin_rejected (test_workbench.HTTPTests.test_cross_origin_rejected) ... ok
+test_csrf_rejected (test_workbench.HTTPTests.test_csrf_rejected) ... ok
+test_homepage (test_workbench.HTTPTests.test_homepage) ... 127.0.0.1 - - [24/Oct/2026 07:46:31] "GET / HTTP/1.1" 200 -
+ok
+test_invalid_question_response (test_workbench.HTTPTests.test_invalid_question_response) ... ok
+test_no_remote_host (test_workbench.HTTPTests.test_no_remote_host) ... ok
+test_pdf_served (test_workbench.HTTPTests.test_pdf_served) ... 127.0.0.1 - - [24/Oct/2026 07:46:31] "GET /pdf/fid.pdf HTTP/1.1" 200 -
+ok
+test_query_endpoint (test_workbench.HTTPTests.test_query_endpoint) ... ok
+test_real_export_structure (test_workbench.HTTPTests.test_real_export_structure) ... ok
+test_unknown_paths (test_workbench.HTTPTests.test_unknown_paths) ... 127.0.0.1 - - [24/Oct/2026 07:46:31] "GET /../../knowledge/claims.json HTTP/1.1" 404 -
+ok
+test_empty_ratings_are_not_accuracy (test_workbench.RecordsTests.test_empty_ratings_are_not_accuracy) ... ok
+test_explicit_boolean_required (test_workbench.RecordsTests.test_explicit_boolean_required) ... ok
+test_latest_same_reviewer_rating_only (test_workbench.RecordsTests.test_latest_same_reviewer_rating_only) ... ok
+test_missing_score_rejected (test_workbench.RecordsTests.test_missing_score_rejected) ... ok
+test_path_traversal_rejected (test_workbench.RecordsTests.test_path_traversal_rejected) ... ok
+test_pilot_actual_clock_and_no_fabricated_rating (test_workbench.RecordsTests.test_pilot_actual_clock_and_no_fabricated_rating) ... ok
+test_pilot_requires_consent (test_workbench.RecordsTests.test_pilot_requires_consent) ... ok
+test_rater_disagreement_not_silently_averaged (test_workbench.RecordsTests.test_rater_disagreement_not_silently_averaged) ... ok
+test_source_check_required (test_workbench.RecordsTests.test_source_check_required) ... ok
+
+----------------------------------------------------------------------
+Ran 98 tests in 5.886s
+
+OK

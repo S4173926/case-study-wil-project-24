@@ -1,0 +1,18 @@
+{
+  "application_version": "2.0-portable",
+  "software_logic_changed": false,
+  "portable_archive_original_bytes": 26878965,
+  "portable_archive_upload_bytes": 23925189,
+  "portable_archive_uncompressed_entries_identical": 198,
+  "readable_payload_file_count": 195,
+  "original_pyz_sha256": "13fb6add25e376b02d0245d75ca9fd9102f76f079ae6903c7e466b8b9d5aa4fa",
+  "upload_pyz_sha256": "14d38d275e6f68bfd5a785fc6fe6b07126d68b271293a890fd353ec33866bfd7",
+  "original_history_sha256": "56caeaac695031d6feb6082e5bb70e5e4d81aa3960664dadeb6772edeb87c973",
+  "new_human_ratings": 0,
+  "new_participant_observations": 0,
+  "test_environment": "Linux / Python 3.13.5",
+  "software_test_command": "python -S Research_Workbench.pyz --check --workspace <isolated directory> --no-import",
+  "tests_passed": 118,
+  "tests_failed": 0,
+  "note": "Archive compression is the only change inside the executable; application entries remain byte-identical. Historical bundle authors/dates are not rewritten."
+}

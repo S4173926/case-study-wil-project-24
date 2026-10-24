@@ -1,0 +1,201 @@
+{
+ "paper_id": "t5cbqa",
+ "title": "How Much Knowledge Can You Pack Into the Parameters of a Language Model?",
+ "n_pages": 9,
+ "sections": [
+  {
+   "heading": "Front matter",
+   "page": 1,
+   "text": "How Much Knowledge Can You Pack Into the Parameters of a Language Model? Adam Roberts\u2217 Colin Raffel\u2217 Google adarob@google.com Noam Shazeer Google noam@google.com Google craffel@gmail.com",
+   "page_spans": [
+    [
+     0,
+     1
+    ]
+   ]
+  },
+  {
+   "heading": "Abstract",
+   "page": 1,
+   "text": "It has recently been observed that neural language models trained on unstructured text can implicitly store and retrieve knowledge using natural language queries. In this short paper, we measure the practical utility of this approach by \ufb01ne-tuning pre-trained models to answer questions without access to any external context or knowledge. We show that this approach scales with model size and performs competitively with open-domain systems that explicitly retrieve answers from an external knowledge source when answering questions. To facilitate reproducibility and future work, we release our code and trained models.1",
+   "page_spans": [
+    [
+     0,
+     1
+    ]
+   ]
+  },
+  {
+   "heading": "1 Introduction",
+   "page": 1,
+   "text": "Big, deep neural language models that have been pre-trained on unlabeled text have proven to be extremely performant when \ufb01ne-tuned on downstream Natural Language Processing (NLP) tasks (Devlin et al., 2018; Yang et al., 2019; Liu et al., 2019; Lan et al., 2019; Raffel et al., 2019). Interestingly, it has also recently been observed that these models can internalize a sort of implicit \u201cknowledge base\u201d after pre-training (Petroni et al., 2019; Jiang et al., 2019; Talmor et al., 2019). This behavior is potentially useful because 1) the knowledge is built up by pre-training on unstructured and unlabeled text data, which is freely available in huge quantities on the Internet (Raffel et al., 2019; Wenzek et al., 2019), and 2) it is possible to retrieve information using informal natural language queries since these pre-trained language models excel when \ufb01ne-tuned on natural language understanding tasks. Equal contribution. Noam suggested trying T5 on open-domain QA and coded and ran initial experiments on TriviaQA showing improved performance with model size. Adam wrote the code and ran most experiments. Colin set the research scope, wrote the paper, and ran a few experiments. T5 T5 Figure 1: T5 is pre-trained to \ufb01ll in dropped-out spans of text (denoted by <M>) from documents in a large, unstructured text corpus. We \ufb01ne-tune T5 to answer questions without inputting any additional information or context. This forces T5 to answer questions based on \u201cknowledge\u201d that it internalized during pre-training. Past work investigating \u201clanguage models as knowledge bases\u201d has typically tried to understand the scope of the information stored in the model using synthetic tasks that are similar to the pre-training objective (Petroni et al., 2019; Jiang et al., 2019) and/or measure reasoning capabilities (Talmor et al., 2019). In this work, we take a different approach by evaluating the capability of language models on the practical task of opendomain question answering \u2013 speci\ufb01cally, we \ufb01netune the model to answer questions without access to any external knowledge or context. To do so, the model must parse a natural language query and \u201clook up information\u201d stored in its parameters. Most past work on question answering either explicitly feeds pertinent information to the model alongside the question (for example, an article that contains the answer (Rajpurkar et al., 2016; Zhang et al., 2018; Khashabi et al., 2018; Clark et al., 2019)) or allows the model to retrieve information from an external knowledge source (Berant et al., 2013; Chen et al., 2017). By feeding the model the input question alone, we can determine how much knowledge it has stored in its parameters while measuring its performance on a useful real-world problem. We refer to this task as \u201cclosed-book question answering\u201d. A separate question we address in this work is whether models with more parameters end up storing more information. It has been shown that transfer learning performance on many downstream tasks tends to improve as the model size and amount of unsupervised pre-training increases (Radford et al., 2019; Liu et al., 2019; Raffel et al., 2019). In this work, we leverage the pre-trained \u201cT5\u201d models released by Raffel et al. (2019), the largest of which has around 11 billion parameters. By measuring knowledge retrieval capabilities on models of various sizes, including models that have an order of magnitude more parameters than considered in past work, we can explore how well our approach scales.",
+   "page_spans": [
+    [
+     0,
+     1
+    ],
+    [
+     2689,
+     2
+    ]
+   ]
+  },
+  {
+   "heading": "2 Background",
+   "page": 2,
+   "text": "Question Answering The task of training a model to either select or output the correct answer to a given question is referred to as \u201cquestion answering\u201d. The most popular variant of this task feeds the model some \u201ccontext\u201d containing the answer (for example, a paragraph from an encyclopedia article) alongside the question (Rajpurkar et al., 2016; Zhang et al., 2018; Khashabi et al., 2018; Clark et al., 2019). Models can be trained either to indicate the span of the context that contains the answer or output the text of the answer itself. Since this format can be seen as reading some text and answering a question about it, it has been referred to as \u201creading comprehension\u201d. A more dif\ufb01cult variant is \u201copen-domain question answering\u201d (Prager, 2006), where the model can be asked arbitrary context-independent questions (e.g. well-known facts or historical details). It is typically assumed that the model can access an external collection of knowledge when answering questions (e.g. a structured knowledge base or unstructured text corpus), but the model is not given any information about where in the collection the answer appears. The reading comprehension task can be considered a simpli\ufb01ed version of open-domain question answering where the model is provided with the oracle context to answer a given question. As an analogy, the open-domain question answering system acts as if it is taking an open-book exam where it can \ufb01nd and use information in an external source of knowledge.2 In this work, we consider open-domain question answering with the additional constraint that the model is not allowed to access any external knowledge whatsoever when answering questions. Instead, the model itself must be pre-trained to store knowledge in its parameters before being \ufb01ne-tuned to answer questions. In one view, this can be seen as an alternative way to approach open-domain question answering where instead of learning to access external knowledge the model needs to have \u201cmemorized\u201d it in order to answer questions; in another view, this constraint creates a third and potentially more ambitious variant of the question answering task. A model that answers questions in this way is metaphorically similar to a student taking a closed-book exam, where the student must study and memorize all pertinent information before taking the test. Transfer Learning with Language Models In the past few years, it has become increasingly common to pre-train a language model using an unsupervised objective on a large, unstructured text corpus before \ufb01ne-tuning it on a downstream task of interest (Dai and Le, 2015; Howard and Ruder, 2018; Radford et al., 2018). The popularity of this form of \u201ctransfer learning\u201d is attributable to its empirical success on many NLP tasks (Peters et al., 2018; Devlin et al., 2018; Yang et al., 2019; Lan et al., 2019; Raffel et al., 2019). Loosely speaking, the pre-training step may provide the model with some generally-useful awareness of meaning, syntax, and \u201cworld knowledge\u201d. In question answering in particular, most state-ofthe-art systems use some form of transfer learning. Currently, the most popular model architectures used in transfer learning for NLP are Transformerbased (Vaswani et al., 2017) \u201cencoder-only\u201d models like BERT (Devlin et al., 2018). These models can produce a single prediction for each input token and have been applied to reading comprehension-style question answering by predicting which tokens of the context contain the answer. Encoder-only models are not applicable to closed-book question answering because no context is provided to extract the answer span from. An alternative to encoder-only models, recently advocated by Raffel et al. (2019), is to treat ev- OpenBookQA dataset introduced by Mihaylov et al. (2018), we do not directly address multi-hop inference in this work. ery NLP task as a text-to-text problem using an encoder-decoder Transformer. When this framework is applied to question answering, the model is trained to generate the literal text of the answer in a free-form fashion. Despite the potential dif\ufb01culty of generating rather than extracting the answer, Raffel et al. (2019) demonstrated state-ofthe-art results on the SQuAD (Rajpurkar et al., 2016), MultiRC (Khashabi et al., 2018), BoolQ (Clark et al., 2019), and ReCoRD (Zhang et al., 2018) reading comprehension tasks. The text-to-text framework is directly applicable to closed-book question answering since the model can be trained to generate an answer with or without any additional information in its input. Crucially, \ufb01ne-tuning a text-to-text model to answer questions without any context requires that the model retrieve information from its parameters that it learned during pre-training. Radford et al. (2019) considered a similar task to evaluate the zero-shot question answering capabilities of a language model. The concurrent \u201cRELIC\u201d and \u201cEAE\u201d models of Ling et al. (2020) and F\u00b4evry et al. (2020) learn representations for an explicitly prede\ufb01ned set of entities and are evaluated on the same closed-book variant of TriviaQA that we consider. Relatedly, Petroni et al. (2019) show that it is possible to manually convert some questions to a \ufb01ll-in-the-blank format amenable to an encoder-only model (e.g. \u201cWho developed the theory of relativity?\u201d gets mapped to \u201cThe theory of relativity was developed by \u201d).",
+   "page_spans": [
+    [
+     0,
+     2
+    ],
+    [
+     3858,
+     3
+    ]
+   ]
+  },
+  {
+   "heading": "3 Experiments",
+   "page": 3,
+   "text": "Datasets We consider the following opendomain question answering datasets: Natural Questions (Kwiatkowski et al., 2019), a dataset of questions from web queries, each accompanied by a Wikipedia article containing the answer; WebQuestions (Berant et al., 2013), comprising questions from web queries matched to corresponding entries in FreeBase (Bollacker et al., 2008); and TriviaQA (Joshi et al., 2017), a collection of questions from quiz league websites where each question is accompanied by pages from web and Wikipedia searches that may contain the answer. In this work, we only make use of the questions from each dataset \u2013 we completely ignore the matching documents supplied for each question. For WebQuestions and TriviaQA we follow the standard evaluation procedures where each predicted answer is compared to the ground-truth after both are lowercased and stripped of articles, punctuation, and duplicate whitespace (Rajpurkar et al., 2016). For Natural Questions, we evaluate using both 1) the standard \u201copendomain\u201d version as used e.g. by (Lee et al., 2019; Min et al., 2019b,a; Asai et al., 2019) where the model is only required to produce a single normalized answer and 2) the standard multi-answer variant used with reading comprehension systems (Kwiatkowski et al., 2019). We review the details of Natural Questions evaluation in appendix A. Note that Natural Questions and TriviaQA have private test sets, so standard practice on their opendomain variants is to report performance on the development sets. However, we also include our results on the of\ufb01cial TriviaQA test set by \ufb01netuning on the un\ufb01ltered training set and submitting our test set predictions to the leaderboard for the Wikipedia domain. We urge future work to adopt this approach to help ensure the validity of results and avoid potentially over\ufb01tting to a public set. Training We leverage the pre-trained models provided by Raffel et al. (2019), referred to as the \u201cText-to-Text Transfer Transformer\u201d (T5). The original T5 models were pre-trained on a multitask mixture including an unsupervised \u201cspan corruption\u201d task on the C4 dataset as well as supervised translation, summarization, classi\ufb01cation, and reading comprehension tasks. Note that none of the reading comprehension datasets used for pre-training T5 overlap with the question answering datasets that we consider in this paper. In order to measure how performance scales with model size, we perform experiments with the Base (220 million parameters), Large (770 million), 3B (3 billion), and 11B (11 billion) variants of T5. Given that the T5 models were pre-trained on a multitask mixture including question answering, we also report performance using the \u201cT5.1.1\u201d checkpoints, which were pre-trained on unlabeled data only.3 For \ufb01ne-tuning the T5 checkpoints, we follow the procedure used in Raffel et al. (2019) without any additional hyperparameter tuning: We use the AdaFactor optimizer (Shazeer and Stern, 2018) with a constant learning rate of 0.001, 10% dropout rate, and a batch size of 196,608 tokens. We halve the batch and double the dropout rate for WebQuestions due to its small size. For the T5.1.1 checkpoints, we follow the same procedure but with a dropout rate of 5% for all three datasets. For evaluation, we follow the procedure used in Lee et al. (2019): for each dataset, we hold out 10% of the training set as a validation split, \ufb01netune a model from the remaining 90% of examples, and select the best-performing checkpoint for \ufb01nal evaluation on the test set. While we chose to train for 20,000 steps, our validation accuracy typically plateaued after only a few hundred steps and showed no signs of over\ufb01tting. We decode the model\u2019s predictions by choosing the most likely token at each timestep. To map question answering tasks to the text-to-text format, we simply feed the question with a task-speci\ufb01c pre\ufb01x into the model as input and train it to predict the literal answer text as output. Salient Span Masking Recently, Guu et al. (2020) found that a \u201csalient span masking\u201d (SSM) pre-training objective produced substantially better results in open-domain question answering. This approach \ufb01rst uses BERT (Devlin et al., 2018) to mine sentences that contain salient spans (named entities and dates) from Wikipedia. The question answering model is then pre-trained to reconstruct masked-out spans from these sentences, which Guu et al. (2020) hypothesize helps the model \u201cfocus on problems that require world knowledge\u201d. We experimented with using the same SSM data and objective to continue pretraining the T5 checkpoints for 100,000 additional steps before \ufb01ne-tuning for question answering.",
+   "page_spans": [
+    [
+     0,
+     3
+    ],
+    [
+     3204,
+     4
+    ]
+   ]
+  },
+  {
+   "heading": "Results",
+   "page": 4,
+   "text": "Our results on the open-domain Natural Questions, WebQuestions, and TriviaQA tasks are shown in table 1. Notably, performance on each dataset improves as the model size increases, with either T5-11B or the comparably-sized T5.1.1- XXL (pre-trained only on unlabeled data) performing best in every case. Further, we \ufb01nd that using Guu et al. (2020)\u2019s SSM pre-training produces a substantial boost in performance. T5.1.1- XXL with SSM ultimately achieves state-of-theart on WebQuestions and our largest models beat most other methods on Natural Questions and TriviaQA. Importantly, all previous methods except Ling et al. (2020) and F\u00b4evry et al. (2020) operate in the \u201copen-book\u201d setting by explicitly retrieving and using information from an external knowledge source. While our largest models are computationally intensive, we note that most open-domain question answering systems must Table 1: Scores achieved by \ufb01ne-tuning T5 on the open-domain Natural Questions (NQ), WebQuestions (WQ), and TriviaQA (TQA) tasks. NQ WQ TQA dev test Chen et al. (2017) \u2013 20.7 \u2013 \u2013 Lee et al. (2019) 33.3 36.4 47.1 \u2013 Min et al. (2019a) 28.1 \u2013 50.9 \u2013 Min et al. (2019b) 31.8 31.6 55.4 \u2013 Asai et al. (2019) 32.6 \u2013 \u2013 \u2013 Ling et al. (2020) \u2013 \u2013 35.7 \u2013 Guu et al. (2020) 40.4 40.7 \u2013 \u2013 F\u00b4evry et al. (2020) \u2013 \u2013 43.2 53.4 Karpukhin et al. (2020) 41.5 42.4 57.9 \u2013 T5-Base 25.9 27.9 23.8 29.1 T5-Large 28.5 30.6 28.7 35.9 T5-3B 30.4 33.6 35.1 43.4 T5-11B 32.6 37.2 42.3 50.1 T5-11B + SSM 34.8 40.8 51.0 60.5 T5.1.1-Base 25.7 28.2 24.2 30.6 T5.1.1-Large 27.3 29.5 28.5 37.2 T5.1.1-XL 29.5 32.4 36.0 45.1 T5.1.1-XXL 32.8 35.6 42.9 52.5 T5.1.1-XXL + SSM 35.2 42.8 51.9 61.6 \ufb01rst do an expensive lookup step over the entire knowledge corpus and then attend to a long document to extract an answer. Our approach omits both of these steps, which ultimately saves a large amount of computation and memory. Having established that our approach is competitive on open-domain question answering, we now evaluate it on the standard (and more dif\ufb01cult) multi-answer variant of Natural Questions. Virtually all models used on this task are reading comprehension systems that select the correct answer from an oracle context. After \ufb01ne-tuning, T5-11B + SSM achieves a recall of 36.2 on the validation set, which lags behind the state-of-theart score of 51.9 from Pan et al. (2019)4 but outperforms the best baseline published alongside the dataset (recall of 33.2 (Kwiatkowski et al., 2019)). This shows that T5 can effectively answer questions with multiple answers. We discuss additional experiments and negative results in appendix B. Human Evaluation The benchmarks we used and the \u201cexact match\u201d score assume that the model directly extracts answers from an external knowledge source. In contrast, our model generates answers in a free-form fashion. We hypothesize that this results in many false negatives when anreported in private correspondence with the authors. Table 2: A breakdown of the 150 hand-evaluated examples from Natural Questions where the T5 predictions were labelled as incorrect by the automatic procedure. We found only 62% of these to be true positives. Example Category Percentage Question Target(s) T5 Prediction True Negative 62.0% what does the ghost of christmas present sprinkle from his torch little warmth, warmth confetti Phrasing Mismatch 13.3% who plays red on orange is new black kate mulgrew katherine kiernan maria mulgrew Incomplete Annotation 13.3% where does the us launch space shuttles from \ufb02orida kennedy lc39b Unanswerable 11.3% who is the secretary of state for northern ireland karen bradley james brokenshire swers do not exactly match the ground-truth context intended for each question. We therefore manually inspected 150 examples from the Natural Questions validation set where our model\u2019s prediction was counted as incorrect in hopes of identifying \u201cfalse negatives\u201d according to the exact match metric. We found that false negatives fell into three broad categories: First, answers with meaning-preserving differences in phrasing (e.g. \u201cApril 15\u201d vs. \u201cApril 15th\u201d); second, questions that were missing all possible correct answers (e.g. \u201cwhere does the us launch space shuttles from\u201d was annotated with the single ground-truth answer \u201c\ufb02orida\u201d, despite many possible correct answers such as \u201cKennedy Space Center\u201d, \u201cMerritt Island\u201d, \u201cCape Canaveral\u201d, etc.); and \ufb01nally, some questions were unanswerable without knowing the exact time or article they referred to (e.g. \u201cwhat is the latest version of microsoft of\ufb01ce 2010\u201d depends on when the question is being asked). We provide examples of each of these false negative types in table 2. We note that open-book question answering systems could also be impacted to a lesser extent by these issues (e.g. if they select a slightly different answer span from the annotated one or retrieve a non-golden document that contains a different correct answer). Of the 150 examples inspected, we found that 20 were marked as incorrect due to differences in phrasing, another 20 were not annotated with all correct answers, and 17 were unanswerable without appropriate context. Removing unanswerable questions from the validation set and recomputing our model\u2019s accuracy based on this false-negative rate produces a score of 57.8. This suggests that the performance of closed-book question answering systems (in terms of how often it correctly answers questions) is substantially underestimated by the evaluation procedure used in these benchmarks. For full transparency, we publicly release the results of our human evaluation and include an appropriate reference when we determined that a predicted answer was missing from ground-truth.5",
+   "page_spans": [
+    [
+     0,
+     4
+    ],
+    [
+     2929,
+     5
+    ]
+   ]
+  },
+  {
+   "heading": "4 Conclusion",
+   "page": 5,
+   "text": "In this short paper, we have shown that large language models pre-trained on unstructured text can attain competitive results on open-domain question answering benchmarks without any access to external knowledge. This suggests a fundamentally different approach to designing question answering systems, motivating many threads for future work: First, we obtained state-of-the-art results only with the largest models which had around 11 billion parameters. This model size can be prohibitively expensive in resource-constrained settings, prompting future work on more ef\ufb01cient language models. Second, \u201copen-book\u201d models typically provide some indication of what information they accessed when answering a question. This can provide a useful form of interpretability. In contrast, our model distributes knowledge in its parameters in an inexplicable way and hallucinates realistic-looking answers when it is unsure. Third, the maximum-likelihood objective used to train our model provides no guarantees as to whether a model will learn a fact or not. This makes it dif\ufb01cult to ensure that the model obtains speci\ufb01c knowledge over the course of pre-training and prevents us from explicitly updating or removing knowledge from a pre-trained model. Finally, the tasks we used in this paper mainly measure \u201ctrivia\u201d-style knowledge. We are therefore interested in measuring performance on question answering tasks that require reasoning capabilities such as DROP (Dua et al., 2019).",
+   "page_spans": [
+    [
+     0,
+     5
+    ]
+   ]
+  },
+  {
+   "heading": "Acknowledgments",
+   "page": 6,
+   "text": "We thank Kelvin Guu, Kenton Lee, Ming-Wei Chang, Zora Tung, and Ice Pasupat for providing the open-domain question answering evaluation setup and access to their salient span-annotated data; Roy Frostig and Katherine Lee for comments and suggestions on this manuscript; Noah Constant for suggesting we try salience span masking; and Monica Dinculescu for building an interactive demonstration of our results.6",
+   "page_spans": [
+    [
+     0,
+     6
+    ]
+   ]
+  },
+  {
+   "heading": "A Metrics for Natural Questions",
+   "page": 8,
+   "text": "Compared to WebQuestions and TriviaQA, Natural Questions is distributed with a much richer set of annotations: Each question can be annotated either as unanswerable (given the oracle context), with a short answer, or with a yes/no answer; questions in the validation set can be annotated more than once; and some questions have multiple answers (e.g. \u201cWho are the members of the Beatles?\u201d has four answers). We consider two variants of Natural Questions. In both cases, we omit the \u201cunanswerable\u201d label and long answers, which are nearly impossible to predict without the oracle context. The \ufb01rst variant is the standard \u201copen-domain\u201d version as used e.g. by (Lee et al., 2019; Min et al., 2019b,a; Asai et al., 2019), where 1) the model is only ever trained to output a single answer; 2) if a question has multiple answers, it is only trained to predict the \ufb01rst answer; 3) any questions with answers longer than \ufb01ve tokens are ignored; 4) answers are normalized before being compared (in the same manner as is typically done for WebQuestions and SQuAD); and 5) a predicted answer is considered correct if it matches any of the answers provided by any of the annotators (e.g. \u201cRingo Starr\u201d would be considered a correct answer to \u201cWho are the members of the Beatles?\u201d). The second variant closely matches the of\ufb01cial evaluation procedure used by the Natural Questions leaderboard, where our model is trained to predict all ground-truth answers and is only considered correct if it predicts all answers for any one of the annotators. As in the of\ufb01cial evaluation, we consider questions with fewer than two non-null annotations unanswerable (given the context), but because we cannot predict unanswerability without the context, we only report the recall score. Further, because our model does not have access to the oracle context, we also normalize predicted and ground-truth answers when comparing them. The use of multiple possible answers also required minor modi\ufb01cation of our text-totext format. In this case, we trained the model to output each answer delimited by the text \u201canswer:\u201d (for example, \u201canswer: John Lennon answer: Ringo Starr answer: George Harrison answer: Paul McCartney\u201d). We then split out each answer from the model\u2019s predictions as a postprocessing step before evaluating it against the set of answers provided by each annotation.",
+   "page_spans": [
+    [
+     0,
+     8
+    ]
+   ]
+  },
+  {
+   "heading": "B Other Things We Tried",
+   "page": 8,
+   "text": "In the course of undertaking this study, we tried various ideas that ultimately did not improve performance. We brie\ufb02y discuss them here. Continued Pre-Training on Wikipedia The T5 checkpoints we used were primarily pre-trained on C4, a large and diverse dataset of unstructured web content. We were interested to see whether we could improve performance by doing further pretraining on data that was better tailored to the tasks we considered. Since both Natural Questions and TriviaQA source their answers from Wikipedia articles, we experimented with further pre-training on text data from English Wikipedia with the same unsupervised objective (\u201cspan corruption\u201d) as was used by T5. We found that this additional \u201cindomain\u201d pre-training had virtually no effect on performance. This may be because C4 already contains many articles from Wikipedia and the T5 checkpoints were pre-trained long enough to see plenty of this content. Pre-Training From Scratch On Wikipedia Since all of the answers to the questions in Natural Questions appeared in Wikipedia, we carried out an additional experiment where we pre-trained T5 from scratch only on data from Wikipedia. We pre-trained on up to 1 trillion tokens (the same amount the T5 checkpoints were pre-trained on) with the span corruption objective and measured \ufb01ne-tuned performance after various amounts of pre-training. Unfortunately, this resulted in dramatically worse performance regardless of the amount of pre-training. We suspect that this is because Wikipedia is too small and results in detrimental over\ufb01tting. Span-Corruption Pre-Training on Wikipedia Sentences with Salient Spans As described previously, we observed signi\ufb01cant performance gains with additional pre-training using \u201csalient span masking\u201d (SSM) on the Wikipedia sentence dataset from Guu et al. (2020) but not when using the standard \u201cspan corruption\u201d (SC) from Raffel et al. (2019) on longer Wikipedia articles. While SC masks random spans of the input by dropping 15% of its tokens (sampled each epoch) and replacing each consecutive span of dropped tokens with a unique sentinel, SSM speci\ufb01cally masks out one named entity or date in the input sentence. We were interested in determining whether the Figure 2: Comparing additional pre-training using either salient span masking (SSM) or span corruption (SC). We further pre-trained T5.1.1-XXL on the Wikipedia sentence dataset from Guu et al. (2020) with each objective, \ufb01ne-tuning on a mixture of our three closed-book QA tasks every 10,000 steps. For each \ufb01ne-tuning run, we report the maximum exact match score achieved on the validation set over 10,000 steps of \ufb01ne-tuning. gains achieved were attributable to the use of a more task-speci\ufb01c dataset (pre-split into sentences that are known to contain at least one entity) or if the SSM objective itself was critical. As illustrated in \ufb01g. 2, the SSM objective is clearly an important ingredient in the improved performance; we saw no signi\ufb01cant improvement versus the baseline T5 model when using SC. Fine-Tuning On All Question Answering Tasks The text-to-text framework used by T5 makes it simple to train multitask models simply by supplying a different task-speci\ufb01c pre\ufb01x for each task and concatenating all of the constituent datasets. Since all of the question answering tasks we consider in this study follow the same basic structure, we were hopeful that training on a multitask mixture of Natural Questions, WebQuestions, and TriviaQA would improve performance due to the additional supervised data. While multitask training improved performance on the Natural Questions by 0.5, it produced slightly worse results on the other tasks. Randomly Sampling Answers For Natural Questions In the open-domain variant of Natural Questions, the model is only trained to generate a single answer at a time. For the results presented in the main text, when a question was annotated with multiple answers, we simply trained the model on the \ufb01rst annotated answer. We also experimented with sampling a random answer from the set of possible answers for pre-training and found that it did not affect performance.",
+   "page_spans": [
+    [
+     0,
+     8
+    ],
+    [
+     2229,
+     9
+    ]
+   ]
+  }
+ ],
+ "quality": {
+  "total_chars": 35166,
+  "n_sections": 10,
+  "section_headings": [
+   "Front matter",
+   "Abstract",
+   "1 Introduction",
+   "2 Background",
+   "3 Experiments",
+   "Results",
+   "4 Conclusion",
+   "Acknowledgments",
+   "A Metrics for Natural Questions",
+   "B Other Things We Tried"
+  ],
+  "pages_flagged_for_review": [],
+  "pages": [
+   {
+    "page": 1,
+    "chars": 3465,
+    "symbol_ratio": 0.0
+   },
+   {
+    "page": 2,
+    "chars": 4648,
+    "symbol_ratio": 0.0
+   },
+   {
+    "page": 3,
+    "chars": 4690,
+    "symbol_ratio": 0.0
+   },
+   {
+    "page": 4,
+    "chars": 4294,
+    "symbol_ratio": 0.0
+   },
+   {
+    "page": 5,
+    "chars": 4186,
+    "symbol_ratio": 0.0
+   },
+   {
+    "page": 6,
+    "chars": 4360,
+    "symbol_ratio": 0.0
+   },
+   {
+    "page": 7,
+    "chars": 3037,
+    "symbol_ratio": 0.0
+   },
+   {
+    "page": 8,
+    "chars": 4596,
+    "symbol_ratio": 0.0
+   },
+   {
+    "page": 9,
+    "chars": 1890,
+    "symbol_ratio": 0.0
+   }
+  ]
+ }
+}

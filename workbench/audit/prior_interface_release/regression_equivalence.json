@@ -1,0 +1,418 @@
+{
+  "questions": 67,
+  "equivalent_outputs": 67,
+  "status_counts": {
+    "source_linked_explanation": 52,
+    "partial": 1,
+    "insufficient": 14
+  },
+  "claim_content_unchanged": true,
+  "original_records_byte_preserved": 67,
+  "records": [
+    {
+      "question_id": "q01",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "q02",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "q03",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "q04",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "q05",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "q06",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "q07",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "q08",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "q09",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "q10",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "q11",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "q12",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "q13",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "q14",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "q15",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "q16",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "q17",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "q18",
+      "status": "partial",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "u02",
+      "status": "insufficient",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "u03",
+      "status": "insufficient",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "u04",
+      "status": "insufficient",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "u05",
+      "status": "insufficient",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "u06",
+      "status": "insufficient",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "u07",
+      "status": "insufficient",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "n01",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "n02",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "n03",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "n04",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "n05",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "n06",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "n07",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "n08",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "n09",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "n10",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "n11",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "n12",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "c01",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "c02",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "c03",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "u08",
+      "status": "insufficient",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "H01",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "H02",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "H03",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "H04",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "H05",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "H06",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "H07",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "H08",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "H09",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "H10",
+      "status": "insufficient",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "H11",
+      "status": "insufficient",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "H12",
+      "status": "insufficient",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "F01",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "F02",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "F03",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "F04",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "F05",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "F06",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "F07",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "F08",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "F09",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "F10",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "F11",
+      "status": "source_linked_explanation",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "F12",
+      "status": "insufficient",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "F13",
+      "status": "insufficient",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "F14",
+      "status": "insufficient",
+      "equivalent": true,
+      "different_fields": []
+    },
+    {
+      "question_id": "F15",
+      "status": "insufficient",
+      "equivalent": true,
+      "different_fields": []
+    }
+  ],
+  "human_accuracy": "NOT_MEASURED",
+  "validation_kind": "Regression equivalence, not unseen generalisation or human accuracy",
+  "note": "Notice and authorship-metadata wording were changed. Answer content, claim IDs, source selection, evidence, warnings, planning and statuses are compared exactly."
+}

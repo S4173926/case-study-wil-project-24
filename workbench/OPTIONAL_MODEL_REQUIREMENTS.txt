@@ -1,0 +1,5 @@
+# Not required for the default assistant.
+# The existing ragapp environment already contains these on the user's Mac.
+# Do not upgrade a working environment merely to run the deterministic app.
+mlx-lm>=0.28,<0.33
+huggingface-hub>=0.25,<2
