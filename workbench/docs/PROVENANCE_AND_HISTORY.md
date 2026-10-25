@@ -1,6 +1,6 @@
 # Development provenance and retained records
 
-Software development, catalogue drafting, technical analysis and documentation used AI assistance. The catalogue contains language-model-drafted summaries with source-based development checks. Mechanical checks establish source identities and span matches; they do not establish independent human semantic review.
+The current application and the earlier experimental implementations are documented separately. The catalogue contains language-model-drafted summaries with source-based development checks. Mechanical checks establish source identities and span matches; they do not establish independent human semantic review.
 
 The final product is a constrained research interface over a fixed catalogue. It is distinct from the earlier retrieval-and-generation experiments. Original research papers, source quotations, stored claim metadata and recorded evaluation outputs retain their attribution and version identities.
 
