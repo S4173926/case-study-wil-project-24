@@ -2,18 +2,18 @@
 
 **Run received:** `fresh15_20261024T164105.zip`  
 **Study date:** 24 October 2026  
-**Status:** Assistant-authored source-based diagnostic review, **not independent human accuracy validation**, not a university mark forecast.
+**Review provenance:** AI-generated source-based diagnostic analysis, not independent human accuracy validation.
 
-## Executive decision
+## Diagnostic summary
 
-**The application is running and behaves cautiously when unsupported, but it is NOT yet defensible to call its autonomous answer selection highest-band-ready.** The batch exposes source-selection and completeness-detection defects, including failures where the correct explanation is already in the system's own curated catalogue. Preserve this ZIP as an immutable challenge run.
+The batch exposes source-selection and completeness-detection defects, including cases where a relevant explanation is already present in the catalogue. Unsupported requests receive cautious refusals. The original challenge archive is retained unchanged, and the subsequent repair is documented separately in `selection_repair_verification.md` and `repaired67_verification.md`.
 
 ## Recorded outputs (mechanical, directly from ZIP)
 
 - **15 / 15** question-run records supplied, 15 distinct run IDs.
 - **7** recorded `source_linked_explanation` statuses, **4** `partial`, **4** `insufficient`.
 - **20** claim blocks displayed; **27** claim-to-source references, all resolved to citation records in the supplied outputs. This tests mechanical source attribution, not whether statements answer the question.
-- The user's uploaded `human_scorecard.csv` has blank reviewer and rating fields. **Human accuracy: not measured.**
+- The accompanying `human_scorecard.csv` has blank reviewer and rating fields. **Human accuracy: not measured.**
 - All runs report the same corpus, code, and knowledge hashes; no sign of a changed build within this batch.
 
 ## Provisional answer adequacy (assistant diagnostic assessment, not a measured accuracy rate)
@@ -58,7 +58,7 @@ Among **11 answerable questions**, 6 appear substantially adequate for the quest
 
 **E. Curation trade-off:** Outputs are deterministic compositions of an AI-curated claim catalogue, not live generative inference or independent proof of source fidelity. Previously repeated questions influenced curation. This run is a useful post-freeze challenge, but it is now **development/regression material** once used to diagnose or tune the system.
 
-## Specific release acceptance checks (before another ZIP)
+## Acceptance criteria recorded for the subsequent repair
 
 1. F04: output must explicitly state *separate document-conditioned LM passes and similarity-weighted probability ensemble*, cited to REPLUG §3.2.
 2. F07: output must include both *why joint retriever+reader pre-training matters* and *how the FiD reader jointly attends to representations of independently encoded passages*. Status must not be `source_linked_explanation` if either part is missing.
@@ -67,8 +67,8 @@ Among **11 answerable questions**, 6 appear substantially adequate for the quest
 5. F03: explain FLOPS/sparsity pressure, indexing/retrieval cost and possible retrieval-quality trade-off.
 6. After engineering changes, run a **batch** of all 52 development cases and this frozen F01–F15 challenge as regression checks, **but do not describe passing them as unbiased generalization**. Reserve new blinded questions assembled and sourced by an independent reviewer after code freeze.
 
-## Implications for the 25-mark report
+## Interpretation
 
-The project is promising: the corpus, provenance machinery and appropriate abstention work. But **these findings prevent an honest claim that the assistant is already at full-marks readiness.** Address the multi-clause coverage defects before freezing the final system, then conduct independent source-based reviews and actual stakeholder timing/accuracy comparisons. Distinguish model-selection behavior from completeness, answer correctness and source attribution. The final rubric also requires a convincing project scope, methodology, quantitative findings, genuine business/stakeholder benefit, authentic teamwork, and the final report. Software improvements alone cannot secure those marks.
+The observed source-selection failures distinguish source attribution from a correct, complete response. The later repair records address named defects; neither this diagnostic batch nor those known-case repairs establish unseen-query accuracy or measured participant benefit.
 
-**No code modifications were made in this audit.** Original submitted ZIP remains unmodified.
+No code modifications were made during this historical diagnostic review. The original challenge outputs are retained unchanged.

@@ -1,0 +1,215 @@
+{
+  "run_id": "20261024T061244_c609903f7a",
+  "created_utc": "2026-10-24T06:12:44.460907+00:00",
+  "question": "How does REPLUG combine language-model predictions when several different retrieved documents are relevant to the same question?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "replug"
+    ],
+    "facets": [
+      "inference"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "how does combine language-model predictions when several different retrieved documents are relevant to the same question",
+        "facets": [
+          "inference"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "replug.ensemble",
+      "paper_id": "replug",
+      "text": "REPLUG prepends each retrieved document separately to the input context and runs the frozen language model separately for each document. It combines the resulting next-token probability distributions using a similarity-weighted average: document weights are the exponentiated document-context similarity scores, normalised across the retrieved set. This uses several documents without concatenating them all into one input window.",
+      "facets": [
+        "inference",
+        "efficiency"
+      ],
+      "source_ids": [
+        "replug:s0010"
+      ]
+    }
+  ],
+  "comparison": [],
+  "citations": [
+    {
+      "source_id": "replug:s0010",
+      "paper_id": "replug",
+      "title": "REPLUG: Retrieval-Augmented Black-Box Language Models",
+      "section": "3.2. Input Reformulation",
+      "page_start": 3,
+      "page_end": 4,
+      "text": "The retrieved top-k documents provide rich information about the original input context x and can potentially help the LM to make a better prediction. One simple way to incorporate the retrieved documents as part of the input to the LM is to prepend x with all k documents. However, this simple scheme is fundamentally restricted by the number of documents (i.e., k) we can include, given the language model’s context window size. To address this limitation, we adopt an ensemble strategy described as follows. Assume D′ ⊂D consists of k most relevant documents to x, according to the scoring function in Eq. (1). We prepend each document d ∈D′ to x, pass this concatenation to the LM separately, and then ensemble output probabilities from all k passes. Formally, given the input context x and its top-k relevant documents D′, the output probability of the next token y is computed as a weighted average ensemble: p(y | x, D′) = X p(y | d ◦x) · λ(d, x), where ◦denotes the concatenation of two sequences and the weight λ(d, x) is based on the similarity score between the document d and the input context x: λ(d, x) = es(d,x) P d∈D′ es(d,x) Although our ensemble method requires running the LM k times, the cross attention is performed between each retrieved document and the input context. Therefore, compared with the method of prepending all the retrieved documents, our ensemble methods do not incur additional computational cost overhead.",
+      "url": "https://arxiv.org/abs/2301.12652v4",
+      "pdf_file": "pdfs/replug.pdf",
+      "sha256": "3c24ff147c4912a9678d778f879016099d03619267ff8b252e46a2c818b9432b",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "replug:s0028",
+    "replug:s0001",
+    "replug:s0003",
+    "replug:s0008",
+    "replug:s0007",
+    "replug:s0030",
+    "replug:s0023",
+    "replug:s0027"
+  ],
+  "retrieved": [
+    {
+      "source_id": "replug:s0028",
+      "paper_id": "replug",
+      "title": "REPLUG: Retrieval-Augmented Black-Box Language Models",
+      "section": "7.1. REPLUG performance gain does not simply come",
+      "page_start": 7,
+      "page_end": 8,
+      "text": "from the ensembling effect The core of our method design is the use of an ensemble method that combines output probabilities of different passes, in which each retrieved document is prepended separately to the input and fed into a language model. To study whether the gains come solely from the ensemble method, we compare our method to ensembling random documents. For this, we randomly sample several documents, concatenated each random document with the input, and ensemble the outputs of different runs (referred to as \"random\"). As shown in Figure 6, we evaluated the performance of GPT-3 Curie on Pile when augmented with random documents, documents retrieved by REPLUG, and documents retrieved by REPLUG LSR. We observed that ensembling random documents leads to worse performance, indicating that the performance gains of REPLUG do not solely come from the ensembling effect. Instead, ensembling the relevant documents is crucial for the success of REPLUG. Additionally, as more documents were ensembled, the performance of REPLUG and REPLUG LSR improved monotonically. However, a small number of documents (e.g., 10) was sufficient to achieve large performance gains. (a) (b) (c) Figure 5. GPT-2, BLOOM and OPT models of varying sizes consistently benefit from REPLUG. The x-axis indicates the size of the language model and the y-axis is its perplexity on Wikitext-103.",
+      "url": "https://arxiv.org/abs/2301.12652v4",
+      "pdf_file": "pdfs/replug.pdf",
+      "sha256": "3c24ff147c4912a9678d778f879016099d03619267ff8b252e46a2c818b9432b",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.032266458495966696
+    },
+    {
+      "source_id": "replug:s0001",
+      "paper_id": "replug",
+      "title": "REPLUG: Retrieval-Augmented Black-Box Language Models",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "We introduce REPLUG, a retrieval-augmented language modeling framework that treats the language model (LM) as a black box and augments it with a tuneable retrieval model. Unlike prior retrieval-augmented LMs that train language models with special cross attention mechanisms to encode the retrieved text, REPLUG simply prepends retrieved documents to the input for the frozen black-box LM. This simple design can be easily applied to any existing retrieval and language models. Furthermore, we show that the LM can be used to supervise the retrieval model, which can then find documents that help the LM make better predictions. Our experiments demonstrate that REPLUG with the tuned retriever significantly improves the performance of GPT-3 (175B) on language modeling by 6.3%, as well as the performance of Codex on five-shot MMLU by 5.1%.",
+      "url": "https://arxiv.org/abs/2301.12652v4",
+      "pdf_file": "pdfs/replug.pdf",
+      "sha256": "3c24ff147c4912a9678d778f879016099d03619267ff8b252e46a2c818b9432b",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03149801587301587
+    },
+    {
+      "source_id": "replug:s0003",
+      "paper_id": "replug",
+      "title": "REPLUG: Retrieval-Augmented Black-Box Language Models",
+      "section": "1. Introduction",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "Internal representations of such models are not exposed and fine-tuning is not supported. In this work, we introduce REPLUG (Retrieve and Plug), a new retrieval-augmented LM framework where the language model is viewed as a black box and the retrieval component is added as a tuneable plug-and-play module. Given an input context, REPLUG first retrieves relevant documents from an external corpus using an off-the-shelf retrieval model. The retrieved documents are prepended to the input context and fed into the black-box LM to make the final prediction. Because the LM context length limits the number of documents that can be prepended, we also introduce a new ensemble scheme that encodes the retrieved documents in parallel with the same black-box LM, allowing us to easily trade compute for accuracy. As shown in Figure 1, REPLUG is extremely flexible and can be used with any existing black-box LM and retrieval model. We also introduce REPLUG LSR (REPLUG with LM- Supervised Retrieval), a training scheme that can further improve the initial retrieval model in REPLUG with supervision signals from a black-box language model. The key idea is to adapt the retriever to the LM, which is in contrast to prior work (Borgeaud et al., 2022) that adapts language models to the retriever. We use a training objective which prefers retrieving documents that improve language model perplexity, while treating the LM as a frozen, black-box scoring function. Our experiments show that REPLUG can improve the performance of diverse black-box LMs on both language modeling and downstream tasks, including MMLU (Hendrycks et al., 2021) and open-domain QA (Kwiatkowski et al., 2019; Joshi et al., 2017).",
+      "url": "https://arxiv.org/abs/2301.12652v4",
+      "pdf_file": "pdfs/replug.pdf",
+      "sha256": "3c24ff147c4912a9678d778f879016099d03619267ff8b252e46a2c818b9432b",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03128054740957967
+    },
+    {
+      "source_id": "replug:s0008",
+      "paper_id": "replug",
+      "title": "REPLUG: Retrieval-Augmented Black-Box Language Models",
+      "section": "3. REPLUG",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "We introduce REPLUG (Retrieve and Plug), a new retrievalaugmented LM paradigm where the language model is treated as black box and the retrieval component is added as a potentially tuneable module. As shown in Figure 2, given an input context, REPLUG first retrieves a small set of relevant documents from an external corpus using a retriever (§3.1). Then we pass the concatenation of each retrieved document with the input context through the LM in parallel, and ensemble the predicted probabilities (§3.2).",
+      "url": "https://arxiv.org/abs/2301.12652v4",
+      "pdf_file": "pdfs/replug.pdf",
+      "sha256": "3c24ff147c4912a9678d778f879016099d03619267ff8b252e46a2c818b9432b",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03128054740957967
+    },
+    {
+      "source_id": "replug:s0007",
+      "paper_id": "replug",
+      "title": "REPLUG: Retrieval-Augmented Black-Box Language Models",
+      "section": "2. Background and Related Work",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "In this work, we investigate ways to improve large black-box language models with retrieval. While concurrent work (Mallen et al., 2022; Si et al., 2023; Yu et al., 2023; Khattab et al., 2022) has demonstrated that using a frozen retriever can improve GPT- 3 performance on open-domain question answering, we approach the problem in a more general setting, including language modeling and understanding tasks. We also propose an ensemble method to incorporate more documents Figure 2. REPLUG at inference (§3). Given an input context, REPLUG first retrieves a small set of relevant documents from an external corpus using a retriever (§3.1 Document Retrieval). Then it prepends each document separately to the input context and ensembles output probabilities from different passes (§3.2 Input Reformulation). and a training scheme to further adapt the retriever to large LMs.",
+      "url": "https://arxiv.org/abs/2301.12652v4",
+      "pdf_file": "pdfs/replug.pdf",
+      "sha256": "3c24ff147c4912a9678d778f879016099d03619267ff8b252e46a2c818b9432b",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030117753623188408
+    },
+    {
+      "source_id": "replug:s0030",
+      "paper_id": "replug",
+      "title": "REPLUG: Retrieval-Augmented Black-Box Language Models",
+      "section": "7.3. Qualitative Analysis: rare entities benefit from",
+      "page_start": 8,
+      "page_end": 8,
+      "text": "retrieval To understand why the REPLUG improves language modeling performance, we conducted manual analysis of examples in which the REPLUG results in a decrease in perplexity. We find that REPLUG is more helpful when texts contain rare entities. Figure 6 shows a test context and its continuation from the Wikitext-103 test set. For REPLUG, we use the test context as a query to retrieve a relevant document from Wikitext-103 training data. We then compute the perplexity of the continuation using the original GPT-2 1.5B and its REPLUG enhanced version. After incorporating the retrieved document, the perplexity of the continuation improves by 11%. Among all tokens in the continuation, we found that REPLUG is most helpful for the rare entity name \"Li Bai\". This is likely because the original LM does not have sufficient information about this rare entity name. However, by incorporating the retrieved document, REPLUG was able to match the name with the relevant information in the retrieved document, resulting in better performance. Figure 6. Rare entities benefit from retrieval. After incorporating the retrieved document during inference, the entity \"Li Bai\" and the token \"greatest\" in the continuation show the most improvement in perplexity (15% for \"Li Bai\" and 5% for \"greatest\"). Other tokens’ perplexity changes are within 5%.",
+      "url": "https://arxiv.org/abs/2301.12652v4",
+      "pdf_file": "pdfs/replug.pdf",
+      "sha256": "3c24ff147c4912a9678d778f879016099d03619267ff8b252e46a2c818b9432b",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.0288981288981289
+    },
+    {
+      "source_id": "replug:s0023",
+      "paper_id": "replug",
+      "title": "REPLUG: Retrieval-Augmented Black-Box Language Models",
+      "section": "6.2. MMLU",
+      "page_start": 6,
+      "page_end": 6,
+      "text": "The last column averages the performance over these categories. All models are evaluated based on 5-shot in-context learning with direct prompting. et al. (2022a), we evaluate REPLUG in the 5-shot in-context learning setting. Baselines We consider two groups of strong previous models as baselines for comparisons. The first group of baselines is the state-of-the-art LLMs including Codex1 (Chen et al., 2021b), PaLM (Chowdhery et al., 2022), and Flan- PaLM (Chung et al., 2022b). According to Chung et al. (2022b), these three models rank top-3 in the leaderboard of MMLU. The second group of baselines consists of retrieval-augmented language models. We only include Atlas (Izacard et al., 2022b) in this group, as no other retrievalaugmented LMs have been evaluated on the MMLU dataset. Atlas trains both the retriever and the language model, which we consider a white-box retrieval LM setting. Our model We add REPLUG and REPLUG LSR only to Codex because other models such as PaLM and Flan-PaLM are not accessible to the public. We use the test question as the query to retrieve 10 relevant documents from Wikipedia (2018, December) and prepend each retrieved document to the test question, resulting in 10 separate inputs. These inputs are then separately fed into the language models, and the output probabilities are ensemble together. 1Code-Davinci-002",
+      "url": "https://arxiv.org/abs/2301.12652v4",
+      "pdf_file": "pdfs/replug.pdf",
+      "sha256": "3c24ff147c4912a9678d778f879016099d03619267ff8b252e46a2c818b9432b",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.028083267871170464
+    },
+    {
+      "source_id": "replug:s0027",
+      "paper_id": "replug",
+      "title": "REPLUG: Retrieval-Augmented Black-Box Language Models",
+      "section": "Results",
+      "page_start": 7,
+      "page_end": 7,
+      "text": "As shown in Table 3, REPLUG LSR significantly improves the performance of the original Codex by 12.0% on NQ and 5.0% on TQA. It outperforms the previous best Figure 4. Ensembling random documents does not result in improved performance. BPB of Curie augmented with different methods (random, REPLUG and REPLUG LSR) when varying the number of documents (i.e.; number of ensemble times.) model, Atlas, which was fine-tuned with 64 training examples, achieving a new state-of-the-art in the few-shot setting. However, this result still lags behind the performance of retrieval-augmented language models fine-tuned on the full training data. This is likely due to the presence of nearduplicate test questions in the training set (e.g., Lewis et al. (2021) found that 32.5% of test questions overlap with the training sets in NQ).",
+      "url": "https://arxiv.org/abs/2301.12652v4",
+      "pdf_file": "pdfs/replug.pdf",
+      "sha256": "3c24ff147c4912a9678d778f879016099d03619267ff8b252e46a2c818b9432b",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.027984344422700584
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "how does combine language-model predictions when several different retrieved documents are relevant to the same question",
+      "paper_ids": [
+        "replug"
+      ],
+      "facet": "inference",
+      "covered": true,
+      "claim_ids": [
+        "replug.ensemble"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.010524290992179886,
+  "evaluation_question_id": "F04"
+}

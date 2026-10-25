@@ -1,7 +1,7 @@
 # Source and redistribution notes
 
-The 30 research PDFs were already supplied/assembled for this user's project. They retain their original authors' and publishers' terms. Inclusion here is for this user's local project review; do not assume every paper may be republished in a public Git repository. Check each paper's licence and use source links/checksums when public redistribution is not permitted.
+The 30 research PDFs retain their original authors' and publishers' terms. The corpus manifest and lockfile identify the included versions and source hashes. Inclusion for local project review is not a grant of public redistribution rights; a public release requires checking each paper's licence or distributing source links and checksums instead.
 
-Third-party Python dependencies and model weights retain their respective licences. No model weights or font files are included. Review the model and dependency licences before a public deployment.
+Third-party dependencies and model weights retain their respective licences. This distribution includes no model weights or font files. The default runtime uses the Python standard library; the historical optional model dependencies remain separately documented.
 
-The project code was developed with AI assistance. Retain accurate authorship/use disclosures and do not present this package as wholly unaided student work. The team is responsible for understanding and approving what it submits.
+Software development and catalogue drafting used AI assistance. The [provenance record](docs/PROVENANCE_AND_HISTORY.md) and [system card](MODEL_CARD.md) distinguish development checks from independent human validation. Original research attribution and recorded source-review status are retained.

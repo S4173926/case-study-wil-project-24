@@ -1,0 +1,171 @@
+{
+  "run_id": "20261024T061244_d90e2d4a44",
+  "created_utc": "2026-10-24T06:12:44.102333+00:00",
+  "question": "What sourdough fermentation schedule is recommended for rye flour?",
+  "mode": "explain",
+  "status": "insufficient",
+  "plan": {
+    "named_papers": [],
+    "facets": [
+      "purpose"
+    ],
+    "explicit_facets": false,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "what sourdough fermentation schedule is recommended for rye flour",
+        "facets": [
+          "purpose"
+        ],
+        "explicit": false,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [],
+  "comparison": [],
+  "citations": [],
+  "missing": [
+    "No supported explanation could be assembled."
+  ],
+  "warnings": [],
+  "first_stage": [
+    "retro:s0054",
+    "retro:s0056",
+    "retro:s0057",
+    "ares:s0029",
+    "atlas:s0038",
+    "icralm:s0017",
+    "retro:s0060",
+    "retro:s0061"
+  ],
+  "retrieved": [
+    {
+      "source_id": "retro:s0054",
+      "paper_id": "retro",
+      "title": "Improving language models by retrieving from trillions of tokens",
+      "section": "C.1. Language model pre-training",
+      "page_start": 28,
+      "page_end": 28,
+      "text": "Baseline dmodel dffw # heads Head size # layers P PEnc Max LR 247M 16 64 12 [6, 9, 12] [1] 2×10−4 564M 12 128 12 [6, 9, 12] [1] 2×10−4 1,574M 16 128 24 [9, 12, . . . , 24] [1] 2×10−4 7,505M 32 128 32 [9, 12, . . . , 32] [1] 1×10−4 Table 11 | Hyperparameters for the Wikitext103 experiments presented in Table 4. We use the same learning rate schedule for the baseline and the Retro-fitting. For Retro-fitting, we reset the schedule i.e. the schedule starts from step 0, not from step 35,000. Model Number of layers d dFfw Key size 64 Value size 64 Number of heads 16 Training data Dataset Wikitext103train Sequence length Batch size Tokenizer vocabulary size 128,000 Optimisation optimiser Adam Adam’s β1",
+      "url": "https://arxiv.org/abs/2112.04426v3",
+      "pdf_file": "pdfs/retro.pdf",
+      "sha256": "1b3e89b589b73d51ca76cb7d98f22fa5438f8b13e05363613bc6b3199f9777f4",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03278688524590164
+    },
+    {
+      "source_id": "retro:s0056",
+      "paper_id": "retro",
+      "title": "Improving language models by retrieving from trillions of tokens",
+      "section": "0.25 Schedule",
+      "page_start": 28,
+      "page_end": 28,
+      "text": "Learning rate start 1e-7 Learning rate max 2.5e-4 Learning rate min 2e-5 Warmup steps 4,000 Cosine cycle steps 100,000 Evaluation Overlapping proportion 87.5 %",
+      "url": "https://arxiv.org/abs/2112.04426v3",
+      "pdf_file": "pdfs/retro.pdf",
+      "sha256": "1b3e89b589b73d51ca76cb7d98f22fa5438f8b13e05363613bc6b3199f9777f4",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03225806451612903
+    },
+    {
+      "source_id": "retro:s0057",
+      "paper_id": "retro",
+      "title": "Improving language models by retrieving from trillions of tokens",
+      "section": "C.2. Wikitext103 comparison",
+      "page_start": 28,
+      "page_end": 29,
+      "text": "We provide more details on our Wikitext103 results presented in §4.1 and Table 4. We train a baseline transformer on the Wikitext103 training set with the hyperparameters presented in Table 11. The learning rate ramps linearly from 1 × 10−7 to 2.5 × 10−4 in the first 4,000 steps, then decays to 2 × 10−5 at 100,000 steps using a cosine schedule. The baseline checkpoint at step 35,000 has the lowest perplexity on Wikitext103 valid, of 21.58, for overlapping proportion of 75% (sliding window evaluation that only uses probabilities for tokens that have at least 75% of the sequence length of context, when available). We use this checkpoint for all our baseline and kNN-LM numbers reported in Table 4, except that Table 4 reports for an overlapping proportion of 87.5 %, which slightly lowers the perplexity of our baseline to 21.53 on Wikitext103 valid. We also use the 35,000 step baseline checkpoint as initialization for a Retrofit, which otherwise uses the same optimiser and schedule hyperparameters but only trains the new retrieval weights, as explained in §4.2. Our best Retrofit checkpoint has a Wikitext103 valid perplexity 18.46, when retrieving from Wikipedia. We use this Retro checkpoint in Table 4 for all other retrieval sets. The evaluation curves for our baseline and Retrofit is shown if Fig. 7 (left). In this particular case, because Wikitext103 is quite small, training a Retro model from scratch led to weaker results than the baseline, at least when retrieving from Wikipedia, as we couldn’t find an effective way to mitigate the increased over-fitting due to the additional weights of Retro.",
+      "url": "https://arxiv.org/abs/2112.04426v3",
+      "pdf_file": "pdfs/retro.pdf",
+      "sha256": "1b3e89b589b73d51ca76cb7d98f22fa5438f8b13e05363613bc6b3199f9777f4",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03149801587301587
+    },
+    {
+      "source_id": "ares:s0029",
+      "paper_id": "ares",
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "section": "A.1 Fine-tuning Configuration for LLM",
+      "page_start": 11,
+      "page_end": 11,
+      "text": "Judges For our loss function used in LLM judge training, we selected cross-entropy loss using Adam (Kingma and Ba, 2017). For our classification head, we use a single linear classification layer and apply a 0.1 dropout to the input, which is the final hidden state of the [CLS] token. For our learning schedule, we use linear warmup and linear decay (Howard and Ruder, 2018) with a 5e-6 learning rate and a 32 training batch size across all experimental configurations.",
+      "url": "https://arxiv.org/abs/2311.09476v2",
+      "pdf_file": "pdfs/ares.pdf",
+      "sha256": "16f092b08cce88da551a15a978b51721199e93dc95df406089813411fa51ebec",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03149801587301587
+    },
+    {
+      "source_id": "atlas:s0038",
+      "paper_id": "atlas",
+      "title": "Atlas: Few-shot Learning with Retrieval Augmented Language Models",
+      "section": "4.5.1 MMLU Results",
+      "page_start": 13,
+      "page_end": 13,
+      "text": "The results are shown in Table 6. We find that in zero-shot and 5-shot settings, de-biasing is very effective, improving results by 10.3 and 4.5 points respectively. When more training data is available, the need for de-biasing decreases, leading to only 0.2 point improvement in the multi-task and full data settings. Comparison to published works Next, we compare our Atlas-11B results with de-biasing to recently reported results with state-of-the-art large language models such as GPT-3 or Chinchilla, which required significantly more amount of computation to train. We report results in Table 7. We find that Atlas is able to perform significantly better than random in zero-shot, and in conjunction with de-biased inference, achieves zero-shot scores that exceed 5-shot results reported with GPT3 in the literature (47.1% vs 43.9%) (Hendrycks et al., 2021). For the 5-shot setting, Atlas outperforms GPT-3 by 4%, while using 15× less parameters, and 10× less pre-training compute.4 When multitask-training on the combined 5-shot data, Atlas improves to 56.6% close to the 5-shot performance of Gopher (60.0%). Finally, on the full data setting, where we train on auxiliary data recommended by the MMLU authors, Atlas reaches an overall accuracy of 65.6%, close to the state-of-the-art. Interestingly, in this setup, Atlas significantly outperforms GPT-3, while on the 5-shot setting, their performance is similar.",
+      "url": "https://arxiv.org/abs/2208.03299v3",
+      "pdf_file": "pdfs/atlas.pdf",
+      "sha256": "593ab76b843cd6a0cba3271a2322fed7ea045edc75918d0cfce9eaf3d259a23e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030536130536130537
+    },
+    {
+      "source_id": "icralm:s0017",
+      "paper_id": "icralm",
+      "title": "In-Context Retrieval-Augmented Language Models",
+      "section": "5 The Effectiveness of In-Context RALM",
+      "page_start": 5,
+      "page_end": 6,
+      "text": "with Off-the-Shelf Retrievers We now empirically show that despite its simple document reading mechanism, In-Context RALM leads to substantial LM gains across our diverse evaluation suite. We begin in this section by investigating the effectiveness of off-the-shelf retrievers for In-Context RALM; we go on in §6 to show that further LM gains can be made by tailoring document ranking functions to the LM task. The experiments in this section provided us with a recommended configuration for applying In- Model Retrieval Reranking WikiText-103 RealNews ArXiv Stack Exch. FreeLaw word ppl token ppl token ppl token ppl token ppl – – 37.5 21.3 12.0 12.8 13.0 BM25 §5 – 29.6 16.1 10.9 11.3 9.6 BM25 Zero-shot §6.1 28.6 15.5 10.1 10.6 8.8 BM25 Predictive §6.2 26.8 – – – – GPT-2 S – – 26.3 15.7 9.3 8.8 9.6 BM25 §5 – 21.5 12.4 8.6 8.1 7.4 BM25 Zero-shot §6.1 20.8 12.0 8.0 7.7 6.9 BM25 Predictive §6.2 19.7 – – – – GPT-2 M – – 22.0 13.6 8.4 8.5 8.7 BM25 §5 – 18.1 10.9 7.8 7.8 6.8 BM25 Zero-shot §6.1 17.6 10.6 7.3 7.4 6.4 BM25 Predictive §6.2 16.6 – – – – GPT-2 L – – 20.0 12.4 7.8 8.0 8.0 BM25 §5 – 16.6 10.1 7.2 7.4 6.4 BM25 Zero-shot §6.1 16.1 9.8 6.8 7.1 6.0 BM25 Predictive §6.2 15.4 – – – – GPT-2 XL Table 1: Perplexity on the test set of WikiText-103, RealNews and three datasets from the Pile.",
+      "url": "https://arxiv.org/abs/2302.00083v3",
+      "pdf_file": "pdfs/icralm.pdf",
+      "sha256": "92f8aaad658caff829f70e46afac29d5c97f54a393003dbd14e118ab3f274518",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030536130536130537
+    },
+    {
+      "source_id": "retro:s0060",
+      "paper_id": "retro",
+      "title": "Improving language models by retrieving from trillions of tokens",
+      "section": "C.4. Question answering experiments",
+      "page_start": 29,
+      "page_end": 30,
+      "text": "We fine-tune our 7.5B Retro model for 25,000 steps, using a batch size of 128, a learning rate cosine scheduled from 10−6 to 10−7, with a linear ramp of 750 steps. We use dropout in the decoder only, as it performs better than using dropout in both the encoder and the decoder. Each neighbour is formatted as title: {title}, source: {source}. We use the top 20 neighbours from Dpr when training and evaluating. Table 13 | Performance of Retro for different variants. Model performance on C4 evaluation set, measured in bytes-per-bits, for a 247M parameter model trained with a 157 billion token schedule. Ablation group Ablation C4 eval bpb Model Retro 0.822 No query conditioning 0.829 No CA positional encodings 0.826 Shared embeddings 0.823 6-layer encoder 0.821 Retrieval values Neighbours N 0.950 Continuations F 0.895 No retrieval 0.987 Training neighbours 1 training neighbours 0.858 4 training neighbours 0.847 Cross attention position CA top layer (1/12) 0.827 CA mid layer (6/12) 0.823 CA top layer (12/12) 0.831 CA all layers 0.860 CA every 3 from 1 0.823",
+      "url": "https://arxiv.org/abs/2112.04426v3",
+      "pdf_file": "pdfs/retro.pdf",
+      "sha256": "1b3e89b589b73d51ca76cb7d98f22fa5438f8b13e05363613bc6b3199f9777f4",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029631255487269532
+    },
+    {
+      "source_id": "retro:s0061",
+      "paper_id": "retro",
+      "title": "Improving language models by retrieving from trillions of tokens",
+      "section": "D. Model ablations",
+      "page_start": 30,
+      "page_end": 30,
+      "text": "We validate important design choices by evaluating what happens when we do not include them. We use the 247M parameter model for all experiments and we train on a compressed 157 billion token schedule for all ablation experiments. We describe results relative to the default settings presented in the main text and recalled here. We report C4 evaluation loss at the end of the training process, and also compares how the evaluation loss decrease versus the training time, measured relatively to the baseline training time. Results are reported in Fig. 8 and Table 13. Using relative encodings in cross-attention. Using relative encodings in cross-attention, as described in §B.1.2, provides a pure improvement both in the number of steps to reach a given performance and computational efficiency. Conditioning the encoder on the previous chunk. Conditioning the encoder on the previous chunk’s intermediate embeddings, as described in §B.1.1, provides a pure improvement both in term of number of steps and computational efficiency. Sharing embeddings. Sharing embeddings across the encoder and the decoder does not affect performance. This motivates us using separate embeddings, as it allows to have a narrower encoder than decoder as we scale up the decoder size. Attending neighbours and their continuation. Retro models are trained by attending, for a given chunk, to both the neighbours of the preceding chunk and their continuation in time. We measure how training and evaluating Retro models on neighbours only and their continuation only affects performance.",
+      "url": "https://arxiv.org/abs/2112.04426v3",
+      "pdf_file": "pdfs/retro.pdf",
+      "sha256": "1b3e89b589b73d51ca76cb7d98f22fa5438f8b13e05363613bc6b3199f9777f4",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029631255487269532
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [],
+  "elapsed_seconds": 0.013282583997352049,
+  "evaluation_question_id": "u05"
+}

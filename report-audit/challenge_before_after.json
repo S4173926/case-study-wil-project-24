@@ -1,0 +1,367 @@
+[
+  {
+    "id": "F01",
+    "question": "Why can Fusion-in-Decoder process more retrieved passages without making the encoder attend over all passages jointly? Explain where information from different passages is combined.",
+    "before_status": "source_linked_explanation",
+    "after_status": "source_linked_explanation",
+    "before_papers": [
+      "fid"
+    ],
+    "after_papers": [
+      "fid"
+    ],
+    "before_claim_ids": [
+      "fid.architecture"
+    ],
+    "after_claim_ids": [
+      "fid.architecture",
+      "fid.scaling"
+    ],
+    "before_text": "Fusion-in-Decoder (FiD) concatenates the question with each retrieved passage and its title, then encodes each passage independently. The decoder attends across the concatenated encoded representations of all passages to generate the answer. Evidence is therefore fused in the decoder, rather than by jointly encoding all passages.",
+    "after_text": "Fusion-in-Decoder (FiD) concatenates the question with each retrieved passage and its title, then encodes each passage independently. The decoder attends across the concatenated encoded representations of all passages to generate the answer. Evidence is therefore fused in the decoder, rather than by jointly encoding all passages.\n\nIndependent passage encoding avoids encoder self-attention across every passage at once. The paper describes encoder processing as scaling linearly with the number of passages, while the decoder still combines information across them. This is an architectural efficiency claim, not a measurement of electricity or hosting cost.",
+    "before_missing": [],
+    "after_missing": []
+  },
+  {
+    "id": "F02",
+    "question": "How does GTR make its query and passage encoders larger without increasing the size of the final retrieval embeddings?",
+    "before_status": "source_linked_explanation",
+    "after_status": "source_linked_explanation",
+    "before_papers": [
+      "gtr"
+    ],
+    "after_papers": [
+      "gtr"
+    ],
+    "before_claim_ids": [
+      "gtr.architecture"
+    ],
+    "after_claim_ids": [
+      "gtr.architecture"
+    ],
+    "before_text": "Generalizable T5-based Retrievers (GTR) scale up a dual-encoder model while keeping its final embedding bottleneck fixed. Query and passage vectors are scored with a dot product; the study asks whether larger encoders generalise better across retrieval domains.",
+    "after_text": "Generalizable T5-based Retrievers (GTR) scale up a dual-encoder model while keeping its final embedding bottleneck fixed. Query and passage vectors are scored with a dot product; the study asks whether larger encoders generalise better across retrieval domains.",
+    "before_missing": [],
+    "after_missing": []
+  },
+  {
+    "id": "F03",
+    "question": "What does the FLOPS regularizer in SPLADE try to reduce, and what trade-off does it create between retrieval quality and efficiency?",
+    "before_status": "partial",
+    "after_status": "source_linked_explanation",
+    "before_papers": [
+      "splade"
+    ],
+    "after_papers": [
+      "splade"
+    ],
+    "before_claim_ids": [
+      "splade.efficiency"
+    ],
+    "after_claim_ids": [
+      "splade.efficiency"
+    ],
+    "before_text": "SPLADE controls its effectiveness\u2013efficiency trade-off through sparsity regularisation. Its FLOPS regulariser is a proxy for the operations needed to score query\u2013document representations.",
+    "after_text": "SPLADE's FLOPS regulariser approximates the operations needed to score query-document representations, which are related to retrieval time. It penalises high average term activations to encourage a more balanced sparse index. Increasing sparsity pressure can reduce retrieval work and index size, but can also sacrifice retrieval effectiveness; its strength therefore controls an effectiveness-efficiency trade-off rather than guaranteeing an accuracy improvement.",
+    "before_missing": [
+      "SPLADE: no selected source-linked claim for evaluation and support.",
+      "SPLADE: no selected source-linked claim for limits and trade-offs."
+    ],
+    "after_missing": []
+  },
+  {
+    "id": "F04",
+    "question": "How does REPLUG combine language-model predictions when several different retrieved documents are relevant to the same question?",
+    "before_status": "partial",
+    "after_status": "source_linked_explanation",
+    "before_papers": [
+      "replug"
+    ],
+    "after_papers": [
+      "replug"
+    ],
+    "before_claim_ids": [
+      "replug.method"
+    ],
+    "after_claim_ids": [
+      "replug.ensemble"
+    ],
+    "before_text": "REPLUG treats the language model as a frozen black box. It augments the model by prepending retrieved documents to its input, rather than modifying the language model to add a specialised cross-attention architecture.",
+    "after_text": "REPLUG prepends each retrieved document separately to the input context and runs the frozen language model separately for each document. It combines the resulting next-token probability distributions using a similarity-weighted average: document weights are the exponentiated document-context similarity scores, normalised across the retrieved set. This uses several documents without concatenating them all into one input window.",
+    "before_missing": [
+      "REPLUG: no selected source-linked claim for decision or trigger."
+    ],
+    "after_missing": []
+  },
+  {
+    "id": "F05",
+    "question": "In In-Context RALM, what is retrieval stride? What changes when the system retrieves more frequently?",
+    "before_status": "source_linked_explanation",
+    "after_status": "source_linked_explanation",
+    "before_papers": [
+      "icralm"
+    ],
+    "after_papers": [
+      "icralm"
+    ],
+    "before_claim_ids": [
+      "icralm.stride"
+    ],
+    "after_claim_ids": [
+      "icralm.stride"
+    ],
+    "before_text": "In-Context RALM defines retrieval stride as the number of generated tokens between retrieval operations. Retrieving less frequently reduces retrieval and prefix-recomputation overhead, while the paper reports stronger performance from smaller strides in its experiments.",
+    "after_text": "In-Context RALM defines retrieval stride as the number of generated tokens between retrieval operations. Retrieving less frequently reduces retrieval and prefix-recomputation overhead, while the paper reports stronger performance from smaller strides in its experiments.",
+    "before_missing": [],
+    "after_missing": []
+  },
+  {
+    "id": "F06",
+    "question": "How does RAGAS estimate answer relevance without comparing the generated answer to a human-written reference answer?",
+    "before_status": "source_linked_explanation",
+    "after_status": "source_linked_explanation",
+    "before_papers": [
+      "ragas"
+    ],
+    "after_papers": [
+      "ragas"
+    ],
+    "before_claim_ids": [
+      "ragas.relevance",
+      "ragas.referencefree",
+      "ragas.dimensions"
+    ],
+    "after_claim_ids": [
+      "ragas.relevance",
+      "ragas.dimensions",
+      "ragas.referencefree"
+    ],
+    "before_text": "For answer relevance, RAGAS generates possible questions from the answer and compares their embeddings with the original question. For context relevance, it asks an LLM to select sentences useful for the question and compares the number selected with the number of context sentences.\n\nRAGAS is reference-free in the sense that its evaluation metrics can be computed without gold reference answers or ground-truth human annotations for the evaluated examples. The paper separately compares its metrics with human judgments to study whether the metrics are useful; that validation does not make gold annotations a required input to every score.\n\nThe original RAGAS paper evaluates three aspects of a RAG pipeline: faithfulness of the answer to its retrieved context, relevance of the answer to the question, and relevance or focus of the retrieved context. These are separate dimensions; a relevant answer is not automatically factually faithful.",
+    "after_text": "For answer relevance, RAGAS generates possible questions from the answer and compares their embeddings with the original question. For context relevance, it asks an LLM to select sentences useful for the question and compares the number selected with the number of context sentences.\n\nThe original RAGAS paper evaluates three aspects of a RAG pipeline: faithfulness of the answer to its retrieved context, relevance of the answer to the question, and relevance or focus of the retrieved context. These are separate dimensions; a relevant answer is not automatically factually faithful.\n\nRAGAS is reference-free in the sense that its evaluation metrics can be computed without gold reference answers or ground-truth human annotations for the evaluated examples. The paper separately compares its metrics with human judgments to study whether the metrics are useful; that validation does not make gold annotations a required input to every score.",
+    "before_missing": [],
+    "after_missing": []
+  },
+  {
+    "id": "F07",
+    "question": "Why does Atlas jointly pre-train its retriever and reader, and how does its reader make use of multiple retrieved passages?",
+    "before_status": "source_linked_explanation",
+    "after_status": "source_linked_explanation",
+    "before_papers": [
+      "atlas"
+    ],
+    "after_papers": [
+      "atlas"
+    ],
+    "before_claim_ids": [
+      "atlas.training"
+    ],
+    "after_claim_ids": [
+      "atlas.training",
+      "atlas.architecture"
+    ],
+    "before_text": "Atlas jointly pre-trains its retriever and reader components. The paper finds this joint pre-training important for few-shot downstream performance and studies different pre-training objectives and schemes.",
+    "after_text": "Atlas jointly pre-trains its retriever and reader components. The paper finds this joint pre-training important for few-shot downstream performance and studies different pre-training objectives and schemes.\n\nAtlas pairs a dense retriever with a T5 sequence-to-sequence reader using Fusion-in-Decoder. The reader concatenates the query to each retrieved document and encodes each document independently. It concatenates those encoder outputs, and its decoder uses cross-attention over the combined representations to generate the answer. The system is designed for few-shot knowledge-intensive tasks.",
+    "before_missing": [],
+    "after_missing": []
+  },
+  {
+    "id": "F08",
+    "question": "When retrieved information is noisy, how do RECOMP and Corrective RAG (CRAG) differ in what they do before the model generates its answer?",
+    "before_status": "partial",
+    "after_status": "source_linked_explanation",
+    "before_papers": [
+      "recomp",
+      "crag",
+      "rag"
+    ],
+    "after_papers": [
+      "recomp",
+      "crag"
+    ],
+    "before_claim_ids": [
+      "recomp.compression",
+      "crag.refinement"
+    ],
+    "after_claim_ids": [
+      "recomp.selective",
+      "recomp.compression",
+      "crag.evaluator",
+      "crag.refinement"
+    ],
+    "before_text": "RECOMP adds a Retrieve\u2013Compress\u2013Prepend step before a language model answers. It turns the retrieved documents into a shorter, query-focused textual summary and prepends that summary to the model input. The intervention is a shorter textual input before downstream generation.\n\nCRAG uses a decompose\u2013then\u2013recompose procedure to refine retrieved documents: it focuses on useful information and filters irrelevant material before generation.",
+    "after_text": "When retrieved documents are irrelevant to the input or offer no additional useful information to the language model, RECOMP can return an empty string, or empty summary. In that case no retrieved summary is added to the model input. This is selective augmentation, not a requirement to use every retrieved document.\n\nRECOMP adds a Retrieve\u2013Compress\u2013Prepend step before a language model answers. It turns the retrieved documents into a shorter, query-focused textual summary and prepends that summary to the model input. The intervention is a shorter textual input before downstream generation.\n\nCorrective RAG (CRAG) uses a lightweight evaluator to score the relevance of retrieved documents to the query. Its confidence assessment selects a Correct, Incorrect or Ambiguous action: refine retrieved knowledge when it is judged correct, discard inadequate retrieval and seek web evidence when it is incorrect, or combine refined internal and external evidence when the judgment is ambiguous.\n\nCRAG uses a decompose\u2013then\u2013recompose procedure to refine retrieved documents: it focuses on useful information and filters irrelevant material before generation.",
+    "before_missing": [
+      "RECOMP: no selected source-linked claim for decision or trigger.",
+      "CRAG: no selected source-linked claim for decision or trigger.",
+      "No matching curated explanation for RAG."
+    ],
+    "after_missing": []
+  },
+  {
+    "id": "F09",
+    "question": "Compare RETRO and In-Context RALM: how is external retrieved text incorporated into language-model processing in each system?",
+    "before_status": "source_linked_explanation",
+    "after_status": "source_linked_explanation",
+    "before_papers": [
+      "retro",
+      "icralm"
+    ],
+    "after_papers": [
+      "retro",
+      "icralm"
+    ],
+    "before_claim_ids": [
+      "retro.method",
+      "retro.database",
+      "icralm.method",
+      "icralm.ranking"
+    ],
+    "after_claim_ids": [
+      "retro.method",
+      "icralm.method"
+    ],
+    "before_text": "RETRO augments language modelling with retrieved document chunks. It combines a frozen BERT retriever, a trainable encoder and chunked cross-attention to condition token predictions on neighbouring chunks retrieved from an external corpus.\n\nThe RETRO paper reports a retrieval database containing 2 trillion tokens. That is the size of the external retrieval corpus, not the number of model parameters.\n\nIn-Context Retrieval-Augmented Language Modelling (In-Context RALM) prepends grounding documents to a language model\u2019s input while leaving its architecture unchanged. The paper does not require further training of the language model to use this form of retrieval augmentation.\n\nThe paper starts with off-the-shelf retrievers and also studies adapting the retrieval and ranking mechanism for the language-modelling task. Retrieval quality is evaluated by how much the retrieved material helps the unchanged language model.",
+    "after_text": "RETRO augments language modelling with retrieved document chunks. It combines a frozen BERT retriever, a trainable encoder and chunked cross-attention to condition token predictions on neighbouring chunks retrieved from an external corpus.\n\nIn-Context Retrieval-Augmented Language Modelling (In-Context RALM) prepends grounding documents to a language model\u2019s input while leaving its architecture unchanged. The paper does not require further training of the language model to use this form of retrieval augmentation.",
+    "before_missing": [],
+    "after_missing": []
+  },
+  {
+    "id": "F10",
+    "question": "What different evaluation goals are served by BEIR and the LoTTE benchmark introduced with ColBERTv2?",
+    "before_status": "source_linked_explanation",
+    "after_status": "source_linked_explanation",
+    "before_papers": [
+      "beir",
+      "colbertv2"
+    ],
+    "after_papers": [
+      "beir",
+      "colbertv2"
+    ],
+    "before_claim_ids": [
+      "beir.purpose",
+      "beir.metric",
+      "colbertv2.evaluation"
+    ],
+    "after_claim_ids": [
+      "beir.purpose",
+      "colbertv2.evaluation"
+    ],
+    "before_text": "BEIR is a heterogeneous benchmark for zero-shot information retrieval, not a judge of generated answers. The original benchmark includes 18 publicly available datasets across diverse retrieval tasks and domains, so it tests transfer beyond a narrow training distribution.\n\nBEIR uses nDCG@10 as a common ranking measure across its datasets. nDCG accommodates both binary and graded relevance judgments, making it useful for comparing ranked retrieval results across heterogeneous tasks.\n\nColBERTv2 evaluates both in-domain and out-of-domain retrieval, and introduces LoTTE for long-tail information-seeking topics. This explicitly tests transfer beyond the training collection.",
+    "after_text": "BEIR is a heterogeneous benchmark for zero-shot information retrieval, not a judge of generated answers. The original benchmark includes 18 publicly available datasets across diverse retrieval tasks and domains, so it tests transfer beyond a narrow training distribution.\n\nColBERTv2 evaluates both in-domain and out-of-domain retrieval, and introduces LoTTE for long-tail information-seeking topics. This explicitly tests transfer beyond the training collection.",
+    "before_missing": [],
+    "after_missing": []
+  },
+  {
+    "id": "F11",
+    "question": "How do REPLUG and Fusion-in-Decoder combine information from multiple documents, and which method works with a frozen black-box language model?",
+    "before_status": "partial",
+    "after_status": "source_linked_explanation",
+    "before_papers": [
+      "replug",
+      "fid"
+    ],
+    "after_papers": [
+      "replug",
+      "fid"
+    ],
+    "before_claim_ids": [
+      "replug.method",
+      "replug.ensemble"
+    ],
+    "after_claim_ids": [
+      "replug.ensemble",
+      "replug.method",
+      "fid.architecture"
+    ],
+    "before_text": "REPLUG treats the language model as a frozen black box. It augments the model by prepending retrieved documents to its input, rather than modifying the language model to add a specialised cross-attention architecture.\n\nREPLUG prepends each retrieved document separately to the input context, performs separate language-model passes and ensembles their output probabilities. This permits use of multiple documents without fitting all of them into a single context.",
+    "after_text": "REPLUG prepends each retrieved document separately to the input context and runs the frozen language model separately for each document. It combines the resulting next-token probability distributions using a similarity-weighted average: document weights are the exponentiated document-context similarity scores, normalised across the retrieved set. This uses several documents without concatenating them all into one input window.\n\nREPLUG treats the language model as a frozen black box. It augments the model by prepending retrieved documents to its input, rather than modifying the language model to add a specialised cross-attention architecture.\n\nFusion-in-Decoder (FiD) concatenates the question with each retrieved passage and its title, then encodes each passage independently. The decoder attends across the concatenated encoded representations of all passages to generate the answer. Evidence is therefore fused in the decoder, rather than by jointly encoding all passages.",
+    "before_missing": [
+      "No matching curated explanation for FID."
+    ],
+    "after_missing": []
+  },
+  {
+    "id": "F12",
+    "question": "What measured p95 response latency did this Research Workbench achieve with 100 simultaneous users on an Apple M4 Mac? If no such measurement exists in the indexed collection, say so.",
+    "before_status": "insufficient",
+    "after_status": "insufficient",
+    "before_papers": [],
+    "after_papers": [],
+    "before_claim_ids": [],
+    "after_claim_ids": [],
+    "before_text": "",
+    "after_text": "",
+    "before_missing": [
+      "No sufficiently matching claim was found in the indexed explanations. Source search remains available."
+    ],
+    "after_missing": [
+      "No source-linked claim establishes the requested measurement: deployment latency."
+    ]
+  },
+  {
+    "id": "F13",
+    "question": "What exact cost per 1,000 queries was measured for RECOMP running on AWS in Sydney in October 2026? Answer only if that deployment measurement is supported by a source.",
+    "before_status": "insufficient",
+    "after_status": "insufficient",
+    "before_papers": [
+      "recomp"
+    ],
+    "after_papers": [
+      "recomp"
+    ],
+    "before_claim_ids": [],
+    "after_claim_ids": [],
+    "before_text": "",
+    "after_text": "",
+    "before_missing": [
+      "No matching curated explanation for RECOMP.",
+      "No supported explanation could be assembled."
+    ],
+    "after_missing": [
+      "No source-linked claim establishes the requested measurement: hosting cost."
+    ]
+  },
+  {
+    "id": "F14",
+    "question": "Which paper in this 30-paper collection reports improved diabetic-retinopathy diagnosis accuracy from using ColBERTv2? Cite the experiment or state that the collection does not establish it.",
+    "before_status": "insufficient",
+    "after_status": "insufficient",
+    "before_papers": [
+      "colbertv2"
+    ],
+    "after_papers": [
+      "colbertv2"
+    ],
+    "before_claim_ids": [],
+    "after_claim_ids": [],
+    "before_text": "",
+    "after_text": "",
+    "before_missing": [
+      "No matching curated explanation for COLBERTV2.",
+      "No supported explanation could be assembled."
+    ],
+    "after_missing": [
+      "COLBERTV2: no selected claim covers the detected request \"which paper in this 30-paper collection reports improved diabetic-retinopathy diagnosis accuracy from using\" (purpose).",
+      "No supported explanation could be assembled."
+    ]
+  },
+  {
+    "id": "F15",
+    "question": "Does the indexed research prove that deployed retrieval-augmented generation systems have zero hallucinations? Identify the supporting experiment and error count, or explain why that claim is unsupported.",
+    "before_status": "insufficient",
+    "after_status": "insufficient",
+    "before_papers": [],
+    "after_papers": [],
+    "before_claim_ids": [],
+    "after_claim_ids": [],
+    "before_text": "",
+    "after_text": "",
+    "before_missing": [
+      "No sufficiently matching claim was found in the indexed explanations. Source search remains available."
+    ],
+    "after_missing": [
+      "No supported explanation could be assembled."
+    ]
+  }
+]

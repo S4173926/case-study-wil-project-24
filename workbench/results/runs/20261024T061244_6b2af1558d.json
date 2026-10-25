@@ -1,0 +1,181 @@
+{
+  "run_id": "20261024T061244_6b2af1558d",
+  "created_utc": "2026-10-24T06:12:44.584748+00:00",
+  "question": "Does the indexed research prove that deployed retrieval-augmented generation systems have zero hallucinations? Identify the supporting experiment and error count, or explain why that claim is unsupported.",
+  "mode": "explain",
+  "status": "insufficient",
+  "plan": {
+    "named_papers": [],
+    "facets": [
+      "inference",
+      "purpose"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "does the indexed research prove that deployed retrieval-augmented generation systems have zero hallucinations",
+        "facets": [
+          "inference"
+        ],
+        "explicit": true,
+        "scope": "each"
+      },
+      {
+        "id": "part2",
+        "text": "identify the supporting experiment and error count, or explain why that claim is unsupported",
+        "facets": [
+          "purpose"
+        ],
+        "explicit": false,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [],
+  "comparison": [],
+  "citations": [],
+  "missing": [
+    "No supported explanation could be assembled."
+  ],
+  "warnings": [],
+  "first_stage": [
+    "rag:s0015",
+    "beir:s0042",
+    "rag:s0037",
+    "queryrewrite:s0002",
+    "crag:s0002",
+    "ragas:s0001",
+    "walert:s0013",
+    "monot5:s0019"
+  ],
+  "retrieved": [
+    {
+      "source_id": "rag:s0015",
+      "paper_id": "rag",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "section": "3.4 Fact Veriﬁcation",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "FEVER [56] requires classifying whether a natural language claim is supported or refuted by Wikipedia, or whether there is not enough information to decide. The task requires retrieving evidence from Wikipedia relating to the claim and then reasoning over this evidence to classify whether the claim is true, false, or unverifiable from Wikipedia alone. FEVER is a retrieval problem coupled with an challenging entailment reasoning task. It also provides an appropriate testbed for exploring the RAG models’ ability to handle classification rather than generation. We map FEVER class labels (supports, refutes, or not enough info) to single output tokens and directly train with claim-class pairs. Crucially, unlike most other approaches to FEVER, we do not use supervision on retrieved evidence. In many real-world applications, retrieval supervision signals aren’t available, and models that do not require such supervision will be applicable to a wider range of tasks. We explore two variants: the standard 3-way classification task (supports/refutes/not enough info) and the 2-way (supports/refutes) task studied in Thorne and Vlachos [57]. In both cases we report label accuracy.",
+      "url": "https://arxiv.org/abs/2005.11401v4",
+      "pdf_file": "pdfs/rag.pdf",
+      "sha256": "23e3249e9a1e75418d82efecab0ea8c4d033b89c93742f63208d47ce01f21233",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03225806451612903
+    },
+    {
+      "source_id": "beir:s0042",
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "section": "D.9 Fact Checking",
+      "page_start": 19,
+      "page_end": 20,
+      "text": "Fact checking verifies a claim against a big collection of evidence [60]. The task requires knowledge about the claim and reasoning over multiple documents. We consider a sentence-level claim as input and the relevant document passage verifying the claim as output. FEVER [60] The Fact Extraction and VERification dataset is collected to facilitate the automatic fact checking. We utilize the original paper splits as queries Q and retrieve evidences from the pre-processed Wikipedia Abstracts (June 2017 dump) as our corpus T. Climate-FEVER [14] is a dataset for verification of real-world climate claims. We include the original dataset claims as queries Q and retrieve evidences from the same FEVER Wiki corpus T. We manually included few Wikipedia articles (25) missing from our corpus, but present within our relevance judgements. SciFact [68] verifies scientific claims using evidence from the research literature containing scientific paper abstracts. We use the original publicly available dev split from the task containing 300 queries as our test queries Q, and include all documents from the original dataset as our corpus T.",
+      "url": "https://arxiv.org/abs/2104.08663v4",
+      "pdf_file": "pdfs/beir.pdf",
+      "sha256": "1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.032018442622950824
+    },
+    {
+      "source_id": "rag:s0037",
+      "paper_id": "rag",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "section": "E Further Details on FEVER",
+      "page_start": 18,
+      "page_end": 18,
+      "text": "For FEVER classification, we follow the practice from [32], and first re-generate the claim, and then classify using the representation of the final hidden state, before finally marginalizing across documents to obtain the class probabilities. The FEVER task traditionally has two sub-tasks. The first is to classify the claim as either \"Supported\", \"Refuted\" or \"Not Enough Info\", which is the task we explore in the main paper. FEVER’s other sub-task involves extracting sentences from Wikipedia as evidence supporting the classification prediction. As FEVER uses a different Wikipedia dump to us, directly tackling this task is not straightforward. We hope to address this in future work.",
+      "url": "https://arxiv.org/abs/2005.11401v4",
+      "pdf_file": "pdfs/rag.pdf",
+      "sha256": "23e3249e9a1e75418d82efecab0ea8c4d033b89c93742f63208d47ce01f21233",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03125763125763126
+    },
+    {
+      "source_id": "queryrewrite:s0002",
+      "paper_id": "queryrewrite",
+      "title": "Query Rewriting for Retrieval-Augmented Large Language Models",
+      "section": "1 Introduction",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Large Language Models (LLMs) have shown remarkable abilities for human language processing and extraordinary scalability and adaptability in few- or zero-shot settings.(Ouyang et al., 2022; Brown et al., 2020; Chowdhery et al., 2022). However, the training process depends on large-scale high-quality corpora but without the perception ∗Work done during an internship at 3Microsoft Research Asia. # Equal contribution. †Corresponding author. This paper was partially supported by Joint Research Project of Yangtze River Delta Science and Technology Innovation Community (No. 2022CSJGG1400). of the real world. Thus, LLMs still have to face the issue of hallucination (Yao et al., 2023; Bang et al., 2023) and temporal misalignment (Röttger and Pierrehumbert, 2021; Luu et al., 2022; Jang et al., 2022). This affects the reliability of LLMs and hinders wider practical application, because the consistency between the LLM responses with the real world needs further validation. Existing work has proved that incorporating external knowledge (i.e., non-parametric knowledge) with internal knowledge (i.e., parametric knowledge) can effectively alleviate hallucination, especially for knowledge-intensive tasks. In fact, retrievalaugmented LLMs have been shown so effective that they have been regarded as a standard solution to alleviate the factuality drawbacks in naive LLM generations. Retrieval augmentation is applied to select relative passages as external contexts for the language model, which is retrieve-then-read framework (Lewis et al., 2020b; Karpukhin et al., 2020; Izacard et al., 2022). Take the open-domain Question-Answering task (open-domain QA) as an example, a retriever first searches for related documents for a question. Then the LLM receives the question and the documents, then predicts an answer. As most LLMs are only accessible through inference APIs, they play the part of black-box frozen readers in the pipeline.",
+      "url": "https://arxiv.org/abs/2305.14283v3",
+      "pdf_file": "pdfs/queryrewrite.pdf",
+      "sha256": "483472d9ccc633fe649a87f2224a09c717fcfe052c2914c50f8abce5f34dca84",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03125763125763126
+    },
+    {
+      "source_id": "crag:s0002",
+      "paper_id": "crag",
+      "title": "Corrective Retrieval Augmented Generation",
+      "section": "1 Introduction",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Large language models (LLMs) have attracted increasing attention and exhibited impressive abilities to understand instructions and generate fluent language texts (Brown et al., 2020; Ouyang et al., 2022; Touvron et al., 2023a). Nevertheless, LLMs inevitably manifest hallucinations (Ji et al., 2023) due to their struggle with factual errors (Mallen et al., 2023; Min et al., 2023) and inability to secure the accuracy of generated texts solely by * Equal contribution. Q: What is Henry Feilden's occupation? Q: Who was the screenwriter for Death of a Batman? Retriever Accurate Documents Inaccurate Documents Henry Feilden (Conservative politician): Henry Master Feilden was an Conservative Party politician... Batman (1989 film): of the murder of Bruce Wayne's parents. When Hamm's script was rewritten, ... Politician.✓ ✗ Hamm. Generator Generator Figure 1: The examples show that a low-quality retriever is prone to introducing a substantial amount of irrelevant information, impeding the generators from acquiring accurate knowledge and potentially misleading them. the parametric knowledge they encapsulate (Zhang et al., 2023b; Muhlgay et al., 2023). Prior research has introduced the retrieval techniques to incorporate the knowledge relevant to input and augment generation, as exemplified by retrieval-augmented generation (RAG) (Lewis et al., 2020). In this framework, the input to models is augmented by prepending relevant documents that are retrieved from an external knowledge corpus (Guu et al., 2020). While RAG serves as a practicable complement to LLMs, its effectiveness is contingent upon the relevance and accuracy of the retrieved documents (Li et al., 2022; Tan et al., 2022).",
+      "url": "https://arxiv.org/abs/2401.15884v3",
+      "pdf_file": "pdfs/crag.pdf",
+      "sha256": "975aa1fd3c1b603126e93ff99d6504858b61301bf1d34c9df88ebe53a0b026cb",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03047794966520434
+    },
+    {
+      "source_id": "ragas:s0001",
+      "paper_id": "ragas",
+      "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "We introduce Ragas (Retrieval Augmented Generation Assessment), a framework for reference-free evaluation of Retrieval Augmented Generation (RAG) pipelines. RAG systems are composed of a retrieval and an LLM based generation module, and provide LLMs with knowledge from a reference textual database, which enables them to act as a natural language layer between a user and textual databases, reducing the risk of hallucinations. Evaluating RAG architectures is, however, challenging because there are several dimensions to consider: the ability of the retrieval system to identify relevant and focused context passages, the ability of the LLM to exploit such passages in a faithful way, or the quality of the generation itself. With Ragas, we put forward a suite of metrics which can be used to evaluate these different dimensions without having to rely on ground truth human annotations. We posit that such a framework can crucially contribute to faster evaluation cycles of RAG architectures, which is especially important given the fast adoption of LLMs.",
+      "url": "https://arxiv.org/abs/2309.15217v2",
+      "pdf_file": "pdfs/ragas.pdf",
+      "sha256": "6c24762a3f277fd120ed1adf34b01420ecf92f18ff6d1b5435fa0a09cb804ecb",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029857397504456328
+    },
+    {
+      "source_id": "walert:s0013",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "3 QUANTITATIVE EVALUATION",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "The test collection created from the knowledge base described in Section 2, allows us to apply effectiveness evaluation practices to compare our proposed approaches at both the component and endto-end levels. Table 2 displays results for IB and RAG approaches using evaluation measures across two dimensions: (i) retrieval effectiveness (Normalized Discounted Cumulative Gain, NDCG [8]) and (ii) natural language generation (BERTScore [20] and ROUGE- 1 [12]). ROUGE and BERTScore have been used to quantify hallucinations in LLMs automatically [9]. All the results in Table 2 have been tested for statistical significance using Tukey’s HSD and significance level α= 0.01. Below, we discuss the results across two dimensions separately. Retrieval Effectiveness. When it comes to retrieving a response, the IB approach only retrieves one passage (i.e., the response associated with the recognized intent), whereas RAG approaches retrieve multiple passages for a given question (and the final response is generated using the top-kpassages). In our evaluation, we explore top-heavy cutoffs k={1,3,5} to minimize the risk of hallucinations. Table 2 shows that, for the Known questions, IB and RAG using DPR have comparable performance in terms of NDCG@1 and RAG approaches perform better with more aggressive ranking truncation (k= 1). For the Inferred questions, RAG approaches outperform IB (which can only return, at most, a passage partially relevant to the question). RAG approaches benefit from more context, and BM25 with k= 3 obtains the highest NDCG score. In terms of out-of-KB questions, IB performs substantially better than RAG approaches, being able to identify 80% of the unanswerable questions.",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02964426877470356
+    },
+    {
+      "source_id": "monot5:s0019",
+      "paper_id": "monot5",
+      "title": "Document Ranking with a Pretrained Sequence-to-Sequence Model",
+      "section": "6 Acknowledgments",
+      "page_start": 7,
+      "page_end": 7,
+      "text": "This research was supported in part by the Canada First Research Excellence Fund and the Natural Sciences and Engineering Research Council (NSERC) of Canada. In addition, we would like to thank Google Cloud for credits to support this work.",
+      "url": "https://arxiv.org/abs/2003.06713v1",
+      "pdf_file": "pdfs/monot5.pdf",
+      "sha256": "49cfcb0bcf6c5ea6b9efdb30a070c4f4268839d52e74ad5c3e27872cace61a3e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.027673192771084338
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [],
+  "elapsed_seconds": 0.032876540994038805,
+  "evaluation_question_id": "F15"
+}

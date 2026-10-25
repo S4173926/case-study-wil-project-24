@@ -1,0 +1,45 @@
+{
+  "purpose": "Targeted audit probes of the frozen release, not an independent blind benchmark. No code changes are made. Expectations recorded before this execution.",
+  "questions": [
+    {
+      "id": "P01",
+      "question": "What is BM25?",
+      "expected_behavior": "Explain the corpus-level concept, or clearly state that the explanation catalogue lacks a definition."
+    },
+    {
+      "id": "P02",
+      "question": "A generated sentence includes a token with probability below the chosen confidence threshold. In FLARE, does the system keep that sentence or fetch evidence and rewrite it?",
+      "expected_behavior": "Retrieve using the predicted sentence with low-confidence tokens masked, then regenerate; do not reverse the threshold."
+    },
+    {
+      "id": "P03",
+      "question": "Does Self-RAG always retrieve a fixed number of passages for every input, even when its own knowledge is sufficient?",
+      "expected_behavior": "Reject unconditional fixed retrieval; describe adaptive retrieval/reflection-token decision."
+    },
+    {
+      "id": "P04",
+      "question": "Suppose no retrieved RECOMP document helps answer a query. Must it still prepend a summary?",
+      "expected_behavior": "Explain selective omission/empty summary rather than only describing summarisation."
+    },
+    {
+      "id": "P05",
+      "question": "Is a maximum ColBERT token match averaged or summed over the query tokens?",
+      "expected_behavior": "State sum of query-token MaxSim values, not an average."
+    },
+    {
+      "id": "P06",
+      "question": "Which wins on retrieval quality, SPLADE or Contriever, when both are evaluated on the same Kannada legal corpus?",
+      "expected_behavior": "Explicitly state that an appropriate shared benchmark result is not established; no invented winner."
+    },
+    {
+      "id": "P07",
+      "question": "What is the main difference between FiD's evidence fusion and REPLUG's document ensemble?",
+      "expected_behavior": "Explain FiD independent passage encoding/decoder fusion and REPLUG separate passes/probability mixture."
+    },
+    {
+      "id": "P08",
+      "question": "According to the indexed collection, what uncertainty interval was reported for this Workbench's user time savings?",
+      "expected_behavior": "Do not invent a user-study result or confidence interval."
+    }
+  ]
+}

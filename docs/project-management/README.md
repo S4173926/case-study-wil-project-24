@@ -1,25 +1,11 @@
-# Project-management evidence snapshot
+# Historical project-management record
 
-The supplied Trello export has 26 cards and 6 members.
-Card list positions: {'To-Do': 2, 'In-Progress': 1, 'Blocked': 2, 'Done': 21}. A list position is recorded state, not independent
-proof that the corresponding implementation or deliverable is complete.
+[`trello_evidence_redacted.json`](trello_evidence_redacted.json) is a privacy-minimised derivative of the supplied Trello export. It preserves card descriptions, assignments, recorded list positions and activity timestamps. Card email-routing addresses, account-profile identifiers, avatars, background URLs and invitation records are excluded. The original export hash is retained in the derivative.
 
-Recorded board activity ends at `2026-10-02T05:44:57.589Z`. The export was supplied on
-24 October 2026, but that does not turn the old activity dates into current progress.
-Card creation dates in the supplied actions: {'2026-10-02': 20, '2026-08-23': 6}.
-Many September sprint descriptions were entered retrospectively on 2 October.
-They must not be represented as continuous contemporaneous September tracking.
+The snapshot contains 26 cards and six members: 21 cards in Done, two in To-Do, one In-Progress and two Blocked. Its recorded activity ends at `2026-10-02T05:44:57.589Z`. It was supplied on 24 October 2026. The action history records 20 card creations on 2 October and six on 23 August; several September work descriptions were entered retrospectively.
 
-`trello_evidence_redacted.json` is a shareable subset derived from the supplied export.
-It preserves task text, assignments, list positions and activity timestamps, while
-excluding card-to-email addresses, profile account identifiers, avatar metadata,
-background URLs and the invitation record. The unmodified source hash is recorded.
-The original source JSON is not included because it contains private account metadata.
+These are historical snapshot values, not the live board's present status. Later verification, revised task descriptions and repository consolidation are documented separately. The task text is retained as recorded; it is not silently rewritten to remove historical limitations or disputed descriptions.
 
-The board contains historical blockers and retrospective notes. Their presence documents
-what was recorded, not that a blocker is still unresolved or a claimed metric is verified.
-The original experimental outputs are retained separately in the legacy project.
+The numbered cards link assigned roles to the corpus, baseline, chunking, retrieval, answer component, metrics, evaluation and review decisions. Assignment indicates responsibility, not independently established sole code authorship or a contribution percentage. Original Git records are in [`../../history/`](../../history/).
 
-The historical Git bundle is in `../../history/`. A task assignment is not evidence of a
-specific person writing every associated line of code; no contribution shares, mentoring
-meetings or team reflections have been invented in this package.
+Live project board: https://trello.com/b/9hEOJ49W/case-study-wil-project-24

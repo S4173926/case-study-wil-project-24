@@ -1,0 +1,245 @@
+{
+  "run_id": "20261024T061244_86dc48da8e",
+  "created_utc": "2026-10-24T06:12:44.147354+00:00",
+  "question": "How does ColBERTv2 reduce the space footprint of late interaction?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "colbertv2"
+    ],
+    "facets": [
+      "representation",
+      "efficiency"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "how does reduce the space footprint of late interaction",
+        "facets": [
+          "representation",
+          "efficiency"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "colbertv2.compression",
+      "paper_id": "colbertv2",
+      "text": "ColBERTv2 keeps late interaction’s token-level representations but compresses each vector using a nearby centroid and a residual. The paper reports a 6–10× reduction in space footprint, addressing the storage cost of keeping many vectors per document.",
+      "facets": [
+        "representation",
+        "efficiency",
+        "purpose"
+      ],
+      "source_ids": [
+        "colbertv2:s0015",
+        "colbertv2:s0001"
+      ]
+    }
+  ],
+  "comparison": [],
+  "citations": [
+    {
+      "source_id": "colbertv2:s0015",
+      "paper_id": "colbertv2",
+      "title": "ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction",
+      "section": "3.3 Representation",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "Product quantization (Gray, 1984; Jegou et al., 2010) compresses a single vector by splitting it into small sub-vectors and encoding each of them using an ID within a codebook. In our approach, each representation is already a matrix that is naturally divided into a number of small vectors (one per token). We encode each vector using its nearest centroid plus a residual. Refer to Appendix B for tests of the impact of compression on retrieval quality and a comparison with a baseline compression method for ColBERT akin to BPR (Yamada et al., 2021b).",
+      "url": "https://arxiv.org/abs/2112.01488v3",
+      "pdf_file": "pdfs/colbertv2.pdf",
+      "sha256": "46e0a2712eabf9e0b9486120356a2110f65516fa7e0d75c35e9ee3eef9ea78c0",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "colbertv2:s0001",
+      "paper_id": "colbertv2",
+      "title": "ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Neural information retrieval (IR) has greatly advanced search and other knowledgeintensive language tasks. While many neural IR methods encode queries and documents into single-vector representations, late interaction models produce multi-vector representations at the granularity of each token and decompose relevance modeling into scalable token-level computations. This decomposition has been shown to make late interaction more effective, but it inflates the space footprint of these models by an order of magnitude. In this work, we introduce ColBERTv2, a retriever that couples an aggressive residual compression mechanism with a denoised supervision strategy to simultaneously improve the quality and space footprint of late interaction. We evaluate ColBERTv2 across a wide range of benchmarks, establishing state-of-the-art quality within and outside the training domain while reducing the space footprint of late interaction models by 6–10×.",
+      "url": "https://arxiv.org/abs/2112.01488v3",
+      "pdf_file": "pdfs/colbertv2.pdf",
+      "sha256": "46e0a2712eabf9e0b9486120356a2110f65516fa7e0d75c35e9ee3eef9ea78c0",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "colbertv2:s0033",
+    "colbertv2:s0001",
+    "colbertv2:s0010",
+    "colbertv2:s0003",
+    "colbertv2:s0006",
+    "colbertv2:s0002",
+    "colbertv2:s0014",
+    "colbertv2:s0004"
+  ],
+  "retrieved": [
+    {
+      "source_id": "colbertv2:s0033",
+      "paper_id": "colbertv2",
+      "title": "ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction",
+      "section": "6 Conclusion",
+      "page_start": 9,
+      "page_end": 9,
+      "text": "We introduced ColBERTv2, a retriever that advances the quality and space efficiency of multivector representations. We hypothesized that cluster centroids capture context-aware semantics of the token-level representations and proposed a residual representation that leverages these patterns to dramatically reduce the footprint of multi-vector systems off-the-shelf. We then explored improved supervision for multi-vector retrieval and found that their quality improves considerably upon distillation from a cross-encoder system. The proposed ColBERTv2 considerably outperforms existing retrievers in within-domain and out-of-domain evaluations, which we conducted extensively across 28 datasets, establishing state-of-the-art quality while exhibiting competitive space footprint.",
+      "url": "https://arxiv.org/abs/2112.01488v3",
+      "pdf_file": "pdfs/colbertv2.pdf",
+      "sha256": "46e0a2712eabf9e0b9486120356a2110f65516fa7e0d75c35e9ee3eef9ea78c0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.032266458495966696
+    },
+    {
+      "source_id": "colbertv2:s0001",
+      "paper_id": "colbertv2",
+      "title": "ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Neural information retrieval (IR) has greatly advanced search and other knowledgeintensive language tasks. While many neural IR methods encode queries and documents into single-vector representations, late interaction models produce multi-vector representations at the granularity of each token and decompose relevance modeling into scalable token-level computations. This decomposition has been shown to make late interaction more effective, but it inflates the space footprint of these models by an order of magnitude. In this work, we introduce ColBERTv2, a retriever that couples an aggressive residual compression mechanism with a denoised supervision strategy to simultaneously improve the quality and space footprint of late interaction. We evaluate ColBERTv2 across a wide range of benchmarks, establishing state-of-the-art quality within and outside the training domain while reducing the space footprint of late interaction models by 6–10×.",
+      "url": "https://arxiv.org/abs/2112.01488v3",
+      "pdf_file": "pdfs/colbertv2.pdf",
+      "sha256": "46e0a2712eabf9e0b9486120356a2110f65516fa7e0d75c35e9ee3eef9ea78c0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03225806451612903
+    },
+    {
+      "source_id": "colbertv2:s0010",
+      "paper_id": "colbertv2",
+      "title": "ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction",
+      "section": "3 ColBERTv2",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "We now introduce ColBERTv2, which improves the quality of multi-vector retrieval models (§3.2) while reducing their space footprint (§3.3).",
+      "url": "https://arxiv.org/abs/2112.01488v3",
+      "pdf_file": "pdfs/colbertv2.pdf",
+      "sha256": "46e0a2712eabf9e0b9486120356a2110f65516fa7e0d75c35e9ee3eef9ea78c0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.032018442622950824
+    },
+    {
+      "source_id": "colbertv2:s0003",
+      "paper_id": "colbertv2",
+      "title": "ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction",
+      "section": "1 Introduction",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "This added expressivity comes at a cost: existing late interaction systems impose an order-of-magnitude larger space footprint than single-vector models, as they must store billions of small vectors for Web-scale collections. Considering this challenge, it might seem more fruitful to focus instead on addressing the fragility of single-vector models (Menon et al., 2022) by introducing new supervision paradigms for negative mining (Xiong et al., 2020), pretraining (Gao and Callan, 2021), and distillation (Qu et al., 2021). Indeed, recent single-vector models with highlytuned supervision strategies (Ren et al., 2021b; Formal et al., 2021a) sometimes perform on-par or even better than “vanilla” late interaction models, and it is not necessarily clear whether late interaction architectures—with their fixed token-level inductive biases—admit similarly large gains from improved supervision. In this work, we show that late interaction retrievers naturally produce lightweight token representations that are amenable to efficient storage off-the-shelf and that they can benefit drastically from denoised supervision. We couple those in ColBERTv2,1 a new late-interaction retriever that employs a simple combination of distillation from //github.com/stanford-futuredata/ColBERT a cross-encoder and hard-negative mining (§3.2) to boost quality beyond any existing method, and then uses a residual compression mechanism (§3.3) to reduce the space footprint of late interaction by 6–10× while preserving quality. As a result, Col- BERTv2 establishes state-of-the-art retrieval quality both within and outside its training domain with a competitive space footprint with typical singlevector models. When trained on MS MARCO Passage Ranking, ColBERTv2 achieves the highest MRR@10 of any standalone retriever. In addition to in-domain quality, we seek a retriever that generalizes “zeroshot” to domain-specific corpora and long-tail topics, ones that are often under-represented in large public training sets.",
+      "url": "https://arxiv.org/abs/2112.01488v3",
+      "pdf_file": "pdfs/colbertv2.pdf",
+      "sha256": "46e0a2712eabf9e0b9486120356a2110f65516fa7e0d75c35e9ee3eef9ea78c0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03149801587301587
+    },
+    {
+      "source_id": "colbertv2:s0006",
+      "paper_id": "colbertv2",
+      "title": "ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction",
+      "section": "2.2 Vector Compression for Neural IR",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "There has been a surge of recent interest in compressing representations for IR. Izacard et al. (2020) explore dimension reduction, product quantization (PQ), and passage filtering for single-vector retrievers. BPR (Yamada et al., 2021a) learns to directly hash embeddings to binary codes using a differentiable tanh function. JPQ (Zhan et al., 2021a) and its extension, RepCONC (Zhan et al., 2022), use PQ to compress embeddings, and jointly train the query encoder along with the centroids produced by PQ via a ranking-oriented loss. SDR (Cohen et al., 2021) uses an autoencoder to reduce the dimensionality of the contextual embeddings used for attention-based re-ranking and then applies a quantization scheme for further compression. DensePhrases (Lee et al., 2021a) is a system for Open-QA that relies on a multi-vector encoding of passages, though its search is conducted at the level of individual vectors and not aggregated with late interaction. Very recently, Lee et al. (2021b) propose a quantization-aware finetuning method based on PQ to reduce the space footprint of DensePhrases. While DensePhrases is effective at Open-QA, its retrieval quality—as measured by top-20 retrieval accuracy on NaturalQuestions and TriviaQA—is competitive with DPR (Karpukhin et al., 2020) and considerably less effective than ColBERT (Khattab et al., 2021b). In this work, we focus on late-interaction retrieval and investigate compression using a residual compression approach that can be applied off-theshelf to late interaction models, without special training. We show in Appendix A that ColBERT’s representations naturally lend themselves to residual compression.",
+      "url": "https://arxiv.org/abs/2112.01488v3",
+      "pdf_file": "pdfs/colbertv2.pdf",
+      "sha256": "46e0a2712eabf9e0b9486120356a2110f65516fa7e0d75c35e9ee3eef9ea78c0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029877369007803793
+    },
+    {
+      "source_id": "colbertv2:s0002",
+      "paper_id": "colbertv2",
+      "title": "ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction",
+      "section": "1 Introduction",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Neural information retrieval (IR) has quickly dominated the search landscape over the past 2–3 years, dramatically advancing not only passage and document search (Nogueira and Cho, 2019) but also many knowledge-intensive NLP tasks like opendomain question answering (Guu et al., 2020), multi-hop claim verification (Khattab et al., 2021a), and open-ended generation (Paranjape et al., 2022). Many neural IR methods follow a single-vector similarity paradigm: a pretrained language model is used to encode each query and each document into a single high-dimensional vector, and relevance is modeled as a simple dot product between both vectors. An alternative is late interaction, introduced in ColBERT (Khattab and Zaharia, 2020), where queries and documents are encoded at a finergranularity into multi-vector representations, and ∗Equal contribution. relevance is estimated using rich yet scalable interactions between these two sets of vectors. Col- BERT produces an embedding for every token in the query (and document) and models relevance as the sum of maximum similarities between each query vector and all vectors in the document. By decomposing relevance modeling into tokenlevel computations, late interaction aims to reduce the burden on the encoder: whereas single-vector models must capture complex query–document relationships within one dot product, late interaction encodes meaning at the level of tokens and delegates query–document matching to the interaction mechanism. This added expressivity comes at a cost: existing late interaction systems impose an order-of-magnitude larger space footprint than single-vector models, as they must store billions of small vectors for Web-scale collections.",
+      "url": "https://arxiv.org/abs/2112.01488v3",
+      "pdf_file": "pdfs/colbertv2.pdf",
+      "sha256": "46e0a2712eabf9e0b9486120356a2110f65516fa7e0d75c35e9ee3eef9ea78c0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029857397504456328
+    },
+    {
+      "source_id": "colbertv2:s0014",
+      "paper_id": "colbertv2",
+      "title": "ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction",
+      "section": "3.3 Representation",
+      "page_start": 4,
+      "page_end": 5,
+      "text": "We hypothesize that the ColBERT vectors cluster into regions that capture highly-specific token semantics. We test this hypothesis in Appendix A, where evidence suggests that vectors corresponding to each sense of a word cluster closely, with only minor variation due to context. We exploit this regularity with a residual representation that dramatically reduces the space footprint of late interaction models, completely off-the-shelf without architectural or training changes. Given a set of centroids C, ColBERTv2 encodes each vector v as the index of its closest centroid Ct and a quantized vector ̃r that approximates the residual r = v −Ct. At search time, we use the centroid index t and residual ̃r recover an approximate ̃v = Ct + ̃r. To encode ̃r, we quantize every dimension of r into one or two bits. In principle, our b-bit encoding of n-dimensional vectors needs ⌈log |C|⌉+ bn bits per vector. In practice, with n = 128, we use four bytes to capture up to 232 centroids and 16 or 32 bytes (for b = 1 or b = 2) to encode the residual. This total of 20 or 36 bytes per vector contrasts with ColBERT’s use of 256-byte vector encodings at 16-bit precision. While many alternatives can be explored for compression, we find that this simple encoding largely preserves model quality, while considerably lowering storage costs against typical 32- or 16-bit precision used by existing late interaction systems. This centroid-based encoding can be considered a natural extension of product quantization to multivector representations. Product quantization (Gray, 1984; Jegou et al., 2010) compresses a single vector by splitting it into small sub-vectors and encoding each of them using an ID within a codebook.",
+      "url": "https://arxiv.org/abs/2112.01488v3",
+      "pdf_file": "pdfs/colbertv2.pdf",
+      "sha256": "46e0a2712eabf9e0b9486120356a2110f65516fa7e0d75c35e9ee3eef9ea78c0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02904040404040404
+    },
+    {
+      "source_id": "colbertv2:s0004",
+      "paper_id": "colbertv2",
+      "title": "ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction",
+      "section": "1 Introduction",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "In addition to in-domain quality, we seek a retriever that generalizes “zeroshot” to domain-specific corpora and long-tail topics, ones that are often under-represented in large public training sets. To this end, we evaluate Col- BERTv2 on a wide array of out-of-domain benchmarks. These include three Wikipedia Open-QA retrieval tests and 13 diverse retrieval and semanticsimilarity tasks from BEIR (Thakur et al., 2021). In addition, we introduce a new benchmark, dubbed LoTTE, for Long-Tail Topic-stratified Evaluation for IR that features 12 domain-specific search tests, spanning StackExchange communities and using queries from GooAQ (Khashabi et al., 2021). LoTTE focuses on relatively long-tail topics in its passages, unlike the Open-QA tests and many of the BEIR tasks, and evaluates models on their capacity to answer natural search queries with a practical intent, unlike many of BEIR’s semanticsimilarity tasks. On 22 of 28 out-of-domain tests, ColBERTv2 achieves the highest quality, outperforming the next best retriever by up to 8% relative gain, while using its compressed representations. This work makes the following contributions: 1. We propose ColBERTv2, a retriever that combines denoised supervision and residual compression, leveraging the token-level decomposition of late interaction to achieve high robustness with a reduced space footprint. 2. We introduce LoTTE, a new resource for outof-domain evaluation of retrievers. LoTTE focuses on natural information-seeking queries over long-tail topics, an important yet understudied application space. 3. We evaluate ColBERTv2 across a wide range of settings, establishing state-of-the-art quality within and outside the training domain.",
+      "url": "https://arxiv.org/abs/2112.01488v3",
+      "pdf_file": "pdfs/colbertv2.pdf",
+      "sha256": "46e0a2712eabf9e0b9486120356a2110f65516fa7e0d75c35e9ee3eef9ea78c0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.028991596638655463
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "how does reduce the space footprint of late interaction",
+      "paper_ids": [
+        "colbertv2"
+      ],
+      "facet": "representation",
+      "covered": true,
+      "claim_ids": [
+        "colbertv2.compression"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    },
+    {
+      "part_id": "part1",
+      "question_part": "how does reduce the space footprint of late interaction",
+      "paper_ids": [
+        "colbertv2"
+      ],
+      "facet": "efficiency",
+      "covered": true,
+      "claim_ids": [
+        "colbertv2.compression"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.0064858749974519014,
+  "evaluation_question_id": "n03"
+}

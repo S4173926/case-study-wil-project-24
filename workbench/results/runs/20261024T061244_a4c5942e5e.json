@@ -1,0 +1,323 @@
+{
+  "run_id": "20261024T061244_a4c5942e5e",
+  "created_utc": "2026-10-24T06:12:44.373229+00:00",
+  "question": "How do Rewrite-Retrieve-Read and Demonstrate–Search–Predict (DSP) use language models to influence the search queries they send to retrieval?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "queryrewrite",
+      "dsp"
+    ],
+    "facets": [
+      "retrieval"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": true,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "how do and ( ) use language models to influence the search queries they send to retrieval",
+        "facets": [
+          "retrieval"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "queryrewrite.method",
+      "paper_id": "queryrewrite",
+      "text": "Rewrite–Retrieve–Read adapts the search query before retrieval. A language model rewrites the original input, a search engine retrieves context using that query, and a reader answers using the retrieved material. The trainable variant changes the small rewriter while keeping the retriever and reader frozen.",
+      "facets": [
+        "retrieval",
+        "inference",
+        "purpose"
+      ],
+      "source_ids": [
+        "queryrewrite:s0001",
+        "queryrewrite:s0004"
+      ]
+    },
+    {
+      "claim_id": "dsp.queries",
+      "paper_id": "dsp",
+      "text": "DSP uses language-model transformations to rewrite conversational questions and to decompose complex questions into multiple retrieval queries. A later search hop can use passages retrieved in an earlier hop as context, so search queries can evolve with the evidence gathered.",
+      "facets": [
+        "retrieval",
+        "inference"
+      ],
+      "source_ids": [
+        "dsp:s0020",
+        "dsp:s0012"
+      ]
+    }
+  ],
+  "comparison": [
+    {
+      "paper_id": "queryrewrite",
+      "title": "Query Rewriting for Retrieval-Augmented Large Language Models",
+      "claims": [
+        {
+          "claim_id": "queryrewrite.method",
+          "paper_id": "queryrewrite",
+          "text": "Rewrite–Retrieve–Read adapts the search query before retrieval. A language model rewrites the original input, a search engine retrieves context using that query, and a reader answers using the retrieved material. The trainable variant changes the small rewriter while keeping the retriever and reader frozen.",
+          "facets": [
+            "retrieval",
+            "inference",
+            "purpose"
+          ],
+          "source_ids": [
+            "queryrewrite:s0001",
+            "queryrewrite:s0004"
+          ]
+        }
+      ]
+    },
+    {
+      "paper_id": "dsp",
+      "title": "Demonstrate-Search-Predict: Composing retrieval and language models for knowledge-intensive NLP",
+      "claims": [
+        {
+          "claim_id": "dsp.queries",
+          "paper_id": "dsp",
+          "text": "DSP uses language-model transformations to rewrite conversational questions and to decompose complex questions into multiple retrieval queries. A later search hop can use passages retrieved in an earlier hop as context, so search queries can evolve with the evidence gathered.",
+          "facets": [
+            "retrieval",
+            "inference"
+          ],
+          "source_ids": [
+            "dsp:s0020",
+            "dsp:s0012"
+          ]
+        }
+      ]
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "queryrewrite:s0001",
+      "paper_id": "queryrewrite",
+      "title": "Query Rewriting for Retrieval-Augmented Large Language Models",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Large Language Models (LLMs) play powerful, black-box readers in the retrieve-thenread pipeline, making remarkable progress in knowledge-intensive tasks. This work introduces a new framework, Rewrite-Retrieve- Read instead of the previous retrieve-then-read for the retrieval-augmented LLMs from the perspective of the query rewriting. Unlike prior studies focusing on adapting either the retriever or the reader, our approach pays attention to the adaptation of the search query itself, for there is inevitably a gap between the input text and the needed knowledge in retrieval. We first prompt an LLM to generate the query, then use a web search engine to retrieve contexts. Furthermore, to better align the query to the frozen modules, we propose a trainable scheme for our pipeline. A small language model is adopted as a trainable rewriter to cater to the black-box LLM reader. The rewriter is trained using the feedback of the LLM reader by reinforcement learning. Evaluation is conducted on downstream tasks, open-domain QA and multiple-choice QA. Experiments results show consistent performance improvement, indicating that our framework is proven effective and scalable, and brings a new framework for retrieval-augmented LLM 1.",
+      "url": "https://arxiv.org/abs/2305.14283v3",
+      "pdf_file": "pdfs/queryrewrite.pdf",
+      "sha256": "483472d9ccc633fe649a87f2224a09c717fcfe052c2914c50f8abce5f34dca84",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "queryrewrite:s0004",
+      "paper_id": "queryrewrite",
+      "title": "Query Rewriting for Retrieval-Augmented Large Language Models",
+      "section": "1 Introduction",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "In consideration of this issue, this paper proposes Rewrite-Retrieve-Read, a new framework for retrieval augmentation, which can be further tuned for adapting to LLMs. In front of the retriever, a step of rewriting the input is added, filling the gap between the given input and retrieval need, as is shown in Figure 1. We adopt the off-the-shelf tool, an internet search engine, as the retriever, which avoids the maintenance of the search index and can access up-to-date knowledge (Lazaridou et al., 2022). Different from previous studies (Khattab et al., 2022; Yao et al., 2023) that require the memory of multiple interaction rounds between the retriever and the LLM for each sample, the motivation of our rewriting step is to clarify the retrieval need from the input text. We also propose a trainable scheme for our rewrite-retrieve-read framework (Figure 1 (c)). The black-box retriever and the reader form a frozen system. To further smooth the steps of our pipeline, we apply a small, trainable language model to perform the rewriting step, denoted as the rewriter. The rewriter is trained by reinforcement learning using the LLM performance as a reward, learning to adapt the retrieval query to improve the reader on downstream tasks. Our proposed methods are evaluated on knowledge-intensive downstream tasks including open-domain QA (HotpoQA (Yang et al., 2018), AmbigNQ (Min et al., 2020), PopQA (Mallen et al., 2022)) and multiple choice QA (MMLU (Hendrycks et al., 2021)). The experiments are implemented on T5-large (Raffel et al., 2020) as the rewriter, ChatGPT (Ouyang et al., 2022) and Vicuna-13B (Chiang et al., 2023) as the LLM reader. The results show that query rewriting consistently improves the retrieve-augmented LLM performance.",
+      "url": "https://arxiv.org/abs/2305.14283v3",
+      "pdf_file": "pdfs/queryrewrite.pdf",
+      "sha256": "483472d9ccc633fe649a87f2224a09c717fcfe052c2914c50f8abce5f34dca84",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "dsp:s0020",
+      "paper_id": "dsp",
+      "title": "Demonstrate-Search-Predict: Composing retrieval and language models for knowledge-intensive NLP",
+      "section": "2.4. SEARCH",
+      "page_start": 7,
+      "page_end": 7,
+      "text": "It accepts an optional fusion function that maps multiple retrieval lists into one. By default, DSP uses a variant of CombSUM (Fox & Shaw, 1994), assigning each passage the sum of its probabilities across retrieval lists. To illustrate, the modification below generates n = 10 queries for the transformation multihop_search_v2. Compositions & Extensions To illustrate a simple composition, we can equip a chatbot with the capacity for conversational multi-hop search by combining a query rewriting step, which produces a query that encompasses all of the relevant conversational context, with the multi-hop transformation, as follows. Similar approaches can be used for correcting spelling mistakes or implementing pseudo-relevance feedback (Cao et al., 2008; Wang et al., 2022a), in which retrieved passages are used to inform a better search query, though this has not been attempted with pretrained LMs to our knowledge.",
+      "url": "https://arxiv.org/abs/2212.14024v2",
+      "pdf_file": "pdfs/dsp.pdf",
+      "sha256": "bd64e2f901e3d24fa7cbdab8135136dc6b055a6b5ef96f42b6348c5d7a4a4393",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "dsp:s0012",
+      "paper_id": "dsp",
+      "title": "Demonstrate-Search-Predict: Composing retrieval and language models for knowledge-intensive NLP",
+      "section": "2.3. DEMONSTRATE",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "When an answer is produced, if fn assesses it as correct, it returns a populated example in which the intermediate predictions are present. Case Study The snippet below defines the function multihop_demonstrate, called in Line 3 of multihop_program, and illustrates the usage of annotate. In Line 10, multihop_demonstrate invokes annotate, which bootstraps missing fields in training examples by caching annotations from attempt_example. The transformation attempt_example takes a training example d and attempts to answer it in a zero-shot fashion: it creates a copy of d with no demonstrations (Line 4; i.e., zero-shot) and invokes the multi-hop search and predict pipeline (Lines 5 and 6). Each transformation returns an updated version of d with additional fields populated. If the pipeline answers correctly (Line 7), the updated d is returned. Figure 2 illustrates this behavior. DEMONSTRATE transforms a training question–answer pair to a fully-populated demonstration, including fields such as hop1 and hop2 (i.e., queries for multi-hop search) as well as psg1 and psg2. When the LM is later invoked to conduct a transformation, say, generating a “second-hop” query during SEARCH, the psg1 field serves as context and the hop2 field serves as a label for this particular training example.",
+      "url": "https://arxiv.org/abs/2212.14024v2",
+      "pdf_file": "pdfs/dsp.pdf",
+      "sha256": "bd64e2f901e3d24fa7cbdab8135136dc6b055a6b5ef96f42b6348c5d7a4a4393",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "queryrewrite:s0011",
+    "dsp:s0001",
+    "queryrewrite:s0007",
+    "dsp:s0006",
+    "queryrewrite:s0010",
+    "dsp:s0003",
+    "queryrewrite:s0001",
+    "dsp:s0018"
+  ],
+  "retrieved": [
+    {
+      "source_id": "queryrewrite:s0011",
+      "paper_id": "queryrewrite",
+      "title": "Query Rewriting for Retrieval-Augmented Large Language Models",
+      "section": "3.1 Rewrite-Retrieve-Read",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "A task with retrieval augmentation can be denoted as follows. Given a dataset of a knowledgeintensive task (e.g., open-domain QA), D = {(x, y)i}, i = 0, 1, 2, . . . , N, x (e.g., a question) is the input to the pipeline, y is the expected output (e.g., the correct answer). Our pipeline consists of three steps. (i) Query rewrite: generate a query ̃x for required knowledge based on the original input x. (ii) Retrieve: search for related context, doc. (iii) Read: comprehend the input along with contexts [doc, x] and predict the output ˆy. A straightforward but effective method is to ask an LLM to rewrite queries to search for information that is potentially needed. We use a few-shot prompt to encourage the LLM to think, and the output can be none, one or more queries to search.",
+      "url": "https://arxiv.org/abs/2305.14283v3",
+      "pdf_file": "pdfs/queryrewrite.pdf",
+      "sha256": "483472d9ccc633fe649a87f2224a09c717fcfe052c2914c50f8abce5f34dca84",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03278688524590164
+    },
+    {
+      "source_id": "dsp:s0001",
+      "paper_id": "dsp",
+      "title": "Demonstrate-Search-Predict: Composing retrieval and language models for knowledge-intensive NLP",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Retrieval-augmented in-context learning has emerged as a powerful approach for addressing knowledge-intensive tasks using frozen language models (LM) and retrieval models (RM). Existing work has combined these in simple “retrievethen-read” pipelines in which the RM retrieves passages that are inserted into the LM prompt. To begin to fully realize the potential of frozen LMs and RMs, we propose DEMONSTRATE– SEARCH–PREDICT (DSP), a framework that relies on passing natural language texts in sophisticated pipelines between an LM and an RM. DSP can express high-level programs that bootstrap pipeline-aware demonstrations, search for relevant passages, and generate grounded predictions, systematically breaking down problems into small transformations that the LM and RM can handle more reliably. We have written novel DSP programs for answering questions in open-domain, multi-hop, and conversational settings, establishing in early evaluations new state-of-the-art incontext learning results and delivering 37–120%, 8–39%, and 80–290% relative gains against the vanilla LM (GPT-3.5), a standard retrieve-thenread pipeline, and a contemporaneous self-ask pipeline, respectively. We release DSP at https: //github.com/stanfordnlp/dsp.",
+      "url": "https://arxiv.org/abs/2212.14024v2",
+      "pdf_file": "pdfs/dsp.pdf",
+      "sha256": "bd64e2f901e3d24fa7cbdab8135136dc6b055a6b5ef96f42b6348c5d7a4a4393",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03149801587301587
+    },
+    {
+      "source_id": "queryrewrite:s0007",
+      "paper_id": "queryrewrite",
+      "title": "Query Rewriting for Retrieval-Augmented Large Language Models",
+      "section": "2.1 Retrieval Augmentation",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "For example, by jointly training the retriever and the reader, Atlas (Izacard et al., 2022) shows few-shot performance on par with 540B PalM (Chowdhery et al., 2022) but be of 50× smaller size. The Internet as a knowledge base More related to our work, the search engine can assume the role of the retriever and use the Internet as the source of Input Input Black-box LLM Retriever Rewriter Query Documents Web Search Retriever Black-box LLM Documents Reader Black-box LLM Output Reader Example Input Rewriter Small PrLM Query Web Search Retriever Documents Black-box LLM Reader Hit (retriever )✅ ✅ Output Output Reward (a) Retrieve-then-read (b)Rewrite-retrieve-read (c) Trainable rewrite-retrieve-read Figure 1: Overview of our proposed pipeline. From left to right, we show (a) standard retrieve-then-read method, (b) LLM as a query rewriter for our rewrite-retrieve-read pipeline, and (c) our pipeline with a trainable rewriter. external knowledge. Komeili et al. (2022) use an internet search for relevant information based on the dialogue history to perform dialogue response generation. SeeKeR (Shuster et al., 2022) use a single Transformer to iteratively perform search query generation, then knowledge extraction for dialogue generation and sentence completion. For large-scale models, web search still shows effective for knowledge augmentation (Lazaridou et al., 2022), fact-checking (Menick et al., 2022), and LLM agent enhancement (Yao et al., 2023).",
+      "url": "https://arxiv.org/abs/2305.14283v3",
+      "pdf_file": "pdfs/queryrewrite.pdf",
+      "sha256": "483472d9ccc633fe649a87f2224a09c717fcfe052c2914c50f8abce5f34dca84",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.027912386121341344
+    },
+    {
+      "source_id": "dsp:s0006",
+      "paper_id": "dsp",
+      "title": "Demonstrate-Search-Predict: Composing retrieval and language models for knowledge-intensive NLP",
+      "section": "1. Introduction",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "DEMONSTRATE–SEARCH–PREDICT We now introduce the DSP framework and show its expressive power by suggesting a number of strategies in which the LM and RM can come together to tackle complex problems effectively. We show in §3 that such strategies outperform existing in-context learning methods. We begin by discussing the LM and RM foundation modules on which DSP is built (§2.1) and then the datatypes and control flow within DSP (§2.2). Subsequently, we discuss each of the three inference stages: DEMONSTRATE (§2.3), SEARCH (§2.4), and PREDICT (§2.5).",
+      "url": "https://arxiv.org/abs/2212.14024v2",
+      "pdf_file": "pdfs/dsp.pdf",
+      "sha256": "bd64e2f901e3d24fa7cbdab8135136dc6b055a6b5ef96f42b6348c5d7a4a4393",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03128054740957967
+    },
+    {
+      "source_id": "queryrewrite:s0010",
+      "paper_id": "queryrewrite",
+      "title": "Query Rewriting for Retrieval-Augmented Large Language Models",
+      "section": "3 Methodology",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "We present Rewrite-Retrieve-Read, a pipeline that improves the retrieval-augmented LLM from the perspective of query rewriting. Figure 1 shows an overview. This section first introduces the pipeline framework in section 3.1, then the trainable scheme in section 3.2.",
+      "url": "https://arxiv.org/abs/2305.14283v3",
+      "pdf_file": "pdfs/queryrewrite.pdf",
+      "sha256": "483472d9ccc633fe649a87f2224a09c717fcfe052c2914c50f8abce5f34dca84",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02580128205128205
+    },
+    {
+      "source_id": "dsp:s0003",
+      "paper_id": "dsp",
+      "title": "Demonstrate-Search-Predict: Composing retrieval and language models for knowledge-intensive NLP",
+      "section": "1. Introduction",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "Fully realizing this would be transformative: frozen LMs and RMs could serve as infrastructure across tasks, enabling ML- and domain-experts alike to rapidly build grounded AI systems at a high level of abstraction and with lower deployment overheads and annotation costs. Figure 1 begins to illustrate the power of retrievalaugmented in-context learning, but also the limitations of “retrieve-then-read” (Lazaridou et al., 2022; Izacard et al., 2022). Our query is “How many storeys are in the castle David Gregory inherited?” When prompted to answer this, GPT-3.5 (text-davinci-002; Ouyang et al. 2022) makes up a fictitious castle with incorrect attributes, highlighting the common observation that knowledge stored in LM parameters is often unreliable (Shuster et al., 2021; Ishii et al., 2022). Introducing an RM component helps, as the LM can ground its responses in retrieved passages, but a rigid Predict Waterloo❌ Demonstrate Search Figure 2. A toy example of a DSP program for multi-hop question answering. Given an input question and a 2-shot training set, the DEMONSTRATE stage programmatically annotates intermediate transformations on the training examples using a form of weak supervision. Learning from a resulting demonstration, the SEARCH stage decomposes the complex input question and retrieves supporting information over two retrieval hops. Finally, the PREDICT stage uses the demonstration and retrieved passages to answer the question. retrieve-then-read strategy fails because the RM cannot find passages that directly answer the question. We introduce the DEMONSTRATE–SEARCH–PREDICT (DSP) framework for in-context learning, which relies entirely on passing natural language text (and scores) between a frozen RM and LM.",
+      "url": "https://arxiv.org/abs/2212.14024v2",
+      "pdf_file": "pdfs/dsp.pdf",
+      "sha256": "bd64e2f901e3d24fa7cbdab8135136dc6b055a6b5ef96f42b6348c5d7a4a4393",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030621785881252923
+    },
+    {
+      "source_id": "queryrewrite:s0001",
+      "paper_id": "queryrewrite",
+      "title": "Query Rewriting for Retrieval-Augmented Large Language Models",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Large Language Models (LLMs) play powerful, black-box readers in the retrieve-thenread pipeline, making remarkable progress in knowledge-intensive tasks. This work introduces a new framework, Rewrite-Retrieve- Read instead of the previous retrieve-then-read for the retrieval-augmented LLMs from the perspective of the query rewriting. Unlike prior studies focusing on adapting either the retriever or the reader, our approach pays attention to the adaptation of the search query itself, for there is inevitably a gap between the input text and the needed knowledge in retrieval. We first prompt an LLM to generate the query, then use a web search engine to retrieve contexts. Furthermore, to better align the query to the frozen modules, we propose a trainable scheme for our pipeline. A small language model is adopted as a trainable rewriter to cater to the black-box LLM reader. The rewriter is trained using the feedback of the LLM reader by reinforcement learning. Evaluation is conducted on downstream tasks, open-domain QA and multiple-choice QA. Experiments results show consistent performance improvement, indicating that our framework is proven effective and scalable, and brings a new framework for retrieval-augmented LLM 1.",
+      "url": "https://arxiv.org/abs/2305.14283v3",
+      "pdf_file": "pdfs/queryrewrite.pdf",
+      "sha256": "483472d9ccc633fe649a87f2224a09c717fcfe052c2914c50f8abce5f34dca84",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02254305977710233
+    },
+    {
+      "source_id": "dsp:s0018",
+      "paper_id": "dsp",
+      "title": "Demonstrate-Search-Predict: Composing retrieval and language models for knowledge-intensive NLP",
+      "section": "2.4. SEARCH",
+      "page_start": 6,
+      "page_end": 6,
+      "text": "As shown, the LM is instructed to read the context retrieved in earlier hops and a complex question. It is then prompted to write: (i) a summary of the supplied context and (ii) a search query that gathers information for answering that question. The generated text will be extracted and assigned to the summary and query variables in (multihop_search_v2; Line 7). On Line 10, we terminate the hops if the query is “N/A”. Otherwise, Line 12 retrieves k = 5 passages using the query and Line 13 assigns the context for the subsequent hop (or for PREDICT), setting that to include the summary of all previous hops as well as the passages retrieved in the final hop so far. Comparison with self-ask It may be instructive to contrast this multi-hop DSP program with the recent “selfask” (Press et al., 2022) prompting technique, which we compare against in §3. Self-ask can be thought of as a simple instantiation of DSP’s SEARCH stage. In it, the LM asks one or more “follow-up questions”, which are intercepted and sent to a search engine. The search engine’s answers are concatenated into the prompt and are used to answer the question. This is essentially a simplified simulation of IRRR (Qi et al., 2020). As a general framework, DSP can express ideas like self-ask and many other, more sophisticated pipelines as we discuss in the present section. More importantly, DSP offers a number of intrinsic advantages that lead to large empirical gains: 80%–290% over self-ask. For instance, DSP programs are deeply modular, which among other things means that DSP programs will annotate and construct their own demonstrations.",
+      "url": "https://arxiv.org/abs/2212.14024v2",
+      "pdf_file": "pdfs/dsp.pdf",
+      "sha256": "bd64e2f901e3d24fa7cbdab8135136dc6b055a6b5ef96f42b6348c5d7a4a4393",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030330882352941176
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "how do and ( ) use language models to influence the search queries they send to retrieval",
+      "paper_ids": [
+        "queryrewrite"
+      ],
+      "facet": "retrieval",
+      "covered": true,
+      "claim_ids": [
+        "queryrewrite.method"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    },
+    {
+      "part_id": "part1",
+      "question_part": "how do and ( ) use language models to influence the search queries they send to retrieval",
+      "paper_ids": [
+        "dsp"
+      ],
+      "facet": "retrieval",
+      "covered": true,
+      "claim_ids": [
+        "dsp.queries"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.010782708006445318,
+  "evaluation_question_id": "H08"
+}

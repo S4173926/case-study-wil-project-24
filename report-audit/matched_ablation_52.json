@@ -1,0 +1,3844 @@
+{
+  "created_utc": "2026-10-24T11:13:47.538669+00:00",
+  "comparison": "Same corpus, same k=5, same labelled questions. Pure-Python implementation; not numerically identical to prior sklearn implementation.",
+  "human_accuracy": "NOT_MEASURED",
+  "independent_test": false,
+  "results": [
+    {
+      "method": "bm25",
+      "routing": false,
+      "k": 5,
+      "n": 42,
+      "at_least_one_labelled_quote": 25,
+      "labelled_evidence_every_expected_paper": 20,
+      "all_labelled_quotes": 18
+    },
+    {
+      "method": "bm25",
+      "routing": true,
+      "k": 5,
+      "n": 42,
+      "at_least_one_labelled_quote": 31,
+      "labelled_evidence_every_expected_paper": 24,
+      "all_labelled_quotes": 22
+    },
+    {
+      "method": "tfidf",
+      "routing": false,
+      "k": 5,
+      "n": 42,
+      "at_least_one_labelled_quote": 22,
+      "labelled_evidence_every_expected_paper": 19,
+      "all_labelled_quotes": 18
+    },
+    {
+      "method": "tfidf",
+      "routing": true,
+      "k": 5,
+      "n": 42,
+      "at_least_one_labelled_quote": 27,
+      "labelled_evidence_every_expected_paper": 22,
+      "all_labelled_quotes": 20
+    },
+    {
+      "method": "hybrid",
+      "routing": false,
+      "k": 5,
+      "n": 42,
+      "at_least_one_labelled_quote": 26,
+      "labelled_evidence_every_expected_paper": 21,
+      "all_labelled_quotes": 20
+    },
+    {
+      "method": "hybrid",
+      "routing": true,
+      "k": 5,
+      "n": 42,
+      "at_least_one_labelled_quote": 30,
+      "labelled_evidence_every_expected_paper": 23,
+      "all_labelled_quotes": 21
+    }
+  ],
+  "records": [
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "q01",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": false,
+      "passages": [
+        "dpr:s0019",
+        "dpr:s0011",
+        "dpr:s0020",
+        "dpr:s0010",
+        "ance:s0013"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "q02",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "colbert:s0017",
+        "colbert:s0012",
+        "colbert:s0020",
+        "colbert:s0001",
+        "colbert:s0004"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "q03",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "rag:s0006",
+        "rag:s0032",
+        "rag:s0005",
+        "rag:s0010",
+        "rag:s0024"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "q04",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "rag:s0002",
+        "rag:s0003",
+        "rag:s0001",
+        "rag:s0029",
+        "selfrag:s0042"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "q05",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "fid:s0003",
+        "fid:s0007",
+        "dsp:s0020",
+        "fid:s0006",
+        "fid:s0009"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "q06",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "realm:s0001",
+        "realm:s0003",
+        "realm:s0023",
+        "realm:s0002",
+        "realm:s0022"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "q07",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "ragas:s0017",
+        "ragas:s0013",
+        "ragas:s0016",
+        "ragas:s0015",
+        "ragsurvey:s0041"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "q08",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": false,
+      "passages": [
+        "selfrag:s0028",
+        "selfrag:s0010",
+        "selfrag:s0030",
+        "selfrag:s0003",
+        "selfrag:s0008"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "q09",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "walert:s0006",
+        "walert:s0005",
+        "walert:s0008",
+        "walert:s0017",
+        "walert:s0003"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "q10",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "walert:s0012",
+        "walert:s0004",
+        "walert:s0016",
+        "walert:s0005",
+        "walert:s0008"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "q11",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "walert:s0013",
+        "walert:s0007",
+        "walert:s0015",
+        "walert:s0016",
+        "walert:s0014"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "q12",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "realm:s0013",
+        "replug:s0015",
+        "rag:s0009",
+        "realm:s0003",
+        "gtr:s0003"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "q13",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "ragas:s0001",
+        "ragas:s0017",
+        "ragas:s0008",
+        "ragas:s0004",
+        "ragas:s0007"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "q14",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "colbertv2:s0012",
+        "colbert:s0006",
+        "colbert:s0007",
+        "gtr:s0011",
+        "colbertv2:s0011"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "q15",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "fid:s0006",
+        "fid:s0007",
+        "fid:s0003",
+        "fid:s0009",
+        "atlas:s0008"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "q16",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "selfrag:s0032",
+        "selfrag:s0027",
+        "selfrag:s0059",
+        "selfrag:s0042",
+        "selfrag:s0025"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "q17",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "rag:s0002",
+        "realm:s0023",
+        "realm:s0031",
+        "realm:s0026",
+        "realm:s0030"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "q18",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "ragsurvey:s0010",
+        "ragsurvey:s0020",
+        "ragsurvey:s0019",
+        "ragsurvey:s0011",
+        "ragsurvey:s0022"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "n01",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "retro:s0002",
+        "retro:s0004",
+        "retro:s0031",
+        "retro:s0003",
+        "retro:s0026"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "n02",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "contriever:s0004",
+        "contriever:s0020",
+        "orqa:s0012",
+        "contriever:s0008",
+        "contriever:s0015"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "n03",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "colbertv2:s0033",
+        "colbertv2:s0001",
+        "colbertv2:s0003",
+        "colbertv2:s0010",
+        "colbertv2:s0006"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "n04",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "lostmiddle:s0022",
+        "lostmiddle:s0021",
+        "lostmiddle:s0007",
+        "lostmiddle:s0001",
+        "lostmiddle:s0008"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "n05",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "flare:s0006",
+        "flare:s0011",
+        "flare:s0001",
+        "flare:s0005",
+        "flare:s0004"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "n06",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "crag:s0001",
+        "crag:s0003",
+        "ragsurvey:s0045",
+        "ares:s0001",
+        "crag:s0027"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "n07",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "replug:s0028",
+        "replug:s0003",
+        "replug:s0008",
+        "replug:s0011",
+        "replug:s0030"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "n08",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "beir:s0009",
+        "beir:s0030",
+        "beir:s0018",
+        "beir:s0028",
+        "beir:s0033"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "n09",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "ance:s0001",
+        "ance:s0010",
+        "beir:s0016",
+        "ance:s0003",
+        "beir:s0046"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "n10",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "atlas:s0001",
+        "atlas:s0006",
+        "atlas:s0053",
+        "dpr:s0019",
+        "atlas:s0039"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "n11",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "retro:s0004",
+        "retro:s0026",
+        "retro:s0002",
+        "retro:s0005",
+        "retro:s0007"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "n12",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "flare:s0016",
+        "flare:s0029",
+        "flare:s0017",
+        "flare:s0015",
+        "t5cbqa:s0011"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "c01",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "ares:s0037",
+        "ares:s0021",
+        "ares:s0024",
+        "ares:s0027",
+        "ares:s0019"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "c02",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "colbertv2:s0032",
+        "colbertv2:s0025",
+        "colbertv2:s0027",
+        "colbertv2:s0024",
+        "colbertv2:s0012"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "c03",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "selfrag:s0032",
+        "crag:s0038",
+        "crag:s0027",
+        "crag:s0023",
+        "crag:s0028"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "H01",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "orqa:s0029",
+        "dpr:s0003",
+        "orqa:s0003",
+        "selfrag:s0008",
+        "dpr:s0028"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "H02",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "recomp:s0005",
+        "recomp:s0007",
+        "recomp:s0003",
+        "recomp:s0006",
+        "recomp:s0030"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "H03",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "colbert:s0009",
+        "beir:s0020",
+        "atlas:s0046",
+        "ares:s0018",
+        "contriever:s0010"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "H04",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "queryrewrite:s0030",
+        "queryrewrite:s0001",
+        "queryrewrite:s0004",
+        "queryrewrite:s0007",
+        "queryrewrite:s0005"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "H05",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "contriever:s0021",
+        "splade:s0018",
+        "splade:s0001",
+        "splade:s0007",
+        "splade:s0010"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "H06",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "selfrag:s0037",
+        "dpr:s0025",
+        "monobert:s0003",
+        "crag:s0011",
+        "selfrag:s0015"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "H07",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "fid:s0007",
+        "fid:s0006",
+        "fid:s0003",
+        "fid:s0009",
+        "retro:s0017"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "H08",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "queryrewrite:s0011",
+        "dsp:s0003",
+        "dsp:s0001",
+        "dsp:s0018",
+        "dsp:s0031"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": false,
+      "question": "H09",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "ares:s0001",
+        "ares:s0023",
+        "ares:s0027",
+        "ares:s0006",
+        "ares:s0004"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "q01",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": false,
+      "passages": [
+        "dpr:s0019",
+        "dpr:s0011",
+        "dpr:s0020",
+        "dpr:s0010",
+        "dpr:s0031"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "q02",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "colbert:s0017",
+        "colbert:s0012",
+        "colbert:s0020",
+        "colbert:s0001",
+        "colbert:s0004"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "q03",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "rag:s0006",
+        "rag:s0032",
+        "rag:s0005",
+        "rag:s0010",
+        "rag:s0024"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "q04",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "rag:s0002",
+        "rag:s0003",
+        "rag:s0001",
+        "rag:s0029",
+        "rag:s0020"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "q05",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "fid:s0003",
+        "fid:s0007",
+        "fid:s0006",
+        "fid:s0009",
+        "fid:s0011"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "q06",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "realm:s0001",
+        "realm:s0003",
+        "realm:s0023",
+        "realm:s0002",
+        "realm:s0022"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "q07",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "ragas:s0017",
+        "ragas:s0013",
+        "ragas:s0016",
+        "ragas:s0015",
+        "ragas:s0008"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "q08",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": false,
+      "passages": [
+        "selfrag:s0028",
+        "selfrag:s0010",
+        "selfrag:s0030",
+        "selfrag:s0003",
+        "selfrag:s0008"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "q09",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "walert:s0006",
+        "walert:s0005",
+        "walert:s0008",
+        "walert:s0017",
+        "walert:s0003"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "q10",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "walert:s0012",
+        "walert:s0004",
+        "walert:s0016",
+        "walert:s0005",
+        "walert:s0008"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "q11",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "walert:s0013",
+        "walert:s0007",
+        "walert:s0015",
+        "walert:s0016",
+        "walert:s0014"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "q12",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "realm:s0013",
+        "realm:s0003",
+        "realm:s0014",
+        "realm:s0023",
+        "realm:s0020"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "q13",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "ragas:s0001",
+        "ragas:s0017",
+        "ragas:s0008",
+        "ragas:s0004",
+        "ragas:s0007"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "q14",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "dpr:s0017",
+        "colbert:s0006",
+        "dpr:s0031",
+        "colbert:s0007",
+        "dpr:s0038"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "q15",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "rag:s0015",
+        "fid:s0006",
+        "rag:s0031",
+        "fid:s0007",
+        "rag:s0010"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "q16",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "ragas:s0009",
+        "selfrag:s0032",
+        "ragas:s0004",
+        "selfrag:s0027",
+        "ragas:s0008"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "q17",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "realm:s0023",
+        "rag:s0002",
+        "realm:s0031",
+        "rag:s0016",
+        "realm:s0026"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "q18",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "ragsurvey:s0010",
+        "ragsurvey:s0020",
+        "ragsurvey:s0019",
+        "ragsurvey:s0011",
+        "ragsurvey:s0022"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "n01",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "retro:s0002",
+        "retro:s0004",
+        "retro:s0031",
+        "retro:s0003",
+        "retro:s0026"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "n02",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "contriever:s0004",
+        "contriever:s0020",
+        "contriever:s0008",
+        "contriever:s0015",
+        "contriever:s0036"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "n03",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "colbertv2:s0033",
+        "colbertv2:s0001",
+        "colbertv2:s0003",
+        "colbertv2:s0010",
+        "colbertv2:s0006"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "n04",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "lostmiddle:s0022",
+        "lostmiddle:s0021",
+        "lostmiddle:s0007",
+        "lostmiddle:s0001",
+        "lostmiddle:s0008"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "n05",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "flare:s0006",
+        "flare:s0011",
+        "flare:s0001",
+        "flare:s0005",
+        "flare:s0004"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "n06",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "crag:s0001",
+        "crag:s0003",
+        "crag:s0027",
+        "crag:s0037",
+        "crag:s0011"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "n07",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "replug:s0028",
+        "replug:s0003",
+        "replug:s0008",
+        "replug:s0011",
+        "replug:s0030"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "n08",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "beir:s0009",
+        "beir:s0030",
+        "beir:s0018",
+        "beir:s0028",
+        "beir:s0033"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "n09",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "ance:s0001",
+        "ance:s0010",
+        "ance:s0003",
+        "ance:s0009",
+        "ance:s0004"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "n10",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "atlas:s0001",
+        "atlas:s0006",
+        "atlas:s0053",
+        "atlas:s0039",
+        "atlas:s0048"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "n11",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "retro:s0004",
+        "retro:s0026",
+        "retro:s0002",
+        "retro:s0005",
+        "retro:s0007"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "n12",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "flare:s0016",
+        "flare:s0029",
+        "flare:s0017",
+        "flare:s0015",
+        "t5cbqa:s0011"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "c01",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "ragas:s0001",
+        "ares:s0037",
+        "ragas:s0004",
+        "ares:s0021",
+        "ragas:s0017"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "c02",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "colbertv2:s0032",
+        "colbert:s0024",
+        "colbertv2:s0025",
+        "colbert:s0007",
+        "colbertv2:s0027"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "c03",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "selfrag:s0032",
+        "crag:s0038",
+        "selfrag:s0008",
+        "crag:s0027",
+        "selfrag:s0012"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "H01",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "orqa:s0029",
+        "orqa:s0003",
+        "orqa:s0001",
+        "orqa:s0009",
+        "orqa:s0004"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "H02",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "recomp:s0005",
+        "recomp:s0007",
+        "recomp:s0003",
+        "recomp:s0006",
+        "recomp:s0030"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "H03",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "monot5:s0005",
+        "monot5:s0004",
+        "monot5:s0002",
+        "monot5:s0007",
+        "monot5:s0001"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "H04",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "queryrewrite:s0030",
+        "queryrewrite:s0001",
+        "queryrewrite:s0004",
+        "queryrewrite:s0007",
+        "queryrewrite:s0005"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "H05",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "splade:s0018",
+        "contriever:s0021",
+        "splade:s0001",
+        "contriever:s0022",
+        "splade:s0007"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "H06",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "monobert:s0003",
+        "monot5:s0005",
+        "monobert:s0006",
+        "monot5:s0010",
+        "monobert:s0005"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "H07",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "recomp:s0003",
+        "fid:s0007",
+        "recomp:s0011",
+        "fid:s0006",
+        "recomp:s0030"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "H08",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "queryrewrite:s0011",
+        "dsp:s0003",
+        "queryrewrite:s0007",
+        "dsp:s0001",
+        "queryrewrite:s0008"
+      ]
+    },
+    {
+      "method": "bm25",
+      "route": true,
+      "question": "H09",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "beir:s0013",
+        "ares:s0001",
+        "beir:s0001",
+        "ares:s0023",
+        "beir:s0029"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "q01",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": false,
+      "passages": [
+        "dpr:s0019",
+        "dpr:s0024",
+        "ares:s0009",
+        "dpr:s0011",
+        "dpr:s0020"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "q02",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "colbert:s0017",
+        "colbert:s0020",
+        "colbert:s0007",
+        "colbert:s0011",
+        "colbert:s0021"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "q03",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "rag:s0032",
+        "rag:s0006",
+        "rag:s0005",
+        "rag:s0025",
+        "selfrag:s0030"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "q04",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "rag:s0001",
+        "rag:s0002",
+        "rag:s0003",
+        "rag:s0020",
+        "rag:s0029"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "q05",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "fid:s0003",
+        "fid:s0007",
+        "fid:s0008",
+        "atlas:s0008",
+        "fid:s0006"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "q06",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "realm:s0005",
+        "realm:s0001",
+        "realm:s0008",
+        "realm:s0023",
+        "realm:s0026"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "q07",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "ragas:s0017",
+        "ragas:s0016",
+        "ragsurvey:s0040",
+        "ragas:s0004",
+        "ragas:s0001"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "q08",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "selfrag:s0030",
+        "selfrag:s0031",
+        "selfrag:s0028",
+        "selfrag:s0007",
+        "selfrag:s0010"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "q09",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "walert:s0005",
+        "walert:s0008",
+        "walert:s0012",
+        "walert:s0006",
+        "walert:s0017"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "q10",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "walert:s0012",
+        "queryrewrite:s0010",
+        "walert:s0008",
+        "walert:s0005",
+        "walert:s0017"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "q11",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "walert:s0007",
+        "walert:s0008",
+        "walert:s0012",
+        "walert:s0013",
+        "walert:s0016"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "q12",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "replug:s0015",
+        "realm:s0013",
+        "rag:s0009",
+        "realm:s0023",
+        "realm:s0005"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "q13",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "ragas:s0001",
+        "ragas:s0017",
+        "ragas:s0004",
+        "ragas:s0007",
+        "ragas:s0008"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "q14",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "colbert:s0007",
+        "rag:s0007",
+        "dpr:s0007",
+        "colbertv2:s0011",
+        "dpr:s0017"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "q15",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "fid:s0007",
+        "fid:s0006",
+        "fid:s0003",
+        "atlas:s0008",
+        "fid:s0009"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "q16",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "selfrag:s0032",
+        "selfrag:s0059",
+        "ragas:s0004",
+        "selfrag:s0027",
+        "selfrag:s0010"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "q17",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "realm:s0005",
+        "realm:s0008",
+        "realm:s0023",
+        "realm:s0031",
+        "realm:s0026"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "q18",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "ragsurvey:s0010",
+        "ragsurvey:s0020",
+        "ragsurvey:s0019",
+        "ragsurvey:s0011",
+        "ragsurvey:s0022"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "n01",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "retro:s0003",
+        "retro:s0002",
+        "retro:s0004",
+        "retro:s0031",
+        "retro:s0026"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "n02",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "contriever:s0004",
+        "orqa:s0029",
+        "contriever:s0008",
+        "orqa:s0012",
+        "contriever:s0020"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "n03",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "colbertv2:s0010",
+        "colbertv2:s0001",
+        "colbertv2:s0033",
+        "colbertv2:s0003",
+        "colbert:s0040"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "n04",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "lostmiddle:s0017",
+        "lostmiddle:s0008",
+        "lostmiddle:s0022",
+        "lostmiddle:s0036",
+        "lostmiddle:s0001"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "n05",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "flare:s0006",
+        "flare:s0011",
+        "flare:s0001",
+        "flare:s0005",
+        "flare:s0031"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "n06",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "crag:s0001",
+        "crag:s0027",
+        "crag:s0003",
+        "ragsurvey:s0045",
+        "crag:s0005"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "n07",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "replug:s0016",
+        "replug:s0008",
+        "replug:s0021",
+        "replug:s0017",
+        "replug:s0019"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "n08",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "beir:s0033",
+        "beir:s0018",
+        "beir:s0009",
+        "beir:s0011",
+        "beir:s0029"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "n09",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "ance:s0001",
+        "ance:s0010",
+        "contriever:s0041",
+        "beir:s0016",
+        "ance:s0003"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "n10",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "atlas:s0001",
+        "atlas:s0053",
+        "atlas:s0006",
+        "dpr:s0019",
+        "atlas:s0039"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "n11",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "retro:s0004",
+        "retro:s0005",
+        "retro:s0002",
+        "retro:s0043",
+        "retro:s0051"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "n12",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "flare:s0016",
+        "flare:s0029",
+        "flare:s0017",
+        "flare:s0015",
+        "t5cbqa:s0011"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "c01",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "ares:s0024",
+        "ares:s0027",
+        "ares:s0019",
+        "ares:s0037",
+        "ares:s0021"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "c02",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "colbertv2:s0010",
+        "colbertv2:s0023",
+        "colbertv2:s0027",
+        "colbert:s0007",
+        "colbertv2:s0032"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "c03",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "crag:s0027",
+        "selfrag:s0032",
+        "crag:s0038",
+        "crag:s0005",
+        "crag:s0028"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "H01",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "orqa:s0029",
+        "fid:s0013",
+        "dpr:s0029",
+        "orqa:s0027",
+        "realm:s0021"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "H02",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "recomp:s0007",
+        "recomp:s0005",
+        "recomp:s0003",
+        "recomp:s0001",
+        "recomp:s0030"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "H03",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "atlas:s0046",
+        "contriever:s0010",
+        "beir:s0032",
+        "atlas:s0009",
+        "contriever:s0013"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "H04",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "queryrewrite:s0030",
+        "queryrewrite:s0021",
+        "queryrewrite:s0007",
+        "queryrewrite:s0001",
+        "queryrewrite:s0004"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "H05",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "splade:s0007",
+        "splade:s0018",
+        "splade:s0006",
+        "contriever:s0021",
+        "splade:s0017"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "H06",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "selfrag:s0037",
+        "selfrag:s0038",
+        "dpr:s0025",
+        "crag:s0011",
+        "contriever:s0010"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "H07",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "fid:s0007",
+        "fid:s0006",
+        "fid:s0003",
+        "fid:s0008",
+        "fid:s0009"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "H08",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "queryrewrite:s0011",
+        "dsp:s0006",
+        "dsp:s0008",
+        "dsp:s0001",
+        "queryrewrite:s0010"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": false,
+      "question": "H09",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "ares:s0001",
+        "ares:s0006",
+        "ares:s0027",
+        "ares:s0000",
+        "ares:s0003"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "q01",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": false,
+      "passages": [
+        "dpr:s0019",
+        "dpr:s0024",
+        "dpr:s0011",
+        "dpr:s0020",
+        "dpr:s0007"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "q02",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "colbert:s0017",
+        "colbert:s0020",
+        "colbert:s0007",
+        "colbert:s0011",
+        "colbert:s0021"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "q03",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "rag:s0032",
+        "rag:s0006",
+        "rag:s0005",
+        "rag:s0025",
+        "rag:s0010"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "q04",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "rag:s0001",
+        "rag:s0002",
+        "rag:s0003",
+        "rag:s0020",
+        "rag:s0029"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "q05",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "fid:s0003",
+        "fid:s0007",
+        "fid:s0008",
+        "fid:s0006",
+        "fid:s0009"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "q06",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "realm:s0005",
+        "realm:s0001",
+        "realm:s0008",
+        "realm:s0023",
+        "realm:s0026"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "q07",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "ragas:s0017",
+        "ragas:s0016",
+        "ragas:s0004",
+        "ragas:s0001",
+        "ragas:s0008"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "q08",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "selfrag:s0030",
+        "selfrag:s0031",
+        "selfrag:s0028",
+        "selfrag:s0007",
+        "selfrag:s0010"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "q09",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "walert:s0005",
+        "walert:s0008",
+        "walert:s0012",
+        "walert:s0006",
+        "walert:s0017"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "q10",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "walert:s0012",
+        "walert:s0008",
+        "walert:s0005",
+        "walert:s0017",
+        "walert:s0016"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "q11",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "walert:s0007",
+        "walert:s0008",
+        "walert:s0012",
+        "walert:s0013",
+        "walert:s0016"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "q12",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "realm:s0013",
+        "realm:s0023",
+        "realm:s0005",
+        "realm:s0021",
+        "realm:s0001"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "q13",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "ragas:s0001",
+        "ragas:s0017",
+        "ragas:s0004",
+        "ragas:s0007",
+        "ragas:s0008"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "q14",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "dpr:s0007",
+        "colbert:s0007",
+        "dpr:s0017",
+        "colbert:s0006",
+        "dpr:s0035"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "q15",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "rag:s0015",
+        "fid:s0007",
+        "rag:s0018",
+        "fid:s0006",
+        "rag:s0013"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "q16",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "ragas:s0004",
+        "selfrag:s0032",
+        "ragas:s0001",
+        "selfrag:s0059",
+        "ragas:s0017"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "q17",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "realm:s0005",
+        "rag:s0016",
+        "realm:s0008",
+        "rag:s0002",
+        "realm:s0023"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "q18",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "ragsurvey:s0010",
+        "ragsurvey:s0020",
+        "ragsurvey:s0019",
+        "ragsurvey:s0011",
+        "ragsurvey:s0022"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "n01",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "retro:s0003",
+        "retro:s0002",
+        "retro:s0004",
+        "retro:s0031",
+        "retro:s0026"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "n02",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "contriever:s0004",
+        "contriever:s0008",
+        "contriever:s0020",
+        "contriever:s0015",
+        "contriever:s0036"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "n03",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "colbertv2:s0010",
+        "colbertv2:s0001",
+        "colbertv2:s0033",
+        "colbertv2:s0003",
+        "colbertv2:s0002"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "n04",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "lostmiddle:s0017",
+        "lostmiddle:s0008",
+        "lostmiddle:s0022",
+        "lostmiddle:s0036",
+        "lostmiddle:s0001"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "n05",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "flare:s0006",
+        "flare:s0011",
+        "flare:s0001",
+        "flare:s0005",
+        "flare:s0031"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "n06",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "crag:s0001",
+        "crag:s0027",
+        "crag:s0003",
+        "crag:s0005",
+        "crag:s0018"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "n07",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "replug:s0016",
+        "replug:s0008",
+        "replug:s0021",
+        "replug:s0017",
+        "replug:s0019"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "n08",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "beir:s0033",
+        "beir:s0018",
+        "beir:s0009",
+        "beir:s0011",
+        "beir:s0029"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "n09",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "ance:s0001",
+        "ance:s0010",
+        "ance:s0003",
+        "ance:s0024",
+        "ance:s0016"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "n10",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "atlas:s0001",
+        "atlas:s0053",
+        "atlas:s0006",
+        "atlas:s0039",
+        "atlas:s0062"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "n11",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "retro:s0004",
+        "retro:s0005",
+        "retro:s0002",
+        "retro:s0043",
+        "retro:s0051"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "n12",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "flare:s0016",
+        "flare:s0029",
+        "flare:s0017",
+        "flare:s0015",
+        "t5cbqa:s0011"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "c01",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "ragas:s0004",
+        "ares:s0024",
+        "ragas:s0014",
+        "ares:s0027",
+        "ragas:s0001"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "c02",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "colbertv2:s0010",
+        "colbert:s0007",
+        "colbertv2:s0023",
+        "colbert:s0024",
+        "colbertv2:s0027"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "c03",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "selfrag:s0032",
+        "crag:s0027",
+        "selfrag:s0030",
+        "crag:s0038",
+        "selfrag:s0031"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "H01",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": false,
+      "passages": [
+        "orqa:s0029",
+        "orqa:s0027",
+        "orqa:s0003",
+        "orqa:s0009",
+        "orqa:s0004"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "H02",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "recomp:s0007",
+        "recomp:s0005",
+        "recomp:s0003",
+        "recomp:s0001",
+        "recomp:s0030"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "H03",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "monot5:s0005",
+        "monot5:s0001",
+        "monot5:s0004",
+        "monot5:s0002",
+        "monot5:s0000"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "H04",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "queryrewrite:s0030",
+        "queryrewrite:s0021",
+        "queryrewrite:s0007",
+        "queryrewrite:s0001",
+        "queryrewrite:s0004"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "H05",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "splade:s0007",
+        "contriever:s0021",
+        "splade:s0018",
+        "contriever:s0022",
+        "splade:s0006"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "H06",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "monobert:s0003",
+        "monot5:s0005",
+        "monobert:s0004",
+        "monot5:s0017",
+        "monobert:s0006"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "H07",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "recomp:s0011",
+        "fid:s0007",
+        "recomp:s0003",
+        "fid:s0006",
+        "recomp:s0014"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "H08",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "queryrewrite:s0011",
+        "dsp:s0006",
+        "queryrewrite:s0010",
+        "dsp:s0008",
+        "queryrewrite:s0007"
+      ]
+    },
+    {
+      "method": "tfidf",
+      "route": true,
+      "question": "H09",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "beir:s0033",
+        "ares:s0001",
+        "beir:s0029",
+        "ares:s0006",
+        "beir:s0031"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "q01",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": false,
+      "passages": [
+        "dpr:s0019",
+        "dpr:s0011",
+        "dpr:s0020",
+        "dpr:s0010",
+        "dpr:s0031"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "q02",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "colbert:s0017",
+        "colbert:s0020",
+        "colbert:s0012",
+        "colbert:s0001",
+        "colbert:s0011"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "q03",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "rag:s0006",
+        "rag:s0032",
+        "rag:s0005",
+        "rag:s0010",
+        "rag:s0025"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "q04",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "rag:s0002",
+        "rag:s0001",
+        "rag:s0003",
+        "rag:s0029",
+        "rag:s0020"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "q05",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "fid:s0003",
+        "fid:s0007",
+        "fid:s0006",
+        "fid:s0008",
+        "dsp:s0020"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "q06",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "realm:s0001",
+        "realm:s0023",
+        "realm:s0003",
+        "realm:s0008",
+        "realm:s0022"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "q07",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "ragas:s0017",
+        "ragas:s0016",
+        "ragsurvey:s0040",
+        "ragas:s0013",
+        "ragas:s0015"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "q08",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "selfrag:s0028",
+        "selfrag:s0030",
+        "selfrag:s0010",
+        "selfrag:s0003",
+        "selfrag:s0007"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "q09",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "walert:s0005",
+        "walert:s0006",
+        "walert:s0008",
+        "walert:s0017",
+        "walert:s0012"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "q10",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "walert:s0012",
+        "walert:s0008",
+        "walert:s0005",
+        "walert:s0017",
+        "walert:s0016"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "q11",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "walert:s0007",
+        "walert:s0013",
+        "walert:s0008",
+        "walert:s0016",
+        "walert:s0012"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "q12",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "realm:s0013",
+        "replug:s0015",
+        "rag:s0009",
+        "realm:s0023",
+        "atlas:s0015"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "q13",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "ragas:s0001",
+        "ragas:s0017",
+        "ragas:s0004",
+        "ragas:s0008",
+        "ragas:s0007"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "q14",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "colbert:s0007",
+        "colbertv2:s0012",
+        "colbertv2:s0011",
+        "colbert:s0006",
+        "rag:s0007"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "q15",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "fid:s0006",
+        "fid:s0007",
+        "fid:s0003",
+        "fid:s0009",
+        "atlas:s0008"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "q16",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "selfrag:s0032",
+        "selfrag:s0059",
+        "selfrag:s0027",
+        "selfrag:s0010",
+        "selfrag:s0003"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "q17",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "realm:s0023",
+        "realm:s0031",
+        "realm:s0026",
+        "rag:s0002",
+        "realm:s0013"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "q18",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "ragsurvey:s0010",
+        "ragsurvey:s0020",
+        "ragsurvey:s0019",
+        "ragsurvey:s0011",
+        "ragsurvey:s0022"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "n01",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "retro:s0002",
+        "retro:s0003",
+        "retro:s0004",
+        "retro:s0031",
+        "retro:s0026"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "n02",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "contriever:s0004",
+        "contriever:s0020",
+        "contriever:s0008",
+        "orqa:s0012",
+        "orqa:s0029"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "n03",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "colbertv2:s0033",
+        "colbertv2:s0001",
+        "colbertv2:s0010",
+        "colbertv2:s0003",
+        "colbert:s0040"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "n04",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "lostmiddle:s0022",
+        "lostmiddle:s0008",
+        "lostmiddle:s0001",
+        "lostmiddle:s0036",
+        "lostmiddle:s0017"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "n05",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "flare:s0006",
+        "flare:s0011",
+        "flare:s0001",
+        "flare:s0005",
+        "flare:s0031"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "n06",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "crag:s0001",
+        "crag:s0003",
+        "crag:s0027",
+        "ragsurvey:s0045",
+        "ares:s0001"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "n07",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "replug:s0008",
+        "replug:s0011",
+        "replug:s0001",
+        "replug:s0028",
+        "replug:s0021"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "n08",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "beir:s0009",
+        "beir:s0018",
+        "beir:s0033",
+        "beir:s0030",
+        "beir:s0011"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "n09",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "ance:s0001",
+        "ance:s0010",
+        "beir:s0016",
+        "ance:s0003",
+        "contriever:s0041"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "n10",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "atlas:s0001",
+        "atlas:s0006",
+        "atlas:s0053",
+        "dpr:s0019",
+        "atlas:s0039"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "n11",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "retro:s0004",
+        "retro:s0005",
+        "retro:s0002",
+        "retro:s0026",
+        "retro:s0043"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "n12",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "flare:s0016",
+        "flare:s0029",
+        "flare:s0017",
+        "flare:s0015",
+        "t5cbqa:s0011"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "c01",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "ares:s0024",
+        "ares:s0037",
+        "ares:s0027",
+        "ares:s0021",
+        "ares:s0019"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "c02",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "colbertv2:s0032",
+        "colbertv2:s0027",
+        "colbertv2:s0025",
+        "colbertv2:s0012",
+        "colbertv2:s0007"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "c03",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "selfrag:s0032",
+        "crag:s0027",
+        "crag:s0038",
+        "crag:s0023",
+        "crag:s0028"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "H01",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "orqa:s0029",
+        "orqa:s0003",
+        "dpr:s0003",
+        "dpr:s0028",
+        "dpr:s0038"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "H02",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "recomp:s0005",
+        "recomp:s0007",
+        "recomp:s0003",
+        "recomp:s0001",
+        "recomp:s0006"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "H03",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "atlas:s0046",
+        "contriever:s0010",
+        "beir:s0020",
+        "beir:s0032",
+        "atlas:s0009"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "H04",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "queryrewrite:s0030",
+        "queryrewrite:s0001",
+        "queryrewrite:s0007",
+        "queryrewrite:s0021",
+        "queryrewrite:s0004"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "H05",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "splade:s0018",
+        "contriever:s0021",
+        "splade:s0007",
+        "splade:s0001",
+        "splade:s0017"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "H06",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "selfrag:s0037",
+        "dpr:s0025",
+        "crag:s0011",
+        "monobert:s0003",
+        "selfrag:s0015"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "H07",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "fid:s0007",
+        "fid:s0006",
+        "fid:s0003",
+        "fid:s0009",
+        "retro:s0017"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "H08",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "queryrewrite:s0011",
+        "dsp:s0001",
+        "dsp:s0006",
+        "dsp:s0003",
+        "dsp:s0018"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": false,
+      "question": "H09",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "ares:s0001",
+        "ares:s0006",
+        "ares:s0027",
+        "ares:s0023",
+        "ares:s0003"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "q01",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": false,
+      "passages": [
+        "dpr:s0019",
+        "dpr:s0011",
+        "dpr:s0020",
+        "dpr:s0010",
+        "dpr:s0031"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "q02",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "colbert:s0017",
+        "colbert:s0020",
+        "colbert:s0012",
+        "colbert:s0001",
+        "colbert:s0011"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "q03",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "rag:s0006",
+        "rag:s0032",
+        "rag:s0005",
+        "rag:s0010",
+        "rag:s0025"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "q04",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "rag:s0002",
+        "rag:s0001",
+        "rag:s0003",
+        "rag:s0029",
+        "rag:s0020"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "q05",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "fid:s0003",
+        "fid:s0007",
+        "fid:s0006",
+        "fid:s0008",
+        "fid:s0009"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "q06",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "realm:s0001",
+        "realm:s0023",
+        "realm:s0003",
+        "realm:s0008",
+        "realm:s0022"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "q07",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "ragas:s0017",
+        "ragas:s0016",
+        "ragas:s0013",
+        "ragas:s0015",
+        "ragas:s0001"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "q08",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "selfrag:s0028",
+        "selfrag:s0030",
+        "selfrag:s0010",
+        "selfrag:s0003",
+        "selfrag:s0007"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "q09",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "walert:s0005",
+        "walert:s0006",
+        "walert:s0008",
+        "walert:s0017",
+        "walert:s0012"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "q10",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "walert:s0012",
+        "walert:s0008",
+        "walert:s0005",
+        "walert:s0017",
+        "walert:s0016"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "q11",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "walert:s0007",
+        "walert:s0013",
+        "walert:s0008",
+        "walert:s0016",
+        "walert:s0012"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "q12",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "realm:s0013",
+        "realm:s0023",
+        "realm:s0003",
+        "realm:s0021",
+        "realm:s0014"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "q13",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "ragas:s0001",
+        "ragas:s0017",
+        "ragas:s0004",
+        "ragas:s0008",
+        "ragas:s0007"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "q14",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "dpr:s0017",
+        "colbert:s0007",
+        "dpr:s0035",
+        "colbert:s0006",
+        "dpr:s0038"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "q15",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "rag:s0015",
+        "fid:s0006",
+        "rag:s0031",
+        "fid:s0007",
+        "rag:s0018"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "q16",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "ragas:s0004",
+        "selfrag:s0032",
+        "ragas:s0009",
+        "selfrag:s0059",
+        "ragas:s0001"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "q17",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "realm:s0023",
+        "rag:s0002",
+        "realm:s0031",
+        "rag:s0016",
+        "realm:s0026"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "q18",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "ragsurvey:s0010",
+        "ragsurvey:s0020",
+        "ragsurvey:s0019",
+        "ragsurvey:s0011",
+        "ragsurvey:s0022"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "n01",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "retro:s0002",
+        "retro:s0003",
+        "retro:s0004",
+        "retro:s0031",
+        "retro:s0026"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "n02",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "contriever:s0004",
+        "contriever:s0020",
+        "contriever:s0008",
+        "contriever:s0015",
+        "contriever:s0036"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "n03",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "colbertv2:s0033",
+        "colbertv2:s0001",
+        "colbertv2:s0010",
+        "colbertv2:s0003",
+        "colbertv2:s0006"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "n04",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "lostmiddle:s0022",
+        "lostmiddle:s0008",
+        "lostmiddle:s0001",
+        "lostmiddle:s0036",
+        "lostmiddle:s0017"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "n05",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "flare:s0006",
+        "flare:s0011",
+        "flare:s0001",
+        "flare:s0005",
+        "flare:s0031"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "n06",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "crag:s0001",
+        "crag:s0003",
+        "crag:s0027",
+        "crag:s0037",
+        "crag:s0005"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "n07",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "replug:s0008",
+        "replug:s0011",
+        "replug:s0001",
+        "replug:s0028",
+        "replug:s0021"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "n08",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "beir:s0009",
+        "beir:s0018",
+        "beir:s0033",
+        "beir:s0030",
+        "beir:s0011"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "n09",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "ance:s0001",
+        "ance:s0010",
+        "ance:s0003",
+        "ance:s0024",
+        "ance:s0004"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "n10",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "atlas:s0001",
+        "atlas:s0006",
+        "atlas:s0053",
+        "atlas:s0039",
+        "atlas:s0048"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "n11",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "retro:s0004",
+        "retro:s0005",
+        "retro:s0002",
+        "retro:s0026",
+        "retro:s0043"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "n12",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "flare:s0016",
+        "flare:s0029",
+        "flare:s0017",
+        "flare:s0015",
+        "t5cbqa:s0011"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "c01",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "ragas:s0004",
+        "ares:s0024",
+        "ragas:s0001",
+        "ares:s0037",
+        "ragas:s0017"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "c02",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "colbertv2:s0032",
+        "colbert:s0007",
+        "colbertv2:s0027",
+        "colbert:s0024",
+        "colbertv2:s0025"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "c03",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "selfrag:s0032",
+        "crag:s0027",
+        "selfrag:s0008",
+        "crag:s0038",
+        "selfrag:s0012"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "H01",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": false,
+      "passages": [
+        "orqa:s0029",
+        "orqa:s0003",
+        "orqa:s0001",
+        "orqa:s0009",
+        "orqa:s0027"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "H02",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "recomp:s0005",
+        "recomp:s0007",
+        "recomp:s0003",
+        "recomp:s0001",
+        "recomp:s0006"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "H03",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "monot5:s0005",
+        "monot5:s0004",
+        "monot5:s0001",
+        "monot5:s0002",
+        "monot5:s0007"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "H04",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": true,
+      "all_labelled_quotes": true,
+      "passages": [
+        "queryrewrite:s0030",
+        "queryrewrite:s0001",
+        "queryrewrite:s0007",
+        "queryrewrite:s0021",
+        "queryrewrite:s0004"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "H05",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "splade:s0018",
+        "contriever:s0021",
+        "splade:s0007",
+        "contriever:s0022",
+        "splade:s0001"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "H06",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "monobert:s0003",
+        "monot5:s0005",
+        "monobert:s0004",
+        "monot5:s0017",
+        "monobert:s0006"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "H07",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "recomp:s0011",
+        "fid:s0007",
+        "recomp:s0003",
+        "fid:s0006",
+        "recomp:s0030"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "H08",
+      "any_labelled_quote": false,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "queryrewrite:s0011",
+        "dsp:s0001",
+        "queryrewrite:s0007",
+        "dsp:s0006",
+        "queryrewrite:s0010"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "route": true,
+      "question": "H09",
+      "any_labelled_quote": true,
+      "labelled_evidence_from_every_expected_paper": false,
+      "all_labelled_quotes": false,
+      "passages": [
+        "beir:s0033",
+        "ares:s0001",
+        "beir:s0029",
+        "ares:s0006",
+        "beir:s0018"
+      ]
+    }
+  ]
+}

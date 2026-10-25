@@ -1,0 +1,271 @@
+{
+  "run_id": "20261024T061243_e9ba92308e",
+  "created_utc": "2026-10-24T06:12:43.919823+00:00",
+  "question": "What is the difference between RAG-Sequence and RAG-Token?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "rag"
+    ],
+    "facets": [
+      "purpose",
+      "inference"
+    ],
+    "explicit_facets": false,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "what is the difference between and ?",
+        "facets": [
+          "purpose",
+          "inference"
+        ],
+        "explicit": false,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": true,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "rag.memory",
+      "paper_id": "rag",
+      "text": "The original RAG model combines a pre-trained sequence-to-sequence generator as parametric memory with a dense vector index of Wikipedia as non-parametric memory. A DPR-initialised retriever uses a question encoder to retrieve relevant documents from that index.",
+      "facets": [
+        "representation",
+        "retrieval",
+        "purpose"
+      ],
+      "source_ids": [
+        "rag:s0001",
+        "rag:s0007"
+      ]
+    },
+    {
+      "claim_id": "rag.sequence_token",
+      "paper_id": "rag",
+      "text": "RAG-Sequence marginalises over a retrieved document for the whole output sequence, so one document conditions an entire candidate answer. RAG-Token marginalises at each output-token step, allowing different documents to contribute to different tokens.",
+      "facets": [
+        "inference"
+      ],
+      "source_ids": [
+        "rag:s0003"
+      ]
+    }
+  ],
+  "comparison": [],
+  "citations": [
+    {
+      "source_id": "rag:s0001",
+      "paper_id": "rag",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Large pre-trained language models have been shown to store factual knowledge in their parameters, and achieve state-of-the-art results when fine-tuned on downstream NLP tasks. However, their ability to access and precisely manipulate knowledge is still limited, and hence on knowledge-intensive tasks, their performance lags behind task-specific architectures. Additionally, providing provenance for their decisions and updating their world knowledge remain open research problems. Pretrained models with a differentiable access mechanism to explicit non-parametric memory have so far been only investigated for extractive downstream tasks. We explore a general-purpose fine-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric memory for language generation. We introduce RAG models where the parametric memory is a pre-trained seq2seq model and the non-parametric memory is a dense vector index of Wikipedia, accessed with a pre-trained neural retriever. We compare two RAG formulations, one which conditions on the same retrieved passages across the whole generated sequence, and another which can use different passages per token. We fine-tune and evaluate our models on a wide range of knowledgeintensive NLP tasks and set the state of the art on three open domain QA tasks, outperforming parametric seq2seq models and task-specific retrieve-and-extract architectures. For language generation tasks, we find that RAG models generate more specific, diverse and factual language than a state-of-the-art parametric-only seq2seq baseline.",
+      "url": "https://arxiv.org/abs/2005.11401v4",
+      "pdf_file": "pdfs/rag.pdf",
+      "sha256": "23e3249e9a1e75418d82efecab0ea8c4d033b89c93742f63208d47ce01f21233",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "rag:s0007",
+      "paper_id": "rag",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "section": "2.2 Retriever: DPR",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "The retrieval component pη(z|x) is based on DPR [26]. DPR follows a bi-encoder architecture: pη(z|x) ∝exp \u0000 d(z)⊤q(x) \u0001 d(z) = BERTd(z), q(x) = BERTq(x) where d(z) is a dense representation of a document produced by a BERTBASE document encoder [8], and q(x) a query representation produced by a query encoder, also based on BERTBASE. Calculating top-k(pη(·|x)), the list of k documents z with highest prior probability pη(z|x), is a Maximum Inner Product Search (MIPS) problem, which can be approximately solved in sub-linear time [23]. We use a pre-trained bi-encoder from DPR to initialize our retriever and to build the document index. This retriever was trained to retrieve documents which contain answers to TriviaQA [24] questions and Natural Questions [29]. We refer to the document index as the non-parametric memory.",
+      "url": "https://arxiv.org/abs/2005.11401v4",
+      "pdf_file": "pdfs/rag.pdf",
+      "sha256": "23e3249e9a1e75418d82efecab0ea8c4d033b89c93742f63208d47ce01f21233",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "rag:s0003",
+      "paper_id": "rag",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "section": "1 Introduction",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "We build RAG models where the parametric memory is a pre-trained seq2seq transformer, and the non-parametric memory is a dense vector index of Wikipedia, accessed with a pre-trained neural retriever. We combine these components in a probabilistic model trained end-to-end (Fig. 1). The retriever (Dense Passage Retriever [26], henceforth DPR) provides latent documents conditioned on the input, and the seq2seq model (BART [32]) then conditions on these latent documents together with the input to generate the output. We marginalize the latent documents with a top-K approximation, either on a per-output basis (assuming the same document is responsible for all tokens) or a per-token basis (where different documents are responsible for different tokens). Like T5 [51] or BART, RAG can be fine-tuned on any seq2seq task, whereby both the generator and retriever are jointly learned. There has been extensive previous work proposing architectures to enrich systems with non-parametric memory which are trained from scratch for specific tasks, e.g. memory networks [64, 55], stackaugmented networks [25] and memory layers [30]. In contrast, we explore a setting where both parametric and non-parametric memory components are pre-trained and pre-loaded with extensive knowledge. Crucially, by using pre-trained access mechanisms, the ability to access knowledge is present without additional training. Our results highlight the benefits of combining parametric and non-parametric memory with generation for knowledge-intensive tasks—tasks that humans could not reasonably be expected to perform without access to an external knowledge source. Our RAG models achieve state-of-the-art results on open Natural Questions [29], WebQuestions [3] and CuratedTrec [2] and strongly outperform recent approaches that use specialised pre-training objectives on TriviaQA [24]. Despite these being extractive tasks, we find that unconstrained generation outperforms previous extractive approaches.",
+      "url": "https://arxiv.org/abs/2005.11401v4",
+      "pdf_file": "pdfs/rag.pdf",
+      "sha256": "23e3249e9a1e75418d82efecab0ea8c4d033b89c93742f63208d47ce01f21233",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "rag:s0006",
+    "rag:s0032",
+    "rag:s0005",
+    "rag:s0010",
+    "rag:s0025",
+    "rag:s0024",
+    "rag:s0019",
+    "rag:s0018"
+  ],
+  "retrieved": [
+    {
+      "source_id": "rag:s0006",
+      "paper_id": "rag",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "section": "2.1 Models",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "RAG-Sequence Model The RAG-Sequence model uses the same retrieved document to generate the complete sequence. Technically, it treats the retrieved document as a single latent variable that is marginalized to get the seq2seq probability p(y|x) via a top-K approximation. Concretely, the top K documents are retrieved using the retriever, and the generator produces the output sequence probability for each document, which are then marginalized, Y pη(z|x)pθ(y|x, z) = X pRAG-Sequence(y|x) ≈ X pη(z|x) pθ(yi|x, z, y1:i−1) RAG-Token Model In the RAG-Token model we can draw a different latent document for each target token and marginalize accordingly. This allows the generator to choose content from several documents when producing an answer. Concretely, the top K documents are retrieved using the retriever, and then the generator produces a distribution for the next output token for each document, before marginalizing, and repeating the process with the following output token, Formally, we define: Y X pRAG-Token(y|x) ≈ pη(z|x)pθ(yi|x, z, y1:i−1) Finally, we note that RAG can be used for sequence classification tasks by considering the target class as a target sequence of length one, in which case RAG-Sequence and RAG-Token are equivalent.",
+      "url": "https://arxiv.org/abs/2005.11401v4",
+      "pdf_file": "pdfs/rag.pdf",
+      "sha256": "23e3249e9a1e75418d82efecab0ea8c4d033b89c93742f63208d47ce01f21233",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03252247488101534
+    },
+    {
+      "source_id": "rag:s0032",
+      "paper_id": "rag",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "section": "A Implementation Details",
+      "page_start": 17,
+      "page_end": 17,
+      "text": "For Open-domain QA we report test numbers using 15 retrieved documents for RAG-Token models. For RAG-Sequence models, we report test results using 50 retrieved documents, and we use the Thorough Decoding approach since answers are generally short. We use greedy decoding for QA as we did not find beam search improved results. For Open-MSMarco and Jeopardy question generation, we report test numbers using ten retrieved documents for both RAG-Token and RAG-Sequence, and we also train a BART-large model as a baseline. We use a beam size of four, and use the Fast Decoding approach for RAG-Sequence models, as Thorough Decoding did not improve performance.",
+      "url": "https://arxiv.org/abs/2005.11401v4",
+      "pdf_file": "pdfs/rag.pdf",
+      "sha256": "23e3249e9a1e75418d82efecab0ea8c4d033b89c93742f63208d47ce01f21233",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03252247488101534
+    },
+    {
+      "source_id": "rag:s0005",
+      "paper_id": "rag",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "section": "2 Methods",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "We explore RAG models, which use the input sequence x to retrieve text documents z and use them as additional context when generating the target sequence y. As shown in Figure 1, our models leverage two components: (i) a retriever pη(z|x) with parameters η that returns (top-K truncated) distributions over text passages given a query x and (ii) a generator pθ(yi|x, z, y1:i−1) parametrized 1Code to run experiments with RAG has been open-sourced as part of the HuggingFace Transformers Library [66] and can be found at https://github.com/huggingface/transformers/blob/master/ examples/rag/. An interactive demo of RAG models can be found at https://huggingface.co/rag/ by θ that generates a current token based on a context of the previous i −1 tokens y1:i−1, the original input x and a retrieved passage z. To train the retriever and generator end-to-end, we treat the retrieved document as a latent variable. We propose two models that marginalize over the latent documents in different ways to produce a distribution over generated text. In one approach, RAG-Sequence, the model uses the same document to predict each target token. The second approach, RAG-Token, can predict each target token based on a different document. In the following, we formally introduce both models and then describe the pη and pθ components, as well as the training and decoding procedure.",
+      "url": "https://arxiv.org/abs/2005.11401v4",
+      "pdf_file": "pdfs/rag.pdf",
+      "sha256": "23e3249e9a1e75418d82efecab0ea8c4d033b89c93742f63208d47ce01f21233",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031746031746031744
+    },
+    {
+      "source_id": "rag:s0010",
+      "paper_id": "rag",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "section": "2.5 Decoding",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "At test time, RAG-Sequence and RAG-Token require different ways to approximate arg maxy p(y|x). RAG-Token The RAG-Token model can be seen as a standard, autoregressive seq2seq generator with transition probability: p′ θ(yi|x, y1:i−1) = P z∈top-k(p(·|x)) pη(zi|x)pθ(yi|x, zi, y1:i−1) To decode, we can plug p′ θ(yi|x, y1:i−1) into a standard beam decoder. RAG-Sequence For RAG-Sequence, the likelihood p(y|x) does not break into a conventional pertoken likelihood, hence we cannot solve it with a single beam search. Instead, we run beam search for each document z, scoring each hypothesis using pθ(yi|x, z, y1:i−1). This yields a set of hypotheses Y , some of which may not have appeared in the beams of all documents. To estimate the probability of an hypothesis y we run an additional forward pass for each document z for which y does not appear in the beam, multiply generator probability with pη(z|x) and then sum the probabilities across beams for the marginals. We refer to this decoding procedure as “Thorough Decoding.” For longer output sequences, |Y | can become large, requiring many forward passes. For more efficient decoding, we can make a further approximation that pθ(y|x, zi) ≈0 where y was not generated during beam search from x, zi. This avoids the need to run additional forward passes once the candidate set Y has been generated. We refer to this decoding procedure as “Fast Decoding.”",
+      "url": "https://arxiv.org/abs/2005.11401v4",
+      "pdf_file": "pdfs/rag.pdf",
+      "sha256": "23e3249e9a1e75418d82efecab0ea8c4d033b89c93742f63208d47ce01f21233",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030776515151515152
+    },
+    {
+      "source_id": "rag:s0025",
+      "paper_id": "rag",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "section": "4.5 Additional Results",
+      "page_start": 8,
+      "page_end": 8,
+      "text": "Effect of Retrieving more documents Models are trained with either 5 or 10 retrieved latent documents, and we do not observe significant differences in performance between them. We have the flexibility to adjust the number of retrieved documents at test time, which can affect performance and runtime. Figure 3 (left) shows that retrieving more documents at test time monotonically improves Open-domain QA results for RAG-Sequence, but performance peaks for RAG-Token at 10 retrieved documents. Figure 3 (right) shows that retrieving more documents leads to higher Rouge-L for RAG-Token at the expense of Bleu-1, but the effect is less pronounced for RAG-Sequence. Figure 3: Left: NQ performance as more documents are retrieved. Center: Retrieval recall performance in NQ. Right: MS-MARCO Bleu-1 and Rouge-L as more documents are retrieved.",
+      "url": "https://arxiv.org/abs/2005.11401v4",
+      "pdf_file": "pdfs/rag.pdf",
+      "sha256": "23e3249e9a1e75418d82efecab0ea8c4d033b89c93742f63208d47ce01f21233",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030776515151515152
+    },
+    {
+      "source_id": "rag:s0024",
+      "paper_id": "rag",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "section": "4.5 Additional Results",
+      "page_start": 7,
+      "page_end": 8,
+      "text": "We prepare a list of 82 world leaders who had changed Table 4: Human assessments for the Jeopardy Question Generation Task. Factuality Specificity BART better 7.1% 16.8% RAG better 42.7% 37.4% Both good 11.7% 11.8% Both poor 17.7% 6.9% No majority 20.8% 20.1% Table 5: Ratio of distinct to total tri-grams for generation tasks. MSMARCO Jeopardy QGen Gold 89.6% 90.0% BART 70.7% 32.4% RAG-Token 77.8% 46.8% RAG-Seq. 83.5% 53.8% Table 6: Ablations on the dev set. As FEVER is a classification task, both RAG models are equivalent. Model NQ TQA WQ CT Jeopardy-QGen MSMarco FVR-3 FVR-2 Exact Match B-1 QB-1 R-L B-1 Label Accuracy RAG-Token-BM25 29.7 41.5 32.1 33.1 17.5 22.3 55.5 48.4 75.1 91.6 RAG-Sequence-BM25 31.8 44.1 36.6 33.8 11.1 19.5 56.5 46.9 RAG-Token-Frozen 37.8 50.1 37.1 51.1 16.7 21.7 55.9 49.4 72.9 89.4 RAG-Sequence-Frozen 41.2 52.1 41.8 52.6 11.8 19.6 56.7 47.3 RAG-Token 43.5 54.8 46.5 51.9 17.9 22.6 56.2 49.4 74.5 90.6 RAG-Sequence 44.0 55.8 44.9 53.4 15.3 21.5 57.2 47.5 between these dates and use a template “Who is {position}?” (e.g. “Who is the President of Peru?”) to query our NQ RAG model with each index. RAG answers 70% correctly using the 2016 index for 2016 world leaders and 68% using the 2018 index for 2018 world leaders. Accuracy with mismatched indices is low (12% with the 2018 index and 2016 leaders, 4% with the 2016 index and 2018 leaders). This shows we can update RAG’s world knowledge by simply replacing its non-parametric memory. Effect of Retrieving more documents Models are trained with either 5 or 10 retrieved latent documents, and we do not observe significant differences in performance between them.",
+      "url": "https://arxiv.org/abs/2005.11401v4",
+      "pdf_file": "pdfs/rag.pdf",
+      "sha256": "23e3249e9a1e75418d82efecab0ea8c4d033b89c93742f63208d47ce01f21233",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029877369007803793
+    },
+    {
+      "source_id": "rag:s0019",
+      "paper_id": "rag",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "section": "4.3 Jeopardy Question Generation",
+      "page_start": 6,
+      "page_end": 6,
+      "text": "Table 2 shows that RAG-Token performs better than RAG-Sequence on Jeopardy question generation, with both models outperforming BART on Q-BLEU-1. 4 shows human evaluation results, over 452 pairs of generations from BART and RAG-Token. Evaluators indicated that BART was more factual than RAG in only 7.1% of cases, while RAG was more factual in 42.7% of cases, and both RAG and BART were factual in a further 17% of cases, clearly demonstrating the effectiveness of RAG on the task over a state-of-the-art generation model. Evaluators also find RAG generations to be more specific by a large margin. Table 3 shows typical generations from each model. Jeopardy questions often contain two separate pieces of information, and RAG-Token may perform best because it can generate responses that combine content from several documents. Figure 2 shows an example. When generating “Sun”, the posterior is high for document 2 which mentions “The Sun Also Rises”. Similarly, document 1 dominates the posterior when “A Farewell to Arms” is generated. Intriguingly, after the first token of each book is generated, the document posterior flattens. This observation suggests that the generator can complete the titles without depending on specific documents. In other words, the model’s parametric knowledge is sufficient to complete the titles. We find evidence for this hypothesis by feeding the BART-only baseline with the partial decoding \"The Sun. BART completes the generation \"The Sun Also Rises\" is a novel by this author of \"The Sun Also Rises\" indicating the title \"The Sun Also Rises\" is stored in BART’s parameters.",
+      "url": "https://arxiv.org/abs/2005.11401v4",
+      "pdf_file": "pdfs/rag.pdf",
+      "sha256": "23e3249e9a1e75418d82efecab0ea8c4d033b89c93742f63208d47ce01f21233",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02900988017658188
+    },
+    {
+      "source_id": "rag:s0018",
+      "paper_id": "rag",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "section": "4.2 Abstractive Question Answering",
+      "page_start": 6,
+      "page_end": 6,
+      "text": "As shown in Table 2, RAG-Sequence outperforms BART on Open MS-MARCO NLG by 2.6 Bleu points and 2.6 Rouge-L points. RAG approaches state-of-the-art model performance, which is impressive given that (i) those models access gold passages with specific information required to generate the reference answer , (ii) many questions are unanswerable without the gold passages, and (iii) not all questions are answerable from Wikipedia alone. Table 3 shows some generated answers from our models. Qualitatively, we find that RAG models hallucinate less and generate factually correct text more often than BART. Later, we also show that RAG generations are more diverse than BART generations (see §4.5).",
+      "url": "https://arxiv.org/abs/2005.11401v4",
+      "pdf_file": "pdfs/rag.pdf",
+      "sha256": "23e3249e9a1e75418d82efecab0ea8c4d033b89c93742f63208d47ce01f21233",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.027271052146674038
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "what is the difference between and ?",
+      "paper_ids": [
+        "rag"
+      ],
+      "facet": "purpose",
+      "covered": true,
+      "claim_ids": [
+        "rag.memory",
+        "rag.sequence_token"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    },
+    {
+      "part_id": "part1",
+      "question_part": "what is the difference between and ?",
+      "paper_ids": [
+        "rag"
+      ],
+      "facet": "inference",
+      "covered": true,
+      "claim_ids": [
+        "rag.memory",
+        "rag.sequence_token"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.005679374997271225,
+  "evaluation_question_id": "q03"
+}

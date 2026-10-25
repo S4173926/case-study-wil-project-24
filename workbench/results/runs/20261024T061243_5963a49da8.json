@@ -1,0 +1,254 @@
+{
+  "run_id": "20261024T061243_5963a49da8",
+  "created_utc": "2026-10-24T06:12:43.900451+00:00",
+  "question": "What training negatives does Dense Passage Retrieval use?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "dpr"
+    ],
+    "facets": [
+      "training"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "what training negatives does use",
+        "facets": [
+          "training"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "dpr.negatives",
+      "paper_id": "dpr",
+      "text": "DPR learns from question–relevant-passage pairs. Its main setup uses in-batch negative passages, including other questions’ positive passages as negatives, and adds one BM25 hard-negative passage per question. The objective makes the relevant passage score higher than the sampled negatives.",
+      "facets": [
+        "training",
+        "supervision"
+      ],
+      "source_ids": [
+        "dpr:s0011",
+        "dpr:s0016"
+      ]
+    },
+    {
+      "claim_id": "dpr.objective",
+      "paper_id": "dpr",
+      "text": "DPR’s training scheme compares question and passage pairs within a batch and optimises similarity between questions and their relevant passages. The paper studies the training design rather than introducing additional task-specific language-model pre-training.",
+      "facets": [
+        "training"
+      ],
+      "source_ids": [
+        "dpr:s0004"
+      ]
+    }
+  ],
+  "comparison": [],
+  "citations": [
+    {
+      "source_id": "dpr:s0011",
+      "paper_id": "dpr",
+      "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+      "section": "3.2 Training",
+      "page_start": 3,
+      "page_end": 4,
+      "text": "We consider three different types of negatives: (1) Random: any random passage from the corpus; (2) BM25: top passages returned by BM25 which don’t contain the answer but match most question tokens; (3) Gold: positive passages paired with other questions which appear in the training set. We will discuss the impact of different types of negative passages and training schemes in Section 5.2. Our best model uses gold passages from the same mini-batch and one BM25 negative passage. In particular, re-using gold passages from the same batch as negatives can make the computation efficient while achieving great performance. We discuss this approach below. In-batch negatives Assume that we have B questions in a mini-batch and each one is associated with a relevant passage. Let Q and P be the (B×d) matrix of question and passage embeddings in a batch of size B. S = QPT is a (B × B) matrix of similarity scores, where each row of which corresponds to a question, paired with B passages. In this way, we reuse computation and effectively train on B2 (qi, pj) question/passage pairs in each batch. Any (qi, pj) pair is a positive example when i = j, and negative otherwise. This creates B training instances in each batch, where there are B −1 negative passages for each question. The trick of in-batch negatives has been used in the full batch setting (Yih et al., 2011) and more recently for mini-batch (Henderson et al., 2017; Gillick et al., 2019). It has been shown to be an effective strategy for learning a dual-encoder model that boosts the number of training examples.",
+      "url": "https://arxiv.org/abs/2004.04906v3",
+      "pdf_file": "pdfs/dpr.pdf",
+      "sha256": "3e67fc1a9977715acf722d85f0b7d124b03715e975f6310a4d6c12094190912f",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "dpr:s0016",
+      "paper_id": "dpr",
+      "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+      "section": "5 Experiments: Passage Retrieval",
+      "page_start": 4,
+      "page_end": 5,
+      "text": "In this section, we evaluate the retrieval performance of our Dense Passage Retriever (DPR), along with analysis on how its output differs from noisy evidence documents mined from Bing. that contain answers is small. See Section 5.2 and Appendix A. Training Retriever Top-20 Top-100 NQ TriviaQA WQ TREC SQuAD NQ TriviaQA WQ TREC SQuAD None BM25 59.1 66.9 55.0 70.9 68.8 73.7 76.7 71.1 84.1 80.0 Single DPR 78.4 79.4 73.2 79.8 63.2 85.4 85.0 81.4 89.1 77.2 BM25 + DPR 76.6 79.8 71.0 85.2 71.5 83.8 84.5 80.5 92.7 81.3 Multi DPR 79.4 78.8 75.0 89.1 51.6 86.0 84.7 82.9 93.9 67.6 BM25 + DPR 78.0 79.9 74.7 88.5 66.2 83.9 84.4 82.3 94.1 78.6 Table 2: Top-20 & Top-100 retrieval accuracy on test sets, measured as the percentage of top 20/100 retrieved passages that contain the answer. Single and Multi denote that our Dense Passage Retriever (DPR) was trained using individial or combined training datasets (all the datasets excluding SQuAD). See text for more details. traditional retrieval methods, the effects of different training schemes and the run-time efficiency. The DPR model used in our main experiments is trained using the in-batch negative setting (Section 3.2) with a batch size of 128 and one additional BM25 negative passage per question. We trained the question and passage encoders for up to 40 epochs for large datasets (NQ, TriviaQA, SQuAD) and 100 epochs for small datasets (TREC, WQ), with a learning rate of 10−5 using Adam, linear scheduling with warm-up and dropout rate 0.1.",
+      "url": "https://arxiv.org/abs/2004.04906v3",
+      "pdf_file": "pdfs/dpr.pdf",
+      "sha256": "3e67fc1a9977715acf722d85f0b7d124b03715e975f6310a4d6c12094190912f",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "dpr:s0004",
+      "paper_id": "dpr",
+      "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+      "section": "1 Introduction",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "In this paper, we address the question: can we train a better dense embedding model using only pairs of questions and passages (or answers), without additional pretraining? By leveraging the now standard BERT pretrained model (Devlin et al., 2019) and a dual-encoder architecture (Bromley et al., 1994), we focus on developing the right training scheme using a relatively small number of question and passage pairs. Through a series of careful ablation studies, our final solution is surprisingly simple: the embedding is optimized for maximizing inner products of the question and relevant passage vectors, with an objective comparing all pairs of questions and passages in a batch. Our Dense Passage Retriever (DPR) is exceptionally strong. It not only outperforms BM25 by a large margin (65.2% vs. 42.9% in Top-5 accuracy), but also results in a substantial improvement on the end-to-end QA accuracy compared to ORQA (41.5% vs. 33.3%) in the open Natural Questions setting (Lee et al., 2019; Kwiatkowski et al., 2019). Our contributions are twofold. First, we demonstrate that with the proper training setup, simply fine-tuning the question and passage encoders on existing question-passage pairs is sufficient to greatly outperform BM25. Our empirical results also suggest that additional pretraining may not be needed. Second, we verify that, in the context of open-domain question answering, a higher retrieval precision indeed translates to a higher end-to-end QA accuracy. By applying a modern reader model to the top retrieved passages, we achieve comparable or better results on multiple QA datasets in the open-retrieval setting, compared to several, much complicated systems.",
+      "url": "https://arxiv.org/abs/2004.04906v3",
+      "pdf_file": "pdfs/dpr.pdf",
+      "sha256": "3e67fc1a9977715acf722d85f0b7d124b03715e975f6310a4d6c12094190912f",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "dpr:s0019",
+    "dpr:s0011",
+    "dpr:s0020",
+    "dpr:s0010",
+    "dpr:s0031",
+    "dpr:s0038",
+    "dpr:s0016",
+    "dpr:s0021"
+  ],
+  "retrieved": [
+    {
+      "source_id": "dpr:s0019",
+      "paper_id": "dpr",
+      "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+      "section": "5.2 Ablation Study on Model Training",
+      "page_start": 5,
+      "page_end": 6,
+      "text": "To understand further how different model training options affect the results, we conduct several additional experiments and discuss our findings below. Sample efficiency We explore how many training examples are needed to achieve good passage retrieval performance. Figure 1 illustrates the top-k retrieval accuracy with respect to different numbers of training examples, measured on the development set of Natural Questions. As is shown, a dense passage retriever trained using only 1,000 examples already outperforms BM25. This suggests that with a general pretrained language model, it is possible to train a high-quality dense retriever with a small number of question–passage pairs. Adding more training examples (from 1k to 59k) further improves the retrieval accuracy consistently. In-batch negative training We test different training schemes on the development set of Natural Questions and summarize the results in Table 3. The top block is the standard 1-of-N training setting, where each question in the batch is paired with a positive passage and its own set of n negative passages (Eq. (2)). We find that the choice of negatives — random, BM25 or gold passages (positive passages from other questions) — does not impact the top-k accuracy much in this setting when k ≥20. The middle bock is the in-batch negative training (Section 3.2) setting. We find that using a similar configuration (7 gold negative passages), in-batch negative training improves the results substantially. The key difference between the two is whether the gold negative passages come from the same batch or from the whole training set. Effectively, in-batch negative training is an easy and memory-efficient way to reuse the negative examples already in the batch rather than creating new ones.",
+      "url": "https://arxiv.org/abs/2004.04906v3",
+      "pdf_file": "pdfs/dpr.pdf",
+      "sha256": "3e67fc1a9977715acf722d85f0b7d124b03715e975f6310a4d6c12094190912f",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03278688524590164
+    },
+    {
+      "source_id": "dpr:s0011",
+      "paper_id": "dpr",
+      "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+      "section": "3.2 Training",
+      "page_start": 3,
+      "page_end": 4,
+      "text": "We consider three different types of negatives: (1) Random: any random passage from the corpus; (2) BM25: top passages returned by BM25 which don’t contain the answer but match most question tokens; (3) Gold: positive passages paired with other questions which appear in the training set. We will discuss the impact of different types of negative passages and training schemes in Section 5.2. Our best model uses gold passages from the same mini-batch and one BM25 negative passage. In particular, re-using gold passages from the same batch as negatives can make the computation efficient while achieving great performance. We discuss this approach below. In-batch negatives Assume that we have B questions in a mini-batch and each one is associated with a relevant passage. Let Q and P be the (B×d) matrix of question and passage embeddings in a batch of size B. S = QPT is a (B × B) matrix of similarity scores, where each row of which corresponds to a question, paired with B passages. In this way, we reuse computation and effectively train on B2 (qi, pj) question/passage pairs in each batch. Any (qi, pj) pair is a positive example when i = j, and negative otherwise. This creates B training instances in each batch, where there are B −1 negative passages for each question. The trick of in-batch negatives has been used in the full batch setting (Yih et al., 2011) and more recently for mini-batch (Henderson et al., 2017; Gillick et al., 2019). It has been shown to be an effective strategy for learning a dual-encoder model that boosts the number of training examples.",
+      "url": "https://arxiv.org/abs/2004.04906v3",
+      "pdf_file": "pdfs/dpr.pdf",
+      "sha256": "3e67fc1a9977715acf722d85f0b7d124b03715e975f6310a4d6c12094190912f",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031754032258064516
+    },
+    {
+      "source_id": "dpr:s0020",
+      "paper_id": "dpr",
+      "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+      "section": "5.2 Ablation Study on Model Training",
+      "page_start": 6,
+      "page_end": 6,
+      "text": "Effectively, in-batch negative training is an easy and memory-efficient way to reuse the negative examples already in the batch rather than creating new ones. It produces more pairs and thus increases the number of training examples, which might contribute to the good model performance. As a result, accuracy consistently improves as the batch size grows. Finally, we explore in-batch negative training with additional “hard” negative passages that have high BM25 scores given the question, but do not contain the answer string (the bottom block). These additional passages are used as negative passages for all questions in the same batch. We find that adding a single BM25 negative passage improves the result substantially while adding two does not help further. Impact of gold passages We use passages that match the gold contexts in the original datasets (when available) as positive examples (Section 4.2). Type #N IB Top-5 Top-20 Top-100 Random 7 \u0017 47.0 64.3 77.8 BM25 7 \u0017 50.0 63.3 74.8 Gold 7 \u0017 42.6 63.1 78.3 Gold 7 \u0013 51.1 69.1 80.8 Gold 31 \u0013 52.1 70.8 82.1 Gold \u0013 55.8 73.0 83.1 G.+BM25(1) 31+32 \u0013 65.0 77.3 84.4 G.+BM25(2) 31+64 \u0013 64.5 76.4 84.0 G.+BM25(1) 127+128 \u0013 65.8 78.0 84.9 Table 3: Comparison of different training schemes, measured as top-k retrieval accuracy on Natural Questions (development set). #N: number of negative examples, IB: in-batch training. G.+BM25(1) and G.+BM25(2) denote in-batch training with 1 or 2 additional BM25 negatives, which serve as negative passages for all questions in the batch.",
+      "url": "https://arxiv.org/abs/2004.04906v3",
+      "pdf_file": "pdfs/dpr.pdf",
+      "sha256": "3e67fc1a9977715acf722d85f0b7d124b03715e975f6310a4d6c12094190912f",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03125763125763126
+    },
+    {
+      "source_id": "dpr:s0010",
+      "paper_id": "dpr",
+      "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+      "section": "3.2 Training",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "Training the encoders so that the dot-product similarity (Eq. (1)) becomes a good ranking function for retrieval is essentially a metric learning problem (Kulis, 2013). The goal is to create a vector space such that relevant pairs of questions and passages will have smaller distance (i.e., higher similarity) than the irrelevant ones, by learning a better embedding function. Let D = {⟨qi, p+ i , p− i,1, · · · , p− i,n⟩}m i=1 be the training data that consists of m instances. Each instance contains one question qi and one relevant (positive) passage p+ i , along with n irrelevant (negative) passages p− i,j. We optimize the loss function as the negative log likelihood of the positive passage: L(qi, p+ i , p− i,1, · · · , p− i,n) (2) = −log esim(qi,p+ i ) esim(qi,p+ i ) + Pn j=1 esim(qi,p− i,j) . Positive and negative passages For retrieval problems, it is often the case that positive examples are available explicitly, while negative examples need to be selected from an extremely large pool. For instance, passages relevant to a question may be given in a QA dataset, or can be found using the answer. All other passages in the collection, while not specified explicitly, can be viewed as irrelevant by default. In practice, how to select negative examples is often overlooked but could be decisive for learning a high-quality encoder. We consider three different types of negatives: (1) Random: any random passage from the corpus; (2) BM25: top passages returned by BM25 which don’t contain the answer but match most question tokens; (3) Gold: positive passages paired with other questions which appear in the training set.",
+      "url": "https://arxiv.org/abs/2004.04906v3",
+      "pdf_file": "pdfs/dpr.pdf",
+      "sha256": "3e67fc1a9977715acf722d85f0b7d124b03715e975f6310a4d6c12094190912f",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030330882352941176
+    },
+    {
+      "source_id": "dpr:s0031",
+      "paper_id": "dpr",
+      "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+      "section": "7 Related Work",
+      "page_start": 9,
+      "page_end": 9,
+      "text": "Instead of employing the dual-encoder framework, they introduced a late-interaction operator on top of the BERT encoders. Dense retrieval for open-domain QA has been explored by Das et al. (2019), who propose to retrieve relevant passages iteratively using reformulated question vectors. As an alternative approach that skips passage retrieval, Seo et al. (2019) propose to encode candidate answer phrases as vectors and directly retrieve the answers to the input questions efficiently. Using additional pretraining with the objective that matches surrogates of questions and relevant passages, Lee et al. (2019) jointly train the question encoder and reader. Their approach outperforms the BM25 plus reader paradigm on multiple open-domain QA datasets in QA accuracy, and is further extended by REALM (Guu et al., 2020), which includes tuning the passage encoder asynchronously by re-indexing the passages during training. The pretraining objective has also recently been improved by Xiong et al. (2020b). In contrast, our model provides a simple and yet effective solution that shows stronger empirical performance, without relying on additional pretraining or complex joint training schemes. DPR has also been used as an important module in very recent work. For instance, extending the idea of leveraging hard negatives, Xiong et al. (2020a) use the retrieval model trained in the previous iteration to discover new negatives and construct a different set of examples in each training iteration. Starting from our trained DPR model, they show that the retrieval performance can be further improved.",
+      "url": "https://arxiv.org/abs/2004.04906v3",
+      "pdf_file": "pdfs/dpr.pdf",
+      "sha256": "3e67fc1a9977715acf722d85f0b7d124b03715e975f6310a4d6c12094190912f",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.028665028665028666
+    },
+    {
+      "source_id": "dpr:s0038",
+      "paper_id": "dpr",
+      "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+      "section": "D Joint Training of Retriever and",
+      "page_start": 12,
+      "page_end": 13,
+      "text": "Reader We fix the passage encoder in our joint-training scheme while allowing only the question encoder to receive backpropagation signal from the combined (retriever + reader) loss function. This allows us to leverage the HNSW-based FAISS index for efficient low-latency retrieving, without reindexing the passages during model updates. Our loss function largely follows ORQA’s approach, which uses log probabilities of positive passages selected from the retriever model, and correct spans and passages selected from the reader model. Since the passage encoder is fixed, we could use larger amount of retrieved passages when calculating the retriever loss. Specifically, we get top 100 passages for each question in a mini-batch and use the method similar to in-batch negative training: all retrieved passages’ vectors participate in the loss calculation for all questions in a batch. Our training batch size is set to 16, which effectively gives 1,600 passages per question to calculate retriever loss. The reader still uses 24 passages per question, which are selected Table 7: Examples of passages returned from BM25 and DPR. Correct answers are written in blue and the content words in the question are written in bold. from the top 5 positive and top 30 negative passages (from the set of top 100 passages retrieved from the same question). The question encoder’s initial state is taken from a DPR model previously trained on the NQ dataset. The reader’s initial state is a BERT-base model. In terms of the end-to-end QA results, our joint-training scheme does not provide better results compared to the usual retriever/reader training pipeline, resulting in the same 39.8 exact match score on NQ dev as in our regular reader model training.",
+      "url": "https://arxiv.org/abs/2004.04906v3",
+      "pdf_file": "pdfs/dpr.pdf",
+      "sha256": "3e67fc1a9977715acf722d85f0b7d124b03715e975f6310a4d6c12094190912f",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.027443609022556388
+    },
+    {
+      "source_id": "dpr:s0016",
+      "paper_id": "dpr",
+      "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+      "section": "5 Experiments: Passage Retrieval",
+      "page_start": 4,
+      "page_end": 5,
+      "text": "In this section, we evaluate the retrieval performance of our Dense Passage Retriever (DPR), along with analysis on how its output differs from noisy evidence documents mined from Bing. that contain answers is small. See Section 5.2 and Appendix A. Training Retriever Top-20 Top-100 NQ TriviaQA WQ TREC SQuAD NQ TriviaQA WQ TREC SQuAD None BM25 59.1 66.9 55.0 70.9 68.8 73.7 76.7 71.1 84.1 80.0 Single DPR 78.4 79.4 73.2 79.8 63.2 85.4 85.0 81.4 89.1 77.2 BM25 + DPR 76.6 79.8 71.0 85.2 71.5 83.8 84.5 80.5 92.7 81.3 Multi DPR 79.4 78.8 75.0 89.1 51.6 86.0 84.7 82.9 93.9 67.6 BM25 + DPR 78.0 79.9 74.7 88.5 66.2 83.9 84.4 82.3 94.1 78.6 Table 2: Top-20 & Top-100 retrieval accuracy on test sets, measured as the percentage of top 20/100 retrieved passages that contain the answer. Single and Multi denote that our Dense Passage Retriever (DPR) was trained using individial or combined training datasets (all the datasets excluding SQuAD). See text for more details. traditional retrieval methods, the effects of different training schemes and the run-time efficiency. The DPR model used in our main experiments is trained using the in-batch negative setting (Section 3.2) with a batch size of 128 and one additional BM25 negative passage per question. We trained the question and passage encoders for up to 40 epochs for large datasets (NQ, TriviaQA, SQuAD) and 100 epochs for small datasets (TREC, WQ), with a learning rate of 10−5 using Adam, linear scheduling with warm-up and dropout rate 0.1.",
+      "url": "https://arxiv.org/abs/2004.04906v3",
+      "pdf_file": "pdfs/dpr.pdf",
+      "sha256": "3e67fc1a9977715acf722d85f0b7d124b03715e975f6310a4d6c12094190912f",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.027271052146674038
+    },
+    {
+      "source_id": "dpr:s0021",
+      "paper_id": "dpr",
+      "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+      "section": "5.2 Ablation Study on Model Training",
+      "page_start": 6,
+      "page_end": 6,
+      "text": "G.+BM25(1) and G.+BM25(2) denote in-batch training with 1 or 2 additional BM25 negatives, which serve as negative passages for all questions in the batch. Our experiments on Natural Questions show that switching to distantly-supervised passages (using the highest-ranked BM25 passage that contains the answer), has only a small impact: 1 point lower top-k accuracy for retrieval. Appendix A contains more details. Similarity and loss Besides dot product, cosine and Euclidean L2 distance are also commonly used as decomposable similarity functions. We test these alternatives and find that L2 performs comparable to dot product, and both of them are superior to cosine. Similarly, in addition to negative loglikelihood, a popular option for ranking is triplet loss, which compares a positive passage and a negative one directly with respect to a question (Burges et al., 2005). Our experiments show that using triplet loss does not affect the results much. More details can be found in Appendix B. Cross-dataset generalization One interesting question regarding DPR’s discriminative training is how much performance degradation it may suffer from a non-iid setting. In other words, can it still generalize well when directly applied to a different dataset without additional fine-tuning? To test the cross-dataset generalization, we train DPR on Natural Questions only and test it directly on the smaller WebQuestions and CuratedTREC datasets. We find that DPR generalizes well, with 3-5 points loss from the best performing fine-tuned model in top-20 retrieval accuracy (69.9/86.3 vs. 75.0/89.1 for WebQuestions and TREC, respectively), while still greatly outperforming the BM25 baseline (55.0/70.9).",
+      "url": "https://arxiv.org/abs/2004.04906v3",
+      "pdf_file": "pdfs/dpr.pdf",
+      "sha256": "3e67fc1a9977715acf722d85f0b7d124b03715e975f6310a4d6c12094190912f",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.027205882352941177
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "what training negatives does use",
+      "paper_ids": [
+        "dpr"
+      ],
+      "facet": "training",
+      "covered": true,
+      "claim_ids": [
+        "dpr.negatives",
+        "dpr.objective"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.013414832996204495,
+  "evaluation_question_id": "q01"
+}

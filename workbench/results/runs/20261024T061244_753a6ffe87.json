@@ -1,0 +1,238 @@
+{
+  "run_id": "20261024T061244_753a6ffe87",
+  "created_utc": "2026-10-24T06:12:44.471016+00:00",
+  "question": "In In-Context RALM, what is retrieval stride? What changes when the system retrieves more frequently?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "icralm"
+    ],
+    "facets": [
+      "condition"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "what is retrieval stride",
+        "facets": [
+          "condition"
+        ],
+        "explicit": true,
+        "scope": "each"
+      },
+      {
+        "id": "part2",
+        "text": "what changes when the system retrieves more frequently",
+        "facets": [
+          "condition"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "icralm.stride",
+      "paper_id": "icralm",
+      "text": "In-Context RALM defines retrieval stride as the number of generated tokens between retrieval operations. Retrieving less frequently reduces retrieval and prefix-recomputation overhead, while the paper reports stronger performance from smaller strides in its experiments.",
+      "facets": [
+        "inference",
+        "efficiency",
+        "condition"
+      ],
+      "source_ids": [
+        "icralm:s0010"
+      ]
+    }
+  ],
+  "comparison": [],
+  "citations": [
+    {
+      "source_id": "icralm:s0010",
+      "paper_id": "icralm",
+      "title": "In-Context Retrieval-Augmented Language Models",
+      "section": "3.2 RALM Design Choices",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "We detail below two practical design choices often made in RALM systems. In §5, we investigate the effect of these in the setting of In-Context RALM. Retrieval Stride While in the above formulation a retrieval operation can occur at each generation step, we might want to perform retrieval only once every s > 1 tokens due to the cost of calling the retriever, and the need to replace the documents in the LM prefix during generation. We refer to s as the retrieval stride. This gives rise to the following In-Context RALM formulation (which reduces back to Eq. (2) for s = 1): p(x1, ..., xn) = ns−1 Y s Y i=1 pθ \u0000 xs·j+i| \u0002 RC(x≤s·j); x<(s·j+i) \u0003\u0001 , j=0 (3) where ns = n/s is the number of retrieval strides. Notably, in this framework the runtime costs of each retrieval operation is composed of (a) applying the retriever itself, and (b) recomputing the embeddings of the prefix. In §5.2 we show that using smaller retrieval strides, i.e., retrieving as often as possible, is superior to using larger ones (though In-Context RALM with larger strides already provides large gains over vanilla LM). Thus, choosing the retrieval stride is ultimately a tradeoff between runtime and performance. simple to support multiple documents as well. Retrieval Query Length While the retrieval query above in principle depends on all prefix tokens x≤s·j, the information at the very end of the prefix is typically the most relevant to the generated tokens. If the retrieval query is too long then this information can be diluted.",
+      "url": "https://arxiv.org/abs/2302.00083v3",
+      "pdf_file": "pdfs/icralm.pdf",
+      "sha256": "92f8aaad658caff829f70e46afac29d5c97f54a393003dbd14e118ab3f274518",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "icralm:s0010",
+    "icralm:s0011",
+    "icralm:s0021",
+    "icralm:s0018",
+    "icralm:s0005",
+    "icralm:s0003",
+    "icralm:s0020",
+    "icralm:s0030"
+  ],
+  "retrieved": [
+    {
+      "source_id": "icralm:s0010",
+      "paper_id": "icralm",
+      "title": "In-Context Retrieval-Augmented Language Models",
+      "section": "3.2 RALM Design Choices",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "We detail below two practical design choices often made in RALM systems. In §5, we investigate the effect of these in the setting of In-Context RALM. Retrieval Stride While in the above formulation a retrieval operation can occur at each generation step, we might want to perform retrieval only once every s > 1 tokens due to the cost of calling the retriever, and the need to replace the documents in the LM prefix during generation. We refer to s as the retrieval stride. This gives rise to the following In-Context RALM formulation (which reduces back to Eq. (2) for s = 1): p(x1, ..., xn) = ns−1 Y s Y i=1 pθ \u0000 xs·j+i| \u0002 RC(x≤s·j); x<(s·j+i) \u0003\u0001 , j=0 (3) where ns = n/s is the number of retrieval strides. Notably, in this framework the runtime costs of each retrieval operation is composed of (a) applying the retriever itself, and (b) recomputing the embeddings of the prefix. In §5.2 we show that using smaller retrieval strides, i.e., retrieving as often as possible, is superior to using larger ones (though In-Context RALM with larger strides already provides large gains over vanilla LM). Thus, choosing the retrieval stride is ultimately a tradeoff between runtime and performance. simple to support multiple documents as well. Retrieval Query Length While the retrieval query above in principle depends on all prefix tokens x≤s·j, the information at the very end of the prefix is typically the most relevant to the generated tokens. If the retrieval query is too long then this information can be diluted.",
+      "url": "https://arxiv.org/abs/2302.00083v3",
+      "pdf_file": "pdfs/icralm.pdf",
+      "sha256": "92f8aaad658caff829f70e46afac29d5c97f54a393003dbd14e118ab3f274518",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03278688524590164
+    },
+    {
+      "source_id": "icralm:s0011",
+      "paper_id": "icralm",
+      "title": "In-Context Retrieval-Augmented Language Models",
+      "section": "3.2 RALM Design Choices",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "If the retrieval query is too long then this information can be diluted. To avoid this, we restrict the retrieval query at stride j to the last ltokens of the prefix, i.e., we use qs,l j := xs·j−l+1, ..., xs·j. We refer to las the retrieval query length. Note that prior RALM work couples the retrieval stride s and the retrieval query length l(Borgeaud et al., 2022). In §5, we show that enforcing s = ldegrades LM performance. Integrating these hyper-parameters into the In-Context RALM formulation gives p(x1, ..., xn) = ns−1 Y s Y i=1 pθ \u0010 xs·j+i| h RC(qs,l j ); x<(s·j+i) i\u0011 . j=0 (4)",
+      "url": "https://arxiv.org/abs/2302.00083v3",
+      "pdf_file": "pdfs/icralm.pdf",
+      "sha256": "92f8aaad658caff829f70e46afac29d5c97f54a393003dbd14e118ab3f274518",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03225806451612903
+    },
+    {
+      "source_id": "icralm:s0021",
+      "paper_id": "icralm",
+      "title": "In-Context Retrieval-Augmented Language Models",
+      "section": "6 Improving In-Context RALM with",
+      "page_start": 7,
+      "page_end": 8,
+      "text": "LM-Oriented Reranking Since In-Context RALM uses a fixed document reading component by definition, it is natural to ask whether performance can be improved by specializing its document retrieval mechanism to the LM task. Indeed, there is considerable scope for improvement: the previous section considered conditioning the model only on the first document re- Figure 5: An analysis of perplexity as a function of s, the retrieval stride, i.e., the number of tokens between consecutive retrieval operations, on the development set of WikiText-103. Throughout the paper, we use s = 4 to balance perplexity and runtime. Figure 6: An analysis of perplexity as a function of the number of tokens in the query lfor BM25 on the development set of WikiText-103. In the appendix, we show similar trade-offs for dense retrievers within WikiText-103. Throughout the paper, we use a query length of l= 32 tokens. trieved by the BM25 retriever. This permits very limited semantic understanding of the query, since BM25 is based only on the bag of words signal. Moreover, it offers no way to accord different degrees of importance to different retrieval query tokens, such as recognizing that later query tokens are more relevant to the generated text. In this section, we focus on choosing which document to present to the model, by reranking the top-k documents returned by the BM25 retriever.5 We use Figure 7 as motivation: it shows the large potential for improvement among the top-16 documents returned by the BM25 retriever.",
+      "url": "https://arxiv.org/abs/2302.00083v3",
+      "pdf_file": "pdfs/icralm.pdf",
+      "sha256": "92f8aaad658caff829f70e46afac29d5c97f54a393003dbd14e118ab3f274518",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031024531024531024
+    },
+    {
+      "source_id": "icralm:s0018",
+      "paper_id": "icralm",
+      "title": "In-Context Retrieval-Augmented Language Models",
+      "section": "5 The Effectiveness of In-Context RALM",
+      "page_start": 6,
+      "page_end": 6,
+      "text": "For each LM, we report: (a) its performance without retrieval, (b) its performance when fed the top-scored passage by BM25 (§5), and (c) its performance when applied on the top-scored passage of each of our two suggested rerankers (§6). All models share the same vocabulary, thus token-level perplexity (token ppl) numbers are comparable. For WikiText we follow prior work and report word-level perplexity (word ppl). Model Retrieval WikiText-103 word ppl LLaMA-7B - 9.9 BM25, §5 8.8 LLaMA-13B - 8.5 BM25, §5 7.6 LLaMA-33B - 6.3 BM25, §5 6.1 Table 2: The performance of models from the LLaMA family, measured by word-level perplexity on the test set of WikiText-103. Context RALM: applying a sparse BM25 retriever that receives l= 32 query tokens and is applied as frequently as possible. Practically, we retrieve every s = 4 tokens (land s are defined in §3). Table 1 shows for the GPT-2 models that across all the examined corpora, employing In-Context RALM with an off-the-shelf retriever improved LM perplexity to a sufficient extent that it matched that of a 2–3× larger model. Figure 4 and Tables 2 and 5 show that this trend holds across model sizes up to 66B parameters, for both WikiText-103 and RealNews.",
+      "url": "https://arxiv.org/abs/2302.00083v3",
+      "pdf_file": "pdfs/icralm.pdf",
+      "sha256": "92f8aaad658caff829f70e46afac29d5c97f54a393003dbd14e118ab3f274518",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031009615384615385
+    },
+    {
+      "source_id": "icralm:s0005",
+      "paper_id": "icralm",
+      "title": "In-Context Retrieval-Augmented Language Models",
+      "section": "1 Introduction",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "For large model sizes, our method is even more effective: In-Context RALM with an off-the-shelf retriever improved the performance of a 6.7B parameter OPT model to match that of a 66B parameter parameter OPT model (see Figure 4). In Section 7 we demonstrate the applicability of In-Context RALM to downstream open-domain questions answering (ODQA) tasks. In a concurrent work, Shi et al. (2023) also suggest to augment off-the-shelf LMs with retrieved texts by prepending them to the input. Their results are based on training a dedicated retriever for language modeling. In contrast, we focus on the gains achievable in using off-the-shelf retrievers for this task. We show strong gains of this simpler setting by investigating: (1) which off-the-shelf retriever is best suited for language modeling, (2) the frequency of retrieval operations, and (3) the optimal query length. In addition, we boost the offthe-shelf retrieval performance by introducing two reranking methods that demonstrate further gains in perplexity. We believe that In-Context RALM can play two important roles in making RALM systems more powerful and more prevalent. First, given its simple reading mechanism, In-Context RALM can serve as a clean probe for developing document retrieval methods that are specialized for the LM task. These in turn can be used to improve both In-Context RALM and other more elaborate RALM methods that currently leverage general purpose retrievers. Second, due to its compatibility with off-the-shelf LMs, In-Context RALM can help drive wider deployment of RALM systems.",
+      "url": "https://arxiv.org/abs/2302.00083v3",
+      "pdf_file": "pdfs/icralm.pdf",
+      "sha256": "92f8aaad658caff829f70e46afac29d5c97f54a393003dbd14e118ab3f274518",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030798389007344232
+    },
+    {
+      "source_id": "icralm:s0003",
+      "paper_id": "icralm",
+      "title": "In-Context Retrieval-Augmented Language Models",
+      "section": "1 Introduction",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "RALM systems include two high level components: (i) document selection, selecting the set of documents upon which to condition; and (ii) document reading, determining how to incorporate the selected documents into the LM generation process. Leading RALM systems introduced recently Retriever Language Model Figure 2: An example of In-Context RALM: we simply prepend the retrieved document before the input prefix. tend to be focused on altering the language model architecture (Khandelwal et al., 2020; Borgeaud et al., 2022; Zhong et al., 2022; Levine et al., 2022c; Li et al., 2022). Notably, Borgeaud et al. (2022) introduced RETRO, featuring document reading via nontrivial modifications that require further training to the LM architecture, while using an off-theshelf frozen BERT retriever for document selection. Although the paper’s experimental findings showed impressive performance gains, the need for changes in architecture and dedicated retraining has hindered the wide adoption of such models. In this paper, we show that a very simple document reading mechanism can have a large impact, and that substantial gains can also be made by adapting the document selection mechanism to the task of language modeling. Thus, we show that many of the benefits of RALM can be achieved while working with off-the-shelf LMs, even via API access. Specifically, we consider a simple but powerful RALM framework, dubbed In-Context RALM (presented in Section 3), which employs a zero-effort document reading mechanism: we simply prepend the selected documents to the LM’s input text (Figure 2). Section 4 describes our experimental setup.",
+      "url": "https://arxiv.org/abs/2302.00083v3",
+      "pdf_file": "pdfs/icralm.pdf",
+      "sha256": "92f8aaad658caff829f70e46afac29d5c97f54a393003dbd14e118ab3f274518",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.028991596638655463
+    },
+    {
+      "source_id": "icralm:s0020",
+      "paper_id": "icralm",
+      "title": "In-Context Retrieval-Augmented Language Models",
+      "section": "5.2 Frequent Retrieval Improves Language",
+      "page_start": 7,
+      "page_end": 7,
+      "text": "Modeling We investigated the effect of varying the retrieval stride s (i.e., the number of tokens between consecutive retrieval operations). Figure 5 shows that LM performance improved as the retrieval operation became more frequent. This supports the intuition that retrieved documents become more relevant the closer the retrieval query becomes to the generated tokens. Of course, each retrieval operation imposes a runtime cost. To balance performance and runtime, we used s = 4 in our experiments. For comparison, RETRO employed a retrieval frequency of s = 64 (Borgeaud et al., 2022), which leads to large degradation in perplexity. Intuitively, retrieving with high frequency (low retrieval stride) allows to ground the LM in higher resolution. 5.3 A Contextualization vs. Recency Tradeoff in Query Length We also investigated the effect of varying l, the length of the retrieval query for BM25. Figure 6 reveals an interesting tradeoff and a sweet spot around a query length of 32 tokens. Similar experiments for dense retrievers are given in App. A. We conjecture that when the retriever query is too short, it does not include enough of the input context, decreasing the retrieved document’s relevance. Conversely, excessively growing the retriever query deemphasizes the tokens at the very end of the prefix, diluting the query’s relevance to the LM task.",
+      "url": "https://arxiv.org/abs/2302.00083v3",
+      "pdf_file": "pdfs/icralm.pdf",
+      "sha256": "92f8aaad658caff829f70e46afac29d5c97f54a393003dbd14e118ab3f274518",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02819138376017471
+    },
+    {
+      "source_id": "icralm:s0030",
+      "paper_id": "icralm",
+      "title": "In-Context Retrieval-Augmented Language Models",
+      "section": "Results",
+      "page_start": 11,
+      "page_end": 11,
+      "text": "Table 4 gives the results of In-Context RALM on the test set of Natural Questions and TriviaQA. Motivated by our previous findings, we used two retrieved documents. It is evident that showing the model relevant documents significantly boosted its performance. For example, adding retrieved documents improved LLaMA- 13B in the zero-shot setting by more than 18 points on NQ (from 12.0% to 31.0%) and more than 5 points on TriviaQA (from 54.8% to 60.1%).",
+      "url": "https://arxiv.org/abs/2302.00083v3",
+      "pdf_file": "pdfs/icralm.pdf",
+      "sha256": "92f8aaad658caff829f70e46afac29d5c97f54a393003dbd14e118ab3f274518",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02782608695652174
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "what is retrieval stride",
+      "paper_ids": [
+        "icralm"
+      ],
+      "facet": "condition",
+      "covered": true,
+      "claim_ids": [
+        "icralm.stride"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    },
+    {
+      "part_id": "part2",
+      "question_part": "what changes when the system retrieves more frequently",
+      "paper_ids": [
+        "icralm"
+      ],
+      "facet": "condition",
+      "covered": true,
+      "claim_ids": [
+        "icralm.stride"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.009212959004798904,
+  "evaluation_question_id": "F05"
+}

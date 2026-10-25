@@ -1,7 +1,7 @@
 # Workbench selection repair: executed verification
 
 **Version:** 1.1-clause-selection-repair  
-**Scope:** Correction of the defects exposed by the submitted 15-question challenge. This is development/regression evidence, not independent accuracy or a grade prediction.
+**Scope:** Correction of the defects exposed by the submitted 15-question challenge. This is development/regression evidence, not independent accuracy.
 
 ## Changes
 
@@ -43,10 +43,10 @@ The three expanded summaries are supported by the unchanged pinned papers: REPLU
 
 ## Boundaries
 
-This correction was run locally on the default deterministic source-claim composer. The optional MLX selector was tested only through mock contract checks, not live Apple model inference. The frontend was not changed or newly browser-tested. HTTP integration tests ran. Execution on the user's Mac is still to be confirmed by the generated review bundle.
+This correction was run locally on the default deterministic source-claim composer. The optional MLX selector was tested only through mock contract checks, not live Apple model inference. The frontend was not changed or newly browser-tested. HTTP integration tests ran. The subsequent supplied-run verification is recorded in `repaired67_verification.md`.
 
-The 67 questions are now known development/regression material. No independent test score, human correctness score, stakeholder benefit or full-mark readiness is inferred from the output-category counts. Existing human scorecards remain blank.
+The 67 questions are now known development/regression material. No independent test score, human correctness score, stakeholder benefit is inferred from the output-category counts. Existing human scorecards remain blank.
 
-## Installation
+## Relationship to this distribution
 
-Stop the running Workbench with Control+C. Save and extract `WIL_Workbench_Selection_Repair.zip` in Downloads, then run `APPLY_AND_TEST.command` from that kit. The updater verifies an isolated copy, backs up changed files, applies the repair and runs the batch. Old results, human reviews and pilot observations remain in place. A new `repair_regression67_*.zip` is created in the existing Workbench's `results` folder and revealed in Finder.
+The current application already includes this selection repair. The historical installer is not needed to run this repository. The original repaired batch is preserved in `repaired67_original.zip` and in the application evidence directory. Earlier test counts in this record describe the repair-stage checks, not a new execution during documentation packaging.

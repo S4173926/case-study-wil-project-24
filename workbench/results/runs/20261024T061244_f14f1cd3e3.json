@@ -1,0 +1,174 @@
+{
+  "run_id": "20261024T061244_f14f1cd3e3",
+  "created_utc": "2026-10-24T06:12:44.396824+00:00",
+  "question": "How many kilowatt-hours of electricity were required to train the final SPLADE ranking model?",
+  "mode": "explain",
+  "status": "insufficient",
+  "plan": {
+    "named_papers": [
+      "splade"
+    ],
+    "facets": [
+      "training"
+    ],
+    "explicit_facets": true,
+    "measures": [
+      "electricity"
+    ],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "how many kilowatt-hours of electricity were required to train the final ranking model",
+        "facets": [
+          "training"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [],
+  "comparison": [],
+  "citations": [],
+  "missing": [
+    "No source-linked claim establishes the requested measurement: electricity."
+  ],
+  "warnings": [],
+  "first_stage": [
+    "splade:s0007",
+    "splade:s0018",
+    "splade:s0006",
+    "splade:s0000",
+    "splade:s0014",
+    "splade:s0003",
+    "splade:s0001",
+    "splade:s0010"
+  ],
+  "retrieved": [
+    {
+      "source_id": "splade:s0007",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "3 SPARSE LEXICAL REPRESENTATIONS FOR",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "FIRST-STAGE RANKING In this section, we first describe in details the SparTerm model [1], before presenting our model named SPLADE.",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03252247488101534
+    },
+    {
+      "source_id": "splade:s0018",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "5 CONCLUSION",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "Recently, dense retrieval based on BERT has demonstrated its superiority for first-stage retrieval, questioning the competitiveness of traditional sparse models. In this work, we have proposed SPLADE, a sparse model revisiting query/document expansion. Our approach relies on in-batch negatives, logarithmic activation and FLOPS regularization to learn effective and efficient sparse representations. SPLADE is an appealing candidate for initial retrieval: it rivals the latest state-of-the-art dense retrieval models, its training procedure is straightforward, its sparsity/FLOPS can be controlled explicitly through the regularization, and it can operate on inverted indexes. In reason of its simplicity, SPLADE is a solid basis for further improvements in this line of research.",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.032266458495966696
+    },
+    {
+      "source_id": "splade:s0006",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "2 RELATED WORKS",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "Furthermore, the latter does not include (like SNRM) an explicit sparsity regularization, which hinders its performance. Our SPLADE model relies on such regularization, as well as other key changes, that boost both the efficiency and the effectiveness of this type of models.",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.0315136476426799
+    },
+    {
+      "source_id": "splade:s0000",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "Front matter",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking Thibault Formal Naver Labs Europe Meylan, France Sorbonne Université, LIP6 Paris, France thibault.formal@naverlabs.com Benjamin Piwowarski Sorbonne Université, CNRS, LIP6 Paris, France benjamin.piwowarski@lip6.fr",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030798389007344232
+    },
+    {
+      "source_id": "splade:s0014",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "4 EXPERIMENTAL SETTING AND RESULTS",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "Overall, we observe that: (1) our models outperform the other sparse retrieval methods by a large margin (except for recall@1000 on TREC DL); (2) the results are competitive with state-of-the-art dense retrieval methods. More specifically, our training method for ST lexical-only already outperforms the results of DeepCT as well as the results reported in the original SparTerm paper – including the model using expansion. Thanks to the additional sparse expansion mechanism, we are able to obtain results on par with state-of-the-art dense approaches on MS MARCO dev set (e.g. Recall@1000 close to 0.96 for ST exp-l1), but with a much bigger average number of FLOPS. By adding a log-saturation effect to the expansion model, SPLADE greatly increases sparsity – reducing the FLOPS to similar levels than BOW approaches – at no cost on performance when compared to the best first-stage rankers.",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03007688828584351
+    },
+    {
+      "source_id": "splade:s0003",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "1 INTRODUCTION",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Thus, there have been attempts to substitute standard BOW approaches by learned (neural) rankers. Designing such models poses several challenges regarding efficiency and scalability: therefore there is a need for methods where most of the computation can be done offline and online inference is fast. Dense retrieval with approximate nearest neighbors search has shown impressive results [8, 15, 26], but is still combined with BOW models because of its inability to explicitly model term matching. Hence, there has recently been a growing interest in learning sparse representations for queries and documents [1, 4, 19, 28, 29]. By doing so, models can inherit from the desirable properties of BOW models like exact-match of (possibly latent) terms, efficiency of inverted indexes and interpretability. Additionally, by modeling implicit or explicit (latent, contextualized) expansion mechanisms – similarly to standard expansion models in IR – these models can reduce the vocabulary mismatch. The contributions of this paper are threefold: (1) we build upon SparTerm [1], and show that a mild tuning of hyperparameters brings improvements that largely outperform the results reported in the original paper; (2) we propose the SParse Lexical AnD Expansion (SPLADE) model, based on a logarithmic activation and sparse regularization. SPLADE performs an efficient document expansion [1, 16], with competitive results with respect to complex training pipelines for dense models like ANCE [26]; (3) finally, we show how the sparsity regularization can be controlled to influence the trade-off between efficiency (in terms of the number of floating-point operations) and effectiveness.",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.028985507246376812
+    },
+    {
+      "source_id": "splade:s0001",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "ABSTRACT",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "In neural Information Retrieval, ongoing research is directed towards improving the first retriever in ranking pipelines. Learning dense embeddings to conduct retrieval using efficient approximate nearest neighbors methods has proven to work well. Meanwhile, there has been a growing interest in learning sparse representations for documents and queries, that could inherit from the desirable properties of bag-of-words models such as the exact matching of terms and the efficiency of inverted indexes. In this work, we present a new first-stage ranker based on explicit sparsity regularization and a log-saturation effect on term weights, leading to highly sparse representations and competitive results with respect to state-ofthe-art dense and sparse methods. Our approach is simple, trained end-to-end in a single stage. We also explore the trade-off between effectiveness and efficiency, by controlling the contribution of the sparsity regularization. KEYWORDS neural networks, indexing, sparse representations, regularization ACM Reference Format: Thibault Formal, Benjamin Piwowarski, and Stéphane Clinchant. 2021. SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking. In Proceedings of ACM Conference (Conference’17). ACM, New York, NY, USA, 5 pages. https://doi.org/10.1145/nnnnnnn.nnnnnnn",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.027777777777777776
+    },
+    {
+      "source_id": "splade:s0010",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "3.2 SPLADE: SParse Lexical AnD Expansion",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "model In the following, we propose slight, but essential changes to the SparTerm model that dramatically improve its performance. Model. We introduce a minor change in the importance estimation from Eq. 2, by introducing a log-saturation effect which prevents some terms to dominate and naturally ensures sparsity in representations: wj= ∑︁ i∈t log \u00001 + ReLU(wij)\u0001 (4) While it is intuitive that using a log-saturation prevents some terms from dominating – drawing a parallel with axiomatic approaches in IR and log(tf) models [9] – the implied sparsity can seem surprising at first, but, according to our experiments, it obtains better experimental results and allows already to obtain sparse solutions without any regularization. Ranking loss. Given a query qiin a batch, a positive document d+ i, a (hard) negative document d− i(e.g. coming from BM25 sampling), and a set of negative documents in the batch (positive documents from other queries) {d− i,j}j, we consider the ranking loss from [8], which can be interpreted as the maximization of the probability of the document d+ ibeing relevant among the documents d+ i,d− iand {d− i,j}: Lrank−IBN= −log es(qi,d+ i) es(qi,d+ i) + es(qi,d− i) + Í jes(qi,d− i,j) (5) The in-batch negatives (IBN) sampling strategy is widely used for training image retrieval models, and has shown to be effective in learning first-stage rankers [8, 12, 15]. Learning sparse representations. The idea of learning sparse representations for first-stage retrieval dates back to SNRM [28], via l1 regularization. Later, [20] pointed-out that minimizing the l1 norm of representations does not result in the most efficient index, as nothing ensures that posting lists are evenly distributed.",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.027526395173453996
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "elapsed_seconds": 0.0056345000048168,
+  "evaluation_question_id": "H10"
+}

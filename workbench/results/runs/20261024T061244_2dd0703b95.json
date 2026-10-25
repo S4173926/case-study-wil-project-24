@@ -1,0 +1,231 @@
+{
+  "run_id": "20261024T061244_2dd0703b95",
+  "created_utc": "2026-10-24T06:12:44.191261+00:00",
+  "question": "How many datasets does the BEIR benchmark include?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "beir"
+    ],
+    "facets": [
+      "evaluation"
+    ],
+    "explicit_facets": true,
+    "measures": [
+      "dataset_count"
+    ],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "how many datasets does the benchmark include",
+        "facets": [
+          "evaluation"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "beir.purpose",
+      "paper_id": "beir",
+      "text": "BEIR is a heterogeneous benchmark for zero-shot information retrieval, not a judge of generated answers. The original benchmark includes 18 publicly available datasets across diverse retrieval tasks and domains, so it tests transfer beyond a narrow training distribution.",
+      "facets": [
+        "evaluation",
+        "purpose"
+      ],
+      "source_ids": [
+        "beir:s0001",
+        "beir:s0008"
+      ]
+    }
+  ],
+  "comparison": [],
+  "citations": [
+    {
+      "source_id": "beir:s0001",
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Existing neural information retrieval (IR) models have often been studied in homogeneous and narrow settings, which has considerably limited insights into their out-of-distribution (OOD) generalization capabilities. To address this, and to facilitate researchers to broadly evaluate the effectiveness of their models, we introduce Benchmarking-IR (BEIR), a robust and heterogeneous evaluation benchmark for information retrieval. We leverage a careful selection of 18 publicly available datasets from diverse text retrieval tasks and domains and evaluate 10 state-of-theart retrieval systems including lexical, sparse, dense, late-interaction and re-ranking architectures on the BEIR benchmark. Our results show BM25 is a robust baseline and re-ranking and late-interaction based models on average achieve the best zeroshot performances, however, at high computational costs. In contrast, dense and sparse-retrieval models are computationally more efficient but often underperform other approaches, highlighting the considerable room for improvement in their generalization capabilities. We hope this framework allows us to better evaluate and understand existing retrieval systems, and contributes to accelerating progress towards better robust and generalizable systems in the future. BEIR is publicly available at https://github.com/UKPLab/beir.",
+      "url": "https://arxiv.org/abs/2104.08663v4",
+      "pdf_file": "pdfs/beir.pdf",
+      "sha256": "1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "beir:s0008",
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "section": "3 The BEIR Benchmark",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "BEIR aims to provide a one-stop zero-shot evaluation benchmark for all diverse retrieval tasks. To construct a comprehensive evaluation benchmark, the selection methodology is crucial to collect tasks and datasets with desired properties. For BEIR, the methodology is motivated by the following three factors: (i) Diverse tasks: Information retrieval is a versatile task and the lengths of queries and indexed documents can differ between tasks. Sometimes, queries are short, like a keyword, while in other cases, they can be long like a news article. Similarly, indexed documents can sometimes be long, and for other tasks, short like a tweet. (ii) Diverse domains: Retrieval systems should be evaluated in various types of domains. From broad ones like News or Wikipedia, to highly specialized ones such as scientific publications in one particular field. Hence, we include domains which provide a representation of real-world problems and are diverse ranging from generic to specialized. (iii) Task difficulties: Our benchmark is challenging and the difficulty of a task included has to be sufficient. If a task is easily solved by any algorithm, it will not be useful to compare various models used for evaluation. We evaluated several tasks based on existing literature and selected popular tasks which we believe are recently developed, challenging and are not yet fully solved with existing approaches. (iv) Diverse annotation strategies: Creating retrieval datasets are inherently complex and are subject to annotation biases (see Section 6 for details), which hinders a fair comparison of approaches.",
+      "url": "https://arxiv.org/abs/2104.08663v4",
+      "pdf_file": "pdfs/beir.pdf",
+      "sha256": "1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "beir:s0009",
+    "beir:s0018",
+    "beir:s0033",
+    "beir:s0030",
+    "beir:s0011",
+    "beir:s0028",
+    "beir:s0003",
+    "beir:s0029"
+  ],
+  "retrieved": [
+    {
+      "source_id": "beir:s0009",
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "section": "3 The BEIR Benchmark",
+      "page_start": 3,
+      "page_end": 4,
+      "text": "(iv) Diverse annotation strategies: Creating retrieval datasets are inherently complex and are subject to annotation biases (see Section 6 for details), which hinders a fair comparison of approaches. To reduce the impact of such biases, we selected datasets which have been created in many different ways: Some where annotated by crowd-workers, others by experts, and others are based on the feedback from large online communities. In total, we include 18 English zero-shot evaluation datasets from 9 heterogeneous retrieval tasks. As the majority of the evaluated approaches are trained on the MS MARCO [45] dataset, we also report performances on this dataset, but don’t include the outcome in our zero-shot comparison. We would like to refer the reader to Appendix D where we motivate each one of the 9 retrieval tasks and 18 Split (→) Train Dev Test Avg. Word Lengths Task (↓) Domain (↓) Dataset (↓) Title Relevancy #Pairs #Query #Query #Corpus Avg. D / Q Query Document Passage-Retrieval Misc.",
+      "url": "https://arxiv.org/abs/2104.08663v4",
+      "pdf_file": "pdfs/beir.pdf",
+      "sha256": "1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.032266458495966696
+    },
+    {
+      "source_id": "beir:s0018",
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "section": "5 Results and Analysis",
+      "page_start": 6,
+      "page_end": 6,
+      "text": "In this section, we evaluate and analyze how retrieval models perform on the BEIR benchmark. Table 2 reports the results of all evaluated systems on the selected benchmark datasets. As a baseline, we compare our retrieval systems against BM25. Figure 3 shows, on how many datasets a respective model is able to perform better or worse than BM25. 1. In-domain performance is not a good indicator for out-of-domain generalization. We observe BM25 heavily underperforms neural approaches by 7-18 points on in-domain MS MARCO. However, BEIR reveals it to be a strong baseline for generalization and generally outperforming many other, more complex approaches. This stresses the point, that retrieval methods must be evaluated on a broad range of datasets. 2. Term-weighting fails, document expansion captures out-of-domain keyword vocabulary. DeepCT and SPARTA both use a transformer network to learn term weighting.",
+      "url": "https://arxiv.org/abs/2104.08663v4",
+      "pdf_file": "pdfs/beir.pdf",
+      "sha256": "1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03200204813108039
+    },
+    {
+      "source_id": "beir:s0033",
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "section": "D Zero-shot Evaluation Tasks",
+      "page_start": 17,
+      "page_end": 18,
+      "text": "Following the selection criteria mentioned in Section 3, we include 18 evaluation datasets that span across 9 heterogeneous tasks. Each dataset mentioned below contains a document corpus denoted by T and test queries for evaluation denoted by Q. We additionally provide dataset website links in Table 5 and intuitive examples in Table 8. We now describe each task and dataset included in the BEIR benchmark below:",
+      "url": "https://arxiv.org/abs/2104.08663v4",
+      "pdf_file": "pdfs/beir.pdf",
+      "sha256": "1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03177805800756621
+    },
+    {
+      "source_id": "beir:s0030",
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "section": "B Limitations of the BEIR Benchmark",
+      "page_start": 17,
+      "page_end": 17,
+      "text": "Even though we cover a wide range of tasks and domains in BEIR, no benchmark is perfect and has its limitations. Making those explicit is a critical point in understanding the results on the benchmark and, for future work, to improve up-on the benchmark. 1. Multilingual Tasks: Although we aim for a diverse retrieval evaluation benchmark, due to the limited availability of multilingual retrieval datasets, all datasets covered in the BEIR benchmark are currently English. It is worthwhile to add more multilingual datasets [2, 77] (in consideration of the selection criteria) as a next step for the benchmark. Future work could include multi- and cross-lingual tasks and models. 2. Long Document Retrieval: Most of our tasks have average document lengths up-to a few hundred words roughly equivalent to a few paragraphs. Including tasks that require the retrieval of longer documents would be highly relevant. However, as transformer-based approaches often have a length limit of 512 word pieces, a fundamental different setup would be required to compare approaches. 3. Multi-factor Search: Until now, we focused on pure textual search in BEIR. In many real-world applications, further signals are used to estimate the relevancy of documents, such as PageRank [49], recency [16], authority score [33] or user-interactions such as click-through rates [51]. The integration of such signals in the tested approaches is often not straight-forward and is an interesting direction for research. 4. Multi-field Retrieval: Retrieval can often be performed over multiple fields. For example, for scientific publication we have the title, the abstract, the document body, the authors list, and the journal name. So far we focused only on datasets that have one or two fields. 5.",
+      "url": "https://arxiv.org/abs/2104.08663v4",
+      "pdf_file": "pdfs/beir.pdf",
+      "sha256": "1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031054405392392875
+    },
+    {
+      "source_id": "beir:s0011",
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "section": "3 The BEIR Benchmark",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "Avg. D/Q indicates the average relevant documents per query. datasets in depth. Examples for each dataset are listed in Table 8. We additionally provide dataset licenses in Appendix E, and links to the datasets in Table 5. Table 1 summarizes the statistics of the datasets provided in BEIR. A majority of datasets contain binary relevancy judgements, i.e. relevant or non-relevant, and a few contain fine-grained relevancy judgements. Some datasets contain few relevant documents for a query (< 2), while other datasets like TREC-COVID [65] can contain up to even 500 relevant documents for a query. Only 8 out of 19 datasets (including MS MARCO) have training data denoting the practical importance for zero-shot retrieval benchmarking. All datasets except ArguAna [67] have short queries (either a single sentence or 2-3 keywords). Figure 1 shows an overview of the tasks and datasets in the BEIR benchmark. Information Retrieval (IR) is ubiquitous, there are lots of datasets available within each task and further even more tasks with retrieval. However, it is not feasible to include all datasets within the benchmark for evaluation. We tried to cover a balanced mixture of a wide range of tasks and datasets and paid importance not to overweight a specific task like question-answering. Future datasets can easily be integrated in BEIR, and existing models can be evaluated on any new dataset quickly. The BEIR website will host an actively maintained leaderboard2 with all datasets and models.",
+      "url": "https://arxiv.org/abs/2104.08663v4",
+      "pdf_file": "pdfs/beir.pdf",
+      "sha256": "1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030776515151515152
+    },
+    {
+      "source_id": "beir:s0028",
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "section": "7 Conclusions and Future Work",
+      "page_start": 9,
+      "page_end": 9,
+      "text": "In this work, we presented BEIR: a heterogeneous benchmark for information retrieval. We provided a broader selection of target tasks ranging from narrow expert domains to open domain datasets. We included nine different retrieval tasks spanning 18 diverse datasets. By open-sourcing BEIR, with a standardized data format and easy-to-adapt code examples for many different retrieval strategies, we take an important steps towards a unified benchmark to evaluate the zero-shot capabilities of retrieval systems. It hopefully steers innovation towards more robust retrieval systems and to new insights which retrieval architectures perform well across tasks and domains. We studied the effectiveness of ten different retrieval models and demonstrate, that in-domain performance cannot predict how well an approach will generalize in a zero-shot setup. Many approaches that outperform BM25 on an in-domain evaluation, perform poorly on the BEIR datasets. Cross-attentional re-ranking, late-interaction ColBERT, and the document expansion technique docT5query performed overall well across the evaluated tasks. Our study on annotation selection bias highlights the challenge of evaluating new models on existing datasets: Even though TREC-COVID is based on the predictions from many systems, contributed by a diverse set of teams, we found largely different Hole@10 rates for the tested systems, negatively affecting non-lexical approaches. Better datasets, that use diverse pooling strategies, are needed for a fair evaluation of retrieval approaches. By integrate a large number of diverse retrieval systems into BEIR, creating such diverse pools becomes significantly simplified.",
+      "url": "https://arxiv.org/abs/2104.08663v4",
+      "pdf_file": "pdfs/beir.pdf",
+      "sha256": "1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030776515151515152
+    },
+    {
+      "source_id": "beir:s0003",
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "section": "1 Introduction",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "Wiki SciFact News Retrieval Argument Retrieval TREC-NEWS Tóuche-2020 Question-Answering Bio-Medical IR NQ TREC-COVID Wiki HotpotQA BioASQ Wiki FiQA-2018 NFCorpus Finance News Tweet Retrieval Misc. Citation-Prediction SCIDOCS ArguAna Robust04 News Misc. Entity Retrieval Signal-1M DBPedia Twitter Wiki Figure 1: An overview of the diverse tasks and datasets in BEIR benchmark. So far, it is unclear how well existing trained neural models will perform for other text domains or textual retrieval tasks. Even more important, it is unclear how well different approaches, like sparse embeddings vs. dense embeddings, generalize to out-of-distribution data. In this work, we present a novel robust and heterogeneous benchmark called BEIR (Benchmarking IR), comprising of 18 retrieval datasets for comparison and evaluation of model generalization. Prior retrieval benchmarks [19, 50] have issues of a comparatively narrow evaluation focusing either only on a single task, like question-answering, or on a certain domain. In BEIR, we focus on Diversity, we include nine different retrieval tasks: Fact checking, citation prediction, duplicate question retrieval, argument retrieval, news retrieval, question answering, tweet retrieval, bio-medical IR, and entity retrieval. Further, we include datasets from diverse text domains, datasets that cover broad topics (like Wikipedia) and specialized topics (like COVID-19 publications), different text types (news articles vs. Tweets), datasets of various sizes (3.6k - 15M documents), and datasets with different query lengths (average query length between 3 and 192 words) and document lengths (average document length between 11 and 635 words). We use BEIR to evaluate ten diverse retrieval methods from five broad architectures: lexical, sparse, dense, late interaction, and re-ranking. From our analysis, we find that no single approach consistently outperforms other approaches on all datasets.",
+      "url": "https://arxiv.org/abs/2104.08663v4",
+      "pdf_file": "pdfs/beir.pdf",
+      "sha256": "1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02862400327131466
+    },
+    {
+      "source_id": "beir:s0029",
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "section": "A Complementing Information",
+      "page_start": 17,
+      "page_end": 17,
+      "text": "We provide the following additional sections in detail and information that complement discussions in the main paper: • Limitations of the BEIR benchmark in Appendix B. • Training and in-domain evaluation task details in Appendix C. • Description of all zero-shot tasks and datasets used in BEIR in Appendix D. • Details of dataset licenses in Appendix E. • Overview of the weighted jaccard similarity metric in Appendix F. • Overview of the capped recall at k metric in Appendix G. • Length preference for dense retrieval system in Appendix H.",
+      "url": "https://arxiv.org/abs/2104.08663v4",
+      "pdf_file": "pdfs/beir.pdf",
+      "sha256": "1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.028205128205128206
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "how many datasets does the benchmark include",
+      "paper_ids": [
+        "beir"
+      ],
+      "facet": "evaluation",
+      "covered": true,
+      "claim_ids": [
+        "beir.purpose"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.006132917013019323,
+  "evaluation_question_id": "n08"
+}

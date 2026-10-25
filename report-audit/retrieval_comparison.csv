@@ -1,0 +1,7 @@
+method,routing,k,n,at_least_one_labelled_quote,labelled_evidence_every_expected_paper,all_labelled_quotes
+bm25,False,5,42,25,20,18
+bm25,True,5,42,31,24,22
+tfidf,False,5,42,22,19,18
+tfidf,True,5,42,27,22,20
+hybrid,False,5,42,26,21,20
+hybrid,True,5,42,30,23,21

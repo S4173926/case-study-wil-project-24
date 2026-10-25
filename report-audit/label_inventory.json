@@ -1,0 +1,600 @@
+[
+  {
+    "qid": "q01",
+    "paper": "dpr",
+    "quote": "Our best model uses gold passages from the same mini-batch and one BM25 negative passage",
+    "matches": [
+      "dpr:s0011"
+    ]
+  },
+  {
+    "qid": "q01",
+    "paper": "dpr",
+    "quote": "one additional BM25 negative passage per question",
+    "matches": [
+      "dpr:s0016"
+    ]
+  },
+  {
+    "qid": "q02",
+    "paper": "colbert",
+    "quote": "a summation of maximum similarity (MaxSim) operators",
+    "matches": [
+      "colbert:s0012"
+    ]
+  },
+  {
+    "qid": "q02",
+    "paper": "colbert",
+    "quote": "we find the maximum cosine similarity of each",
+    "matches": [
+      "colbert:s0012"
+    ]
+  },
+  {
+    "qid": "q03",
+    "paper": "rag",
+    "quote": "RAG-Sequence, the model uses the same document to predict each target token",
+    "matches": [
+      "rag:s0005"
+    ]
+  },
+  {
+    "qid": "q03",
+    "paper": "rag",
+    "quote": "The RAG-Sequence model uses the same retrieved document to generate the complete sequence",
+    "matches": [
+      "rag:s0006"
+    ]
+  },
+  {
+    "qid": "q04",
+    "paper": "rag",
+    "quote": "the non-parametric memory is a dense vector index of Wikipedia",
+    "matches": [
+      "rag:s0001",
+      "rag:s0002",
+      "rag:s0003"
+    ]
+  },
+  {
+    "qid": "q05",
+    "paper": "fid",
+    "quote": "processed independently from other passages by the encoder",
+    "matches": [
+      "fid:s0007"
+    ]
+  },
+  {
+    "qid": "q05",
+    "paper": "fid",
+    "quote": "By processing passages independently in the encoder, but jointly in the decoder",
+    "matches": [
+      "fid:s0007"
+    ]
+  },
+  {
+    "qid": "q06",
+    "paper": "realm",
+    "quote": "using masked language modeling as the learning signal",
+    "matches": [
+      "realm:s0001"
+    ]
+  },
+  {
+    "qid": "q07",
+    "paper": "ragas",
+    "quote": "Faithfulness refers to the idea that the answer should be grounded in the given context",
+    "matches": [
+      "ragas:s0008"
+    ]
+  },
+  {
+    "qid": "q07",
+    "paper": "ragas",
+    "quote": "Answer Relevance refers to the idea that the generated answer should address the actual question",
+    "matches": [
+      "ragas:s0008"
+    ]
+  },
+  {
+    "qid": "q08",
+    "paper": "selfrag",
+    "quote": "generates and reflects on retrieved passages and its own generations using special tokens, called reflection tokens",
+    "matches": [
+      "selfrag:s0001"
+    ]
+  },
+  {
+    "qid": "q08",
+    "paper": "selfrag",
+    "quote": "Four types of reflection tokens used in SELF-RAG",
+    "matches": [
+      "selfrag:s0008"
+    ]
+  },
+  {
+    "qid": "q09",
+    "paper": "walert",
+    "quote": "Two different approaches were used to implement the prototype of our application: Intent-Based (IB) and RAG",
+    "matches": [
+      "walert:s0005"
+    ]
+  },
+  {
+    "qid": "q10",
+    "paper": "walert",
+    "quote": "Okapi BM25 [17] with default parameters",
+    "matches": [
+      "walert:s0011"
+    ]
+  },
+  {
+    "qid": "q10",
+    "paper": "walert",
+    "quote": "dense retrieval using Dense Passage Retrieval (DPR)",
+    "matches": [
+      "walert:s0011"
+    ]
+  },
+  {
+    "qid": "q11",
+    "paper": "walert",
+    "quote": "IB performs substantially better than RAG approaches, being able to identify 80% of the unanswerable questions",
+    "matches": [
+      "walert:s0013",
+      "walert:s0014"
+    ]
+  },
+  {
+    "qid": "q12",
+    "paper": "realm",
+    "quote": "asynchronously re-embedding and re-indexing all documents every several hundred training steps",
+    "matches": [
+      "realm:s0012"
+    ]
+  },
+  {
+    "qid": "q13",
+    "paper": "ragas",
+    "quote": "without having to rely on ground truth human annotations",
+    "matches": [
+      "ragas:s0001"
+    ]
+  },
+  {
+    "qid": "q14",
+    "paper": "dpr",
+    "quote": "retrieval can be practically implemented using dense representations alone",
+    "matches": [
+      "dpr:s0001"
+    ]
+  },
+  {
+    "qid": "q14",
+    "paper": "colbert",
+    "quote": "late interaction architecture that independently encodes the query and the document using BERT",
+    "matches": [
+      "colbert:s0001"
+    ]
+  },
+  {
+    "qid": "q15",
+    "paper": "rag",
+    "quote": "The retrieval component p(z|x) is based on DPR",
+    "matches": []
+  },
+  {
+    "qid": "q15",
+    "paper": "rag",
+    "quote": "The retriever (Dense Passage Retriever [26], henceforth DPR)",
+    "matches": [
+      "rag:s0003"
+    ]
+  },
+  {
+    "qid": "q15",
+    "paper": "fid",
+    "quote": "we consider two methods: BM25 (Robertson et al., 1995) and DPR",
+    "matches": [
+      "fid:s0006"
+    ]
+  },
+  {
+    "qid": "q16",
+    "paper": "ragas",
+    "quote": "Faithfulness refers to the idea that the answer should be grounded in the given context",
+    "matches": [
+      "ragas:s0008"
+    ]
+  },
+  {
+    "qid": "q16",
+    "paper": "selfrag",
+    "quote": "All of the verification-worthy statement in y is supported by d",
+    "matches": [
+      "selfrag:s0008"
+    ]
+  },
+  {
+    "qid": "q17",
+    "paper": "realm",
+    "quote": "how to pretrain such a knowledge retriever in an unsupervised manner",
+    "matches": [
+      "realm:s0001"
+    ]
+  },
+  {
+    "qid": "q17",
+    "paper": "rag",
+    "quote": "The retriever (Dense Passage Retriever [26], henceforth DPR)",
+    "matches": [
+      "rag:s0003"
+    ]
+  },
+  {
+    "qid": "q18",
+    "paper": "ragsurvey",
+    "quote": "HyDE [11] construct hypothetical documents (assumed answers to the original query)",
+    "matches": [
+      "ragsurvey:s0022"
+    ]
+  },
+  {
+    "qid": "n01",
+    "paper": "retro",
+    "quote": "With a 2 trillion token database",
+    "matches": [
+      "retro:s0000"
+    ]
+  },
+  {
+    "qid": "n02",
+    "paper": "contriever",
+    "quote": "cropping works better than the inverse Cloze task",
+    "matches": [
+      "contriever:s0004"
+    ]
+  },
+  {
+    "qid": "n03",
+    "paper": "colbertv2",
+    "quote": "residual compression mechanism",
+    "matches": [
+      "colbertv2:s0001",
+      "colbertv2:s0003",
+      "colbertv2:s0038"
+    ]
+  },
+  {
+    "qid": "n04",
+    "paper": "lostmiddle",
+    "quote": "performance is often highest when relevant information occurs at the beginning or end of the input context",
+    "matches": [
+      "lostmiddle:s0001"
+    ]
+  },
+  {
+    "qid": "n05",
+    "paper": "flare",
+    "quote": "to regenerate the sentence if it contains low-confidence tokens",
+    "matches": [
+      "flare:s0001"
+    ]
+  },
+  {
+    "qid": "n06",
+    "paper": "crag",
+    "quote": "a lightweight retrieval evaluator is designed to assess the overall quality of retrieved documents for a query",
+    "matches": [
+      "crag:s0001",
+      "crag:s0003"
+    ]
+  },
+  {
+    "qid": "n07",
+    "paper": "replug",
+    "quote": "REPLUG simply prepends retrieved documents to the input for the frozen black-box LM",
+    "matches": [
+      "replug:s0001"
+    ]
+  },
+  {
+    "qid": "n08",
+    "paper": "beir",
+    "quote": "18 publicly available datasets",
+    "matches": [
+      "beir:s0001"
+    ]
+  },
+  {
+    "qid": "n09",
+    "paper": "ance",
+    "quote": "selects hard training negatives globally from the entire corpus, using an asynchronously updated ANN index",
+    "matches": [
+      "ance:s0001"
+    ]
+  },
+  {
+    "qid": "n10",
+    "paper": "atlas",
+    "quote": "Atlas reaches over 42% accuracy on Natural Questions using only 64 examples",
+    "matches": [
+      "atlas:s0001"
+    ]
+  },
+  {
+    "qid": "n11",
+    "paper": "retro",
+    "quote": "With a 2 trillion token database",
+    "matches": [
+      "retro:s0000"
+    ]
+  },
+  {
+    "qid": "n12",
+    "paper": "flare",
+    "quote": "masks out low-confidence tokens",
+    "matches": [
+      "flare:s0016"
+    ]
+  },
+  {
+    "qid": "c01",
+    "paper": "ragas",
+    "quote": "without having to rely on ground truth human annotations",
+    "matches": [
+      "ragas:s0001"
+    ]
+  },
+  {
+    "qid": "c01",
+    "paper": "ares",
+    "quote": "ARES finetunes lightweight LM judges",
+    "matches": [
+      "ares:s0001"
+    ]
+  },
+  {
+    "qid": "c02",
+    "paper": "colbert",
+    "quote": "late interaction architecture that independently encodes the query and the document using BERT",
+    "matches": [
+      "colbert:s0001"
+    ]
+  },
+  {
+    "qid": "c02",
+    "paper": "colbertv2",
+    "quote": "residual compression mechanism",
+    "matches": [
+      "colbertv2:s0001",
+      "colbertv2:s0003",
+      "colbertv2:s0038"
+    ]
+  },
+  {
+    "qid": "c03",
+    "paper": "selfrag",
+    "quote": "Four types of reflection tokens used in SELF-RAG",
+    "matches": [
+      "selfrag:s0008"
+    ]
+  },
+  {
+    "qid": "c03",
+    "paper": "crag",
+    "quote": "a lightweight retrieval evaluator is designed to assess the overall quality of retrieved documents for a query",
+    "matches": [
+      "crag:s0001",
+      "crag:s0003"
+    ]
+  },
+  {
+    "qid": "H01",
+    "paper": "orqa",
+    "quote": "only question-answer string pairs are observed during training",
+    "matches": [
+      "orqa:s0004"
+    ]
+  },
+  {
+    "qid": "H01",
+    "paper": "orqa",
+    "quote": "pre-train the retriever with an Inverse Cloze Task",
+    "matches": [
+      "orqa:s0001"
+    ]
+  },
+  {
+    "qid": "H02",
+    "paper": "recomp",
+    "quote": "If the retrieved documents are irrelevant to the input or offer no additional information to LM",
+    "matches": [
+      "recomp:s0001"
+    ]
+  },
+  {
+    "qid": "H02",
+    "paper": "recomp",
+    "quote": "our compressor can return an empty string",
+    "matches": [
+      "recomp:s0001"
+    ]
+  },
+  {
+    "qid": "H03",
+    "paper": "monot5",
+    "quote": "The model is fine-tuned to produce the words \u201ctrue\u201d or \u201cfalse\u201d",
+    "matches": [
+      "monot5:s0004"
+    ]
+  },
+  {
+    "qid": "H03",
+    "paper": "monot5",
+    "quote": "underlying logits of these target words can be interpreted as relevance probabilities",
+    "matches": [
+      "monot5:s0001"
+    ]
+  },
+  {
+    "qid": "H04",
+    "paper": "queryrewrite",
+    "quote": "The black-box retriever and the reader form a frozen system",
+    "matches": [
+      "queryrewrite:s0004"
+    ]
+  },
+  {
+    "qid": "H04",
+    "paper": "queryrewrite",
+    "quote": "The rewriter is trained by reinforcement learning using the LLM performance as a reward",
+    "matches": [
+      "queryrewrite:s0004"
+    ]
+  },
+  {
+    "qid": "H05",
+    "paper": "splade",
+    "quote": "sparse representations for documents and queries",
+    "matches": [
+      "splade:s0001"
+    ]
+  },
+  {
+    "qid": "H05",
+    "paper": "splade",
+    "quote": "explicit sparsity regularization and a log-saturation effect on term weights",
+    "matches": [
+      "splade:s0001"
+    ]
+  },
+  {
+    "qid": "H05",
+    "paper": "contriever",
+    "quote": "contrastive learning as a way to train unsupervised dense retrievers",
+    "matches": [
+      "contriever:s0001"
+    ]
+  },
+  {
+    "qid": "H06",
+    "paper": "monobert",
+    "quote": "use the [CLS] vector as input to a single layer neural network",
+    "matches": [
+      "monobert:s0003"
+    ]
+  },
+  {
+    "qid": "H06",
+    "paper": "monobert",
+    "quote": "probability of the passage being relevant",
+    "matches": [
+      "monobert:s0003"
+    ]
+  },
+  {
+    "qid": "H06",
+    "paper": "monot5",
+    "quote": "The model is fine-tuned to produce the words \u201ctrue\u201d or \u201cfalse\u201d",
+    "matches": [
+      "monot5:s0004"
+    ]
+  },
+  {
+    "qid": "H06",
+    "paper": "monot5",
+    "quote": "underlying logits of these target words can be interpreted as relevance probabilities",
+    "matches": [
+      "monot5:s0001"
+    ]
+  },
+  {
+    "qid": "H07",
+    "paper": "recomp",
+    "quote": "compressing the retrieved documents into textual summaries prior to in-context integration",
+    "matches": [
+      "recomp:s0001"
+    ]
+  },
+  {
+    "qid": "H07",
+    "paper": "recomp",
+    "quote": "our compressor can return an empty string",
+    "matches": [
+      "recomp:s0001"
+    ]
+  },
+  {
+    "qid": "H07",
+    "paper": "fid",
+    "quote": "processing passages independently in the encoder, but jointly in the decoder",
+    "matches": [
+      "fid:s0007"
+    ]
+  },
+  {
+    "qid": "H08",
+    "paper": "queryrewrite",
+    "quote": "we first prompt an LLM to generate the query",
+    "matches": [
+      "queryrewrite:s0001"
+    ]
+  },
+  {
+    "qid": "H08",
+    "paper": "queryrewrite",
+    "quote": "The rewriter is trained by reinforcement learning using the LLM performance as a reward",
+    "matches": [
+      "queryrewrite:s0004"
+    ]
+  },
+  {
+    "qid": "H08",
+    "paper": "dsp",
+    "quote": "intermediate \u201chop\u201d queries to find useful information",
+    "matches": [
+      "dsp:s0007"
+    ]
+  },
+  {
+    "qid": "H09",
+    "paper": "beir",
+    "quote": "18 publicly available datasets from diverse text retrieval tasks and domains",
+    "matches": [
+      "beir:s0001"
+    ]
+  },
+  {
+    "qid": "H09",
+    "paper": "ares",
+    "quote": "context relevance, answer faithfulness, and answer relevance",
+    "matches": [
+      "ares:s0001",
+      "ares:s0003",
+      "ares:s0004",
+      "ares:s0011",
+      "ares:s0012",
+      "ares:s0013",
+      "ares:s0027"
+    ]
+  },
+  {
+    "qid": "H09",
+    "paper": "ares",
+    "quote": "ARES finetunes lightweight LM judges",
+    "matches": [
+      "ares:s0001"
+    ]
+  },
+  {
+    "qid": "H09",
+    "paper": "ares",
+    "quote": "prediction-powered inference (PPI)",
+    "matches": [
+      "ares:s0001",
+      "ares:s0007"
+    ]
+  }
+]

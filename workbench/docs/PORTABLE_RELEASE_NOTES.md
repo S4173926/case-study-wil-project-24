@@ -6,12 +6,12 @@ One executable Python archive; automatic local extraction and conservative recor
 
 ## Evaluation implications
 
-This release is a usability and packaging intervention. It does not establish a factual-accuracy improvement. Existing questions are development/regression material. The 30-paper scope is a deliberate study boundary, not an Apple hardware limit. The course brief recommends manageable knowledge bases and requires measured effectiveness and stakeholder value; adding documents or internal grading webpages does not by itself establish either.
+This release changes usability and packaging, not the default answering architecture. The recorded questions are development/regression material. The 30-paper collection is a fixed research scope. Software checks and increased feature availability do not establish measured participant benefit.
 
-## Course alignment
+## Workflow rationale
 
-The supplied written-report brief's Aim calls for quantitative effectiveness and a manageable scope; its report sections require motivation, methodology, findings, impact and authentic project-management evidence. The Week 2 responsible-agent material recommends logged inputs/outputs and versioning, rather than endless prompt changes. The supplied Data Storytelling material prioritises a coherent core workflow over enumerating features. This release retains logs and source records, removes internal clutter and groups research and evaluation workflows. These are design connections, not an assessor's endorsement.
+The interface separates question answering, source inspection, saved-answer review and task evaluation. Logs, original source records and version identities support reproducibility. The packaging changes address navigation, responsive layout and local startup without changing factual catalogue entries.
 
 ## Remaining limits
 
-The default answers use a fixed source-linked statement catalogue, not fresh general-purpose synthesis. The already-known HyDE case remains partial. No live arbitrary-document ingestion or general web search is claimed. No independent accuracy, user time saving, arbitrary OS certification, or 25/25 grade is claimed.
+The default answers use a fixed source-linked statement catalogue, not fresh general-purpose synthesis. The already-known HyDE case remains partial. No live arbitrary-document ingestion or general web search is claimed. Independent answer accuracy, user time savings and native execution on every operating system are outside the recorded verification scope.

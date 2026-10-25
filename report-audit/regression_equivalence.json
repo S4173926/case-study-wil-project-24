@@ -1,0 +1,764 @@
+{
+  "n": 67,
+  "matched": 67,
+  "status_counts": {
+    "source_linked_explanation": 52,
+    "partial": 1,
+    "insufficient": 14
+  },
+  "by_type": {
+    "comparison": {
+      "source_linked_explanation": 16
+    },
+    "single": {
+      "source_linked_explanation": 34,
+      "partial": 1
+    },
+    "unnamed": {
+      "source_linked_explanation": 2
+    },
+    "unsupported": {
+      "insufficient": 14
+    }
+  },
+  "rows": [
+    {
+      "id": "q01",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 2,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "dpr"
+      ]
+    },
+    {
+      "id": "q02",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 1,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "colbert"
+      ]
+    },
+    {
+      "id": "q03",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 2,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "rag"
+      ]
+    },
+    {
+      "id": "q04",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 1,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "rag"
+      ]
+    },
+    {
+      "id": "q05",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 1,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "fid"
+      ]
+    },
+    {
+      "id": "q06",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 1,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "realm"
+      ]
+    },
+    {
+      "id": "q07",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 1,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "ragas"
+      ]
+    },
+    {
+      "id": "q08",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 1,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "selfrag"
+      ]
+    },
+    {
+      "id": "q09",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 1,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "walert"
+      ]
+    },
+    {
+      "id": "q10",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 1,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "walert"
+      ]
+    },
+    {
+      "id": "q11",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 1,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "walert"
+      ]
+    },
+    {
+      "id": "q12",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 3,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "realm"
+      ]
+    },
+    {
+      "id": "q13",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 2,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "ragas"
+      ]
+    },
+    {
+      "id": "q14",
+      "type": "comparison",
+      "status": "source_linked_explanation",
+      "claims": 2,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "dpr",
+        "colbert"
+      ]
+    },
+    {
+      "id": "q15",
+      "type": "comparison",
+      "status": "source_linked_explanation",
+      "claims": 2,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "rag",
+        "fid"
+      ]
+    },
+    {
+      "id": "q16",
+      "type": "comparison",
+      "status": "source_linked_explanation",
+      "claims": 2,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "ragas",
+        "selfrag"
+      ]
+    },
+    {
+      "id": "q17",
+      "type": "comparison",
+      "status": "source_linked_explanation",
+      "claims": 3,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "realm",
+        "rag"
+      ]
+    },
+    {
+      "id": "q18",
+      "type": "single",
+      "status": "partial",
+      "claims": 1,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "ragsurvey"
+      ]
+    },
+    {
+      "id": "u02",
+      "type": "unsupported",
+      "status": "insufficient",
+      "claims": 0,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "colbert"
+      ]
+    },
+    {
+      "id": "u03",
+      "type": "unsupported",
+      "status": "insufficient",
+      "claims": 0,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": []
+    },
+    {
+      "id": "u04",
+      "type": "unsupported",
+      "status": "insufficient",
+      "claims": 0,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": []
+    },
+    {
+      "id": "u05",
+      "type": "unsupported",
+      "status": "insufficient",
+      "claims": 0,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": []
+    },
+    {
+      "id": "u06",
+      "type": "unsupported",
+      "status": "insufficient",
+      "claims": 0,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "walert"
+      ]
+    },
+    {
+      "id": "u07",
+      "type": "unsupported",
+      "status": "insufficient",
+      "claims": 0,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "ragas"
+      ]
+    },
+    {
+      "id": "n01",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 1,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "retro"
+      ]
+    },
+    {
+      "id": "n02",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 1,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "contriever"
+      ]
+    },
+    {
+      "id": "n03",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 1,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "colbertv2"
+      ]
+    },
+    {
+      "id": "n04",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 1,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "lostmiddle"
+      ]
+    },
+    {
+      "id": "n05",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 1,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "flare"
+      ]
+    },
+    {
+      "id": "n06",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 1,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "crag"
+      ]
+    },
+    {
+      "id": "n07",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 1,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "replug"
+      ]
+    },
+    {
+      "id": "n08",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 1,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "beir"
+      ]
+    },
+    {
+      "id": "n09",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 2,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "ance"
+      ]
+    },
+    {
+      "id": "n10",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 1,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "atlas"
+      ]
+    },
+    {
+      "id": "n11",
+      "type": "unnamed",
+      "status": "source_linked_explanation",
+      "claims": 1,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": []
+    },
+    {
+      "id": "n12",
+      "type": "unnamed",
+      "status": "source_linked_explanation",
+      "claims": 2,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": []
+    },
+    {
+      "id": "c01",
+      "type": "comparison",
+      "status": "source_linked_explanation",
+      "claims": 6,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "ragas",
+        "ares"
+      ]
+    },
+    {
+      "id": "c02",
+      "type": "comparison",
+      "status": "source_linked_explanation",
+      "claims": 4,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "colbertv2",
+        "colbert"
+      ]
+    },
+    {
+      "id": "c03",
+      "type": "comparison",
+      "status": "source_linked_explanation",
+      "claims": 2,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "selfrag",
+        "crag"
+      ]
+    },
+    {
+      "id": "u08",
+      "type": "unsupported",
+      "status": "insufficient",
+      "claims": 0,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": []
+    },
+    {
+      "id": "H01",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 3,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "orqa"
+      ]
+    },
+    {
+      "id": "H02",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 2,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "recomp"
+      ]
+    },
+    {
+      "id": "H03",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 1,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "monot5"
+      ]
+    },
+    {
+      "id": "H04",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 2,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "queryrewrite"
+      ]
+    },
+    {
+      "id": "H05",
+      "type": "comparison",
+      "status": "source_linked_explanation",
+      "claims": 4,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "splade",
+        "contriever"
+      ]
+    },
+    {
+      "id": "H06",
+      "type": "comparison",
+      "status": "source_linked_explanation",
+      "claims": 2,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "monobert",
+        "monot5"
+      ]
+    },
+    {
+      "id": "H07",
+      "type": "comparison",
+      "status": "source_linked_explanation",
+      "claims": 2,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "recomp",
+        "fid"
+      ]
+    },
+    {
+      "id": "H08",
+      "type": "comparison",
+      "status": "source_linked_explanation",
+      "claims": 2,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "queryrewrite",
+        "dsp"
+      ]
+    },
+    {
+      "id": "H09",
+      "type": "comparison",
+      "status": "source_linked_explanation",
+      "claims": 6,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "beir",
+        "ares"
+      ]
+    },
+    {
+      "id": "H10",
+      "type": "unsupported",
+      "status": "insufficient",
+      "claims": 0,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "splade"
+      ]
+    },
+    {
+      "id": "H11",
+      "type": "unsupported",
+      "status": "insufficient",
+      "claims": 0,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "recomp"
+      ]
+    },
+    {
+      "id": "H12",
+      "type": "unsupported",
+      "status": "insufficient",
+      "claims": 0,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "splade",
+        "contriever"
+      ]
+    },
+    {
+      "id": "F01",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 2,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "fid"
+      ]
+    },
+    {
+      "id": "F02",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 1,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "gtr"
+      ]
+    },
+    {
+      "id": "F03",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 1,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "splade"
+      ]
+    },
+    {
+      "id": "F04",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 1,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "replug"
+      ]
+    },
+    {
+      "id": "F05",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 1,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "icralm"
+      ]
+    },
+    {
+      "id": "F06",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 3,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "ragas"
+      ]
+    },
+    {
+      "id": "F07",
+      "type": "single",
+      "status": "source_linked_explanation",
+      "claims": 2,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "atlas"
+      ]
+    },
+    {
+      "id": "F08",
+      "type": "comparison",
+      "status": "source_linked_explanation",
+      "claims": 4,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "recomp",
+        "crag"
+      ]
+    },
+    {
+      "id": "F09",
+      "type": "comparison",
+      "status": "source_linked_explanation",
+      "claims": 2,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "retro",
+        "icralm"
+      ]
+    },
+    {
+      "id": "F10",
+      "type": "comparison",
+      "status": "source_linked_explanation",
+      "claims": 2,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "beir",
+        "colbertv2"
+      ]
+    },
+    {
+      "id": "F11",
+      "type": "comparison",
+      "status": "source_linked_explanation",
+      "claims": 3,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "replug",
+        "fid"
+      ]
+    },
+    {
+      "id": "F12",
+      "type": "unsupported",
+      "status": "insufficient",
+      "claims": 0,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": []
+    },
+    {
+      "id": "F13",
+      "type": "unsupported",
+      "status": "insufficient",
+      "claims": 0,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "recomp"
+      ]
+    },
+    {
+      "id": "F14",
+      "type": "unsupported",
+      "status": "insufficient",
+      "claims": 0,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": [
+        "colbertv2"
+      ]
+    },
+    {
+      "id": "F15",
+      "type": "unsupported",
+      "status": "insufficient",
+      "claims": 0,
+      "matches_saved_factual_fields": true,
+      "mismatched_fields": [],
+      "named_papers": []
+    }
+  ]
+}

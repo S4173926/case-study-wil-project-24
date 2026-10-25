@@ -1,0 +1,243 @@
+{
+  "run_id": "20261024T061244_e0b9d8637b",
+  "created_utc": "2026-10-24T06:12:44.198581+00:00",
+  "question": "How does ANCE select hard training negatives?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "ance"
+    ],
+    "facets": [
+      "training"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "how does select hard training negatives",
+        "facets": [
+          "training"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "ance.negatives",
+      "paper_id": "ance",
+      "text": "ANCE mines hard training negatives globally from the corpus using an approximate-nearest-neighbour (ANN) index. It is designed to avoid relying only on the easier negatives available in a local mini-batch.",
+      "facets": [
+        "training",
+        "supervision",
+        "purpose"
+      ],
+      "source_ids": [
+        "ance:s0001",
+        "ance:s0003"
+      ]
+    },
+    {
+      "claim_id": "ance.index",
+      "paper_id": "ance",
+      "text": "ANCE updates the ANN index asynchronously as training changes the dense representations. The mined negatives therefore track the evolving model more closely than a permanently fixed negative pool.",
+      "facets": [
+        "training",
+        "efficiency"
+      ],
+      "source_ids": [
+        "ance:s0001"
+      ]
+    }
+  ],
+  "comparison": [],
+  "citations": [
+    {
+      "source_id": "ance:s0001",
+      "paper_id": "ance",
+      "title": "Approximate Nearest Neighbor Negative Contrastive Learning for Dense Text Retrieval",
+      "section": "ABSTRACT",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Conducting text retrieval in a dense representation space has many intriguing advantages. Yet the end-to-end learned dense retrieval (DR) often underperforms word-based sparse retrieval. In this paper, we first theoretically show the learning bottleneck of dense retrieval is due to the domination of uninformative negatives sampled locally in batch, which yield diminishing gradient norms, large stochastic gradient variances, and slow learning convergence. We then propose Approximate nearest neighbor Negative Contrastive Learning (ANCE), a learning mechanism that selects hard training negatives globally from the entire corpus, using an asynchronously updated ANN index. Our experiments demonstrate the effectiveness of ANCE on web search, question answering, and in a commercial search environment, showing ANCE dot-product retrieval nearly matches the accuracy of BERT-based cascade IR pipeline, while being 100x more efficient.",
+      "url": "https://arxiv.org/abs/2007.00808v2",
+      "pdf_file": "pdfs/ance.pdf",
+      "sha256": "3ffc05cd484c56e33fc8806b17df9607043b336dd5c6c6ede83cd87955d23f1f",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "ance:s0003",
+      "paper_id": "ance",
+      "title": "Approximate Nearest Neighbor Negative Contrastive Learning for Dense Text Retrieval",
+      "section": "1 INTRODUCTION",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "As illustrated in Fig. 1, these global negatives are quite different from negatives retrieved by sparse models. Recent research explored various ways to construct negative training instances for dense retrieval (Huang et al., 2020; Karpukhin et al., 2020)., e.g., using contrastive learning (Faghri et al., 2017; Oord et al., 2018; He et al., 2019; Chen et al., 2020a) to select hard negatives in current or recent mini-batches. However, as observed in recent research (Karpukhin et al., 2020), the in-batch local negatives, though effective in learning word or visual representations, are not significantly better than spare-retrieved negatives in representation learning for dense retrieval. In addition, the accuracy of dense retrieval models often underperform BM25, especially on documents (Lee et al., 2019; Gao et al., 2020b; Luan et al., 2020). ∗Lee and Chenyan contributed equally. In this paper, we first theoretically analyze the convergence of dense retrieval training with negative sampling. Using the variance reduction framework (Alain et al., 2015; Katharopoulos & Fleuret, 2018), we show that, under conditions commonly met in dense retrieval, local in-batch negatives lead to diminishing gradient norms, resulted in high stochastic gradient variances and slow training convergence — the local negative sampling is the bottleneck of dense retrieval’s effectiveness. Query Relevant DR Neg BM25 Neg Rand Neg Based on our analysis, we propose Approximate nearest neighbor Negative Contrastive Estimation (ANCE), a new contrastive representation learning mechanism for dense retrieval. Instead of random or in-batch local negatives, ANCE constructs global negatives using the beingoptimized DR model to retrieve from the entire corpus. This fundamentally aligns the distribution of negative samples in training and of irrelevant documents to separate in testing.",
+      "url": "https://arxiv.org/abs/2007.00808v2",
+      "pdf_file": "pdfs/ance.pdf",
+      "sha256": "3ffc05cd484c56e33fc8806b17df9607043b336dd5c6c6ede83cd87955d23f1f",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "ance:s0001",
+    "ance:s0010",
+    "ance:s0003",
+    "ance:s0024",
+    "ance:s0004",
+    "ance:s0016",
+    "ance:s0009",
+    "ance:s0017"
+  ],
+  "retrieved": [
+    {
+      "source_id": "ance:s0001",
+      "paper_id": "ance",
+      "title": "Approximate Nearest Neighbor Negative Contrastive Learning for Dense Text Retrieval",
+      "section": "ABSTRACT",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Conducting text retrieval in a dense representation space has many intriguing advantages. Yet the end-to-end learned dense retrieval (DR) often underperforms word-based sparse retrieval. In this paper, we first theoretically show the learning bottleneck of dense retrieval is due to the domination of uninformative negatives sampled locally in batch, which yield diminishing gradient norms, large stochastic gradient variances, and slow learning convergence. We then propose Approximate nearest neighbor Negative Contrastive Learning (ANCE), a learning mechanism that selects hard training negatives globally from the entire corpus, using an asynchronously updated ANN index. Our experiments demonstrate the effectiveness of ANCE on web search, question answering, and in a commercial search environment, showing ANCE dot-product retrieval nearly matches the accuracy of BERT-based cascade IR pipeline, while being 100x more efficient.",
+      "url": "https://arxiv.org/abs/2007.00808v2",
+      "pdf_file": "pdfs/ance.pdf",
+      "sha256": "3ffc05cd484c56e33fc8806b17df9607043b336dd5c6c6ede83cd87955d23f1f",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03278688524590164
+    },
+    {
+      "source_id": "ance:s0010",
+      "paper_id": "ance",
+      "title": "Approximate Nearest Neighbor Negative Contrastive Learning for Dense Text Retrieval",
+      "section": "4 APPROXIMATE NEAREST NEIGHBOR NOISE CONTRASTIVE ESTIMATION",
+      "page_start": 4,
+      "page_end": 5,
+      "text": "Our analyses show the importance, if not necessity, to construct negatives globally from the corpus. In this section, we propose Approximate nearest neighbor Negative Contrastive Estimation, (ANCE), which selects negatives from the entire corpus using an asynchronously updated ANN index. ANCE samples negatives from the top retrieved documents via the DR model from the ANN index: θ∗= argminθ X X X q d−∈D− d+∈D+ l(f(q, d+), f(q, d−)), (13) with D− ANCE = ANNf(q,d) \\ D+ and ANNf(q,d) the top retrieved documents by f() from the ANN index. By definition, D− ANCE are the hardest negatives for the current DR model: D− ANCE ≈D−∗. In theory, these more informative negatives have higher training loss, higher upper bound on the gradient norms, and will improve training convergence. ANCE can be used to train any dense retrieval model. For simplicity, we use a simple set up in recent research (Luan et al., 2020) with BERT Siamese/Dual Encoder (shared between q and d), dot product similarity, and negative log likelihood (NLL) loss. Asynchronous Index Refresh: During stochastic training, the DR model f() is updated each minibatch. Maintaining an update-to-date ANN index to select fresh ANCE negatives is challenging, as the index update requires two operations: 1) Inference: refresh the representations of all documents in the corpus with an updated DR model; 2) Index: rebuild the ANN index using updated representations. Although Index is efficient (Johnson et al., 2019), Inference is too expensive to compute per batch as it requires a forward pass on the entire corpus which is much bigger than the training batch.",
+      "url": "https://arxiv.org/abs/2007.00808v2",
+      "pdf_file": "pdfs/ance.pdf",
+      "sha256": "3ffc05cd484c56e33fc8806b17df9607043b336dd5c6c6ede83cd87955d23f1f",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03225806451612903
+    },
+    {
+      "source_id": "ance:s0003",
+      "paper_id": "ance",
+      "title": "Approximate Nearest Neighbor Negative Contrastive Learning for Dense Text Retrieval",
+      "section": "1 INTRODUCTION",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "As illustrated in Fig. 1, these global negatives are quite different from negatives retrieved by sparse models. Recent research explored various ways to construct negative training instances for dense retrieval (Huang et al., 2020; Karpukhin et al., 2020)., e.g., using contrastive learning (Faghri et al., 2017; Oord et al., 2018; He et al., 2019; Chen et al., 2020a) to select hard negatives in current or recent mini-batches. However, as observed in recent research (Karpukhin et al., 2020), the in-batch local negatives, though effective in learning word or visual representations, are not significantly better than spare-retrieved negatives in representation learning for dense retrieval. In addition, the accuracy of dense retrieval models often underperform BM25, especially on documents (Lee et al., 2019; Gao et al., 2020b; Luan et al., 2020). ∗Lee and Chenyan contributed equally. In this paper, we first theoretically analyze the convergence of dense retrieval training with negative sampling. Using the variance reduction framework (Alain et al., 2015; Katharopoulos & Fleuret, 2018), we show that, under conditions commonly met in dense retrieval, local in-batch negatives lead to diminishing gradient norms, resulted in high stochastic gradient variances and slow training convergence — the local negative sampling is the bottleneck of dense retrieval’s effectiveness. Query Relevant DR Neg BM25 Neg Rand Neg Based on our analysis, we propose Approximate nearest neighbor Negative Contrastive Estimation (ANCE), a new contrastive representation learning mechanism for dense retrieval. Instead of random or in-batch local negatives, ANCE constructs global negatives using the beingoptimized DR model to retrieve from the entire corpus. This fundamentally aligns the distribution of negative samples in training and of irrelevant documents to separate in testing.",
+      "url": "https://arxiv.org/abs/2007.00808v2",
+      "pdf_file": "pdfs/ance.pdf",
+      "sha256": "3ffc05cd484c56e33fc8806b17df9607043b336dd5c6c6ede83cd87955d23f1f",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031009615384615385
+    },
+    {
+      "source_id": "ance:s0024",
+      "paper_id": "ance",
+      "title": "Approximate Nearest Neighbor Negative Contrastive Learning for Dense Text Retrieval",
+      "section": "8 CONCLUSION",
+      "page_start": 8,
+      "page_end": 8,
+      "text": "In this paper, we first provide theoretical analyses on the convergence of representation learning in dense retrieval. We show that under common conditions in text retrieval, the local negatives used in DR training are uninformative, yield low gradient norms, and contribute little to the learning convergence. We then propose ANCE to eliminate this bottleneck by constructing training negatives globally from the entire corpus. Our experiments demonstrate the advantage of ANCE in web search, OpenQA, and the production system of a commercial search engine. Our studies empirically validate our theory that ANCE negatives have much bigger gradient norms, reduce the stochastic gradient variance, and improve training convergence.",
+      "url": "https://arxiv.org/abs/2007.00808v2",
+      "pdf_file": "pdfs/ance.pdf",
+      "sha256": "3ffc05cd484c56e33fc8806b17df9607043b336dd5c6c6ede83cd87955d23f1f",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02964426877470356
+    },
+    {
+      "source_id": "ance:s0004",
+      "paper_id": "ance",
+      "title": "Approximate Nearest Neighbor Negative Contrastive Learning for Dense Text Retrieval",
+      "section": "1 INTRODUCTION",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "This fundamentally aligns the distribution of negative samples in training and of irrelevant documents to separate in testing. From the variance reduction point of view, these ANCE negatives lift the upper bound of per instance gradient norm, reduce the variance of the stochastic gradient estimation, and lead to faster learning convergence. Figure 1: T-SNE (Maaten & Hinton, 2008) representations of query, relevant documents, negative training instances from BM25 (BM25 Neg) or randomly sampled (Rand Neg), and testing negatives (DR Neg) in dense retrieval. We implement ANCE using an asynchronously updated ANN index of the corpus representation. Similar to Guu et al. (2020), we maintain an Inferencer that parallelly computes the document encodings with a recent checkpoint from the being optimized DR model, and refresh the ANN index used for negative sampling once it finishes, to keep up with the model training. Our experiments demonstrate the advantage of ANCE in three text retrieval scenarios: standard web search (Craswell et al., 2020), OpenQA (Rajpurkar et al., 2016; Kwiatkowski et al., 2019), and in a commercial search engine’s retrieval system. We also empirically validate our theory that the gradient norms on ANCE sampled negatives are much bigger than local negatives and thus improve the convergence of dense retrieval models. Our code and trained models are available at https://aka.ms/ance.",
+      "url": "https://arxiv.org/abs/2007.00808v2",
+      "pdf_file": "pdfs/ance.pdf",
+      "sha256": "3ffc05cd484c56e33fc8806b17df9607043b336dd5c6c6ede83cd87955d23f1f",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029411764705882353
+    },
+    {
+      "source_id": "ance:s0016",
+      "paper_id": "ance",
+      "title": "Approximate Nearest Neighbor Negative Contrastive Learning for Dense Text Retrieval",
+      "section": "6 EVALUATION RESULTS",
+      "page_start": 6,
+      "page_end": 6,
+      "text": "Corpus Size Dim Search Gain 250 Million KNN +18.4% 8 Billion 64 KNN +14.2% 8 Billion 64 ANN +15.5% In this section, we first evaluate the effectiveness and efficiency of ANCE. Then we empirically study the convergence of ANCE training following our theoretical analyses.",
+      "url": "https://arxiv.org/abs/2007.00808v2",
+      "pdf_file": "pdfs/ance.pdf",
+      "sha256": "3ffc05cd484c56e33fc8806b17df9607043b336dd5c6c6ede83cd87955d23f1f",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.028814262023217248
+    },
+    {
+      "source_id": "ance:s0009",
+      "paper_id": "ance",
+      "title": "Approximate Nearest Neighbor Negative Contrastive Learning for Dense Text Retrieval",
+      "section": "3 ANALYSES ON THE CONVERGENCE OF DENSE RETRIEVAL TRAINING",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "The Inferencer uses a recent checkpoint to update the representation of documents in the corpus and once finished, refreshes the ANN index with most up-to-date encodings. where L is the number of layers, ρ is composed by pre-activation weights and gradients in intermediate layers, and ||∇φLl(d+, d−)||2 is the gradient w.r.t. the last layer. Intuitively, the intermediate layers are more regulated by various normalization techniques; the main moving piece is ||∇φLl(d+, d−)||2 (Katharopoulos & Fleuret, 2018). For common learning to rank loss functions, for example, BCE loss and pairwise hinge loss, we can verified that (Katharopoulos & Fleuret, 2018): l(d+, d−) →0 ⇒||∇φLl(d+, d−)||2 →0 ⇒||∇θtl(d+, d−)||2 →0. (12) Intuitively, negative samples with near zero loss have near zero gradients and contribute little to model convergence. The convergence of dense retrieval model training relies on the informativeness of constructed negatives. Inefficacy of Local In-Batch Negatives: We argue that the in-batch local negatives are unlikely to provide informative samples due to two common properties of text retrieval. Let D−∗be the set of informative negatives that are hard to distinguish from D+, and b be the batch size, we have (1) b ≪|C|, the batch size is far smaller than the corpus size; (2) |D−∗| ≪|C|, that only a few negatives are informative and the majority of corpus is trivially unrelated. Both conditions are easy to verify empirically in dense retrieval benchmarks. The two together make the probability that a random mini-batch includes meaningful negatives p = b|D−∗| |C|2 close to zero. Selecting negatives from local training batches is unlikely to provide optimal training signals for dense retrieval.",
+      "url": "https://arxiv.org/abs/2007.00808v2",
+      "pdf_file": "pdfs/ance.pdf",
+      "sha256": "3ffc05cd484c56e33fc8806b17df9607043b336dd5c6c6ede83cd87955d23f1f",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.028665028665028666
+    },
+    {
+      "source_id": "ance:s0017",
+      "paper_id": "ance",
+      "title": "Approximate Nearest Neighbor Negative Contrastive Learning for Dense Text Retrieval",
+      "section": "6.1 EFFECTIVENESS AND EFFICIENCY",
+      "page_start": 6,
+      "page_end": 6,
+      "text": "The results on TREC 2019 DL benchmark are in Table 1. ANCE significantly outperforms all sparse retrieval, including DeepCT, which uses BERT to learn term weights (Dai et al., 2019). Among all different negative construction mechanisms, ANCE is the only one that elevates BERT-Siamese to robustly exceed the sparse methods in document retrieval. It also outperforms DPR in passage retrieval in OpenQA (Table 2). ANCE’s effectiveness is even more observed in real production (Table 3) with about 15% relative gains all around. Its better retrieval does indeed lead to better answer accuracy with the same readers used in RAG (Lewis et al., 2020b) and DPR (Table 4). Among all DR models, ANCE has the smallest gap between its retrieval and reranking accuracy, showing the importance of global negatives in training retrieval models. ANCE retrieval nearly matches the accuracy of the cascade IR with interaction-based BERT Reranker. This overthrows a previously-held belief that modeling term-level interactions is necessary in search (Xiong et al., 2017; Qiao et al., 2019). With ANCE, we can learn a representation space that effectively captures the finesse of search relevance. Table 5 measures the efficiency ANCE (FirstP) in TREC DL document retrieval. The online latency is on one query and 100 retrieved documents. DR with standard batching provides a 100x speed up compared to BERT Rerank, a natural benefit from the Siamese network and pre-computable document encoding. In ANCE training, the bulk of computing is to update the encodings of the training corpus using new checkpoints. Assuming the model used to sample negatives and to be learned is the same, this is inevitable but can be mitigated by asynchronous index refresh.",
+      "url": "https://arxiv.org/abs/2007.00808v2",
+      "pdf_file": "pdfs/ance.pdf",
+      "sha256": "3ffc05cd484c56e33fc8806b17df9607043b336dd5c6c6ede83cd87955d23f1f",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.028577260665441927
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "how does select hard training negatives",
+      "paper_ids": [
+        "ance"
+      ],
+      "facet": "training",
+      "covered": true,
+      "claim_ids": [
+        "ance.negatives",
+        "ance.index"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.006347499991534278,
+  "evaluation_question_id": "n09"
+}

@@ -1,0 +1,319 @@
+{
+  "run_id": "20261024T061244_a6ceb3143b",
+  "created_utc": "2026-10-24T06:12:44.530141+00:00",
+  "question": "What different evaluation goals are served by BEIR and the LoTTE benchmark introduced with ColBERTv2?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "beir",
+      "colbertv2"
+    ],
+    "facets": [
+      "evaluation"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": true,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "what different evaluation goals are served by and the lotte benchmark introduced with",
+        "facets": [
+          "evaluation"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "beir.purpose",
+      "paper_id": "beir",
+      "text": "BEIR is a heterogeneous benchmark for zero-shot information retrieval, not a judge of generated answers. The original benchmark includes 18 publicly available datasets across diverse retrieval tasks and domains, so it tests transfer beyond a narrow training distribution.",
+      "facets": [
+        "evaluation",
+        "purpose"
+      ],
+      "source_ids": [
+        "beir:s0001",
+        "beir:s0008"
+      ]
+    },
+    {
+      "claim_id": "colbertv2.evaluation",
+      "paper_id": "colbertv2",
+      "text": "ColBERTv2 evaluates both in-domain and out-of-domain retrieval, and introduces LoTTE for long-tail information-seeking topics. This explicitly tests transfer beyond the training collection.",
+      "facets": [
+        "evaluation"
+      ],
+      "source_ids": [
+        "colbertv2:s0004",
+        "colbertv2:s0001"
+      ]
+    }
+  ],
+  "comparison": [
+    {
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "claims": [
+        {
+          "claim_id": "beir.purpose",
+          "paper_id": "beir",
+          "text": "BEIR is a heterogeneous benchmark for zero-shot information retrieval, not a judge of generated answers. The original benchmark includes 18 publicly available datasets across diverse retrieval tasks and domains, so it tests transfer beyond a narrow training distribution.",
+          "facets": [
+            "evaluation",
+            "purpose"
+          ],
+          "source_ids": [
+            "beir:s0001",
+            "beir:s0008"
+          ]
+        }
+      ]
+    },
+    {
+      "paper_id": "colbertv2",
+      "title": "ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction",
+      "claims": [
+        {
+          "claim_id": "colbertv2.evaluation",
+          "paper_id": "colbertv2",
+          "text": "ColBERTv2 evaluates both in-domain and out-of-domain retrieval, and introduces LoTTE for long-tail information-seeking topics. This explicitly tests transfer beyond the training collection.",
+          "facets": [
+            "evaluation"
+          ],
+          "source_ids": [
+            "colbertv2:s0004",
+            "colbertv2:s0001"
+          ]
+        }
+      ]
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "beir:s0001",
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Existing neural information retrieval (IR) models have often been studied in homogeneous and narrow settings, which has considerably limited insights into their out-of-distribution (OOD) generalization capabilities. To address this, and to facilitate researchers to broadly evaluate the effectiveness of their models, we introduce Benchmarking-IR (BEIR), a robust and heterogeneous evaluation benchmark for information retrieval. We leverage a careful selection of 18 publicly available datasets from diverse text retrieval tasks and domains and evaluate 10 state-of-theart retrieval systems including lexical, sparse, dense, late-interaction and re-ranking architectures on the BEIR benchmark. Our results show BM25 is a robust baseline and re-ranking and late-interaction based models on average achieve the best zeroshot performances, however, at high computational costs. In contrast, dense and sparse-retrieval models are computationally more efficient but often underperform other approaches, highlighting the considerable room for improvement in their generalization capabilities. We hope this framework allows us to better evaluate and understand existing retrieval systems, and contributes to accelerating progress towards better robust and generalizable systems in the future. BEIR is publicly available at https://github.com/UKPLab/beir.",
+      "url": "https://arxiv.org/abs/2104.08663v4",
+      "pdf_file": "pdfs/beir.pdf",
+      "sha256": "1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "beir:s0008",
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "section": "3 The BEIR Benchmark",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "BEIR aims to provide a one-stop zero-shot evaluation benchmark for all diverse retrieval tasks. To construct a comprehensive evaluation benchmark, the selection methodology is crucial to collect tasks and datasets with desired properties. For BEIR, the methodology is motivated by the following three factors: (i) Diverse tasks: Information retrieval is a versatile task and the lengths of queries and indexed documents can differ between tasks. Sometimes, queries are short, like a keyword, while in other cases, they can be long like a news article. Similarly, indexed documents can sometimes be long, and for other tasks, short like a tweet. (ii) Diverse domains: Retrieval systems should be evaluated in various types of domains. From broad ones like News or Wikipedia, to highly specialized ones such as scientific publications in one particular field. Hence, we include domains which provide a representation of real-world problems and are diverse ranging from generic to specialized. (iii) Task difficulties: Our benchmark is challenging and the difficulty of a task included has to be sufficient. If a task is easily solved by any algorithm, it will not be useful to compare various models used for evaluation. We evaluated several tasks based on existing literature and selected popular tasks which we believe are recently developed, challenging and are not yet fully solved with existing approaches. (iv) Diverse annotation strategies: Creating retrieval datasets are inherently complex and are subject to annotation biases (see Section 6 for details), which hinders a fair comparison of approaches.",
+      "url": "https://arxiv.org/abs/2104.08663v4",
+      "pdf_file": "pdfs/beir.pdf",
+      "sha256": "1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "colbertv2:s0004",
+      "paper_id": "colbertv2",
+      "title": "ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction",
+      "section": "1 Introduction",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "In addition to in-domain quality, we seek a retriever that generalizes “zeroshot” to domain-specific corpora and long-tail topics, ones that are often under-represented in large public training sets. To this end, we evaluate Col- BERTv2 on a wide array of out-of-domain benchmarks. These include three Wikipedia Open-QA retrieval tests and 13 diverse retrieval and semanticsimilarity tasks from BEIR (Thakur et al., 2021). In addition, we introduce a new benchmark, dubbed LoTTE, for Long-Tail Topic-stratified Evaluation for IR that features 12 domain-specific search tests, spanning StackExchange communities and using queries from GooAQ (Khashabi et al., 2021). LoTTE focuses on relatively long-tail topics in its passages, unlike the Open-QA tests and many of the BEIR tasks, and evaluates models on their capacity to answer natural search queries with a practical intent, unlike many of BEIR’s semanticsimilarity tasks. On 22 of 28 out-of-domain tests, ColBERTv2 achieves the highest quality, outperforming the next best retriever by up to 8% relative gain, while using its compressed representations. This work makes the following contributions: 1. We propose ColBERTv2, a retriever that combines denoised supervision and residual compression, leveraging the token-level decomposition of late interaction to achieve high robustness with a reduced space footprint. 2. We introduce LoTTE, a new resource for outof-domain evaluation of retrievers. LoTTE focuses on natural information-seeking queries over long-tail topics, an important yet understudied application space. 3. We evaluate ColBERTv2 across a wide range of settings, establishing state-of-the-art quality within and outside the training domain.",
+      "url": "https://arxiv.org/abs/2112.01488v3",
+      "pdf_file": "pdfs/colbertv2.pdf",
+      "sha256": "46e0a2712eabf9e0b9486120356a2110f65516fa7e0d75c35e9ee3eef9ea78c0",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "colbertv2:s0001",
+      "paper_id": "colbertv2",
+      "title": "ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Neural information retrieval (IR) has greatly advanced search and other knowledgeintensive language tasks. While many neural IR methods encode queries and documents into single-vector representations, late interaction models produce multi-vector representations at the granularity of each token and decompose relevance modeling into scalable token-level computations. This decomposition has been shown to make late interaction more effective, but it inflates the space footprint of these models by an order of magnitude. In this work, we introduce ColBERTv2, a retriever that couples an aggressive residual compression mechanism with a denoised supervision strategy to simultaneously improve the quality and space footprint of late interaction. We evaluate ColBERTv2 across a wide range of benchmarks, establishing state-of-the-art quality within and outside the training domain while reducing the space footprint of late interaction models by 6–10×.",
+      "url": "https://arxiv.org/abs/2112.01488v3",
+      "pdf_file": "pdfs/colbertv2.pdf",
+      "sha256": "46e0a2712eabf9e0b9486120356a2110f65516fa7e0d75c35e9ee3eef9ea78c0",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "beir:s0031",
+    "colbertv2:s0004",
+    "beir:s0029",
+    "colbertv2:s0027",
+    "beir:s0033",
+    "colbertv2:s0048",
+    "beir:s0001",
+    "colbertv2:s0030"
+  ],
+  "retrieved": [
+    {
+      "source_id": "beir:s0031",
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "section": "B Limitations of the BEIR Benchmark",
+      "page_start": 17,
+      "page_end": 17,
+      "text": "5. Task-specific Models: In our benchmark, we focus on evaluating models that are able to generalize well for a broad range of retrieval tasks. Naturally in real-world, for some few tasks or domains, specialized models are available which can easily outperform generic models as they focus and perform well on a single task, lets say on question-answering. Such task-specific models do not necessarily need to generalize across all diverse tasks.",
+      "url": "https://arxiv.org/abs/2104.08663v4",
+      "pdf_file": "pdfs/beir.pdf",
+      "sha256": "1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02638888888888889
+    },
+    {
+      "source_id": "colbertv2:s0004",
+      "paper_id": "colbertv2",
+      "title": "ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction",
+      "section": "1 Introduction",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "In addition to in-domain quality, we seek a retriever that generalizes “zeroshot” to domain-specific corpora and long-tail topics, ones that are often under-represented in large public training sets. To this end, we evaluate Col- BERTv2 on a wide array of out-of-domain benchmarks. These include three Wikipedia Open-QA retrieval tests and 13 diverse retrieval and semanticsimilarity tasks from BEIR (Thakur et al., 2021). In addition, we introduce a new benchmark, dubbed LoTTE, for Long-Tail Topic-stratified Evaluation for IR that features 12 domain-specific search tests, spanning StackExchange communities and using queries from GooAQ (Khashabi et al., 2021). LoTTE focuses on relatively long-tail topics in its passages, unlike the Open-QA tests and many of the BEIR tasks, and evaluates models on their capacity to answer natural search queries with a practical intent, unlike many of BEIR’s semanticsimilarity tasks. On 22 of 28 out-of-domain tests, ColBERTv2 achieves the highest quality, outperforming the next best retriever by up to 8% relative gain, while using its compressed representations. This work makes the following contributions: 1. We propose ColBERTv2, a retriever that combines denoised supervision and residual compression, leveraging the token-level decomposition of late interaction to achieve high robustness with a reduced space footprint. 2. We introduce LoTTE, a new resource for outof-domain evaluation of retrievers. LoTTE focuses on natural information-seeking queries over long-tail topics, an important yet understudied application space. 3. We evaluate ColBERTv2 across a wide range of settings, establishing state-of-the-art quality within and outside the training domain.",
+      "url": "https://arxiv.org/abs/2112.01488v3",
+      "pdf_file": "pdfs/colbertv2.pdf",
+      "sha256": "46e0a2712eabf9e0b9486120356a2110f65516fa7e0d75c35e9ee3eef9ea78c0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03252247488101534
+    },
+    {
+      "source_id": "beir:s0029",
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "section": "A Complementing Information",
+      "page_start": 17,
+      "page_end": 17,
+      "text": "We provide the following additional sections in detail and information that complement discussions in the main paper: • Limitations of the BEIR benchmark in Appendix B. • Training and in-domain evaluation task details in Appendix C. • Description of all zero-shot tasks and datasets used in BEIR in Appendix D. • Details of dataset licenses in Appendix E. • Overview of the weighted jaccard similarity metric in Appendix F. • Overview of the capped recall at k metric in Appendix G. • Length preference for dense retrieval system in Appendix H.",
+      "url": "https://arxiv.org/abs/2104.08663v4",
+      "pdf_file": "pdfs/beir.pdf",
+      "sha256": "1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.025679012345679014
+    },
+    {
+      "source_id": "colbertv2:s0027",
+      "paper_id": "colbertv2",
+      "title": "ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction",
+      "section": "5.1 In-Domain Retrieval Quality",
+      "page_start": 8,
+      "page_end": 8,
+      "text": "Sub-table (a) reports results on BEIR and sub-table (b) reports results on the Wikipedia Open QA and the test sets of the LoTTE benchmark. On BEIR, we test ColBERTv2 and RocketQAv2 and copy the results for ANCE, TAS-B, and ColBERT from Thakur et al. (2021), for MoDIR and DPR- MSMARCO (DPR-M) from Xin et al. (2021), and for SPLADEv2 from Formal et al. (2021a).",
+      "url": "https://arxiv.org/abs/2112.01488v3",
+      "pdf_file": "pdfs/colbertv2.pdf",
+      "sha256": "46e0a2712eabf9e0b9486120356a2110f65516fa7e0d75c35e9ee3eef9ea78c0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03252247488101534
+    },
+    {
+      "source_id": "beir:s0033",
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "section": "D Zero-shot Evaluation Tasks",
+      "page_start": 17,
+      "page_end": 18,
+      "text": "Following the selection criteria mentioned in Section 3, we include 18 evaluation datasets that span across 9 heterogeneous tasks. Each dataset mentioned below contains a document corpus denoted by T and test queries for evaluation denoted by Q. We additionally provide dataset website links in Table 5 and intuitive examples in Table 8. We now describe each task and dataset included in the BEIR benchmark below:",
+      "url": "https://arxiv.org/abs/2104.08663v4",
+      "pdf_file": "pdfs/beir.pdf",
+      "sha256": "1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02546333601933924
+    },
+    {
+      "source_id": "colbertv2:s0048",
+      "paper_id": "colbertv2",
+      "title": "ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction",
+      "section": "F Implementation & Hyperparameters",
+      "page_start": 19,
+      "page_end": 19,
+      "text": "The latency results in §3 are averages of three runs. To evaluate for Open-QA retrieval, we use evaluation scripts from Khattab et al. (2021b), which checks if the short answer string appears in the (titled) Wikipedia passage. This adapts the DPR (Karpukhin et al., 2020) evaluation code.10 We use the preprocessed Wikipedia Dec 2018 dump released by Karpukhin et al. (2020). For out-of-domain evaluation, we elected to follow Thakur et al. (2021) and set the maximum document length of ColBERT, RocketQAv2, and ColBERTv2 to 300 tokens on BEIR and LoTTE. Formal et al. (2021a) selected maximum sequence length 256 for SPLADEv2 both on MS MARCO and on BEIR for both queries and documents, and we retained this default when testing their system on LoTTE. Unless otherwise stated, we keep the default query maximum sequence length for Col- BERTv2 and RocketQAv2, which is 32 tokens. For the ArguAna test in BEIR, as the queries are themselves long documents, we set the maximum query length used by ColBERTv2 and RocketQAv2 to 300. For Climate-FEVER, as the queries are relatively long sentence claims, we set the maximum query length used by ColBERTv2 to 64. We use the open source BEIR implementation11 and SPLADEv2 evaluation12 code as the basis for our evaluations of SPLADEv2 and ANCE as well as for BM25 on LoTTE. We use the Anserini (Yang et al., 2018a) toolkit for BM25 on the Wikipedia Open-QA retrieval tests as in Khattab et al. (2021b).",
+      "url": "https://arxiv.org/abs/2112.01488v3",
+      "pdf_file": "pdfs/colbertv2.pdf",
+      "sha256": "46e0a2712eabf9e0b9486120356a2110f65516fa7e0d75c35e9ee3eef9ea78c0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03149801587301587
+    },
+    {
+      "source_id": "beir:s0001",
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Existing neural information retrieval (IR) models have often been studied in homogeneous and narrow settings, which has considerably limited insights into their out-of-distribution (OOD) generalization capabilities. To address this, and to facilitate researchers to broadly evaluate the effectiveness of their models, we introduce Benchmarking-IR (BEIR), a robust and heterogeneous evaluation benchmark for information retrieval. We leverage a careful selection of 18 publicly available datasets from diverse text retrieval tasks and domains and evaluate 10 state-of-theart retrieval systems including lexical, sparse, dense, late-interaction and re-ranking architectures on the BEIR benchmark. Our results show BM25 is a robust baseline and re-ranking and late-interaction based models on average achieve the best zeroshot performances, however, at high computational costs. In contrast, dense and sparse-retrieval models are computationally more efficient but often underperform other approaches, highlighting the considerable room for improvement in their generalization capabilities. We hope this framework allows us to better evaluate and understand existing retrieval systems, and contributes to accelerating progress towards better robust and generalizable systems in the future. BEIR is publicly available at https://github.com/UKPLab/beir.",
+      "url": "https://arxiv.org/abs/2104.08663v4",
+      "pdf_file": "pdfs/beir.pdf",
+      "sha256": "1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02458521870286576
+    },
+    {
+      "source_id": "colbertv2:s0030",
+      "paper_id": "colbertv2",
+      "title": "ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction",
+      "section": "5.2 Out-of-Domain Retrieval Quality",
+      "page_start": 9,
+      "page_end": 9,
+      "text": "For the queries, we use the development set questions of the open-domain versions (Lee et al., 2019; Karpukhin et al., 2020) of Natural Questions (NQ; Kwiatkowski et al. 2019), TriviaQA (TQ; Joshi et al. 2017), and SQuAD (Rajpurkar et al., 2016) datasets in Table 5b. As a baseline, we include the BM25 (Robertson et al., 1995) results using the Anserini (Yang et al., 2018a) toolkit. We observe that ColBERTv2 outperforms BM25, vanilla ColBERT, and SPLADEv2 across the three query sets, with improvements of up to 4.6 points over SPLADEv2. LoTTE. Next, we analyze performance on the LoTTE test benchmark, which focuses on natural queries over long-tail topics and exhibits a different annotation pattern to the datasets in the previous OOD evaluations. In particular, LoTTE uses automatic Google rankings (for the “search” queries) and organic StackExchange question–answer pairs (for “forum” queries), complimenting the poolingbased annotation of datasets like TREC-COVID (in BEIR) and the answer overlap metrics of Open-QA retrieval. We report Success@5 for each corpus on both search queries and forum queries. Overall, we see that ANCE and vanilla Col- BERT outperform BM25 on all topics, and that the three methods using distillation are generally the strongest. Similar to the Wikipedia-OpenQA results, we find that ColBERTv2 outperforms the baselines across all topics for both query types, improving upon SPLADEv2 and RocketQAv2 by up to 3.7 and 8.1 points, respectively. Considering the baselines, we observe that while RocketQAv2 tends to have a slight advantage over SPLADEv2 on the “search” queries, SPLADEv2 is considerably more effective on the “forum” tests.",
+      "url": "https://arxiv.org/abs/2112.01488v3",
+      "pdf_file": "pdfs/colbertv2.pdf",
+      "sha256": "46e0a2712eabf9e0b9486120356a2110f65516fa7e0d75c35e9ee3eef9ea78c0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03076923076923077
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "what different evaluation goals are served by and the lotte benchmark introduced with",
+      "paper_ids": [
+        "beir"
+      ],
+      "facet": "evaluation",
+      "covered": true,
+      "claim_ids": [
+        "beir.purpose"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    },
+    {
+      "part_id": "part1",
+      "question_part": "what different evaluation goals are served by and the lotte benchmark introduced with",
+      "paper_ids": [
+        "colbertv2"
+      ],
+      "facet": "evaluation",
+      "covered": true,
+      "claim_ids": [
+        "colbertv2.evaluation"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.008201249991543591,
+  "evaluation_question_id": "F10"
+}

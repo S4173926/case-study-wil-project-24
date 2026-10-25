@@ -1,0 +1,291 @@
+{
+  "run_id": "20261024T061244_0cfea9d798",
+  "created_utc": "2026-10-24T06:12:44.348601+00:00",
+  "question": "How does monoBERT calculate a passage-relevance score compared with monoT5?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "monobert",
+      "monot5"
+    ],
+    "facets": [
+      "inference"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": true,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "how does calculate a passage-relevance score compared with",
+        "facets": [
+          "inference"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "monobert.relevance",
+      "paper_id": "monobert",
+      "text": "monoBERT treats passage reranking as binary relevance classification. It encodes the query and candidate passage together with BERT, feeds the [CLS] representation to a single-layer classifier, and ranks passages by the predicted probability of relevance.",
+      "facets": [
+        "representation",
+        "inference"
+      ],
+      "source_ids": [
+        "monobert:s0003"
+      ]
+    },
+    {
+      "claim_id": "monot5.relevance",
+      "paper_id": "monot5",
+      "text": "monoT5 formats the input as “Query: q Document: d Relevant:” and is fine-tuned to generate the relevance labels “true” or “false”. At ranking time it applies a softmax only to those two token logits, and uses the probability of “true” as the relevance score. It does not use the raw “true” logit alone or a softmax over the entire vocabulary.",
+      "facets": [
+        "representation",
+        "inference"
+      ],
+      "source_ids": [
+        "monot5:s0004"
+      ]
+    }
+  ],
+  "comparison": [
+    {
+      "paper_id": "monobert",
+      "title": "Passage Re-ranking with BERT",
+      "claims": [
+        {
+          "claim_id": "monobert.relevance",
+          "paper_id": "monobert",
+          "text": "monoBERT treats passage reranking as binary relevance classification. It encodes the query and candidate passage together with BERT, feeds the [CLS] representation to a single-layer classifier, and ranks passages by the predicted probability of relevance.",
+          "facets": [
+            "representation",
+            "inference"
+          ],
+          "source_ids": [
+            "monobert:s0003"
+          ]
+        }
+      ]
+    },
+    {
+      "paper_id": "monot5",
+      "title": "Document Ranking with a Pretrained Sequence-to-Sequence Model",
+      "claims": [
+        {
+          "claim_id": "monot5.relevance",
+          "paper_id": "monot5",
+          "text": "monoT5 formats the input as “Query: q Document: d Relevant:” and is fine-tuned to generate the relevance labels “true” or “false”. At ranking time it applies a softmax only to those two token logits, and uses the probability of “true” as the relevance score. It does not use the raw “true” logit alone or a softmax over the entire vocabulary.",
+          "facets": [
+            "representation",
+            "inference"
+          ],
+          "source_ids": [
+            "monot5:s0004"
+          ]
+        }
+      ]
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "monobert:s0003",
+      "paper_id": "monobert",
+      "title": "Passage Re-ranking with BERT",
+      "section": "2 PASSAGE RE-RANKING WITH BERT",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "Task A simple question-answering pipeline consists of three main stages. First, a large number (for example, a thousand) of possibly relevant documents to a given question are retrieved from a corpus by a standard mechanism, such as BM25. In the second stage, passage re-ranking, each of these documents is scored and re-ranked by a more computationally-intensive method. Finally, the top ten or fifty of these documents will be the source for the candidate answers by an answer generation module. In this paper, we describe how we implemented the second stage of this pipeline, passage re-ranking. Method The job of the re-ranker is to estimate a score si of how relevant a candidate passage di is to a query q. We use BERT as our re-ranker. Using the same notation used by Devlin et al. (2018), we feed the query as sentence A and the passage text as sentence B. We truncate the query to have at most 64 tokens. We also truncate the passage text such that the concatenation of query, passage, and separator tokens have the maximum length of 512 tokens. We use a BERTLARGE model as a binary classification model, that is, we use the [CLS] vector as input to a single layer neural network to obtain the probability of the passage being relevant. We compute this probability for each passage independently and obtain the final list of passages by ranking them with respect to these probabilities.",
+      "url": "https://arxiv.org/abs/1901.04085v5",
+      "pdf_file": "pdfs/monobert.pdf",
+      "sha256": "b3f05b72d6d24b00761fb0a7363b6e7a10dac22b7f0abfaf4f5025bea7f8e22e",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "monot5:s0004",
+      "paper_id": "monot5",
+      "title": "Document Ranking with a Pretrained Sequence-to-Sequence Model",
+      "section": "2 Method",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "Our reranking method is based on T5 [14], which is a sequence-to-sequencemodel that uses a similar masked language modeling objective as BERT to pretrain its encoder–decoder architecture. In this model, all target tasks are cast as sequence-to-sequence tasks. For our task, the input sequence is: Query: q Document: d Relevant: (1) where q and d are the query and document texts, respectively. The model is fine-tuned to produce the words “true” or “false” depending on whether the document is relevant or not to the query. That is, “true” and “false” are the “target words” (i.e., ground truth predictions in the sequence-to-sequence transformation). At inference time, to compute probabilities for each query–documentpair (in a reranking setting), we apply a softmax only on the logits of the “true” and “false” tokens. Hence, we rerank the documents according to the probabilities assigned to the “true” token. We arrived at this particular approach after some trial and error. Other approaches, for example, reranking documents according to the logit of the “true” token or using logits of all tokens to compute the softmax, were not effective, i.e., the retrieval metrics were close to zero. Note that T5 tokenizes sequences using the SentencePiece model [7], which might split a word into subwords. We choose target words (“true” and “false”) that are represented as single tokens; thus each class is represented by a single logit. In the case where target words are split in multiple subwords, we would need a method to aggregate their logits into a single score; it is best to avoid this complexity in the design of the reranking setup.",
+      "url": "https://arxiv.org/abs/2003.06713v1",
+      "pdf_file": "pdfs/monot5.pdf",
+      "sha256": "49cfcb0bcf6c5ea6b9efdb30a070c4f4268839d52e74ad5c3e27872cace61a3e",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "monobert:s0003",
+    "monot5:s0005",
+    "monobert:s0004",
+    "monot5:s0017",
+    "monobert:s0006",
+    "monot5:s0010",
+    "monobert:s0005",
+    "monot5:s0007"
+  ],
+  "retrieved": [
+    {
+      "source_id": "monobert:s0003",
+      "paper_id": "monobert",
+      "title": "Passage Re-ranking with BERT",
+      "section": "2 PASSAGE RE-RANKING WITH BERT",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "Task A simple question-answering pipeline consists of three main stages. First, a large number (for example, a thousand) of possibly relevant documents to a given question are retrieved from a corpus by a standard mechanism, such as BM25. In the second stage, passage re-ranking, each of these documents is scored and re-ranked by a more computationally-intensive method. Finally, the top ten or fifty of these documents will be the source for the candidate answers by an answer generation module. In this paper, we describe how we implemented the second stage of this pipeline, passage re-ranking. Method The job of the re-ranker is to estimate a score si of how relevant a candidate passage di is to a query q. We use BERT as our re-ranker. Using the same notation used by Devlin et al. (2018), we feed the query as sentence A and the passage text as sentence B. We truncate the query to have at most 64 tokens. We also truncate the passage text such that the concatenation of query, passage, and separator tokens have the maximum length of 512 tokens. We use a BERTLARGE model as a binary classification model, that is, we use the [CLS] vector as input to a single layer neural network to obtain the probability of the passage being relevant. We compute this probability for each passage independently and obtain the final list of passages by ranking them with respect to these probabilities.",
+      "url": "https://arxiv.org/abs/1901.04085v5",
+      "pdf_file": "pdfs/monobert.pdf",
+      "sha256": "b3f05b72d6d24b00761fb0a7363b6e7a10dac22b7f0abfaf4f5025bea7f8e22e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029957522915269395
+    },
+    {
+      "source_id": "monot5:s0005",
+      "paper_id": "monot5",
+      "title": "Document Ranking with a Pretrained Sequence-to-Sequence Model",
+      "section": "3 Experimental Setup",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "3.1 Datasets We use the following datasets in our experiments: MS MARCO passage [2] is a passage ranking dataset with 8.8M passages obtained from the top 10 results retrieved from the Bing search engine (from 1M queries). Note that for terminological consistency, we refer to each “unit” in the corpus as a document, even though they are in reality paragraph-length passages. The training set contains approximately 500k pairs of query and relevant documents. Each query has one relevant passage, on average. Non-relevant documents for training are also provided as part of the training dataset. The development and test sets contain approximately 6,900 queries each, but relevance labels are only publicly available for the development set. We have not (yet) submitted our runs to the official MS MARCO leaderboard because our primary goal in this work is to conduct initial comparisons between T5 and BERT-based models. As a matter of good experimental practice, we limit official submissions as to not “probe” the unseen test set unnecessarily. After sufficient model refinement, we will proceed with official submissions to verify the quality of our models. Robust04 [16] represents the test collection from the TREC 2004 Robust Track. It comprises 250 queries, with relevance judgments on a collection of 528K documents (TREC Disks 4 and 5), whose average length is 2,800 characters or 460 words. We use the topic “titles” (short keyword phrases, much like the input to a search engine) as queries to our bag-of-words retrieval methods (see Section 3.3) and the topic “descriptions” (sentence-length statements of information needs) as input to our sequence-to-sequence models.",
+      "url": "https://arxiv.org/abs/2003.06713v1",
+      "pdf_file": "pdfs/monot5.pdf",
+      "sha256": "49cfcb0bcf6c5ea6b9efdb30a070c4f4268839d52e74ad5c3e27872cace61a3e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.016242346116661296
+    },
+    {
+      "source_id": "monobert:s0004",
+      "paper_id": "monobert",
+      "title": "Passage Re-ranking with BERT",
+      "section": "2 PASSAGE RE-RANKING WITH BERT",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "We compute this probability for each passage independently and obtain the final list of passages by ranking them with respect to these probabilities. We start training from a pre-trained BERT model and fine-tune it to our re-ranking task using the cross-entropy loss: L = − X log(sj) − X log(1 −sj), (1) where Jpos is the set of indexes of the relevant passages and Jneg is the set of indexes of non-relevant passages in top-1,000 documents retrieved with BM25.",
+      "url": "https://arxiv.org/abs/1901.04085v5",
+      "pdf_file": "pdfs/monobert.pdf",
+      "sha256": "b3f05b72d6d24b00761fb0a7363b6e7a10dac22b7f0abfaf4f5025bea7f8e22e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.023346828609986506
+    },
+    {
+      "source_id": "monot5:s0017",
+      "paper_id": "monot5",
+      "title": "Document Ranking with a Pretrained Sequence-to-Sequence Model",
+      "section": "4 Results and Analysis",
+      "page_start": 7,
+      "page_end": 7,
+      "text": "We note that the 95% confidence intervals are smaller with more data, which illustrates the greater instability in effectiveness when training on smaller datasets (which is expected). It is clear that the T5 model is taking advantage of latent semantic or linguistic knowledge in predicting relevance. In both the 2k and 20k settings, the subwords condition performs worse than the BM25 baseline (and the 20k score is actually lower than the 2k score). In this condition, T5 exhibits difficulty in achieving any predictive power at all. There are at least two potential factors at play: we are removing all semantic associations, as the subwords are meaningless token fragments, and furthermore, we are forcing the model to produce tokens in an order (and context) that it has not encountered during pretraining. We are unable to tease apart the effects currently, but either explanation is consistent with our intuitions. For all other target word manipulations, we are at least able to beat the BM25 baseline. Finally, our experiments are inconclusive regarding the importance of having a polarity scale in the low-data regime. Quite clearly, reversing “true” and “false” has a large impact, but T5 is more effective learning targets that are semantically related but do not present a polarity contrast (“apple” and ”orange”) than targets that encode an unrelated polarity contrast (“hot” and “cold”).",
+      "url": "https://arxiv.org/abs/2003.06713v1",
+      "pdf_file": "pdfs/monot5.pdf",
+      "sha256": "49cfcb0bcf6c5ea6b9efdb30a070c4f4268839d52e74ad5c3e27872cace61a3e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.012596553773024361
+    },
+    {
+      "source_id": "monobert:s0006",
+      "paper_id": "monobert",
+      "title": "Passage Re-ranking with BERT",
+      "section": "3 EXPERIMENTS",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "3.2 TREC-CAR Introduced by Dietz et al. (2017), in this dataset, the input query is the concatenation of a Wikipedia article title with the title of one of its section. The relevant passages are the paragraphs within that section. The corpus consists of all of the English Wikipedia paragraphs, except the abstracts. The released dataset has five predefined folds, and we use the first four as a training set (approximately 2.3M queries), and the remaining as a validation set (approximately 580k queries). The test set is the same one used to evaluate the submissions to TREC-CAR 2017 (approx. 2,254 queries). Although TREC-CAR 2017 organizers provide manual annotations for the test set, only the top five passages retrieved by the systems submitted to the competition have manual annotations. This means that true relevant passages are not annotated if they rank low. Hence, we evaluate using the automatic annotations, which provide relevance scores for all possible query-passage pairs. Training We follow the same procedure described for the MS MARCO dataset to fine-tune our models on TREC-CAR. However, there is an important difference. The official pre-trained BERT 1 https://cloud.google.com/tpu/ MS MARCO TREC-CAR MRR@10 MAP Method Dev Eval Test BM25 (Lucene, no tuning) 16.7 16.5 12.3 BM25 (Anserini, tuned) - - 15.3 Co-PACRR⋆(MacAvaney et al., 2017) - - 14.8 KNRM (Xiong et al., 2017) 21.8 19.8 - Conv-KNRM (Dai et al., 2018) 29.0 27.1 - IRNet† 27.8 28.1 - BERT Base 34.7 - 31.0 BERT Large 36.5 35.8 33.5 Table 1: Main Result on the passage re-ranking datasets. ⋆Best Entry in the TREC-CAR 2017. † Previous SOTA in the MS MARCO leaderboard as of 01/04/2019; unpublished work.",
+      "url": "https://arxiv.org/abs/1901.04085v5",
+      "pdf_file": "pdfs/monobert.pdf",
+      "sha256": "b3f05b72d6d24b00761fb0a7363b6e7a10dac22b7f0abfaf4f5025bea7f8e22e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02268782544011902
+    },
+    {
+      "source_id": "monot5:s0010",
+      "paper_id": "monot5",
+      "title": "Document Ranking with a Pretrained Sequence-to-Sequence Model",
+      "section": "4 Results and Analysis",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "Results on Robust04 are shown in Table 2, where we apply our T5 reranker on top of retrieval results from BM25 and BM25+RM3 (see Section 3.2). Figures in bold for T5-3B indicate that those results are significantly better (p < 0.05) than T5-large, T5-base, and the corresponding baseline (BM25 or BM25+RM3), based on the Student’s paired t-test with Bonferroni correction. We compare our model with CEDR [8] and Birch [19], two BERT-based state-of-the-art models. Note that the CEDR results are from training on the Robust04 data (via cross-validation) and Birch uses Robust04 for tuning weighting parameters. In contrast, we apply inference directly using our model trained on the MS MARCO passage data; Robust04 relevance judgments were only used as a test set, which makes our results zero-shot. To our knowledge, our T5-3B model produces the highest known scores reported on Robust04. As expected, effectiveness increases with larger models, but in all cases T5 is able to improve over both a bag-of-words as well as a query expansion baseline. We explain the odd finding that T5-large performs worse than T5-base as follows: based on our training procedure, we simply ran a fixed number of iterations and then evaluated using the final checkpoint (see Section 3.2). This has the advantage of not requiring validation data. In the case of T5-large and T5-base, effectiveness does not monotonically increase in the out-of-domain dataset (Robust04), and thus the results reported in the table capture the somewhat arbitrary model state at the final checkpoint (where effectiveness may still be fluctuating within a rather large range). For T5-3B, in contrast, effectiveness is far more stable across model checkpoints.",
+      "url": "https://arxiv.org/abs/2003.06713v1",
+      "pdf_file": "pdfs/monot5.pdf",
+      "sha256": "49cfcb0bcf6c5ea6b9efdb30a070c4f4268839d52e74ad5c3e27872cace61a3e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.012351190476190476
+    },
+    {
+      "source_id": "monobert:s0005",
+      "paper_id": "monobert",
+      "title": "Passage Re-ranking with BERT",
+      "section": "3 EXPERIMENTS",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "We train and evaluate our models on two passage-ranking datasets, MS MARCO and TREC-CAR. 3.1 MS MARCO The training set contains approximately 400M tuples of a query, relevant and non-relevant passages. The development set contains approximately 6,900 queries, each paired with the top 1,000 passages retrieved with BM25 from the MS MARCO corpus. On average, each query has one relevant passage. However, some have no relevant passage because the corpus was initially constructed by retrieving the top-10 passages from the Bing search engine and then annotated. Hence, some of the relevant passages might not be retrieved by BM25. An evaluation set with approximately 6,800 queries and their top 1,000 retrieved passages without relevance annotations is also provided. Training We fine-tune the model using a TPU v3-81 with a batch size of 128 (128 sequences * 512 tokens = 65,536 tokens/batch) for 100k iterations, which takes approximately 30 hours. This corresponds to training on 12.8M (100k * 128) query-passage pairs or less than 2% of the full training set. We could not see any improvement in the dev set when training for another 3 days, which equivalent to seeing 50M pairs in total. We use ADAM (Kingma & Ba, 2014) with the initial learning rate set to 3 × 10−6, β1 = 0.9, β2 = 0.999, L2 weight decay of 0.01, learning rate warmup over the first 10,000 steps, and linear decay of the learning rate. We use a dropout probability of 0.1 on all layers. 3.2 TREC-CAR Introduced by Dietz et al. (2017), in this dataset, the input query is the concatenation of a Wikipedia article title with the title of one of its section.",
+      "url": "https://arxiv.org/abs/1901.04085v5",
+      "pdf_file": "pdfs/monobert.pdf",
+      "sha256": "b3f05b72d6d24b00761fb0a7363b6e7a10dac22b7f0abfaf4f5025bea7f8e22e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.018835019183815836
+    },
+    {
+      "source_id": "monot5:s0007",
+      "paper_id": "monot5",
+      "title": "Document Ranking with a Pretrained Sequence-to-Sequence Model",
+      "section": "3 Experimental Setup",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "Training T5 base, large, and 3B take approximately 12, 48, and 160 hours overall, respectively, on a single TPU. We use greedy decoding during inference. Since we only use the logits of one decoding step, beam search or top-k random sampling [5] would give the same results as greedy decoding. Because Robust04 contains full-length documents, it is not feasible to directly apply our method to the entire text at once due to the length restrictions of the model. To address this issue, we first segment each document into passages by applying a sliding window of 10 sentences with a stride of 5. We then obtain a relevance probability for each passage by classifying it independently. We select the highest probability among these passages as the relevance probability of the document. 3.3 Baselines We compare our method against the following baselines: BM25: For baseline bag-of-words retrieval, we use the BM25 implementation in the Anserini opensource IR toolkit [17],2 which is based on Lucene. We adopt all the default settings. At inference time, we retrieve the top 1000 documents per query. BM25+RM3: To examine the effects of query expansion, we applied the BM25+RM3 model as described in Yang et al. [18], where it is shown to be a competitive baseline for (pre-BERT) neural ranking models. We use the implementation in Anserini, with all default settings. BM25+BERT-large: We additionally compare our method against the BERT-large condition from Nogueira et al. [10], which is a two-stage pipeline with bag-of-words retrieval (BM25) followed by a BERT reranker. Architecturally, it is the same as our method, the only difference being BERT vs. T5 as the reranking model.",
+      "url": "https://arxiv.org/abs/2003.06713v1",
+      "pdf_file": "pdfs/monot5.pdf",
+      "sha256": "49cfcb0bcf6c5ea6b9efdb30a070c4f4268839d52e74ad5c3e27872cace61a3e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.011014492753623189
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "how does calculate a passage-relevance score compared with",
+      "paper_ids": [
+        "monobert"
+      ],
+      "facet": "inference",
+      "covered": true,
+      "claim_ids": [
+        "monobert.relevance"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    },
+    {
+      "part_id": "part1",
+      "question_part": "how does calculate a passage-relevance score compared with",
+      "paper_ids": [
+        "monot5"
+      ],
+      "facet": "inference",
+      "covered": true,
+      "claim_ids": [
+        "monot5.relevance"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.006437875010306016,
+  "evaluation_question_id": "H06"
+}

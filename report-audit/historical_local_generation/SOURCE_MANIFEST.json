@@ -1,0 +1,31 @@
+{
+  "scope": "Existing archived experiment; no application execution or new participant observations.",
+  "source_archive": "WIL-Project-24-handover.zip",
+  "source_archive_sha256": "5bb6d82f78ece7286e7788aa4fe0fbca7eef7ac4cad595b6f48e5c7d4b7ba5f2",
+  "members": [
+    {
+      "original_archive_member": "WIL-Project-24-handover/code/rag_research_assistant/results/local-llm.json",
+      "delivery_file": "local-llm.json",
+      "sha256": "dd5eca4204fb9a78d991e4ac36eb94973590698b60c6a5d4bf3af0bfb3752665",
+      "bytes": 44521
+    },
+    {
+      "original_archive_member": "WIL-Project-24-handover/code/rag_research_assistant/rra/generate.py",
+      "delivery_file": "generate.py",
+      "sha256": "49dce481ee23398e60d1bada5c683965291c1baff97dd774b20066dc510a45d1",
+      "bytes": 12105
+    },
+    {
+      "original_archive_member": "WIL-Project-24-handover/code/rag_research_assistant/rra/cli.py",
+      "delivery_file": "cli.py",
+      "sha256": "d1bb79d91b2236d700bbe0a04929e00e7e22ee220244c7506605f168da2d21d2",
+      "bytes": 7013
+    },
+    {
+      "original_archive_member": "WIL-Project-24-handover/code/rag_research_assistant/rra/evaluate.py",
+      "delivery_file": "evaluate.py",
+      "sha256": "109e1efaeae4a0c6c6e41d8b151080db39b7be532ae711c125309292f852e2a6",
+      "bytes": 5497
+    }
+  ]
+}

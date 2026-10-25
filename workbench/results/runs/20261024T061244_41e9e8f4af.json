@@ -1,0 +1,356 @@
+{
+  "run_id": "20261024T061244_41e9e8f4af",
+  "created_utc": "2026-10-24T06:12:44.541434+00:00",
+  "question": "How do REPLUG and Fusion-in-Decoder combine information from multiple documents, and which method works with a frozen black-box language model?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "replug",
+      "fid"
+    ],
+    "facets": [
+      "inference"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": true,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "how do and combine information from multiple documents",
+        "facets": [
+          "inference"
+        ],
+        "explicit": true,
+        "scope": "each"
+      },
+      {
+        "id": "part2",
+        "text": "which method works with a frozen black-box language model",
+        "facets": [
+          "inference"
+        ],
+        "explicit": true,
+        "scope": "any"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "replug.ensemble",
+      "paper_id": "replug",
+      "text": "REPLUG prepends each retrieved document separately to the input context and runs the frozen language model separately for each document. It combines the resulting next-token probability distributions using a similarity-weighted average: document weights are the exponentiated document-context similarity scores, normalised across the retrieved set. This uses several documents without concatenating them all into one input window.",
+      "facets": [
+        "inference",
+        "efficiency"
+      ],
+      "source_ids": [
+        "replug:s0010"
+      ]
+    },
+    {
+      "claim_id": "replug.method",
+      "paper_id": "replug",
+      "text": "REPLUG treats the language model as a frozen black box. It augments the model by prepending retrieved documents to its input, rather than modifying the language model to add a specialised cross-attention architecture.",
+      "facets": [
+        "purpose",
+        "inference",
+        "representation"
+      ],
+      "source_ids": [
+        "replug:s0001"
+      ]
+    },
+    {
+      "claim_id": "fid.architecture",
+      "paper_id": "fid",
+      "text": "Fusion-in-Decoder (FiD) concatenates the question with each retrieved passage and its title, then encodes each passage independently. The decoder attends across the concatenated encoded representations of all passages to generate the answer. Evidence is therefore fused in the decoder, rather than by jointly encoding all passages.",
+      "facets": [
+        "inference",
+        "representation",
+        "purpose"
+      ],
+      "source_ids": [
+        "fid:s0007"
+      ]
+    }
+  ],
+  "comparison": [
+    {
+      "paper_id": "replug",
+      "title": "REPLUG: Retrieval-Augmented Black-Box Language Models",
+      "claims": [
+        {
+          "claim_id": "replug.ensemble",
+          "paper_id": "replug",
+          "text": "REPLUG prepends each retrieved document separately to the input context and runs the frozen language model separately for each document. It combines the resulting next-token probability distributions using a similarity-weighted average: document weights are the exponentiated document-context similarity scores, normalised across the retrieved set. This uses several documents without concatenating them all into one input window.",
+          "facets": [
+            "inference",
+            "efficiency"
+          ],
+          "source_ids": [
+            "replug:s0010"
+          ]
+        },
+        {
+          "claim_id": "replug.method",
+          "paper_id": "replug",
+          "text": "REPLUG treats the language model as a frozen black box. It augments the model by prepending retrieved documents to its input, rather than modifying the language model to add a specialised cross-attention architecture.",
+          "facets": [
+            "purpose",
+            "inference",
+            "representation"
+          ],
+          "source_ids": [
+            "replug:s0001"
+          ]
+        }
+      ]
+    },
+    {
+      "paper_id": "fid",
+      "title": "Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering",
+      "claims": [
+        {
+          "claim_id": "fid.architecture",
+          "paper_id": "fid",
+          "text": "Fusion-in-Decoder (FiD) concatenates the question with each retrieved passage and its title, then encodes each passage independently. The decoder attends across the concatenated encoded representations of all passages to generate the answer. Evidence is therefore fused in the decoder, rather than by jointly encoding all passages.",
+          "facets": [
+            "inference",
+            "representation",
+            "purpose"
+          ],
+          "source_ids": [
+            "fid:s0007"
+          ]
+        }
+      ]
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "replug:s0010",
+      "paper_id": "replug",
+      "title": "REPLUG: Retrieval-Augmented Black-Box Language Models",
+      "section": "3.2. Input Reformulation",
+      "page_start": 3,
+      "page_end": 4,
+      "text": "The retrieved top-k documents provide rich information about the original input context x and can potentially help the LM to make a better prediction. One simple way to incorporate the retrieved documents as part of the input to the LM is to prepend x with all k documents. However, this simple scheme is fundamentally restricted by the number of documents (i.e., k) we can include, given the language model’s context window size. To address this limitation, we adopt an ensemble strategy described as follows. Assume D′ ⊂D consists of k most relevant documents to x, according to the scoring function in Eq. (1). We prepend each document d ∈D′ to x, pass this concatenation to the LM separately, and then ensemble output probabilities from all k passes. Formally, given the input context x and its top-k relevant documents D′, the output probability of the next token y is computed as a weighted average ensemble: p(y | x, D′) = X p(y | d ◦x) · λ(d, x), where ◦denotes the concatenation of two sequences and the weight λ(d, x) is based on the similarity score between the document d and the input context x: λ(d, x) = es(d,x) P d∈D′ es(d,x) Although our ensemble method requires running the LM k times, the cross attention is performed between each retrieved document and the input context. Therefore, compared with the method of prepending all the retrieved documents, our ensemble methods do not incur additional computational cost overhead.",
+      "url": "https://arxiv.org/abs/2301.12652v4",
+      "pdf_file": "pdfs/replug.pdf",
+      "sha256": "3c24ff147c4912a9678d778f879016099d03619267ff8b252e46a2c818b9432b",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "replug:s0001",
+      "paper_id": "replug",
+      "title": "REPLUG: Retrieval-Augmented Black-Box Language Models",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "We introduce REPLUG, a retrieval-augmented language modeling framework that treats the language model (LM) as a black box and augments it with a tuneable retrieval model. Unlike prior retrieval-augmented LMs that train language models with special cross attention mechanisms to encode the retrieved text, REPLUG simply prepends retrieved documents to the input for the frozen black-box LM. This simple design can be easily applied to any existing retrieval and language models. Furthermore, we show that the LM can be used to supervise the retrieval model, which can then find documents that help the LM make better predictions. Our experiments demonstrate that REPLUG with the tuned retriever significantly improves the performance of GPT-3 (175B) on language modeling by 6.3%, as well as the performance of Codex on five-shot MMLU by 5.1%.",
+      "url": "https://arxiv.org/abs/2301.12652v4",
+      "pdf_file": "pdfs/replug.pdf",
+      "sha256": "3c24ff147c4912a9678d778f879016099d03619267ff8b252e46a2c818b9432b",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "fid:s0007",
+      "paper_id": "fid",
+      "title": "Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering",
+      "section": "3 Method",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "In BM25, passages are represented as bag of words, and the ranking function is based on term and inverse document frequencies. We use the implementation from Apache Lucene1 with default parameters, and tokenize questions and passages with SpaCy.2 In DPR, passages and questions are represented as dense vector representations, computed using two BERT networks. The ranking function is the dot product between the query and passage representations. Retrieval is performed using approximate nearest neighbors with the FAISS library.3 Reading. Our generative model for open domain QA is based on a sequence-to-sequence network, pretrained on unsupervised data, such as T5 or BART (Raffel et al., 2019; Lewis et al., 2019). The model takes as input the question, as well as the support passages, and generates the answer. More precisely, each retrieved passage and its title are concatenated with the question, and processed independently from other passages by the encoder. We add special tokens question:, title: and context: before the question, title and text of each passage. Finally, the decoder performs attention over the concatenation of the resulting representations of all the retrieved passages. The model thus performs evidence fusion in the decoder only, and we refer to it as Fusion-in-Decoder. By processing passages independently in the encoder, but jointly in the decoder, this method differs from Min et al. (2020) and Lewis et al. (2020). Processing passages independently in the encoder allows to scale to large number of contexts, as it only performs self attention over one context at a time. This means that the computation time of the model grows linearly with the number of passages, instead of quadratically.",
+      "url": "https://arxiv.org/abs/2007.01282v2",
+      "pdf_file": "pdfs/fid.pdf",
+      "sha256": "f1ee7e927c3fb31beb2146f8c205692a91b40dadd65d80e025c6686e4d430953",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "replug:s0001",
+    "fid:s0003",
+    "replug:s0003",
+    "fid:s0007",
+    "replug:s0021",
+    "fid:s0006",
+    "replug:s0007",
+    "fid:s0011"
+  ],
+  "retrieved": [
+    {
+      "source_id": "replug:s0001",
+      "paper_id": "replug",
+      "title": "REPLUG: Retrieval-Augmented Black-Box Language Models",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "We introduce REPLUG, a retrieval-augmented language modeling framework that treats the language model (LM) as a black box and augments it with a tuneable retrieval model. Unlike prior retrieval-augmented LMs that train language models with special cross attention mechanisms to encode the retrieved text, REPLUG simply prepends retrieved documents to the input for the frozen black-box LM. This simple design can be easily applied to any existing retrieval and language models. Furthermore, we show that the LM can be used to supervise the retrieval model, which can then find documents that help the LM make better predictions. Our experiments demonstrate that REPLUG with the tuned retriever significantly improves the performance of GPT-3 (175B) on language modeling by 6.3%, as well as the performance of Codex on five-shot MMLU by 5.1%.",
+      "url": "https://arxiv.org/abs/2301.12652v4",
+      "pdf_file": "pdfs/replug.pdf",
+      "sha256": "3c24ff147c4912a9678d778f879016099d03619267ff8b252e46a2c818b9432b",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031746031746031744
+    },
+    {
+      "source_id": "fid:s0003",
+      "paper_id": "fid",
+      "title": "Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering",
+      "section": "1 Introduction",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "Different retrieval techniques have been considered, either using sparse representations based on TF/IDF or using dense embeddings (Guu et al., 2020; Karpukhin et al., 2020). The models which extract the answers are often based on contextualized word representations such as ELMo or BERT (Peters et al., 2018; Devlin et al., 2019), and predict a span as answer. Aggregating and combining evidence from multiple passages is not straightforward when using extractive models, and multiple techniques have been proposed to address this limitation (Clark and Gardner, 2018; Min et al., 2019a). In this paper, we explore a simple approach having the best of both worlds, by building on the exciting developments in generative modeling and retrieval for open domain question answering. This method proceeds in two steps, by first retrieving supporting passages using either sparse or dense Question + Passage 1 encoder Question + Passage 2 encoder Question + Passage N encoder decoder Answer concat ... Figure 2: Architecture of the Fusion-in-Decoder method. representations. Then, a sequence-to-sequence model generates the answer, taking as input the retrieved passages in addition to the question. While conceptually simple, this method sets new state-ofthe-art results on the TriviaQA and NaturalQuestions benchmarks. In particular, we show that the performance of our method significantly improves when the number of retrieved passages increases. We believe that this is evidence that generative models are good at combining evidence from multiple passages, compared to extractive ones.",
+      "url": "https://arxiv.org/abs/2007.01282v2",
+      "pdf_file": "pdfs/fid.pdf",
+      "sha256": "f1ee7e927c3fb31beb2146f8c205692a91b40dadd65d80e025c6686e4d430953",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.022380595148787197
+    },
+    {
+      "source_id": "replug:s0003",
+      "paper_id": "replug",
+      "title": "REPLUG: Retrieval-Augmented Black-Box Language Models",
+      "section": "1. Introduction",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "Internal representations of such models are not exposed and fine-tuning is not supported. In this work, we introduce REPLUG (Retrieve and Plug), a new retrieval-augmented LM framework where the language model is viewed as a black box and the retrieval component is added as a tuneable plug-and-play module. Given an input context, REPLUG first retrieves relevant documents from an external corpus using an off-the-shelf retrieval model. The retrieved documents are prepended to the input context and fed into the black-box LM to make the final prediction. Because the LM context length limits the number of documents that can be prepended, we also introduce a new ensemble scheme that encodes the retrieved documents in parallel with the same black-box LM, allowing us to easily trade compute for accuracy. As shown in Figure 1, REPLUG is extremely flexible and can be used with any existing black-box LM and retrieval model. We also introduce REPLUG LSR (REPLUG with LM- Supervised Retrieval), a training scheme that can further improve the initial retrieval model in REPLUG with supervision signals from a black-box language model. The key idea is to adapt the retriever to the LM, which is in contrast to prior work (Borgeaud et al., 2022) that adapts language models to the retriever. We use a training objective which prefers retrieving documents that improve language model perplexity, while treating the LM as a frozen, black-box scoring function. Our experiments show that REPLUG can improve the performance of diverse black-box LMs on both language modeling and downstream tasks, including MMLU (Hendrycks et al., 2021) and open-domain QA (Kwiatkowski et al., 2019; Joshi et al., 2017).",
+      "url": "https://arxiv.org/abs/2301.12652v4",
+      "pdf_file": "pdfs/replug.pdf",
+      "sha256": "3c24ff147c4912a9678d778f879016099d03619267ff8b252e46a2c818b9432b",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031544957774465976
+    },
+    {
+      "source_id": "fid:s0007",
+      "paper_id": "fid",
+      "title": "Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering",
+      "section": "3 Method",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "In BM25, passages are represented as bag of words, and the ranking function is based on term and inverse document frequencies. We use the implementation from Apache Lucene1 with default parameters, and tokenize questions and passages with SpaCy.2 In DPR, passages and questions are represented as dense vector representations, computed using two BERT networks. The ranking function is the dot product between the query and passage representations. Retrieval is performed using approximate nearest neighbors with the FAISS library.3 Reading. Our generative model for open domain QA is based on a sequence-to-sequence network, pretrained on unsupervised data, such as T5 or BART (Raffel et al., 2019; Lewis et al., 2019). The model takes as input the question, as well as the support passages, and generates the answer. More precisely, each retrieved passage and its title are concatenated with the question, and processed independently from other passages by the encoder. We add special tokens question:, title: and context: before the question, title and text of each passage. Finally, the decoder performs attention over the concatenation of the resulting representations of all the retrieved passages. The model thus performs evidence fusion in the decoder only, and we refer to it as Fusion-in-Decoder. By processing passages independently in the encoder, but jointly in the decoder, this method differs from Min et al. (2020) and Lewis et al. (2020). Processing passages independently in the encoder allows to scale to large number of contexts, as it only performs self attention over one context at a time. This means that the computation time of the model grows linearly with the number of passages, instead of quadratically.",
+      "url": "https://arxiv.org/abs/2007.01282v2",
+      "pdf_file": "pdfs/fid.pdf",
+      "sha256": "f1ee7e927c3fb31beb2146f8c205692a91b40dadd65d80e025c6686e4d430953",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.01991281949673073
+    },
+    {
+      "source_id": "replug:s0021",
+      "paper_id": "replug",
+      "title": "REPLUG: Retrieval-Augmented Black-Box Language Models",
+      "section": "Results",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "Table 1 reports the results of the original baselines, baselines augmented with the REPLUG, and baselines augmented with the REPLUG LSR. We observe that both REPLUG and REPLUG LSR significantly outperform the baselines. This demonstrates that simply adding a retrieval module to a frozen language model (i.e., the black-box setting) is effective at improving the performance of different sized language models on language modeling tasks. Furthermore, REPLUG LSR consistently performs better than REPLUG by a large margin. Specifically, REPLUG LSR results in 7.7% improvement over baselines compared to 4.7% improvement of REPLUG averaged over the 8 models. This indicates that further adapting the retriever to the target LM is beneficial.",
+      "url": "https://arxiv.org/abs/2301.12652v4",
+      "pdf_file": "pdfs/replug.pdf",
+      "sha256": "3c24ff147c4912a9678d778f879016099d03619267ff8b252e46a2c818b9432b",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03125
+    },
+    {
+      "source_id": "fid:s0006",
+      "paper_id": "fid",
+      "title": "Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering",
+      "section": "3 Method",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "In this section, we describe our approach to open domain question answering. It proceeds in two steps, first retrieving support passages before processing them with a sequence to sequence model. Model NQ TriviaQA SQuAD Open EM EM EM EM F1 DrQA (Chen et al., 2017) - - - 29.8 - Multi-Passage BERT (Wang et al., 2019) - - - 53.0 60.9 Path Retriever (Asai et al., 2020) 31.7 - - 56.5 63.8 Graph Retriever (Min et al., 2019b) 34.7 55.8 - - - Hard EM (Min et al., 2019a) 28.8 50.9 - - - ORQA (Lee et al., 2019) 31.3 45.1 - 20.2 - REALM (Guu et al., 2020) 40.4 - - - - DPR (Karpukhin et al., 2020) 41.5 57.9 - 36.7 - SpanSeqGen (Min et al., 2020) 42.5 - - - - RAG (Lewis et al., 2020) 44.5 56.1 68.0 - - T5 (Roberts et al., 2020) 36.6 - 60.5 - - GPT-3 few shot (Brown et al., 2020) 29.9 - 71.2 - - Fusion-in-Decoder (base) 48.2 65.0 77.1 53.4 60.6 Fusion-in-Decoder (large) 51.4 67.6 80.1 56.7 63.2 Table 1: Comparison to state-of-the-art. On TriviaQA, we report results on the open domain test set (left), and on the hidden test set (right), competitions.codalab.org/competitions/17208#results). Retrieval. For the retrieval of support passages, we consider two methods: BM25 (Robertson et al., 1995) and DPR (Karpukhin et al., 2020). In BM25, passages are represented as bag of words, and the ranking function is based on term and inverse document frequencies.",
+      "url": "https://arxiv.org/abs/2007.01282v2",
+      "pdf_file": "pdfs/fid.pdf",
+      "sha256": "f1ee7e927c3fb31beb2146f8c205692a91b40dadd65d80e025c6686e4d430953",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.01879964695498676
+    },
+    {
+      "source_id": "replug:s0007",
+      "paper_id": "replug",
+      "title": "REPLUG: Retrieval-Augmented Black-Box Language Models",
+      "section": "2. Background and Related Work",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "In this work, we investigate ways to improve large black-box language models with retrieval. While concurrent work (Mallen et al., 2022; Si et al., 2023; Yu et al., 2023; Khattab et al., 2022) has demonstrated that using a frozen retriever can improve GPT- 3 performance on open-domain question answering, we approach the problem in a more general setting, including language modeling and understanding tasks. We also propose an ensemble method to incorporate more documents Figure 2. REPLUG at inference (§3). Given an input context, REPLUG first retrieves a small set of relevant documents from an external corpus using a retriever (§3.1 Document Retrieval). Then it prepends each document separately to the input context and ensembles output probabilities from different passes (§3.2 Input Reformulation). and a training scheme to further adapt the retriever to large LMs.",
+      "url": "https://arxiv.org/abs/2301.12652v4",
+      "pdf_file": "pdfs/replug.pdf",
+      "sha256": "3c24ff147c4912a9678d778f879016099d03619267ff8b252e46a2c818b9432b",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030834914611005692
+    },
+    {
+      "source_id": "fid:s0011",
+      "paper_id": "fid",
+      "title": "Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering",
+      "section": "4 Experiments",
+      "page_start": 4,
+      "page_end": 5,
+      "text": "In table 1, we compare the results obtained by Fusion-in-Decoder with existing approaches for open domain question answering. We observe that while conceptually simple, this method outperforms existing work on the NaturalQuestion and TriviaQA benchmarks. In particular, generative models seem to perform well when evidence from multiple passages need to be aggregated, compared to extractive approaches. Our method also performs better than other generative models, showing that scaling to large number of passages and processing them jointly leads to improvement in accuracy. Second, we observe that using additional knowledge in generative models by using retrieval lead to important performance gains. On NaturalQuestions, the closed book T5 model obtains 36.6% accuracy with 11B parameters, while our approach obtains 44.1% with 770M parameters plus Wikipedia with BM25 retrieval. Both methods use roughly the same amount of memory to store information, indicating that text based explicit memories are competitive for knowledge retrieval tasks. Scaling with number of passages. In Figure 3, we report the performance with respect to the NaturalQuestions TriviaQA Training Passages w/o finetuning w/ finetuning w/o finetuning w/ finetuning 5 37.8 45.0 58.1 64.2 10 42.3 45.3 61.1 63.6 25 45.3 46.0 63.2 64.2 50 45.7 46.0 64.2 64.3 46.5 - 64.7 - Table 2: Performance depending on the number of passages used during training. Exact Match scores are reported on dev sets. number of retrieved passages. In particular, we observe that increasing the number of passages from 10 to 100 leads to 6% improvement on TriviaQA and 3.5% improvement on NaturalQuestions. On the other hand, the performance of most extractive models seems to peak around 10 to 20 passages (Wang et al., 2019; Yang et al., 2019).",
+      "url": "https://arxiv.org/abs/2007.01282v2",
+      "pdf_file": "pdfs/fid.pdf",
+      "sha256": "f1ee7e927c3fb31beb2146f8c205692a91b40dadd65d80e025c6686e4d430953",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.018362533692722373
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "how do and combine information from multiple documents",
+      "paper_ids": [
+        "replug"
+      ],
+      "facet": "inference",
+      "covered": true,
+      "claim_ids": [
+        "replug.ensemble"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    },
+    {
+      "part_id": "part1",
+      "question_part": "how do and combine information from multiple documents",
+      "paper_ids": [
+        "fid"
+      ],
+      "facet": "inference",
+      "covered": true,
+      "claim_ids": [
+        "fid.architecture"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    },
+    {
+      "part_id": "part2",
+      "question_part": "which method works with a frozen black-box language model",
+      "paper_ids": [
+        "replug",
+        "fid"
+      ],
+      "facet": "inference",
+      "covered": true,
+      "claim_ids": [
+        "replug.ensemble",
+        "replug.method"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.012612582999281585,
+  "evaluation_question_id": "F11"
+}

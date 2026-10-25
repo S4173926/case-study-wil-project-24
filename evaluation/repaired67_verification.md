@@ -2,11 +2,11 @@
 
 **Source:** `repair_regression67_20261024T061234_38643.zip`  
 **Build:** `1.1-clause-selection-repair`  
-**Assessment type:** AI-assisted technical regression audit. Not independent human accuracy evaluation or a grade forecast.
+**Assessment type:** AI-assisted technical regression audit. Not independent human accuracy evaluation.
 
 ## Decision
 
-The five specific content/routing defects identified in the earlier 15-question challenge are resolved in the submitted repaired outputs. This judgment is based on the displayed text and its included supporting source passages, not just status labels. Keep this build unchanged for source-based human review and user testing. This finding does not establish that every answer is complete, that the system generalises to unseen questions, or that the assignment earns 25/25.
+The five specific content/routing defects identified in the earlier 15-question challenge are resolved in the submitted repaired outputs. This judgment is based on the displayed text and its included supporting source passages, not just status labels. This finding does not establish that every answer is complete, that the system generalises to unseen questions.
 
 The uploaded archive and previous result archives were not changed. The application was reconstructed in an isolated audit directory from the original delivery plus the existing repair payload. No new software repair is supplied by this review.
 
@@ -144,11 +144,9 @@ Eighteen of the original 52 records changed their selected/order of claims, comp
 - **Refusals stay cautious.** All 14 benchmark-labelled unsupported questions have an insufficient-support state with no factual claim blocks. The wording sometimes only says that no supported explanation could be assembled; this is not a formal proof of absence from all research literature.
 - **No independent human ratings or user-benefit measurements are established by this archive.** Blank human fields were kept blank. This audit must not be relabelled as a human study.
 
-## Next action
+## Review status
 
-Keep the application and these original run records unchanged while reviewers check answer correctness, completeness, citation support and relevance against original PDFs. Reviewers should record their actual relationship to the project, not claim external independence when they are team members. Use the repaired run IDs listed below rather than accidentally rating an older duplicate question. The human scorecard inside the uploaded ZIP has the corresponding IDs.
-
-Separately collect actual manual-search versus assistant-assisted task outcomes, including verification time. Report both successes and failures. Complete the real report and teamwork evidence; this technical audit does not replace them.
+The accompanying scorecard has no completed independent human ratings. The question-to-run register below identifies the repaired outputs for source-based review. Review correctness, completeness, support, relevance and participant task outcomes remain distinct from deterministic reproduction. Any later observations require their own dated source records.
 
 ## Question-to-run register
 

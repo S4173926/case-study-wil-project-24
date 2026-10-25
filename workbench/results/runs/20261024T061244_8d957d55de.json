@@ -1,0 +1,171 @@
+{
+  "run_id": "20261024T061244_8d957d55de",
+  "created_utc": "2026-10-24T06:12:44.069173+00:00",
+  "question": "Which paper in the collection evaluates retrieval on chest X-ray radiology reports?",
+  "mode": "explain",
+  "status": "insufficient",
+  "plan": {
+    "named_papers": [],
+    "facets": [
+      "evaluation"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "which paper in the collection evaluates retrieval on chest x-ray radiology reports",
+        "facets": [
+          "evaluation"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [],
+  "comparison": [],
+  "citations": [],
+  "missing": [
+    "No supported explanation could be assembled."
+  ],
+  "warnings": [],
+  "first_stage": [
+    "contriever:s0019",
+    "colbert:s0007",
+    "colbert:s0035",
+    "ance:s0035",
+    "retro:s0070",
+    "colbert:s0022",
+    "contriever:s0042",
+    "atlas:s0024"
+  ],
+  "retrieved": [
+    {
+      "source_id": "contriever:s0019",
+      "paper_id": "contriever",
+      "title": "Unsupervised Dense Information Retrieval with Contrastive Learning",
+      "section": "4.1 Datasets",
+      "page_start": 6,
+      "page_end": 6,
+      "text": "Contriever is trained with contrastive learning on documents sampled from a mix between Wikipedia data and CCNet data (Wenzek et al., 2020), where half the batches are sampled from each source. First, we evaluate our model on two question answering datasets: NaturalQuestions (Kwiatkowski et al., 2019) and TriviaQA (Joshi et al., 2017). For both datasets, we use the open domain versions as introduced by Lee et al. (2019), and the English Wikipedia dump from Dec. 20, 2018 as the collection of documents to retrieve from. We report the top-k retrieval accuracy, i.e. the number of questions for which at least one of the top-k passages contain the answer. Second, we use the BEIR benchmark, introduced by Thakur et al. (2021), which contains 18 retrieval datasets, corresponding to nine tasks, such as fact checking or citation prediction, and covering different domains, such as Wikipedia or scientific publications. Most datasets from BEIR do not contain a training set, and the focus of the benchmark is zero-shot retrieval. However, most machine learning based retrievers are still trained on supervised data, such as the large scale retrieval dataset MS MARCO (Bajaj et al., 2016). Following standard practice, we report two metrics on this benchmark: nDCG@10 and Recall@100. The nDCG@10 focuses on the ranking of the top 10 retrieved documents, and is good at evaluating rankings returned to humans, for example in a search engine. On the other hand, Recall@100 is relevant to evaluate retrievers that are used in machine learning systems, such as question answering. Indeed, such models can process hundreds of documents, and ignore their ranking (Izacard & Grave, 2020b).",
+      "url": "https://arxiv.org/abs/2112.09118v4",
+      "pdf_file": "pdfs/contriever.pdf",
+      "sha256": "7407131fd633561d8eab8701e43ca81061960b6642ae180eb86a3f367b2b8408",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.032266458495966696
+    },
+    {
+      "source_id": "colbert:s0007",
+      "paper_id": "colbert",
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+      "section": "1 INTRODUCTION",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "(2) We present ColBERT (§3.2 & 3.3), a highly-effective model that employs novel BERT-based query and document encoders within the late interaction paradigm. (3) We show how to leverage ColBERT both for re-ranking on top of a term-based retrieval model (§3.5) and for searching a full collection using vector similarity indexes (§3.6). (4) We evaluate ColBERT on MS MARCO and TREC CAR, two recent passage search collections.",
+      "url": "https://arxiv.org/abs/2004.12832v2",
+      "pdf_file": "pdfs/colbert.pdf",
+      "sha256": "2e487d9b96e3c2e5e286d843e98a066adc0442faa3a6e8ddbd1771221bf9ae14",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.032018442622950824
+    },
+    {
+      "source_id": "colbert:s0035",
+      "paper_id": "colbert",
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+      "section": "4.3 End-to-end Top-k Retrieval",
+      "page_start": 8,
+      "page_end": 8,
+      "text": "Beyond cheap re-ranking, ColBERT is amenable to top-k retrieval directly from a full collection. Table 2 considers full retrieval, wherein each model retrieves the top-1000 documents directly from MS MARCO’s 8.8M documents per query. In addition to MRR@10 and latency in milliseconds, the table reports Recall@50, Recall@200, and Recall@1000, important metrics for a full-retrieval model that essentially filters down a large collection on a per-query basis. We compare against BM25, in particular MS MARCO’s official BM25 ranking as well as a well-tuned baseline based on the Anserini toolkit.7 While many other traditional models exist, we are not aware of any that substantially outperform Anserini’s BM25 implementation (e.g., see RM3 in [28], LMDir in [2], or Microsof’s proprietary feature-based RankSVM on the leaderboard). We also compare against doc2query, DeepCT, and docTTTT- Tquery. All three rely on a traditional bag-of-words model (primarily BM25) for retrieval. Crucially, however, they re-weigh the frequency of terms per document and/or expand the set of terms in each document before building the BM25 index. In particular, doc2query expands each document with a pre-defined number of synthetic queries generated by a seq2seq transformer model (which docTTTTquery replaced with a pre-trained language model, T5 [31]). In contrast, DeepCT uses BERT to produce the term frequency component of BM25 in a context-aware manner. For the latency of Anserini’s BM25, doc2query, and docTTTTquery, we use the authors’ [26, 28] Anserini-based implementation. While this implementation supports multi-threading, it only utilizes parallelism across different queries. We thus report single-threaded latency for these models, noting that simply parallelizing their computation over shards of the index can substantially decrease their already-low latency.",
+      "url": "https://arxiv.org/abs/2004.12832v2",
+      "pdf_file": "pdfs/colbert.pdf",
+      "sha256": "2e487d9b96e3c2e5e286d843e98a066adc0442faa3a6e8ddbd1771221bf9ae14",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030158730158730156
+    },
+    {
+      "source_id": "ance:s0035",
+      "paper_id": "ance",
+      "title": "Approximate Nearest Neighbor Negative Contrastive Learning for Dense Text Retrieval",
+      "section": "A.5 CASE STUDIES",
+      "page_start": 15,
+      "page_end": 15,
+      "text": "ANCE BM25 Query: qid (182539): Example of monotonic function Title: Wikipedia: Monotonic function Explain Extended: Things SQL needs: sargability of monotonic functions DocNo: D510209 D175960 Snippet: In mathematics, a monotonic function (or monotone function) is a function between ordered sets that preserves or reverses the given order... For example, if y=g(x) is strictly monotonic on the range [a,b] ... I’m going to write a series of articles about the things SQL needs to work faster and more efficienly. . . Ranking Position: 1 1 TREC Label: 0 (Irrelevant) 2 (Relevant) NDCG@10: 0.25 0.61 Query: qid (1117099): What is a active margin Title: Wikipedia: Margin (finance) Yahoo Answer: What is the difference between passive and active continental margins DocNo: D166625 D2907204 Snippet: In finance, margin is collateral that the holder of a financial instrument . . . An active continental margin is found on the leading edge of the continent where . . . Ranking Position: 2 2 TREC Label: 0 (Irrelevant) 3 (Very Relevant) NDCG@10: 0.44 0.74 Query: qid (1132213): How long to hold bow in yoga Title: Yahoo Answer: How long should you hold a yoga pose for yogaoutlet.com: How to do bow pose in yoga DocNo: D3043610 D3378723 Snippet: so i’ve been doing yoga for a few weeks now and already notice that my flexiablity has increased drastically. .. .That depends on the posture itself . . . Bow Pose is an intermediate yoga backbend that deeply opens the chest and the front of the body...Hold for up to 30 seconds . . . Ranking Position: 3 3 TREC Label: 0 (Irrelevant) 3 (Very Relevant) NDCG@10: 0.66 0.74 The losing cases in Table 9 are also quite interesting.",
+      "url": "https://arxiv.org/abs/2007.00808v2",
+      "pdf_file": "pdfs/ance.pdf",
+      "sha256": "3ffc05cd484c56e33fc8806b17df9607043b336dd5c6c6ede83cd87955d23f1f",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029418126757516764
+    },
+    {
+      "source_id": "retro:s0070",
+      "paper_id": "retro",
+      "title": "Improving language models by retrieving from trillions of tokens",
+      "section": "F.1. Main text datasets",
+      "page_start": 33,
+      "page_end": 33,
+      "text": "We report the performance of Retro and baseline models, measured in bits-per-bytes on evaluation set, in Table 14.",
+      "url": "https://arxiv.org/abs/2112.04426v3",
+      "pdf_file": "pdfs/retro.pdf",
+      "sha256": "1b3e89b589b73d51ca76cb7d98f22fa5438f8b13e05363613bc6b3199f9777f4",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02928692699490662
+    },
+    {
+      "source_id": "colbert:s0022",
+      "paper_id": "colbert",
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+      "section": "3.6 End-to-end Top-k Retrieval with ColBERT",
+      "page_start": 5,
+      "page_end": 6,
+      "text": "As mentioned before, ColBERT’s late-interaction operator is specifically designed to enable end-to-end retrieval from a large collection, largely to improve recall relative to term-based retrieval approaches. Tis section is concerned with cases where the number of documents to be ranked is too large for exhaustive evaluation of each possible candidate document, particularly when we are only interested in the highest scoring ones. Concretely, we focus here on retrieving the top-k results directly from a large document collection with N (e.g., N = 10, 000, 000) documents, where k ≪N. To do so, we leverage the pruning-friendly nature of the MaxSim operations at the backbone of late interaction. Instead of applying MaxSim between one of the query embeddings and all of one document’s embeddings, we can use fast vector-similarity data structures to efficiently conduct this search between the query embedding and all document embeddings across the full collection. For this, we employ an off-the-shelf library for large-scale vector-similarity search, namely faiss [15] from Facebook.4In particular, at the end of offline indexing (§3.4), we maintain a mapping from each embedding to its document of origin and then index all document embeddings into faiss. Subsequently, when serving queries, we use a two-stage procedure to retrieve the top-k documents from the entire collection. Both stages rely on ColBERT’s scoring: the first is an approximate stage aimed at filtering while the second is a refinement stage. For the first stage, we concurrently issue Nq vector-similarity queries (corresponding to each of the embeddings in Eq) onto our faiss index. Tis retrieves the top-k′ (e.g., k′ = k/2) matches for that vector 4htps://github.com/facebookresearch/faiss over all document embeddings.",
+      "url": "https://arxiv.org/abs/2004.12832v2",
+      "pdf_file": "pdfs/colbert.pdf",
+      "sha256": "2e487d9b96e3c2e5e286d843e98a066adc0442faa3a6e8ddbd1771221bf9ae14",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02919863597612958
+    },
+    {
+      "source_id": "contriever:s0042",
+      "paper_id": "contriever",
+      "title": "Unsupervised Dense Information Retrieval with Contrastive Learning",
+      "section": "A.3 Few-shot training",
+      "page_start": 17,
+      "page_end": 18,
+      "text": "For the few-shot evaluation presented in Table 3, we train for 500 epochs on each dataset with a batch size of 256 with in-batch random negatives. We evaluate performance performance on the development set every 100 gradient updates and perform early stopping based on this metric. For SciFact, we hold out randomly 10% of the training data and use them as development set, leading to a train set containing 729 samples. Table 10: BEIR Benchmark. We report the recall@100 on the test sets from the BEIR benchmark for bi-encoder methods. We report the capped recall@100 on Trec-COVID following the original BEIR setup. Note that using a cross-encoder to re-rank the top-100 documents do not change the recall@100, hence, we do not include these methods in this table. We also report the average and number of datasets where a method is the best (“Best on”) over the entire BEIR benchmark (excluding three datasets because of their licence). Bold is the best overall. On Trec-COVID we report the capped Recall@100, see Thakur et al. (2021) for more details. MS MARCO is excluded from the average.",
+      "url": "https://arxiv.org/abs/2112.09118v4",
+      "pdf_file": "pdfs/contriever.pdf",
+      "sha256": "7407131fd633561d8eab8701e43ca81061960b6642ae180eb86a3f367b2b8408",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02862400327131466
+    },
+    {
+      "source_id": "atlas:s0024",
+      "paper_id": "atlas",
+      "title": "Atlas: Few-shot Learning with Retrieval Augmented Language Models",
+      "section": "4 Experiments",
+      "page_start": 8,
+      "page_end": 8,
+      "text": "In this section, we report empirical evaluations of our language models on few-shot learning. We start by introducing our experimental setup, describing our evaluation benchmarks in section 4.1, and giving the training details of our models in section 4.2. Then, we perform an ablation study to compare the different technical choices leading to our main model. We finally evaluate this model, called Atlas, on different natural language understanding tasks in few-shot and full dataset settings.",
+      "url": "https://arxiv.org/abs/2208.03299v3",
+      "pdf_file": "pdfs/atlas.pdf",
+      "sha256": "593ab76b843cd6a0cba3271a2322fed7ea045edc75918d0cfce9eaf3d259a23e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.028612012987012988
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [],
+  "elapsed_seconds": 0.018453249998856336,
+  "evaluation_question_id": "u03"
+}

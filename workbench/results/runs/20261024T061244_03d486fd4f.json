@@ -1,0 +1,217 @@
+{
+  "run_id": "20261024T061244_03d486fd4f",
+  "created_utc": "2026-10-24T06:12:44.208528+00:00",
+  "question": "How many training examples does Atlas need to reach over 42% accuracy on Natural Questions?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "atlas"
+    ],
+    "facets": [
+      "training"
+    ],
+    "explicit_facets": true,
+    "measures": [
+      "training_example_count"
+    ],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "how many training examples does need to reach over 42% accuracy on natural questions",
+        "facets": [
+          "training"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "atlas.fewshot",
+      "paper_id": "atlas",
+      "text": "Atlas reports over 42% accuracy on Natural Questions using 64 training examples. This is a specific few-shot result on that benchmark, not an all-task accuracy figure.",
+      "facets": [
+        "evaluation",
+        "scale"
+      ],
+      "source_ids": [
+        "atlas:s0001"
+      ]
+    }
+  ],
+  "comparison": [],
+  "citations": [
+    {
+      "source_id": "atlas:s0001",
+      "paper_id": "atlas",
+      "title": "Atlas: Few-shot Learning with Retrieval Augmented Language Models",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Large language models have shown impressive few-shot results on a wide range of tasks. However, when knowledge is key for such results, as is the case for tasks such as question answering and fact checking, massive parameter counts to store knowledge seem to be needed. Retrieval augmented models are known to excel at knowledge intensive tasks without the need for as many parameters, but it is unclear whether they work in few-shot settings. In this work we present Atlas, a carefully designed and pre-trained retrieval augmented language model able to learn knowledge intensive tasks with very few training examples. We perform evaluations on a wide range of tasks, including MMLU, KILT and NaturalQuestions, and study the impact of the content of the document index, showing that it can easily be updated. Notably, Atlas reaches over 42% accuracy on Natural Questions using only 64 examples, outperforming a 540B parameters model by 3% despite having 50x fewer parameters.",
+      "url": "https://arxiv.org/abs/2208.03299v3",
+      "pdf_file": "pdfs/atlas.pdf",
+      "sha256": "593ab76b843cd6a0cba3271a2322fed7ea045edc75918d0cfce9eaf3d259a23e",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "atlas:s0001",
+    "atlas:s0006",
+    "atlas:s0053",
+    "atlas:s0039",
+    "atlas:s0048",
+    "atlas:s0004",
+    "atlas:s0038",
+    "atlas:s0033"
+  ],
+  "retrieved": [
+    {
+      "source_id": "atlas:s0001",
+      "paper_id": "atlas",
+      "title": "Atlas: Few-shot Learning with Retrieval Augmented Language Models",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Large language models have shown impressive few-shot results on a wide range of tasks. However, when knowledge is key for such results, as is the case for tasks such as question answering and fact checking, massive parameter counts to store knowledge seem to be needed. Retrieval augmented models are known to excel at knowledge intensive tasks without the need for as many parameters, but it is unclear whether they work in few-shot settings. In this work we present Atlas, a carefully designed and pre-trained retrieval augmented language model able to learn knowledge intensive tasks with very few training examples. We perform evaluations on a wide range of tasks, including MMLU, KILT and NaturalQuestions, and study the impact of the content of the document index, showing that it can easily be updated. Notably, Atlas reaches over 42% accuracy on Natural Questions using only 64 examples, outperforming a 540B parameters model by 3% despite having 50x fewer parameters.",
+      "url": "https://arxiv.org/abs/2208.03299v3",
+      "pdf_file": "pdfs/atlas.pdf",
+      "sha256": "593ab76b843cd6a0cba3271a2322fed7ea045edc75918d0cfce9eaf3d259a23e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03278688524590164
+    },
+    {
+      "source_id": "atlas:s0006",
+      "paper_id": "atlas",
+      "title": "Atlas: Few-shot Learning with Retrieval Augmented Language Models",
+      "section": "2 Method",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "Our approach follows the text-to-text framework (Raffel et al., 2019). This means that all the tasks are framed as follows: the system gets a text query as input, and generates a text output. For example, in the case of question answering, the query corresponds to the question and the model needs to generate the answer. In the case of classification tasks, the query corresponds to the textual input, and the model generates the lexicalized class label, i.e. the word corresponding to the label. We give more examples of downstream tasks, from the KILT benchmark in Figure 2. As many natural language processing tasks require knowledge, our goal is to enhance standard text-to-text models with retrieval, which, as we hypothesise in the introduction, may be crucial to endow models with few-shot capabilities.",
+      "url": "https://arxiv.org/abs/2208.03299v3",
+      "pdf_file": "pdfs/atlas.pdf",
+      "sha256": "593ab76b843cd6a0cba3271a2322fed7ea045edc75918d0cfce9eaf3d259a23e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03200204813108039
+    },
+    {
+      "source_id": "atlas:s0053",
+      "paper_id": "atlas",
+      "title": "Atlas: Few-shot Learning with Retrieval Augmented Language Models",
+      "section": "6 Discussion",
+      "page_start": 19,
+      "page_end": 19,
+      "text": "In this paper, we introduce Atlas, a large retrieval-augmented language model. By jointly pre-training the retriever module and the language model, we show that Atlas has strong few-shot learning capabilities on a wide range of knowledge intensive tasks, including NaturalQuestions, TriviaQA, FEVER, 8 KILT tasks and 57 MMLU tasks. For example, Atlas-11B reaches more than 42% accuracy on NaturalQuestions and 84.7% on TriviaQA when training on 64 examples, which is an improvement of almost 3 points compared to PaLM, a 540B parameters model, which required 50x more pre-training compute. We also provided detailed ablations and analyses for what factors are important when training such retrieval-augmented models, and demonstrated Atlas’s updateability, interpretability and controlability capabilities. Lastly, we demonstrated that Atlas is also powerful in full-dataset settings obtaining a new state-of-the-art results on NaturalQuestions, TriviaQA, FEVER, and 5 KILT tasks.",
+      "url": "https://arxiv.org/abs/2208.03299v3",
+      "pdf_file": "pdfs/atlas.pdf",
+      "sha256": "593ab76b843cd6a0cba3271a2322fed7ea045edc75918d0cfce9eaf3d259a23e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03200204813108039
+    },
+    {
+      "source_id": "atlas:s0039",
+      "paper_id": "atlas",
+      "title": "Atlas: Few-shot Learning with Retrieval Augmented Language Models",
+      "section": "4.5.2 Open-domain Question Answering Results",
+      "page_start": 13,
+      "page_end": 14,
+      "text": "Next we evaluate Atlas on two open-domain question answering benchmarks: NaturalQuestions and TriviaQA. We compare to prior work, both in a few-shot setting using 64 examples, and using the full training set, and report results in Table 8. On these benchmarks, which require high-degree of memorisation, we clearly see the benefits of retrieval-augmentation. Atlas-11B obtains state-of-the-art results on 64-shot question answering, for both NaturalQuestions and TriviaQA. In particular, it outperforms significantly larger models, such as PaLM, or models that required significantly more training compute such as Chinchilla. When using the full training set, Atlas also obtains state-of-the-art results, for example improving the accuracy on NaturalQuestions from 55.9% to 60.4%. This result is obtained using an index comprised of CCNet and over the 4 cyclic permutations, but requires much more compute, so we exclude it here, see Appendix A.1 augmented pre-train is orders of magnitude lower Table 7: Comparison to state-of-the-art on MMLU. ∗For the 5-shot setting, Atlas uses fine-tuning, while previous works use in-context learning. The Atlas model uses de-biased inference. Train FLOPS refers to total the amount of computation necessary to train the model, including pre-training and/or fine-tuning. Setting Model Params Train FLOPS All Hum. Soc. Sci.",
+      "url": "https://arxiv.org/abs/2208.03299v3",
+      "pdf_file": "pdfs/atlas.pdf",
+      "sha256": "593ab76b843cd6a0cba3271a2322fed7ea045edc75918d0cfce9eaf3d259a23e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03076923076923077
+    },
+    {
+      "source_id": "atlas:s0048",
+      "paper_id": "atlas",
+      "title": "Atlas: Few-shot Learning with Retrieval Augmented Language Models",
+      "section": "5.2 Temporal Sensitivity and Updateability",
+      "page_start": 17,
+      "page_end": 17,
+      "text": "A benefit of retrieval-augmented models is that they can be kept up-to-date without retraining, by updating or swapping their index at test time. To assess the effectiveness of this mechanism in Atlas, we first construct a dataset of time-sensitive questions derived from TempLAMA (Dhingra et al., 2022). TempLAMA is a collection of templated cloze questions derived from Wikidata and Wikidata where the correct answer changes over time. We select a subset of questions from this dataset which have a different answer in 2017 and 2020, for example, Question: Theo Walcott plays for ___ Answer: Arsenal F.C. (2017), Everton F.C. (2020), and form a small training set of 248 training, 112 development and 806 test questions. Using this dataset, we finetune closed-book T5-XXL and Atlas using the questions and the 2017 answers, supplying Atlas with a 2017 Wikipedia index, and then measure exact match accuracy on the 2017 test set. The results can be found in the first row and first two columns of Table 11. We first observe that, as expected, Atlas greatly outperforms T5 (57.7% c.f. 12.1%). We also note that, as desired, both T5 and Atlas almost never generate an answer from 2020 when trained with the 2017 answers, scoring 2.8% and 1.5% respectively (first row, second two columns of Table 11). However, as shown in row 2, we can swap the Atlas index to a 2020 Wikipedia index, without retraining, and find that Atlas updates its predictions accordingly, with 2020 accuracy rising to a similar level to its 2017 performance (53.1%), whereas the purely parametric T5 has no such updateability mechanism. This demonstrates that Atlas can be faithful and condition strongly on its supplied index.",
+      "url": "https://arxiv.org/abs/2208.03299v3",
+      "pdf_file": "pdfs/atlas.pdf",
+      "sha256": "593ab76b843cd6a0cba3271a2322fed7ea045edc75918d0cfce9eaf3d259a23e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029857397504456328
+    },
+    {
+      "source_id": "atlas:s0004",
+      "paper_id": "atlas",
+      "title": "Atlas: Few-shot Learning with Retrieval Augmented Language Models",
+      "section": "1 Introduction",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "Atlas achieves strong downstream performance in both few-shot and resource-rich settings. For example, with only 11B parameters, Atlas achieves an accuracy of 42.4% on NaturalQuestions using 64 training examples (45.1% with a Wikipedia-only index), outperforming PaLM (Chowdhery et al., 2022), a 540B parameter model by almost 3 points, and 64.0% in a full-dataset setting with a Wikipedia index, establishing a new state of the art by 8 points. In summary we make the following contributions: • A thorough study on how to design and train retrieval-augmented language models, with a focus on downstream few-shot learning and sample efficiency. • The findings of this study lead to a retrieval-augmented language model, called Atlas, that exhibits few-shot abilities that emerge at lower scale than standard LLM. • We provide an exploration of fine-tuning strategies to efficiently adapt both the retriever and the language model to the task at hand. • Thorough downstream experiments in few-shot settings, demonstrating state-of-the-art results on few-shot NaturalQuestions (+2.8%), TriviaQA (+3.3%), FEVER (+5.1%), and results on par or stronger than models with 15× more parameters on MMLU. • Experiments investigating full-dataset finetuning, setting new state-of-the-art results in NaturalQuestions (+8.1%), TriviaQA (+9.3%) and 5 KILT Tasks. • Experiments demonstrating the updatability and interpretability characteristics of Atlas. • Experiments demonstrating that a compressed index using product quantisation achieves comparable performance as an uncompressed index while resulting in a 5x memory reduction. Our code, pretrained Atlas checkpoints, and various supporting data are available at https://github.com/ facebookresearch/atlas Task Query Output Fact Checking Bermuda Triangle is in the western part of the Himalayas.",
+      "url": "https://arxiv.org/abs/2208.03299v3",
+      "pdf_file": "pdfs/atlas.pdf",
+      "sha256": "593ab76b843cd6a0cba3271a2322fed7ea045edc75918d0cfce9eaf3d259a23e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.028169014084507043
+    },
+    {
+      "source_id": "atlas:s0038",
+      "paper_id": "atlas",
+      "title": "Atlas: Few-shot Learning with Retrieval Augmented Language Models",
+      "section": "4.5.1 MMLU Results",
+      "page_start": 13,
+      "page_end": 13,
+      "text": "The results are shown in Table 6. We find that in zero-shot and 5-shot settings, de-biasing is very effective, improving results by 10.3 and 4.5 points respectively. When more training data is available, the need for de-biasing decreases, leading to only 0.2 point improvement in the multi-task and full data settings. Comparison to published works Next, we compare our Atlas-11B results with de-biasing to recently reported results with state-of-the-art large language models such as GPT-3 or Chinchilla, which required significantly more amount of computation to train. We report results in Table 7. We find that Atlas is able to perform significantly better than random in zero-shot, and in conjunction with de-biased inference, achieves zero-shot scores that exceed 5-shot results reported with GPT3 in the literature (47.1% vs 43.9%) (Hendrycks et al., 2021). For the 5-shot setting, Atlas outperforms GPT-3 by 4%, while using 15× less parameters, and 10× less pre-training compute.4 When multitask-training on the combined 5-shot data, Atlas improves to 56.6% close to the 5-shot performance of Gopher (60.0%). Finally, on the full data setting, where we train on auxiliary data recommended by the MMLU authors, Atlas reaches an overall accuracy of 65.6%, close to the state-of-the-art. Interestingly, in this setup, Atlas significantly outperforms GPT-3, while on the 5-shot setting, their performance is similar.",
+      "url": "https://arxiv.org/abs/2208.03299v3",
+      "pdf_file": "pdfs/atlas.pdf",
+      "sha256": "593ab76b843cd6a0cba3271a2322fed7ea045edc75918d0cfce9eaf3d259a23e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.026013513513513515
+    },
+    {
+      "source_id": "atlas:s0033",
+      "paper_id": "atlas",
+      "title": "Atlas: Few-shot Learning with Retrieval Augmented Language Models",
+      "section": "4.4 Fine-tuning",
+      "page_start": 11,
+      "page_end": 12,
+      "text": "In this section, we perform an ablation study on how to apply our models on downstream tasks, which relies on fine-tuning. In particular, we want to investigate the following research question: (RQ 3) How to efficiently fine-tune Atlas on tasks with limited training data? Table 4: Retriever fine-tuning ablation. Here, we compare different strategies to fine-tune the retriever in a few-shot setting. 64-shot 1024-shot NQ WoW FEVER Avg. NQ WoW FEVER Avg. Standard fine-tuning 44.3 14.9 73.2 44.1 47.0 18.4 89.7 51.7 Top-100 re-ranking 44.2 14.6 75.4 44.7 47.1 18.7 88.9 51.6 Query-side fine-tuning 45.0 15.0 77.0 45.7 44.9 17.9 90.2 51.0 Fixed retriever 36.8 14.5 72.0 41.1 38.0 17.7 89.3 48.3 Table 5: Performance on MMLU as a function of model size. 5-shot 5-shot (multi-task) Full / Transfer 770M 3B 11B 770M 3B 11B 770M 3B 11B Closed-book T5 29.2 35.7 36.1 26.5 40.0 43.5 42.4 50.4 54.0 Atlas 38.9 42.3 43.4 42.1 48.7 56.4 56.3 59.9 65.8 ∆ +9.8 +6.6 +7.3 +15.6 +8.7 +12.9 +13.9 +9.5 +11.8 To answer this question, we compare the different strategies to fine-tune the retriever module, described in Section 2.4. We report results in Table 4. First, as for pre-training, we observe that keeping the retriever fixed during fine-tuning leads to a significant performance drops, for both 64- and 1024-shot settings. Second, the re-ranking strategy (row 2) leads to very similar results to fully updating the index (row 1), while being significantly more efficient. Lastly, fine-tuning only the query encoder also leads to strong results: in particular, in the 64-shot setup, this is slightly stronger than performing full fine-tuning, which we attribute to there being less opportunity for over-fitting.",
+      "url": "https://arxiv.org/abs/2208.03299v3",
+      "pdf_file": "pdfs/atlas.pdf",
+      "sha256": "593ab76b843cd6a0cba3271a2322fed7ea045edc75918d0cfce9eaf3d259a23e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02581612258494337
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "how many training examples does need to reach over 42% accuracy on natural questions",
+      "paper_ids": [
+        "atlas"
+      ],
+      "facet": "training",
+      "covered": true,
+      "claim_ids": [
+        "atlas.fewshot"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.008656541001982987,
+  "evaluation_question_id": "n10"
+}

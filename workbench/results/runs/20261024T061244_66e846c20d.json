@@ -1,0 +1,172 @@
+{
+  "run_id": "20261024T061244_66e846c20d",
+  "created_utc": "2026-10-24T06:12:44.557320+00:00",
+  "question": "What measured p95 response latency did this Research Workbench achieve with 100 simultaneous users on an Apple M4 Mac? If no such measurement exists in the indexed collection, say so.",
+  "mode": "explain",
+  "status": "insufficient",
+  "plan": {
+    "named_papers": [],
+    "facets": [
+      "efficiency"
+    ],
+    "explicit_facets": true,
+    "measures": [
+      "deployment_latency"
+    ],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "what measured p95 response latency did this research workbench achieve with 100 simultaneous users on an apple m4 mac",
+        "facets": [
+          "efficiency"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [],
+  "comparison": [],
+  "citations": [],
+  "missing": [
+    "No source-linked claim establishes the requested measurement: deployment latency."
+  ],
+  "warnings": [],
+  "first_stage": [
+    "colbertv2:s0040",
+    "ares:s0002",
+    "dpr:s0007",
+    "colbert:s0004",
+    "beir:s0008",
+    "colbert:s0031",
+    "ragsurvey:s0005",
+    "beir:s0006"
+  ],
+  "retrieved": [
+    {
+      "source_id": "colbertv2:s0040",
+      "paper_id": "colbertv2",
+      "title": "ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction",
+      "section": "B Impact of Compression",
+      "page_start": 16,
+      "page_end": 17,
+      "text": "We present the tokens that appear most frequently in the selected clusters as well as additional clusters the top tokens appear in. Figure 3: Latency vs. retrieval quality with varying parameter configurations for three datasets of different collection sizes. We sweep a range of values for the number of centroids per vector (probe), the number of bits used for residual compression, and the number of candidates. Note that retrieval quality is measured in MRR@10 for MS MARCO and Success@5 for LoTTE datasets. Results toward the bottom right corner (higher quality, lower latency) are best. Similarly, on the HoVer (Jiang et al., 2020) dev set, Baleen’s retrieval R@100 dropped from 92.2% to only 90.6% but its sentence-level exact match remained roughly the same, going from 39.2% to 39.4%. We hypothesize that the supervision methods applied in ColBERTv2 (§3.2) can also be applied to lift quality in downstream tasks by improving the recall of retrieval for these tasks. We leave such exploration for future work.",
+      "url": "https://arxiv.org/abs/2112.01488v3",
+      "pdf_file": "pdfs/colbertv2.pdf",
+      "sha256": "46e0a2712eabf9e0b9486120356a2110f65516fa7e0d75c35e9ee3eef9ea78c0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03278688524590164
+    },
+    {
+      "source_id": "ares:s0002",
+      "paper_id": "ares",
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "section": "1 Introduction",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Retrieval-augmented generation (RAG) has become a prominent approach for building userfacing NLP applications, such as systems for question answering (QA), fact-checking, and customer support (Petroni et al., 2021; Wang et al., 2019). Typically, a RAG system consists of a retriever and a downstream language model (LM). Given a user question, the retriever finds relevant passages from a corpus and the LM uses these passages to generate a response. This formulation admits a multitude of choices: what retrieval model to use, how to divide the documents into retrieval chunks, and how to prompt or finetune the LM to use the retrieved information, to name only a few of the simplest design decisions. ∗Project started during research internship at Databricks Omar Khattab Stanford University okhattab@stanford.edu Matei Zaharia Databricks and UC Berkeley matei@databricks.com The best design for a RAG system is not necessarily universal across data domains, corpus sizes, and cost/latency budgets. To tune their own RAG systems, practitioners traditionally need hand annotations for test questions, passages to retrieve (to assess the retriever), and responses to generate, labeled specifically for their target domain. Alternatively, they may evaluate different approaches in production by collecting human preferences that compare the candidate systems. Unfortunately, both of these strategies demand high expertise and impose considerable annotation costs. Model-based evaluation is an inexpensive strategy to test generative output quality (Zheng et al., 2023). For instance, the open-source RAGAS framework (James and Es, 2023) prompts an LM for evaluating the relevance of retrieved information and the faithfulness and accuracy of generated responses. Unfortunately, such strategies currently rely for evaluation on a fixed set of heuristically hand-written prompts, offering little adaptability to various evaluation contexts and no guarantees about quality.",
+      "url": "https://arxiv.org/abs/2311.09476v2",
+      "pdf_file": "pdfs/ares.pdf",
+      "sha256": "16f092b08cce88da551a15a978b51721199e93dc95df406089813411fa51ebec",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031754032258064516
+    },
+    {
+      "source_id": "dpr:s0007",
+      "paper_id": "dpr",
+      "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+      "section": "3 Dense Passage Retriever (DPR)",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "We focus our research in this work on improving the retrieval component in open-domain QA. Given a collection of M text passages, the goal of our dense passage retriever (DPR) is to index all the passages in a low-dimensional and continuous space, such that it can retrieve efficiently the top k passages relevant to the input question for the reader at run-time. Note that M can be very large (e.g., 21 million passages in our experiments, described in Section 4.1) and k is usually small, such as 20–100.",
+      "url": "https://arxiv.org/abs/2004.04906v3",
+      "pdf_file": "pdfs/dpr.pdf",
+      "sha256": "3e67fc1a9977715acf722d85f0b7d124b03715e975f6310a4d6c12094190912f",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03128054740957967
+    },
+    {
+      "source_id": "colbert:s0004",
+      "paper_id": "colbert",
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+      "section": "1 INTRODUCTION",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "Te figure contrasts existing approaches (sub-figures (a), (b), and (c)) with the proposed late interaction paradigm (sub-figure (d)). Other methods, including ColBERT (full retrieval), directly retrieve the top-1000 results from the entire collection. As the figure shows, BERT considerably improves search precision, raising MRR@10 by almost 7% against the best previous methods; simultaneously, it increases latency by up to tens of thousands of milliseconds even with a high-end GPU. Tis poses a challenging tradeoffsince raising query response times by as litle as 100ms is known to impact user experience and even measurably diminish revenue [17]. To tackle this problem, recent work has started exploring using Natural Language Understanding (NLU) techniques to augment traditional retrieval models like BM25 [32]. For example, Nogueira et al. [26, 28] expand documents with NLU-generated queries before indexing with BM25 scores and Dai & Callan [2] replace BM25’s term frequency with NLU-estimated term importance. Despite successfully reducing latency, these approaches generally reduce precision substantially relative to BERT. To reconcile efficiency and contextualization in IR, we propose ColBERT, a ranking model based on contextualized late interaction over BERT. As the name suggests, ColBERT proposes a novel late interaction paradigm for estimating relevance between a query q and a document d. Under late interaction, q and d are separately encoded into two sets of contextual embeddings, and relevance is evaluated using cheap and pruning-friendly computations between both sets—that is, fast computations that enable ranking without exhaustively evaluating every possible candidate. Figure 2 contrasts our proposed late interaction approach with existing neural matching paradigms.",
+      "url": "https://arxiv.org/abs/2004.12832v2",
+      "pdf_file": "pdfs/colbert.pdf",
+      "sha256": "2e487d9b96e3c2e5e286d843e98a066adc0442faa3a6e8ddbd1771221bf9ae14",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03125763125763126
+    },
+    {
+      "source_id": "beir:s0008",
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "section": "3 The BEIR Benchmark",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "BEIR aims to provide a one-stop zero-shot evaluation benchmark for all diverse retrieval tasks. To construct a comprehensive evaluation benchmark, the selection methodology is crucial to collect tasks and datasets with desired properties. For BEIR, the methodology is motivated by the following three factors: (i) Diverse tasks: Information retrieval is a versatile task and the lengths of queries and indexed documents can differ between tasks. Sometimes, queries are short, like a keyword, while in other cases, they can be long like a news article. Similarly, indexed documents can sometimes be long, and for other tasks, short like a tweet. (ii) Diverse domains: Retrieval systems should be evaluated in various types of domains. From broad ones like News or Wikipedia, to highly specialized ones such as scientific publications in one particular field. Hence, we include domains which provide a representation of real-world problems and are diverse ranging from generic to specialized. (iii) Task difficulties: Our benchmark is challenging and the difficulty of a task included has to be sufficient. If a task is easily solved by any algorithm, it will not be useful to compare various models used for evaluation. We evaluated several tasks based on existing literature and selected popular tasks which we believe are recently developed, challenging and are not yet fully solved with existing approaches. (iv) Diverse annotation strategies: Creating retrieval datasets are inherently complex and are subject to annotation biases (see Section 6 for details), which hinders a fair comparison of approaches.",
+      "url": "https://arxiv.org/abs/2104.08663v4",
+      "pdf_file": "pdfs/beir.pdf",
+      "sha256": "1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03125763125763126
+    },
+    {
+      "source_id": "colbert:s0031",
+      "paper_id": "colbert",
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+      "section": "Method",
+      "page_start": 7,
+      "page_end": 7,
+      "text": "We report the competition’s official metric, namely MRR@10, on the validation set (Dev) and the evaluation set (Eval). We also report the re-ranking latency, which we measure using a single Tesla V100 GPU, and the FLOPs per query for each neural ranking model. For ColBERT, our reported latency subsumes the entire computation from gathering the document representations, moving them to the GPU, tokenizing then encoding the query, and applying late interaction to compute document scores. For the baselines, we measure the scoring computations on the GPU and exclude the CPU-based text preprocessing (similar to [9]). In principle, the baselines can pre-compute the majority of this preprocessing (e.g., document tokenization) offline and parallelize the rest across documents online, leaving only a negligible cost. We estimate the FLOPs per query of each model using the torchprofile6 library. We now proceed to study the results, which are reported in Table 1. To begin with, we notice the fast progress from KNRM in 2017 to the BERT-based models in 2019, manifesting itself in over 16% increase in MRR@10. As described in §1, the simultaneous increase in computational cost is difficult to miss. Judging by their rather monotonic patern of increasingly larger cost and higher effectiveness, these results appear to paint a picture where expensive models are necessary for high-quality ranking. In contrast with this trend, ColBERT (which employs late interaction over BERTbase) performs no worse than the original adaptation of BERTbase for ranking by Nogueira and Cho [25, 27] and is only marginally less effective than BERTlarge and our training of BERTbase (described above).",
+      "url": "https://arxiv.org/abs/2004.12832v2",
+      "pdf_file": "pdfs/colbert.pdf",
+      "sha256": "2e487d9b96e3c2e5e286d843e98a066adc0442faa3a6e8ddbd1771221bf9ae14",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03007688828584351
+    },
+    {
+      "source_id": "ragsurvey:s0005",
+      "paper_id": "ragsurvey",
+      "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
+      "section": "II. OVERVIEW OF RAG",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "The Naive RAG follows a traditional process that includes indexing, retrieval, and generation, which is also characterized as a “Retrieve-Read” framework [7]. Indexing starts with the cleaning and extraction of raw data in diverse formats like PDF, HTML, Word, and Markdown, which is then converted into a uniform plain text format. To accommodate the context limitations of language models, text is segmented into smaller, digestible chunks. Chunks are then encoded into vector representations using an embedding model and stored in vector database. This step is crucial for enabling efficient similarity searches in the subsequent retrieval phase. Retrieval. Upon receipt of a user query, the RAG system employs the same encoding model utilized during the indexing phase to transform the query into a vector representation. It then computes the similarity scores between the query vector and the vector of chunks within the indexed corpus. The system prioritizes and retrieves the top K chunks that demonstrate the greatest similarity to the query. These chunks are subsequently used as the expanded context in prompt. Generation. The posed query and selected documents are synthesized into a coherent prompt to which a large language model is tasked with formulating a response. The model’s approach to answering may vary depending on task-specific criteria, allowing it to either draw upon its inherent parametric knowledge or restrict its responses to the information contained within the provided documents. In cases of ongoing dialogues, any existing conversational history can be integrated into the prompt, enabling the model to engage in multi-turn dialogue interactions effectively. However, Naive RAG encounters notable drawbacks: Retrieval Challenges.",
+      "url": "https://arxiv.org/abs/2312.10997v5",
+      "pdf_file": "pdfs/ragsurvey.pdf",
+      "sha256": "396a0fadeb4cd40f5c8ccc36b73a0815f6cb4d7f6bfa53b6c48c1f9aba7c7e02",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029709507042253523
+    },
+    {
+      "source_id": "beir:s0006",
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "section": "2.1 Neural Retrieval",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "Information retrieval is the process of searching and returning relevant documents for a query from a collection. In our paper, we focus on text retrieval and use document as a cover term for text of any length in the given collection and query for the user input, which can be of any length as well. Traditionally, lexical approaches like TF-IDF and BM25 [55] have dominated textual information retrieval. Recently, there is a strong interest in using neural networks to improve or replace these lexical approaches. In this section, we highlight a few neural-based approaches and we refer the reader to Lin et al. [37] for a recent survey in neural retrieval. Retriever-based Lexical approaches suffer from the lexical gap [5]. To overcome this, earlier techniques proposed to improve lexical retrieval systems with neural networks. Sparse methods such as docT5query [48] identified document expansion terms using a sequence-to-sequence model that generated possible queries for which the given document would be relevant. DeepCT [11] on the other hand used a BERT [13] model to learn relevant term weights in a document and generated a pseudo-document representation. Both methods still rely on BM25 for the remaining parts. Similarly, SPARTA [79] learned token-level contextualized representations with BERT and converted the document into an efficient inverse index. More recently, dense retrieval approaches were proposed. They are capable of capturing semantic matches and try to overcome the (potential) lexical gap. Dense retrievers map queries and documents in a shared, dense vector space [18]. This allowed the document representation to be pre-computed and indexed. A bi-encoder neural architecture based on pre-trained Transformers has shown strong performance for various open-domain question-answering tasks [19, 31, 35, 43].",
+      "url": "https://arxiv.org/abs/2104.08663v4",
+      "pdf_file": "pdfs/beir.pdf",
+      "sha256": "1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02857142857142857
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "elapsed_seconds": 0.00831291699432768,
+  "evaluation_question_id": "F12"
+}

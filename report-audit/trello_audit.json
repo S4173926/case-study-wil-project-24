@@ -1,0 +1,284 @@
+{
+  "board_name": "case study wil project 24",
+  "last_activity": "2026-10-02T05:44:57.589Z",
+  "n_cards": 26,
+  "list_counts": {
+    "To-Do": 2,
+    "In-Progress": 1,
+    "Blocked": 2,
+    "Done": 21
+  },
+  "actions_count": 158,
+  "action_dates": {
+    "2026-10-02": 132,
+    "2026-08-23": 26
+  },
+  "card_creation_dates": {
+    "2026-10-02": 20,
+    "2026-08-23": 6
+  },
+  "member_assignments": {
+    "Deboprio Saha Argha": 6,
+    "Imranjit Singh Kohli": 4,
+    "Chetan Bera": 3,
+    "Amritpal Singh Gill": 4,
+    "Dhanush Sridhar": 3,
+    "Qiling Huang": 3
+  },
+  "cards": [
+    {
+      "id": 7,
+      "title": "S3. Validate routing on held-out questions - Deboprio",
+      "status": "To-Do",
+      "owners": [
+        "Deboprio Saha Argha"
+      ],
+      "last_activity": "2026-10-02T05:42:17.523Z",
+      "description": "Sprint 3 \u00b7 29 Sep\u20135 Oct 2026\n\nWrite a separate question set that wasn't used when designing +route, with evidence quotes, and re-run the evaluation to check the gain holds. Also investigate why MRR dropped (0.42 \u2192 0.32)."
+    },
+    {
+      "id": 8,
+      "title": "S3. Fix remaining extraction issues - Imranjit",
+      "status": "To-Do",
+      "owners": [
+        "Imranjit Singh Kohli"
+      ],
+      "last_activity": "2026-10-02T05:42:06.696Z",
+      "description": "Sprint 3 \u00b7 29 Sep\u20135 Oct 2026\n\nStill open: garbled equations (DPR loss), a ColBERT font that drops the \"u\" in \"Query\" (\"Qery\"), and \"dual-encoder\" joined to \"dualencoder\" by the hyphen repair."
+    },
+    {
+      "id": 5,
+      "title": "S3. Milestone 2 report assembly - Chetan",
+      "status": "In-Progress",
+      "owners": [
+        "Chetan Bera"
+      ],
+      "last_activity": "2026-10-02T05:43:13.840Z",
+      "description": "Sprint 3 \u00b7 29 Sep\u20135 Oct 2026\n\nPull together results, error analysis and team contributions for the next report."
+    },
+    {
+      "id": 3,
+      "title": "S3. Push experiment commits to GitHub - Amritpal",
+      "status": "Blocked",
+      "owners": [
+        "Amritpal Singh Gill"
+      ],
+      "last_activity": "2026-10-02T05:43:19.038Z",
+      "description": "Sprint 3 \u00b7 29 Sep\u20135 Oct 2026\n\nBlocked: GitHub refused the push with a 403 (access/permissions error), so retrying won't help.\nThe 3 experiment commits are saved in a git bundle file (rag-branch.bundle).\nTo unblock: fix the repository access permissions, or a team member pushes the bundle from their own clone.\nTeam decision: TEAM TO FILL IN, with the date."
+    },
+    {
+      "id": 9,
+      "title": "S3. Run RAG answer-generation experiment - Dhanush",
+      "status": "Blocked",
+      "owners": [
+        "Dhanush Sridhar"
+      ],
+      "last_activity": "2026-10-02T05:43:23.253Z",
+      "description": "Sprint 3 \u00b7 29 Sep\u20135 Oct 2026\n\nWhat: the \"generation\" step of the RAG pipeline. A language model writes each answer from the retrieved passages, and every sentence must cite a passage or reply INSUFFICIENT_EVIDENCE.\n\nBlocked: the model API needs an access key, and the team doesn't have one yet.\n\nTeam decision: keep evaluating with the extractive generator so the sprint wasn't held up, and run this experiment once a key is available.\n\nOnce unblocked: re-run the evaluation with model-written answers on the baseline (fixed-200/bm25) and the best setup (fixed-400/hybrid+route). Compare citation support, currently 0.16\u20130.25 with the extractive generator, and faithfulness."
+    },
+    {
+      "id": 1,
+      "title": "GitHub Repo",
+      "status": "Done",
+      "owners": [],
+      "last_activity": "2026-08-23T05:36:04.367Z",
+      "description": ""
+    },
+    {
+      "id": 2,
+      "title": "Python Setup",
+      "status": "Done",
+      "owners": [],
+      "last_activity": "2026-08-23T05:37:05.434Z",
+      "description": ""
+    },
+    {
+      "id": 4,
+      "title": "Final report assembly",
+      "status": "Done",
+      "owners": [],
+      "last_activity": "2026-10-02T05:02:10.592Z",
+      "description": ""
+    },
+    {
+      "id": 6,
+      "title": "S1. Role allocation & sprint planning -Chetan",
+      "status": "Done",
+      "owners": [
+        "Chetan Bera"
+      ],
+      "last_activity": "2026-10-02T05:43:27.934Z",
+      "description": "Sprint 1 \u00b7 15\u201321 Sep 2026 (Week 6: corpus + baseline)\n\nAllocated roles across leadership, data engineering, ML, app development, DevOps/docs and QA/evaluation. Agreed the 3-week plan and the Walert baseline as the first technical task."
+    },
+    {
+      "id": 10,
+      "title": "S1 \u00b7 GitHub repo + Python environment setup - Amritpal",
+      "status": "Done",
+      "owners": [
+        "Amritpal Singh Gill"
+      ],
+      "last_activity": "2026-10-02T05:43:33.736Z",
+      "description": "Sprint 1 \u00b7 15\u201321 Sep 2026\n\nPrivate repo: [https://github.com/S4173926/case-study-wil-project-24Connect](https://github.com/S4173926/case-study-wil-project-24Connect \"smartCard-inline\")  your Github account\nRepository structure, requirements.txt, .gitignore and environment setup."
+    },
+    {
+      "id": 11,
+      "title": "S1. Data sourcing: select & version 8-paper corpus - Imranjit",
+      "status": "Done",
+      "owners": [
+        "Imranjit Singh Kohli"
+      ],
+      "last_activity": "2026-10-02T05:43:37.656Z",
+      "description": "Sprint 1 \u00b7 15\u201321 Sep 2026\n\n8 open-access arXiv papers on retrieval-augmented QA: Walert, RAG, DPR, ColBERT, Fusion-in-Decoder, REALM, RAGAS, Self-RAG. Each download checked by title; arXiv version and SHA-256 recorded in corpus.lock.json.\nCorpus version: 17baac618aa0"
+    },
+    {
+      "id": 12,
+      "title": "S1. Build ground-truth question set (24 Qs) - Deboprio",
+      "status": "Done",
+      "owners": [
+        "Deboprio Saha Argha"
+      ],
+      "last_activity": "2026-10-02T05:43:42.596Z",
+      "description": "Sprint 1 \u00b7 15\u201321 Sep 2026\n\n24 questions in eval/questions.jsonl, written before any tuning:\n\n13 single-paper questions\n\n4 cross-paper comparisons\n\n7 unsupported questions the system should decline (e.g. \"How does GraphRAG build community summaries?\")\n\nEach answerable question lists its expected paper(s) and a verbatim evidence quote."
+    },
+    {
+      "id": 13,
+      "title": "S1. RAG baseline: Walert-style 200-word + BM25 - Qiling",
+      "status": "Done",
+      "owners": [
+        "Qiling Huang"
+      ],
+      "last_activity": "2026-10-02T05:43:48.095Z",
+      "description": "Sprint 1 \u00b7 15\u201321 Sep 2026\n\nBaseline config fixed-200/bm25, following Walert's described setup (Okapi BM25, k1 = 1.2, b = 0.75, top-k 5). Walert indexed a FAQ knowledge base, so this is Walert-style."
+    },
+    {
+      "id": 14,
+      "title": "S1. Command-line skeleton (fetch / ingest / ask) - Dhanush",
+      "status": "Done",
+      "owners": [
+        "Dhanush Sridhar"
+      ],
+      "last_activity": "2026-10-02T05:43:55.963Z",
+      "description": "Sprint 1 \u00b7 15\u201321 Sep 2026\n\nrra/cli.py with commands: fetch, ingest, validate, experiment, report, ask."
+    },
+    {
+      "id": 15,
+      "title": "S2. PDF ingestion & text cleaning - Imranjit",
+      "status": "Done",
+      "owners": [
+        "Imranjit Singh Kohli"
+      ],
+      "last_activity": "2026-10-02T05:44:02.331Z",
+      "description": "Sprint 2 \u00b7 22\u201328 Sep 2026 (Week 7: RAG prototype + experiments)\n\nTwo-column reading order; removes headers, footers, page numbers, references, footnotes and figure labels; repairs hyphenation; detects section headings.\nFixed: affiliations read as headings, abstract read after intro, figure labels mid-sentence."
+    },
+    {
+      "id": 16,
+      "title": "S2. Implement 4 chunking strategies - Imranjit",
+      "status": "Done",
+      "owners": [
+        "Imranjit Singh Kohli"
+      ],
+      "last_activity": "2026-10-02T05:44:12.685Z",
+      "description": "Sprint 2 \u00b7 22\u201328 Sep 2026\n\nfixed-200, fixed-400, sentence-150 and section-150 chunkers (rra/chunking.py)."
+    },
+    {
+      "id": 17,
+      "title": "S2. Validate extracted evidence - Deboprio",
+      "status": "Done",
+      "owners": [
+        "Deboprio Saha Argha"
+      ],
+      "last_activity": "2026-10-02T05:44:16.790Z",
+      "description": "print 2 \u00b7 22\u201328 Sep 2026\n\nvalidate command: stops a run if any ground-truth evidence quote no longer appears in the ingested text. Catches PDF-extraction regressions and wrong ground-truth entries. All quotes validate against corpus 17baac618aa0."
+    },
+    {
+      "id": 18,
+      "title": "S2. Define evaluation metrics - Deboprio",
+      "status": "Done",
+      "owners": [
+        "Deboprio Saha Argha"
+      ],
+      "last_activity": "2026-10-02T05:44:21.249Z",
+      "description": "Sprint 2 \u00b7 22\u201328 Sep 2026\n\nRecall@5, MRR, paper recall@5, citation precision, citation support, faithfulness, unsupported flagged / false abstain.\nError labels: retrieval\\_miss, wrong\\_paper\\_cited, unfaithful\\_sentence, comparison\\_incomplete, false\\_abstain, answered_unsupported."
+    },
+    {
+      "id": 19,
+      "title": "S2. Retrieval methods: BM25, TF-IDF, dense, hybrid - Qiling",
+      "status": "Done",
+      "owners": [
+        "Qiling Huang"
+      ],
+      "last_activity": "2026-10-02T05:44:25.490Z",
+      "description": "Sprint 2 \u00b7 22\u201328 Sep 2026\n\n4 retrievers in rra/retrieval.py. Hybrid uses reciprocal rank fusion of BM25 and dense. Dense uses sentence-transformers (MiniLM), with an offline LSA fallback."
+    },
+    {
+      "id": 20,
+      "title": "S2. Cited-answer generator + INSUFFICIENT_EVIDENCE gate - Dhanush",
+      "status": "Done",
+      "owners": [
+        "Dhanush Sridhar"
+      ],
+      "last_activity": "2026-10-02T05:44:30.569Z",
+      "description": "Sprint 2 \u00b7 22\u201328 Sep 2026\n\nEvery answer sentence cites its source chunk, e.g. [dpr:11]. Replies INSUFFICIENT_EVIDENCE when retrieved passages don't cover the question.\nTwo generation modes:\n\nExtractive (offline): copies the best-matching retrieved sentences. Done, and used for all current results.\n\nLanguage-model generation: writes the answer from the same passages under the same citation rules. Set up but not yet run (see Blocked)."
+    },
+    {
+      "id": 21,
+      "title": "S2. Pipeline tests & run instructions - Amritpal",
+      "status": "Done",
+      "owners": [
+        "Amritpal Singh Gill"
+      ],
+      "last_activity": "2026-10-02T05:44:35.773Z",
+      "description": "Sprint 2 \u00b7 22\u201328 Sep 2026\n\ntests/test_pipeline.py runs on synthetic PDFs without network. README documents every command."
+    },
+    {
+      "id": 22,
+      "title": "S2. Sprint 2 review & retrospective - Chetan",
+      "status": "Done",
+      "owners": [
+        "Chetan Bera"
+      ],
+      "last_activity": "2026-10-02T05:44:39.214Z",
+      "description": "Sprint 2 \u00b7 22\u201328 Sep 2026\n\nPlanning: 22 Sep 2026. Split the Week 7 prototype into tasks: ingestion/chunking, retrieval, answer generation and evaluation.\nStand-ups: no formal daily stand-ups. The team shared quick progress updates as tasks finished.\nReview: 26 Sep 2026. Compared BM25, TF-IDF, dense and hybrid retrieval against the Walert-style baseline.\nDecision at review: test all 20 chunking \u00d7 retrieval combinations (carried into Sprint 3).\nRetrospective: the validation check paid off by catching extraction errors early. Working dates weren't recorded, so the team now updates Trello as tasks happen."
+    },
+    {
+      "id": 23,
+      "title": "S3. Evaluate all 20 retrieval configurations - Deboprio",
+      "status": "Done",
+      "owners": [
+        "Deboprio Saha Argha"
+      ],
+      "last_activity": "2026-10-02T05:44:43.572Z",
+      "description": "Sprint 3 \u00b7 29 Sep\u20135 Oct 2026 (Week 8: evaluation + refinement)\n\nEvaluation run 20260929-074348 UTC (29 Sep 2026, about 17:43 Melbourne time) on corpus 17baac618aa0, k = 5. Results in results/latest.json and results/report.html.\n\n| | Baseline fixed-200/bm25 | Best fixed-400/hybrid+route |\n|---|---|---|\n| Recall@5 | 0.59 | 0.71 |\n| MRR | 0.42 | 0.32 |\n| Citation precision | 0.81 | 1.00 |\n| Unsupported declined | 6/7 | 7/7 |"
+    },
+    {
+      "id": 24,
+      "title": "S3. Analyse retrieval failures - Deboprio",
+      "status": "Done",
+      "owners": [
+        "Deboprio Saha Argha"
+      ],
+      "last_activity": "2026-10-02T05:44:48.657Z",
+      "description": "Sprint 3 \u00b7 29 Sep\u20135 Oct 2026\n\nEvery failure labelled (retrieval\\_miss, wrong\\_paper_cited, and others).\nMain finding: wrong-paper retrieval. Shared words like \"retrieval\" and \"RAG\" outweighed the paper named in the question (e.g. RAG chunks outranked Walert's for a Walert question). Comparison questions often retrieved only one of their two papers.\nOther findings: dense (MiniLM) alone weakest (Recall@5 0.35\u20130.47); bigger chunks inflate recall; remaining misses mostly vocabulary mismatch."
+    },
+    {
+      "id": 25,
+      "title": "S3. Paper-aware routing (+route) - Qiling",
+      "status": "Done",
+      "owners": [
+        "Qiling Huang"
+      ],
+      "last_activity": "2026-10-02T05:44:53.615Z",
+      "description": "Sprint 3 \u00b7 29 Sep\u20135 Oct 2026\n\nretrieval.PaperRouter shares the top-k slots among the papers a question names. Raised citation precision to 1.00 for every chunker; Recall@5 0.59 \u2192 0.71 vs baseline.\nCaveat: designed after seeing failures on the same 24 questions, so it needs confirming on a held-out set (see To Do)."
+    },
+    {
+      "id": 26,
+      "title": "S3. Publish evaluation report - Amritpal",
+      "status": "Done",
+      "owners": [
+        "Amritpal Singh Gill"
+      ],
+      "last_activity": "2026-10-02T05:44:57.589Z",
+      "description": "Sprint 3 \u00b7 29 Sep\u20135 Oct 2026\n\nresults/report.html, published as \"Paper-Grounded RAG Evaluation\": full grid of results and every per-question answer."
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "run_id": "20261024T061244_fae824c7d4",
+  "created_utc": "2026-10-24T06:12:44.216145+00:00",
+  "question": "Which method retrieves from a database of 2 trillion tokens?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [],
+    "facets": [
+      "retrieval"
+    ],
+    "explicit_facets": true,
+    "measures": [
+      "database_tokens"
+    ],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "which method retrieves from a database of 2 trillion tokens",
+        "facets": [
+          "retrieval"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "retro.database",
+      "paper_id": "retro",
+      "text": "The RETRO paper reports a retrieval database containing 2 trillion tokens. That is the size of the external retrieval corpus, not the number of model parameters.",
+      "facets": [
+        "scale",
+        "retrieval"
+      ],
+      "source_ids": [
+        "retro:s0000"
+      ]
+    }
+  ],
+  "comparison": [],
+  "citations": [
+    {
+      "source_id": "retro:s0000",
+      "paper_id": "retro",
+      "title": "Improving language models by retrieving from trillions of tokens",
+      "section": "Front matter",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Improving language models by retrieving from trillions of tokens Sebastian Borgeaud†, Arthur Mensch†, Jordan Hoffmann†, Trevor Cai, Eliza Rutherford, Katie Millican, George van den Driessche, Jean-Baptiste Lespiau, Bogdan Damoc, Aidan Clark, Diego de Las Casas, Aurelia Guy, Jacob Menick, Roman Ring, Tom Hennigan, Saffron Huang, Loren Maggiore, Chris Jones, Albin Cassirer, Andy Brock, Michela Paganini, Geoffrey Irving, Oriol Vinyals, Simon Osindero, Karen Simonyan, Jack W. Rae‡, Erich Elsen‡ and Laurent Sifre†,‡ All authors from DeepMind, †Equal contributions, ‡Equal senior authorship We enhance auto-regressive language models by conditioning on document chunks retrieved from a large corpus, based on local similarity with preceding tokens. With a 2 trillion token database, our Retrieval-Enhanced Transformer (Retro) obtains comparable performance to GPT-3 and Jurassic-1 on the Pile, despite using 25× fewer parameters. After fine-tuning, Retro performance translates to downstream knowledge-intensive tasks such as question answering. Retro combines a frozen Bert retriever, a differentiable encoder and a chunked cross-attention mechanism to predict tokens based on an order of magnitude more data than what is typically consumed during training. We typically train Retro from scratch, yet can also rapidly Retrofit pre-trained transformers with retrieval and still achieve good performance. Our work opens up new avenues for improving language models through explicit memory at unprecedented scale. 1. Introduction Language modelling (LM) is an unsupervised task that consists of modelling the probability of text, usually by factorising it into conditional next-token predictions p(x1, . . . , xn) = Î ip(xi|x<i).",
+      "url": "https://arxiv.org/abs/2112.04426v3",
+      "pdf_file": "pdfs/retro.pdf",
+      "sha256": "1b3e89b589b73d51ca76cb7d98f22fa5438f8b13e05363613bc6b3199f9777f4",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "No paper was named. This is a candidate match, not an exhaustive comparison of the literature.",
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "retro:s0004",
+    "retro:s0005",
+    "retro:s0002",
+    "retro:s0026",
+    "retro:s0043",
+    "retro:s0007",
+    "retro:s0003",
+    "retro:s0006"
+  ],
+  "retrieved": [
+    {
+      "source_id": "retro:s0004",
+      "paper_id": "retro",
+      "title": "Improving language models by retrieving from trillions of tokens",
+      "section": "Front matter",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "Method We design our retrieval-enhanced architecture to be capable of retrieving from a database with trillions of tokens. For this purpose, we retrieve at the level of contiguous token chunks instead of individual tokens which reduces storage and computation requirements by a large linear factor. Our method first constructs a key-value database, where values store raw chunks of text tokens and keys are frozen Bert embedddings (Devlin et al., 2019). We use a frozen model to avoid having to periodically re-compute embeddings over the entire database during training. Each training sequence is then split into chunks, which are augmented with their k-nearest neighbour retrieved from the database. An encoder-decoder architecture integrates retrieval chunks into the model’s predictions. We summarize the Retro architecture in Fig. 2, and detail it in this section. We end the section by introducing Retrieval dataset Frozen kNN Retriever EMB READ CCA FFW ATTN RETRO block (x L) Chunked cross-attention (CCA) CA CA Figure 2 | Retro architecture. Left: simplified version where a sequence of length n= 12 is split into l= 3 chunks of size m= 4. For each chunk, we retrieve k= 2 neighbours of r= 5 tokens each. The retrieval pathway is shown on top. Right: Details of the interactions in the Cca operator. Causality is maintained as neighbours of the first chunk only affect the last token of the first chunk and tokens from the second chunk. a new methodology to evaluate language models when an evaluation set is partially present in the training set. 2.1. Training dataset We use a multi-lingual version of MassiveText (Rae et al., 2021) for both training and retrieval data.",
+      "url": "https://arxiv.org/abs/2112.04426v3",
+      "pdf_file": "pdfs/retro.pdf",
+      "sha256": "1b3e89b589b73d51ca76cb7d98f22fa5438f8b13e05363613bc6b3199f9777f4",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03278688524590164
+    },
+    {
+      "source_id": "retro:s0005",
+      "paper_id": "retro",
+      "title": "Improving language models by retrieving from trillions of tokens",
+      "section": "Front matter",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "Training dataset We use a multi-lingual version of MassiveText (Rae et al., 2021) for both training and retrieval data. The dataset consists of text documents from multiple sources and multiple languages totalling over 5 trillion tokens (detailed in Table 1). Sequences are sampled from subsets of the training data, with sampling weights given in the right-most column of Table 1. We tokenize the dataset using SentencePiece (Kudo and Richardson, 2018) with a vocabulary of 128,000 tokens. During training (unless otherwise specified), we retrieve from 600B tokens from the training data. The training retrieval database is made of the same subsets as the training data, in proportion that matches the training sampling frequencies. During evaluation the retrieval database consists in the full union of these datasets, with the exception of books for which we use a sub-sample of 4%. The evaluation retrieval database thus contains 1.75T tokens. To limit test set leakage, we compute the 13-gram Jaccard similarity between train and test documents using the MinHash scheme and remove all training documents with high similarity (0.8 or higher) to a validation or test set document. Additionally, we remove all validation and test articles from Wikitext103 (Merity et al., 2017) from our Wikipedia training data. 2.2. Retrieval-enhanced autoregressive token models Our approach uses retrieval as a way to augment input examples at the granularity of small chunks of tokens. Formally, we consider sequences of integer tokens in V= [1, v], obtained using a text tokenizer1.",
+      "url": "https://arxiv.org/abs/2112.04426v3",
+      "pdf_file": "pdfs/retro.pdf",
+      "sha256": "1b3e89b589b73d51ca76cb7d98f22fa5438f8b13e05363613bc6b3199f9777f4",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031754032258064516
+    },
+    {
+      "source_id": "retro:s0002",
+      "paper_id": "retro",
+      "title": "Improving language models by retrieving from trillions of tokens",
+      "section": "Front matter",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "Instead of increasing the size of the model and training on more data, we equip models with the ability to directly access a large database to perform predictions—a semi-parametric approach. At a high level, our Retrieval Transformer (Retro) model splits the input sequence into chunks and retrieves text similar to the previous chunk to improve the predictions in the current chunk. Existing retrieval for language modelling work only considers small transformers (100 millions parameters) and databases of limited size (up to billions of tokens) (Guu et al., 2020; Khandelwal et al., 2020; Lewis et al., 2020; Yogatama et al., 2021). To our knowledge, our work is the first to show the benefits of scaling the retrieval database to trillions of tokens for large parametric language models. Our main Corresponding authors: {sborgeaud|amensch|jordanhoffmann|sifre}@deepmind.com 172M 425M 1.5B 7.5B Baseline RETRO [OFF] RETRO [ON] 1.0 1.0 0.9 0.9 0.8 0.8 0.7 0.7 200 400 800 1600 Number of Non-Embedding Params (M) 1.0 0.9 0.8 0.7 0 1 10 100 1000 10000 Retrieval dataset (B Tokens) 0 1 3 5 10 30 50 100 Number of neighbors Figure 1 | Scaling of Retro. The performance gain of our retrieval models remains constant with model scale (left), and is comparable to multiplying the parameteric model size by ∼10×. The gain increases with the size of the retrieval database (middle) and the number of retrieved neighbours (right) on the C4 validation set, when using up to 40 neighbours. Past this, performance begins to degrade, perhaps due to the reduced quality.",
+      "url": "https://arxiv.org/abs/2112.04426v3",
+      "pdf_file": "pdfs/retro.pdf",
+      "sha256": "1b3e89b589b73d51ca76cb7d98f22fa5438f8b13e05363613bc6b3199f9777f4",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031746031746031744
+    },
+    {
+      "source_id": "retro:s0026",
+      "paper_id": "retro",
+      "title": "Improving language models by retrieving from trillions of tokens",
+      "section": "Front matter",
+      "page_start": 13,
+      "page_end": 13,
+      "text": "We evaluate the fine-tuned Retro model with different retrieval sets. We use 10 neighbours at evaluation for both Retro and kNN-LM. When retrieving from Wikipedia, we obtain results comparable to our kNN-LM implementation. Furthermore, scaling the retrieval database to MassiveText yields dramatic improvements, though this is partly due to leakage (see §4.4). For reproducibility, we also include results when retrieving from C4, which are close to previous state-of-the-art and comparable to using 10 % of MassiveText. It is worth noting that kNN-LM requires 1024 floats for every token in the retrieval dataset, totalling 15 terabytes (Tb) for the 4 billion tokens in Wikipedia. kNN-LM and other token-level retrieval approaches therefore don’t scale to retrieval databases with trillions of tokens such as MassiveText. In comparison, Retro only requires 215Gb to index our Wikipedia dataset, and 93Tb for MassiveText. Inspecting the number of retrieval database entries in Table 4 makes it clear why retrieving at the chunk level is necessary when scaling to datasets with trillions of tokens. 4.2. Retro-fitting baseline models We extend baseline models into Retro models by freezing the pre-trained weights and training only chunked cross-attention and neighbour encoder parameters (less than 10% of weights for the 7B model) in Fig. 5. This offers an efficient alternative path to enhance transformers with retrieval, requiring only 6 million sequences (3% of the pre-training sequences that we used). Additionally, by only training the new weights we ensure that when evaluated without retrieval, the original model performance is exactly maintained. Retrofitting models quickly surpasses the performance of baseline models and even achieves performance close to that of Retro models trained from scratch. The experiment hyperparameters are given in §C.3. 4.3.",
+      "url": "https://arxiv.org/abs/2112.04426v3",
+      "pdf_file": "pdfs/retro.pdf",
+      "sha256": "1b3e89b589b73d51ca76cb7d98f22fa5438f8b13e05363613bc6b3199f9777f4",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031054405392392875
+    },
+    {
+      "source_id": "retro:s0043",
+      "paper_id": "retro",
+      "title": "Improving language models by retrieving from trillions of tokens",
+      "section": "0.05 Total",
+      "page_start": 24,
+      "page_end": 24,
+      "text": "- 5,026,463 1,792,260,998 Table 8 | MassiveText dataset. The final column indicates the sampling weight for each dataset during training. For the retrieval database, the entire dataset is used, with the exception of books for which we use a sub-sample of 4%.",
+      "url": "https://arxiv.org/abs/2112.04426v3",
+      "pdf_file": "pdfs/retro.pdf",
+      "sha256": "1b3e89b589b73d51ca76cb7d98f22fa5438f8b13e05363613bc6b3199f9777f4",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030776515151515152
+    },
+    {
+      "source_id": "retro:s0007",
+      "paper_id": "retro",
+      "title": "Improving language models by retrieving from trillions of tokens",
+      "section": "Front matter",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "Our database consists of a key-value memory. Each value consists of two contiguous chunks of tokens which we denote [N, F] where Nis the neighbour chunk which is used to compute the key, and Fis its continuation in the original document. The corresponding key is the Bert embedding of N, averaged over time, that we denote Bert(N). For each chunk C, we retrieve its approximate k-nearest neighbours from our key-value database using the L2 distance on BERT embeddings d(C, N) = ||Bert(C) −Bert(N)||2 2. The model receives the corresponding values Ret(C) ≜([N1, F1], . . . , [Nk, Fk]). Both neighbour chunks and their continuations provide meaningful improvements, as illustrated in our ablation study (Appendix D). We use a length 64 for both Njand Fj, thus Ret(C) has a shape of k× rwith r= 128. To avoid retrieving the chunk Cu+1 in the retrieval set Ret(Cu), which would break causality during training, we filter out neighbours originating from the same document as the training sequence X. For a database of Telements, we can query the approximate nearest neighbours in O(logT) time. We use the SCaNN library (Guo et al., 2020) to achieve this. This means that we can query our 2 trillion token database in 10 ms whilst evaluating or sampling from the model; this expense is amortized over a chunk length. Performing retrieval on-the-fly is too slow to keep up with the training calculations—we leverage the frozen aspect of the embedding operator Bert to precompute all approximate nearest neighbours and save the results as part of the data. In Fig. 9 in the Appendix, we show results where we only retrieve neighbours within Wikipedia.",
+      "url": "https://arxiv.org/abs/2112.04426v3",
+      "pdf_file": "pdfs/retro.pdf",
+      "sha256": "1b3e89b589b73d51ca76cb7d98f22fa5438f8b13e05363613bc6b3199f9777f4",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030090497737556562
+    },
+    {
+      "source_id": "retro:s0003",
+      "paper_id": "retro",
+      "title": "Improving language models by retrieving from trillions of tokens",
+      "section": "Front matter",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "Past this, performance begins to degrade, perhaps due to the reduced quality. At evaluation Retro can be used without retrieval data (Retro[OFF]), bringing limited performance degradation compared to baseline transformers. contributions are the following. • We introduce Retro, a retrieval-enhanced autoregressive language model (§2.2). We use a chunked cross-attention module to incorporate the retrieved text (§2.4), with time complexity linear in the amount of retrieved data. We show that retrieving based on a pre-trained frozen Bert model (§2.3) works at scale, removing the need for training and updating a retriever network. • We show that our method scales well with model size and database size (Fig. 1): Retro provides a constant gain for models ranging from 150M to 7B parameters, and Retro can be improved at evaluation time by increasing the database size and the number of retrieved neighbours. Our largest model obtains state-of-the-art results on a range of downstream evaluation datasets including Wikitext103 (Merity et al., 2017) and the Pile (Gao et al., 2020) (§4). We show that Retro can be fine-tuned to achieve competitive performance on downstream tasks such as question answering (§4.3). • We propose an evaluation aware of proximity of test documents with the training set (§2.6), addressing the problem of test set leakage (Lee et al., 2021). This is relevant for all language models, and especially for retrieval-enhanced models since they have direct access to the training dataset during evaluation. Using this methodology, we show that the performance of Retro comes from both explicit neighbour copying and general knowledge extraction (§4.4). 2. Method We design our retrieval-enhanced architecture to be capable of retrieving from a database with trillions of tokens.",
+      "url": "https://arxiv.org/abs/2112.04426v3",
+      "pdf_file": "pdfs/retro.pdf",
+      "sha256": "1b3e89b589b73d51ca76cb7d98f22fa5438f8b13e05363613bc6b3199f9777f4",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03007688828584351
+    },
+    {
+      "source_id": "retro:s0006",
+      "paper_id": "retro",
+      "title": "Improving language models by retrieving from trillions of tokens",
+      "section": "Front matter",
+      "page_start": 3,
+      "page_end": 4,
+      "text": "Formally, we consider sequences of integer tokens in V= [1, v], obtained using a text tokenizer1. We split each n-token-long example X= (x1, . . . , xn) into a sequence of lchunks (C1, . . . , Cl) of size m= n l, i.e. C1 ≜(x1, . . . , xm), . . . , Cl≜(xn−m+1, . . . , xn) ∈Vm. We use n= 2048 and m= 64. We augment each chunk Cuwith a set RetD(Cu) of kneighbours from the database D. RetD (or 1We use the notation [1, v] ≜{1, . . . , v} throughout the text. Ret for brevity) is a non-trainable operator specified in §2.3. Token likelihoods are provided by a model, parameterized by θ, that takes as input both previous tokens and their retrieved neighbours. This defines the following retrieval-enhanced sequence log-likelihood: l∑︁ m ∑︁ L(X|θ, D) ≜ i=1 lθ \u0000 x(u−1) m+i|(xj) j<(u−1) m+i, (RetD(Cu′))u′<u \u0001 . (1) u=1 We set Ret(C1) = ∅, namely the likelihood of tokens from the first chunk does not depend on any retrieval data. This likelihood definition preserves autoregressivity: the probability of the i-th token of the u-th chunk, x(u−1)m+i, only depends on previously seen tokens (xj)1⩽j<(u−1)m+iand on the data retrieved from the previous chunks (Ret(Cu′))u′<u. We can therefore directly sample with logprobability l, where sampling within the chunk Cuis conditioned on the neighbours (Ret(Cu′))u′<u. This makes retrieval-enhanced models directly comparable with the largest language models that are evaluated by sampling. 2.3. Nearest neighbour retrieval Retrieval neighbours. Our database consists of a key-value memory.",
+      "url": "https://arxiv.org/abs/2112.04426v3",
+      "pdf_file": "pdfs/retro.pdf",
+      "sha256": "1b3e89b589b73d51ca76cb7d98f22fa5438f8b13e05363613bc6b3199f9777f4",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.028404512489927477
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "which method retrieves from a database of 2 trillion tokens",
+      "paper_ids": [
+        "retro"
+      ],
+      "facet": "retrieval",
+      "covered": true,
+      "claim_ids": [
+        "retro.database"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.006180583004606888,
+  "evaluation_question_id": "n11"
+}

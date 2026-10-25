@@ -1,18 +1,16 @@
-# Research Workbench · WIL Project 24
+# Research Workbench
 
-A local research assistant for inspecting and comparing methods in a bounded collection of
-30 retrieval and retrieval-augmented-generation papers. It provides source-linked explanations,
-original-passage search, a PDF library, saved-answer review and a timed task-pilot workflow.
+**RMIT COSC2669/COSC2816 · WIL Project 24 · Education and research**
 
-**Current software:** `downloads/Research_Workbench.pyz` (portable executable archive).
-**Readable current source:** `workbench/`.
-**Earlier implementation:** `legacy/pre-presentation/rag_research_assistant/`.
+Research Workbench is a local application for inspecting and comparing methods in a bounded collection of 30 information-retrieval and retrieval-augmented-generation papers. It combines source-linked explanations, original-passage search, PDF inspection, saved-answer review and a research-task evaluation interface.
 
-## Run the final assistant
+The default explanation engine selects and combines statements from a fixed, source-linked catalogue. It is distinct from the project's earlier language-model generation experiments. Source links support inspection; they do not certify answer correctness or completeness.
 
-Python 3.10 or newer is required. The default application needs no paid API, model download,
-GPU or third-party package installation. Download this repository through **Code → Download ZIP**,
-extract it, then run from the extracted directory:
+## Run
+
+Python 3.10 or newer is required. The default application uses the Python standard library and does not require a model download, GPU, paid API or external service.
+
+From the repository directory:
 
 ```sh
 # macOS / Linux
@@ -24,73 +22,62 @@ python3 run.py
 py -3 run.py
 ```
 
-Alternatively, run `python3 downloads/Research_Workbench.pyz` directly. Do not unzip the `.pyz`.
-The launcher opens a browser. Its preferred address is `http://127.0.0.1:8765`; when that port
-is busy it tries another and prints the actual address. Keep the terminal open. Ctrl+C stops it.
+The launcher opens a browser at `http://127.0.0.1:8765`, or prints another local port when that address is occupied. Keep the terminal open while using the application; `Ctrl+C` stops it. The executable can also be started with `python3 downloads/Research_Workbench.pyz`. The `.pyz` is an executable Python archive, not an archive that needs manual extraction.
 
-This is a local application, not a public GitHub Pages website or shared online service.
-The launcher stores runtime records under `~/Research_Workbench_Data/`. Existing workspaces
-are not overwritten. Each teammate's saved ratings remain local until exported.
+Saved records are stored under `~/Research_Workbench_Data/`. The launcher retains earlier local workspaces and preserves conflicting imported records separately. This is a local application, not a hosted multi-user website.
 
-To check the packaged software without starting the site:
-
-```sh
-python3 run.py --check
-```
-
-To run from the readable source instead:
+To run the readable source instead:
 
 ```sh
 cd workbench
 python3 app.py --open
 ```
 
-## What is included
+## Repository guide
 
 | Location | Contents |
 |---|---|
-| `downloads/` | Runnable final assistant; browser-upload-compatible archive compression |
-| `workbench/` | Complete final application source, interface, 30 source PDFs, index, catalogue, tests and original repaired runs |
-| `distribution_source/` | Unchanged portable launcher and manifest for inspecting/rebuilding the executable |
-| `tools/rebuild_portable.py` | Rebuilds the portable archive from the same recorded assets |
-| `evaluation/` | Original challenge/repaired result bundles, summaries and diagnostic reports |
-| `legacy/pre-presentation/` | Historical eight-paper pipeline, original experiments, presentation and speaker script |
-| `history/` | Unchanged original Git bundle, extracted commit ledger and recovery explanation |
-| `docs/project-management/` | Privacy-minimised Trello evidence snapshot and its limitations |
-| `docs/` | Packaging verification, evidence navigation and outstanding delivery items |
+| [`downloads/Research_Workbench.pyz`](downloads/Research_Workbench.pyz) | Portable application |
+| [`workbench/`](workbench/) | Application source, interface, 30 source PDFs, passage index, catalogue, tests and 67 stored regression runs |
+| [`distribution_source/`](distribution_source/) | Portable launcher and payload manifest |
+| [`tools/`](tools/) | Package rebuilding and repository-integrity utilities |
+| [`evaluation/`](evaluation/) | Original challenge and repaired-result archives, diagnostic analyses and the unfilled review template |
+| [`report-audit/`](report-audit/) | Matched retrieval comparison, historical recalculations, local-model evidence and supplementary probes |
+| [`docs/verification-2026-10-23/`](docs/verification-2026-10-23/) | Historical 12-question reviews and source-corpus verification report |
+| [`legacy/pre-presentation/`](legacy/pre-presentation/) | Earlier eight-paper pipeline, recorded experiments, presentation and speaker script |
+| [`docs/project-management/`](docs/project-management/) | Privacy-minimised historical Trello record |
+| [`history/`](history/) | Original Git bundle and commit ledger |
 
-## What the assistant actually does
+Start with the [evidence index](docs/EVIDENCE_INDEX.md) for the relationship between recorded findings and their supporting files.
 
-The default explanation path selects reusable paper-specific statements from a fixed catalogue
-and composes them with their source references. It does not generate unrestricted prose on every
-question. Original-passage search separately offers BM25, TF-IDF and a hybrid ranking.
+## Evaluation scope
 
-The indexed collection contains 30 papers, 1,202 passages, 99 explanation units and 191 supporting
-spans. The collection is deliberate, not an Apple-M4 hardware restriction. It is not a full-web
-literature search service and has no arbitrary-PDF ingestion interface in this release.
+The final collection contains 1,202 passages, 99 explanation units and 191 supporting spans. In the recorded five-passage comparison, BM25 retrieved a labelled quotation for 25 of 42 eligible requests without routing and 31 with routing. Labelled evidence from every expected paper was retrieved for 24 of 42 requests with routing. These are evidence-retrieval measures, not factual-answer accuracy.
 
-The stored catalogue can contain imperfect paraphrases or miss details. Source IDs and passing
-software checks do not prove factual correctness. Partial and insufficient-support results are
-retained explicitly; the known HyDE case remains partial. See `workbench/MODEL_CARD.md` and
-`workbench/docs/PROVENANCE_AND_HISTORY.md` for method/provenance and evaluation boundaries.
+The stored repaired batch contains 52 explanation states, one partial state and 14 insufficient-support states across 67 known questions. Historical software verification recorded 118 passing tests. Known-case reproduction, software integrity, semantic answer quality and participant benefit are separate measures. The evidence includes remaining false refusals and incomplete responses; no independent participant-outcome dataset accompanies this release.
 
-## Evaluation and reproducibility
+The earlier local-model run is preserved separately in [`report-audit/historical_local_generation/`](report-audit/historical_local_generation/). Its results must not be attributed to the final catalogue-based engine.
 
-The included repaired batch contains 67 known development/regression questions: 52 explanation
-statuses, one partial response and 14 insufficient-support responses. Those are output states,
-not an independently measured accuracy score. The challenge questions informed subsequent fixes.
-No participant outcomes or completed human ratings have been fabricated.
+## Verification and reproducibility
 
-Original result ZIPs are preserved in `evaluation/` and `workbench/evidence/`. The final software
-was previously packaged with 118 tests; this repository packaging also rechecks that suite and
-verifies that all application entry bytes are unchanged. See `docs/PACKAGING_VERIFICATION.md`.
+Check the supplied repository files without executing the application or experiments:
+
+```sh
+python3 tools/verify_repository.py
+```
+
+The following optional commands reproduce software checks or record another known-question batch:
+
+```sh
+python3 run.py --check
+python3 run.py --evaluate
+```
+
+`--evaluate` creates a new output directory. The preserved result files remain the evidence for the report's existing measurements. The [distribution verification record](docs/DISTRIBUTION_VERIFICATION.md) distinguishes the present documentation/package checks from earlier software test runs.
 
 ## Team and project records
 
-Roles below are those recorded in the supplied project README/Trello documentation. They do
-not constitute independently verified authorship shares or replace the group's contribution record.
-
-| Team member | Recorded responsibility |
+| Team member | Recorded role |
 |---|---|
 | Chetan Bera | Scrum Master / project lead |
 | Imranjit Singh Kohli | Data engineering and corpus preparation |
@@ -99,13 +86,12 @@ not constitute independently verified authorship shares or replace the group's c
 | Amritpal Singh Gill | DevOps and documentation |
 | Deboprio Saha Argha | Quality assurance and evaluation |
 
-Project board: https://trello.com/b/9hEOJ49W/case-study-wil-project-24
+[Trello board](https://trello.com/b/9hEOJ49W/case-study-wil-project-24) · [Group Overleaf workspace](https://www.overleaf.com/project/6a82504d8e51f4412a5f06d4)
 
-The team reported accidental deletion of an earlier remote repository. This repository-ready
-upload is a recovery snapshot. The original 12-commit history is preserved in a bundle; uploading
-that file does not automatically restore the old commit graph. Original author/date metadata is
-unchanged. Current uploads must use their actual upload dates and authorised account identity.
+The archived Trello snapshot is a dated process record, not a claim about the live board's current state. The original 12-commit Git history is retained in a bundle separately from the repository's recovery commits. The written report and signed submission documents are separate assessment materials, not generated by this application.
 
-The final report, final contribution documents, genuine individual reflections and any new local
-human reviews/pilot observations are not supplied by this software package. Add actual final
-materials when available; see `docs/REMAINING_DELIVERABLES.md`. No course mark is guaranteed.
+## Provenance, rights and privacy
+
+AI assistance was used in software development, catalogue drafting, technical analysis and documentation. Source-based development checks and mechanical verification are documented; independent human-review fields remain as recorded. See the [system card](workbench/MODEL_CARD.md) and [provenance record](workbench/docs/PROVENANCE_AND_HISTORY.md).
+
+The research papers retain their authors' and publishers' rights. Their inclusion does not grant public redistribution rights. Repository access should remain restricted unless the relevant permissions have been checked. [Source and redistribution notes](workbench/LICENSE_NOTES.md) describe this boundary. Local reviews and participant records are not automatically shared with teammates or added to this repository.

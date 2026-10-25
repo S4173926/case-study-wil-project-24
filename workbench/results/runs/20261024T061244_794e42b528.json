@@ -1,0 +1,321 @@
+{
+  "run_id": "20261024T061244_794e42b528",
+  "created_utc": "2026-10-24T06:12:44.024136+00:00",
+  "question": "Which retrieval methods do RAG and Fusion-in-Decoder use to fetch supporting passages?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "rag",
+      "fid"
+    ],
+    "facets": [
+      "retrieval"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": true,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "which retrieval methods do and use to fetch supporting passages",
+        "facets": [
+          "retrieval"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "rag.memory",
+      "paper_id": "rag",
+      "text": "The original RAG model combines a pre-trained sequence-to-sequence generator as parametric memory with a dense vector index of Wikipedia as non-parametric memory. A DPR-initialised retriever uses a question encoder to retrieve relevant documents from that index.",
+      "facets": [
+        "representation",
+        "retrieval",
+        "purpose"
+      ],
+      "source_ids": [
+        "rag:s0001",
+        "rag:s0007"
+      ]
+    },
+    {
+      "claim_id": "fid.retriever",
+      "paper_id": "fid",
+      "text": "The FiD experiments retrieve support passages with either BM25 or Dense Passage Retrieval (DPR). BM25 uses lexical term statistics; DPR scores dense question and passage representations by their dot product.",
+      "facets": [
+        "retrieval"
+      ],
+      "source_ids": [
+        "fid:s0006",
+        "fid:s0007"
+      ]
+    }
+  ],
+  "comparison": [
+    {
+      "paper_id": "rag",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "claims": [
+        {
+          "claim_id": "rag.memory",
+          "paper_id": "rag",
+          "text": "The original RAG model combines a pre-trained sequence-to-sequence generator as parametric memory with a dense vector index of Wikipedia as non-parametric memory. A DPR-initialised retriever uses a question encoder to retrieve relevant documents from that index.",
+          "facets": [
+            "representation",
+            "retrieval",
+            "purpose"
+          ],
+          "source_ids": [
+            "rag:s0001",
+            "rag:s0007"
+          ]
+        }
+      ]
+    },
+    {
+      "paper_id": "fid",
+      "title": "Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering",
+      "claims": [
+        {
+          "claim_id": "fid.retriever",
+          "paper_id": "fid",
+          "text": "The FiD experiments retrieve support passages with either BM25 or Dense Passage Retrieval (DPR). BM25 uses lexical term statistics; DPR scores dense question and passage representations by their dot product.",
+          "facets": [
+            "retrieval"
+          ],
+          "source_ids": [
+            "fid:s0006",
+            "fid:s0007"
+          ]
+        }
+      ]
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "rag:s0001",
+      "paper_id": "rag",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Large pre-trained language models have been shown to store factual knowledge in their parameters, and achieve state-of-the-art results when fine-tuned on downstream NLP tasks. However, their ability to access and precisely manipulate knowledge is still limited, and hence on knowledge-intensive tasks, their performance lags behind task-specific architectures. Additionally, providing provenance for their decisions and updating their world knowledge remain open research problems. Pretrained models with a differentiable access mechanism to explicit non-parametric memory have so far been only investigated for extractive downstream tasks. We explore a general-purpose fine-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric memory for language generation. We introduce RAG models where the parametric memory is a pre-trained seq2seq model and the non-parametric memory is a dense vector index of Wikipedia, accessed with a pre-trained neural retriever. We compare two RAG formulations, one which conditions on the same retrieved passages across the whole generated sequence, and another which can use different passages per token. We fine-tune and evaluate our models on a wide range of knowledgeintensive NLP tasks and set the state of the art on three open domain QA tasks, outperforming parametric seq2seq models and task-specific retrieve-and-extract architectures. For language generation tasks, we find that RAG models generate more specific, diverse and factual language than a state-of-the-art parametric-only seq2seq baseline.",
+      "url": "https://arxiv.org/abs/2005.11401v4",
+      "pdf_file": "pdfs/rag.pdf",
+      "sha256": "23e3249e9a1e75418d82efecab0ea8c4d033b89c93742f63208d47ce01f21233",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "rag:s0007",
+      "paper_id": "rag",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "section": "2.2 Retriever: DPR",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "The retrieval component pη(z|x) is based on DPR [26]. DPR follows a bi-encoder architecture: pη(z|x) ∝exp \u0000 d(z)⊤q(x) \u0001 d(z) = BERTd(z), q(x) = BERTq(x) where d(z) is a dense representation of a document produced by a BERTBASE document encoder [8], and q(x) a query representation produced by a query encoder, also based on BERTBASE. Calculating top-k(pη(·|x)), the list of k documents z with highest prior probability pη(z|x), is a Maximum Inner Product Search (MIPS) problem, which can be approximately solved in sub-linear time [23]. We use a pre-trained bi-encoder from DPR to initialize our retriever and to build the document index. This retriever was trained to retrieve documents which contain answers to TriviaQA [24] questions and Natural Questions [29]. We refer to the document index as the non-parametric memory.",
+      "url": "https://arxiv.org/abs/2005.11401v4",
+      "pdf_file": "pdfs/rag.pdf",
+      "sha256": "23e3249e9a1e75418d82efecab0ea8c4d033b89c93742f63208d47ce01f21233",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "fid:s0006",
+      "paper_id": "fid",
+      "title": "Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering",
+      "section": "3 Method",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "In this section, we describe our approach to open domain question answering. It proceeds in two steps, first retrieving support passages before processing them with a sequence to sequence model. Model NQ TriviaQA SQuAD Open EM EM EM EM F1 DrQA (Chen et al., 2017) - - - 29.8 - Multi-Passage BERT (Wang et al., 2019) - - - 53.0 60.9 Path Retriever (Asai et al., 2020) 31.7 - - 56.5 63.8 Graph Retriever (Min et al., 2019b) 34.7 55.8 - - - Hard EM (Min et al., 2019a) 28.8 50.9 - - - ORQA (Lee et al., 2019) 31.3 45.1 - 20.2 - REALM (Guu et al., 2020) 40.4 - - - - DPR (Karpukhin et al., 2020) 41.5 57.9 - 36.7 - SpanSeqGen (Min et al., 2020) 42.5 - - - - RAG (Lewis et al., 2020) 44.5 56.1 68.0 - - T5 (Roberts et al., 2020) 36.6 - 60.5 - - GPT-3 few shot (Brown et al., 2020) 29.9 - 71.2 - - Fusion-in-Decoder (base) 48.2 65.0 77.1 53.4 60.6 Fusion-in-Decoder (large) 51.4 67.6 80.1 56.7 63.2 Table 1: Comparison to state-of-the-art. On TriviaQA, we report results on the open domain test set (left), and on the hidden test set (right), competitions.codalab.org/competitions/17208#results). Retrieval. For the retrieval of support passages, we consider two methods: BM25 (Robertson et al., 1995) and DPR (Karpukhin et al., 2020). In BM25, passages are represented as bag of words, and the ranking function is based on term and inverse document frequencies.",
+      "url": "https://arxiv.org/abs/2007.01282v2",
+      "pdf_file": "pdfs/fid.pdf",
+      "sha256": "f1ee7e927c3fb31beb2146f8c205692a91b40dadd65d80e025c6686e4d430953",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "fid:s0007",
+      "paper_id": "fid",
+      "title": "Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering",
+      "section": "3 Method",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "In BM25, passages are represented as bag of words, and the ranking function is based on term and inverse document frequencies. We use the implementation from Apache Lucene1 with default parameters, and tokenize questions and passages with SpaCy.2 In DPR, passages and questions are represented as dense vector representations, computed using two BERT networks. The ranking function is the dot product between the query and passage representations. Retrieval is performed using approximate nearest neighbors with the FAISS library.3 Reading. Our generative model for open domain QA is based on a sequence-to-sequence network, pretrained on unsupervised data, such as T5 or BART (Raffel et al., 2019; Lewis et al., 2019). The model takes as input the question, as well as the support passages, and generates the answer. More precisely, each retrieved passage and its title are concatenated with the question, and processed independently from other passages by the encoder. We add special tokens question:, title: and context: before the question, title and text of each passage. Finally, the decoder performs attention over the concatenation of the resulting representations of all the retrieved passages. The model thus performs evidence fusion in the decoder only, and we refer to it as Fusion-in-Decoder. By processing passages independently in the encoder, but jointly in the decoder, this method differs from Min et al. (2020) and Lewis et al. (2020). Processing passages independently in the encoder allows to scale to large number of contexts, as it only performs self attention over one context at a time. This means that the computation time of the model grows linearly with the number of passages, instead of quadratically.",
+      "url": "https://arxiv.org/abs/2007.01282v2",
+      "pdf_file": "pdfs/fid.pdf",
+      "sha256": "f1ee7e927c3fb31beb2146f8c205692a91b40dadd65d80e025c6686e4d430953",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "rag:s0015",
+    "fid:s0006",
+    "rag:s0031",
+    "fid:s0007",
+    "rag:s0018",
+    "fid:s0003",
+    "rag:s0013",
+    "fid:s0009"
+  ],
+  "retrieved": [
+    {
+      "source_id": "rag:s0015",
+      "paper_id": "rag",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "section": "3.4 Fact Veriﬁcation",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "FEVER [56] requires classifying whether a natural language claim is supported or refuted by Wikipedia, or whether there is not enough information to decide. The task requires retrieving evidence from Wikipedia relating to the claim and then reasoning over this evidence to classify whether the claim is true, false, or unverifiable from Wikipedia alone. FEVER is a retrieval problem coupled with an challenging entailment reasoning task. It also provides an appropriate testbed for exploring the RAG models’ ability to handle classification rather than generation. We map FEVER class labels (supports, refutes, or not enough info) to single output tokens and directly train with claim-class pairs. Crucially, unlike most other approaches to FEVER, we do not use supervision on retrieved evidence. In many real-world applications, retrieval supervision signals aren’t available, and models that do not require such supervision will be applicable to a wider range of tasks. We explore two variants: the standard 3-way classification task (supports/refutes/not enough info) and the 2-way (supports/refutes) task studied in Thorne and Vlachos [57]. In both cases we report label accuracy.",
+      "url": "https://arxiv.org/abs/2005.11401v4",
+      "pdf_file": "pdfs/rag.pdf",
+      "sha256": "23e3249e9a1e75418d82efecab0ea8c4d033b89c93742f63208d47ce01f21233",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.022727272727272728
+    },
+    {
+      "source_id": "fid:s0006",
+      "paper_id": "fid",
+      "title": "Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering",
+      "section": "3 Method",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "In this section, we describe our approach to open domain question answering. It proceeds in two steps, first retrieving support passages before processing them with a sequence to sequence model. Model NQ TriviaQA SQuAD Open EM EM EM EM F1 DrQA (Chen et al., 2017) - - - 29.8 - Multi-Passage BERT (Wang et al., 2019) - - - 53.0 60.9 Path Retriever (Asai et al., 2020) 31.7 - - 56.5 63.8 Graph Retriever (Min et al., 2019b) 34.7 55.8 - - - Hard EM (Min et al., 2019a) 28.8 50.9 - - - ORQA (Lee et al., 2019) 31.3 45.1 - 20.2 - REALM (Guu et al., 2020) 40.4 - - - - DPR (Karpukhin et al., 2020) 41.5 57.9 - 36.7 - SpanSeqGen (Min et al., 2020) 42.5 - - - - RAG (Lewis et al., 2020) 44.5 56.1 68.0 - - T5 (Roberts et al., 2020) 36.6 - 60.5 - - GPT-3 few shot (Brown et al., 2020) 29.9 - 71.2 - - Fusion-in-Decoder (base) 48.2 65.0 77.1 53.4 60.6 Fusion-in-Decoder (large) 51.4 67.6 80.1 56.7 63.2 Table 1: Comparison to state-of-the-art. On TriviaQA, we report results on the open domain test set (left), and on the hidden test set (right), competitions.codalab.org/competitions/17208#results). Retrieval. For the retrieval of support passages, we consider two methods: BM25 (Robertson et al., 1995) and DPR (Karpukhin et al., 2020). In BM25, passages are represented as bag of words, and the ranking function is based on term and inverse document frequencies.",
+      "url": "https://arxiv.org/abs/2007.01282v2",
+      "pdf_file": "pdfs/fid.pdf",
+      "sha256": "f1ee7e927c3fb31beb2146f8c205692a91b40dadd65d80e025c6686e4d430953",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03252247488101534
+    },
+    {
+      "source_id": "rag:s0031",
+      "paper_id": "rag",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "section": "Acknowledgments",
+      "page_start": 10,
+      "page_end": 10,
+      "text": "The authors would like to thank the reviewers for their thoughtful and constructive feedback on this paper, as well as HuggingFace for their help in open-sourcing code to run RAG models. The authors would also like to thank Kyunghyun Cho and Sewon Min for productive discussions and advice. EP thanks supports from the NSF Graduate Research Fellowship. PL is supported by the FAIR PhD program.",
+      "url": "https://arxiv.org/abs/2005.11401v4",
+      "pdf_file": "pdfs/rag.pdf",
+      "sha256": "23e3249e9a1e75418d82efecab0ea8c4d033b89c93742f63208d47ce01f21233",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.020495214315439034
+    },
+    {
+      "source_id": "fid:s0007",
+      "paper_id": "fid",
+      "title": "Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering",
+      "section": "3 Method",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "In BM25, passages are represented as bag of words, and the ranking function is based on term and inverse document frequencies. We use the implementation from Apache Lucene1 with default parameters, and tokenize questions and passages with SpaCy.2 In DPR, passages and questions are represented as dense vector representations, computed using two BERT networks. The ranking function is the dot product between the query and passage representations. Retrieval is performed using approximate nearest neighbors with the FAISS library.3 Reading. Our generative model for open domain QA is based on a sequence-to-sequence network, pretrained on unsupervised data, such as T5 or BART (Raffel et al., 2019; Lewis et al., 2019). The model takes as input the question, as well as the support passages, and generates the answer. More precisely, each retrieved passage and its title are concatenated with the question, and processed independently from other passages by the encoder. We add special tokens question:, title: and context: before the question, title and text of each passage. Finally, the decoder performs attention over the concatenation of the resulting representations of all the retrieved passages. The model thus performs evidence fusion in the decoder only, and we refer to it as Fusion-in-Decoder. By processing passages independently in the encoder, but jointly in the decoder, this method differs from Min et al. (2020) and Lewis et al. (2020). Processing passages independently in the encoder allows to scale to large number of contexts, as it only performs self attention over one context at a time. This means that the computation time of the model grows linearly with the number of passages, instead of quadratically.",
+      "url": "https://arxiv.org/abs/2007.01282v2",
+      "pdf_file": "pdfs/fid.pdf",
+      "sha256": "f1ee7e927c3fb31beb2146f8c205692a91b40dadd65d80e025c6686e4d430953",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03252247488101534
+    },
+    {
+      "source_id": "rag:s0018",
+      "paper_id": "rag",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "section": "4.2 Abstractive Question Answering",
+      "page_start": 6,
+      "page_end": 6,
+      "text": "As shown in Table 2, RAG-Sequence outperforms BART on Open MS-MARCO NLG by 2.6 Bleu points and 2.6 Rouge-L points. RAG approaches state-of-the-art model performance, which is impressive given that (i) those models access gold passages with specific information required to generate the reference answer , (ii) many questions are unanswerable without the gold passages, and (iii) not all questions are answerable from Wikipedia alone. Table 3 shows some generated answers from our models. Qualitatively, we find that RAG models hallucinate less and generate factually correct text more often than BART. Later, we also show that RAG generations are more diverse than BART generations (see §4.5).",
+      "url": "https://arxiv.org/abs/2005.11401v4",
+      "pdf_file": "pdfs/rag.pdf",
+      "sha256": "23e3249e9a1e75418d82efecab0ea8c4d033b89c93742f63208d47ce01f21233",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.01956686930091185
+    },
+    {
+      "source_id": "fid:s0003",
+      "paper_id": "fid",
+      "title": "Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering",
+      "section": "1 Introduction",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "Different retrieval techniques have been considered, either using sparse representations based on TF/IDF or using dense embeddings (Guu et al., 2020; Karpukhin et al., 2020). The models which extract the answers are often based on contextualized word representations such as ELMo or BERT (Peters et al., 2018; Devlin et al., 2019), and predict a span as answer. Aggregating and combining evidence from multiple passages is not straightforward when using extractive models, and multiple techniques have been proposed to address this limitation (Clark and Gardner, 2018; Min et al., 2019a). In this paper, we explore a simple approach having the best of both worlds, by building on the exciting developments in generative modeling and retrieval for open domain question answering. This method proceeds in two steps, by first retrieving supporting passages using either sparse or dense Question + Passage 1 encoder Question + Passage 2 encoder Question + Passage N encoder decoder Answer concat ... Figure 2: Architecture of the Fusion-in-Decoder method. representations. Then, a sequence-to-sequence model generates the answer, taking as input the retrieved passages in addition to the question. While conceptually simple, this method sets new state-ofthe-art results on the TriviaQA and NaturalQuestions benchmarks. In particular, we show that the performance of our method significantly improves when the number of retrieved passages increases. We believe that this is evidence that generative models are good at combining evidence from multiple passages, compared to extractive ones.",
+      "url": "https://arxiv.org/abs/2007.01282v2",
+      "pdf_file": "pdfs/fid.pdf",
+      "sha256": "f1ee7e927c3fb31beb2146f8c205692a91b40dadd65d80e025c6686e4d430953",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031746031746031744
+    },
+    {
+      "source_id": "rag:s0013",
+      "paper_id": "rag",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "section": "3.2 Abstractive Question Answering",
+      "page_start": 4,
+      "page_end": 5,
+      "text": "RAG models can go beyond simple extractive QA and answer questions with free-form, abstractive text generation. To test RAG’s natural language generation (NLG) in a knowledge-intensive setting, we use the MSMARCO NLG task v2.1 [43]. The task consists of questions, ten gold passages retrieved from a search engine for each question, and a full sentence answer annotated from the retrieved passages. We do not use the supplied passages, only the questions and answers, to treat MSMARCO as an open-domain abstractive QA task. MSMARCO has some questions that cannot be answered in a way that matches the reference answer without access to the gold passages, such as “What is the weather in Volcano, CA?” so performance will be lower without using gold passages. We also note that some MSMARCO questions cannot be answered using Wikipedia alone. Here, RAG can rely on parametric knowledge to generate reasonable responses.",
+      "url": "https://arxiv.org/abs/2005.11401v4",
+      "pdf_file": "pdfs/rag.pdf",
+      "sha256": "23e3249e9a1e75418d82efecab0ea8c4d033b89c93742f63208d47ce01f21233",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.019246784491533265
+    },
+    {
+      "source_id": "fid:s0009",
+      "paper_id": "fid",
+      "title": "Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering",
+      "section": "4 Experiments",
+      "page_start": 3,
+      "page_end": 4,
+      "text": "In this section, we report empirical evaluations of Fusion-in-Decoder for open domain QA. Datasets. We consider the following datasets, and use the same setting as Lee et al. (2019): • NaturalQuestions (Kwiatkowski et al., 2019) contains questions corresponding to Google search queries. The open-domain version of this dataset is obtained by discarding answers with more than 5 tokens. • TriviaQA (Joshi et al., 2017) contains questions gathered from trivia and quiz-league NaturalQuestions TriviaQA 41 42 43 44 45 46 47 66 64 62 60 58 56 40 54 5 10 25 50 100 SQuAD 34 36 38 40 42 44 46 48 50 5 10 25 50 100 Number of passages 5 10 25 50 100 Number of passages Number of passages Figure 3: Performance of Fusion-in-Decoder (base) on valid sets as a function of the number of retrieved passages. websites. The unfiltered version of TriviaQA is used for open-domain question answering. • SQuAD v1.1 (Rajpurkar et al., 2016) is a reading comprehension dataset. Given a paragraph extracted from Wikipedia, annotators were asked to write questions, for which the answer is a span from the corresponding paragraph. Following Lee et al. (2019) we use the validation as test, and keep 10% of the training set for validation. We use the Wikipedia dumps from Dec. 20, 2018 for NQ and TriviaQA and from Dec. 21, 2016 for SQuAD. We apply the same preprocessing as Chen et al. (2017); Karpukhin et al. (2020), leading to passages of 100 words, which do not overlap. Evaluation. Predicted answers are evaluated with the standard exact match metric (EM), as introduced by Rajpurkar et al. (2016).",
+      "url": "https://arxiv.org/abs/2007.01282v2",
+      "pdf_file": "pdfs/fid.pdf",
+      "sha256": "f1ee7e927c3fb31beb2146f8c205692a91b40dadd65d80e025c6686e4d430953",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031009615384615385
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "which retrieval methods do and use to fetch supporting passages",
+      "paper_ids": [
+        "rag"
+      ],
+      "facet": "retrieval",
+      "covered": true,
+      "claim_ids": [
+        "rag.memory"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    },
+    {
+      "part_id": "part1",
+      "question_part": "which retrieval methods do and use to fetch supporting passages",
+      "paper_ids": [
+        "fid"
+      ],
+      "facet": "retrieval",
+      "covered": true,
+      "claim_ids": [
+        "fid.retriever"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.008552375016734004,
+  "evaluation_question_id": "q15"
+}

@@ -6,7 +6,7 @@ This consolidates the verified selection repair and improves the review workflow
 
 ### User-visible changes
 
-Type to filter recorded runs by question identifier, paper, question text or run identifier. The default shows the compatible current/repaired answer set and one latest record per question, with explicit historical-version access. The selected run's full identity is displayed. Rating fields and source confirmation reset on a run change; the reviewer identity remains available. Unrelated retrieval snippets on unsupported queries are collapsed and labelled. Neutral wording replaces development-tool labels in product copy.
+Type to filter recorded runs by question identifier, paper, question text or run identifier. The default shows the compatible current/repaired answer set and one latest record per question, with explicit historical-version access. The selected run's full identity is displayed. Rating fields and source confirmation reset on a run change; the reviewer identity remains available. Unrelated retrieval snippets on unsupported queries are collapsed and labelled. Product wording is organised around the research workflow.
 
 ### Preservation
 

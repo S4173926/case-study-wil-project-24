@@ -1,0 +1,215 @@
+{
+  "run_id": "20261024T061244_2c227bca00",
+  "created_utc": "2026-10-24T06:12:44.165675+00:00",
+  "question": "When does FLARE retrieve documents to regenerate a sentence?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "flare"
+    ],
+    "facets": [
+      "condition"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "when does retrieve documents to regenerate a sentence",
+        "facets": [
+          "condition"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "flare.trigger",
+      "paper_id": "flare",
+      "text": "In FLARE’s direct method, the model first generates a temporary next sentence and checks its token probabilities. Retrieval is triggered if any token is below the confidence threshold; if all tokens meet the threshold, the sentence is accepted without extra retrieval. When triggered, the system retrieves relevant documents and regenerates the sentence using them.",
+      "facets": [
+        "condition",
+        "inference"
+      ],
+      "source_ids": [
+        "flare:s0015"
+      ]
+    }
+  ],
+  "comparison": [],
+  "citations": [
+    {
+      "source_id": "flare:s0015",
+      "paper_id": "flare",
+      "title": "Active Retrieval Augmented Generation",
+      "section": "3.2.1 Confidence-based Active Retrieval",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "As shown in Figure 1, at step t, we first generate a temporary next sentence ˆst = LM([x, y<t]) without conditioning on retrieved documents. Then we decide whether to trigger retrieval and formulate queries based on ˆst. If the LM is confident about ˆst, we accept it without retrieving additional information; if not, we use ˆst to formulate search queries qt to retrieve relevant documents, and then regenerate the next sentence st. The reason we utilize sentences as the basis of our iteration is due to their significance as semantic units that are neither too short nor too lengthy like phrases and paragraphs. However, our approach can also utilize phrases or paragraphs as the basis. Since LMs tend to be well-calibrated that low probability/confidence often indicates a lack of knowledge (Jiang et al., 2021; Kadavath et al., 2022; Varshney et al., 2022), we actively trigger retrieval if any token of ˆst has a probability lower than a threshold θ ∈[0, 1]. θ = 0 means retrieval is never triggered, while θ = 1 triggers retrieval every sentence. ( ˆst if all tokens of ˆst have probs ≥θ st = LM([Dqt, x, y<t]) otherwise yt = where the query qt is formulated based on ˆst.",
+      "url": "https://arxiv.org/abs/2305.06983v2",
+      "pdf_file": "pdfs/flare.pdf",
+      "sha256": "2425bd04de6e082512ef576298ec24df770a7f576bb2c23d09b3fd498f716c52",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "flare:s0006",
+    "flare:s0011",
+    "flare:s0001",
+    "flare:s0005",
+    "flare:s0031",
+    "flare:s0034",
+    "flare:s0004",
+    "flare:s0014"
+  ],
+  "retrieved": [
+    {
+      "source_id": "flare:s0006",
+      "paper_id": "flare",
+      "title": "Active Retrieval Augmented Generation",
+      "section": "1 Introduction",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "FLARE iteratively generates a temporary next sentence, use it as the query to retrieve relevant documents if it contains low-probability tokens and regenerate the next sentence until reaches the end. FLARE is applicable to any existing LMs at inference time without additional training. Considering the impressive performance achieved by GPT-3.5 (Ouyang et al., 2022) on a variety of tasks, we examine the effectiveness of our methods on text-davinci-003. We evaluate FLARE on 4 diverse tasks/datasets involving generating long outputs, including multihop QA (2WikiMultihopQA), commonsense reasoning (StrategyQA), long-form QA (ASQA), and open-domain summarization (WikiAsp) (Ho et al., 2020; Geva et al., 2021; Stelmakh et al., 2022; Hayashi et al., 2021). Over all tasks, FLARE achieves superior or competitive performance compared to single-time and multi-time retrieval baselines, demonstrating the effectiveness and generalizability of our method.",
+      "url": "https://arxiv.org/abs/2305.06983v2",
+      "pdf_file": "pdfs/flare.pdf",
+      "sha256": "2425bd04de6e082512ef576298ec24df770a7f576bb2c23d09b3fd498f716c52",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03278688524590164
+    },
+    {
+      "source_id": "flare:s0011",
+      "paper_id": "flare",
+      "title": "Active Retrieval Augmented Generation",
+      "section": "3 FLARE: Forward-Looking Active",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "REtrieval Augmented Generation Our intuition is that (1) LMs should only retrieve information when they do not have the necessary knowledge to avoid unnecessary or inappropriate retrieval, and (2) the retrieval queries should reflect the intents of future generations. We propose two forward-looking active retrieval augmented generation (FLARE) methods to implement the active retrieval augmented generation framework. The first method prompts the LM to generate retrieval queries when necessary while generating the answer using retrieval-encouraging instructions, denoted as FLAREinstruct. The second method directly uses the LM’s generation as search queries, denoted as FLAREdirect, which iteratively generates the next sentence to gain insight into the future topic, and if uncertain tokens are present, retrieves relevant documents to regenerate the next sentence.",
+      "url": "https://arxiv.org/abs/2305.06983v2",
+      "pdf_file": "pdfs/flare.pdf",
+      "sha256": "2425bd04de6e082512ef576298ec24df770a7f576bb2c23d09b3fd498f716c52",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03225806451612903
+    },
+    {
+      "source_id": "flare:s0001",
+      "paper_id": "flare",
+      "title": "Active Retrieval Augmented Generation",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Despite the remarkable ability of large language models (LMs) to comprehend and generate language, they have a tendency to hallucinate and create factually inaccurate output. Augmenting LMs by retrieving information from external knowledge resources is one promising solution. Most existing retrieval augmented LMs employ a retrieve-and-generate setup that only retrieves information once based on the input. This is limiting, however, in more general scenarios involving generation of long texts, where continually gathering information throughout generation is essential. In this work, we provide a generalized view of active retrieval augmented generation, methods that actively decide when and what to retrieve across the course of the generation. We propose Forward-Looking Active REtrieval augmented generation (FLARE), a generic method which iteratively uses a prediction of the upcoming sentence to anticipate future content, which is then utilized as a query to retrieve relevant documents to regenerate the sentence if it contains low-confidence tokens. We test FLARE along with baselines comprehensively over 4 longform knowledge-intensive generation tasks/datasets. FLARE achieves superior or competitive performance on all tasks, demonstrating the effectiveness of our method.1",
+      "url": "https://arxiv.org/abs/2305.06983v2",
+      "pdf_file": "pdfs/flare.pdf",
+      "sha256": "2425bd04de6e082512ef576298ec24df770a7f576bb2c23d09b3fd498f716c52",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031746031746031744
+    },
+    {
+      "source_id": "flare:s0005",
+      "paper_id": "flare",
+      "title": "Active Retrieval Augmented Generation",
+      "section": "1 Introduction",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "Some works in multihop QA decompose the full question into sub-questions, each of which is used to retrieve extra information (Press et al., 2022; Yao et al., 2022; Khot et al., 2022; Khattab et al., 2022). We ask the following question: can we create a simple and generic retrieval augmented LM that actively decides when and what to retrieve throughout the generation process, and are applicable to a variety of long-form generation tasks? We provide a generalized view of active retrieval augmented generation. Our hypothesis regarding when to retrieve is that LMs should retrieve information only when they lack the required knowledge to avoid unnecessary or inappropriate retrieval that occurs in passive retrieval augmented LMs (Khandelwal et al., 2020; Borgeaud et al., 2022; Ram et al., 2023; Trivedi et al., 2022). Given the observation that large LMs tend to be well-calibrated and low probability/confidence often indicates a lack of knowledge (Kadavath et al., 2022), we adopt an active retrieval strategy that only retrieves when LMs generate lowprobability tokens. When deciding what to retrieve, it is important to consider what LMs intend to generate in the future, as the goal of active retrieval is to benefit future generations. Therefore, we propose anticipating the future by generating a temporary next sentence, using it as a query to retrieve relevant documents, and then regenerating the next sentence conditioning on the retrieved documents. Combining the two aspects, we propose Forward- Looking Active REtrieval augmented generation (FLARE), as illustrated in Figure 1. FLARE iteratively generates a temporary next sentence, use it as the query to retrieve relevant documents if it contains low-probability tokens and regenerate the next sentence until reaches the end.",
+      "url": "https://arxiv.org/abs/2305.06983v2",
+      "pdf_file": "pdfs/flare.pdf",
+      "sha256": "2425bd04de6e082512ef576298ec24df770a7f576bb2c23d09b3fd498f716c52",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03125
+    },
+    {
+      "source_id": "flare:s0031",
+      "paper_id": "flare",
+      "title": "Active Retrieval Augmented Generation",
+      "section": "8 Conclusion",
+      "page_start": 9,
+      "page_end": 9,
+      "text": "To aid long-form generation with retrieval augmentation, we propose an active retrieval augmented generation framework that decides when and what to retrieve during generation. We implement this framework with forward-looking active retrieval that iteratively uses the upcoming sentence to retrieve relevant information if it contains lowconfidence tokens and regenerates the next sentence. Experimental results on 4 tasks/datasets demonstrate the effectiveness of our methods. Future directions include better strategies for active retrieval and developing efficient LM architectures for active information integration.",
+      "url": "https://arxiv.org/abs/2305.06983v2",
+      "pdf_file": "pdfs/flare.pdf",
+      "sha256": "2425bd04de6e082512ef576298ec24df770a7f576bb2c23d09b3fd498f716c52",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030309988518943745
+    },
+    {
+      "source_id": "flare:s0034",
+      "paper_id": "flare",
+      "title": "Active Retrieval Augmented Generation",
+      "section": "A FLARE Implementation Details",
+      "page_start": 14,
+      "page_end": 14,
+      "text": "FLAREinstruct implementation details We found that LMs can effectively combine retrieval and downstream task-related skills and generate meaningful search queries while performing the task. However, there are two issues: (1) LMs tend to generate fewer search queries than necessary. (2) Generating excessive search queries can disrupt answer generation and adversely affect performance. We address these issues using two methods respectively. First, we increase the logit of the token “[” by 2.0 to improve the chances of LMs generating “[Search(query)]”. Second, whenever LMs generate a search query, we use it to retrieve relevant information, promptly remove it from the generation, and generate the next few tokens while forbidding “[” by adding a large negative value to the logit of “[”. The initial query of FLARE. FLARE starts with the user input x as the initial query to retrieve documents to generate the first sentence ˆs1 = LM([Dx, x]) to bootstrap the iterative generation process. For the following steps, the temporary forward-looking sentence is generated without retrieved documents. Sentence tokenization. For each step t, we generate 64 tokens which are longer than most sentences, and use NLTK sentence tokenizer5 to extract the first sentence and discard the rest. Efficiency As shown in subsection 6.2, on average retrieval is triggered for 30% ∼60% of sentences depending on downstream tasks. In comparision, KNN-LM (Khandelwal et al., 2020) retrieves every token, RETRO or IC-RALM (Borgeaud et al., 2022; Ram et al., 2023) retrievers every 4∼32 tokens, and IRCoT (Trivedi et al., 2022) retrieves every sentence. Compared to single-time retrieval, however, interleaving retrieval and generation with a naive implementation indeed increases overheads, which we discuss in the limitation section (section 9).",
+      "url": "https://arxiv.org/abs/2305.06983v2",
+      "pdf_file": "pdfs/flare.pdf",
+      "sha256": "2425bd04de6e082512ef576298ec24df770a7f576bb2c23d09b3fd498f716c52",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03007688828584351
+    },
+    {
+      "source_id": "flare:s0004",
+      "paper_id": "flare",
+      "title": "Active Retrieval Augmented Generation",
+      "section": "1 Introduction",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "Step 2 %$ Joe Biden attended the University of Pennsylvania, where he earned a law degree. \"#$ He graduated from the University of Delaware in 1965 with a Bachelor of Arts in history and political science. #$ %% Joe Biden announced his candidacy for the 2020 presidential election on August 18, 2019. \"#% Step 3 Joe Biden announced his candidacy for the 2020 presidential election on April 25, 2019. #% Figure 1: An illustration of forward-looking active retrieval augmented generation (FLARE). Starting with the user input x and initial retrieval results Dx, FLARE iteratively generates a temporary next sentence (shown in gray italic) and check whether it contains low-probability tokens (indicated with underline). If so (step 2 and 3), the system retrieves relevant documents and regenerates the sentence. (e.g., Joe Biden) may not cover all aspects and details. It is crucial to retrieve extra information as needed during generation, such as when generating a certain aspect (e.g., Joe Biden’s education history) or a specific detail (e.g., the date of Joe Biden’s presidential campaign announcement). Several attempts have been made to retrieve multiple times throughout generation. These attempts include methods that passively use the past context to retrieve additional information at a fixed interval (Khandelwal et al., 2020; Borgeaud et al., 2022; Ram et al., 2023; Trivedi et al., 2022) which might not accurately reflect what LMs intend to generate in the future or retrieve at inappropriate points. Some works in multihop QA decompose the full question into sub-questions, each of which is used to retrieve extra information (Press et al., 2022; Yao et al., 2022; Khot et al., 2022; Khattab et al., 2022).",
+      "url": "https://arxiv.org/abs/2305.06983v2",
+      "pdf_file": "pdfs/flare.pdf",
+      "sha256": "2425bd04de6e082512ef576298ec24df770a7f576bb2c23d09b3fd498f716c52",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029877369007803793
+    },
+    {
+      "source_id": "flare:s0014",
+      "paper_id": "flare",
+      "title": "Active Retrieval Augmented Generation",
+      "section": "3.2 Direct FLARE",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "Since we cannot fine-tune black-box LMs, we found queries generated by FLAREinstruct through retrieval instructions might not be reliable. Therefore, we propose a more direct way of forwardlooking active retrieval that uses the next sentence to decide when and what to retrieve.",
+      "url": "https://arxiv.org/abs/2305.06983v2",
+      "pdf_file": "pdfs/flare.pdf",
+      "sha256": "2425bd04de6e082512ef576298ec24df770a7f576bb2c23d09b3fd498f716c52",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.028991596638655463
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "when does retrieve documents to regenerate a sentence",
+      "paper_ids": [
+        "flare"
+      ],
+      "facet": "condition",
+      "covered": true,
+      "claim_ids": [
+        "flare.trigger"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.0074494159780442715,
+  "evaluation_question_id": "n05"
+}

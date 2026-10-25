@@ -1,0 +1,215 @@
+{
+  "run_id": "20261024T061244_7e93400145",
+  "created_utc": "2026-10-24T06:12:44.437829+00:00",
+  "question": "How does GTR make its query and passage encoders larger without increasing the size of the final retrieval embeddings?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "gtr"
+    ],
+    "facets": [
+      "representation"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "how does make its query and passage encoders larger without increasing the size of the final retrieval embeddings",
+        "facets": [
+          "representation"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "gtr.architecture",
+      "paper_id": "gtr",
+      "text": "Generalizable T5-based Retrievers (GTR) scale up a dual-encoder model while keeping its final embedding bottleneck fixed. Query and passage vectors are scored with a dot product; the study asks whether larger encoders generalise better across retrieval domains.",
+      "facets": [
+        "representation",
+        "purpose"
+      ],
+      "source_ids": [
+        "gtr:s0001"
+      ]
+    }
+  ],
+  "comparison": [],
+  "citations": [
+    {
+      "source_id": "gtr:s0001",
+      "paper_id": "gtr",
+      "title": "Large Dual Encoders Are Generalizable Retrievers",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "It has been shown that dual encoders trained on one domain often fail to generalize to other domains for retrieval tasks. One widespread belief is that the bottleneck layer of a dual encoder, where the final score is simply a dotproduct between a query vector and a passage vector, is too limited to make dual encoders an effective retrieval model for out-ofdomain generalization. In this paper, we challenge this belief by scaling up the size of the dual encoder model while keeping the bottleneck embedding size fixed. With multi-stage training, surprisingly, scaling up the model size brings significant improvement on a variety of retrieval tasks, especially for out-ofdomain generalization. Experimental results show that our dual encoders, Generalizable T5-based dense Retrievers (GTR), outperform existing sparse and dense retrievers on the BEIR dataset (Thakur et al., 2021) significantly. Most surprisingly, our ablation study finds that GTR is very data efficient, as it only needs 10% of MS Marco supervised data to achieve the best out-of-domain performance.1",
+      "url": "https://arxiv.org/abs/2112.07899v1",
+      "pdf_file": "pdfs/gtr.pdf",
+      "sha256": "4e45cb8d02a6ecd93014c9be68aba6f0919897500eb3809106b981265e9b72c5",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "gtr:s0018",
+    "gtr:s0001",
+    "gtr:s0014",
+    "gtr:s0002",
+    "gtr:s0025",
+    "gtr:s0015",
+    "gtr:s0020",
+    "gtr:s0029"
+  ],
+  "retrieved": [
+    {
+      "source_id": "gtr:s0018",
+      "paper_id": "gtr",
+      "title": "Large Dual Encoders Are Generalizable Retrievers",
+      "section": "5.2 Results on BEIR generalization tasks",
+      "page_start": 5,
+      "page_end": 6,
+      "text": "The next set of experiments investigates the effect of increasing model capacity on out-of-domain (OOD) performance. As shown in table 3, we observe a clear gain on out-of-domain performance in terms of NDCG@10 when the model size increases. The GTR-Large Figure 4: Comparison with BM25 on NDCG@10. The GTR-Base model outperforms BM25 on 9 datasets and the larger GTR models continue to improve on these 9 tasks. The GTR-XXL model catches up or surpasses BM25 on the other 5 datasets and only under-performs on 5 of the remaining tasks. model already outperforms the previous best dense retrieval model TAS-B as well as the best sparse model DocT5Query. Scaling up to GTR-XXL leads to another jump in retrieval performance. Similar improvements are found on Recall@100 as shown in the Appendix’s table 8. On average, the scaling up process demonstrates an encouraging ascending trend that eventually outperforms all baseline methods on all evaluation metrics. This confirms that scaling up is a valid path towards generalizability. Previously, dual encoders failed to match the performance of BM25 for tasks that require better lexical matching capabilities. Thus, we wanted to investigate what kind of tasks can get improved by scaling up the model size. Figure 4 presents a detailed comparison of all sizes of GTR models against the BM25 baseline. For tasks like NQ where dual encoders have been previously shown to be more effective than BM25, increasing the model size continues to advance the performance of dual encoders. This suggests scaling up can further boost the head start of dense models over sparse models on these datasets.",
+      "url": "https://arxiv.org/abs/2112.07899v1",
+      "pdf_file": "pdfs/gtr.pdf",
+      "sha256": "4e45cb8d02a6ecd93014c9be68aba6f0919897500eb3809106b981265e9b72c5",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03278688524590164
+    },
+    {
+      "source_id": "gtr:s0001",
+      "paper_id": "gtr",
+      "title": "Large Dual Encoders Are Generalizable Retrievers",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "It has been shown that dual encoders trained on one domain often fail to generalize to other domains for retrieval tasks. One widespread belief is that the bottleneck layer of a dual encoder, where the final score is simply a dotproduct between a query vector and a passage vector, is too limited to make dual encoders an effective retrieval model for out-ofdomain generalization. In this paper, we challenge this belief by scaling up the size of the dual encoder model while keeping the bottleneck embedding size fixed. With multi-stage training, surprisingly, scaling up the model size brings significant improvement on a variety of retrieval tasks, especially for out-ofdomain generalization. Experimental results show that our dual encoders, Generalizable T5-based dense Retrievers (GTR), outperform existing sparse and dense retrievers on the BEIR dataset (Thakur et al., 2021) significantly. Most surprisingly, our ablation study finds that GTR is very data efficient, as it only needs 10% of MS Marco supervised data to achieve the best out-of-domain performance.1",
+      "url": "https://arxiv.org/abs/2112.07899v1",
+      "pdf_file": "pdfs/gtr.pdf",
+      "sha256": "4e45cb8d02a6ecd93014c9be68aba6f0919897500eb3809106b981265e9b72c5",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03225806451612903
+    },
+    {
+      "source_id": "gtr:s0014",
+      "paper_id": "gtr",
+      "title": "Large Dual Encoders Are Generalizable Retrievers",
+      "section": "4.2 Conﬁgurations",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "The best result on a given dataset is marked in bold. GTR models are pre-trained on CommunityQA dataset and the complete MS Marco dataset. GTR models achieve better NDCG when increasing size from Base to XXL, outperforming the previous best sparse model DocT5Query and dense retrieval model TAS-B. News, Robust-04 and ArguAna. In particular, we set the document length to 768 for Trec-News and Robust-04 while setting the question length to 512 for ArguAna, in accordance to the average query and document lengths in these datasets.",
+      "url": "https://arxiv.org/abs/2112.07899v1",
+      "pdf_file": "pdfs/gtr.pdf",
+      "sha256": "4e45cb8d02a6ecd93014c9be68aba6f0919897500eb3809106b981265e9b72c5",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03149801587301587
+    },
+    {
+      "source_id": "gtr:s0002",
+      "paper_id": "gtr",
+      "title": "Large Dual Encoders Are Generalizable Retrievers",
+      "section": "1 Introduction",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Typical neural retrieval models follow a dual encoder paradigm (Gillick et al., 2018; Yang et al., 2020; Karpukhin et al., 2020). In this setup, queries and documents are encoded separately into a shared fixed-dimensional embedding space where relevant queries and documents are represented in each other’s proximity. Then, approximated nearest neighbor search (Vanderkam et al., 2013; Johnson et al., 2021) is applied to efficiently retrieve relevant documents given an encoded input query. While dual encoders are popular neural retrievers, the expressiveness of the model is limited by a bottleneck layer consisting of only a simple dotproduct between query embeddings and passage 1All the GTR models are released at https://tfhub. dev/google/collections/gtr/1. Figure 1: The average Recall@100 and NDCG@100 on all BEIR tasks excluding MS Marco. Scaling up consistently improves dual encoders’ out-of-domain performance. embeddings. Several papers (Lu et al., 2021; Khattab and Zaharia, 2020) have discussed that the simple dot-product (or cosine similarity) between the embeddings might not be powerful enough to capture semantic relevance. Thakur et al. (2021) studied whether the retriever models can generalize to other domains and conclude that dual encoder models have “issues for out-of-distribution data”, and showed that models with more interactions between queries and documents have better generalization ability. In this paper, we challenge this belief by scaling up the dual encoder model size while keeping the bottleneck embedding size fixed. Note that scaling up a dual encoder is different from scaling up pretrained language models such as BERT (Devlin et al., 2019) and T5 (Raffel et al., 2020) because of the presence of the bottleneck layer.",
+      "url": "https://arxiv.org/abs/2112.07899v1",
+      "pdf_file": "pdfs/gtr.pdf",
+      "sha256": "4e45cb8d02a6ecd93014c9be68aba6f0919897500eb3809106b981265e9b72c5",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030776515151515152
+    },
+    {
+      "source_id": "gtr:s0025",
+      "paper_id": "gtr",
+      "title": "Large Dual Encoders Are Generalizable Retrievers",
+      "section": "6.3 Document length vs model capacity",
+      "page_start": 7,
+      "page_end": 8,
+      "text": "Previously, BEIR has shown that models trained with cosine similarity prefer short documents while those trained with dot-product prefer long documents (Thakur et al., 2021). We investigate whether scaling up affect this observation. Specifically, we compute the median lengths (in words) of the top- 10 retrieved documents for all queries. Results are shown in fig. 5. Though all GTR models are trained using cosine similarity, we found that scaling up the model size has influence over the lengths of retrieved documents. We observe an increasing trend of document length for DB-Pedia, Fever, HotpotQA, Signal-1M, Trec-News, and Web-Touche2020 with scaling up. In particular, for Web-Touche2020, the lengths of the retrieved documents grow drastically as the models scale up: The largest GTR-XXL retrieves documents that are on average twice as long compared with the smallest GTR-Base. This plays in our favor since Thakur et al. (2021) show that the majority of relevant documents in Web- Figure 5: Median lengths (in words) of top-10 retrieved documents for all queries. Touche2020 are longer. On the other hand, the only exception we observe is the Trec-Covid dataset, where GTR-XXL model retrieves much shorter documents than those retrieved by the smaller size counterparts. This may explain the inferior performance of GTR-XXL on Trec-Covid shown in table 3 and table 8. We leave it as future work to explore the effects of using the dot-product as similarity function for large dual encoders.",
+      "url": "https://arxiv.org/abs/2112.07899v1",
+      "pdf_file": "pdfs/gtr.pdf",
+      "sha256": "4e45cb8d02a6ecd93014c9be68aba6f0919897500eb3809106b981265e9b72c5",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030309988518943745
+    },
+    {
+      "source_id": "gtr:s0015",
+      "paper_id": "gtr",
+      "title": "Large Dual Encoders Are Generalizable Retrievers",
+      "section": "4.3 Models for comparison",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "We consider various baselines, including sparse retrieval models: BM25, DocT5Query, and dense retrieval models: DPR, ANCE, TAS-B, and GenQ (Thakur et al., 2021). We conduct experiments on four different sizes of our GTR models (GTR-Base, GTR-Large, GTR- XL, and GTR-XXL). We consider three different settings for GTR to investigate the scaling up effect for different training stages: • GTR. This is the full GTR model that conducts both pre-training and fine-tuning. • GTR-FT. This is a fine-tune only version of GTR where the T5 dual encoders on the MS Marco dataset. • GTR-PT. This is a pre-training only version of GTR where the T5 dual encoders is only pre-trained on the CommunityQA dataset. We evaluate baseline and our models on the BEIR generalization task (Thakur et al., 2021) as discussed in section 2.2,. We consider two main retrieval metrics: NDCG@10 and Recall@100 following BEIR (Thakur et al., 2021). Due to space limitations, we report NDCG@10 in the main section of the paper and include Recall@100 results in appendix A.",
+      "url": "https://arxiv.org/abs/2112.07899v1",
+      "pdf_file": "pdfs/gtr.pdf",
+      "sha256": "4e45cb8d02a6ecd93014c9be68aba6f0919897500eb3809106b981265e9b72c5",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02976190476190476
+    },
+    {
+      "source_id": "gtr:s0020",
+      "paper_id": "gtr",
+      "title": "Large Dual Encoders Are Generalizable Retrievers",
+      "section": "5.3 Data efﬁciency for large retrievers",
+      "page_start": 6,
+      "page_end": 6,
+      "text": "To better understand the data efficiency for large dual encoders, we trained models using different portions of the MS Marco dataset during finetuning. In particular, we sampled a subset of the training data by keeping only 10% of the training queries as well as their relevant (positive) passages and irrelevant (hard negative) passages. As shown in table 4, using 10% of training data reduces the in-domain performance of the GTR models on MS Marco. For the GTR-FT (finetuning only) models, using 10% of the data leads to a mixed result of out-of-domain performance. On the other hand, for full GTR models, using 10% of the MS Marco dataset is sufficient for finetuning. In particular, the GTR-Large, XL and XXL models achieve comparable or even better OOD performance than fine-tuning on the complete MS Marco dataset. This might suggest that GTR models have the benefit of data efficiency and could use less training data for domain adaptation.",
+      "url": "https://arxiv.org/abs/2112.07899v1",
+      "pdf_file": "pdfs/gtr.pdf",
+      "sha256": "4e45cb8d02a6ecd93014c9be68aba6f0919897500eb3809106b981265e9b72c5",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02967032967032967
+    },
+    {
+      "source_id": "gtr:s0029",
+      "paper_id": "gtr",
+      "title": "Large Dual Encoders Are Generalizable Retrievers",
+      "section": "9 Conclusion",
+      "page_start": 8,
+      "page_end": 9,
+      "text": "This paper presents the Generalizable T5 Retriever (GTR), a scaled-up dual encoder model with a fixed-size bottleneck layer. We show that scaling up the model size brings significant improvement on retrieval performance across the board on the BEIR zero-shot retrieval benchmark, especially for out-of-domain generalization. The GTR-XXL model achieves state-of-the-art performance on the BEIR benchmark, outperforming many models that use earlier interactions between queries and documents. This sheds light on the research direction to keep improving the single vector representation model through better backbone encoders. The findings here are also complementary with other recent works that improve the dual encoder training, including distilling from a ranker / scorer model, using a better contrasting pre-training objective and scaling up the encoders for multi-vector retrieval models.",
+      "url": "https://arxiv.org/abs/2112.07899v1",
+      "pdf_file": "pdfs/gtr.pdf",
+      "sha256": "4e45cb8d02a6ecd93014c9be68aba6f0919897500eb3809106b981265e9b72c5",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02919863597612958
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "how does make its query and passage encoders larger without increasing the size of the final retrieval embeddings",
+      "paper_ids": [
+        "gtr"
+      ],
+      "facet": "representation",
+      "covered": true,
+      "claim_ids": [
+        "gtr.architecture"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.010543290991336107,
+  "evaluation_question_id": "F02"
+}

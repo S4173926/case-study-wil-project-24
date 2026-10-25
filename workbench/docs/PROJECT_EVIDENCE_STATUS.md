@@ -1,5 +1,9 @@
-# Project evidence status at finalisation
+# Evidence scope
 
-The supplied Trello export and repository screenshot are separate project-management evidence, not built-in software tests. The user reported deletion of an earlier repository and is collecting original team files for recovery. No reconstruction of commit dates, contributor history or task completion has been performed in this software package.
+The application includes original source PDFs, a fixed catalogue, recorded repaired outputs, known-question evaluation sets and historical technical-check logs. These records identify the software and data versions to which each measurement applies.
 
-Software evidence is ready to preserve: corrected answer-selection implementation, fixed source collection, saved regression outputs, executed technical checks and recorded user feedback about run selection. The final report, recovered authentic repository evidence, final contribution agreement and actual usefulness observations remain separate deliverables. This package does not mark them as complete.
+The complete repository separately preserves the earlier eight-paper project, historical generation evidence, matched retrieval comparisons, supplementary probes, a redacted Trello export and the original Git bundle. The repository-level evidence index locates these files.
+
+The Trello export is historical. Later task-description updates and current board positions are distinct from its recorded timestamps. Contribution percentages and mentoring participation are not inferred from file ownership or test logs.
+
+Unfilled review templates and proposed pilot tasks are retained as instruments, not measured outcomes. The written report and signed group submission documents are maintained separately from the software distribution.

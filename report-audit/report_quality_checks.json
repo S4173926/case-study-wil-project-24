@@ -1,0 +1,17 @@
+{
+  "pdf_pages": 22,
+  "main_text_end_page": 16,
+  "main_text_limit": 20,
+  "main_within_limit": true,
+  "references_pages": [
+    17
+  ],
+  "overfull_boxes": false,
+  "unresolved_references_or_citations": false,
+  "pdf_text_boundary_violations": [],
+  "pdf_links": 55,
+  "pending_overleaf_link_explicit": true,
+  "report_evaluation_data": "Mechanically recomputed; human accuracy and participant benefit not claimed",
+  "render_review": "All 22 pages rendered; contact sheets inspected; result chart/table and source pages inspected at larger resolution",
+  "reproduction_script_smoke_test": "118 software tests pass; 67/67 factual outputs match; six retrieval rows reproduced"
+}

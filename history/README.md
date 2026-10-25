@@ -1,25 +1,15 @@
-# Preserved original history
+# Preserved development history
 
-`Original_History.bundle` is the original complete 12-commit bundle supplied with the
-pre-presentation project. It is retained byte-for-byte, including its original authors,
-dates and file contents. `COMMIT_LOG.tsv` is an extracted, unedited author/message ledger.
-No authorship or historical dates have been reassigned.
+[`Original_History.bundle`](Original_History.bundle) preserves the original 12-commit history, including its original author identities, dates, messages and file contents. [`COMMIT_LOG.tsv`](COMMIT_LOG.tsv) is the unedited extracted ledger. Eight commits touch the group RAG project; the bundle also contains an earlier individual-assignment stage.
 
-The bundle includes an earlier individual-assignment stage as well as eight commits that
-touch the group RAG project. The unrelated banking/marketing notebook, CSVs and charts are
-not placed in this repository's active working folders. They remain in the original history.
+The active legacy directory contains a maintenance export of the eight-paper project, not an exact checkout of the original branch. Its differences are documented in [`Working_Copy_Maintenance.md`](Working_Copy_Maintenance.md). The unrelated banking/marketing files from the earlier individual-assignment stage remain only in the original history.
 
-The team reported that its previous remote repository was accidentally deleted. This upload
-is a recovery snapshot. Browser uploads create new commits on the upload date. Merely storing
-the bundle here does NOT restore those 12 commits into this repository's live commit graph.
-The log does not establish six individual contributions or contribution percentages.
+The repository was consolidated following the team's reported loss of an earlier remote. Retaining a bundle as a file preserves historical evidence but does not itself restore those commits to the current branch. Commit metadata does not determine individual contribution percentages.
 
-An authorised reviewer can inspect the original history in a separate local directory:
+To inspect the original branch in a separate directory, run from the repository root:
 
 ```sh
 git clone --branch pre-presentation history/Original_History.bundle recovered-original
 ```
 
-The edited maintenance export is in `legacy/pre-presentation/`; it is not identical to the
-historical branch. `Working_Copy_Maintenance.md` documents those differences. The current
-30-paper application is in `workbench/` and `downloads/`, not the historical folder.
+The current 30-paper application is in `workbench/` and `downloads/`, not in this historical branch.

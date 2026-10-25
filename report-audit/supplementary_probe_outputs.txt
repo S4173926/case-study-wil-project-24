@@ -1,0 +1,59 @@
+
+P01 What is BM25?
+Expected: Explain the corpus-level concept, or clearly state that the explanation catalogue lacks a definition.
+Status: source_linked_explanation
+The FiD experiments retrieve support passages with either BM25 or Dense Passage Retrieval (DPR). BM25 uses lexical term statistics; DPR scores dense question and passage representations by their dot product.
+Missing: []
+Source IDs: ['fid:s0006', 'fid:s0007']
+
+P02 A generated sentence includes a token with probability below the chosen confidence threshold. In FLARE, does the system keep that sentence or fetch evidence and rewrite it?
+Expected: Retrieve using the predicted sentence with low-confidence tokens masked, then regenerate; do not reverse the threshold.
+Status: partial
+In FLARE’s direct method, the model first generates a temporary next sentence and checks its token probabilities. Retrieval is triggered if any token is below the confidence threshold; if all tokens meet the threshold, the sentence is accepted without extra retrieval. When triggered, the system retrieves relevant documents and regenerates the sentence using them.
+FLARE uses the anticipated next sentence to formulate a forward-looking search query. Its implicit query formulation masks low-confidence tokens so that uncertain or erroneous words do not dominate retrieval; the retrieved evidence is then used to regenerate the sentence.
+Missing: ['FLARE: no selected claim covers the detected request "a generated sentence includes a token with probability below the chosen confidence threshold. in , does the system keep that sentence or fetch evidence and rewrite it" (evaluation).']
+Source IDs: ['flare:s0015', 'flare:s0014', 'flare:s0029']
+
+P03 Does Self-RAG always retrieve a fixed number of passages for every input, even when its own knowledge is sufficient?
+Expected: Reject unconditional fixed retrieval; describe adaptive retrieval/reflection-token decision.
+Status: insufficient
+
+Missing: ['SELFRAG: no selected claim covers the detected request "does always retrieve a fixed number of passages for every input, even when its own knowledge is sufficient" (retrieval).', 'No supported explanation could be assembled.']
+Source IDs: []
+
+P04 Suppose no retrieved RECOMP document helps answer a query. Must it still prepend a summary?
+Expected: Explain selective omission/empty summary rather than only describing summarisation.
+Status: insufficient
+
+Missing: ['RECOMP: no selected claim covers the detected request "suppose no retrieved document helps answer a query. must it still prepend a summary" (retrieval).', 'No supported explanation could be assembled.']
+Source IDs: []
+
+P05 Is a maximum ColBERT token match averaged or summed over the query tokens?
+Expected: State sum of query-token MaxSim values, not an average.
+Status: source_linked_explanation
+ColBERT computes MaxSim: for each query-token vector it takes the maximum similarity to a document-token vector, then sums those maxima across query tokens. This produces the query–document relevance score.
+Missing: []
+Source IDs: ['colbert:s0005']
+
+P06 Which wins on retrieval quality, SPLADE or Contriever, when both are evaluated on the same Kannada legal corpus?
+Expected: Explicitly state that an appropriate shared benchmark result is not established; no invented winner.
+Status: partial
+SPLADE learns sparse lexical representations for queries and documents, including vocabulary expansion and term weighting. Sparse weights allow retrieval with an inverted index rather than requiring a dense nearest-neighbour representation.
+Contriever is a dense retriever trained with contrastive learning without requiring labelled query–passage relevance pairs for its unsupervised pre-training. Its representation approach is dense rather than a sparse vocabulary-weight representation.
+Missing: ['SPLADE: no selected claim covers the detected request "when both are evaluated on the same kannada legal corpus" (condition).', 'SPLADE: no selected claim covers the detected request "when both are evaluated on the same kannada legal corpus" (evaluation).', 'CONTRIEVER: no selected claim covers the detected request "when both are evaluated on the same kannada legal corpus" (condition).', 'CONTRIEVER: no selected claim covers the detected request "when both are evaluated on the same kannada legal corpus" (evaluation).']
+Source IDs: ['splade:s0018', 'splade:s0001', 'contriever:s0003']
+
+P07 What is the main difference between FiD's evidence fusion and REPLUG's document ensemble?
+Expected: Explain FiD independent passage encoding/decoder fusion and REPLUG separate passes/probability mixture.
+Status: source_linked_explanation
+Fusion-in-Decoder (FiD) concatenates the question with each retrieved passage and its title, then encodes each passage independently. The decoder attends across the concatenated encoded representations of all passages to generate the answer. Evidence is therefore fused in the decoder, rather than by jointly encoding all passages.
+REPLUG prepends each retrieved document separately to the input context and runs the frozen language model separately for each document. It combines the resulting next-token probability distributions using a similarity-weighted average: document weights are the exponentiated document-context similarity scores, normalised across the retrieved set. This uses several documents without concatenating them all into one input window.
+Missing: []
+Source IDs: ['fid:s0007', 'replug:s0010']
+
+P08 According to the indexed collection, what uncertainty interval was reported for this Workbench's user time savings?
+Expected: Do not invent a user-study result or confidence interval.
+Status: insufficient
+
+Missing: ['No supported explanation could be assembled.']
+Source IDs: []

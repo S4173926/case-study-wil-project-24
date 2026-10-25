@@ -1,0 +1,216 @@
+{
+  "run_id": "20261024T061244_bbc3420a27",
+  "created_utc": "2026-10-24T06:12:44.157013+00:00",
+  "question": "According to Lost in the Middle, where in the input context do language models use relevant information best?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "lostmiddle"
+    ],
+    "facets": [
+      "purpose"
+    ],
+    "explicit_facets": false,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "according to , where in the input context do language models use relevant information best",
+        "facets": [
+          "purpose"
+        ],
+        "explicit": false,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "lostmiddle.position",
+      "paper_id": "lostmiddle",
+      "text": "Lost in the Middle studies where language models can use information in long input contexts. Performance is often strongest when relevant information is near the beginning or end and can degrade when it is in the middle. A larger context window therefore does not itself prove reliable use of all its contents.",
+      "facets": [
+        "evaluation",
+        "limitations",
+        "purpose"
+      ],
+      "source_ids": [
+        "lostmiddle:s0001"
+      ]
+    }
+  ],
+  "comparison": [],
+  "citations": [
+    {
+      "source_id": "lostmiddle:s0001",
+      "paper_id": "lostmiddle",
+      "title": "Lost in the Middle: How Language Models Use Long Contexts",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "While recent language models have the ability to take long contexts as input, relatively little is known about how well they use longer context. We analyze the performance of language models on two tasks that require identifying relevant information in their input contexts: multi-document question answering and key-value retrieval. We find that performance can degrade significantly when changing the position of relevant information, indicating that current language models do not robustly make use of information in long input contexts. In particular, we observe that performance is often highest when relevant information occurs at the beginning or end of the input context, and significantly degrades when models must access relevant information in the middle of long contexts, even for explicitly long-context models. Our analysis provides a better understanding of how language models use their input context and provides new evaluation protocols for future long-context language models.",
+      "url": "https://arxiv.org/abs/2307.03172v3",
+      "pdf_file": "pdfs/lostmiddle.pdf",
+      "sha256": "653b29619eae2ae4b361d7bdcdc06db4bedcb1b0eabe31814036beca8c1af0b1",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "lostmiddle:s0022",
+    "lostmiddle:s0008",
+    "lostmiddle:s0001",
+    "lostmiddle:s0036",
+    "lostmiddle:s0017",
+    "lostmiddle:s0007",
+    "lostmiddle:s0021",
+    "lostmiddle:s0020"
+  ],
+  "retrieved": [
+    {
+      "source_id": "lostmiddle:s0022",
+      "paper_id": "lostmiddle",
+      "title": "Lost in the Middle: How Language Models Use Long Contexts",
+      "section": "4.1 Effect of Model Architecture",
+      "page_start": 7,
+      "page_end": 7,
+      "text": "Flan-T5-XXL shows a similar trend, where longer input contexts result in a greater performance degradation when placing relevant information in the middle of the input context. We hypothesize that encoder-decoder models may make better use of their context windows because their bidirectional encoder allows processing each document in the context of future documents, potentially improving relative importance estimation between documents.",
+      "url": "https://arxiv.org/abs/2307.03172v3",
+      "pdf_file": "pdfs/lostmiddle.pdf",
+      "sha256": "653b29619eae2ae4b361d7bdcdc06db4bedcb1b0eabe31814036beca8c1af0b1",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.032266458495966696
+    },
+    {
+      "source_id": "lostmiddle:s0008",
+      "paper_id": "lostmiddle",
+      "title": "Lost in the Middle: How Language Models Use Long Contexts",
+      "section": "2 Multi-Document Question Answering",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "Our goal is to better understand how language models use their input context. To this end, we analyze model performance on multi-document question answering, which requires models to find relevant information within an input context and use it to answer the question. In particular, we make controlled changes to the length of the input context and the position of the relevant information and measure changes in task performance.",
+      "url": "https://arxiv.org/abs/2307.03172v3",
+      "pdf_file": "pdfs/lostmiddle.pdf",
+      "sha256": "653b29619eae2ae4b361d7bdcdc06db4bedcb1b0eabe31814036beca8c1af0b1",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.0315136476426799
+    },
+    {
+      "source_id": "lostmiddle:s0001",
+      "paper_id": "lostmiddle",
+      "title": "Lost in the Middle: How Language Models Use Long Contexts",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "While recent language models have the ability to take long contexts as input, relatively little is known about how well they use longer context. We analyze the performance of language models on two tasks that require identifying relevant information in their input contexts: multi-document question answering and key-value retrieval. We find that performance can degrade significantly when changing the position of relevant information, indicating that current language models do not robustly make use of information in long input contexts. In particular, we observe that performance is often highest when relevant information occurs at the beginning or end of the input context, and significantly degrades when models must access relevant information in the middle of long contexts, even for explicitly long-context models. Our analysis provides a better understanding of how language models use their input context and provides new evaluation protocols for future long-context language models.",
+      "url": "https://arxiv.org/abs/2307.03172v3",
+      "pdf_file": "pdfs/lostmiddle.pdf",
+      "sha256": "653b29619eae2ae4b361d7bdcdc06db4bedcb1b0eabe31814036beca8c1af0b1",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031009615384615385
+    },
+    {
+      "source_id": "lostmiddle:s0036",
+      "paper_id": "lostmiddle",
+      "title": "Lost in the Middle: How Language Models Use Long Contexts",
+      "section": "D GPT-4 Performance",
+      "page_start": 15,
+      "page_end": 15,
+      "text": "We evaluate GPT-4 (8K) on a subset of 500 random multi-document QA examples with 20 total documents in each input context (Figure 15). GPT- 4 achieves higher absolute performance than any other language model, but still shows a U-shaped performance curve—its performance is highest when relevant information occurs at the very start or end of the context, and performance degrades when it must use information in the middle of its input context.",
+      "url": "https://arxiv.org/abs/2307.03172v3",
+      "pdf_file": "pdfs/lostmiddle.pdf",
+      "sha256": "653b29619eae2ae4b361d7bdcdc06db4bedcb1b0eabe31814036beca8c1af0b1",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030776515151515152
+    },
+    {
+      "source_id": "lostmiddle:s0017",
+      "paper_id": "lostmiddle",
+      "title": "Lost in the Middle: How Language Models Use Long Contexts",
+      "section": "3 How Well Can Language Models",
+      "page_start": 6,
+      "page_end": 6,
+      "text": "Retrieve From Input Contexts? Given that language models struggle to retrieve and use information from the middle of their input contexts in the multi-document question answering task, to what extent can they simply retrieve from input contexts? We study this question with a synthetic key-value retrieval task, which is designed to provide a minimal testbed for the basic ability to retrieve matching tokens from an input context.",
+      "url": "https://arxiv.org/abs/2307.03172v3",
+      "pdf_file": "pdfs/lostmiddle.pdf",
+      "sha256": "653b29619eae2ae4b361d7bdcdc06db4bedcb1b0eabe31814036beca8c1af0b1",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030679156908665108
+    },
+    {
+      "source_id": "lostmiddle:s0007",
+      "paper_id": "lostmiddle",
+      "title": "Lost in the Middle: How Language Models Use Long Contexts",
+      "section": "1 Introduction",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "When retrieving from Wikipedia to answer queries from NaturalQuestions-Open, we find that model performance saturates long before retriever recall saturates, indicating that current models fail to effectively use additional retrieved documents—using 50 documents instead of 20 retrieved documents only marginally improves performance (∼1.5% for GPT-3.5-Turbo and ∼1% for claude-1.3). Our analysis provides a better understanding of how language models use their input context and introduces new evaluation protocols for future longcontext models; to claim that a language model can robustly use information within long input contexts, it is necessary to show that its performance is minimally affected by the position of the relevant information in the input context (e.g., minimal difference in best- and worst-case performance). To facilitate further work on understanding and improving how language models use their input context, we release our code and evaluation data.1",
+      "url": "https://arxiv.org/abs/2307.03172v3",
+      "pdf_file": "pdfs/lostmiddle.pdf",
+      "sha256": "653b29619eae2ae4b361d7bdcdc06db4bedcb1b0eabe31814036beca8c1af0b1",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03057889822595705
+    },
+    {
+      "source_id": "lostmiddle:s0021",
+      "paper_id": "lostmiddle",
+      "title": "Lost in the Middle: How Language Models Use Long Contexts",
+      "section": "4.1 Effect of Model Architecture",
+      "page_start": 7,
+      "page_end": 7,
+      "text": "The open models we evaluated are all decoder-only models—at each timestep, they may only attend to prior tokens. To better understand the potential effects of model architecture on how language model use context, we compare decoder-only and encoder-decoder language models. We experiment with Flan-T5-XXL (Raffel et al., 2020; Chung et al., 2022) and Flan-UL2 (Tay et al., 2023). Flan-T5-XXL is trained with a sequences of 512 tokens (encoder and decoder). Flan-UL2 is initially trained with sequences of 512 tokens (encoder and decoder), but is then pre-trained for an extra 100K steps with 1024 tokens (encoder and decoder) before instruction fine-tuning on sequences with 2048 tokens in the encoder and 512 tokens in the decoder. However, since these models use relative positional embeddings, they can (in principle) extrapolate beyond these maximum context lengths; Shaham et al. (2023) find that both models can perform well with sequences of up to 8K tokens. Figure 8 compares the performance of decoderonly and encoder-decoder models. When Flan-UL2 is evaluated on sequences within its 2048-token training-time context window (Figure 8; left subplot), its performance is relatively robust to changes in the position of relevant information within the input context (1.9% absolute difference between best- and worst-case performance). When evaluated on settings with sequences longer than 2048 tokens (Figure 8; center and right), Flan-UL2 performance begins to degrade when relevant information is placed in the middle. Flan-T5-XXL shows a similar trend, where longer input contexts result in a greater performance degradation when placing relevant information in the middle of the input context.",
+      "url": "https://arxiv.org/abs/2307.03172v3",
+      "pdf_file": "pdfs/lostmiddle.pdf",
+      "sha256": "653b29619eae2ae4b361d7bdcdc06db4bedcb1b0eabe31814036beca8c1af0b1",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030017921146953404
+    },
+    {
+      "source_id": "lostmiddle:s0020",
+      "paper_id": "lostmiddle",
+      "title": "Lost in the Middle: How Language Models Use Long Contexts",
+      "section": "4 Why Are Language Models Not Robust",
+      "page_start": 7,
+      "page_end": 7,
+      "text": "to Changes in the Position of Relevant Information? Our multi-document question answering and keyvalue retrieval results show that language models struggle to robustly access and use information in long input contexts, since performance degrades significantly when changing the position of relevant information. To better understand why, we perform some preliminary investigations into the role of model architecture (decoder-only vs. encoderdecoder), query-aware contextualization, and instruction fine-tuning.",
+      "url": "https://arxiv.org/abs/2307.03172v3",
+      "pdf_file": "pdfs/lostmiddle.pdf",
+      "sha256": "653b29619eae2ae4b361d7bdcdc06db4bedcb1b0eabe31814036beca8c1af0b1",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029857397504456328
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "according to , where in the input context do language models use relevant information best",
+      "paper_ids": [
+        "lostmiddle"
+      ],
+      "facet": "purpose",
+      "covered": true,
+      "claim_ids": [
+        "lostmiddle.position"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.008978375000879169,
+  "evaluation_question_id": "n04"
+}

@@ -1,0 +1,214 @@
+{
+  "run_id": "20261024T111628_f586c2561d",
+  "created_utc": "2026-10-24T11:16:28.786921+00:00",
+  "question": "Is a maximum ColBERT token match averaged or summed over the query tokens?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "colbert"
+    ],
+    "facets": [
+      "retrieval"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "is a maximum token match averaged or summed over the query tokens",
+        "facets": [
+          "retrieval"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "colbert.maxsim",
+      "paper_id": "colbert",
+      "text": "ColBERT computes MaxSim: for each query-token vector it takes the maximum similarity to a document-token vector, then sums those maxima across query tokens. This produces the query\u2013document relevance score.",
+      "facets": [
+        "inference",
+        "retrieval"
+      ],
+      "source_ids": [
+        "colbert:s0005"
+      ]
+    }
+  ],
+  "comparison": [],
+  "citations": [
+    {
+      "source_id": "colbert:s0005",
+      "paper_id": "colbert",
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+      "section": "1 INTRODUCTION",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "Figure 2 contrasts our proposed late interaction approach with existing neural matching paradigms. On the lef, Figure 2 (a) illustrates representation-focused rankers, which independently compute an embedding for q and another for d and estimate relevance as a single similarity score between two vectors [12, 41]. Moving to the right, Figure 2 (b) visualizes typical interaction-focused rankers. Instead of summarizing q and d into individual embeddings, these rankers model word- and phrase-level relationships across q and d and match them using a deep neural network (e.g., with CNNs/MLPs [22] or kernels [36]). In the simplest case, they feed the neural network an interaction matrix that reflects the similiarity between every pair of words across q and d. Further right, Figure 2 (c) illustrates a more powerful interaction-based paradigm, which models the interactions between words within as well as across q and d at the same time, as in BERT\u2019s transformer architecture [25]. Tese increasingly expressive architectures are in tension. While interaction-based models (i.e., Figure 2 (b) and (c)) tend to be superior for IR tasks [8, 21], a representation-focused model\u2014by isolating the computations among q and d\u2014makes it possible to precompute document representations offline [41], greatly reducing the computational load per query. In this work, we observe that the fine-grained matching of interaction-based models and the precomputation of document representations of representation-based models can be combined by retaining yet judiciously delaying the query\u2013document interaction. Figure 2 (d) illustrates an architecture that precisely does so. As illustrated, every query embedding interacts with all document embeddings via a MaxSim operator, which computes maximum similarity (e.g., cosine similarity), and the scalar outputs of these operators are summed across query terms.",
+      "url": "https://arxiv.org/abs/2004.12832v2",
+      "pdf_file": "pdfs/colbert.pdf",
+      "sha256": "2e487d9b96e3c2e5e286d843e98a066adc0442faa3a6e8ddbd1771221bf9ae14",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "colbert:s0005",
+    "colbert:s0006",
+    "colbert:s0012",
+    "colbert:s0039",
+    "colbert:s0014",
+    "colbert:s0020",
+    "colbert:s0017",
+    "colbert:s0008"
+  ],
+  "retrieved": [
+    {
+      "source_id": "colbert:s0005",
+      "paper_id": "colbert",
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+      "section": "1 INTRODUCTION",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "Figure 2 contrasts our proposed late interaction approach with existing neural matching paradigms. On the lef, Figure 2 (a) illustrates representation-focused rankers, which independently compute an embedding for q and another for d and estimate relevance as a single similarity score between two vectors [12, 41]. Moving to the right, Figure 2 (b) visualizes typical interaction-focused rankers. Instead of summarizing q and d into individual embeddings, these rankers model word- and phrase-level relationships across q and d and match them using a deep neural network (e.g., with CNNs/MLPs [22] or kernels [36]). In the simplest case, they feed the neural network an interaction matrix that reflects the similiarity between every pair of words across q and d. Further right, Figure 2 (c) illustrates a more powerful interaction-based paradigm, which models the interactions between words within as well as across q and d at the same time, as in BERT\u2019s transformer architecture [25]. Tese increasingly expressive architectures are in tension. While interaction-based models (i.e., Figure 2 (b) and (c)) tend to be superior for IR tasks [8, 21], a representation-focused model\u2014by isolating the computations among q and d\u2014makes it possible to precompute document representations offline [41], greatly reducing the computational load per query. In this work, we observe that the fine-grained matching of interaction-based models and the precomputation of document representations of representation-based models can be combined by retaining yet judiciously delaying the query\u2013document interaction. Figure 2 (d) illustrates an architecture that precisely does so. As illustrated, every query embedding interacts with all document embeddings via a MaxSim operator, which computes maximum similarity (e.g., cosine similarity), and the scalar outputs of these operators are summed across query terms.",
+      "url": "https://arxiv.org/abs/2004.12832v2",
+      "pdf_file": "pdfs/colbert.pdf",
+      "sha256": "2e487d9b96e3c2e5e286d843e98a066adc0442faa3a6e8ddbd1771221bf9ae14",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03252247488101534
+    },
+    {
+      "source_id": "colbert:s0006",
+      "paper_id": "colbert",
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+      "section": "1 INTRODUCTION",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "As illustrated, every query embedding interacts with all document embeddings via a MaxSim operator, which computes maximum similarity (e.g., cosine similarity), and the scalar outputs of these operators are summed across query terms. Tis paradigm allows ColBERT to exploit deep LM-based representations while shifing the cost of encoding documents offline and amortizing the cost of encoding the query once across all ranked documents. Additionally, it enables ColBERT to leverage vector-similarity search indexes (e.g., [1, 15]) to retrieve the top-k results directly from a large document collection, substantially improving recall over models that only re-rank the output of term-based retrieval. As Figure 1 illustrates, ColBERT can serve queries in tens or few hundreds of milliseconds. For instance, when used for reranking as in \u201cColBERT (re-rank)\u201d, it delivers over 170\u00d7 speedup (and requires 14,000\u00d7 fewer FLOPs) relative to existing BERT-based models, while being more effective than every non-BERT baseline (\u00a74.2 & 4.3). ColBERT\u2019s indexing\u2014the only time it needs to feed documents through BERT\u2014is also practical: it can index the MS MARCO collection of 9M passages in about 3 hours using a single server with four GPUs (\u00a74.5), retaining its effectiveness with a space footprint of as litle as few tens of GiBs. Our extensive ablation study (\u00a74.4) shows that late interaction, its implementation via MaxSim operations, and crucial design choices within our BERTbased encoders are all essential to ColBERT\u2019s effectiveness. Our main contributions are as follows. (1) We propose late interaction (\u00a73.1) as a paradigm for efficient and effective neural ranking. (2) We present ColBERT (\u00a73.2 & 3.3), a highly-effective model that employs novel BERT-based query and document encoders within the late interaction paradigm.",
+      "url": "https://arxiv.org/abs/2004.12832v2",
+      "pdf_file": "pdfs/colbert.pdf",
+      "sha256": "2e487d9b96e3c2e5e286d843e98a066adc0442faa3a6e8ddbd1771221bf9ae14",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03252247488101534
+    },
+    {
+      "source_id": "colbert:s0012",
+      "paper_id": "colbert",
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+      "section": "3.1 Architecture",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "Figure 3 depicts the general architecture of ColBERT, which comprises: (a) a query encoder fQ, (b) a document encoder fD, and (c) the late interaction mechanism. Given a query q and document d, fQ encodes q into a bag of fixed-size embeddings Eq while fD encodes d into another bag Ed. Crucially, each embeddings in Eq and Ed is contextualized based on the other terms in q or d, respectively. We describe our BERT-based encoders in \u00a73.2. Using Eq and Ed, ColBERT computes the relevance score between q and d via late interaction, which we define as a summation of maximum similarity (MaxSim) operators. In particular, we find the maximum cosine similarity of each v \u2208Eq with vectors in Ed, and combine the outputs via summation. Besides cosine, we also evaluate squared L2 distance as a measure of vector similarity. Intuitively, this interaction mechanism sofly searches for each query term tq\u2014in a manner that reflects its context in the query\u2014against the document\u2019s embeddings, quantifying the strength of the \u201cmatch\u201d via the largest similarity score between tq and a document term td. Given these term scores, it then estimates the document relevance by summing the matching evidence across all query terms. While more sophisticated matching is possible with other choices such as deep convolution and atention layers (i.e., as in typical interaction-focused models), a summation of maximum similarity computations has two distinctive characteristics. First, it stands out as a particularly cheap interaction mechanism, as we examine its FLOPs in \u00a74.2. Second, and more importantly, it is amenable to highly-efficient pruning for top-k retrieval, as we evaluate in \u00a74.3.",
+      "url": "https://arxiv.org/abs/2004.12832v2",
+      "pdf_file": "pdfs/colbert.pdf",
+      "sha256": "2e487d9b96e3c2e5e286d843e98a066adc0442faa3a6e8ddbd1771221bf9ae14",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031024531024531024
+    },
+    {
+      "source_id": "colbert:s0039",
+      "paper_id": "colbert",
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+      "section": "4.4 Ablation Studies",
+      "page_start": 9,
+      "page_end": 9,
+      "text": "We test a model [B] that replaces ColBERT\u2019s maximum similarity with average similarity. Te results suggest the importance of individual terms in the query paying special atention to particular terms in the document. Similarly, the figure emphasizes the importance of our query augmentation mechanism: without query augmentation [C], ColBERT has a noticeably lower MRR@10. Lastly, we see the impact of end-to-end retrieval not only on recall but also on MRR@10. By retrieving directly from the full collection, ColBERT is able to retrieve to the top-10 documents missed entirely from BM25\u2019s top-1000. Figure 6: Effect of ColBERT\u2019s indexing optimizations on the offline indexing throughput.",
+      "url": "https://arxiv.org/abs/2004.12832v2",
+      "pdf_file": "pdfs/colbert.pdf",
+      "sha256": "2e487d9b96e3c2e5e286d843e98a066adc0442faa3a6e8ddbd1771221bf9ae14",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031009615384615385
+    },
+    {
+      "source_id": "colbert:s0014",
+      "paper_id": "colbert",
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+      "section": "3.2 Qery & Document Encoders",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "Prior to late interaction, ColBERT encodes each query or document into a bag of embeddings, employing BERT-based encoders. We share a single BERT model among our query and document encoders but distinguish input sequences that correspond to queries and documents by prepending a special token [Q] to queries and another token [D] to documents. Qery Encoder. Given a textual query q, we tokenize it into its BERT-based WordPiece [35] tokensq1q2...ql . We prepend the token [Q] to the query. We place this token right afer BERT\u2019s sequencestart token [CLS]. If the query has fewer than a pre-defined number of tokens Nq, we pad it with BERT\u2019s special [mask] tokens up to length Nq (otherwise, we truncate it to the first Nq tokens). Tis padded sequence of input tokens is then passed into BERT\u2019s deep transformer architecture, which computes a contextualized representation of each token. We denote the padding with masked tokens as query augmentation, a step that allows BERT to produce query-based embeddings at the positions corresponding to these masks. Qery augmentation is intended to serve as a sof, differentiable mechanism for learning to expand queries with new terms or to re-weigh existing terms based on their importance for matching the query. As we show in \u00a74.4, this operation is essential for ColBERT\u2019s effectiveness. Given BERT\u2019s representation of each token, our encoder passes the contextualized output representations through a linear layer with no activations. Tis layer serves to control the dimension of ColBERT\u2019s embeddings, producing m-dimensional embeddings for the layer\u2019s output size m. As we discuss later in more detail, we typically fix m to be much smaller than BERT\u2019s fixed hidden dimension.",
+      "url": "https://arxiv.org/abs/2004.12832v2",
+      "pdf_file": "pdfs/colbert.pdf",
+      "sha256": "2e487d9b96e3c2e5e286d843e98a066adc0442faa3a6e8ddbd1771221bf9ae14",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02964426877470356
+    },
+    {
+      "source_id": "colbert:s0020",
+      "paper_id": "colbert",
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+      "section": "3.5 Top-k Re-ranking with ColBERT",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "Recall that ColBERT can be used for re-ranking the output of another retrieval model, typically a term-based model, or directly for end-to-end retrieval from a document collection. In this section, we discuss how we use ColBERT for ranking a small set of k (e.g., k = 1000) documents given a query q. Since k is small, we rely on batch computations to exhaustively score each document (unlike our approach in \u00a73.6). To begin with, our query serving subsystem loads the indexed documents representations into memory, representing each document as a matrix of embeddings. Given a query q, we compute its bag of contextualized embeddings Eq (Equation 1) and, concurrently, gather the document representations into a 3-dimensional tensor D consisting of k document matrices. We pad the k documents to their maximum length to facilitate batched operations, and move the tensor D to the GPU\u2019s memory. On the GPU, we compute a batch dot-product of Eq and D, possibly over multiple mini-batches. Te output materializes a 3-dimensional tensor that is a collection of cross-match matrices between q and each document. To compute the score of each document, we reduce its matrix across document terms via a max-pool (i.e., representing an exhaustive implementation of our MaxSim computation) and reduce across query terms via a summation. Finally, we sort the k documents by their total scores. Relative to existing neural rankers (especially, but not exclusively, BERT-based ones), this computation is very cheap that, in fact, its cost is dominated by the cost of gathering and transferring the pre-computed embeddings.",
+      "url": "https://arxiv.org/abs/2004.12832v2",
+      "pdf_file": "pdfs/colbert.pdf",
+      "sha256": "2e487d9b96e3c2e5e286d843e98a066adc0442faa3a6e8ddbd1771221bf9ae14",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029513888888888888
+    },
+    {
+      "source_id": "colbert:s0017",
+      "paper_id": "colbert",
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+      "section": "3.3 Late Interaction",
+      "page_start": 4,
+      "page_end": 5,
+      "text": "Given the representation of a query q and a document d, the relevance score of d to q, denoted as Sq,d, is estimated via late interaction between their bags of contextualized embeddings. As mentioned before, this is conducted as a sum of maximum similarity computations, namely cosine similarity (implemented as dot-products due to the embedding normalization) or squared L2 distance. Sq,d := \u00d5 i \u2208[|Eq |] max j \u2208[|Ed |] Eqi \u00b7 ET dj (3) ColBERT is differentiable end-to-end. We fine-tune the BERT encoders and train from scratch the additional parameters (i.e., the linear layer and the [Q] and [D] markers\u2019 embeddings) using the Adam [16] optimizer. Notice that our interaction mechanism has no trainable parameters. Given a triple \u27e8q,d+,d\u2212\u27e9with query q, positive document d+ and negative document d\u2212, ColBERT is used to produce a score for each document individually and is optimized via pairwise sofmax cross-entropy loss over the computed scores of d+ and d\u2212.",
+      "url": "https://arxiv.org/abs/2004.12832v2",
+      "pdf_file": "pdfs/colbert.pdf",
+      "sha256": "2e487d9b96e3c2e5e286d843e98a066adc0442faa3a6e8ddbd1771221bf9ae14",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.028438886647841874
+    },
+    {
+      "source_id": "colbert:s0008",
+      "paper_id": "colbert",
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+      "section": "2 RELATED WORK",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "Neural Matching Models. Over the past few years, IR researchers have introduced numerous neural architectures for ranking. In this work, we compare against KNRM [4, 36], Duet [20, 22], ConvKNRM [4], and fastText+ConvKNRM [10]. KNRM proposes a differentiable kernel-pooling technique for extracting matching signals from an interaction matrix, while Duet combines signals from exact-match-based as well as embedding-based similarities for ranking. Introduced in 2018, ConvKNRM learns to match ngrams in the query and the document. Lastly, fastText+ConvKNRM (abbreviated fT+ConvKNRM) tackles the absence of rare words from typical word embeddings lists by adopting sub-word token embeddings. In 2018, Zamani et al. [41] introduced SNRM, a representationfocused IR model that encodes each query and each document as a single, sparse high-dimensional vector of \u201clatent terms\u201d. By producing a sparse-vector representation for each document, SNRM is able to use a traditional IR inverted index for representing documents, allowing fast end-to-end retrieval. Despite highly promising results and insights, SNRM\u2019s effectiveness is substantially outperformed by the state of the art on the datasets with which it was evaluated (e.g., see [18, 38]). While SNRM employs sparsity to allow using inverted indexes, we relax this assumption and compare a (dense) BERT-based representation-focused model against our late-interaction ColBERT in our ablation experiments in \u00a74.4. For a detailed overview of existing neural ranking models, we refer the readers to two recent surveys of the literature [8, 21]. Language Model Pretraining for IR. Recent work in NLU emphasizes the importance pre-training language representation models in an unsupervised fashion before subsequently fine-tuning them on downstream tasks. A notable example is BERT [5], a bidirectional transformer-based language model whose fine-tuning advanced the state of the art on various NLU benchmarks.",
+      "url": "https://arxiv.org/abs/2004.12832v2",
+      "pdf_file": "pdfs/colbert.pdf",
+      "sha256": "2e487d9b96e3c2e5e286d843e98a066adc0442faa3a6e8ddbd1771221bf9ae14",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.026132699813337858
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "c2a7414285341994a878c213a286627538dc29515ada4d723505b2e46984b8b0",
+    "code": "06d56dd7f41923fc9ffa5f4157e846ce0397b251517dfe34b625234040efea10"
+  },
+  "notice": "This explanation is assembled from stored, source-linked summaries. Check the cited pages before relying on the answer; source links alone do not verify correctness.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "is a maximum token match averaged or summed over the query tokens",
+      "paper_ids": [
+        "colbert"
+      ],
+      "facet": "retrieval",
+      "covered": true,
+      "claim_ids": [
+        "colbert.maxsim"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.015468344999931105
+}

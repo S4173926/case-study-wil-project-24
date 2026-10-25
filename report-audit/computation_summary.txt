@@ -1,0 +1,108 @@
+Integrity 1202 99 191
+Equivalence 67 / 67
+ABLAT [
+  {
+    "method": "bm25",
+    "routing": false,
+    "k": 5,
+    "n": 42,
+    "at_least_one_labelled_quote": 25,
+    "labelled_evidence_every_expected_paper": 20,
+    "all_labelled_quotes": 18
+  },
+  {
+    "method": "bm25",
+    "routing": true,
+    "k": 5,
+    "n": 42,
+    "at_least_one_labelled_quote": 31,
+    "labelled_evidence_every_expected_paper": 24,
+    "all_labelled_quotes": 22
+  },
+  {
+    "method": "tfidf",
+    "routing": false,
+    "k": 5,
+    "n": 42,
+    "at_least_one_labelled_quote": 22,
+    "labelled_evidence_every_expected_paper": 19,
+    "all_labelled_quotes": 18
+  },
+  {
+    "method": "tfidf",
+    "routing": true,
+    "k": 5,
+    "n": 42,
+    "at_least_one_labelled_quote": 27,
+    "labelled_evidence_every_expected_paper": 22,
+    "all_labelled_quotes": 20
+  },
+  {
+    "method": "hybrid",
+    "routing": false,
+    "k": 5,
+    "n": 42,
+    "at_least_one_labelled_quote": 26,
+    "labelled_evidence_every_expected_paper": 21,
+    "all_labelled_quotes": 20
+  },
+  {
+    "method": "hybrid",
+    "routing": true,
+    "k": 5,
+    "n": 42,
+    "at_least_one_labelled_quote": 30,
+    "labelled_evidence_every_expected_paper": 23,
+    "all_labelled_quotes": 21
+  }
+]
+LEGACY chosen [
+  {
+    "config": "fixed-200/bm25",
+    "n_answerable": 17,
+    "n_unsupported": 7,
+    "quote_hits": 10,
+    "quote_hit_rate": 0.5882352941176471,
+    "mrr": 0.4235294117647059,
+    "expected_paper_recall": 0.9705882352941176,
+    "expected_paper_citation_fraction": 0.8125,
+    "exact_quote_citation_support": 0.25,
+    "word_overlap_proxy": 1.0,
+    "answered_metric_denominator": 16,
+    "unsupported_refusals": 6,
+    "answerable_refusals": 1,
+    "n_chunks": 341,
+    "generator": "extractive",
+    "errors": {
+      "unflagged": 14,
+      "wrong_paper_cited": 2,
+      "retrieval_miss": 6,
+      "retrieval_miss+abstain": 1,
+      "answered_unsupported": 1
+    }
+  },
+  {
+    "config": "fixed-400/hybrid+route",
+    "n_answerable": 17,
+    "n_unsupported": 7,
+    "quote_hits": 12,
+    "quote_hit_rate": 0.7058823529411765,
+    "mrr": 0.3166666666666667,
+    "expected_paper_recall": 1.0,
+    "expected_paper_citation_fraction": 1.0,
+    "exact_quote_citation_support": 0.15625,
+    "word_overlap_proxy": 1.0,
+    "answered_metric_denominator": 16,
+    "unsupported_refusals": 7,
+    "answerable_refusals": 1,
+    "n_chunks": 172,
+    "generator": "extractive",
+    "errors": {
+      "unflagged": 19,
+      "retrieval_miss": 4,
+      "retrieval_miss+abstain": 1
+    }
+  }
+]
+Question quote labels 73 missing 1
+Trello {'board_name': 'case study wil project 24', 'last_activity': '2026-10-02T05:44:57.589Z', 'n_cards': 26, 'list_counts': {'To-Do': 2, 'In-Progress': 1, 'Blocked': 2, 'Done': 21}, 'actions_count': 158, 'action_dates': {'2026-10-02': 132, '2026-08-23': 26}, 'card_creation_dates': {'2026-10-02': 20, '2026-08-23': 6}, 'member_assignments': {'Deboprio Saha Argha': 6, 'Imranjit Singh Kohli': 4, 'Chetan Bera': 3, 'Amritpal Singh Gill': 4, 'Dhanush Sridhar': 3, 'Qiling Huang': 3}}

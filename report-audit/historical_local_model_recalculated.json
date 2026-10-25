@@ -1,0 +1,58 @@
+{
+  "source_archive": "WIL-Project-24-handover.zip",
+  "member": "WIL-Project-24-handover/code/rag_research_assistant/results/local-llm.json",
+  "run_id": "20261020-161018",
+  "baseline": "fixed-200/bm25",
+  "best": "fixed-400/tfidf+route",
+  "metrics": [
+    {
+      "config": "fixed-200/bm25",
+      "n_answerable": 33,
+      "n_unsupported": 7,
+      "quote_hits": 17,
+      "quote_hit_rate": 0.5151515151515151,
+      "mrr": 0.38232323232323234,
+      "expected_paper_recall": 0.9242424242424242,
+      "expected_paper_citation_fraction": 0.8888888888888888,
+      "exact_quote_citation_support": 0.3333333333333333,
+      "word_overlap_proxy": 0.9285714285714286,
+      "answered_metric_denominator": 27,
+      "unsupported_refusals": 6,
+      "answerable_refusals": 5,
+      "n_chunks": 1504,
+      "generator": "local:Qwen2.5-0.5B-Instruct",
+      "errors": {
+        "retrieval_miss": 15,
+        "unflagged": 17,
+        "wrong_paper_cited": 1,
+        "false_abstain": 4,
+        "retrieval_miss+abstain": 1,
+        "comparison_incomplete": 1,
+        "answered_unsupported": 1
+      }
+    },
+    {
+      "config": "fixed-400/tfidf+route",
+      "n_answerable": 33,
+      "n_unsupported": 7,
+      "quote_hits": 22,
+      "quote_hit_rate": 0.6666666666666666,
+      "mrr": 0.5075757575757576,
+      "expected_paper_recall": 1.0,
+      "expected_paper_citation_fraction": 1.0,
+      "exact_quote_citation_support": 0.3870967741935484,
+      "word_overlap_proxy": 1.0,
+      "answered_metric_denominator": 31,
+      "unsupported_refusals": 7,
+      "answerable_refusals": 2,
+      "n_chunks": 758,
+      "generator": "local:Qwen2.5-0.5B-Instruct",
+      "errors": {
+        "retrieval_miss": 10,
+        "unflagged": 28,
+        "retrieval_miss+abstain": 1,
+        "false_abstain": 1
+      }
+    }
+  ]
+}

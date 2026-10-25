@@ -1,0 +1,180 @@
+{
+  "run_id": "20261024T111628_9f77cc943f",
+  "created_utc": "2026-10-24T11:16:28.830121+00:00",
+  "question": "According to the indexed collection, what uncertainty interval was reported for this Workbench's user time savings?",
+  "mode": "explain",
+  "status": "insufficient",
+  "plan": {
+    "named_papers": [],
+    "facets": [
+      "purpose",
+      "condition"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "according to the indexed collection",
+        "facets": [
+          "purpose"
+        ],
+        "explicit": false,
+        "scope": "each"
+      },
+      {
+        "id": "part2",
+        "text": "what uncertainty interval was reported for this workbench's user time savings",
+        "facets": [
+          "condition"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [],
+  "comparison": [],
+  "citations": [],
+  "missing": [
+    "No supported explanation could be assembled."
+  ],
+  "warnings": [],
+  "first_stage": [
+    "monot5:s0016",
+    "beir:s0006",
+    "flare:s0020",
+    "flare:s0009",
+    "ares:s0013",
+    "monot5:s0012",
+    "ares:s0012",
+    "colbert:s0020"
+  ],
+  "retrieved": [
+    {
+      "source_id": "monot5:s0016",
+      "paper_id": "monot5",
+      "title": "Document Ranking with a Pretrained Sequence-to-Sequence Model",
+      "section": "4 Results and Analysis",
+      "page_start": 6,
+      "page_end": 7,
+      "text": "We would expect effectiveness to be lower than the baseline and the above conditions. Using these target word configurations, we conducted experiments on T5-base with either 1k (or 10k) positive and 1k (or 10k) negative instances sampled from the full MS MARCO passage dataset, same as in Section 4.2. Once again, for each of the conditions, we repeated the experiment five times, drawing different samples every time. For reference, we also fine-tuned with all available data. We note that the effectiveness of T5-base is different from the one reported in Table 1 because we used slightly different hyperparameters which were more computationally efficient: here, we trained for 40k steps using a batch of size 256. Experimental results are shown in Table 4, with means and 95% confidence intervals. There does not appear to be an obvious pattern when fine-tuning with all available training data, although the largest observed difference is between \u201cbaseline\u201d and \u201creverse\u201d. This does appear consistent with our hypothesis that with sufficient training data, T5 is able to learn arbitrary mappings between document relevance and target words. In the data-poor regime, the results are also consistent with our hypotheses. With both 2k and 20k total samples, the baseline mapping achieves the highest effectiveness. In the 2k condition, the confidence intervals computed from different samples mostly overlap (with the exception of subwords), so we do not have the benefit of greater certainty that comes with statistical significance. On the 20k condition, our target word manipulations all significantly reduce effectiveness. We note that the 95% confidence intervals are smaller with more data, which illustrates the greater instability in effectiveness when training on smaller datasets (which is expected).",
+      "url": "https://arxiv.org/abs/2003.06713v1",
+      "pdf_file": "pdfs/monot5.pdf",
+      "sha256": "49cfcb0bcf6c5ea6b9efdb30a070c4f4268839d52e74ad5c3e27872cace61a3e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03252247488101534
+    },
+    {
+      "source_id": "beir:s0006",
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "section": "2.1 Neural Retrieval",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "Information retrieval is the process of searching and returning relevant documents for a query from a collection. In our paper, we focus on text retrieval and use document as a cover term for text of any length in the given collection and query for the user input, which can be of any length as well. Traditionally, lexical approaches like TF-IDF and BM25 [55] have dominated textual information retrieval. Recently, there is a strong interest in using neural networks to improve or replace these lexical approaches. In this section, we highlight a few neural-based approaches and we refer the reader to Lin et al. [37] for a recent survey in neural retrieval. Retriever-based Lexical approaches suffer from the lexical gap [5]. To overcome this, earlier techniques proposed to improve lexical retrieval systems with neural networks. Sparse methods such as docT5query [48] identified document expansion terms using a sequence-to-sequence model that generated possible queries for which the given document would be relevant. DeepCT [11] on the other hand used a BERT [13] model to learn relevant term weights in a document and generated a pseudo-document representation. Both methods still rely on BM25 for the remaining parts. Similarly, SPARTA [79] learned token-level contextualized representations with BERT and converted the document into an efficient inverse index. More recently, dense retrieval approaches were proposed. They are capable of capturing semantic matches and try to overcome the (potential) lexical gap. Dense retrievers map queries and documents in a shared, dense vector space [18]. This allowed the document representation to be pre-computed and indexed. A bi-encoder neural architecture based on pre-trained Transformers has shown strong performance for various open-domain question-answering tasks [19, 31, 35, 43].",
+      "url": "https://arxiv.org/abs/2104.08663v4",
+      "pdf_file": "pdfs/beir.pdf",
+      "sha256": "1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03200204813108039
+    },
+    {
+      "source_id": "flare:s0020",
+      "paper_id": "flare",
+      "title": "Active Retrieval Augmented Generation",
+      "section": "4 Multi-time Retrieval Baselines",
+      "page_start": 6,
+      "page_end": 6,
+      "text": "However, they have notable drawbacks: (1) Using previously generated tokens as queries might not reflect what LMs intend to generate in the future. (2) Retrieving information at a fixed interval can be inefficient because it might occur at inappropriate points. (3) Question decomposition approaches require taskspecific prompt engineering, which restricts their generalizability in new tasks.",
+      "url": "https://arxiv.org/abs/2305.06983v2",
+      "pdf_file": "pdfs/flare.pdf",
+      "sha256": "2425bd04de6e082512ef576298ec24df770a7f576bb2c23d09b3fd498f716c52",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031009615384615385
+    },
+    {
+      "source_id": "flare:s0009",
+      "paper_id": "flare",
+      "title": "Active Retrieval Augmented Generation",
+      "section": "2.2 Single-time Retrieval Augmented",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "Generation The most common choice is to directly use the user input as the query for retrieval and generate the complete answer at once y = LM([Dx, x]).",
+      "url": "https://arxiv.org/abs/2305.06983v2",
+      "pdf_file": "pdfs/flare.pdf",
+      "sha256": "2425bd04de6e082512ef576298ec24df770a7f576bb2c23d09b3fd498f716c52",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03047794966520434
+    },
+    {
+      "source_id": "ares:s0013",
+      "paper_id": "ares",
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "section": "3.3 Ranking RAG Systems with Confidence",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "PPI can leverage both the labeled datapoints and the ARES judge predictions on the non-annotated datapoints to construct confidence intervals for our RAG system\u2019s performance. To do this, PPI uses the LLM judges on the human preference validation set to learn a rectifier function for constructing a confidence set of the ML model\u2019s performance, using each ML prediction in the larger non-annotated dataset. The confidence set can then be used to create a tighter confidence interval for the performance of the evaluated RAG system (e.g. its context relevance, answer faithfulness, or answer relevance accuracy individually) compared to simply using annotated outputs from the evaluated RAG system. By bolstering the human preference validation set with the much larger set of datapoints with ML predictions, PPI can develop reliable confidence intervals for ML model performance that beat previous classical inference approaches. The PPI rectifier function allows us to estimate the errors of the LLM judge and generate confidence bounds for the success and failure rates of the RAG system, estimating context relevance, answer faithfulness, and answer relevance performance. Additionally, PPI allows us to estimate confidence intervals with a selected level of probability; for our experiments, we use a standard 95% alpha (probability) for our confidence interval. With the accuracy confidence interval for each component of the RAG, we find the midpoint of each confidence interval and use the midpoints to rank the RAG systems. With our ranking, we can compare different RAG systems, as well as different configurations of the same RAG system, to find the best-performing approach for a given domain.",
+      "url": "https://arxiv.org/abs/2311.09476v2",
+      "pdf_file": "pdfs/ares.pdf",
+      "sha256": "16f092b08cce88da551a15a978b51721199e93dc95df406089813411fa51ebec",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030330882352941176
+    },
+    {
+      "source_id": "monot5:s0012",
+      "paper_id": "monot5",
+      "title": "Document Ranking with a Pretrained Sequence-to-Sequence Model",
+      "section": "4 Results and Analysis",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "In a data-poor regime with only a modest amount of training data, it appears that T5 can learn far more effectively than BERT. To demonstrate this, we fine-tuned BERT-base and T5-base with either 1k (or 10k) positive and 1k (or 10k) negative instances sampled from the full MS MARCO passage dataset. These two \u201cbase\u201d models were selected due to their more modest computational demands for fine-tuning. We trained them using a batch size of 32 for three epochs. For BERT, we used a learning rate 10\u22126 and no warm-up step. For T5, we used a learning rate of 10\u22123. For each condition (2k or 20k samples in total), we repeated the experiment five times, drawing different samples each time. The results are reported in Table 3, with means and 95% confidence intervals. As expected, effectiveness significantly improves as we fine-tune the models with more data. We see clearly that with the same amount of limited training data, T5 is significantly more effective than BM25. In fact, with only 1k positive and 1k negative training instances, BERT performs worse than the BM25 baseline. With 20k training instances in total, BERT is able to modestly improve upon BM25, but remains six points behind T5 fine-tuned on the same amount of data. Interestingly, T5 is able to achieve roughly 45% of the possible gain in effectiveness over the BM25 baseline with only 4% of the training data. 4.3 Target Word Probing Experiments Our experimental results immediately raise two questions: 1. Why is our approach more data-efficient than BERT? That is, why does T5 significantly outperform BERT when fine-tuned with few training examples? 2.",
+      "url": "https://arxiv.org/abs/2003.06713v1",
+      "pdf_file": "pdfs/monot5.pdf",
+      "sha256": "49cfcb0bcf6c5ea6b9efdb30a070c4f4268839d52e74ad5c3e27872cace61a3e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030158730158730156
+    },
+    {
+      "source_id": "ares:s0012",
+      "paper_id": "ares",
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "section": "3.3 Ranking RAG Systems with Confidence",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "Intervals Once we have prepared our LLM judges, we need to use them to score and rank the competing RAG systems. To do this, ARES samples the in-domain query-document-answer triples produced by each RAG approach, and the judges label each triple, predicting their context relevance, answer faithfulness, and answer relevance. By averaging the individual predicted labels for each in-domain triple, we calculate the RAG system performance across each of the three metrics. In principle, we could simply report these average scores as quality metrics for each RAG system. However, these scores reflect entirely unlabeled data with predictions from a synthetically-trained LLM judge, and hence they may not be entirely accurate. As an extreme alternative, we could use just the small human preference validation set discussed previously for evaluation, reporting the extent to which each RAG system agrees with (or deviates from) the human annotations. However, an annotation-based evaluation approach would require labeling substantially more generative outputs from each RAG systems separately, which can be costly both in terms of time and financing. To combine the benefits of both, and hence boost the precision of the evaluation, ARES uses prediction-powered inference (PPI; Angelopoulos et al. 2023) to predict the system scores. PPI is a recent statistical method that provides tighter confidence intervals on a small set of annotated datapoints (i.e., our validation set) by leveraging predictions on a much larger set of non-annotated datapoints. PPI can leverage both the labeled datapoints and the ARES judge predictions on the non-annotated datapoints to construct confidence intervals for our RAG system\u2019s performance.",
+      "url": "https://arxiv.org/abs/2311.09476v2",
+      "pdf_file": "pdfs/ares.pdf",
+      "sha256": "16f092b08cce88da551a15a978b51721199e93dc95df406089813411fa51ebec",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029857397504456328
+    },
+    {
+      "source_id": "colbert:s0020",
+      "paper_id": "colbert",
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+      "section": "3.5 Top-k Re-ranking with ColBERT",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "Recall that ColBERT can be used for re-ranking the output of another retrieval model, typically a term-based model, or directly for end-to-end retrieval from a document collection. In this section, we discuss how we use ColBERT for ranking a small set of k (e.g., k = 1000) documents given a query q. Since k is small, we rely on batch computations to exhaustively score each document (unlike our approach in \u00a73.6). To begin with, our query serving subsystem loads the indexed documents representations into memory, representing each document as a matrix of embeddings. Given a query q, we compute its bag of contextualized embeddings Eq (Equation 1) and, concurrently, gather the document representations into a 3-dimensional tensor D consisting of k document matrices. We pad the k documents to their maximum length to facilitate batched operations, and move the tensor D to the GPU\u2019s memory. On the GPU, we compute a batch dot-product of Eq and D, possibly over multiple mini-batches. Te output materializes a 3-dimensional tensor that is a collection of cross-match matrices between q and each document. To compute the score of each document, we reduce its matrix across document terms via a max-pool (i.e., representing an exhaustive implementation of our MaxSim computation) and reduce across query terms via a summation. Finally, we sort the k documents by their total scores. Relative to existing neural rankers (especially, but not exclusively, BERT-based ones), this computation is very cheap that, in fact, its cost is dominated by the cost of gathering and transferring the pre-computed embeddings.",
+      "url": "https://arxiv.org/abs/2004.12832v2",
+      "pdf_file": "pdfs/colbert.pdf",
+      "sha256": "2e487d9b96e3c2e5e286d843e98a066adc0442faa3a6e8ddbd1771221bf9ae14",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029273504273504274
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "c2a7414285341994a878c213a286627538dc29515ada4d723505b2e46984b8b0",
+    "code": "06d56dd7f41923fc9ffa5f4157e846ce0397b251517dfe34b625234040efea10"
+  },
+  "notice": "This explanation is assembled from stored, source-linked summaries. Check the cited pages before relying on the answer; source links alone do not verify correctness.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [],
+  "elapsed_seconds": 0.02301921699995546
+}

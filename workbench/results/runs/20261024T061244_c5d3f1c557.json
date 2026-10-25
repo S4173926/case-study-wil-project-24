@@ -1,0 +1,306 @@
+{
+  "run_id": "20261024T061244_c5d3f1c557",
+  "created_utc": "2026-10-24T06:12:44.294671+00:00",
+  "question": "How does ORQA train a retriever without labelled supporting passages, and what task does it use to pre-train that retriever?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "orqa"
+    ],
+    "facets": [
+      "training"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "how does train a retriever without labelled supporting passages",
+        "facets": [
+          "training"
+        ],
+        "explicit": true,
+        "scope": "each"
+      },
+      {
+        "id": "part2",
+        "text": "what task does it use to pre-train that retriever",
+        "facets": [
+          "training"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "orqa.supervision",
+      "paper_id": "orqa",
+      "text": "ORQA jointly learns retrieval and reading from question–answer string pairs, without needing labelled supporting passages. The supporting evidence is a latent variable: the model must discover which retrieved passages can explain the answer rather than being given the correct passage for each question.",
+      "facets": [
+        "training",
+        "supervision",
+        "purpose"
+      ],
+      "source_ids": [
+        "orqa:s0001"
+      ]
+    },
+    {
+      "claim_id": "orqa.ict",
+      "paper_id": "orqa",
+      "text": "ORQA first pre-trains its retriever with the Inverse Cloze Task (ICT). A sentence sampled from text acts as a pseudo-question, and the surrounding text acts as pseudo-evidence. The retriever learns to identify that context among candidates in the batch, providing an initial retrieval ability before question-answer fine-tuning.",
+      "facets": [
+        "training",
+        "supervision"
+      ],
+      "source_ids": [
+        "orqa:s0003"
+      ]
+    },
+    {
+      "claim_id": "orqa.finetuning",
+      "paper_id": "orqa",
+      "text": "During downstream QA learning, ORQA optimises the marginal likelihood of answer-matching derivations. It fine-tunes the question encoder and reader while keeping the evidence-block encoder fixed. Stored block embeddings can therefore be reused even though the trainable question encoder changes which top-ranked evidence is retrieved.",
+      "facets": [
+        "training",
+        "inference"
+      ],
+      "source_ids": [
+        "orqa:s0015",
+        "orqa:s0014"
+      ]
+    }
+  ],
+  "comparison": [],
+  "citations": [
+    {
+      "source_id": "orqa:s0001",
+      "paper_id": "orqa",
+      "title": "Latent Retrieval for Weakly Supervised Open Domain Question Answering",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Recent work on open domain question answering (QA) assumes strong supervision of the supporting evidence and/or assumes a blackbox information retrieval (IR) system to retrieve evidence candidates. We argue that both are suboptimal, since gold evidence is not always available, and QA is fundamentally different from IR. We show for the first time that it is possible to jointly learn the retriever and reader from question-answer string pairs and without any IR system. In this setting, evidence retrieval from all of Wikipedia is treated as a latent variable. Since this is impractical to learn from scratch, we pre-train the retriever with an Inverse Cloze Task. We evaluate on open versions of five QA datasets. On datasets where the questioner already knows the answer, a traditional IR system such as BM25 is sufficient. On datasets where a user is genuinely seeking an answer, we show that learned retrieval is crucial, outperforming BM25 by up to 19 points in exact match.",
+      "url": "https://arxiv.org/abs/1906.00300v3",
+      "pdf_file": "pdfs/orqa.pdf",
+      "sha256": "796b27cd8e8199ae841bdb4584c774673fc3ed64aa25a12ddd61de7e79a8b1b0",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "orqa:s0003",
+      "paper_id": "orqa",
+      "title": "Latent Retrieval for Weakly Supervised Open Domain Question Answering",
+      "section": "1 Introduction",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "ORQA learns to retrieve evidence from an open corpus, and is supervised only by questionanswer string pairs. While recent work on improving evidence retrieval has made significant progress (Wang et al., 2018; Kratzwald and Feuerriegel, 2018; Lee et al., 2018; Das et al., 2019), they still only rerank a closed evidence set. The main challenge to fully end-to-end learning is that retrieval over the open corpus must be considered a latent variable that would be impractical to train from scratch. IR systems offer a reasonable but potentially suboptimal starting point. The key insight of this work is that end-toend learning is possible if we pre-train the retriever with an unsupervised Inverse Cloze Task (ICT). In ICT, a sentence is treated as a pseudoquestion, and its context is treated as pseudoevidence. Given a pseudo-question, ICT requires selecting the corresponding pseudo-evidence out of the candidates in a batch. ICT pre-training provides a sufficiently strong initialization such that ORQA, a joint retriever and reader model, can be fine-tuned end-to-end by simply optimiz- Task Training Evaluation Example Evidence Answer Evidence Answer Reading Comprehension given span given string SQuAD (Rajpurkar et al., 2016) Open-domain QA Unsupervised QA none none none string GPT-2 (Radford et al., 2019) Strongly Supervised QA given span heuristic string DrQA (Chen et al., 2017) Weakly Supervised QA Closed Retrieval QA heuristic string heuristic string TriviaQA (Joshi et al., 2017) Open Retrieval QA learned string learned string ORQA (this work) Table 1: Comparison of assumptions made by related tasks, along with references to examples.",
+      "url": "https://arxiv.org/abs/1906.00300v3",
+      "pdf_file": "pdfs/orqa.pdf",
+      "sha256": "796b27cd8e8199ae841bdb4584c774673fc3ed64aa25a12ddd61de7e79a8b1b0",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "orqa:s0015",
+      "paper_id": "orqa",
+      "title": "Latent Retrieval for Weakly Supervised Open Domain Question Answering",
+      "section": "6 Learning",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "Learning is relatively straightforward, since ICT should provide non-trivial zero-shot retrieval. We first define a distribution over answer derivations: P(b, s|q) = exp(S(b, s, q)) X X s′∈b′ exp(S(b′, s′, q)) b′∈TOP(k) where TOP(k) denotes the top k retrieved blocks based on Sretr. We use k = 5 in our experiments. Given a gold answer string a, we find all (possibly spuriously) correct derivations in the beam, and optimize their marginal log-likelihood: Lfull(q, a) = −log X X s∈b, a=TEXT(s) P ′(b, s|q) b∈TOP(k) where a = TEXT(s) indicates whether the answer string a matches exactly the span s. To encourage more aggressive learning, we also include an early update, where we consider a larger set of c evidence blocks but only update the retrieval score, which is cheap to compute: Pearly(b|q) = exp(Sretr(b, q)) X b′∈TOP(c) exp(Sretr(b′, q)) Learly(q, a) = −log X b∈TOP(c), a∈TEXT(b) Pearly(b|q) where a ∈ TEXT(b) indicates whether answer string a appears in evidence block b. We use c = 5000 in our experiments. The final loss includes both updates: L(q, a) = Learly(q, a) + Lfull(q, a) If no matching answers are found at all, then the example is discarded. While we would expect almost all examples to be discarded with random initialization, we discard less than 10% of examples in practice due to ICT pre-training. As previously mentioned, we fine-tune all parameters except those in the evidence block encoder. Since the query encoder is trainable, the model can potentially learn to retrieve any evidence block. This expressivity is a crucial difference from blackbox IR systems, where recall can only be improved by retrieving more evidence.",
+      "url": "https://arxiv.org/abs/1906.00300v3",
+      "pdf_file": "pdfs/orqa.pdf",
+      "sha256": "796b27cd8e8199ae841bdb4584c774673fc3ed64aa25a12ddd61de7e79a8b1b0",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "orqa:s0014",
+      "paper_id": "orqa",
+      "title": "Latent Retrieval for Weakly Supervised Open Domain Question Answering",
+      "section": "5 Inference",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "Since fixed block encoders already provide a useful representation for retrieval, we can precompute all block encodings in the evidence corpus. As a result, the enormous set of evidence blocks does not need to be re-encoded while finetuning, and it can be pre-compiled into an index for fast maximum inner product search using existing tools such as Locality Sensitive Hashing. With the pre-compiled index, inference follows a standard beam-search procedure. We retrieve the top-k evidence blocks and only compute the expensive reader scores for those k blocks. While we only consider the top-k evidence blocks during a single inference step, this set dynamically changes during training since the question encoder is fine-tuned according to the weakly supervised QA data, as discussed in the following section.",
+      "url": "https://arxiv.org/abs/1906.00300v3",
+      "pdf_file": "pdfs/orqa.pdf",
+      "sha256": "796b27cd8e8199ae841bdb4584c774673fc3ed64aa25a12ddd61de7e79a8b1b0",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "orqa:s0029",
+    "orqa:s0003",
+    "orqa:s0001",
+    "orqa:s0009",
+    "orqa:s0027",
+    "orqa:s0004",
+    "orqa:s0024",
+    "orqa:s0013"
+  ],
+  "retrieved": [
+    {
+      "source_id": "orqa:s0029",
+      "paper_id": "orqa",
+      "title": "Latent Retrieval for Weakly Supervised Open Domain Question Answering",
+      "section": "11 Conclusion",
+      "page_start": 9,
+      "page_end": 9,
+      "text": "We presented ORQA, the first open domain question answering system where the retriever and reader are jointly learned end-to-end using only question-answer pairs and without any IR system. This is made possible by pre-training the retriever using an Inverse Cloze Task (ICT). Experiments show that learning to retrieve is crucial when the questions reflect an information need, i.e. the question writers do not already know the answer.",
+      "url": "https://arxiv.org/abs/1906.00300v3",
+      "pdf_file": "pdfs/orqa.pdf",
+      "sha256": "796b27cd8e8199ae841bdb4584c774673fc3ed64aa25a12ddd61de7e79a8b1b0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03278688524590164
+    },
+    {
+      "source_id": "orqa:s0003",
+      "paper_id": "orqa",
+      "title": "Latent Retrieval for Weakly Supervised Open Domain Question Answering",
+      "section": "1 Introduction",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "ORQA learns to retrieve evidence from an open corpus, and is supervised only by questionanswer string pairs. While recent work on improving evidence retrieval has made significant progress (Wang et al., 2018; Kratzwald and Feuerriegel, 2018; Lee et al., 2018; Das et al., 2019), they still only rerank a closed evidence set. The main challenge to fully end-to-end learning is that retrieval over the open corpus must be considered a latent variable that would be impractical to train from scratch. IR systems offer a reasonable but potentially suboptimal starting point. The key insight of this work is that end-toend learning is possible if we pre-train the retriever with an unsupervised Inverse Cloze Task (ICT). In ICT, a sentence is treated as a pseudoquestion, and its context is treated as pseudoevidence. Given a pseudo-question, ICT requires selecting the corresponding pseudo-evidence out of the candidates in a batch. ICT pre-training provides a sufficiently strong initialization such that ORQA, a joint retriever and reader model, can be fine-tuned end-to-end by simply optimiz- Task Training Evaluation Example Evidence Answer Evidence Answer Reading Comprehension given span given string SQuAD (Rajpurkar et al., 2016) Open-domain QA Unsupervised QA none none none string GPT-2 (Radford et al., 2019) Strongly Supervised QA given span heuristic string DrQA (Chen et al., 2017) Weakly Supervised QA Closed Retrieval QA heuristic string heuristic string TriviaQA (Joshi et al., 2017) Open Retrieval QA learned string learned string ORQA (this work) Table 1: Comparison of assumptions made by related tasks, along with references to examples.",
+      "url": "https://arxiv.org/abs/1906.00300v3",
+      "pdf_file": "pdfs/orqa.pdf",
+      "sha256": "796b27cd8e8199ae841bdb4584c774673fc3ed64aa25a12ddd61de7e79a8b1b0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031024531024531024
+    },
+    {
+      "source_id": "orqa:s0001",
+      "paper_id": "orqa",
+      "title": "Latent Retrieval for Weakly Supervised Open Domain Question Answering",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Recent work on open domain question answering (QA) assumes strong supervision of the supporting evidence and/or assumes a blackbox information retrieval (IR) system to retrieve evidence candidates. We argue that both are suboptimal, since gold evidence is not always available, and QA is fundamentally different from IR. We show for the first time that it is possible to jointly learn the retriever and reader from question-answer string pairs and without any IR system. In this setting, evidence retrieval from all of Wikipedia is treated as a latent variable. Since this is impractical to learn from scratch, we pre-train the retriever with an Inverse Cloze Task. We evaluate on open versions of five QA datasets. On datasets where the questioner already knows the answer, a traditional IR system such as BM25 is sufficient. On datasets where a user is genuinely seeking an answer, we show that learned retrieval is crucial, outperforming BM25 by up to 19 points in exact match.",
+      "url": "https://arxiv.org/abs/1906.00300v3",
+      "pdf_file": "pdfs/orqa.pdf",
+      "sha256": "796b27cd8e8199ae841bdb4584c774673fc3ed64aa25a12ddd61de7e79a8b1b0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.027583600982429624
+    },
+    {
+      "source_id": "orqa:s0009",
+      "paper_id": "orqa",
+      "title": "Latent Retrieval for Weakly Supervised Open Domain Question Answering",
+      "section": "3 Open-Retrieval Question Answering",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "(ORQA) We propose an end-to-end model where the retriever and reader components are jointly learned, which we refer to as the Open-Retrieval Question Answering (ORQA) model. An important aspect of ORQA is its expressivity—it is capable of retrieving any text in an open corpus, rather than being limited to the closed set returned by a blackbox IR system. An illustration of how ORQA scores answer derivations is presented in Figure 1. Following recent advances in transfer learning, all scoring components are derived from BERT (Devlin et al., 2018), a bidirectional transformer that has been pre-trained on unsupervised language-modeling data. We refer the reader to the original paper for details of the architecture. In this work, the relevant abstraction can be described by the following function: BERT(x1, [x2]) = {CLS : hCLS, 1 : h1, 2 : h2, ...} The BERT function takes one or two string inputs (x1 and optionally x2) as arguments. It returns vectors corresponding to representations of the CLS pooling token or the input tokens. Retriever component In order for the retriever to be learnable, we define the retrieval score as the inner product of dense vector representations of the question q and the evidence block b. hq = WqBERTQ(q)[CLS] hb = WbBERTB(b)[CLS] Sretr(b, q) = h⊤ q hb where Wq and Wb are matrices that project the BERT output into 128-dimensional vectors.",
+      "url": "https://arxiv.org/abs/1906.00300v3",
+      "pdf_file": "pdfs/orqa.pdf",
+      "sha256": "796b27cd8e8199ae841bdb4584c774673fc3ed64aa25a12ddd61de7e79a8b1b0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.025503573749187783
+    },
+    {
+      "source_id": "orqa:s0027",
+      "paper_id": "orqa",
+      "title": "Latent Retrieval for Weakly Supervised Open Domain Question Answering",
+      "section": "9.3 Example Predictions",
+      "page_start": 9,
+      "page_end": 9,
+      "text": "For a more intuitive understanding of the improvements from ORQA, we compare its predictions with baseline predictions in Table 7. We find that ORQA is more robust at separating semantically distinct text with high lexical overlap, as shown in the first three examples. However, it is expected that there are limits to how much information can be compressed into 128-dimensional vectors. The last example shows that ORQA has trouble precisely representing extremely specific concepts that sparse representations can cleanly separate. These errors indicate that a hybrid approach would be promising future work.",
+      "url": "https://arxiv.org/abs/1906.00300v3",
+      "pdf_file": "pdfs/orqa.pdf",
+      "sha256": "796b27cd8e8199ae841bdb4584c774673fc3ed64aa25a12ddd61de7e79a8b1b0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.024396929824561403
+    },
+    {
+      "source_id": "orqa:s0004",
+      "paper_id": "orqa",
+      "title": "Latent Retrieval for Weakly Supervised Open Domain Question Answering",
+      "section": "1 Introduction",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "Heuristic evidence refers to the typical strategy of considering only a closed set of evidence documents from a traditional IR system, which sets a strict upper-bound on task performance. In this work (ORQA), only question-answer string pairs are observed during training, and evidence retrieval is learned in a completely end-to-end manner. ing the marginal log-likelihood of correct answers that were found. We evaluate ORQA on open versions of five existing QA datasets. On datasets where the question writers already know the answer—SQuAD (Rajpurkar et al., 2016) and TriviaQA (Joshi et al., 2017)—the retrieval problem resembles traditional IR, and BM25 (Robertson et al., 2009) provides state-of-the-art retrieval. On datasets where question writers do not know the answer— Natural Questions (Kwiatkowski et al., 2019), WebQuestions (Berant et al., 2013), and CuratedTrec (Baudis and Sediv ́y, 2015)—we show that learned retrieval is crucial, providing improvements of 6 to 19 points in exact match over BM25.",
+      "url": "https://arxiv.org/abs/1906.00300v3",
+      "pdf_file": "pdfs/orqa.pdf",
+      "sha256": "796b27cd8e8199ae841bdb4584c774673fc3ed64aa25a12ddd61de7e79a8b1b0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.023739701159056
+    },
+    {
+      "source_id": "orqa:s0024",
+      "paper_id": "orqa",
+      "title": "Latent Retrieval for Weakly Supervised Open Domain Question Answering",
+      "section": "9.1 Strongly supervised comparison",
+      "page_start": 8,
+      "page_end": 8,
+      "text": "To verify that our BM25 baseline is indeed state of the art, we also provide direct comparisons with DrQA’s setup, where systems have access to gold answer derivations from SQuAD (Rajpurkar et al., 2016). While many systems have been proposed following DrQA’s original setting, we compare only to the original system and the best system that 35 30 25 ORQA BM25 + BERT 20 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1 ICT masking rate Figure 3: Analysis: Performance on our open version of the Natural Questions dev set with various masking rates for the ICT pre-training. Too much masking prevents the model from learning to exploit exact ngram overlap. Too little masking makes language understanding unnecessary. we are aware of—BERTserini (Yang et al., 2019). DrQA’s reader is DocReader (Chen et al., 2017), and they use TF-IDF to retrieve the top k documents. They also include distant supervision based on TF-IDF retrieval. BERTserini’s reader is derived from base BERT (much like our reader), and they use BM25 to retrieve the top k paragraphs (much like our BM25 baseline). A major difference is that BERTserini uses true paragraphs from Wikipedia rather than arbitrary blocks, resulting in more evidence blocks due to uneven lengths. For fair comparison with these strongly supervised systems, we pre-train the reader on SQuAD data.6 In Table 6, our BM25 baseline, which retrieves 5 evidence blocks, greatly outperforms 5-document BERTserini and is close to 29paragraph BERTserini.",
+      "url": "https://arxiv.org/abs/1906.00300v3",
+      "pdf_file": "pdfs/orqa.pdf",
+      "sha256": "796b27cd8e8199ae841bdb4584c774673fc3ed64aa25a12ddd61de7e79a8b1b0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.016945516945516943
+    },
+    {
+      "source_id": "orqa:s0013",
+      "paper_id": "orqa",
+      "title": "Latent Retrieval for Weakly Supervised Open Domain Question Answering",
+      "section": "4 Inverse Cloze Task",
+      "page_start": 4,
+      "page_end": 5,
+      "text": "An important aspect of ICT is that it requires learning more than word matching features, since the pseudo-question is not present in the evidence. For example, the pseudo-question in Figure 2 never explicitly mentions “Zebras”, but the retriever must still be able to select the context that discusses Zebras. Being able to infer the semantics from under-specified language is what sets QA apart from traditional IR. However, we also do not want to dissuade the retriever from learning to perform word matching—lexical overlap is ultimately a very useful feature for retrieval. Therefore, we only remove the sentence from its context in 90% of the examples, encouraging the model to learn both abstract representations when needed and low-level word matching features when available. ICT pre-training accomplishes two main goals: 1. Despite the mismatch between sentences during pre-training and questions during finetuning, we expect zero-shot evidence retrieval performance to be sufficient for bootstrapping the latent-variable learning. 2. There is no such mismatch between pretrained evidence blocks and downstream evidence blocks. We can expect the block encoder BERTB(b) to work well without further training. Only the question encoder needs to be fine-tuned on downstream data. As we will see in the following section, these two properties are crucial for enabling computationally feasible inference and end-to-end learning.",
+      "url": "https://arxiv.org/abs/1906.00300v3",
+      "pdf_file": "pdfs/orqa.pdf",
+      "sha256": "796b27cd8e8199ae841bdb4584c774673fc3ed64aa25a12ddd61de7e79a8b1b0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.013988023952095809
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "how does train a retriever without labelled supporting passages",
+      "paper_ids": [
+        "orqa"
+      ],
+      "facet": "training",
+      "covered": true,
+      "claim_ids": [
+        "orqa.supervision",
+        "orqa.ict",
+        "orqa.finetuning"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    },
+    {
+      "part_id": "part2",
+      "question_part": "what task does it use to pre-train that retriever",
+      "paper_ids": [
+        "orqa"
+      ],
+      "facet": "training",
+      "covered": true,
+      "claim_ids": [
+        "orqa.supervision",
+        "orqa.ict",
+        "orqa.finetuning"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.012209792010253295,
+  "evaluation_question_id": "H01"
+}

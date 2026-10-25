@@ -1,0 +1,310 @@
+{
+  "run_id": "20261024T061244_a1b31a361e",
+  "created_utc": "2026-10-24T06:12:44.359560+00:00",
+  "question": "How do RECOMP and Fusion-in-Decoder (FiD) differ in what they do with retrieved passages before an answer is generated?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "recomp",
+      "fid"
+    ],
+    "facets": [
+      "inference"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": true,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "how do and ( ) differ in what they do with retrieved passages before an answer is generated",
+        "facets": [
+          "inference"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "recomp.compression",
+      "paper_id": "recomp",
+      "text": "RECOMP adds a Retrieve–Compress–Prepend step before a language model answers. It turns the retrieved documents into a shorter, query-focused textual summary and prepends that summary to the model input. The intervention is a shorter textual input before downstream generation.",
+      "facets": [
+        "inference",
+        "representation",
+        "purpose"
+      ],
+      "source_ids": [
+        "recomp:s0002",
+        "recomp:s0003"
+      ]
+    },
+    {
+      "claim_id": "fid.architecture",
+      "paper_id": "fid",
+      "text": "Fusion-in-Decoder (FiD) concatenates the question with each retrieved passage and its title, then encodes each passage independently. The decoder attends across the concatenated encoded representations of all passages to generate the answer. Evidence is therefore fused in the decoder, rather than by jointly encoding all passages.",
+      "facets": [
+        "inference",
+        "representation",
+        "purpose"
+      ],
+      "source_ids": [
+        "fid:s0007"
+      ]
+    }
+  ],
+  "comparison": [
+    {
+      "paper_id": "recomp",
+      "title": "RECOMP: Improving Retrieval-Augmented LMs with Compression and Selective Augmentation",
+      "claims": [
+        {
+          "claim_id": "recomp.compression",
+          "paper_id": "recomp",
+          "text": "RECOMP adds a Retrieve–Compress–Prepend step before a language model answers. It turns the retrieved documents into a shorter, query-focused textual summary and prepends that summary to the model input. The intervention is a shorter textual input before downstream generation.",
+          "facets": [
+            "inference",
+            "representation",
+            "purpose"
+          ],
+          "source_ids": [
+            "recomp:s0002",
+            "recomp:s0003"
+          ]
+        }
+      ]
+    },
+    {
+      "paper_id": "fid",
+      "title": "Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering",
+      "claims": [
+        {
+          "claim_id": "fid.architecture",
+          "paper_id": "fid",
+          "text": "Fusion-in-Decoder (FiD) concatenates the question with each retrieved passage and its title, then encodes each passage independently. The decoder attends across the concatenated encoded representations of all passages to generate the answer. Evidence is therefore fused in the decoder, rather than by jointly encoding all passages.",
+          "facets": [
+            "inference",
+            "representation",
+            "purpose"
+          ],
+          "source_ids": [
+            "fid:s0007"
+          ]
+        }
+      ]
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "recomp:s0002",
+      "paper_id": "recomp",
+      "title": "RECOMP: Improving Retrieval-Augmented LMs with Compression and Selective Augmentation",
+      "section": "1 INTRODUCTION",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Retrieval-augmented language models (RALMs) (Khandelwal et al., 2019; Izacard et al., 2022; Lewis et al., 2020; Borgeaud et al., 2022) have shown impressive performance on knowledge-intensive tasks (Kwiatkowski et al., 2019; Petroni et al., 2021). Simply prepending retrieved documents to the input without updating the language models (LMs) (Shi et al., 2023b; Ram et al., 2023; Si et al., 2022) allows retrieval augmentation even for black-box LMs, but such approach comes with limitations. First, it increases computational costs as LMs now encode substantially more tokens. Second, even if we manage to adapt LMs to efficiently incorporate longer context (Beltagy et al., 2020; Zaheer et al., 2020), these models struggle to use all information in the context, frequently missing information placed in the middle (Liu et al., 2023). Third, prepending a large number of documents in-context can further confuse LMs with irrelevant information, degrading model performances (Mallen et al., 2022; Shi et al., 2023a). To overcome such limitations, we propose RECOMP (Retrieve, Compress, Prepend), an intermediate step for RALMs which compresses retrieved documents into a textual summary prior to in-context augmentation. Figure 1 illustrates our approach. The generated summary should be concise to maximize efficiency, be faithful to the retrieved evidence documents, and guide RALM to generate desired outputs when prepended to the input. To satisfy both efficiency and effectiveness constraints, our compressor strategically performs selective augmentation by generating an empty summary when the retrieved documents are irrelevant or unhelpful for target task. 1Our code is available at https://github.com/carriex/recomp.",
+      "url": "https://arxiv.org/abs/2310.04408v1",
+      "pdf_file": "pdfs/recomp.pdf",
+      "sha256": "9d8aa7881e786d6b3593fe6c60bc2e52944aee82ab6ca577097618baf8d21066",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "recomp:s0003",
+      "paper_id": "recomp",
+      "title": "RECOMP: Improving Retrieval-Augmented LMs with Compression and Selective Augmentation",
+      "section": "1 INTRODUCTION",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "1Our code is available at https://github.com/carriex/recomp. RECOMP during inference Blackbox LM M Retrieve Compress Prepend Figure 1: An illustration of RECOMP, which compresses retrieved documents into a texual summary before prepending it as input to a language model at inference time. The compressed summary guides the LM to generate the correct answer, while significantly reducing the computation costs required to encode the documents. We propose compressors: (1) Extractive compressor which selects relevant sentences from retrieved document set; (2) Abstractive compressor which generates a summary synthesizing information from multiple retrieved documents. Both compressors implement multi-document query-focused summarization (Xu & Lapata, 2020), where we summarize retrieved evidence document set with respect to the input query. As we aim to enable RALM to generate correct output when summary is prepended to the input query, we design training schemes to optimize the end task performance. Our extractive compressor is trained with a contrastive learning objective to identify sentences that lead to target outputs, and our abstractive compressor is distilled (West et al., 2022) from an extreme-scale LM (e.g. GPT-3), which achieves impressive summarization performance. Our experiments show that RECOMP can improve performance of frozen LMs on language modeling (Merity et al., 2016) and three question answering datasets (Natural Questions (Kwiatkowski et al., 2019), TriviaQA (Joshi et al., 2017) and HotpotQA (Yang et al., 2018)), while prepending significantly fewer tokens compared to RALM without compression. We present two oracle compression methods – an extractive oracle which selects a sentence in evidence documents that leads to the best task performance and an abstractive oracle which chooses between a summary generated by extreme-scale LLM (e.g. GPT-3) and no retrieval augmentation that leads to the best task performance.",
+      "url": "https://arxiv.org/abs/2310.04408v1",
+      "pdf_file": "pdfs/recomp.pdf",
+      "sha256": "9d8aa7881e786d6b3593fe6c60bc2e52944aee82ab6ca577097618baf8d21066",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "fid:s0007",
+      "paper_id": "fid",
+      "title": "Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering",
+      "section": "3 Method",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "In BM25, passages are represented as bag of words, and the ranking function is based on term and inverse document frequencies. We use the implementation from Apache Lucene1 with default parameters, and tokenize questions and passages with SpaCy.2 In DPR, passages and questions are represented as dense vector representations, computed using two BERT networks. The ranking function is the dot product between the query and passage representations. Retrieval is performed using approximate nearest neighbors with the FAISS library.3 Reading. Our generative model for open domain QA is based on a sequence-to-sequence network, pretrained on unsupervised data, such as T5 or BART (Raffel et al., 2019; Lewis et al., 2019). The model takes as input the question, as well as the support passages, and generates the answer. More precisely, each retrieved passage and its title are concatenated with the question, and processed independently from other passages by the encoder. We add special tokens question:, title: and context: before the question, title and text of each passage. Finally, the decoder performs attention over the concatenation of the resulting representations of all the retrieved passages. The model thus performs evidence fusion in the decoder only, and we refer to it as Fusion-in-Decoder. By processing passages independently in the encoder, but jointly in the decoder, this method differs from Min et al. (2020) and Lewis et al. (2020). Processing passages independently in the encoder allows to scale to large number of contexts, as it only performs self attention over one context at a time. This means that the computation time of the model grows linearly with the number of passages, instead of quadratically.",
+      "url": "https://arxiv.org/abs/2007.01282v2",
+      "pdf_file": "pdfs/fid.pdf",
+      "sha256": "f1ee7e927c3fb31beb2146f8c205692a91b40dadd65d80e025c6686e4d430953",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "recomp:s0011",
+    "fid:s0007",
+    "recomp:s0003",
+    "fid:s0006",
+    "recomp:s0030",
+    "fid:s0003",
+    "recomp:s0006",
+    "fid:s0009"
+  ],
+  "retrieved": [
+    {
+      "source_id": "recomp:s0011",
+      "paper_id": "recomp",
+      "title": "RECOMP: Improving Retrieval-Augmented LMs with Compression and Selective Augmentation",
+      "section": "3.2 ABSTRACTIVE COMPRESSION",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "To train an abstractive compressor, we distill the query-focused summarization ability of extremescale LM by generating training dataset from it, filter the generated data, and train an encodedr decoder model from the filtered dataset (West et al., 2022). In contrast to prior work (Jung et al., 2023) which use intrinsic summarization metric for filtering, we use the LM’s performance on the end task with the generated summaries prepended for filtering. Fig. 3 presents pseudo algorithm for training the abstractive compressor.",
+      "url": "https://arxiv.org/abs/2310.04408v1",
+      "pdf_file": "pdfs/recomp.pdf",
+      "sha256": "9d8aa7881e786d6b3593fe6c60bc2e52944aee82ab6ca577097618baf8d21066",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02684684684684685
+    },
+    {
+      "source_id": "fid:s0007",
+      "paper_id": "fid",
+      "title": "Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering",
+      "section": "3 Method",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "In BM25, passages are represented as bag of words, and the ranking function is based on term and inverse document frequencies. We use the implementation from Apache Lucene1 with default parameters, and tokenize questions and passages with SpaCy.2 In DPR, passages and questions are represented as dense vector representations, computed using two BERT networks. The ranking function is the dot product between the query and passage representations. Retrieval is performed using approximate nearest neighbors with the FAISS library.3 Reading. Our generative model for open domain QA is based on a sequence-to-sequence network, pretrained on unsupervised data, such as T5 or BART (Raffel et al., 2019; Lewis et al., 2019). The model takes as input the question, as well as the support passages, and generates the answer. More precisely, each retrieved passage and its title are concatenated with the question, and processed independently from other passages by the encoder. We add special tokens question:, title: and context: before the question, title and text of each passage. Finally, the decoder performs attention over the concatenation of the resulting representations of all the retrieved passages. The model thus performs evidence fusion in the decoder only, and we refer to it as Fusion-in-Decoder. By processing passages independently in the encoder, but jointly in the decoder, this method differs from Min et al. (2020) and Lewis et al. (2020). Processing passages independently in the encoder allows to scale to large number of contexts, as it only performs self attention over one context at a time. This means that the computation time of the model grows linearly with the number of passages, instead of quadratically.",
+      "url": "https://arxiv.org/abs/2007.01282v2",
+      "pdf_file": "pdfs/fid.pdf",
+      "sha256": "f1ee7e927c3fb31beb2146f8c205692a91b40dadd65d80e025c6686e4d430953",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03278688524590164
+    },
+    {
+      "source_id": "recomp:s0003",
+      "paper_id": "recomp",
+      "title": "RECOMP: Improving Retrieval-Augmented LMs with Compression and Selective Augmentation",
+      "section": "1 INTRODUCTION",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "1Our code is available at https://github.com/carriex/recomp. RECOMP during inference Blackbox LM M Retrieve Compress Prepend Figure 1: An illustration of RECOMP, which compresses retrieved documents into a texual summary before prepending it as input to a language model at inference time. The compressed summary guides the LM to generate the correct answer, while significantly reducing the computation costs required to encode the documents. We propose compressors: (1) Extractive compressor which selects relevant sentences from retrieved document set; (2) Abstractive compressor which generates a summary synthesizing information from multiple retrieved documents. Both compressors implement multi-document query-focused summarization (Xu & Lapata, 2020), where we summarize retrieved evidence document set with respect to the input query. As we aim to enable RALM to generate correct output when summary is prepended to the input query, we design training schemes to optimize the end task performance. Our extractive compressor is trained with a contrastive learning objective to identify sentences that lead to target outputs, and our abstractive compressor is distilled (West et al., 2022) from an extreme-scale LM (e.g. GPT-3), which achieves impressive summarization performance. Our experiments show that RECOMP can improve performance of frozen LMs on language modeling (Merity et al., 2016) and three question answering datasets (Natural Questions (Kwiatkowski et al., 2019), TriviaQA (Joshi et al., 2017) and HotpotQA (Yang et al., 2018)), while prepending significantly fewer tokens compared to RALM without compression. We present two oracle compression methods – an extractive oracle which selects a sentence in evidence documents that leads to the best task performance and an abstractive oracle which chooses between a summary generated by extreme-scale LLM (e.g. GPT-3) and no retrieval augmentation that leads to the best task performance.",
+      "url": "https://arxiv.org/abs/2310.04408v1",
+      "pdf_file": "pdfs/recomp.pdf",
+      "sha256": "9d8aa7881e786d6b3593fe6c60bc2e52944aee82ab6ca577097618baf8d21066",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02651914295749912
+    },
+    {
+      "source_id": "fid:s0006",
+      "paper_id": "fid",
+      "title": "Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering",
+      "section": "3 Method",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "In this section, we describe our approach to open domain question answering. It proceeds in two steps, first retrieving support passages before processing them with a sequence to sequence model. Model NQ TriviaQA SQuAD Open EM EM EM EM F1 DrQA (Chen et al., 2017) - - - 29.8 - Multi-Passage BERT (Wang et al., 2019) - - - 53.0 60.9 Path Retriever (Asai et al., 2020) 31.7 - - 56.5 63.8 Graph Retriever (Min et al., 2019b) 34.7 55.8 - - - Hard EM (Min et al., 2019a) 28.8 50.9 - - - ORQA (Lee et al., 2019) 31.3 45.1 - 20.2 - REALM (Guu et al., 2020) 40.4 - - - - DPR (Karpukhin et al., 2020) 41.5 57.9 - 36.7 - SpanSeqGen (Min et al., 2020) 42.5 - - - - RAG (Lewis et al., 2020) 44.5 56.1 68.0 - - T5 (Roberts et al., 2020) 36.6 - 60.5 - - GPT-3 few shot (Brown et al., 2020) 29.9 - 71.2 - - Fusion-in-Decoder (base) 48.2 65.0 77.1 53.4 60.6 Fusion-in-Decoder (large) 51.4 67.6 80.1 56.7 63.2 Table 1: Comparison to state-of-the-art. On TriviaQA, we report results on the open domain test set (left), and on the hidden test set (right), competitions.codalab.org/competitions/17208#results). Retrieval. For the retrieval of support passages, we consider two methods: BM25 (Robertson et al., 1995) and DPR (Karpukhin et al., 2020). In BM25, passages are represented as bag of words, and the ranking function is based on term and inverse document frequencies.",
+      "url": "https://arxiv.org/abs/2007.01282v2",
+      "pdf_file": "pdfs/fid.pdf",
+      "sha256": "f1ee7e927c3fb31beb2146f8c205692a91b40dadd65d80e025c6686e4d430953",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03225806451612903
+    },
+    {
+      "source_id": "recomp:s0030",
+      "paper_id": "recomp",
+      "title": "RECOMP: Improving Retrieval-Augmented LMs with Compression and Selective Augmentation",
+      "section": "8 CONCLUSION",
+      "page_start": 10,
+      "page_end": 10,
+      "text": "We introduce RECOMP, a method which compresses retrieved documents into textual summaries before prepending them to improve in-context retrieval augmented language models. We present two compression models – an extractive compressor and an abstractive compressor. We design a training scheme which leverages end task signals from a blackbox LM to generate useful summaries and allowing the compression models to perform selective augmentation. Our experiments show that our compressors can improve the efficiency of retrieval augmented LMs significantly with minimal drop in performances. ACKNOWLEDGEMENT We thank the members of the UT and UW NLP community for feedback on the project. We especially thank Alisa Liu, Junyi Jessy Li and Greg Durrett for providing comments on the draft. The project is partially funded by NSF grant (IIS-2312948). ETHICS STATEMENT We use commercial language model to generate training data for our compressors, which might include factual error. We conduct careful human evaluation on the data generated and present our analysis in the paper. REPRODUCIBILITY STATEMENT We release our codes, prompt, and data generated with API access publicly.",
+      "url": "https://arxiv.org/abs/2310.04408v1",
+      "pdf_file": "pdfs/recomp.pdf",
+      "sha256": "9d8aa7881e786d6b3593fe6c60bc2e52944aee82ab6ca577097618baf8d21066",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02428613482484545
+    },
+    {
+      "source_id": "fid:s0003",
+      "paper_id": "fid",
+      "title": "Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering",
+      "section": "1 Introduction",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "Different retrieval techniques have been considered, either using sparse representations based on TF/IDF or using dense embeddings (Guu et al., 2020; Karpukhin et al., 2020). The models which extract the answers are often based on contextualized word representations such as ELMo or BERT (Peters et al., 2018; Devlin et al., 2019), and predict a span as answer. Aggregating and combining evidence from multiple passages is not straightforward when using extractive models, and multiple techniques have been proposed to address this limitation (Clark and Gardner, 2018; Min et al., 2019a). In this paper, we explore a simple approach having the best of both worlds, by building on the exciting developments in generative modeling and retrieval for open domain question answering. This method proceeds in two steps, by first retrieving supporting passages using either sparse or dense Question + Passage 1 encoder Question + Passage 2 encoder Question + Passage N encoder decoder Answer concat ... Figure 2: Architecture of the Fusion-in-Decoder method. representations. Then, a sequence-to-sequence model generates the answer, taking as input the retrieved passages in addition to the question. While conceptually simple, this method sets new state-ofthe-art results on the TriviaQA and NaturalQuestions benchmarks. In particular, we show that the performance of our method significantly improves when the number of retrieved passages increases. We believe that this is evidence that generative models are good at combining evidence from multiple passages, compared to extractive ones.",
+      "url": "https://arxiv.org/abs/2007.01282v2",
+      "pdf_file": "pdfs/fid.pdf",
+      "sha256": "f1ee7e927c3fb31beb2146f8c205692a91b40dadd65d80e025c6686e4d430953",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031746031746031744
+    },
+    {
+      "source_id": "recomp:s0006",
+      "paper_id": "recomp",
+      "title": "RECOMP: Improving Retrieval-Augmented LMs with Compression and Selective Augmentation",
+      "section": "2 PROBLEM FORMULATION: RECOMP",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "2Improving retriever is not the focus of this work, so we assume a set of retrieved documents are provided. Extractive Compressor Given n sentences [s1, s2...sn] in the input document set ([d1, d2, ...dN]), we train a dual encoder model encθ which embeds sentence si and the input sequence x into fixeddimensional embeddings respectively. Their inner product represents how helpful it would be for the LM M to prepend si to the input x to generate y. The final summary s from the compressor will be a concatenation of top N sentences ranked by their inner product with the input. As this approach is extractive, we assume the faithfulness criteria is mostly satisfied.3 Abstractive Compressor We train an encoder-decoder model encdecθ to serve as an abstractive compressor, which takes the input sequence x and a concatenation of retrieved document set D [d1; d2; ...dN]) and output a summary s. Although we do not have human annotations to train this model, prior work (Goyal et al., 2022; Chen et al., 2023; Potluri et al., 2023) suggests that the extremescale LMs can generate good query-focused summaries when prompted carefully. Yet, using an extreme-scale model as the compressor is not desirable as we want the compressor to be substantially smaller than the LMs. Thus, we perform distillation (Hinton et al., 2015) of extreme-scale LMs to build a lightweight abstractive compressor encdecθ. We do not train specifically for faithfulness, but later manually evaluate the faithfulness in Section 6.",
+      "url": "https://arxiv.org/abs/2310.04408v1",
+      "pdf_file": "pdfs/recomp.pdf",
+      "sha256": "9d8aa7881e786d6b3593fe6c60bc2e52944aee82ab6ca577097618baf8d21066",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.022917757988475642
+    },
+    {
+      "source_id": "fid:s0009",
+      "paper_id": "fid",
+      "title": "Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering",
+      "section": "4 Experiments",
+      "page_start": 3,
+      "page_end": 4,
+      "text": "In this section, we report empirical evaluations of Fusion-in-Decoder for open domain QA. Datasets. We consider the following datasets, and use the same setting as Lee et al. (2019): • NaturalQuestions (Kwiatkowski et al., 2019) contains questions corresponding to Google search queries. The open-domain version of this dataset is obtained by discarding answers with more than 5 tokens. • TriviaQA (Joshi et al., 2017) contains questions gathered from trivia and quiz-league NaturalQuestions TriviaQA 41 42 43 44 45 46 47 66 64 62 60 58 56 40 54 5 10 25 50 100 SQuAD 34 36 38 40 42 44 46 48 50 5 10 25 50 100 Number of passages 5 10 25 50 100 Number of passages Number of passages Figure 3: Performance of Fusion-in-Decoder (base) on valid sets as a function of the number of retrieved passages. websites. The unfiltered version of TriviaQA is used for open-domain question answering. • SQuAD v1.1 (Rajpurkar et al., 2016) is a reading comprehension dataset. Given a paragraph extracted from Wikipedia, annotators were asked to write questions, for which the answer is a span from the corresponding paragraph. Following Lee et al. (2019) we use the validation as test, and keep 10% of the training set for validation. We use the Wikipedia dumps from Dec. 20, 2018 for NQ and TriviaQA and from Dec. 21, 2016 for SQuAD. We apply the same preprocessing as Chen et al. (2017); Karpukhin et al. (2020), leading to passages of 100 words, which do not overlap. Evaluation. Predicted answers are evaluated with the standard exact match metric (EM), as introduced by Rajpurkar et al. (2016).",
+      "url": "https://arxiv.org/abs/2007.01282v2",
+      "pdf_file": "pdfs/fid.pdf",
+      "sha256": "f1ee7e927c3fb31beb2146f8c205692a91b40dadd65d80e025c6686e4d430953",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031009615384615385
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "how do and ( ) differ in what they do with retrieved passages before an answer is generated",
+      "paper_ids": [
+        "recomp"
+      ],
+      "facet": "inference",
+      "covered": true,
+      "claim_ids": [
+        "recomp.compression"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    },
+    {
+      "part_id": "part1",
+      "question_part": "how do and ( ) differ in what they do with retrieved passages before an answer is generated",
+      "paper_ids": [
+        "fid"
+      ],
+      "facet": "inference",
+      "covered": true,
+      "claim_ids": [
+        "fid.architecture"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.010730165988206863,
+  "evaluation_question_id": "H07"
+}

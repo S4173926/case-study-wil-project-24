@@ -1,0 +1,231 @@
+{
+  "run_id": "20261024T061244_3628f4d920",
+  "created_utc": "2026-10-24T06:12:44.174557+00:00",
+  "question": "What component does CRAG use to assess the quality of retrieved documents?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "crag"
+    ],
+    "facets": [
+      "evaluation"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "what component does use to assess the quality of retrieved documents",
+        "facets": [
+          "evaluation"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "crag.evaluator",
+      "paper_id": "crag",
+      "text": "Corrective RAG (CRAG) uses a lightweight evaluator to score the relevance of retrieved documents to the query. Its confidence assessment selects a Correct, Incorrect or Ambiguous action: refine retrieved knowledge when it is judged correct, discard inadequate retrieval and seek web evidence when it is incorrect, or combine refined internal and external evidence when the judgment is ambiguous.",
+      "facets": [
+        "purpose",
+        "condition",
+        "inference",
+        "evaluation"
+      ],
+      "source_ids": [
+        "crag:s0001",
+        "crag:s0009"
+      ]
+    }
+  ],
+  "comparison": [],
+  "citations": [
+    {
+      "source_id": "crag:s0001",
+      "paper_id": "crag",
+      "title": "Corrective Retrieval Augmented Generation",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Large language models (LLMs) inevitably exhibit hallucinations since the accuracy of generated texts cannot be secured solely by the parametric knowledge they encapsulate. Although retrieval-augmented generation (RAG) is a practicable complement to LLMs, it relies heavily on the relevance of retrieved documents, raising concerns about how the model behaves if retrieval goes wrong. To this end, we propose the Corrective Retrieval Augmented Generation (CRAG) to improve the robustness of generation. Specifically, a lightweight retrieval evaluator is designed to assess the overall quality of retrieved documents for a query, returning a confidence degree based on which different knowledge retrieval actions can be triggered. Since retrieval from static and limited corpora can only return suboptimal documents, large-scale web searches are utilized as an extension for augmenting the retrieval results. Besides, a decompose-thenrecompose algorithm is designed for retrieved documents to selectively focus on key information and filter out irrelevant information in them. CRAG is plug-and-play and can be seamlessly coupled with various RAG-based approaches. Experiments on four datasets covering short- and long-form generation tasks show that CRAG can significantly improve the performance of RAG-based approaches. 1",
+      "url": "https://arxiv.org/abs/2401.15884v3",
+      "pdf_file": "pdfs/crag.pdf",
+      "sha256": "975aa1fd3c1b603126e93ff99d6504858b61301bf1d34c9df88ebe53a0b026cb",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "crag:s0009",
+      "paper_id": "crag",
+      "title": "Corrective Retrieval Augmented Generation",
+      "section": "4.1 Overview of Model Inference",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "Figure 2 and Algorithm 1 present an overview of CRAG at inference, which designs corrective strategies to improve the robustness of generation. Given an input query and the retrieved documents from any retriever, a lightweight retrieval evaluator is constructed to estimate the relevance score of retrieved documents to the input query (Section 4.2). The relevance score is quantified into a total of three confidence degrees and then triggered the corresponding actions: {Correct, Incorrect, Ambiguous} (Section 4.3). If the action Correct is triggered, the retrieved documents will be refined into more precise knowledge strips. This refinement operation involves knowledge decomposition, filter, and recomposition (Section 4.4). If the action Incorrect is triggered, the retrieved documents will be discarded. Instead, web searches are resorted to and regarded as complementary knowledge sources for corrections (Section 4.5). Eventually, when it cannot confidently make a correct or incorrect judgment, a soft and balanced action Ambiguous which combines both of them is triggered. After optimizing the retrieval results, an arbitrary generative model can be adopted.",
+      "url": "https://arxiv.org/abs/2401.15884v3",
+      "pdf_file": "pdfs/crag.pdf",
+      "sha256": "975aa1fd3c1b603126e93ff99d6504858b61301bf1d34c9df88ebe53a0b026cb",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "crag:s0001",
+    "crag:s0003",
+    "crag:s0027",
+    "crag:s0037",
+    "crag:s0005",
+    "crag:s0011",
+    "crag:s0019",
+    "crag:s0023"
+  ],
+  "retrieved": [
+    {
+      "source_id": "crag:s0001",
+      "paper_id": "crag",
+      "title": "Corrective Retrieval Augmented Generation",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Large language models (LLMs) inevitably exhibit hallucinations since the accuracy of generated texts cannot be secured solely by the parametric knowledge they encapsulate. Although retrieval-augmented generation (RAG) is a practicable complement to LLMs, it relies heavily on the relevance of retrieved documents, raising concerns about how the model behaves if retrieval goes wrong. To this end, we propose the Corrective Retrieval Augmented Generation (CRAG) to improve the robustness of generation. Specifically, a lightweight retrieval evaluator is designed to assess the overall quality of retrieved documents for a query, returning a confidence degree based on which different knowledge retrieval actions can be triggered. Since retrieval from static and limited corpora can only return suboptimal documents, large-scale web searches are utilized as an extension for augmenting the retrieval results. Besides, a decompose-thenrecompose algorithm is designed for retrieved documents to selectively focus on key information and filter out irrelevant information in them. CRAG is plug-and-play and can be seamlessly coupled with various RAG-based approaches. Experiments on four datasets covering short- and long-form generation tasks show that CRAG can significantly improve the performance of RAG-based approaches. 1",
+      "url": "https://arxiv.org/abs/2401.15884v3",
+      "pdf_file": "pdfs/crag.pdf",
+      "sha256": "975aa1fd3c1b603126e93ff99d6504858b61301bf1d34c9df88ebe53a0b026cb",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03278688524590164
+    },
+    {
+      "source_id": "crag:s0003",
+      "paper_id": "crag",
+      "title": "Corrective Retrieval Augmented Generation",
+      "section": "1 Introduction",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "While RAG serves as a practicable complement to LLMs, its effectiveness is contingent upon the relevance and accuracy of the retrieved documents (Li et al., 2022; Tan et al., 2022). The heavy reliance of generation on the retrieved knowledge raises significant concerns about the model’s behavior and performance in scenarios where retrieval may fail or return inaccurate results (Shi et al., 2023). As Figure 1 shows that a low-quality retriever is prone to introducing a substantial amount of irrelevant information, impeding the models from acquiring accurate knowledge and potentially misleading them, resulting in issues such as hallucinations (Zhang et al., 2023b). However, most conventional RAG approaches indiscriminately incorporate the retrieved documents, regardless of whether these documents are relevant or not (Rony et al., 2022). Furthermore, current methods mostly treat complete documents as reference knowledge both during retrieval and utilization. But a considerable portion of the text within these retrieved documents is often nonessential for generation, which should not have been equally referred to and involved in RAG. On account of the above issues, this paper particularly studies the scenarios where the retriever returns inaccurate results. A method named Corrective Retrieval-Augmented Generation (CRAG) is proposed to self-correct the results of retriever and improve the utilization of documents for augmenting generation. A lightweight retrieval evaluator is designed to assess the overall quality of retrieved documents for a query. This serves as a crucial component in RAG, contributing to informative generation by reviewing and evaluating the relevance and reliability of the retrieved documents. A confidence degree is quantified based on which different knowledge retrieval actions of {Correct, Incorrect, Ambiguous} can be triggered.",
+      "url": "https://arxiv.org/abs/2401.15884v3",
+      "pdf_file": "pdfs/crag.pdf",
+      "sha256": "975aa1fd3c1b603126e93ff99d6504858b61301bf1d34c9df88ebe53a0b026cb",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03200204813108039
+    },
+    {
+      "source_id": "crag:s0027",
+      "paper_id": "crag",
+      "title": "Corrective Retrieval Augmented Generation",
+      "section": "5.6 Robustness to Retrieval Performance",
+      "page_start": 9,
+      "page_end": 9,
+      "text": "To further verify the robustness of the proposed method to retrieval performance, we studied how the generation performance changed given different Figure 3: The generation performance of Self-RAG and Self-CRAG given different retrieval performance on the PopQA dataset with SelfRAG-LLaMA-7b. The lower horizontal line demonstrates the performance of the generator without retrieval. LLaMA2-hf-7b SelfRAG-LLaMA2-7b PopQA CRAG 54.9 59.8 RAG 50.5 52.8 RAG w. web 52.2 53.8 Self-CRAG 49.0 61.8 Self-RAG 29.0 54.9 Self-RAG w. web 24.9 57.9 Table 5: Comparison results between CRAG, Self- CRAG and RAG, Self-RAG with the same input in terms of accuracy. retrieval performance. A part of accurate retrieval results were deliberately removed at random to imitate a low-quality retriever and evaluate how the performance changed. Figure 3 demonstrated the performance change of Self-RAG and Self- CRAG on the PopQA dataset. It can be seen that the generation performance of Self-RAG and Self-CRAG dropped as the retrieval performance dropped, indicating that the generator relied heavily on the quality of the retriever. Furthermore, as the retrieval performance dropped, the generation performance of Self-CRAG dropped more slightly than that of Self-RAG. These results imply the superiority of Self-CRAG over Self-RAG on enhancing the robustness to retrieval performance.",
+      "url": "https://arxiv.org/abs/2401.15884v3",
+      "pdf_file": "pdfs/crag.pdf",
+      "sha256": "975aa1fd3c1b603126e93ff99d6504858b61301bf1d34c9df88ebe53a0b026cb",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.0315136476426799
+    },
+    {
+      "source_id": "crag:s0037",
+      "paper_id": "crag",
+      "title": "Corrective Retrieval Augmented Generation",
+      "section": "B.3 Implementation Details",
+      "page_start": 15,
+      "page_end": 16,
+      "text": "External Knowledge: Google Search API was adopted to search for the relevant URLs, top-k is set to 5, and pages from Wikipedia will be added preferentially. The searched web pages are generally in the form of HTML files, where content is split with special tokens like <p> and </p>. Thus an extra segmentation like the knowledge refinement is not required, related knowledge paragraphs can be directly selected with the evaluator similar to internal knowledge. In this way, the accuracy of the search outcomes can be ensured without compromising the quality and relevance of the information used for generation. Generator: As CRAG is a plug-and-play method, all generation models that can be utilized in RAG fit our approach as well. To be consistent with baselines for comparison, we adopted LLaMA2 (Touvron et al., 2023b) for the generation. We first introduced the LLaMA2-hf- 7b from huggingface to generate responses. Since Self-RAG (Asai et al., 2024) fine-tuned LLaMA2 and reached a new state-of-the-art performance on several tasks, we further utilized the launched model, SelfRAG-LLaMA2-7b, as a new generator to be consistent with their work and study the specific improvement of our method. Self-CRAG: To demonstrate that our plug-andplay approach can be utilized in other concurrent studies, we specifically designed to insert our CRAG into the Self-RAG (Asai et al., 2024) framework and named it Self-CRAG. Self-RAG Table 11: Ablation study for removing only a single action on the PopQA dataset in terms of accuracy.",
+      "url": "https://arxiv.org/abs/2401.15884v3",
+      "pdf_file": "pdfs/crag.pdf",
+      "sha256": "975aa1fd3c1b603126e93ff99d6504858b61301bf1d34c9df88ebe53a0b026cb",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029631255487269532
+    },
+    {
+      "source_id": "crag:s0005",
+      "paper_id": "crag",
+      "title": "Corrective Retrieval Augmented Generation",
+      "section": "1 Introduction",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "In summary, our contributions in this paper are three-fold: 1) This paper studies the scenarios where the retriever returns inaccurate results and, to the best of our knowledge, makes the first attempt to design corrective strategies for RAG to improve its robustness. 2) A plug-and-play method named CRAG is proposed to improve the ability of automatic self-correction and efficient utilization of retrieved documents. 3) Experimental results extensively demonstrate CRAG’s adaptability to RAG-based approaches and its generalizability across short- and long-form generation tasks.",
+      "url": "https://arxiv.org/abs/2401.15884v3",
+      "pdf_file": "pdfs/crag.pdf",
+      "sha256": "975aa1fd3c1b603126e93ff99d6504858b61301bf1d34c9df88ebe53a0b026cb",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02946912242686891
+    },
+    {
+      "source_id": "crag:s0011",
+      "paper_id": "crag",
+      "title": "Corrective Retrieval Augmented Generation",
+      "section": "4.2 Retrieval Evaluator",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "The relevance signals for fine-tuning the evaluator can be collected from the existing datasets. For example, PopQA (Mallen et al., 2023) provides the golden subject wiki title from wikipedia for each question. We can use that to track a not 100% relevant but rather high-quality passage. We utilized that as the relevance signals for fine-tuning the retrieval evaluator.2 On the other hand, the negative samples for fine-tuning were all randomly sampled from the retrieval results, which are rather similar to the input query but not relevant. More details about this fine-tuning step can be referred to in Appendix B.3. For every question, there are generally 10 documents retrieved. The question is concatenated with each single document as the input, and the evaluator predicts the relevance score for each questiondocument pair individually. We also tried to prompt ChatGPT to identify the retrieval relevance for comparison, but it underperforms as elaborated in Section 5.5. Based on these calculated relevance scores, a final judgment is made as to whether the retrieval is correct or not associated with the action trigger. In our proposed framework, the retrieval quality is evaluated at a relatively low cost without the need to have access to large and expensive LLMs. Compared with the critic model of Self-RAG (Asai et al., 2024) that instructiontuned LLaMA-2 (7B), the evaluator designed in CRAG demonstrates the advantages of being quite lightweight (0.77B).",
+      "url": "https://arxiv.org/abs/2401.15884v3",
+      "pdf_file": "pdfs/crag.pdf",
+      "sha256": "975aa1fd3c1b603126e93ff99d6504858b61301bf1d34c9df88ebe53a0b026cb",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.028790389395194696
+    },
+    {
+      "source_id": "crag:s0019",
+      "paper_id": "crag",
+      "title": "Corrective Retrieval Augmented Generation",
+      "section": "5.1 Tasks, Datasets and Metrics",
+      "page_start": 6,
+      "page_end": 6,
+      "text": "CRAG was evaluated on four datasets, including PopQA (Mallen et al., 2023) (short-form generation), Biography (Min et al., 2023) (long-form generation), PubHealth (Zhang et al., 2023a) (trueor-false question), and Arc-Challenge (Bhakthavatsalam et al., 2021) (multiple-choice question). Following previous work, accuracy was adopted as the evaluation metric for PopQA, PubHealth, and Arc-Challenge. FactScore (Min et al., 2023) was adopted as the evaluation metric for Biography. Readers can refer to Appendix B.1 for more details. The same metrics are used because our proposed method is comparable to previous studies, since we used the same retrieval results as previous work. The difference lies in that our motivation is to improve the retrieval quality by correcting the retrieval results that the system judges to be of low quality. This can be analogous to RAG’s augmentation to standalone parameterized language models and we further augment RAG with corrective strategies.",
+      "url": "https://arxiv.org/abs/2401.15884v3",
+      "pdf_file": "pdfs/crag.pdf",
+      "sha256": "975aa1fd3c1b603126e93ff99d6504858b61301bf1d34c9df88ebe53a0b026cb",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.028006267136701922
+    },
+    {
+      "source_id": "crag:s0023",
+      "paper_id": "crag",
+      "title": "Corrective Retrieval Augmented Generation",
+      "section": "5.3 Results",
+      "page_start": 8,
+      "page_end": 8,
+      "text": "Third, the proposed method exhibited greater flexibility in replacing the underlying LLM generator. It can be seen that CRAG still showed competitive performance when the underlying LLMs was changed from SelfRAG-LLaMA2-7b to LLaMA2-hf-7b, while the performance of Self- RAG dropped significantly, even underperforming the standard RAG on several benchmarks. The reason for these results is that Self-RAG needs to be instruction-tuned using human or LLM annotated data to learn to output special critic tokens as needed, while this ability is not learned in common LLMs. CRAG does not have any requirements for this ability. As you can imagine, when more advanced LLMs are available in the future, they can be coupled with CRAG easily, while additional instruction tuning is still necessary for Self-RAG. LLaMA2-hf-7b SelfRAG-LLaMA2-7b CRAG 54.9 59.8 w/o. Correct 53.2 58.3 w/o. Incorrect 54.4 59.5 w/o. Ambiguous 54.0 59.0 Self-CRAG 49.0 61.8 w/o. Correct 43.6 59.6 w/o. Incorrect 47.7 60.8 w/o. Ambiguous 48.1 61.5 Table 2: Ablation study for removing each single action on the PopQA dataset in terms of accuracy. LLaMA2-hf-7b SelfRAG-LLaMA2-7b CRAG 54.9 59.8 w/o. refinement 49.8 54.2 w/o. rewriting 51.7 56.2 w/o. selection 50.9 58.6 Self-CRAG 49.0 61.8 w/o. refinement 35.9 52.2 w/o. rewriting 37.2 58.4 w/o. selection 24.9 57.9 Table 3: Ablation study for removing each knowledge utilization operation on the PopQA in terms of accuracy.",
+      "url": "https://arxiv.org/abs/2401.15884v3",
+      "pdf_file": "pdfs/crag.pdf",
+      "sha256": "975aa1fd3c1b603126e93ff99d6504858b61301bf1d34c9df88ebe53a0b026cb",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.027984344422700584
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "what component does use to assess the quality of retrieved documents",
+      "paper_ids": [
+        "crag"
+      ],
+      "facet": "evaluation",
+      "covered": true,
+      "claim_ids": [
+        "crag.evaluator"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.00787812500493601,
+  "evaluation_question_id": "n06"
+}

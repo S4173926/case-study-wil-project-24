@@ -48,12 +48,10 @@ The default runtime uses the Python standard library and makes no model or exter
 
 One distribution file does not mean zero disk storage: launching creates a version-specific folder under Research_Workbench_Data in the user's home directory. It never overwrites the old Workbench project. Same-named conflicting imported records are retained separately rather than silently substituted.
 
-## Scope and assessment
+## Scope
 
-Thirty papers is the chosen experimental collection, not a hardware ceiling. The supplied assessment brief recommends a manageable knowledge base and requires quantitative effectiveness and demonstrated stakeholder value. It does not mandate a broad internet-wide paper collection or internal rubric webpages. Expanding source coverage requires ingestion, source validation and an updated explanation catalogue; no arbitrary-PDF ingestion or web search is claimed here.
-
-The software contributes evidence for methodology and findings. It does not supply an independent user study, validate unseen-question accuracy, restore deleted Git history, write authentic team reflections or certify a 25/25 grade. The course/report mapping remains in docs/RUBRIC_MAP.md and docs/REPORT_ASSEMBLY.md inside the archive, not the product navigation.
+The 30-paper collection is the bounded experimental source base. The application is not an internet-wide search service and has no arbitrary-document ingestion interface. Known-case checks establish repeatability within the recorded conditions; they do not establish independent answer accuracy, user-study outcomes or current team-task status.
 
 ## Record integrity
 
-The 67 seed records are preserved byte-for-byte from the previous repaired batch. No original research PDFs or source passages were edited. Historical terms and original source attribution are preserved. New interface text is neutral, without development-tool branding. The package retains truthful provenance and known limitations.
+The 67 seed records are preserved byte-for-byte from the previous repaired batch. No original research PDFs or source passages were edited. Historical terms and original source attribution are preserved. Interface wording focuses on the research workflow. The package retains truthful provenance and known limitations.

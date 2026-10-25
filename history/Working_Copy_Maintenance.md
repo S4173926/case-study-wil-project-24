@@ -1,12 +1,8 @@
 # Original project: working-copy cleanup report
 
-## Delivery
+## Scope
 
-- `WIL_Original_Project_Cleaned.zip`: edited working export of the pre-presentation project.
-- `WIL_Project_24_Original_History.bundle`: unchanged original Git-history bundle, supplied separately.
-- `WIL_Original_Project_Change_Manifest.json`: per-file before/after hashes and the executed-check summary.
-
-The original uploaded ZIP is untouched. This is the historical eight-paper project, not a replacement for the current 30-paper Workbench.
+This record describes the earlier maintenance export in `legacy/pre-presentation/`, not the current 30-paper application. The original history is retained in `Original_History.bundle`; its author metadata and source history are unchanged. The operations and checks below belong to that earlier maintenance pass, not the 25 October documentation revision.
 
 ## Changes made
 
@@ -18,11 +14,9 @@ The original uploaded ZIP is untouched. This is the historical eight-paper proje
 
 The cleaned ZIP contains **33 files**: 7 existing files were edited, 3 support files were added, and 23 existing files are unchanged. The history bundle is separately preserved.
 
-## Text scan
+## Historical source identity
 
-Zero requested tool-name or assistance-label matches were found in the delivered working-tree text, filenames, notebook JSON, or decompressed Word/PowerPoint XML and relationship files. The scan covered 91 text/XML streams. Original chart images and notebook image outputs were not OCR-scanned. Normal technical descriptions of language-model research and runtime generation remain: the cleanup does not change what this project does or how it was developed.
-
-The separate historical bundle was deliberately **not scrubbed**. It retains original authors, dates, messages and historical source files. Restoring that bundle restores the original records, not the cleaned working tree. No attribution or evaluation history has been fabricated or reassigned.
+The maintenance export differs from the original historical branch in the documented source naming, portable presentation helper and document application metadata. Those differences are not changes to the recorded experiment results or an assignment of authorship. The original bundle retains the historical files and metadata.
 
 ## Executed verification
 
@@ -48,6 +42,6 @@ The full original pipeline suite was **not** run: `rank_bm25` is unavailable in 
 
 No real remote-model request was made. The full presentation build was not executed because React-related dependencies are unavailable here; the changed helper itself and JavaScript syntax were checked. Existing experiment files were preserved, not regenerated. This is a naming/metadata cleanup, not a new performance or assessment-readiness claim.
 
-## Usage note
+## Version relationship
 
-The default offline generator still uses the original commands. The optional backend's command-line name is now `--generator remote`; it requires the configured model identifier described in the project README. Do not overwrite the final Workbench with this historical project. Keep the original history alongside it for repository recovery.
+The optional historical backend is named `remote` and requires the model identifier documented in its README. The original history, the maintenance export and the final Workbench are distinct versions.

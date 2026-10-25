@@ -1,0 +1,233 @@
+{
+  "run_id": "20261024T061244_d0c073abbb",
+  "created_utc": "2026-10-24T06:12:44.056556+00:00",
+  "question": "How does HyDE generate hypothetical documents for zero-shot dense retrieval?",
+  "mode": "explain",
+  "status": "partial",
+  "plan": {
+    "named_papers": [
+      "ragsurvey"
+    ],
+    "facets": [
+      "inference",
+      "representation"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "how does hyde generate hypothetical documents for zero-shot dense retrieval",
+        "facets": [
+          "inference",
+          "representation"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "ragsurvey.hyde",
+      "paper_id": "ragsurvey",
+      "text": "The survey describes hypothetical document embeddings (HyDE) as using generated hypothetical content to guide retrieval through embedding similarity with real documents. This description is supported here by the survey; the original HyDE paper is not one of the separately indexed primary papers in this corpus.",
+      "facets": [
+        "retrieval",
+        "representation",
+        "inference"
+      ],
+      "source_ids": [
+        "ragsurvey:s0010"
+      ]
+    }
+  ],
+  "comparison": [],
+  "citations": [
+    {
+      "source_id": "ragsurvey:s0010",
+      "paper_id": "ragsurvey",
+      "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
+      "section": "C. Modular RAG",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "The Predict module aims to reduce redundancy and noise by generating context directly through the LLM, ensuring relevance and accuracy [13]. Lastly, the Task Adapter module tailors RAG to various downstream tasks, automating prompt retrieval for zero-shot inputs and creating task-specific retrievers through few-shot query generation [20], [21] .This comprehensive approach not only streamlines the retrieval process but also significantly improves the quality and relevance of the information retrieved, catering to a wide array of tasks and queries with enhanced precision and flexibility. 2) New Patterns: Modular RAG offers remarkable adaptability by allowing module substitution or reconfiguration to address specific challenges. This goes beyond the fixed structures of Naive and Advanced RAG, characterized by a simple “Retrieve” and “Read” mechanism. Moreover, Modular RAG expands this flexibility by integrating new modules or adjusting interaction flow among existing ones, enhancing its applicability across different tasks. Innovations such as the Rewrite-Retrieve-Read [7]model leverage the LLM’s capabilities to refine retrieval queries through a rewriting module and a LM-feedback mechanism to update rewriting model., improving task performance. Similarly, approaches like Generate-Read [13] replace traditional retrieval with LLM-generated content, while Recite- Read [22] emphasizes retrieval from model weights, enhancing the model’s ability to handle knowledge-intensive tasks. Hybrid retrieval strategies integrate keyword, semantic, and vector searches to cater to diverse queries. Additionally, employing sub-queries and hypothetical document embeddings (HyDE) [11] seeks to improve retrieval relevance by focusing on embedding similarities between generated answers and real documents.",
+      "url": "https://arxiv.org/abs/2312.10997v5",
+      "pdf_file": "pdfs/ragsurvey.pdf",
+      "sha256": "396a0fadeb4cd40f5c8ccc36b73a0815f6cb4d7f6bfa53b6c48c1f9aba7c7e02",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [
+    "HyDE is represented here by a secondary survey summary; its original paper is not separately indexed. The explanation is limited to that source."
+  ],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "ragsurvey:s0010",
+    "ragsurvey:s0020",
+    "ragsurvey:s0019",
+    "ragsurvey:s0011",
+    "ragsurvey:s0022",
+    "ragsurvey:s0023",
+    "ragsurvey:s0025",
+    "ragsurvey:s0013"
+  ],
+  "retrieved": [
+    {
+      "source_id": "ragsurvey:s0010",
+      "paper_id": "ragsurvey",
+      "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
+      "section": "C. Modular RAG",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "The Predict module aims to reduce redundancy and noise by generating context directly through the LLM, ensuring relevance and accuracy [13]. Lastly, the Task Adapter module tailors RAG to various downstream tasks, automating prompt retrieval for zero-shot inputs and creating task-specific retrievers through few-shot query generation [20], [21] .This comprehensive approach not only streamlines the retrieval process but also significantly improves the quality and relevance of the information retrieved, catering to a wide array of tasks and queries with enhanced precision and flexibility. 2) New Patterns: Modular RAG offers remarkable adaptability by allowing module substitution or reconfiguration to address specific challenges. This goes beyond the fixed structures of Naive and Advanced RAG, characterized by a simple “Retrieve” and “Read” mechanism. Moreover, Modular RAG expands this flexibility by integrating new modules or adjusting interaction flow among existing ones, enhancing its applicability across different tasks. Innovations such as the Rewrite-Retrieve-Read [7]model leverage the LLM’s capabilities to refine retrieval queries through a rewriting module and a LM-feedback mechanism to update rewriting model., improving task performance. Similarly, approaches like Generate-Read [13] replace traditional retrieval with LLM-generated content, while Recite- Read [22] emphasizes retrieval from model weights, enhancing the model’s ability to handle knowledge-intensive tasks. Hybrid retrieval strategies integrate keyword, semantic, and vector searches to cater to diverse queries. Additionally, employing sub-queries and hypothetical document embeddings (HyDE) [11] seeks to improve retrieval relevance by focusing on embedding similarities between generated answers and real documents.",
+      "url": "https://arxiv.org/abs/2312.10997v5",
+      "pdf_file": "pdfs/ragsurvey.pdf",
+      "sha256": "396a0fadeb4cd40f5c8ccc36b73a0815f6cb4d7f6bfa53b6c48c1f9aba7c7e02",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03278688524590164
+    },
+    {
+      "source_id": "ragsurvey:s0020",
+      "paper_id": "ragsurvey",
+      "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
+      "section": "B. Indexing Optimization",
+      "page_start": 8,
+      "page_end": 8,
+      "text": "This method is also known as Reverse HyDE. Specifically, using LLM to generate questions that can be answered by the document, then calculating the similarity between the original question and the hypothetical question during retrieval to reduce the semantic gap between the question and the answer. 3) Structural Index: One effective method for enhancing information retrieval is to establish a hierarchical structure for the documents. By constructing In structure, RAG system can expedite the retrieval and processing of pertinent data. Hierarchical index structure. File are arranged in parentchild relationships, with chunks linked to them. Data summaries are stored at each node, aiding in the swift traversal of data and assisting the RAG system in determining which chunks to extract. This approach can also mitigate the illusion caused by block extraction issues. Knowledge Graph index. Utilize KG in constructing the hierarchical structure of documents contributes to maintaining consistency. It delineates the connections between different concepts and entities, markedly reducing the potential for illusions. Another advantage is the transformation of the information retrieval process into instructions that LLM can comprehend, thereby enhancing the accuracy of knowledge retrieval and enabling LLM to generate contextually coherent responses, thus improving the overall efficiency of the RAG system. To capture the logical relationship between document content and structure, KGP [91] proposed a method of building an index between multiple documents using KG. This KG consists of nodes (representing paragraphs or structures in the documents, such as pages and tables) and edges (indicating semantic/lexical similarity between paragraphs or relationships within the document structure), effectively addressing knowledge retrieval and reasoning problems in a multi-document environment.",
+      "url": "https://arxiv.org/abs/2312.10997v5",
+      "pdf_file": "pdfs/ragsurvey.pdf",
+      "sha256": "396a0fadeb4cd40f5c8ccc36b73a0815f6cb4d7f6bfa53b6c48c1f9aba7c7e02",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03225806451612903
+    },
+    {
+      "source_id": "ragsurvey:s0019",
+      "paper_id": "ragsurvey",
+      "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
+      "section": "B. Indexing Optimization",
+      "page_start": 8,
+      "page_end": 8,
+      "text": "In the Indexing phase, documents will be processed, segmented, and transformed into Embeddings to be stored in a vector database. The quality of index construction determines whether the correct context can be obtained in the retrieval phase. 1) Chunking Strategy: The most common method is to split the document into chunks on a fixed number of tokens (e.g., 100, 256, 512) [88]. Larger chunks can capture more context, but they also generate more noise, requiring longer processing time and higher costs. While smaller chunks may not fully convey the necessary context, they do have less noise. However, chunks leads to truncation within sentences, prompting the optimization of a recursive splits and sliding window methods, enabling layered retrieval by merging globally related information across multiple retrieval processes [89]. Nevertheless, these approaches still cannot strike a balance between semantic completeness and context length. Therefore, methods like Small2Big have been proposed, where sentences (small) are used as the retrieval unit, and the preceding and following sentences are provided as (big) context to LLMs [90]. 2) Metadata Attachments: Chunks can be enriched with metadata information such as page number, file name, author,category timestamp. Subsequently, retrieval can be filtered based on this metadata, limiting the scope of the retrieval. Assigning different weights to document timestamps during retrieval can achieve time-aware RAG, ensuring the freshness of knowledge and avoiding outdated information. In addition to extracting metadata from the original documents, metadata can also be artificially constructed. For example, adding summaries of paragraph, as well as introducing hypothetical questions. This method is also known as Reverse HyDE.",
+      "url": "https://arxiv.org/abs/2312.10997v5",
+      "pdf_file": "pdfs/ragsurvey.pdf",
+      "sha256": "396a0fadeb4cd40f5c8ccc36b73a0815f6cb4d7f6bfa53b6c48c1f9aba7c7e02",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031746031746031744
+    },
+    {
+      "source_id": "ragsurvey:s0011",
+      "paper_id": "ragsurvey",
+      "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
+      "section": "C. Modular RAG",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "Additionally, employing sub-queries and hypothetical document embeddings (HyDE) [11] seeks to improve retrieval relevance by focusing on embedding similarities between generated answers and real documents. Adjustments in module arrangement and interaction, such as the Demonstrate-Search-Predict (DSP) [23] framework and the iterative Retrieve-Read-Retrieve-Read flow of ITER- RETGEN [14], showcase the dynamic use of module outputs to bolster another module’s functionality, illustrating a sophisticated understanding of enhancing module synergy. The flexible orchestration of Modular RAG Flow showcases the benefits of adaptive retrieval through techniques such as FLARE [24] and Self-RAG [25]. This approach transcends the fixed RAG retrieval process by evaluating the necessity of retrieval based on different scenarios. Another benefit of a flexible architecture is that the RAG system can more easily integrate with other technologies (such as fine-tuning or reinforcement learning) [26]. For example, this can involve fine-tuning the retriever for better retrieval results, fine-tuning the generator for more personalized outputs, or engaging in collaborative fine-tuning [27]. D. RAG vs Fine-tuning The augmentation of LLMs has attracted considerable attention due to their growing prevalence. Among the optimization methods for LLMs, RAG is often compared with Fine-tuning (FT) and prompt engineering. Each method has distinct characteristics as illustrated in Figure 4. We used a quadrant chart to illustrate the differences among three methods in two dimensions: external knowledge requirements and model adaption requirements. Prompt engineering leverages a model’s inherent capabilities with minimum necessity for external knowledge and model adaption. RAG can be likened to providing a model with a tailored textbook for information retrieval, ideal for precise information retrieval tasks.",
+      "url": "https://arxiv.org/abs/2312.10997v5",
+      "pdf_file": "pdfs/ragsurvey.pdf",
+      "sha256": "396a0fadeb4cd40f5c8ccc36b73a0815f6cb4d7f6bfa53b6c48c1f9aba7c7e02",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03125
+    },
+    {
+      "source_id": "ragsurvey:s0022",
+      "paper_id": "ragsurvey",
+      "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
+      "section": "C. Query Optimization",
+      "page_start": 9,
+      "page_end": 9,
+      "text": "Query Rewrite.The original queries are not always optimal for LLM retrieval, especially in real-world scenarios. Therefore, we can prompt LLM to rewrite the queries. In addition to using LLM for query rewriting, specialized smaller language models, such as RRR (Rewrite-retrieve-read) [7]. The implementation of the query rewrite method in the Taobao, known as BEQUE [9] has notably enhanced recall effectiveness for long-tail queries, resulting in a rise in GMV. Another query transformation method is to use prompt engineering to let LLM generate a query based on the original query for subsequent retrieval. HyDE [11] construct hypothetical documents (assumed answers to the original query). It focuses on embedding similarity from answer to answer rather than seeking embedding similarity for the problem or query. Using the Step-back Prompting method [10], the original query is abstracted to generate a high-level concept question (step-back question). In the RAG system, both the step-back question and the original query are used for retrieval, and both the results are utilized as the basis for language model answer generation. 3) Query Routing: Based on varying queries, routing to distinct RAG pipeline,which is suitable for a versatile RAG system designed to accommodate diverse scenarios. Metadata Router/ Filter. The first step involves extracting keywords (entity) from the query, followed by filtering based on the keywords and metadata within the chunks to narrow down the search scope. Semantic Router is another method of routing involves leveraging the semantic information of the query. Specific apprach see Semantic Router 6. Certainly, a hybrid routing approach can also be employed, combining both semantic and metadata-based methods for enhanced query routing.",
+      "url": "https://arxiv.org/abs/2312.10997v5",
+      "pdf_file": "pdfs/ragsurvey.pdf",
+      "sha256": "396a0fadeb4cd40f5c8ccc36b73a0815f6cb4d7f6bfa53b6c48c1f9aba7c7e02",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03076923076923077
+    },
+    {
+      "source_id": "ragsurvey:s0023",
+      "paper_id": "ragsurvey",
+      "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
+      "section": "D. Embedding",
+      "page_start": 9,
+      "page_end": 9,
+      "text": "In RAG, retrieval is achieved by calculating the similarity (e.g. cosine similarity) between the embeddings of the question and document chunks, where the semantic representation capability of embedding models plays a key role. This mainly includes a sparse encoder (BM25) and a dense retriever (BERT architecture Pre-training language models). Recent research has introduced prominent embedding models such as AngIE, Voyage, BGE,etc [94]–[96], which are benefit from multi-task instruct tuning. Hugging Face’s MTEB leaderboard 7 evaluates embedding models across 8 tasks, covering 58 datasests. Additionally, C-MTEB focuses on Chinese capability, covering 6 tasks and 35 datasets. There is no one-size-fits-all answer to “which embedding model to use.” However, some specific models are better suited for particular use cases. 1) Mix/hybrid Retrieval : Sparse and dense embedding approaches capture different relevance features and can benefit from each other by leveraging complementary relevance information. For instance, sparse retrieval models can be used to provide initial search results for training dense retrieval models. Additionally, pre-training language models (PLMs) can be utilized to learn term weights to enhance sparse retrieval. Specifically, it also demonstrates that sparse retrieval models can enhance the zero-shot retrieval capability of dense retrieval models and assist dense retrievers in handling queries containing rare entities, thereby improving robustness. 2) Fine-tuning Embedding Model: In instances where the context significantly deviates from pre-training corpus, particularly within highly specialized disciplines such as healthcare, legal practice, and other sectors replete with proprietary jargon, fine-tuning the embedding model on your own domain dataset becomes essential to mitigate such discrepancies.",
+      "url": "https://arxiv.org/abs/2312.10997v5",
+      "pdf_file": "pdfs/ragsurvey.pdf",
+      "sha256": "396a0fadeb4cd40f5c8ccc36b73a0815f6cb4d7f6bfa53b6c48c1f9aba7c7e02",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.023467173087357567
+    },
+    {
+      "source_id": "ragsurvey:s0025",
+      "paper_id": "ragsurvey",
+      "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
+      "section": "E. Adapter",
+      "page_start": 9,
+      "page_end": 10,
+      "text": "Fine-tuning models may present challenges, such as integrating functionality through an API or addressing constraints arising from limited local computational resources. Consequently, some approaches opt to incorporate an external adapter to aid in alignment. To optimize the multi-task capabilities of LLM, UP- RISE [20] trained a lightweight prompt retriever that can automatically retrieve prompts from a pre-built prompt pool that are suitable for a given zero-shot task input. AAR (Augmentation-Adapted Retriver) [47] introduces a universal adapter designed to accommodate multiple downstream tasks. While PRCA [69] add a pluggable reward-driven contextual adapter to enhance performance on specific tasks. BGM [26] keeps the retriever and LLM fixed,and trains a bridge Seq2Seq model in between. The bridge model aims to transform the retrieved information into a format that LLMs can work with effectively, allowing it to not only rerank but also dynamically select passages for each query, and potentially employ more advanced strategies like repetition. Furthermore, PKG introduces an innovative method for integrating knowledge into white-box models via directive fine-tuning [75]. In this approach, the retriever module is directly substituted to generate relevant documents according to a query. This method assists in addressing the difficulties encountered during the fine-tuning process and enhances model performance.",
+      "url": "https://arxiv.org/abs/2312.10997v5",
+      "pdf_file": "pdfs/ragsurvey.pdf",
+      "sha256": "396a0fadeb4cd40f5c8ccc36b73a0815f6cb4d7f6bfa53b6c48c1f9aba7c7e02",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.012841921119592875
+    },
+    {
+      "source_id": "ragsurvey:s0013",
+      "paper_id": "ragsurvey",
+      "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
+      "section": "III. RETRIEVAL",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "In the context of RAG, it is crucial to efficiently retrieve relevant documents from the data source. There are several key issues involved, such as the retrieval source, retrieval granularity, pre-processing of the retrieval, and selection of the corresponding embedding model.",
+      "url": "https://arxiv.org/abs/2312.10997v5",
+      "pdf_file": "pdfs/ragsurvey.pdf",
+      "sha256": "396a0fadeb4cd40f5c8ccc36b73a0815f6cb4d7f6bfa53b6c48c1f9aba7c7e02",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.007292699324285829
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "how does hyde generate hypothetical documents for zero-shot dense retrieval",
+      "paper_ids": [
+        "ragsurvey"
+      ],
+      "facet": "inference",
+      "covered": true,
+      "claim_ids": [
+        "ragsurvey.hyde"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    },
+    {
+      "part_id": "part1",
+      "question_part": "how does hyde generate hypothetical documents for zero-shot dense retrieval",
+      "paper_ids": [
+        "ragsurvey"
+      ],
+      "facet": "representation",
+      "covered": true,
+      "claim_ids": [
+        "ragsurvey.hyde"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.00822558399522677,
+  "evaluation_question_id": "q18"
+}

@@ -1,0 +1,325 @@
+{
+  "run_id": "20261024T061244_127f07f93b",
+  "created_utc": "2026-10-24T06:12:44.014072+00:00",
+  "question": "How do DPR and ColBERT differ in how they encode queries and passages for retrieval?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "dpr",
+      "colbert"
+    ],
+    "facets": [
+      "representation"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": true,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "how do and differ in how they encode queries and passages for retrieval",
+        "facets": [
+          "representation"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "dpr.encoding",
+      "paper_id": "dpr",
+      "text": "Dense Passage Retrieval (DPR) uses separate BERT-based question and passage encoders to produce one dense vector for each input. It ranks passages using the inner product of the question and passage vectors, so passage representations can be precomputed for efficient search.",
+      "facets": [
+        "representation",
+        "retrieval",
+        "purpose"
+      ],
+      "source_ids": [
+        "dpr:s0001",
+        "dpr:s0008"
+      ]
+    },
+    {
+      "claim_id": "colbert.encoding",
+      "paper_id": "colbert",
+      "text": "ColBERT encodes queries and documents independently with BERT but retains token-level vectors instead of collapsing the whole document into one vector. Its late-interaction step compares those contextualised vectors after encoding, allowing document encoding to be done offline.",
+      "facets": [
+        "representation",
+        "retrieval",
+        "purpose"
+      ],
+      "source_ids": [
+        "colbert:s0001",
+        "colbert:s0005"
+      ]
+    }
+  ],
+  "comparison": [
+    {
+      "paper_id": "dpr",
+      "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+      "claims": [
+        {
+          "claim_id": "dpr.encoding",
+          "paper_id": "dpr",
+          "text": "Dense Passage Retrieval (DPR) uses separate BERT-based question and passage encoders to produce one dense vector for each input. It ranks passages using the inner product of the question and passage vectors, so passage representations can be precomputed for efficient search.",
+          "facets": [
+            "representation",
+            "retrieval",
+            "purpose"
+          ],
+          "source_ids": [
+            "dpr:s0001",
+            "dpr:s0008"
+          ]
+        }
+      ]
+    },
+    {
+      "paper_id": "colbert",
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+      "claims": [
+        {
+          "claim_id": "colbert.encoding",
+          "paper_id": "colbert",
+          "text": "ColBERT encodes queries and documents independently with BERT but retains token-level vectors instead of collapsing the whole document into one vector. Its late-interaction step compares those contextualised vectors after encoding, allowing document encoding to be done offline.",
+          "facets": [
+            "representation",
+            "retrieval",
+            "purpose"
+          ],
+          "source_ids": [
+            "colbert:s0001",
+            "colbert:s0005"
+          ]
+        }
+      ]
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "dpr:s0001",
+      "paper_id": "dpr",
+      "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Open-domain question answering relies on efficient passage retrieval to select candidate contexts, where traditional sparse vector space models, such as TF-IDF or BM25, are the de facto method. In this work, we show that retrieval can be practically implemented using dense representations alone, where embeddings are learned from a small number of questions and passages by a simple dualencoder framework. When evaluated on a wide range of open-domain QA datasets, our dense retriever outperforms a strong Lucene- BM25 system greatly by 9%-19% absolute in terms of top-20 passage retrieval accuracy, and helps our end-to-end QA system establish new state-of-the-art on multiple open-domain QA benchmarks.1",
+      "url": "https://arxiv.org/abs/2004.04906v3",
+      "pdf_file": "pdfs/dpr.pdf",
+      "sha256": "3e67fc1a9977715acf722d85f0b7d124b03715e975f6310a4d6c12094190912f",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "dpr:s0008",
+      "paper_id": "dpr",
+      "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+      "section": "3.1 Overview",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "Our dense passage retriever (DPR) uses a dense encoder EP (·) which maps any text passage to a ddimensional real-valued vectors and builds an index for all the M passages that we will use for retrieval. tions of both the retriever and reader. We also experimented with natural paragraphs in our preliminary trials and found that using fixed-length passages performs better in both retrieval and final QA accuracy, as observed by Wang et al. (2019). 2020), which retrieves and generates the answers, respectively. At run-time, DPR applies a different encoder EQ(·) that maps the input question to a d-dimensional vector, and retrieves k passages of which vectors are the closest to the question vector. We define the similarity between the question and the passage using the dot product of their vectors: sim(q, p) = EQ(q)⊺EP (p). (1) Although more expressive model forms for measuring the similarity between a question and a passage do exist, such as networks consisting of multiple layers of cross attentions, the similarity function needs to be decomposable so that the representations of the collection of passages can be precomputed. Most decomposable similarity functions are some transformations of Euclidean distance (L2). For instance, cosine is equivalent to inner product for unit vectors and the Mahalanobis distance is equivalent to L2 distance in a transformed space. Inner product search has been widely used and studied, as well as its connection to cosine similarity and L2 distance (Mussmann and Ermon, 2016; Ram and Gray, 2012). As our ablation study finds other similarity functions perform comparably (Section 5.2; Appendix B), we thus choose the simpler inner product function and improve the dense passage retriever by learning better encoders.",
+      "url": "https://arxiv.org/abs/2004.04906v3",
+      "pdf_file": "pdfs/dpr.pdf",
+      "sha256": "3e67fc1a9977715acf722d85f0b7d124b03715e975f6310a4d6c12094190912f",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "colbert:s0001",
+      "paper_id": "colbert",
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+      "section": "ABSTRACT",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Recent progress in Natural Language Understanding (NLU) is driving fast-paced advances in Information Retrieval (IR), largely owed to fine-tuning deep language models (LMs) for document ranking. While remarkably effective, the ranking models based on these LMs increase computational cost by orders of magnitude over prior approaches, particularly as they must feed each query–document pair through a massive neural network to compute a single relevance score. To tackle this, we present ColBERT, a novel ranking model that adapts deep LMs (in particular, BERT) for efficient retrieval. ColBERT introduces a late interaction architecture that independently encodes the query and the document using BERT and then employs a cheap yet powerful interaction step that models their fine-grained similarity. By delaying and yet retaining this finegranular interaction, ColBERT can leverage the expressiveness of deep LMs while simultaneously gaining the ability to pre-compute document representations offline, considerably speeding up query processing. Beyond reducing the cost of re-ranking the documents retrieved by a traditional model, ColBERT’s pruning-friendly interaction mechanism enables leveraging vector-similarity indexes for end-to-end retrieval directly from a large document collection. We extensively evaluate ColBERT using two recent passage search datasets. Results show that ColBERT’s effectiveness is competitive with existing BERT-based models (and outperforms every non- BERT baseline), while executing two orders-of-magnitude faster and requiring four orders-of-magnitude fewer FLOPs per query. ACM Reference format: Omar Khatab and Matei Zaharia. 2020. ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT. In Proceedings of Proceedings of the 43rd International ACM SIGIR Conference on Research and Development in Information Retrieval, Virtual Event, China, July 25–30, 2020 (SIGIR ’20), 10 pages. DOI: 10.1145/3397271.3401075",
+      "url": "https://arxiv.org/abs/2004.12832v2",
+      "pdf_file": "pdfs/colbert.pdf",
+      "sha256": "2e487d9b96e3c2e5e286d843e98a066adc0442faa3a6e8ddbd1771221bf9ae14",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "colbert:s0005",
+      "paper_id": "colbert",
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+      "section": "1 INTRODUCTION",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "Figure 2 contrasts our proposed late interaction approach with existing neural matching paradigms. On the lef, Figure 2 (a) illustrates representation-focused rankers, which independently compute an embedding for q and another for d and estimate relevance as a single similarity score between two vectors [12, 41]. Moving to the right, Figure 2 (b) visualizes typical interaction-focused rankers. Instead of summarizing q and d into individual embeddings, these rankers model word- and phrase-level relationships across q and d and match them using a deep neural network (e.g., with CNNs/MLPs [22] or kernels [36]). In the simplest case, they feed the neural network an interaction matrix that reflects the similiarity between every pair of words across q and d. Further right, Figure 2 (c) illustrates a more powerful interaction-based paradigm, which models the interactions between words within as well as across q and d at the same time, as in BERT’s transformer architecture [25]. Tese increasingly expressive architectures are in tension. While interaction-based models (i.e., Figure 2 (b) and (c)) tend to be superior for IR tasks [8, 21], a representation-focused model—by isolating the computations among q and d—makes it possible to precompute document representations offline [41], greatly reducing the computational load per query. In this work, we observe that the fine-grained matching of interaction-based models and the precomputation of document representations of representation-based models can be combined by retaining yet judiciously delaying the query–document interaction. Figure 2 (d) illustrates an architecture that precisely does so. As illustrated, every query embedding interacts with all document embeddings via a MaxSim operator, which computes maximum similarity (e.g., cosine similarity), and the scalar outputs of these operators are summed across query terms.",
+      "url": "https://arxiv.org/abs/2004.12832v2",
+      "pdf_file": "pdfs/colbert.pdf",
+      "sha256": "2e487d9b96e3c2e5e286d843e98a066adc0442faa3a6e8ddbd1771221bf9ae14",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "dpr:s0017",
+    "colbert:s0007",
+    "dpr:s0035",
+    "colbert:s0006",
+    "dpr:s0038",
+    "colbert:s0011",
+    "dpr:s0031",
+    "colbert:s0014"
+  ],
+  "retrieved": [
+    {
+      "source_id": "dpr:s0017",
+      "paper_id": "dpr",
+      "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+      "section": "5 Experiments: Passage Retrieval",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "We trained the question and passage encoders for up to 40 epochs for large datasets (NQ, TriviaQA, SQuAD) and 100 epochs for small datasets (TREC, WQ), with a learning rate of 10−5 using Adam, linear scheduling with warm-up and dropout rate 0.1. While it is good to have the flexibility to adapt the retriever to each dataset, it would also be desirable to obtain a single retriever that works well across the board. To this end, we train a multidataset encoder by combining training data from all datasets excluding SQuAD.8 In addition to DPR, we also present the results of BM25, the traditional retrieval method9 and BM25+DPR, using a linear combination of their scores as the new ranking function. Specifically, we obtain two initial sets of top-2000 passages based on BM25 and DPR, respectively, and rerank the union of them using BM25(q,p) + λ · sim(q, p) as the ranking function. We used λ = 1.1 based on the retrieval accuracy in the development set.",
+      "url": "https://arxiv.org/abs/2004.04906v3",
+      "pdf_file": "pdfs/dpr.pdf",
+      "sha256": "3e67fc1a9977715acf722d85f0b7d124b03715e975f6310a4d6c12094190912f",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.028205128205128206
+    },
+    {
+      "source_id": "colbert:s0007",
+      "paper_id": "colbert",
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+      "section": "1 INTRODUCTION",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "(2) We present ColBERT (§3.2 & 3.3), a highly-effective model that employs novel BERT-based query and document encoders within the late interaction paradigm. (3) We show how to leverage ColBERT both for re-ranking on top of a term-based retrieval model (§3.5) and for searching a full collection using vector similarity indexes (§3.6). (4) We evaluate ColBERT on MS MARCO and TREC CAR, two recent passage search collections.",
+      "url": "https://arxiv.org/abs/2004.12832v2",
+      "pdf_file": "pdfs/colbert.pdf",
+      "sha256": "2e487d9b96e3c2e5e286d843e98a066adc0442faa3a6e8ddbd1771221bf9ae14",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.032266458495966696
+    },
+    {
+      "source_id": "dpr:s0035",
+      "paper_id": "dpr",
+      "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+      "section": "A Distant Supervision",
+      "page_start": 12,
+      "page_end": 12,
+      "text": "When training our final DPR model using Natural Questions, we use the passages in our collection that best match the gold context as the positive passages. As some QA datasets contain only the question and answer pairs, it is thus interesting to see when using the passages that contain the answers as positives (i.e., the distant supervision setting), whether there is a significant performance degradation. Using the question and answer together as the query, we run Lucene-BM25 and pick the top passage that contains the answer as the positive passage. Table 5 shows the performance of DPR when trained using the original setting and the distant supervision setting.",
+      "url": "https://arxiv.org/abs/2004.04906v3",
+      "pdf_file": "pdfs/dpr.pdf",
+      "sha256": "3e67fc1a9977715acf722d85f0b7d124b03715e975f6310a4d6c12094190912f",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02535559678416821
+    },
+    {
+      "source_id": "colbert:s0006",
+      "paper_id": "colbert",
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+      "section": "1 INTRODUCTION",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "As illustrated, every query embedding interacts with all document embeddings via a MaxSim operator, which computes maximum similarity (e.g., cosine similarity), and the scalar outputs of these operators are summed across query terms. Tis paradigm allows ColBERT to exploit deep LM-based representations while shifing the cost of encoding documents offline and amortizing the cost of encoding the query once across all ranked documents. Additionally, it enables ColBERT to leverage vector-similarity search indexes (e.g., [1, 15]) to retrieve the top-k results directly from a large document collection, substantially improving recall over models that only re-rank the output of term-based retrieval. As Figure 1 illustrates, ColBERT can serve queries in tens or few hundreds of milliseconds. For instance, when used for reranking as in “ColBERT (re-rank)”, it delivers over 170× speedup (and requires 14,000× fewer FLOPs) relative to existing BERT-based models, while being more effective than every non-BERT baseline (§4.2 & 4.3). ColBERT’s indexing—the only time it needs to feed documents through BERT—is also practical: it can index the MS MARCO collection of 9M passages in about 3 hours using a single server with four GPUs (§4.5), retaining its effectiveness with a space footprint of as litle as few tens of GiBs. Our extensive ablation study (§4.4) shows that late interaction, its implementation via MaxSim operations, and crucial design choices within our BERTbased encoders are all essential to ColBERT’s effectiveness. Our main contributions are as follows. (1) We propose late interaction (§3.1) as a paradigm for efficient and effective neural ranking. (2) We present ColBERT (§3.2 & 3.3), a highly-effective model that employs novel BERT-based query and document encoders within the late interaction paradigm.",
+      "url": "https://arxiv.org/abs/2004.12832v2",
+      "pdf_file": "pdfs/colbert.pdf",
+      "sha256": "2e487d9b96e3c2e5e286d843e98a066adc0442faa3a6e8ddbd1771221bf9ae14",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030621785881252923
+    },
+    {
+      "source_id": "dpr:s0038",
+      "paper_id": "dpr",
+      "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+      "section": "D Joint Training of Retriever and",
+      "page_start": 12,
+      "page_end": 13,
+      "text": "Reader We fix the passage encoder in our joint-training scheme while allowing only the question encoder to receive backpropagation signal from the combined (retriever + reader) loss function. This allows us to leverage the HNSW-based FAISS index for efficient low-latency retrieving, without reindexing the passages during model updates. Our loss function largely follows ORQA’s approach, which uses log probabilities of positive passages selected from the retriever model, and correct spans and passages selected from the reader model. Since the passage encoder is fixed, we could use larger amount of retrieved passages when calculating the retriever loss. Specifically, we get top 100 passages for each question in a mini-batch and use the method similar to in-batch negative training: all retrieved passages’ vectors participate in the loss calculation for all questions in a batch. Our training batch size is set to 16, which effectively gives 1,600 passages per question to calculate retriever loss. The reader still uses 24 passages per question, which are selected Table 7: Examples of passages returned from BM25 and DPR. Correct answers are written in blue and the content words in the question are written in bold. from the top 5 positive and top 30 negative passages (from the set of top 100 passages retrieved from the same question). The question encoder’s initial state is taken from a DPR model previously trained on the NQ dataset. The reader’s initial state is a BERT-base model. In terms of the end-to-end QA results, our joint-training scheme does not provide better results compared to the usual retriever/reader training pipeline, resulting in the same 39.8 exact match score on NQ dev as in our regular reader model training.",
+      "url": "https://arxiv.org/abs/2004.04906v3",
+      "pdf_file": "pdfs/dpr.pdf",
+      "sha256": "3e67fc1a9977715acf722d85f0b7d124b03715e975f6310a4d6c12094190912f",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.024725274725274724
+    },
+    {
+      "source_id": "colbert:s0011",
+      "paper_id": "colbert",
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+      "section": "3 COLBERT",
+      "page_start": 3,
+      "page_end": 4,
+      "text": "ColBERT prescribes a simple framework for balancing the quality and cost of neural IR, particularly deep language models like BERT. As introduced earlier, delaying the query–document interaction can facilitate cheap neural re-ranking (i.e., through pre-computation) and even support practical end-to-end neural retrieval (i.e., through pruning via vector-similarity search). ColBERT addresses how to do so while still preserving the effectiveness of state-of-the-art models, which condition the bulk of their computations on the joint query–document pair. Even though ColBERT’s late-interaction framework can be applied to a wide variety of architectures (e.g., CNNs, RNNs, transformers, etc.), we choose to focus this work on bi-directional transformerbased encoders (i.e., BERT) owing to their state-of-the-art effectiveness yet very high computational cost.",
+      "url": "https://arxiv.org/abs/2004.12832v2",
+      "pdf_file": "pdfs/colbert.pdf",
+      "sha256": "2e487d9b96e3c2e5e286d843e98a066adc0442faa3a6e8ddbd1771221bf9ae14",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.027799227799227798
+    },
+    {
+      "source_id": "dpr:s0031",
+      "paper_id": "dpr",
+      "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+      "section": "7 Related Work",
+      "page_start": 9,
+      "page_end": 9,
+      "text": "Instead of employing the dual-encoder framework, they introduced a late-interaction operator on top of the BERT encoders. Dense retrieval for open-domain QA has been explored by Das et al. (2019), who propose to retrieve relevant passages iteratively using reformulated question vectors. As an alternative approach that skips passage retrieval, Seo et al. (2019) propose to encode candidate answer phrases as vectors and directly retrieve the answers to the input questions efficiently. Using additional pretraining with the objective that matches surrogates of questions and relevant passages, Lee et al. (2019) jointly train the question encoder and reader. Their approach outperforms the BM25 plus reader paradigm on multiple open-domain QA datasets in QA accuracy, and is further extended by REALM (Guu et al., 2020), which includes tuning the passage encoder asynchronously by re-indexing the passages during training. The pretraining objective has also recently been improved by Xiong et al. (2020b). In contrast, our model provides a simple and yet effective solution that shows stronger empirical performance, without relying on additional pretraining or complex joint training schemes. DPR has also been used as an important module in very recent work. For instance, extending the idea of leveraging hard negatives, Xiong et al. (2020a) use the retrieval model trained in the previous iteration to discover new negatives and construct a different set of examples in each training iteration. Starting from our trained DPR model, they show that the retrieval performance can be further improved.",
+      "url": "https://arxiv.org/abs/2004.04906v3",
+      "pdf_file": "pdfs/dpr.pdf",
+      "sha256": "3e67fc1a9977715acf722d85f0b7d124b03715e975f6310a4d6c12094190912f",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.024706420619185605
+    },
+    {
+      "source_id": "colbert:s0014",
+      "paper_id": "colbert",
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+      "section": "3.2 Qery & Document Encoders",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "Prior to late interaction, ColBERT encodes each query or document into a bag of embeddings, employing BERT-based encoders. We share a single BERT model among our query and document encoders but distinguish input sequences that correspond to queries and documents by prepending a special token [Q] to queries and another token [D] to documents. Qery Encoder. Given a textual query q, we tokenize it into its BERT-based WordPiece [35] tokensq1q2...ql . We prepend the token [Q] to the query. We place this token right afer BERT’s sequencestart token [CLS]. If the query has fewer than a pre-defined number of tokens Nq, we pad it with BERT’s special [mask] tokens up to length Nq (otherwise, we truncate it to the first Nq tokens). Tis padded sequence of input tokens is then passed into BERT’s deep transformer architecture, which computes a contextualized representation of each token. We denote the padding with masked tokens as query augmentation, a step that allows BERT to produce query-based embeddings at the positions corresponding to these masks. Qery augmentation is intended to serve as a sof, differentiable mechanism for learning to expand queries with new terms or to re-weigh existing terms based on their importance for matching the query. As we show in §4.4, this operation is essential for ColBERT’s effectiveness. Given BERT’s representation of each token, our encoder passes the contextualized output representations through a linear layer with no activations. Tis layer serves to control the dimension of ColBERT’s embeddings, producing m-dimensional embeddings for the layer’s output size m. As we discuss later in more detail, we typically fix m to be much smaller than BERT’s fixed hidden dimension.",
+      "url": "https://arxiv.org/abs/2004.12832v2",
+      "pdf_file": "pdfs/colbert.pdf",
+      "sha256": "2e487d9b96e3c2e5e286d843e98a066adc0442faa3a6e8ddbd1771221bf9ae14",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.027205882352941177
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "how do and differ in how they encode queries and passages for retrieval",
+      "paper_ids": [
+        "dpr"
+      ],
+      "facet": "representation",
+      "covered": true,
+      "claim_ids": [
+        "dpr.encoding"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    },
+    {
+      "part_id": "part1",
+      "question_part": "how do and differ in how they encode queries and passages for retrieval",
+      "paper_ids": [
+        "colbert"
+      ],
+      "facet": "representation",
+      "covered": true,
+      "claim_ids": [
+        "colbert.encoding"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.008720875019207597,
+  "evaluation_question_id": "q14"
+}

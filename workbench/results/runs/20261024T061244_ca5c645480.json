@@ -1,0 +1,265 @@
+{
+  "run_id": "20261024T061244_ca5c645480",
+  "created_utc": "2026-10-24T06:12:44.492295+00:00",
+  "question": "Why does Atlas jointly pre-train its retriever and reader, and how does its reader make use of multiple retrieved passages?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "atlas"
+    ],
+    "facets": [
+      "training",
+      "inference"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "why does jointly pre-train its retriever and reader",
+        "facets": [
+          "training"
+        ],
+        "explicit": true,
+        "scope": "each"
+      },
+      {
+        "id": "part2",
+        "text": "how does its reader make use of multiple retrieved passages",
+        "facets": [
+          "inference"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "atlas.training",
+      "paper_id": "atlas",
+      "text": "Atlas jointly pre-trains its retriever and reader components. The paper finds this joint pre-training important for few-shot downstream performance and studies different pre-training objectives and schemes.",
+      "facets": [
+        "training",
+        "supervision"
+      ],
+      "source_ids": [
+        "atlas:s0003"
+      ]
+    },
+    {
+      "claim_id": "atlas.architecture",
+      "paper_id": "atlas",
+      "text": "Atlas pairs a dense retriever with a T5 sequence-to-sequence reader using Fusion-in-Decoder. The reader concatenates the query to each retrieved document and encodes each document independently. It concatenates those encoder outputs, and its decoder uses cross-attention over the combined representations to generate the answer. The system is designed for few-shot knowledge-intensive tasks.",
+      "facets": [
+        "purpose",
+        "inference",
+        "representation"
+      ],
+      "source_ids": [
+        "atlas:s0003",
+        "atlas:s0008"
+      ]
+    }
+  ],
+  "comparison": [],
+  "citations": [
+    {
+      "source_id": "atlas:s0003",
+      "paper_id": "atlas",
+      "title": "Atlas: Few-shot Learning with Retrieval Augmented Language Models",
+      "section": "1 Introduction",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "In addition to their memorisation abilities, such architectures are attractive due to a number of other established advantages in terms of adaptability, interpretability and efficiency (Guu et al., 2020; Lewis et al., 2020; Yogatama et al., 2021; Borgeaud et al., 2021, inter alia). However, retrieval-augmented models have yet to ∗equal contribution Masked Language Modelling: Bermuda Triangle is in the <MASK> of the Atlantic Ocean. Pretraining Few-shot Fact checking: Bermuda Triangle is in the western part of the Himalayas. western part Atlas False ... ... Question answering: Where is the Bermuda Triangle? Western part of the North Atlantic Ocean Figure 1: We introduce Atlas, a retrieval-augmented language model that exhibits strong few-shot performance on knowledge tasks, and uses retrieval during both pre-training and fine-tuning. demonstrate compelling few-shot learning capabilities. In this work we address this gap, and present Atlas, a retrieval-augmented language model capable of strong few-shot learning, despite having lower parameter counts than other powerful recent few-shot learners. Atlas retrieves relevant documents based on the current context by using a general-purpose dense retriever using a dual-encoder architecture, based on the Contriever (Izacard et al., 2022). The retrieved documents are processed, along with the current context, by a sequence-to-sequence model using the Fusion-in-Decoder architecture (Izacard & Grave, 2020) that generates the corresponding output. We study the impact of different techniques to train Atlas on its few-shot performance on a range of downstream tasks, including question answering and fact checking. We find that jointly pre-training the components is crucial for few-shot performance, and we carefully evaluate a number of existing and novel pre-training tasks and schemes for this purpose. Atlas achieves strong downstream performance in both few-shot and resource-rich settings.",
+      "url": "https://arxiv.org/abs/2208.03299v3",
+      "pdf_file": "pdfs/atlas.pdf",
+      "sha256": "593ab76b843cd6a0cba3271a2322fed7ea045edc75918d0cfce9eaf3d259a23e",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "atlas:s0008",
+      "paper_id": "atlas",
+      "title": "Atlas: Few-shot Learning with Retrieval Augmented Language Models",
+      "section": "2.1 Architecture",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "We rely on the Fusion-in-Decoder modification of sequence-to-sequence models, and process each document independently in the encoder (Izacard & Grave, 2020). We then concatenate the outputs of the encoder corresponding to the different documents, and perform cross-attention over this single sequence in the decoder. Following Izacard & Grave (2020), we concatenate the query to each document in the encoder. Another way to process the retrieved documents in the language model would be to concatenate the query and all the documents, and to use this long sequence as input of the model. Unfortunately, this approach does not scale with the number of documents, since the self-attention in the encoder results in a quadratic complexity with respect to the number of documents.",
+      "url": "https://arxiv.org/abs/2208.03299v3",
+      "pdf_file": "pdfs/atlas.pdf",
+      "sha256": "593ab76b843cd6a0cba3271a2322fed7ea045edc75918d0cfce9eaf3d259a23e",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "atlas:s0053",
+    "atlas:s0019",
+    "atlas:s0027",
+    "atlas:s0015",
+    "atlas:s0030",
+    "atlas:s0003",
+    "atlas:s0045",
+    "atlas:s0035"
+  ],
+  "retrieved": [
+    {
+      "source_id": "atlas:s0053",
+      "paper_id": "atlas",
+      "title": "Atlas: Few-shot Learning with Retrieval Augmented Language Models",
+      "section": "6 Discussion",
+      "page_start": 19,
+      "page_end": 19,
+      "text": "In this paper, we introduce Atlas, a large retrieval-augmented language model. By jointly pre-training the retriever module and the language model, we show that Atlas has strong few-shot learning capabilities on a wide range of knowledge intensive tasks, including NaturalQuestions, TriviaQA, FEVER, 8 KILT tasks and 57 MMLU tasks. For example, Atlas-11B reaches more than 42% accuracy on NaturalQuestions and 84.7% on TriviaQA when training on 64 examples, which is an improvement of almost 3 points compared to PaLM, a 540B parameters model, which required 50x more pre-training compute. We also provided detailed ablations and analyses for what factors are important when training such retrieval-augmented models, and demonstrated Atlas’s updateability, interpretability and controlability capabilities. Lastly, we demonstrated that Atlas is also powerful in full-dataset settings obtaining a new state-of-the-art results on NaturalQuestions, TriviaQA, FEVER, and 5 KILT tasks.",
+      "url": "https://arxiv.org/abs/2208.03299v3",
+      "pdf_file": "pdfs/atlas.pdf",
+      "sha256": "593ab76b843cd6a0cba3271a2322fed7ea045edc75918d0cfce9eaf3d259a23e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031746031746031744
+    },
+    {
+      "source_id": "atlas:s0019",
+      "paper_id": "atlas",
+      "title": "Atlas: Few-shot Learning with Retrieval Augmented Language Models",
+      "section": "3.1 Retrieval in natural language processing",
+      "page_start": 7,
+      "page_end": 7,
+      "text": "Recently, generating the answer as free-form text, using a seq2seq model conditioned on retrieved documents have become prevalent (Lewis et al., 2020; Izacard & Grave, 2020; Min et al., 2020). These architectures have also been shown to reduce hallucination in dialogue agents (Shuster et al., 2021). Retriever training. The need for expensive query-document annotations for training the retriever can be bypassed, by leveraging signals from the language model, or using unsupervised learning. REALM (Guu et al., 2020) and RAG (Lewis et al., 2020) jointly train the retriever and language model by modelling documents as latent variable, and minimizing the objective with gradient descent. REALM pre-trains end-to-end with an MLM approach but uses an extractive BERT-style model (Devlin et al., 2019). Guu et al. (2020) also explore a query-side finetuning at finetuning time to avoid index refreshes, which is also explored in the context of phrase-based retrieval by Lee et al. (2021b). Izacard & Grave (2020) proposed to use cross-attention scores as supervision with knowledge distillation. Sachan et al. (2021) perform joint training of the reader and the retriever by leveraging the perplexity of the output generated by the reader. Sachan et al. (2021) and Lee et al. (2021a) both employ salient span masking to pre-train retrievers, leveraging the perplexity and attention scores from the language model. The inverse cloze task was proposed by Lee et al. (2019) to pre-train dense retrievers in an unsupervised way.",
+      "url": "https://arxiv.org/abs/2208.03299v3",
+      "pdf_file": "pdfs/atlas.pdf",
+      "sha256": "593ab76b843cd6a0cba3271a2322fed7ea045edc75918d0cfce9eaf3d259a23e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03125
+    },
+    {
+      "source_id": "atlas:s0027",
+      "paper_id": "atlas",
+      "title": "Atlas: Few-shot Learning with Retrieval Augmented Language Models",
+      "section": "4.2 Technical details",
+      "page_start": 9,
+      "page_end": 10,
+      "text": "We now describe the procedure for pre-training and fine-tuning our models. We focus on the setting used for the ablation studies performed in Section 4.3 and Section 4.4. We give more details about the hyperparameters used for our final model later. Pre-training. For the pre-training, we initialize the retriever module using the unsupervised Contriever model, which uses the BERT-base architecture. We initialize the language model with the T5 pre-trained weight. As the original T5 pre-trained model included supervised data in the training set, we use the version 1.1 models which were trained on unlabeled text only. Specifically, we initialize from the T5-lm-adapt variants due to their improved stability. For the ablation studies performed in Section 4.3 and Section 4.4, we use T5-XL which contains 3B weights. We pre-train all our models for 10,000 iterations, using AdamW with a batch size of 64 and a learning rate of 10−4 for the reader and 10−5 for the retriever with linear decay and 1,000 warmup steps. We refresh the index every 1,000 steps. This means that the index is recomputed 10 times during the pre-training, leading to an overhead of around 30%, compared to training with a fixed retriever. We set the number of retrieved documents to 20. We detail the hyperparameters used for the training of our final model at the beginning of Section 4.5. Table 1: Retriever loss ablation. We compare different loss functions to pre-train the retriever jointly with the language model. We use the prefix MLM task, and the December 2021 Wikipedia dump for both the index and pre-training data. Fine-tuning is performed with query-side fine-tuning and the loss used for pre-training. Best result is bold, second highest underlined.",
+      "url": "https://arxiv.org/abs/2208.03299v3",
+      "pdf_file": "pdfs/atlas.pdf",
+      "sha256": "593ab76b843cd6a0cba3271a2322fed7ea045edc75918d0cfce9eaf3d259a23e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030621785881252923
+    },
+    {
+      "source_id": "atlas:s0015",
+      "paper_id": "atlas",
+      "title": "Atlas: Few-shot Learning with Retrieval Augmented Language Models",
+      "section": "2.4 Eﬃcient retriever ﬁne-tuning",
+      "page_start": 6,
+      "page_end": 6,
+      "text": "Retrieval is facilitated by using a document index, which is a pre-computed collection of the document embeddings for all the documents in the retrieval corpus. When jointly training the retriever and language model, the index needs to be updated regularly, otherwise, the embeddings of the documents stored in the index become stale relative to the updated retriever. This means that we need to recompute the embeddings for the full collection of documents regularly during training to keep the index fresh, which can be computationally expensive for large indices. This is particularly true at fine-tuning time, where the number of training examples could be small relative to the number of documents in the index. Training the retriever could thus add an important computational overhead compared to standard language model finetuning. In this section, we analyse strategies that might make this process more efficient, alleviating the need to re-compute the embeddings of all the documents too often. Full index update. Let us start by analysing the overhead due to updating the index, compared to using a fixed retriever. To compare the computation time of different models, we will make the following assumption: the time required to perform a forward pass on a document with a model of P parameters is O(P). While this computation model may seem naive, the main assumption is that document sizes are constant.1 Since we split long documents into passages with similar number of words, and use padding when processing documents of different sizes, this assumption is reasonable in practice.",
+      "url": "https://arxiv.org/abs/2208.03299v3",
+      "pdf_file": "pdfs/atlas.pdf",
+      "sha256": "593ab76b843cd6a0cba3271a2322fed7ea045edc75918d0cfce9eaf3d259a23e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03009207275993712
+    },
+    {
+      "source_id": "atlas:s0030",
+      "paper_id": "atlas",
+      "title": "Atlas: Few-shot Learning with Retrieval Augmented Language Models",
+      "section": "4.3 Pre-training loss and tasks",
+      "page_start": 10,
+      "page_end": 11,
+      "text": "We start our ablation study by comparing different pre-training tasks, and objective functions to jointly train the retriever and the language model. Our goal here is to answer the following research questions: (RQ 1) Does jointly pre-training the whole model lead to better few-shot performance? (RQ 2) What is the best objective function for the retriever, and the best pretext task? We start by comparing the training objectives of the retriever, introduced in Section 2.2, by pre-training models using the masked language modelling task. We evaluate these models on a subset of the 64-shot and 1024-shot KILT benchmark: NaturalQuestions, FEVER and Wizard of Wikipedia, along with two baselines: a ‘closed-book” (i.e. non-augmented T5) baseline, pre-trained on the same data, and initialized from Contriever and T5-lm-adapt. We report results in Table 1. First, we note the poor performance of the closed-book baseline, indicating the importance of augmentation. Next, we observe that pre-training our model with retrieval is important to obtain good performance on few-shot tasks. Indeed, all models that include retrieval during pre-training strongly outperform the baseline without joint pre-training. Next, Table 2: Pretext task ablation. We compare different pretext tasks, used to jointly pre-train our models. Examples are randomly sampled from the training set of the KILT version of the dataset. We report the exact match on NaturalQuestions, the F1 score on Wizard of Wikipedia and the accuracy on FEVER. 64-shot 1024-shot NQ WoW FEVER Avg. NQ WoW FEVER Avg. Prefix Language Modelling 41.0 14.5 64.9 40.1 44.7 17.9 86.0 49.5 Masked Language Modelling 42.7 14.9 69.7 42.4 44.7 18.3 88.8 50.6 Title-to-section generation 41.1 15.2 66.1 40.8 45.4 17.9 84.6 49.3 Table 3: Index content ablation.",
+      "url": "https://arxiv.org/abs/2208.03299v3",
+      "pdf_file": "pdfs/atlas.pdf",
+      "sha256": "593ab76b843cd6a0cba3271a2322fed7ea045edc75918d0cfce9eaf3d259a23e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02786377708978328
+    },
+    {
+      "source_id": "atlas:s0003",
+      "paper_id": "atlas",
+      "title": "Atlas: Few-shot Learning with Retrieval Augmented Language Models",
+      "section": "1 Introduction",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "In addition to their memorisation abilities, such architectures are attractive due to a number of other established advantages in terms of adaptability, interpretability and efficiency (Guu et al., 2020; Lewis et al., 2020; Yogatama et al., 2021; Borgeaud et al., 2021, inter alia). However, retrieval-augmented models have yet to ∗equal contribution Masked Language Modelling: Bermuda Triangle is in the <MASK> of the Atlantic Ocean. Pretraining Few-shot Fact checking: Bermuda Triangle is in the western part of the Himalayas. western part Atlas False ... ... Question answering: Where is the Bermuda Triangle? Western part of the North Atlantic Ocean Figure 1: We introduce Atlas, a retrieval-augmented language model that exhibits strong few-shot performance on knowledge tasks, and uses retrieval during both pre-training and fine-tuning. demonstrate compelling few-shot learning capabilities. In this work we address this gap, and present Atlas, a retrieval-augmented language model capable of strong few-shot learning, despite having lower parameter counts than other powerful recent few-shot learners. Atlas retrieves relevant documents based on the current context by using a general-purpose dense retriever using a dual-encoder architecture, based on the Contriever (Izacard et al., 2022). The retrieved documents are processed, along with the current context, by a sequence-to-sequence model using the Fusion-in-Decoder architecture (Izacard & Grave, 2020) that generates the corresponding output. We study the impact of different techniques to train Atlas on its few-shot performance on a range of downstream tasks, including question answering and fact checking. We find that jointly pre-training the components is crucial for few-shot performance, and we carefully evaluate a number of existing and novel pre-training tasks and schemes for this purpose. Atlas achieves strong downstream performance in both few-shot and resource-rich settings.",
+      "url": "https://arxiv.org/abs/2208.03299v3",
+      "pdf_file": "pdfs/atlas.pdf",
+      "sha256": "593ab76b843cd6a0cba3271a2322fed7ea045edc75918d0cfce9eaf3d259a23e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02591362126245847
+    },
+    {
+      "source_id": "atlas:s0045",
+      "paper_id": "atlas",
+      "title": "Atlas: Few-shot Learning with Retrieval Augmented Language Models",
+      "section": "5.1 Interpretability and Leakage",
+      "page_start": 16,
+      "page_end": 16,
+      "text": "An advantage of semi-parametric models like Atlas is the ability to inspect retrieved items to aid interpretability. To better understand how well Atlas retrieves, and how it uses retrieved passages, we examine the retrieved passages for multi-task few-shot MMLU. As shown in the left panel of Figure 3, the model retrieves the majority of its passages from CCNet (85% on average). Wikipedia makes up about 15% of retrieved passages, which is higher than we would expect under a uniform prior, given Wikipedia only makes up about 10% of the index. The fraction of Wikipedia retrieval varies between MMLU domains, with the model using Wikipedia to a greater extent for STEM domains, and least for social sciences. The domain making the greatest use of Wikipedia is “abstract algebra” (73%), and the least is “moral scenarios” (3%). We also note that the MMLU-finetuned Atlas does not make significant use of Wikipedia infobox passages. We can also analyse the content of passages to assess how they may useful for accomplishing the downstream task. The middle panel of Figure 3 shows how often retrieved documents contain the text of the correct answer option. There being at least one mention of the correct answer choice in 30% of test questions in the top 25 passages.6 The right panel shows that the accuracy on MMLU increases when the correct answer option text occurs more frequently in retrieved passages, rising from 55% for questions when the answer option does not appear, to 77% for questions mentioned more than 15 times. A human analysis of retrieved documents revealed that documents are helpful for answering questions in a number of different ways.",
+      "url": "https://arxiv.org/abs/2208.03299v3",
+      "pdf_file": "pdfs/atlas.pdf",
+      "sha256": "593ab76b843cd6a0cba3271a2322fed7ea045edc75918d0cfce9eaf3d259a23e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02541827541827542
+    },
+    {
+      "source_id": "atlas:s0035",
+      "paper_id": "atlas",
+      "title": "Atlas: Few-shot Learning with Retrieval Augmented Language Models",
+      "section": "4.5 Training and evaluating Atlas",
+      "page_start": 12,
+      "page_end": 12,
+      "text": "In this section, we apply the findings from the ablations of the previous sections to train a family of Atlas models, ranging from 770M to 11B parameters. More specifically, we use the Perplexity Distillation objective function, along with the masked language modelling pretext task. We pre-train these models using a mix of Wikipedia and Common Crawl data, for both the training data and content of the index. We retrieve 20 documents, and update the index every 2,500 steps and perform re-ranking of the top-100 documents. We pre-train models for 10,000 iterations using AdamW with a batch size of 128.",
+      "url": "https://arxiv.org/abs/2208.03299v3",
+      "pdf_file": "pdfs/atlas.pdf",
+      "sha256": "593ab76b843cd6a0cba3271a2322fed7ea045edc75918d0cfce9eaf3d259a23e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.025383141762452106
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "why does jointly pre-train its retriever and reader",
+      "paper_ids": [
+        "atlas"
+      ],
+      "facet": "training",
+      "covered": true,
+      "claim_ids": [
+        "atlas.training"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    },
+    {
+      "part_id": "part2",
+      "question_part": "how does its reader make use of multiple retrieved passages",
+      "paper_ids": [
+        "atlas"
+      ],
+      "facet": "inference",
+      "covered": true,
+      "claim_ids": [
+        "atlas.architecture"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.011082875018473715,
+  "evaluation_question_id": "F07"
+}

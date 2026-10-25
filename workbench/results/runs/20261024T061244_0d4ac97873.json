@@ -1,0 +1,442 @@
+{
+  "run_id": "20261024T061244_0d4ac97873",
+  "created_utc": "2026-10-24T06:12:44.338980+00:00",
+  "question": "How do SPLADE and Contriever differ in their retrieval representations and learning approach?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "splade",
+      "contriever"
+    ],
+    "facets": [
+      "training",
+      "representation"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": true,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "how do and differ in their retrieval representations and learning approach",
+        "facets": [
+          "training",
+          "representation"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "splade.learning",
+      "paper_id": "splade",
+      "text": "SPLADE learns the ranking and sparsity objectives jointly. It combines in-batch-negative ranking loss with regularisation for query and document representations, and uses log-saturation of token weights to limit domination by individual terms.",
+      "facets": [
+        "training",
+        "supervision"
+      ],
+      "source_ids": [
+        "splade:s0011",
+        "splade:s0010"
+      ]
+    },
+    {
+      "claim_id": "splade.representation",
+      "paper_id": "splade",
+      "text": "SPLADE learns sparse lexical representations for queries and documents, including vocabulary expansion and term weighting. Sparse weights allow retrieval with an inverted index rather than requiring a dense nearest-neighbour representation.",
+      "facets": [
+        "representation",
+        "retrieval",
+        "purpose"
+      ],
+      "source_ids": [
+        "splade:s0018",
+        "splade:s0001"
+      ]
+    },
+    {
+      "claim_id": "contriever.training",
+      "paper_id": "contriever",
+      "text": "Contriever forms positive pairs from different views of the same document, using independent random cropping and additional text perturbations. Its contrastive objective increases similarity for positive pairs relative to negative pairs.",
+      "facets": [
+        "training",
+        "supervision"
+      ],
+      "source_ids": [
+        "contriever:s0015",
+        "contriever:s0013"
+      ]
+    },
+    {
+      "claim_id": "contriever.representation",
+      "paper_id": "contriever",
+      "text": "Contriever is a dense retriever trained with contrastive learning without requiring labelled query–passage relevance pairs for its unsupervised pre-training. Its representation approach is dense rather than a sparse vocabulary-weight representation.",
+      "facets": [
+        "representation",
+        "retrieval",
+        "purpose"
+      ],
+      "source_ids": [
+        "contriever:s0003"
+      ]
+    }
+  ],
+  "comparison": [
+    {
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "claims": [
+        {
+          "claim_id": "splade.learning",
+          "paper_id": "splade",
+          "text": "SPLADE learns the ranking and sparsity objectives jointly. It combines in-batch-negative ranking loss with regularisation for query and document representations, and uses log-saturation of token weights to limit domination by individual terms.",
+          "facets": [
+            "training",
+            "supervision"
+          ],
+          "source_ids": [
+            "splade:s0011",
+            "splade:s0010"
+          ]
+        },
+        {
+          "claim_id": "splade.representation",
+          "paper_id": "splade",
+          "text": "SPLADE learns sparse lexical representations for queries and documents, including vocabulary expansion and term weighting. Sparse weights allow retrieval with an inverted index rather than requiring a dense nearest-neighbour representation.",
+          "facets": [
+            "representation",
+            "retrieval",
+            "purpose"
+          ],
+          "source_ids": [
+            "splade:s0018",
+            "splade:s0001"
+          ]
+        }
+      ]
+    },
+    {
+      "paper_id": "contriever",
+      "title": "Unsupervised Dense Information Retrieval with Contrastive Learning",
+      "claims": [
+        {
+          "claim_id": "contriever.training",
+          "paper_id": "contriever",
+          "text": "Contriever forms positive pairs from different views of the same document, using independent random cropping and additional text perturbations. Its contrastive objective increases similarity for positive pairs relative to negative pairs.",
+          "facets": [
+            "training",
+            "supervision"
+          ],
+          "source_ids": [
+            "contriever:s0015",
+            "contriever:s0013"
+          ]
+        },
+        {
+          "claim_id": "contriever.representation",
+          "paper_id": "contriever",
+          "text": "Contriever is a dense retriever trained with contrastive learning without requiring labelled query–passage relevance pairs for its unsupervised pre-training. Its representation approach is dense rather than a sparse vocabulary-weight representation.",
+          "facets": [
+            "representation",
+            "retrieval",
+            "purpose"
+          ],
+          "source_ids": [
+            "contriever:s0003"
+          ]
+        }
+      ]
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "splade:s0011",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "3.2 SPLADE: SParse Lexical AnD Expansion",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "Later, [20] pointed-out that minimizing the l1 norm of representations does not result in the most efficient index, as nothing ensures that posting lists are evenly distributed. Note that this is even more true for standard indexes due to the Zipfian nature of the term frequency distribution. To obtain a well-balanced index, Paria et al. [20] introduce the FLOPS regularizer, a smooth relaxation of the average number of floating-point operations necessary to compute the score of a document, and hence directly related to the retrieval time. It is defined using ajas a continuous relaxation of the activation (i.e. the term has a non zero weight) probability pjfor token j, and estimated for documents din a batch of size N N ÍN i=1 w(di) j . This gives the following regularization loss by ̄aj= 1 !2 N ∑︁ 1 N i=1 w(di) j lFLOPS = ∑︁ j∈V ̄a2 j= ∑︁ j∈V This differs from the l1 regularization used in SNRM [28] where the ̄ajare not squared: using lFLOPS thus pushes down high average term weight values, giving rise to a more balanced index. Overall loss. We propose to combine the best of both worlds for end-to-end training of sparse, expansion-aware representations of documents and queries. Thus, we discard the binary gating in SparTerm, and instead learn our log-saturated model (Eq. 4) by jointly optimizing ranking and regularization losses: L = Lrank−IBN+ λqLq reg + λdLd reg (6) where Lreg is a sparse regularization (l1 or lFLOPS). We use two distinct regularization weights (λdand λq) for queries and documents – allowing to put more pressure on the sparsity for queries, which is critical for fast retrieval.",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "splade:s0010",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "3.2 SPLADE: SParse Lexical AnD Expansion",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "model In the following, we propose slight, but essential changes to the SparTerm model that dramatically improve its performance. Model. We introduce a minor change in the importance estimation from Eq. 2, by introducing a log-saturation effect which prevents some terms to dominate and naturally ensures sparsity in representations: wj= ∑︁ i∈t log \u00001 + ReLU(wij)\u0001 (4) While it is intuitive that using a log-saturation prevents some terms from dominating – drawing a parallel with axiomatic approaches in IR and log(tf) models [9] – the implied sparsity can seem surprising at first, but, according to our experiments, it obtains better experimental results and allows already to obtain sparse solutions without any regularization. Ranking loss. Given a query qiin a batch, a positive document d+ i, a (hard) negative document d− i(e.g. coming from BM25 sampling), and a set of negative documents in the batch (positive documents from other queries) {d− i,j}j, we consider the ranking loss from [8], which can be interpreted as the maximization of the probability of the document d+ ibeing relevant among the documents d+ i,d− iand {d− i,j}: Lrank−IBN= −log es(qi,d+ i) es(qi,d+ i) + es(qi,d− i) + Í jes(qi,d− i,j) (5) The in-batch negatives (IBN) sampling strategy is widely used for training image retrieval models, and has shown to be effective in learning first-stage rankers [8, 12, 15]. Learning sparse representations. The idea of learning sparse representations for first-stage retrieval dates back to SNRM [28], via l1 regularization. Later, [20] pointed-out that minimizing the l1 norm of representations does not result in the most efficient index, as nothing ensures that posting lists are evenly distributed.",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "splade:s0018",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "5 CONCLUSION",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "Recently, dense retrieval based on BERT has demonstrated its superiority for first-stage retrieval, questioning the competitiveness of traditional sparse models. In this work, we have proposed SPLADE, a sparse model revisiting query/document expansion. Our approach relies on in-batch negatives, logarithmic activation and FLOPS regularization to learn effective and efficient sparse representations. SPLADE is an appealing candidate for initial retrieval: it rivals the latest state-of-the-art dense retrieval models, its training procedure is straightforward, its sparsity/FLOPS can be controlled explicitly through the regularization, and it can operate on inverted indexes. In reason of its simplicity, SPLADE is a solid basis for further improvements in this line of research.",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "splade:s0001",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "ABSTRACT",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "In neural Information Retrieval, ongoing research is directed towards improving the first retriever in ranking pipelines. Learning dense embeddings to conduct retrieval using efficient approximate nearest neighbors methods has proven to work well. Meanwhile, there has been a growing interest in learning sparse representations for documents and queries, that could inherit from the desirable properties of bag-of-words models such as the exact matching of terms and the efficiency of inverted indexes. In this work, we present a new first-stage ranker based on explicit sparsity regularization and a log-saturation effect on term weights, leading to highly sparse representations and competitive results with respect to state-ofthe-art dense and sparse methods. Our approach is simple, trained end-to-end in a single stage. We also explore the trade-off between effectiveness and efficiency, by controlling the contribution of the sparsity regularization. KEYWORDS neural networks, indexing, sparse representations, regularization ACM Reference Format: Thibault Formal, Benjamin Piwowarski, and Stéphane Clinchant. 2021. SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking. In Proceedings of ACM Conference (Conference’17). ACM, New York, NY, USA, 5 pages. https://doi.org/10.1145/nnnnnnn.nnnnnnn",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "contriever:s0015",
+      "paper_id": "contriever",
+      "title": "Unsupervised Dense Information Retrieval with Contrastive Learning",
+      "section": "3.1.2 Building positive pairs from a single document",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "In the original implementation by Lee et al. (2019) the span corresponds to a sentence, and is kept in the document 10% of the time to encourage lexical matching. The Inverse Cloze Task is closely related to the Cloze task which uses the span complement (w1, ..., wa−1, wb+1, ..., wn) as the query. Independent cropping is a common independent data augmentation used for images where views are generated independently by cropping the input. In the context of text, cropping is equivalent to sampling a span of tokens. This strategy thus samples independently two spans from a document to form a positive pair. As opposed to the inverse Cloze task, in cropping both views of the example correspond to contiguous subsequence of the original data. A second difference between cropping and ICT is the fact that independent random cropping is symmetric: both the queries and documents follow the same distribution. Independent cropping also lead to overlap between the two views of the data, hence encouraging the network to learn exact matches between the query and document, in a way that is similar to lexical matching methods like BM25. In practice, we can either fix the length of the span for the query and the key, or sample them. Additional data augmentation. Finally, we also consider additional data augmentations such as random word deletion, replacement or masking. We use these perturbations in addition to random cropping.",
+      "url": "https://arxiv.org/abs/2112.09118v4",
+      "pdf_file": "pdfs/contriever.pdf",
+      "sha256": "7407131fd633561d8eab8701e43ca81061960b6642ae180eb86a3f367b2b8408",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "contriever:s0013",
+      "paper_id": "contriever",
+      "title": "Unsupervised Dense Information Retrieval with Contrastive Learning",
+      "section": "3.1.1 Contrastive learning",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "Contrastive learning is an approach that relies on the fact that every document is, in some way, unique. This signal is the only information available in the absence of manual supervision. A contrastive loss is used to learn by discriminating between documents. This loss compares either positive (from the same document) or negative (from different documents) pairs of document representations. Formally, given a query q with an associated positive document k+, and a pool of negative documents (ki)i=1..K, the contrastive InfoNCE loss is defined as: L(q, k+) = − exp(s(q, k+)/τ) exp(s(q, k+)/τ) + PK i=1 exp(s(q, ki)/τ) , (1) where τ is a temperature parameter. This loss encourages positive pairs to have high scores and negative pairs to have low scores. Another interpretation of this loss function is the following: given the query representation q, the goal is to recover, or retrieve, the representation k+ corresponding to the positive document, among all the negatives ki. In the following, we refer to the left-hand side representations in the score s as queries and the right-hand side representations as keys.",
+      "url": "https://arxiv.org/abs/2112.09118v4",
+      "pdf_file": "pdfs/contriever.pdf",
+      "sha256": "7407131fd633561d8eab8701e43ca81061960b6642ae180eb86a3f367b2b8408",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "contriever:s0003",
+      "paper_id": "contriever",
+      "title": "Unsupervised Dense Information Retrieval with Contrastive Learning",
+      "section": "1 Introduction",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "Moreover large annotated datasets are generally not available in languages other than English. Thus, using large collections of supervised data is not suitable to train multilingual retrieval systems. A natural alternative to transfer learning is unsupervised learning, which raises the following question: is it possible to train dense retrievers without supervision, and match the performance of BM25? Training dense retrievers without supervision can be achieved by using an auxiliary task that approximates retrieval. Given a document, one can generate a synthetic query and then train the network to retrieve the original document, among many others, given the query. The inverse Cloze task (ICT), proposed by Lee et al. (2019) to pre-train retrievers, uses a given sentence as a query and predicts the context surrounding it. While showing promising results as pre-training (Chang et al., 2020; Sachan et al., 2021), this approach still lags behind BM25 when used as a zero-shot retriever. ICT is strongly related to contrastive learning (Wu et al., 2018), which has been widely applied in computer vision (Chen et al., 2020; He et al., 2020). In particular, computer vision models trained with the latest contrastive learning methods led to features well suited to retrieval (Caron et al., 2021). We thus propose to revisit how well contrastive learning performs to train dense retrievers without supervision. In this paper, we make the following contributions. First, we show that contrastive learning can lead to strong unsupervised retrievers: our model achieves Recall@100 results competitive with BM25 on most of the BEIR benchmark. Second, in a few-shot setting, we show that our model benefits from few training examples, and obtains better results than transferring models from large datasets such as MS MARCO.",
+      "url": "https://arxiv.org/abs/2112.09118v4",
+      "pdf_file": "pdfs/contriever.pdf",
+      "sha256": "7407131fd633561d8eab8701e43ca81061960b6642ae180eb86a3f367b2b8408",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "splade:s0018",
+    "contriever:s0021",
+    "splade:s0007",
+    "contriever:s0022",
+    "splade:s0001",
+    "contriever:s0009",
+    "splade:s0017",
+    "contriever:s0004"
+  ],
+  "retrieved": [
+    {
+      "source_id": "splade:s0018",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "5 CONCLUSION",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "Recently, dense retrieval based on BERT has demonstrated its superiority for first-stage retrieval, questioning the competitiveness of traditional sparse models. In this work, we have proposed SPLADE, a sparse model revisiting query/document expansion. Our approach relies on in-batch negatives, logarithmic activation and FLOPS regularization to learn effective and efficient sparse representations. SPLADE is an appealing candidate for initial retrieval: it rivals the latest state-of-the-art dense retrieval models, its training procedure is straightforward, its sparsity/FLOPS can be controlled explicitly through the regularization, and it can operate on inverted indexes. In reason of its simplicity, SPLADE is a solid basis for further improvements in this line of research.",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03225806451612903
+    },
+    {
+      "source_id": "contriever:s0021",
+      "paper_id": "contriever",
+      "title": "Unsupervised Dense Information Retrieval with Contrastive Learning",
+      "section": "4.2 Baselines",
+      "page_start": 7,
+      "page_end": 7,
+      "text": "First, we compare Contriever to BM25, which does not require supervision. On QA datasets, we compare to dense retrievers trained with ICT and the Masked Salient Spans from Sachan et al. (2021). On BEIR, we consider the retriever from REALM (Guu et al., 2020), and RoBERTa large fine-tuned with SimCSE (Gao et al., 2021), as unsupervised dense retrievers. We also compare to ML-based retrievers trained on MS MARCO, classified in three categories: sparse, dense and late-interaction. For sparse methods, we compare to Splade v2 (Formal et al., 2021), which computes sparse representations of documents with BERT pre-trained model. For dense methods, we use DPR (Karpukhin et al., 2020) and ANCE (Xiong et al., 2020), which are bi-encoders trained on supervised data such as NaturalQuestions or MS MARCO. We also compare to TAS-B (Hofstätter et al., 2021), which performs distillation from a cross-encoder to a bi-encoder, and GenQ, which creates synthetic query-document pairs with a generative model.1 For late-interaction, we use ColBERT (Khattab et al., 2020), which computes pairwise scores between contextualized representations of queries and documents, as well as a cross-encoder used to re-rank documents retrieved with BM25.",
+      "url": "https://arxiv.org/abs/2112.09118v4",
+      "pdf_file": "pdfs/contriever.pdf",
+      "sha256": "7407131fd633561d8eab8701e43ca81061960b6642ae180eb86a3f367b2b8408",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.032018442622950824
+    },
+    {
+      "source_id": "splade:s0007",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "3 SPARSE LEXICAL REPRESENTATIONS FOR",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "FIRST-STAGE RANKING In this section, we first describe in details the SparTerm model [1], before presenting our model named SPLADE.",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.032018442622950824
+    },
+    {
+      "source_id": "contriever:s0022",
+      "paper_id": "contriever",
+      "title": "Unsupervised Dense Information Retrieval with Contrastive Learning",
+      "section": "4.3 Results",
+      "page_start": 7,
+      "page_end": 7,
+      "text": "First, we compare the performance of fully unsupervised models, i.e., without fine-tuning on MS MARCO or other annotated data. In Table 1, we report the retrieval performance on two question answering datasets: NaturalQuestions (Kwiatkowski et al., 2019) and TriviaQA (Joshi et al., 2017). Here, our model is competitive with a strong BM25 baseline (Ma et al., 2021), for example leading to 3 points improvement for the recall@100 on NaturalQuestions. It also outperforms previously proposed dense retrievers which were trained with ICT or salient span masking. In Figure 1 we report the recall@100 performance of unsupervised models on the BEIR benchmark. Interestingly, we observe that in this setting, Contriever is competitive compared to BM25 on all datasets, but TREC-COVID and Tóuche-2020. In particular, it obtains better performance than BM25 on 11 out of 15 datasets from the benchmark for the recall@100. Contriever also outperforms previously proposed unsupervised dense retrievers, which obtains lower performance than BM25 in general. For the nDCG@10, which puts more emphasis on the very first retrieved documents, while Contriever largely closes the gap between unsupervised retrievers and BM25, it is still outperformed by BM25 as reported in Table 11. The difference is mainly due to the fact that BM25 largely outperforms Contriever on two datasets with specific features: Trec-COVID and Tóuche-2020. Trec-COVID is an information retrieval dataset related to COVID. However data used to train Contriever were collected before the COVID outbreak, thus they may not be adapted. Tóuche-2020 contains long documents, which does not seem to be very well supported by dense neural retrievers: even after supervised training, models are still lagging behind BM25.",
+      "url": "https://arxiv.org/abs/2112.09118v4",
+      "pdf_file": "pdfs/contriever.pdf",
+      "sha256": "7407131fd633561d8eab8701e43ca81061960b6642ae180eb86a3f367b2b8408",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.027783137179239824
+    },
+    {
+      "source_id": "splade:s0001",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "ABSTRACT",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "In neural Information Retrieval, ongoing research is directed towards improving the first retriever in ranking pipelines. Learning dense embeddings to conduct retrieval using efficient approximate nearest neighbors methods has proven to work well. Meanwhile, there has been a growing interest in learning sparse representations for documents and queries, that could inherit from the desirable properties of bag-of-words models such as the exact matching of terms and the efficiency of inverted indexes. In this work, we present a new first-stage ranker based on explicit sparsity regularization and a log-saturation effect on term weights, leading to highly sparse representations and competitive results with respect to state-ofthe-art dense and sparse methods. Our approach is simple, trained end-to-end in a single stage. We also explore the trade-off between effectiveness and efficiency, by controlling the contribution of the sparsity regularization. KEYWORDS neural networks, indexing, sparse representations, regularization ACM Reference Format: Thibault Formal, Benjamin Piwowarski, and Stéphane Clinchant. 2021. SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking. In Proceedings of ACM Conference (Conference’17). ACM, New York, NY, USA, 5 pages. https://doi.org/10.1145/nnnnnnn.nnnnnnn",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03057889822595705
+    },
+    {
+      "source_id": "contriever:s0009",
+      "paper_id": "contriever",
+      "title": "Unsupervised Dense Information Retrieval with Contrastive Learning",
+      "section": "2 Related work",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "Concurrent to this work, Gao & Callan (2021) have also shown the potential of contrastive learning for information retrieval; building on the same observation that both tasks share a similar structure. Spider (Ram et al., 2021), a contemporary work, uses spans appearing multiple times in a document to create pseudo examples for contrastive learning in order to train unsupervised retrievers. Finally, Chen et al. (2021) train a dense retriever to imitate unsupervised lexical-based methods. This improves performance on a range of tasks and achieves state-of-the-art results when combining the resulting dense retriever with Contriever, our model pre-trained with contrastive learning.",
+      "url": "https://arxiv.org/abs/2112.09118v4",
+      "pdf_file": "pdfs/contriever.pdf",
+      "sha256": "7407131fd633561d8eab8701e43ca81061960b6642ae180eb86a3f367b2b8408",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.026356857985087564
+    },
+    {
+      "source_id": "splade:s0017",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "4 EXPERIMENTAL SETTING AND RESULTS",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "The role of expansion. Experiments show that the expansion brings improvements w.r.t. to the purely lexical approach by increasing recall. Additionally, representations obtained from expansionregularized models are sparser: the models learn how to balance expansion and compression, by both turning-off irrelevant dimensions and activating useful ones. On a set of 10k documents, the SPLADE-lFLOPS from Table 1 drops in average 20 terms per document, while adding 32 expansion terms. For one of our most efficient model (FLOPS=0.05), 34 terms are dropped in average, for only 5 new expansion terms. In this case, representations are extremely sparse: documents and queries contain in average 18 and 6 non-zero values respectively, and we need less that 1.4 GB to store the index on disk. Table 2 shows an example where the model performs term re-weighting by emphasizing on important terms and discarding most of the terms without information content. Expansion allows to enrich documents, either by implicitly adding stemming effects (legs →leg) or by adding relevant topic words (e.g. treatment).",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030536130536130537
+    },
+    {
+      "source_id": "contriever:s0004",
+      "paper_id": "contriever",
+      "title": "Unsupervised Dense Information Retrieval with Contrastive Learning",
+      "section": "1 Introduction",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "Second, in a few-shot setting, we show that our model benefits from few training examples, and obtains better results than transferring models from large datasets such as MS MARCO. Third, when used as a pre-training method before fine-tuning on MS MARCO, our technique leads to strong performance on the BEIR benchmark. We perform ablations to motivate our design choices, and show that cropping works better than the inverse Cloze task. Finally we train a multilingual dense retriever with contrastive learning and show that it achieves state-of-the-art performance. Code and pre-trained models are available here: https://github.com/facebookresearch/contriever.",
+      "url": "https://arxiv.org/abs/2112.09118v4",
+      "pdf_file": "pdfs/contriever.pdf",
+      "sha256": "7407131fd633561d8eab8701e43ca81061960b6642ae180eb86a3f367b2b8408",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.025528455284552845
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "how do and differ in their retrieval representations and learning approach",
+      "paper_ids": [
+        "splade"
+      ],
+      "facet": "training",
+      "covered": true,
+      "claim_ids": [
+        "splade.learning"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    },
+    {
+      "part_id": "part1",
+      "question_part": "how do and differ in their retrieval representations and learning approach",
+      "paper_ids": [
+        "splade"
+      ],
+      "facet": "representation",
+      "covered": true,
+      "claim_ids": [
+        "splade.representation"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    },
+    {
+      "part_id": "part1",
+      "question_part": "how do and differ in their retrieval representations and learning approach",
+      "paper_ids": [
+        "contriever"
+      ],
+      "facet": "training",
+      "covered": true,
+      "claim_ids": [
+        "contriever.training"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    },
+    {
+      "part_id": "part1",
+      "question_part": "how do and differ in their retrieval representations and learning approach",
+      "paper_ids": [
+        "contriever"
+      ],
+      "facet": "representation",
+      "covered": true,
+      "claim_ids": [
+        "contriever.representation"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.008478541014483199,
+  "evaluation_question_id": "H05"
+}

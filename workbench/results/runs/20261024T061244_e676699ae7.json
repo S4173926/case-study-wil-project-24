@@ -1,0 +1,264 @@
+{
+  "run_id": "20261024T061244_e676699ae7",
+  "created_utc": "2026-10-24T06:12:44.308004+00:00",
+  "question": "Under what circumstances can RECOMP leave out retrieved context entirely, and what does the compressor output?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "recomp"
+    ],
+    "facets": [
+      "condition",
+      "inference"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "under what circumstances can leave out retrieved context entirely",
+        "facets": [
+          "condition"
+        ],
+        "explicit": true,
+        "scope": "each"
+      },
+      {
+        "id": "part2",
+        "text": "what does the compressor output",
+        "facets": [
+          "inference"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "recomp.selective",
+      "paper_id": "recomp",
+      "text": "When retrieved documents are irrelevant to the input or offer no additional useful information to the language model, RECOMP can return an empty string, or empty summary. In that case no retrieved summary is added to the model input. This is selective augmentation, not a requirement to use every retrieved document.",
+      "facets": [
+        "condition",
+        "inference"
+      ],
+      "source_ids": [
+        "recomp:s0001",
+        "recomp:s0002"
+      ]
+    },
+    {
+      "claim_id": "recomp.variants",
+      "paper_id": "recomp",
+      "text": "RECOMP has two compressor variants. The extractive compressor selects useful sentences from the retrieved documents; the abstractive compressor writes a summary that synthesises information across multiple documents.",
+      "facets": [
+        "inference",
+        "representation"
+      ],
+      "source_ids": [
+        "recomp:s0001"
+      ]
+    }
+  ],
+  "comparison": [],
+  "citations": [
+    {
+      "source_id": "recomp:s0001",
+      "paper_id": "recomp",
+      "title": "RECOMP: Improving Retrieval-Augmented LMs with Compression and Selective Augmentation",
+      "section": "ABSTRACT",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Retrieving documents and prepending them in-context at inference time improves performance of language model (LMs) on a wide range of tasks. However, these documents, often spanning hundreds of words, make inference substantially more expensive. We propose compressing the retrieved documents into textual summaries prior to in-context integration. This not only reduces the computational costs but also relieves the burden of LMs to identify relevant information in long retrieved documents. We present two compressors – an extractive compressor which selects useful sentences from retrieved documents and an abstractive compressor which generates summaries by synthesizing information from multiple documents. Both compressors are trained to improve LMs’ performance on end tasks when the generated summaries are prepended to the LMs’ input, while keeping the summary concise. If the retrieved documents are irrelevant to the input or offer no additional information to LM, our compressor can return an empty string, implementing selective augmentation. We evaluate our approach on language modeling task and open domain question answering task. We achieve a compression rate of as low as 6% with minimal loss in performance for both tasks, significantly outperforming the off-the-shelf summarization models. We show that our compressors trained for one LM can transfer to other LMs on the language modeling task and provide summaries largely faithful to the retrieved documents.1",
+      "url": "https://arxiv.org/abs/2310.04408v1",
+      "pdf_file": "pdfs/recomp.pdf",
+      "sha256": "9d8aa7881e786d6b3593fe6c60bc2e52944aee82ab6ca577097618baf8d21066",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "recomp:s0002",
+      "paper_id": "recomp",
+      "title": "RECOMP: Improving Retrieval-Augmented LMs with Compression and Selective Augmentation",
+      "section": "1 INTRODUCTION",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Retrieval-augmented language models (RALMs) (Khandelwal et al., 2019; Izacard et al., 2022; Lewis et al., 2020; Borgeaud et al., 2022) have shown impressive performance on knowledge-intensive tasks (Kwiatkowski et al., 2019; Petroni et al., 2021). Simply prepending retrieved documents to the input without updating the language models (LMs) (Shi et al., 2023b; Ram et al., 2023; Si et al., 2022) allows retrieval augmentation even for black-box LMs, but such approach comes with limitations. First, it increases computational costs as LMs now encode substantially more tokens. Second, even if we manage to adapt LMs to efficiently incorporate longer context (Beltagy et al., 2020; Zaheer et al., 2020), these models struggle to use all information in the context, frequently missing information placed in the middle (Liu et al., 2023). Third, prepending a large number of documents in-context can further confuse LMs with irrelevant information, degrading model performances (Mallen et al., 2022; Shi et al., 2023a). To overcome such limitations, we propose RECOMP (Retrieve, Compress, Prepend), an intermediate step for RALMs which compresses retrieved documents into a textual summary prior to in-context augmentation. Figure 1 illustrates our approach. The generated summary should be concise to maximize efficiency, be faithful to the retrieved evidence documents, and guide RALM to generate desired outputs when prepended to the input. To satisfy both efficiency and effectiveness constraints, our compressor strategically performs selective augmentation by generating an empty summary when the retrieved documents are irrelevant or unhelpful for target task. 1Our code is available at https://github.com/carriex/recomp.",
+      "url": "https://arxiv.org/abs/2310.04408v1",
+      "pdf_file": "pdfs/recomp.pdf",
+      "sha256": "9d8aa7881e786d6b3593fe6c60bc2e52944aee82ab6ca577097618baf8d21066",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "recomp:s0005",
+    "recomp:s0007",
+    "recomp:s0003",
+    "recomp:s0001",
+    "recomp:s0006",
+    "recomp:s0030",
+    "recomp:s0002",
+    "recomp:s0008"
+  ],
+  "retrieved": [
+    {
+      "source_id": "recomp:s0005",
+      "paper_id": "recomp",
+      "title": "RECOMP: Improving Retrieval-Augmented LMs with Compression and Selective Augmentation",
+      "section": "2 PROBLEM FORMULATION: RECOMP",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "Given an input sequence x, a target output sequence y and a set of N retrieved documents D ([d1, d2, ...dN]),2 RECOMP compresses retrieved documents D with respect to x into a summary s which captures core information in D relevant to x with significantly fewer tokens than D. Our architecture consists of two modules: compressor cθ and LM M. In this work, we assume a blackbox LM and train the compressor. Given the set of retrieved N documents ([d1, d2, ...dN]) and the input sequence x, a compressor returns a token sequence s. We design our compressor to be substantially smaller than LM M, as we aim to reduce computational costs of encoding a set of retrieved documents. The output from compressor, s, should be: (1) Concise: The summary should be as short as possible to optimize efficiency. If the retrieved documents do not contain relevant information or retrieval augmentation is not necessary, s can be an empty sequence. (2) Effecive: when s is prepended to input sequence x and provided to LM M as a prompt, LM should generate the target output sequence y. (3) Faithful: s should be a faithful and interpretable summary of the input document set (i.e., s must be entailed by the input document set ([d1, d2, ...dN])). We focus on training compressors for conciseness and effectiveness. We summarize the key ideas for our two compressors, extractive compressors and abstractive compressor here, and discuss their training schemes formally in Section 3. 2Improving retriever is not the focus of this work, so we assume a set of retrieved documents are provided.",
+      "url": "https://arxiv.org/abs/2310.04408v1",
+      "pdf_file": "pdfs/recomp.pdf",
+      "sha256": "9d8aa7881e786d6b3593fe6c60bc2e52944aee82ab6ca577097618baf8d21066",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03252247488101534
+    },
+    {
+      "source_id": "recomp:s0007",
+      "paper_id": "recomp",
+      "title": "RECOMP: Improving Retrieval-Augmented LMs with Compression and Selective Augmentation",
+      "section": "3 LEARNING THE COMPRESSORS",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "Our compressor resembles text summarization models in the output should be faithful to the original input, yet the main goal is different. Instead of capturing salient information for humans readers, compressors aim to produce a concise text that are useful for a LM on an end task. In this section, we describe how to train the extractive compressor (§3.1) and the abstractive compressor (§3.2) leveraging end task signals. Further training details can be found in the Appendix A.2.",
+      "url": "https://arxiv.org/abs/2310.04408v1",
+      "pdf_file": "pdfs/recomp.pdf",
+      "sha256": "9d8aa7881e786d6b3593fe6c60bc2e52944aee82ab6ca577097618baf8d21066",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03252247488101534
+    },
+    {
+      "source_id": "recomp:s0003",
+      "paper_id": "recomp",
+      "title": "RECOMP: Improving Retrieval-Augmented LMs with Compression and Selective Augmentation",
+      "section": "1 INTRODUCTION",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "1Our code is available at https://github.com/carriex/recomp. RECOMP during inference Blackbox LM M Retrieve Compress Prepend Figure 1: An illustration of RECOMP, which compresses retrieved documents into a texual summary before prepending it as input to a language model at inference time. The compressed summary guides the LM to generate the correct answer, while significantly reducing the computation costs required to encode the documents. We propose compressors: (1) Extractive compressor which selects relevant sentences from retrieved document set; (2) Abstractive compressor which generates a summary synthesizing information from multiple retrieved documents. Both compressors implement multi-document query-focused summarization (Xu & Lapata, 2020), where we summarize retrieved evidence document set with respect to the input query. As we aim to enable RALM to generate correct output when summary is prepended to the input query, we design training schemes to optimize the end task performance. Our extractive compressor is trained with a contrastive learning objective to identify sentences that lead to target outputs, and our abstractive compressor is distilled (West et al., 2022) from an extreme-scale LM (e.g. GPT-3), which achieves impressive summarization performance. Our experiments show that RECOMP can improve performance of frozen LMs on language modeling (Merity et al., 2016) and three question answering datasets (Natural Questions (Kwiatkowski et al., 2019), TriviaQA (Joshi et al., 2017) and HotpotQA (Yang et al., 2018)), while prepending significantly fewer tokens compared to RALM without compression. We present two oracle compression methods – an extractive oracle which selects a sentence in evidence documents that leads to the best task performance and an abstractive oracle which chooses between a summary generated by extreme-scale LLM (e.g. GPT-3) and no retrieval augmentation that leads to the best task performance.",
+      "url": "https://arxiv.org/abs/2310.04408v1",
+      "pdf_file": "pdfs/recomp.pdf",
+      "sha256": "9d8aa7881e786d6b3593fe6c60bc2e52944aee82ab6ca577097618baf8d21066",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031746031746031744
+    },
+    {
+      "source_id": "recomp:s0001",
+      "paper_id": "recomp",
+      "title": "RECOMP: Improving Retrieval-Augmented LMs with Compression and Selective Augmentation",
+      "section": "ABSTRACT",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Retrieving documents and prepending them in-context at inference time improves performance of language model (LMs) on a wide range of tasks. However, these documents, often spanning hundreds of words, make inference substantially more expensive. We propose compressing the retrieved documents into textual summaries prior to in-context integration. This not only reduces the computational costs but also relieves the burden of LMs to identify relevant information in long retrieved documents. We present two compressors – an extractive compressor which selects useful sentences from retrieved documents and an abstractive compressor which generates summaries by synthesizing information from multiple documents. Both compressors are trained to improve LMs’ performance on end tasks when the generated summaries are prepended to the LMs’ input, while keeping the summary concise. If the retrieved documents are irrelevant to the input or offer no additional information to LM, our compressor can return an empty string, implementing selective augmentation. We evaluate our approach on language modeling task and open domain question answering task. We achieve a compression rate of as low as 6% with minimal loss in performance for both tasks, significantly outperforming the off-the-shelf summarization models. We show that our compressors trained for one LM can transfer to other LMs on the language modeling task and provide summaries largely faithful to the retrieved documents.1",
+      "url": "https://arxiv.org/abs/2310.04408v1",
+      "pdf_file": "pdfs/recomp.pdf",
+      "sha256": "9d8aa7881e786d6b3593fe6c60bc2e52944aee82ab6ca577097618baf8d21066",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030776515151515152
+    },
+    {
+      "source_id": "recomp:s0006",
+      "paper_id": "recomp",
+      "title": "RECOMP: Improving Retrieval-Augmented LMs with Compression and Selective Augmentation",
+      "section": "2 PROBLEM FORMULATION: RECOMP",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "2Improving retriever is not the focus of this work, so we assume a set of retrieved documents are provided. Extractive Compressor Given n sentences [s1, s2...sn] in the input document set ([d1, d2, ...dN]), we train a dual encoder model encθ which embeds sentence si and the input sequence x into fixeddimensional embeddings respectively. Their inner product represents how helpful it would be for the LM M to prepend si to the input x to generate y. The final summary s from the compressor will be a concatenation of top N sentences ranked by their inner product with the input. As this approach is extractive, we assume the faithfulness criteria is mostly satisfied.3 Abstractive Compressor We train an encoder-decoder model encdecθ to serve as an abstractive compressor, which takes the input sequence x and a concatenation of retrieved document set D [d1; d2; ...dN]) and output a summary s. Although we do not have human annotations to train this model, prior work (Goyal et al., 2022; Chen et al., 2023; Potluri et al., 2023) suggests that the extremescale LMs can generate good query-focused summaries when prompted carefully. Yet, using an extreme-scale model as the compressor is not desirable as we want the compressor to be substantially smaller than the LMs. Thus, we perform distillation (Hinton et al., 2015) of extreme-scale LMs to build a lightweight abstractive compressor encdecθ. We do not train specifically for faithfulness, but later manually evaluate the faithfulness in Section 6.",
+      "url": "https://arxiv.org/abs/2310.04408v1",
+      "pdf_file": "pdfs/recomp.pdf",
+      "sha256": "9d8aa7881e786d6b3593fe6c60bc2e52944aee82ab6ca577097618baf8d21066",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030776515151515152
+    },
+    {
+      "source_id": "recomp:s0030",
+      "paper_id": "recomp",
+      "title": "RECOMP: Improving Retrieval-Augmented LMs with Compression and Selective Augmentation",
+      "section": "8 CONCLUSION",
+      "page_start": 10,
+      "page_end": 10,
+      "text": "We introduce RECOMP, a method which compresses retrieved documents into textual summaries before prepending them to improve in-context retrieval augmented language models. We present two compression models – an extractive compressor and an abstractive compressor. We design a training scheme which leverages end task signals from a blackbox LM to generate useful summaries and allowing the compression models to perform selective augmentation. Our experiments show that our compressors can improve the efficiency of retrieval augmented LMs significantly with minimal drop in performances. ACKNOWLEDGEMENT We thank the members of the UT and UW NLP community for feedback on the project. We especially thank Alisa Liu, Junyi Jessy Li and Greg Durrett for providing comments on the draft. The project is partially funded by NSF grant (IIS-2312948). ETHICS STATEMENT We use commercial language model to generate training data for our compressors, which might include factual error. We conduct careful human evaluation on the data generated and present our analysis in the paper. REPRODUCIBILITY STATEMENT We release our codes, prompt, and data generated with API access publicly.",
+      "url": "https://arxiv.org/abs/2310.04408v1",
+      "pdf_file": "pdfs/recomp.pdf",
+      "sha256": "9d8aa7881e786d6b3593fe6c60bc2e52944aee82ab6ca577097618baf8d21066",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03076923076923077
+    },
+    {
+      "source_id": "recomp:s0002",
+      "paper_id": "recomp",
+      "title": "RECOMP: Improving Retrieval-Augmented LMs with Compression and Selective Augmentation",
+      "section": "1 INTRODUCTION",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Retrieval-augmented language models (RALMs) (Khandelwal et al., 2019; Izacard et al., 2022; Lewis et al., 2020; Borgeaud et al., 2022) have shown impressive performance on knowledge-intensive tasks (Kwiatkowski et al., 2019; Petroni et al., 2021). Simply prepending retrieved documents to the input without updating the language models (LMs) (Shi et al., 2023b; Ram et al., 2023; Si et al., 2022) allows retrieval augmentation even for black-box LMs, but such approach comes with limitations. First, it increases computational costs as LMs now encode substantially more tokens. Second, even if we manage to adapt LMs to efficiently incorporate longer context (Beltagy et al., 2020; Zaheer et al., 2020), these models struggle to use all information in the context, frequently missing information placed in the middle (Liu et al., 2023). Third, prepending a large number of documents in-context can further confuse LMs with irrelevant information, degrading model performances (Mallen et al., 2022; Shi et al., 2023a). To overcome such limitations, we propose RECOMP (Retrieve, Compress, Prepend), an intermediate step for RALMs which compresses retrieved documents into a textual summary prior to in-context augmentation. Figure 1 illustrates our approach. The generated summary should be concise to maximize efficiency, be faithful to the retrieved evidence documents, and guide RALM to generate desired outputs when prepended to the input. To satisfy both efficiency and effectiveness constraints, our compressor strategically performs selective augmentation by generating an empty summary when the retrieved documents are irrelevant or unhelpful for target task. 1Our code is available at https://github.com/carriex/recomp.",
+      "url": "https://arxiv.org/abs/2310.04408v1",
+      "pdf_file": "pdfs/recomp.pdf",
+      "sha256": "9d8aa7881e786d6b3593fe6c60bc2e52944aee82ab6ca577097618baf8d21066",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.028814262023217248
+    },
+    {
+      "source_id": "recomp:s0008",
+      "paper_id": "recomp",
+      "title": "RECOMP: Improving Retrieval-Augmented LMs with Compression and Selective Augmentation",
+      "section": "3.1 EXTRACTIVE COMPRESSION",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "As we formulate extractive compression as a ranking problem, training extractive compressor resembles training a reranker for the retrieved documents4 with two differences. First, our compressor considers a different granularity of input (sentence) compared to the initial retrieval unit (paragraph). Second, the sentence is evaluated based on whether it is useful as input for the LM M on the downstream task (Shi et al., 2023b; Ram et al., 2023). Model We train a dual-encoder model encθ which encodes the input context x and the candidate sentence si separately. We obtain an embedding of x and si by taking the representation of the [CLS] token respectively, and compute their similarity by calculating the inner product of the two. We initialize our model with the contriever checkpoint (Izacard et al., 2021). This model consists of 110M parameters, satisfying the efficiency desideratum of compressor. Training Figure 2 presents pseudocode for training an extractive compressor with contrastive loss for the language modeling task. For each input query xi, we identify positive and negative sentences from retrieved documents. For each pair of input sequence xi and candidate sentences sj, we measure Input: Base LM M, Compressor encθ, Training data {xi, Si, yi}T 1 where xi is input, Si = {sj}n 1 is a set of candidate sentences from the retrieved documents for xi, yi is the target answer, and score threshold ε.",
+      "url": "https://arxiv.org/abs/2310.04408v1",
+      "pdf_file": "pdfs/recomp.pdf",
+      "sha256": "9d8aa7881e786d6b3593fe6c60bc2e52944aee82ab6ca577097618baf8d21066",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.028790389395194696
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "under what circumstances can leave out retrieved context entirely",
+      "paper_ids": [
+        "recomp"
+      ],
+      "facet": "condition",
+      "covered": true,
+      "claim_ids": [
+        "recomp.selective"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    },
+    {
+      "part_id": "part2",
+      "question_part": "what does the compressor output",
+      "paper_ids": [
+        "recomp"
+      ],
+      "facet": "inference",
+      "covered": true,
+      "claim_ids": [
+        "recomp.variants"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.01086583299911581,
+  "evaluation_question_id": "H02"
+}

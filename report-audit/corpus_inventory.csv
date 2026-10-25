@@ -1,0 +1,31 @@
+id,title,version,pages,passages,role,sha256
+walert,Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot,2401.07216v1,5,18,baseline system to reproduce,f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d
+rag,Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks,2005.11401v4,19,41,RAG model,23e3249e9a1e75418d82efecab0ea8c4d033b89c93742f63208d47ce01f21233
+dpr,Dense Passage Retrieval for Open-Domain Question Answering,2004.04906v3,13,39,dense retriever,3e67fc1a9977715acf722d85f0b7d124b03715e975f6310a4d6c12094190912f
+colbert,ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT,2004.12832v2,10,42,late-interaction retriever,2e487d9b96e3c2e5e286d843e98a066adc0442faa3a6e8ddbd1771221bf9ae14
+fid,Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering,2007.01282v2,6,14,reader (Fusion-in-Decoder),f1ee7e927c3fb31beb2146f8c205692a91b40dadd65d80e025c6686e4d430953
+realm,REALM: Retrieval-Augmented Language Model Pre-Training,2002.08909v1,12,32,retrieval-augmented pre-training,0ec1a7ab3de5514c6d3baa8af0322816d4ee7cd4c14b9f2c450cbc9da9e6b363
+ragas,Ragas: Automated Evaluation of Retrieval Augmented Generation,2309.15217v2,8,20,RAG evaluation metrics,6c24762a3f277fd120ed1adf34b01420ecf92f18ff6d1b5435fa0a09cb804ecb
+selfrag,"Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",2310.11511v1,30,63,adaptive retrieval + self-critique,d9eaa1398abac0df67a9d0933a5bf8b6d9d83d2e72da2a486073cd842dd52978
+retro,Improving language models by retrieving from trillions of tokens,2112.04426v3,43,106,retrieval-augmented pre-training at scale,1b3e89b589b73d51ca76cb7d98f22fa5438f8b13e05363613bc6b3199f9777f4
+atlas,Atlas: Few-shot Learning with Retrieval Augmented Language Models,2208.03299v3,33,71,few-shot retrieval-augmented LM,593ab76b843cd6a0cba3271a2322fed7ea045edc75918d0cfce9eaf3d259a23e
+contriever,Unsupervised Dense Information Retrieval with Contrastive Learning,2112.09118v4,21,50,unsupervised dense retriever,7407131fd633561d8eab8701e43ca81061960b6642ae180eb86a3f367b2b8408
+ance,Approximate Nearest Neighbor Negative Contrastive Learning for Dense Text Retrieval,2007.00808v2,16,37,hard-negative dense retrieval,3ffc05cd484c56e33fc8806b17df9607043b336dd5c6c6ede83cd87955d23f1f
+gtr,Large Dual Encoders Are Generalizable Retrievers,2112.07899v1,12,36,scaled dual encoders,4e45cb8d02a6ecd93014c9be68aba6f0919897500eb3809106b981265e9b72c5
+beir,BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models,2104.08663v4,24,55,zero-shot retrieval benchmark,1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33
+colbertv2,ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction,2112.01488v3,20,50,compressed late interaction,46e0a2712eabf9e0b9486120356a2110f65516fa7e0d75c35e9ee3eef9ea78c0
+monobert,Passage Re-ranking with BERT,1901.04085v5,5,9,BERT re-ranker,b3f05b72d6d24b00761fb0a7363b6e7a10dac22b7f0abfaf4f5025bea7f8e22e
+monot5,Document Ranking with a Pretrained Sequence-to-Sequence Model,2003.06713v1,8,20,seq2seq re-ranker,49cfcb0bcf6c5ea6b9efdb30a070c4f4268839d52e74ad5c3e27872cace61a3e
+splade,SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking,2107.05720v1,5,19,learned sparse retrieval,e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a
+icralm,In-Context Retrieval-Augmented Language Models,2302.00083v3,15,37,in-context retrieval augmentation,92f8aaad658caff829f70e46afac29d5c97f54a393003dbd14e118ab3f274518
+replug,REPLUG: Retrieval-Augmented Black-Box Language Models,2301.12652v4,12,32,retrieval for black-box LMs,3c24ff147c4912a9678d778f879016099d03619267ff8b252e46a2c818b9432b
+flare,Active Retrieval Augmented Generation,2305.06983v2,24,58,active (forward-looking) retrieval,2425bd04de6e082512ef576298ec24df770a7f576bb2c23d09b3fd498f716c52
+lostmiddle,Lost in the Middle: How Language Models Use Long Contexts,2307.03172v3,18,42,how LMs use long contexts,653b29619eae2ae4b361d7bdcdc06db4bedcb1b0eabe31814036beca8c1af0b1
+ares,ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems,2311.09476v2,17,40,RAG evaluation framework,16f092b08cce88da551a15a978b51721199e93dc95df406089813411fa51ebec
+crag,Corrective Retrieval Augmented Generation,2401.15884v3,16,41,corrective RAG,975aa1fd3c1b603126e93ff99d6504858b61301bf1d34c9df88ebe53a0b026cb
+dsp,Demonstrate-Search-Predict: Composing retrieval and language models for knowledge-intensive NLP,2212.14024v2,15,38,composing retrieval and LMs,bd64e2f901e3d24fa7cbdab8135136dc6b055a6b5ef96f42b6348c5d7a4a4393
+queryrewrite,Query Rewriting for Retrieval-Augmented Large Language Models,2305.14283v3,13,35,query rewriting for RAG,483472d9ccc633fe649a87f2224a09c717fcfe052c2914c50f8abce5f34dca84
+t5cbqa,How Much Knowledge Can You Pack Into the Parameters of a Language Model?,2002.08910v4,9,24,closed-book QA baseline,995796c4f44af1fb28537641f044e52431abcd94437d0e8bcb768895d0aee54d
+orqa,Latent Retrieval for Weakly Supervised Open Domain Question Answering,1906.00300v3,11,31,latent retrieval for open-domain QA,796b27cd8e8199ae841bdb4584c774673fc3ed64aa25a12ddd61de7e79a8b1b0
+recomp,RECOMP: Improving Retrieval-Augmented LMs with Compression and Selective Augmentation,2310.04408v1,23,51,context compression for RAG,9d8aa7881e786d6b3593fe6c60bc2e52944aee82ab6ca577097618baf8d21066
+ragsurvey,Retrieval-Augmented Generation for Large Language Models: A Survey,2312.10997v5,21,51,survey of RAG for LLMs,396a0fadeb4cd40f5c8ccc36b73a0815f6cb4d7f6bfa53b6c48c1f9aba7c7e02

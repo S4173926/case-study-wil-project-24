@@ -1,0 +1,295 @@
+{
+  "run_id": "20261024T061244_3fabdb74b4",
+  "created_utc": "2026-10-24T06:12:44.520216+00:00",
+  "question": "Compare RETRO and In-Context RALM: how is external retrieved text incorporated into language-model processing in each system?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "retro",
+      "icralm"
+    ],
+    "facets": [
+      "inference"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": true,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "compare and : how is external retrieved text incorporated into language-model processing in each system",
+        "facets": [
+          "inference"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "retro.method",
+      "paper_id": "retro",
+      "text": "RETRO augments language modelling with retrieved document chunks. It combines a frozen BERT retriever, a trainable encoder and chunked cross-attention to condition token predictions on neighbouring chunks retrieved from an external corpus.",
+      "facets": [
+        "purpose",
+        "inference",
+        "representation"
+      ],
+      "source_ids": [
+        "retro:s0000"
+      ]
+    },
+    {
+      "claim_id": "icralm.method",
+      "paper_id": "icralm",
+      "text": "In-Context Retrieval-Augmented Language Modelling (In-Context RALM) prepends grounding documents to a language model’s input while leaving its architecture unchanged. The paper does not require further training of the language model to use this form of retrieval augmentation.",
+      "facets": [
+        "purpose",
+        "inference",
+        "representation"
+      ],
+      "source_ids": [
+        "icralm:s0001"
+      ]
+    }
+  ],
+  "comparison": [
+    {
+      "paper_id": "retro",
+      "title": "Improving language models by retrieving from trillions of tokens",
+      "claims": [
+        {
+          "claim_id": "retro.method",
+          "paper_id": "retro",
+          "text": "RETRO augments language modelling with retrieved document chunks. It combines a frozen BERT retriever, a trainable encoder and chunked cross-attention to condition token predictions on neighbouring chunks retrieved from an external corpus.",
+          "facets": [
+            "purpose",
+            "inference",
+            "representation"
+          ],
+          "source_ids": [
+            "retro:s0000"
+          ]
+        }
+      ]
+    },
+    {
+      "paper_id": "icralm",
+      "title": "In-Context Retrieval-Augmented Language Models",
+      "claims": [
+        {
+          "claim_id": "icralm.method",
+          "paper_id": "icralm",
+          "text": "In-Context Retrieval-Augmented Language Modelling (In-Context RALM) prepends grounding documents to a language model’s input while leaving its architecture unchanged. The paper does not require further training of the language model to use this form of retrieval augmentation.",
+          "facets": [
+            "purpose",
+            "inference",
+            "representation"
+          ],
+          "source_ids": [
+            "icralm:s0001"
+          ]
+        }
+      ]
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "retro:s0000",
+      "paper_id": "retro",
+      "title": "Improving language models by retrieving from trillions of tokens",
+      "section": "Front matter",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Improving language models by retrieving from trillions of tokens Sebastian Borgeaud†, Arthur Mensch†, Jordan Hoffmann†, Trevor Cai, Eliza Rutherford, Katie Millican, George van den Driessche, Jean-Baptiste Lespiau, Bogdan Damoc, Aidan Clark, Diego de Las Casas, Aurelia Guy, Jacob Menick, Roman Ring, Tom Hennigan, Saffron Huang, Loren Maggiore, Chris Jones, Albin Cassirer, Andy Brock, Michela Paganini, Geoffrey Irving, Oriol Vinyals, Simon Osindero, Karen Simonyan, Jack W. Rae‡, Erich Elsen‡ and Laurent Sifre†,‡ All authors from DeepMind, †Equal contributions, ‡Equal senior authorship We enhance auto-regressive language models by conditioning on document chunks retrieved from a large corpus, based on local similarity with preceding tokens. With a 2 trillion token database, our Retrieval-Enhanced Transformer (Retro) obtains comparable performance to GPT-3 and Jurassic-1 on the Pile, despite using 25× fewer parameters. After fine-tuning, Retro performance translates to downstream knowledge-intensive tasks such as question answering. Retro combines a frozen Bert retriever, a differentiable encoder and a chunked cross-attention mechanism to predict tokens based on an order of magnitude more data than what is typically consumed during training. We typically train Retro from scratch, yet can also rapidly Retrofit pre-trained transformers with retrieval and still achieve good performance. Our work opens up new avenues for improving language models through explicit memory at unprecedented scale. 1. Introduction Language modelling (LM) is an unsupervised task that consists of modelling the probability of text, usually by factorising it into conditional next-token predictions p(x1, . . . , xn) = Î ip(xi|x<i).",
+      "url": "https://arxiv.org/abs/2112.04426v3",
+      "pdf_file": "pdfs/retro.pdf",
+      "sha256": "1b3e89b589b73d51ca76cb7d98f22fa5438f8b13e05363613bc6b3199f9777f4",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "icralm:s0001",
+      "paper_id": "icralm",
+      "title": "In-Context Retrieval-Augmented Language Models",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Retrieval-Augmented Language Modeling (RALM) methods, which condition a language model (LM) on relevant documents from a grounding corpus during generation, were shown to significantly improve language modeling performance. In addition, they can mitigate the problem of factually inaccurate text generation and provide natural source attribution mechanism. Existing RALM approaches focus on modifying the LM architecture in order to facilitate the incorporation of external information, significantly complicating deployment. This paper considers a simple alternative, which we dub In-Context RALM: leaving the LM architecture unchanged and prepending grounding documents to the input, without any further training of the LM. We show that In-Context RALM that builds on off-the-shelf general purpose retrievers provides surprisingly large LM gains across model sizes and diverse corpora. We also demonstrate that the document retrieval and ranking mechanism can be specialized to the RALM setting to further boost performance. We conclude that In-Context RALM has considerable potential to increase the prevalence of LM grounding, particularly in settings where a pretrained LM must be used without modification or even via API access.1",
+      "url": "https://arxiv.org/abs/2302.00083v3",
+      "pdf_file": "pdfs/icralm.pdf",
+      "sha256": "92f8aaad658caff829f70e46afac29d5c97f54a393003dbd14e118ab3f274518",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "retro:s0018",
+    "icralm:s0002",
+    "retro:s0070",
+    "icralm:s0001",
+    "retro:s0031",
+    "icralm:s0003",
+    "retro:s0004",
+    "icralm:s0031"
+  ],
+  "retrieved": [
+    {
+      "source_id": "retro:s0018",
+      "paper_id": "retro",
+      "title": "Improving language models by retrieving from trillions of tokens",
+      "section": "Front matter",
+      "page_start": 9,
+      "page_end": 9,
+      "text": "In the open-domain dialogue setting, BlenderBot 2.0 (Komeili et al., 2021) learns to issue textual internet queries, outperforming dense retrieval methods when evaluated on a task measuring how close model responses are to those of humans. This involves collecting a dataset of human dialogues with associated search queries, which limits the scalability of this approach. Hashemi et al. (2020) introduce the Guided Transformer, a modified Transformer similar to Retro, for document retrieval and clarifying question selection. Although effective on question answering and other tasks with strong conditioning, none of these methods are designed to model arbitrary text sequences, in contrast with Retro. Retro shares components with kNN-LM and Dpr in that it uses frozen retrieval representations. Retro models longer sequences than QA examples; this requires to reason at a sub-sequence level, and to retrieve different documents for the different chunks of a sequence. Similar to FiD, Retro processes the retrieved neighbours separately in the encoder, and assemble them in the chunked cross-attention. This differs from e.g. Realm, that prepends retrieved documents to the prompt. Using chunks allows for repeated retrieval whilst generating a sequence as opposed to retrieving only once based on the prompt alone. Furthermore, retrieval is done during the whole pre-training process in Retro, and is not simply plugged-in to solve a certain downstream task. Finally, previous methods based on dense query vectors use small models and retrieval datasets with less than 3B tokens (English Wikipedia). Table 3 summarizes the difference of Retro with existing approaches. 3.2. Privacy, safety and fairness Bender et al. (2021); Weidinger et al. (2021) highlight several dangers of large language models.",
+      "url": "https://arxiv.org/abs/2112.04426v3",
+      "pdf_file": "pdfs/retro.pdf",
+      "sha256": "1b3e89b589b73d51ca76cb7d98f22fa5438f8b13e05363613bc6b3199f9777f4",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.024152480721664482
+    },
+    {
+      "source_id": "icralm:s0002",
+      "paper_id": "icralm",
+      "title": "In-Context Retrieval-Augmented Language Models",
+      "section": "1 Introduction",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Recent advances in language modeling (LM) have dramatically increased the usefulness of machinegenerated text across a wide range of use-cases and domains (Brown et al., 2020). However, the mainstream paradigm of generating text with LMs bears inherent limitations in access to external knowledge. First, LMs are not coupled with any ∗Equal contribution. AI21Labs/in-context-ralm No Retrieval In-Context RALM (BM25) In-Context RALM (Predictive Reranking) GPT-2 345M (M) GPT-2 1.5B (XL) Figure 1: Our framework, dubbed In-Context RALM, provides large language modeling gains on the test set of WikiText-103, without modifying the LM. Adapting the use of a BM25 retriever (Robertson and Zaragoza, 2009) to the LM task (§5) yields significant gains, and choosing the grounding documents via our new class of Predictive Rerankers (§6) provides a further boost. See Table 1 for the full results on five diverse corpora. source attribution, and must be trained in order to incorporate up-to-date information that was not seen during training. More importantly, they tend to produce factual inaccuracies and errors (Lin et al., 2022; Maynez et al., 2020; Huang et al., 2020). This problem is present in any LM generation scenario, and is exacerbated when generation is made in uncommon domains or private data. A promising approach for addressing the above is Retrieval-Augmented Language Modeling (RALM), grounding the LM during generation by conditioning on relevant documents retrieved from an external knowledge source. RALM systems include two high level components: (i) document selection, selecting the set of documents upon which to condition; and (ii) document reading, determining how to incorporate the selected documents into the LM generation process.",
+      "url": "https://arxiv.org/abs/2302.00083v3",
+      "pdf_file": "pdfs/icralm.pdf",
+      "sha256": "92f8aaad658caff829f70e46afac29d5c97f54a393003dbd14e118ab3f274518",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03252247488101534
+    },
+    {
+      "source_id": "retro:s0070",
+      "paper_id": "retro",
+      "title": "Improving language models by retrieving from trillions of tokens",
+      "section": "F.1. Main text datasets",
+      "page_start": 33,
+      "page_end": 33,
+      "text": "We report the performance of Retro and baseline models, measured in bits-per-bytes on evaluation set, in Table 14.",
+      "url": "https://arxiv.org/abs/2112.04426v3",
+      "pdf_file": "pdfs/retro.pdf",
+      "sha256": "1b3e89b589b73d51ca76cb7d98f22fa5438f8b13e05363613bc6b3199f9777f4",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.023774930656452253
+    },
+    {
+      "source_id": "icralm:s0001",
+      "paper_id": "icralm",
+      "title": "In-Context Retrieval-Augmented Language Models",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Retrieval-Augmented Language Modeling (RALM) methods, which condition a language model (LM) on relevant documents from a grounding corpus during generation, were shown to significantly improve language modeling performance. In addition, they can mitigate the problem of factually inaccurate text generation and provide natural source attribution mechanism. Existing RALM approaches focus on modifying the LM architecture in order to facilitate the incorporation of external information, significantly complicating deployment. This paper considers a simple alternative, which we dub In-Context RALM: leaving the LM architecture unchanged and prepending grounding documents to the input, without any further training of the LM. We show that In-Context RALM that builds on off-the-shelf general purpose retrievers provides surprisingly large LM gains across model sizes and diverse corpora. We also demonstrate that the document retrieval and ranking mechanism can be specialized to the RALM setting to further boost performance. We conclude that In-Context RALM has considerable potential to increase the prevalence of LM grounding, particularly in settings where a pretrained LM must be used without modification or even via API access.1",
+      "url": "https://arxiv.org/abs/2302.00083v3",
+      "pdf_file": "pdfs/icralm.pdf",
+      "sha256": "92f8aaad658caff829f70e46afac29d5c97f54a393003dbd14e118ab3f274518",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.032018442622950824
+    },
+    {
+      "source_id": "retro:s0031",
+      "paper_id": "retro",
+      "title": "Improving language models by retrieving from trillions of tokens",
+      "section": "Front matter",
+      "page_start": 15,
+      "page_end": 16,
+      "text": "5. Conclusion We present Retrieval-Enhanced Transformers (Retro), a method for modelling arbitrary text sequences whilst retrieving from databases with trillions of tokens—scaling the data available to models by an order of magnitude compared to what is typically consumed during training. Retro models gains do not diminish for models with up to at least 7B parameters, and correspond to non-retrieval models with 10× more parameters on certain datasets. On Wikitext103 and the Pile, Retro outperforms previous models trained on large scale datasets. We also show that Retro is competitive on retrieval-intensive downstream tasks such as question answering. Retro models are flexible and can be used without retrieval at evaluation and still achieve comparable performance to baseline models. Conversely, baseline models can be rapidly fine-tuned into Retro models to obtain nearly the same performance as if trained from scratch. Careful analysis shows that only a modest fraction of the gains obtained by Retro are due to test set leakage. In general, we caution for such leakage in large-scale language datasets and suggest further work in better understanding the role of test set leakage in the performance of large-scale language models. Overall, our work demonstrates at an unprecedented scale that semi-parametric approaches can provide an orthogonal, more efficient approach than raw parameter scaling as we seek to build more powerful language models.",
+      "url": "https://arxiv.org/abs/2112.04426v3",
+      "pdf_file": "pdfs/retro.pdf",
+      "sha256": "1b3e89b589b73d51ca76cb7d98f22fa5438f8b13e05363613bc6b3199f9777f4",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.020709430756159726
+    },
+    {
+      "source_id": "icralm:s0003",
+      "paper_id": "icralm",
+      "title": "In-Context Retrieval-Augmented Language Models",
+      "section": "1 Introduction",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "RALM systems include two high level components: (i) document selection, selecting the set of documents upon which to condition; and (ii) document reading, determining how to incorporate the selected documents into the LM generation process. Leading RALM systems introduced recently Retriever Language Model Figure 2: An example of In-Context RALM: we simply prepend the retrieved document before the input prefix. tend to be focused on altering the language model architecture (Khandelwal et al., 2020; Borgeaud et al., 2022; Zhong et al., 2022; Levine et al., 2022c; Li et al., 2022). Notably, Borgeaud et al. (2022) introduced RETRO, featuring document reading via nontrivial modifications that require further training to the LM architecture, while using an off-theshelf frozen BERT retriever for document selection. Although the paper’s experimental findings showed impressive performance gains, the need for changes in architecture and dedicated retraining has hindered the wide adoption of such models. In this paper, we show that a very simple document reading mechanism can have a large impact, and that substantial gains can also be made by adapting the document selection mechanism to the task of language modeling. Thus, we show that many of the benefits of RALM can be achieved while working with off-the-shelf LMs, even via API access. Specifically, we consider a simple but powerful RALM framework, dubbed In-Context RALM (presented in Section 3), which employs a zero-effort document reading mechanism: we simply prepend the selected documents to the LM’s input text (Figure 2). Section 4 describes our experimental setup.",
+      "url": "https://arxiv.org/abs/2302.00083v3",
+      "pdf_file": "pdfs/icralm.pdf",
+      "sha256": "92f8aaad658caff829f70e46afac29d5c97f54a393003dbd14e118ab3f274518",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03200204813108039
+    },
+    {
+      "source_id": "retro:s0004",
+      "paper_id": "retro",
+      "title": "Improving language models by retrieving from trillions of tokens",
+      "section": "Front matter",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "Method We design our retrieval-enhanced architecture to be capable of retrieving from a database with trillions of tokens. For this purpose, we retrieve at the level of contiguous token chunks instead of individual tokens which reduces storage and computation requirements by a large linear factor. Our method first constructs a key-value database, where values store raw chunks of text tokens and keys are frozen Bert embedddings (Devlin et al., 2019). We use a frozen model to avoid having to periodically re-compute embeddings over the entire database during training. Each training sequence is then split into chunks, which are augmented with their k-nearest neighbour retrieved from the database. An encoder-decoder architecture integrates retrieval chunks into the model’s predictions. We summarize the Retro architecture in Fig. 2, and detail it in this section. We end the section by introducing Retrieval dataset Frozen kNN Retriever EMB READ CCA FFW ATTN RETRO block (x L) Chunked cross-attention (CCA) CA CA Figure 2 | Retro architecture. Left: simplified version where a sequence of length n= 12 is split into l= 3 chunks of size m= 4. For each chunk, we retrieve k= 2 neighbours of r= 5 tokens each. The retrieval pathway is shown on top. Right: Details of the interactions in the Cca operator. Causality is maintained as neighbours of the first chunk only affect the last token of the first chunk and tokens from the second chunk. a new methodology to evaluate language models when an evaluation set is partially present in the training set. 2.1. Training dataset We use a multi-lingual version of MassiveText (Rae et al., 2021) for both training and retrieval data.",
+      "url": "https://arxiv.org/abs/2112.04426v3",
+      "pdf_file": "pdfs/retro.pdf",
+      "sha256": "1b3e89b589b73d51ca76cb7d98f22fa5438f8b13e05363613bc6b3199f9777f4",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.019897557131599686
+    },
+    {
+      "source_id": "icralm:s0031",
+      "paper_id": "icralm",
+      "title": "In-Context Retrieval-Augmented Language Models",
+      "section": "8 Discussion",
+      "page_start": 11,
+      "page_end": 11,
+      "text": "Retrieval from external sources has become a common practice in knowledge-intensive tasks (such as factual question answering, fact checking, and more; Petroni et al. 2021). In parallel, recent breakthroughs in LM generation capabilities has led to LMs that can generate useful long texts. However, factual inaccuracies remain a common way in which machine-generated text can fall short, and lack of direct provenance makes it hard to trust machine generated text. This makes language modeling both a promising and an urgent new application area for knowledge grounding, and motivates promoting RALM approaches. Prior research has already investigated RALM, of course, but it is not yet widely deployed. One likely reason is that existing approaches rely upon fine-tuning the LM, which is typically difficult and costly, and is even impossible for LMs accessible only via an API. This paper presented the framework of In- Context RALM, enabling frozen, off-the-shelf LMs to benefit from retrieval. We demonstrated that substantial performance gains can be achieved by using general purpose retrievers, and showed that additional gains can be achieved by tailoring the document selection to the LM setting. A recent work by Muhlgay et al. (2023) demonstrates that In-Context RALM is indeed able to improve the factuality of large LMs. Several directions for further improvement remain for future work. First, this paper considers only the case of prepending a single external document to the context; adding more documents could drive further gains (for example, using the framework of Ratner et al. 2022).",
+      "url": "https://arxiv.org/abs/2302.00083v3",
+      "pdf_file": "pdfs/icralm.pdf",
+      "sha256": "92f8aaad658caff829f70e46afac29d5c97f54a393003dbd14e118ab3f274518",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03149801587301587
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "compare and : how is external retrieved text incorporated into language-model processing in each system",
+      "paper_ids": [
+        "retro"
+      ],
+      "facet": "inference",
+      "covered": true,
+      "claim_ids": [
+        "retro.method"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    },
+    {
+      "part_id": "part1",
+      "question_part": "compare and : how is external retrieved text incorporated into language-model processing in each system",
+      "paper_ids": [
+        "icralm"
+      ],
+      "facet": "inference",
+      "covered": true,
+      "claim_ids": [
+        "icralm.method"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.010356790997320786,
+  "evaluation_question_id": "F09"
+}

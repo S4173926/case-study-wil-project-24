@@ -16,7 +16,7 @@ Suggested four-person counterbalance:
 - P03: manual C, assistant D
 - P04: assistant C, manual D
 
-Each participant gets different tasks in the two conditions, while each task appears in both conditions across participants. Record order and prior familiarity. Do not train participants on the answers immediately before measuring them. More participants/tasks may improve precision; four is a practical proposal, not a rubric minimum.
+Each participant gets different tasks in the two conditions, while each task appears in both conditions across participants. Record order and prior familiarity. Do not train participants on the answers immediately before measuring them. More participants/tasks may improve precision; four is the proposed counterbalance, not a statistical adequacy claim.
 
 ## In the application
 1. Open Stakeholder pilot. Enter a pseudonym, real relationship, task and condition; obtain consent.

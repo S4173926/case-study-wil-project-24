@@ -1,0 +1,185 @@
+{
+  "run_id": "20261024T111628_7164236eba",
+  "created_utc": "2026-10-24T11:16:28.755413+00:00",
+  "question": "Does Self-RAG always retrieve a fixed number of passages for every input, even when its own knowledge is sufficient?",
+  "mode": "explain",
+  "status": "insufficient",
+  "plan": {
+    "named_papers": [
+      "selfrag"
+    ],
+    "facets": [
+      "retrieval"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "does always retrieve a fixed number of passages for every input, even when its own knowledge is sufficient",
+        "facets": [
+          "retrieval"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [],
+  "comparison": [],
+  "citations": [],
+  "missing": [
+    "SELFRAG: no selected claim covers the detected request \"does always retrieve a fixed number of passages for every input, even when its own knowledge is sufficient\" (retrieval).",
+    "No supported explanation could be assembled."
+  ],
+  "warnings": [],
+  "first_stage": [
+    "selfrag:s0001",
+    "selfrag:s0003",
+    "selfrag:s0002",
+    "selfrag:s0023",
+    "selfrag:s0011",
+    "selfrag:s0005",
+    "selfrag:s0014",
+    "selfrag:s0009"
+  ],
+  "retrieved": [
+    {
+      "source_id": "selfrag:s0001",
+      "paper_id": "selfrag",
+      "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+      "section": "ABSTRACT",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Despite their remarkable capabilities, large language models (LLMs) often produce responses containing factual inaccuracies due to their sole reliance on the parametric knowledge they encapsulate. Retrieval-Augmented Generation (RAG), an ad hoc approach that augments LMs with retrieval of relevant knowledge, decreases such issues. However, indiscriminately retrieving and incorporating a fixed number of retrieved passages, regardless of whether retrieval is necessary, or passages are relevant, diminishes LM versatility or can lead to unhelpful response generation. We introduce a new framework called Self-Reflective Retrieval-Augmented Generation (SELF-RAG) that enhances an LM\u2019s quality and factuality through retrieval and self-reflection. Our framework trains a single arbitrary LM that adaptively retrieves passages on-demand, and generates and reflects on retrieved passages and its own generations using special tokens, called reflection tokens. Generating reflection tokens makes the LM controllable during the inference phase, enabling it to tailor its behavior to diverse task requirements. Experiments show that SELF- RAG (7B and 13B parameters) significantly outperforms state-of-the-art LLMs and retrieval-augmented models on a diverse set of tasks. Specifically, SELF-RAG outperforms ChatGPT and retrieval-augmented Llama2-chat on Open-domain QA, reasoning and fact verification tasks, and it shows significant gains in improving factuality and citation accuracy for long-form generations relative to these models.1",
+      "url": "https://arxiv.org/abs/2310.11511v1",
+      "pdf_file": "pdfs/selfrag.pdf",
+      "sha256": "d9eaa1398abac0df67a9d0933a5bf8b6d9d83d2e72da2a486073cd842dd52978",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03252247488101534
+    },
+    {
+      "source_id": "selfrag:s0003",
+      "paper_id": "selfrag",
+      "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+      "section": "1 INTRODUCTION",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "Subsequently, SELF-RAG concurrently processes multiple retrieved passages, evaluating their relevance and then generating corresponding task outputs (Step 2). It then generates critique tokens to criticize its own output and choose best one (Step 3) in terms of factuality and overall quality. This process differs from conventional RAG (Figure 1 left), which 1Our code and trained models are available at https://selfrag.github.io/. > > Figure 1: Overview of SELF-RAG. SELF-RAG learns to retrieve, critique, and generate text passages to enhance overall generation quality, factuality, and verifiability. consistently retrieves a fixed number of documents for generation regardless of the retrieval necessity (e.g., the bottom figure example does not require factual knowledge) and never second visits the generation quality. Moreover, SELF-RAG provides citations for each segment with its self-assessment of whether the output is supported by the passage, leading to easier fact verification. SELF-RAG trains an arbitrary LM to generate text with reflection tokens by unifying them as the next token prediction from the expanded model vocabulary. We train our generator LM on a diverse collection of text interleaved with reflection tokens and retrieved passages. Reflection tokens, inspired by reward models used in reinforcement learning (Ziegler et al., 2019; Ouyang et al., 2022), are inserted offline into the original corpus by a trained critic model. This eliminates the need to host a critic model during training, reducing overhead. The critic model, in part, is supervised on a dataset of input, output, and corresponding reflection tokens collected by prompting a propriety LM (i.e., GPT-4; OpenAI 2023).",
+      "url": "https://arxiv.org/abs/2310.11511v1",
+      "pdf_file": "pdfs/selfrag.pdf",
+      "sha256": "d9eaa1398abac0df67a9d0933a5bf8b6d9d83d2e72da2a486073cd842dd52978",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03252247488101534
+    },
+    {
+      "source_id": "selfrag:s0002",
+      "paper_id": "selfrag",
+      "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+      "section": "1 INTRODUCTION",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "State-of-the-art LLMs continue to struggle with factual errors (Mallen et al., 2023; Min et al., 2023) despite their increased model and data scale (Ouyang et al., 2022). Retrieval-Augmented Generation (RAG) methods (Figure 1 left; Lewis et al. 2020; Guu et al. 2020) augment the input of LLMs with relevant retrieved passages, reducing factual errors in knowledge-intensive tasks (Ram et al., 2023; Asai et al., 2023a). However, these methods may hinder the versatility of LLMs or introduce unnecessary or off-topic passages that lead to low-quality generations (Shi et al., 2023) since they retrieve passages indiscriminately regardless of whether the factual grounding is helpful. Moreover, the output is not guaranteed to be consistent with retrieved relevant passages (Gao et al., 2023) since the models are not explicitly trained to leverage and follow facts from provided passages. This work introduces Self-Reflective Retrieval-augmented Generation (SELF-RAG) to improve an LLM\u2019s generation quality, including its factual accuracy without hurting its versatility, via on-demand retrieval and self-reflection. We train an arbitrary LM in an end-to-end manner to learn to reflect on its own generation process given a task input by generating both task output and intermittent special tokens (i.e., reflection tokens). Reflection tokens are categorized into retrieval and critique tokens to indicate the need for retrieval and its generation quality respectively (Figure 1 right). In particular, given an input prompt and preceding generations, SELF-RAG first determines if augmenting the continued generation with retrieved passages would be helpful. If so, it outputs a retrieval token that calls a retriever model on demand (Step 1). Subsequently, SELF-RAG concurrently processes multiple retrieved passages, evaluating their relevance and then generating corresponding task outputs (Step 2).",
+      "url": "https://arxiv.org/abs/2310.11511v1",
+      "pdf_file": "pdfs/selfrag.pdf",
+      "sha256": "d9eaa1398abac0df67a9d0933a5bf8b6d9d83d2e72da2a486073cd842dd52978",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03149801587301587
+    },
+    {
+      "source_id": "selfrag:s0023",
+      "paper_id": "selfrag",
+      "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+      "section": "5 RESULTS AND ANALYSIS",
+      "page_start": 8,
+      "page_end": 9,
+      "text": "Our SELF-RAG bridges this performance gap, even outperforming ChatGPT in citation precision, which measures whether the model-generated claim is fully supported by cited evidence. We also found that on the metrics for factual precision, SELF-RAG 7B occasionally outperforms our 13B due to the tendency of smaller SELF-RAG to often generate PQA Med AS (acc) (acc) (em) SELF-RAG (50k) 45.5 73.5 32.1 Training No Retriever R 43.6 67.8 31.0 No Critic C 42.6 72.0 18.1 Test No retrieval 24.7 73.0 \u2013 Hard constraints 28.3 72.6 \u2013 Retrieve top1 41.8 73.1 28.6 Remove 44.1 73.2 30.6 (a) Ablation (b) Customization (c) Retrieval Figure 3: Analysis on SELF-RAG: (a) Ablation studies for key components of SELF-RAG training and inference based on our 7B model. (b) Effects of soft weights on ASQA citation precision and Mauve (fluency). (c) Retrieval frequency and normalized accuracy on PubHealth and PopQA. precisely grounded yet shorter outputs. Llama2-FT7B, which is the baseline LM trained on the same instruction-output pairs as SELF-RAG without retrieval or self-reflection and is retrieval-augmented at test time only, lags behind SELF-RAG. This result indicates SELF-RAG gains are not solely from training data and demonstrate the effectiveness of SELF-RAG framework. 5.2 ANALYSIS Ablation studies. We conduct a set of ablations of our framework to identify which factors play key roles. We evaluate two model variants trained differently than our model: No Retriever trains an LM using the standard instruction-following method given instruction-output pairs, without retrieved passages; No Critic trains an LM trained with input-output pairs that are always augmented with the top one retrieved document without reflection tokens.",
+      "url": "https://arxiv.org/abs/2310.11511v1",
+      "pdf_file": "pdfs/selfrag.pdf",
+      "sha256": "d9eaa1398abac0df67a9d0933a5bf8b6d9d83d2e72da2a486073cd842dd52978",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030776515151515152
+    },
+    {
+      "source_id": "selfrag:s0011",
+      "paper_id": "selfrag",
+      "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+      "section": "3 SELF-RAG: LEARNING TO RETRIEVE, GENERATE AND CRITIQUE",
+      "page_start": 4,
+      "page_end": 5,
+      "text": "Subsequently, we train the final generator model (M) using the conventional LM objective (Section 3.2.2) to enable M to generate reflection tokens by itself without relying on the critic at inference time. 3.2 SELF-RAG TRAINING Here, we describe the supervised data collection and training of two models, the critic C (Section 3.2.1) and the generator M (Section 3.2.2). 3.2.1 TRAINING THE CRITIC MODEL Data collection for critic model. Manual annotation of reflection tokens for each segment is expensive (Wu et al., 2023). A state-of-the-art LLM like GPT-4 (OpenAI, 2023) can be effectively 4We follow Liu et al. (2023a) in using a \u201cperceived\u201d utility value that is independent of retrieved passages. Figure 2: SELF-RAG training examples. The left example does not require retrieval while the right one requires retrieval; thus, passages are inserted. More examples are in Appendix Table 4. used to generate such feedback (Liu et al., 2023b). However, depending on such proprietary LMs can raise API costs and diminish reproducibility (Chen et al., 2023). We create supervised data by prompting GPT-4 to generate reflection tokens and then distill their knowledge into an in-house C. For each group of reflection tokens, we randomly sample instances from the original training data: {Xsample, Y sample} \u223c{X, Y }. As different reflection token groups have their own definitions and input, as shown in Table 1, we use different instruction prompts for them. Here, we use Retrieve as an example.",
+      "url": "https://arxiv.org/abs/2310.11511v1",
+      "pdf_file": "pdfs/selfrag.pdf",
+      "sha256": "d9eaa1398abac0df67a9d0933a5bf8b6d9d83d2e72da2a486073cd842dd52978",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03007688828584351
+    },
+    {
+      "source_id": "selfrag:s0005",
+      "paper_id": "selfrag",
+      "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+      "section": "2 RELATED WORK",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "Retrieval-Augmented Generation. Retrieval-Augmented Generation (RAG) augments the input space of LMs with retrieved text passages (Guu et al., 2020; Lewis et al., 2020), leading to large improvements in knowledge-intensive tasks after fine-tuning or used with off-the-shelf LMs (Ram et al., 2023). A more recent work (Luo et al., 2023) instruction-tunes an LM with a fixed number of retrieved passages prepended to input, or pre-train a retriever and LM jointly, followed by fewshot fine-tuning on task datasets (Izacard et al., 2022b). While prior work often retrieves only once at the beginning, Jiang et al. (2023) propose to adaptively retrieve passages for generation on top of a proprietary LLM or Schick et al. (2023) train an LM to generate API calls for named entities. Yet, the improved task performance of such approaches often comes at the expense of runtime efficiency (Mallen et al., 2023), robustness to irrelevant context (Shi et al., 2023), and lack of attributions (Liu et al., 2023a; Gao et al., 2023). We introduce a method to train an arbitrary LM to learn to use retrieval on-demand for diverse instruction-following queries and introduce controlled generation guided by reflections tokens to further improve generation quality and attributions. Concurrent RAG work. A few concurrent works2 on RAG propose new training or prompting strategies to improve widely-adopted RAG approaches. Lin et al. (2023) fine-tune both the retriever and LM on instruction-tuning datasets in two steps. While we also train our model on diverse instruction-following datasets, SELF-RAG enables retrieval on demand and selection of the best possible model output via fine-grained self-reflection, making it widely applicable and more robust and controllable.",
+      "url": "https://arxiv.org/abs/2310.11511v1",
+      "pdf_file": "pdfs/selfrag.pdf",
+      "sha256": "d9eaa1398abac0df67a9d0933a5bf8b6d9d83d2e72da2a486073cd842dd52978",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029877369007803793
+    },
+    {
+      "source_id": "selfrag:s0014",
+      "paper_id": "selfrag",
+      "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+      "section": "3 SELF-RAG: LEARNING TO RETRIEVE, GENERATE AND CRITIQUE",
+      "page_start": 6,
+      "page_end": 6,
+      "text": "This significantly reduces training costs compared to PPO. Our work also relates to prior work that incorporates special tokens to control generation (Keskar et al., 2019; Lu et al., 2022; Korbak et al., 2023). Our SELF-RAG learns to generate special tokens to evaluate its own prediction after each generated segment, enabling the use of a soft re-ranking mechanism or hard constraints at inference (discussed next). 3.3 SELF-RAG INFERENCE Generating reflection tokens to self-evaluate its own output makes SELF-RAG controllable during the inference phase, enabling it to tailor its behavior to diverse task requirements. For tasks demanding factual accuracy (Min et al., 2023), we aim for the model to retrieve passages more frequently to ensure that the output aligns closely with the available evidence. Conversely, in more open-ended tasks, like composing a personal experience essay, the emphasis shifts towards retrieving less and prioritizing the overall creativity or utility score. In this section, we describe approaches to enforce control to meet these distinct objectives during the inference process. Adaptive retrieval with threshold. SELF-RAG dynamically decides when to retrieve text passages by predicting Retrieve . Alternatively, our framework allows a threshold to be set. Specifically, if the probability of generating the Retrieve =Yes token normalized over all output tokens in Retrieve surpasses a designated threshold, we trigger retrieval (details in Appendix Section A.3). Tree-decoding with critique tokens. At each segment step t, when retrieval is required, based either on hard or soft conditions, R retrieves K passages, and the generator M processes each passage in parallel and outputs K different continuation candidates.",
+      "url": "https://arxiv.org/abs/2310.11511v1",
+      "pdf_file": "pdfs/selfrag.pdf",
+      "sha256": "d9eaa1398abac0df67a9d0933a5bf8b6d9d83d2e72da2a486073cd842dd52978",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.028991596638655463
+    },
+    {
+      "source_id": "selfrag:s0009",
+      "paper_id": "selfrag",
+      "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+      "section": "3 SELF-RAG: LEARNING TO RETRIEVE, GENERATE AND CRITIQUE",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "The bottom three rows are three types of Critique tokens, and the bold text indicates the most desirable critique tokens. x, y, d indicate input, output, and a relevant passage, respectively. Algorithm 1 SELF-RAG Inference Require: Generator LM M, Retriever R, Large-scale passage collections {d1, . . . , dN} 1: Input: input prompt x and preceding generation y<t, Output: next output segment yt 2: M predicts Retrieve given (x, y<t) 3: if Retrieve == Yes then 4: Retrieve relevant text passages D using R given (x, yt\u22121) \u25b7Retrieve 5: M predicts ISREL given x, d and yt given x, d, y<t for each d \u2208D \u25b7Generate 6: M predicts ISSUP and ISUSE given x, yt, d for each d \u2208D \u25b7Critique 7: Rank yt based on ISREL , ISSUP , \u25b7Detailed in Section 3.3 8: else if Retrieve == No then 9: Mgen predicts yt given x \u25b7Generate 10: Mgen predicts ISUSE given x, yt \u25b7Critique Inference overview. Figure 1 and Algorithm 1 present an overview of SELF-RAG at inference. For every x and preceding generation y<t, the model decodes a retrieval token to evaluate the utility of retrieval. If retrieval is not required, the model predicts the next output segment, as it does in a standard LM. If retrieval is needed, the model generates: a critique token to evaluate the retrieved passage\u2019s relevance, the next response segment, and a critique token to evaluate if the information in the response segment is supported by the passage.",
+      "url": "https://arxiv.org/abs/2310.11511v1",
+      "pdf_file": "pdfs/selfrag.pdf",
+      "sha256": "d9eaa1398abac0df67a9d0933a5bf8b6d9d83d2e72da2a486073cd842dd52978",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02877846790890269
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "c2a7414285341994a878c213a286627538dc29515ada4d723505b2e46984b8b0",
+    "code": "06d56dd7f41923fc9ffa5f4157e846ce0397b251517dfe34b625234040efea10"
+  },
+  "notice": "This explanation is assembled from stored, source-linked summaries. Check the cited pages before relying on the answer; source links alone do not verify correctness.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "does always retrieve a fixed number of passages for every input, even when its own knowledge is sufficient",
+      "paper_ids": [
+        "selfrag"
+      ],
+      "facet": "retrieval",
+      "covered": false,
+      "claim_ids": [],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "elapsed_seconds": 0.014616335000027902
+}

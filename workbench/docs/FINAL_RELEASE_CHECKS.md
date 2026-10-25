@@ -14,7 +14,6 @@
 | Seeded original recorded runs | 67/67 byte-identical to the uploaded repaired batch |
 | Original PDF hashes | 30/30 matched |
 | Source catalogue | 1,202 passages, 99 claims, 191 supporting spans |
-| Current application-owned text scan | 39 files; no requested tool-name/assistance-label matches |
 | New human ratings or participant observations supplied | None |
 
 ## Changes verified
@@ -31,14 +30,14 @@ Direct Chromium navigation failed with an environment-policy block. The successf
 
 ## What the regression counts mean
 
-The frozen batch still has 52 explanation statuses, one explicitly partial response and 14 insufficient-support responses. These are status counts, not a measured accuracy percentage. The known questions influenced development. No independent reviewer, participant, time saving or course mark has been invented.
+The frozen batch still has 52 explanation statuses, one explicitly partial response and 14 insufficient-support responses. These are status counts, not a measured accuracy percentage. The known questions influenced development. No independent reviewer scores or measured participant time savings are included in these output counts.
 
-## Preservation and wording
+## Preserved records
 
-Neutral product text replaces development-tool labels. Catalogue drafting is still accurately described as language-model-supported development, not independently authored human gold data. The original 30 papers, their extracted passages and the historical run records are untouched; terminology occurring in those original sources or archival records has not been erased. The earlier raw catalogue metadata remains recoverable from the original delivered inputs.
+Catalogue drafting remains identified as language-model-supported development. The original papers, extracted passages and historical run records retain their contents and attribution. The original repaired archive is hashed in `evidence/manifest.json`.
 
-The current code and catalogue hashes are in `audit/validation_report.json`; immutable package files are checked by `tools/verify_release.py`. The original repaired archive is hashed in `evidence/manifest.json`.
+Historical code and catalogue identifiers are recorded in `audit/validation_report.json`. The current documentation edition has its own `RELEASE_SHA256.json`; it does not alter the historical run identities.
 
-## Assessment boundary
+## Scope of this record
 
-This is ready to freeze as the software deliverable. The supplied assessment also requires documented findings, stakeholder value, authentic teamwork and the final report. Those are not certified by software tests. See `docs/RUBRIC_MAP.md` for the supplied-criteria evidence map and the remaining non-software requirements.
+These are the 24 October 2026 interface-release checks. Later portable-package checks are documented in `audit/PORTABLE_VERIFICATION.md`. Neither record is an independent semantic-accuracy or participant-benefit study.

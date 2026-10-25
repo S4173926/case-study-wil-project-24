@@ -1,6 +1,6 @@
-# GitHub upload packaging verification
+# Historical portable-package verification
 
-This is a repository packaging operation, not another answering-system revision.
+This record describes the original portable recompression and repository-packaging checks. It is not a new execution of the answering-system evaluation.
 
 - Final portable application: **2.0-portable**.
 - Original executable: **26,878,965 bytes**.
@@ -22,15 +22,10 @@ This is a repository packaging operation, not another answering-system revision.
 Trello evidence is a documented privacy-minimised derivative; the original export remains untouched.
 The raw export, invite URL, card email addresses and account profile metadata are not uploaded.
 
-The app remains a local research prototype and the written report is still a separate deliverable.
-Github browser upload limits were checked against official documentation:
-https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository
+The application is a local research prototype. The following sizes and entry counts describe the historical package before the documentation edition.
 
-## Additional repository checks
+## Historical repository checks
 
-The root `run.py` launcher was executed in an isolated workspace with site packages disabled.
-The actual HTTP API returned the repaired REPLUG/FiD comparison, the PDF endpoint returned
-the exact original FiD bytes, and record export contained no invented human or pilot ratings.
-A pattern-based credential scan covered working text and 37 historical text blobs with no
-matching access tokens, private keys, Trello invitation links or card email addresses found.
-This pattern scan is not a guarantee against every possible secret.
+The root launcher was executed in an isolated workspace with site packages disabled during the original packaging pass. The HTTP API returned the repaired REPLUG/FiD comparison, the PDF endpoint returned the original FiD bytes, and record export contained no synthetic human or pilot ratings. A pattern-based credential scan covered working text and 37 historical text blobs without finding matching access tokens, private keys, Trello invitations or card email addresses. The pattern scan is not a guarantee against every possible secret.
+
+These are historical results. The separate `DISTRIBUTION_VERIFICATION.md` records the 25 October documentation and integrity checks. The later documentation changes alter package hashes but not the application engine or the recorded outputs.

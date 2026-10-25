@@ -1,0 +1,295 @@
+{
+  "run_id": "20261024T061244_4453aa1c29",
+  "created_utc": "2026-10-24T06:12:44.481806+00:00",
+  "question": "How does RAGAS estimate answer relevance without comparing the generated answer to a human-written reference answer?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "ragas"
+    ],
+    "facets": [
+      "evaluation"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "how does estimate answer relevance without comparing the generated answer to a human-written reference answer",
+        "facets": [
+          "evaluation"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "ragas.relevance",
+      "paper_id": "ragas",
+      "text": "For answer relevance, RAGAS generates possible questions from the answer and compares their embeddings with the original question. For context relevance, it asks an LLM to select sentences useful for the question and compares the number selected with the number of context sentences.",
+      "facets": [
+        "evaluation",
+        "inference"
+      ],
+      "source_ids": [
+        "ragas:s0010",
+        "ragas:s0011"
+      ]
+    },
+    {
+      "claim_id": "ragas.dimensions",
+      "paper_id": "ragas",
+      "text": "The original RAGAS paper evaluates three aspects of a RAG pipeline: faithfulness of the answer to its retrieved context, relevance of the answer to the question, and relevance or focus of the retrieved context. These are separate dimensions; a relevant answer is not automatically factually faithful.",
+      "facets": [
+        "evaluation",
+        "purpose"
+      ],
+      "source_ids": [
+        "ragas:s0008"
+      ]
+    },
+    {
+      "claim_id": "ragas.referencefree",
+      "paper_id": "ragas",
+      "text": "RAGAS is reference-free in the sense that its evaluation metrics can be computed without gold reference answers or ground-truth human annotations for the evaluated examples. The paper separately compares its metrics with human judgments to study whether the metrics are useful; that validation does not make gold annotations a required input to every score.",
+      "facets": [
+        "supervision",
+        "evaluation"
+      ],
+      "source_ids": [
+        "ragas:s0001",
+        "ragas:s0012"
+      ]
+    }
+  ],
+  "comparison": [],
+  "citations": [
+    {
+      "source_id": "ragas:s0010",
+      "paper_id": "ragas",
+      "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+      "section": "3 Evaluation Strategies",
+      "page_start": 3,
+      "page_end": 4,
+      "text": "Do not deviate from the specified format. statement: [statement 1] ... statement: [statement n] The final faithfulness score, F, is then computed as F = |V | |S| , where |V | is the number of statements that were supported according to the LLM and |S| is the total number of statements. Answer relevance We say that the answer as(q) is relevant if it directly addresses the question in an appropriate way. In particular, our assessment of answer relevance does not take into account factuality, but penalises cases where the answer is incomplete or where it contains redundant information. To estimate answer relevance, for the given answer as(q), we prompt the LLM to generate n potential questions qi based on as(q), as follows: Generate a question for the given answer. answer: [answer] We then obtain embeddings for all questions using the text-embedding-ada-002 model, available from the OpenAI API. For each qi, we calculate the similarity sim(q, qi) with the original question q, as the cosine between the corresponding embeddings. The answer relevance score, AR, for question q is then computed as: n X AR = 1 i=1 sim(q, qi) (1) n This metric evaluates how closely the generated answer aligns with the initial question or instruction. Context relevance The context c(q) is considered relevant to the extent that it exclusively contains information that is needed to answer the question. In particular, this metric aims to penalise the inclusion of redundant information.",
+      "url": "https://arxiv.org/abs/2309.15217v2",
+      "pdf_file": "pdfs/ragas.pdf",
+      "sha256": "6c24762a3f277fd120ed1adf34b01420ecf92f18ff6d1b5435fa0a09cb804ecb",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "ragas:s0011",
+      "paper_id": "ragas",
+      "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+      "section": "3 Evaluation Strategies",
+      "page_start": 3,
+      "page_end": 4,
+      "text": "In particular, this metric aims to penalise the inclusion of redundant information. To estimate context relevance, given a question q and its context c(q), the LLM extracts a subset of sentences, Sext, from c(q) that are crucial to answer q, using the following prompt: Please extract relevant sentences from the provided context that can potentially help answer the following question. If no relevant sentences are found, or if you believe the question cannot be answered from the given context, return the phrase \"Insufficient Information\". While extracting candidate sentences you’re not allowed to make any changes to sentences from given context. The context relevance score is then computed as: CR = number of extracted sentences total number of sentences in c(q) (2)",
+      "url": "https://arxiv.org/abs/2309.15217v2",
+      "pdf_file": "pdfs/ragas.pdf",
+      "sha256": "6c24762a3f277fd120ed1adf34b01420ecf92f18ff6d1b5435fa0a09cb804ecb",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "ragas:s0008",
+      "paper_id": "ragas",
+      "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+      "section": "3 Evaluation Strategies",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "We consider a standard RAG setting, where given a question q, the system first retrieves some context c(q) and then uses the retrieved context to generate an answer as(q). When building a RAG system, we usually do not have access to human-annotated datasets or reference answers. We therefore focus on metrics that are fully self-contained and reference-free. We focus in particular three quality aspects, which we argue are of central importance. First, Faithfulness refers to the idea that the answer should be grounded in the given context. This is important to avoid hallucinations, and to ensure that the retrieved context can act as a justification for the generated answer. Indeed, RAG systems are often used in applications where the factual consistency of the generated text w.r.t. the grounded sources is highly important, e.g. in domains such as law, where information is constantly evolving. Second, Answer Relevance refers to the idea that the generated answer should address the actual question that was provided. Finally, Context Relevance refers to the idea that the retrieved context should be focused, containing as little irrelevant information as possible. This is important given the cost associated with feeding long context passages to LLMs. Moreover, when context passages are too long, LLMs are often less effective in exploiting that context, especially for information that is provided in the middle of the context passage (Liu et al., 2023). We now explain how these three quality aspects can be measured in a fully automated way, by prompting an LLM. In our implementation and experiments, all prompts are evaluated using the gpt-3.5-turbo-16k model, which is available through the OpenAI API2.",
+      "url": "https://arxiv.org/abs/2309.15217v2",
+      "pdf_file": "pdfs/ragas.pdf",
+      "sha256": "6c24762a3f277fd120ed1adf34b01420ecf92f18ff6d1b5435fa0a09cb804ecb",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "ragas:s0001",
+      "paper_id": "ragas",
+      "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "We introduce Ragas (Retrieval Augmented Generation Assessment), a framework for reference-free evaluation of Retrieval Augmented Generation (RAG) pipelines. RAG systems are composed of a retrieval and an LLM based generation module, and provide LLMs with knowledge from a reference textual database, which enables them to act as a natural language layer between a user and textual databases, reducing the risk of hallucinations. Evaluating RAG architectures is, however, challenging because there are several dimensions to consider: the ability of the retrieval system to identify relevant and focused context passages, the ability of the LLM to exploit such passages in a faithful way, or the quality of the generation itself. With Ragas, we put forward a suite of metrics which can be used to evaluate these different dimensions without having to rely on ground truth human annotations. We posit that such a framework can crucially contribute to faster evaluation cycles of RAG architectures, which is especially important given the fast adoption of LLMs.",
+      "url": "https://arxiv.org/abs/2309.15217v2",
+      "pdf_file": "pdfs/ragas.pdf",
+      "sha256": "6c24762a3f277fd120ed1adf34b01420ecf92f18ff6d1b5435fa0a09cb804ecb",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "ragas:s0012",
+      "paper_id": "ragas",
+      "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+      "section": "4 The WikiEval Dataset",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "To evaluate the proposed framework, we ideally need examples of question-context-answer triples which are annotated with human judgments. We can then verify to what extent our metrics agree with human assessments of faithfulness, answer relevance and context relevance. Since we are not aware of any publicly available datasets that could be used for this purpose, we created a new dataset, which we refer to as WikiEval4. To construct the dataset, we first selected 50 Wikipedia pages covering events that have happened since the start of 20225. In selecting these pages, we prioritised those with recent edits. For each of the 50 pages, we then asked ChatGPT to suggest a question that can be answered based on the introductory section of the page, using the following prompt: Your task is to formulate a question from given context satisfying the rules given below: 1. The question should be fully answered from the given context. 2. The question should be framed from a part that contains non-trivial information. 3. The answer should not contain any explodinggradients/WikiEval we used in our experiments. links. 4. The question should be of moderate difficulty. 5. The question must be reasonable and must be understood and responded to by humans. 6. Do not use phrases that ’provided context’, etc in the question context: We also used ChatGPT to answer the generated question, when given the corresponding introductory section as context, using the following prompt: Answer the question using the information from the given context. question: [question] context: [context] All questions were annotated along the three considered quality dimensions by two annotators.",
+      "url": "https://arxiv.org/abs/2309.15217v2",
+      "pdf_file": "pdfs/ragas.pdf",
+      "sha256": "6c24762a3f277fd120ed1adf34b01420ecf92f18ff6d1b5435fa0a09cb804ecb",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "ragas:s0004",
+    "ragas:s0017",
+    "ragas:s0001",
+    "ragas:s0014",
+    "ragas:s0003",
+    "ragas:s0008",
+    "ragas:s0007",
+    "ragas:s0016"
+  ],
+  "retrieved": [
+    {
+      "source_id": "ragas:s0004",
+      "paper_id": "ragas",
+      "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+      "section": "1 Introduction",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "We focus on settings where reference answers may not be available, and where we want to estimate different proxies for correctness, in addition to the usefulness of the retrieved passages. The Ragas framework provides an integration with both llama-index and Langchain, the most widely used frameworks for building RAG solutions, thus enabling developers to easily integrate Ragas into their standard workflow.",
+      "url": "https://arxiv.org/abs/2309.15217v2",
+      "pdf_file": "pdfs/ragas.pdf",
+      "sha256": "6c24762a3f277fd120ed1adf34b01420ecf92f18ff6d1b5435fa0a09cb804ecb",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.032266458495966696
+    },
+    {
+      "source_id": "ragas:s0017",
+      "paper_id": "ragas",
+      "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+      "section": "6 Conclusions",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "We have highlighted the need for automated reference-free evaluation of RAG systems. In particular, we have argued the need for an evaluation framework that can assess faithfulness (i.e. is the answer grounded in the retrieved context), answer relevance (i.e. does the answer address the question) and context relevance (i.e. is the retrieved context sufficiently focused). To support the development of such a framework, we have introduced WikiEval, a dataset which human judgements of these three different aspects. Finally, we have also described Ragas, our implementation of the three considered quality aspects. This framework is easy to use and can provide deverlopers of RAG systems with valuable insights, even in the absence of any ground truth. Our evaluation on WikiEval has shown that the predictions from Ragas are closely aligned with human predictions, especially for faithfulness and answer relevance.",
+      "url": "https://arxiv.org/abs/2309.15217v2",
+      "pdf_file": "pdfs/ragas.pdf",
+      "sha256": "6c24762a3f277fd120ed1adf34b01420ecf92f18ff6d1b5435fa0a09cb804ecb",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03225806451612903
+    },
+    {
+      "source_id": "ragas:s0001",
+      "paper_id": "ragas",
+      "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "We introduce Ragas (Retrieval Augmented Generation Assessment), a framework for reference-free evaluation of Retrieval Augmented Generation (RAG) pipelines. RAG systems are composed of a retrieval and an LLM based generation module, and provide LLMs with knowledge from a reference textual database, which enables them to act as a natural language layer between a user and textual databases, reducing the risk of hallucinations. Evaluating RAG architectures is, however, challenging because there are several dimensions to consider: the ability of the retrieval system to identify relevant and focused context passages, the ability of the LLM to exploit such passages in a faithful way, or the quality of the generation itself. With Ragas, we put forward a suite of metrics which can be used to evaluate these different dimensions without having to rely on ground truth human annotations. We posit that such a framework can crucially contribute to faster evaluation cycles of RAG architectures, which is especially important given the fast adoption of LLMs.",
+      "url": "https://arxiv.org/abs/2309.15217v2",
+      "pdf_file": "pdfs/ragas.pdf",
+      "sha256": "6c24762a3f277fd120ed1adf34b01420ecf92f18ff6d1b5435fa0a09cb804ecb",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.032018442622950824
+    },
+    {
+      "source_id": "ragas:s0014",
+      "paper_id": "ragas",
+      "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+      "section": "4 The WikiEval Dataset",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "Rel. Ragas 0.95 0.78 0.70 GPT Score 0.72 0.52 0.63 GPT Ranking 0.54 0.40 0.52 Table 1: Agreement with human annotators in pairwise comparisons of faithfulness, answer relevance and context relevance, using the WikEval dataset (accuracy). answering the question. For the few pages without any back-links, we instead used ChatGPT to complete the given context.",
+      "url": "https://arxiv.org/abs/2309.15217v2",
+      "pdf_file": "pdfs/ragas.pdf",
+      "sha256": "6c24762a3f277fd120ed1adf34b01420ecf92f18ff6d1b5435fa0a09cb804ecb",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03149801587301587
+    },
+    {
+      "source_id": "ragas:s0003",
+      "paper_id": "ragas",
+      "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+      "section": "1 Introduction",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "While initial approaches relied on specialised LMs for retrieval-augmented language modelling (Khandelwal et al., 2020; Borgeaud et al., 2022), recent work has suggested that simply adding retrieved documents to the input of a standard LM can also work well (Khattab et al., 2022; Ram et al., 2023; Shi et al., 2023), thus making it possible to use retrievalaugmented strategies in combination with LLMs that are only available through APIs. While the usefulness of retrieval-augmented strategies is clear, their implementation requires a significant amount of tuning, as the overall performance will be affected by the retrieval model, the considered corpus, the LM, or the prompt formulation, among others. Automated evaluation of retrieval-augmented systems is thus paramount. In practice, RAG systems are often evaluated in terms of the language modelling task itself, i.e. by measuring perplexity on some reference corpus. However, such evaluations are not always predictive of downstream performance (Wang et al., 2023c). Moreover, this evaluation strategy relies on the LM probabilities, which are not accessible for some closed models (e.g. ChatGPT and GPT-4). Question answering is another common evaluation task, but usually only datasets with short extractive answers are considered, which may not be representative of how the system will be used. To address these issues, in this paper we present Ragas1, a framework for the automated assessment is available at https://github.com/ explodinggradients/ragas. of retrieval augmented generation systems. We focus on settings where reference answers may not be available, and where we want to estimate different proxies for correctness, in addition to the usefulness of the retrieved passages.",
+      "url": "https://arxiv.org/abs/2309.15217v2",
+      "pdf_file": "pdfs/ragas.pdf",
+      "sha256": "6c24762a3f277fd120ed1adf34b01420ecf92f18ff6d1b5435fa0a09cb804ecb",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02919863597612958
+    },
+    {
+      "source_id": "ragas:s0008",
+      "paper_id": "ragas",
+      "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+      "section": "3 Evaluation Strategies",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "We consider a standard RAG setting, where given a question q, the system first retrieves some context c(q) and then uses the retrieved context to generate an answer as(q). When building a RAG system, we usually do not have access to human-annotated datasets or reference answers. We therefore focus on metrics that are fully self-contained and reference-free. We focus in particular three quality aspects, which we argue are of central importance. First, Faithfulness refers to the idea that the answer should be grounded in the given context. This is important to avoid hallucinations, and to ensure that the retrieved context can act as a justification for the generated answer. Indeed, RAG systems are often used in applications where the factual consistency of the generated text w.r.t. the grounded sources is highly important, e.g. in domains such as law, where information is constantly evolving. Second, Answer Relevance refers to the idea that the generated answer should address the actual question that was provided. Finally, Context Relevance refers to the idea that the retrieved context should be focused, containing as little irrelevant information as possible. This is important given the cost associated with feeding long context passages to LLMs. Moreover, when context passages are too long, LLMs are often less effective in exploiting that context, especially for information that is provided in the middle of the context passage (Liu et al., 2023). We now explain how these three quality aspects can be measured in a fully automated way, by prompting an LLM. In our implementation and experiments, all prompts are evaluated using the gpt-3.5-turbo-16k model, which is available through the OpenAI API2.",
+      "url": "https://arxiv.org/abs/2309.15217v2",
+      "pdf_file": "pdfs/ragas.pdf",
+      "sha256": "6c24762a3f277fd120ed1adf34b01420ecf92f18ff6d1b5435fa0a09cb804ecb",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.028991596638655463
+    },
+    {
+      "source_id": "ragas:s0007",
+      "paper_id": "ragas",
+      "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+      "section": "2 Related Work",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "Rather than scoring individual answers, some authors have also focused on using an LLM to select the best answer among a number of candidates (Wang et al., 2023b), typically to compare the performance of different LLMs. However, care is needed with this approach, as the order in which the answers is presented can influence the result (Wang et al., 2023b). In terms of how ground truth answers or, more generally, generations, have been typically used in the literature, most approaches have relied on the availability of one or more reference answers. For instance, BERTScore (Zhang et al., 2020) and MoverScore (Zhao et al., 2019) use contextualised embeddings, produced by a pre-trained BERT model, to compare the similarity between the generated answer and the reference answers. BARTScore (Yuan et al., 2021) similarly uses reference answers to compute aspects such as precision (estimated as the probability of generating the generated answer given the reference) and recall (estimated as the probability of generating the reference given the generated answer).",
+      "url": "https://arxiv.org/abs/2309.15217v2",
+      "pdf_file": "pdfs/ragas.pdf",
+      "sha256": "6c24762a3f277fd120ed1adf34b01420ecf92f18ff6d1b5435fa0a09cb804ecb",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.0288981288981289
+    },
+    {
+      "source_id": "ragas:s0016",
+      "paper_id": "ragas",
+      "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+      "section": "5 Experiments",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "In this case, the prompt again includes a definition of the considered quality metric. For instance, for evaluating answer relevance, we used the following prompt: Answer Relevancy measures the degree to which a response directly addresses and is appropriate for a given question. It penalizes the present of redundant information or incomplete answers given a question. Given an question and answer, rank each answer based on Answer Relevancy. question: [question] answer 1: [answer 1] answer 2: [answer 2] The results in Table 1 show that our proposed metrics are much closer aligned with the human judgements than the predictions from the two baselines. For faithfulness, the Ragas prediction are in general highly accurate. For answer relevance, the agreement is lower, but this is largely due to the fact that the differences between the two candidate answers are often very subtle. We found context relevance to be the hardest quality dimension to evaluate. In particular, we observed that ChatGPT often struggles with the task of selecting the sentences from the context that are crucial, especially for longer contexts.",
+      "url": "https://arxiv.org/abs/2309.15217v2",
+      "pdf_file": "pdfs/ragas.pdf",
+      "sha256": "6c24762a3f277fd120ed1adf34b01420ecf92f18ff6d1b5435fa0a09cb804ecb",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.028484848484848488
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "how does estimate answer relevance without comparing the generated answer to a human-written reference answer",
+      "paper_ids": [
+        "ragas"
+      ],
+      "facet": "evaluation",
+      "covered": true,
+      "claim_ids": [
+        "ragas.relevance",
+        "ragas.dimensions",
+        "ragas.referencefree"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.008695333992363885,
+  "evaluation_question_id": "F06"
+}

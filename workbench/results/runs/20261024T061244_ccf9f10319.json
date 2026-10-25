@@ -1,0 +1,215 @@
+{
+  "run_id": "20261024T061244_ccf9f10319",
+  "created_utc": "2026-10-24T06:12:44.319545+00:00",
+  "question": "In monoT5, how is a query–document pair turned into a numerical relevance score for ranking?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "monot5"
+    ],
+    "facets": [
+      "inference"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "how is a query-document pair turned into a numerical relevance score for ranking",
+        "facets": [
+          "inference"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "monot5.relevance",
+      "paper_id": "monot5",
+      "text": "monoT5 formats the input as “Query: q Document: d Relevant:” and is fine-tuned to generate the relevance labels “true” or “false”. At ranking time it applies a softmax only to those two token logits, and uses the probability of “true” as the relevance score. It does not use the raw “true” logit alone or a softmax over the entire vocabulary.",
+      "facets": [
+        "representation",
+        "inference"
+      ],
+      "source_ids": [
+        "monot5:s0004"
+      ]
+    }
+  ],
+  "comparison": [],
+  "citations": [
+    {
+      "source_id": "monot5:s0004",
+      "paper_id": "monot5",
+      "title": "Document Ranking with a Pretrained Sequence-to-Sequence Model",
+      "section": "2 Method",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "Our reranking method is based on T5 [14], which is a sequence-to-sequencemodel that uses a similar masked language modeling objective as BERT to pretrain its encoder–decoder architecture. In this model, all target tasks are cast as sequence-to-sequence tasks. For our task, the input sequence is: Query: q Document: d Relevant: (1) where q and d are the query and document texts, respectively. The model is fine-tuned to produce the words “true” or “false” depending on whether the document is relevant or not to the query. That is, “true” and “false” are the “target words” (i.e., ground truth predictions in the sequence-to-sequence transformation). At inference time, to compute probabilities for each query–documentpair (in a reranking setting), we apply a softmax only on the logits of the “true” and “false” tokens. Hence, we rerank the documents according to the probabilities assigned to the “true” token. We arrived at this particular approach after some trial and error. Other approaches, for example, reranking documents according to the logit of the “true” token or using logits of all tokens to compute the softmax, were not effective, i.e., the retrieval metrics were close to zero. Note that T5 tokenizes sequences using the SentencePiece model [7], which might split a word into subwords. We choose target words (“true” and “false”) that are represented as single tokens; thus each class is represented by a single logit. In the case where target words are split in multiple subwords, we would need a method to aggregate their logits into a single score; it is best to avoid this complexity in the design of the reranking setup.",
+      "url": "https://arxiv.org/abs/2003.06713v1",
+      "pdf_file": "pdfs/monot5.pdf",
+      "sha256": "49cfcb0bcf6c5ea6b9efdb30a070c4f4268839d52e74ad5c3e27872cace61a3e",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "monot5:s0005",
+    "monot5:s0004",
+    "monot5:s0001",
+    "monot5:s0002",
+    "monot5:s0007",
+    "monot5:s0000",
+    "monot5:s0015",
+    "monot5:s0017"
+  ],
+  "retrieved": [
+    {
+      "source_id": "monot5:s0005",
+      "paper_id": "monot5",
+      "title": "Document Ranking with a Pretrained Sequence-to-Sequence Model",
+      "section": "3 Experimental Setup",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "3.1 Datasets We use the following datasets in our experiments: MS MARCO passage [2] is a passage ranking dataset with 8.8M passages obtained from the top 10 results retrieved from the Bing search engine (from 1M queries). Note that for terminological consistency, we refer to each “unit” in the corpus as a document, even though they are in reality paragraph-length passages. The training set contains approximately 500k pairs of query and relevant documents. Each query has one relevant passage, on average. Non-relevant documents for training are also provided as part of the training dataset. The development and test sets contain approximately 6,900 queries each, but relevance labels are only publicly available for the development set. We have not (yet) submitted our runs to the official MS MARCO leaderboard because our primary goal in this work is to conduct initial comparisons between T5 and BERT-based models. As a matter of good experimental practice, we limit official submissions as to not “probe” the unseen test set unnecessarily. After sufficient model refinement, we will proceed with official submissions to verify the quality of our models. Robust04 [16] represents the test collection from the TREC 2004 Robust Track. It comprises 250 queries, with relevance judgments on a collection of 528K documents (TREC Disks 4 and 5), whose average length is 2,800 characters or 460 words. We use the topic “titles” (short keyword phrases, much like the input to a search engine) as queries to our bag-of-words retrieval methods (see Section 3.3) and the topic “descriptions” (sentence-length statements of information needs) as input to our sequence-to-sequence models.",
+      "url": "https://arxiv.org/abs/2003.06713v1",
+      "pdf_file": "pdfs/monot5.pdf",
+      "sha256": "49cfcb0bcf6c5ea6b9efdb30a070c4f4268839d52e74ad5c3e27872cace61a3e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02797339593114241
+    },
+    {
+      "source_id": "monot5:s0004",
+      "paper_id": "monot5",
+      "title": "Document Ranking with a Pretrained Sequence-to-Sequence Model",
+      "section": "2 Method",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "Our reranking method is based on T5 [14], which is a sequence-to-sequencemodel that uses a similar masked language modeling objective as BERT to pretrain its encoder–decoder architecture. In this model, all target tasks are cast as sequence-to-sequence tasks. For our task, the input sequence is: Query: q Document: d Relevant: (1) where q and d are the query and document texts, respectively. The model is fine-tuned to produce the words “true” or “false” depending on whether the document is relevant or not to the query. That is, “true” and “false” are the “target words” (i.e., ground truth predictions in the sequence-to-sequence transformation). At inference time, to compute probabilities for each query–documentpair (in a reranking setting), we apply a softmax only on the logits of the “true” and “false” tokens. Hence, we rerank the documents according to the probabilities assigned to the “true” token. We arrived at this particular approach after some trial and error. Other approaches, for example, reranking documents according to the logit of the “true” token or using logits of all tokens to compute the softmax, were not effective, i.e., the retrieval metrics were close to zero. Note that T5 tokenizes sequences using the SentencePiece model [7], which might split a word into subwords. We choose target words (“true” and “false”) that are represented as single tokens; thus each class is represented by a single logit. In the case where target words are split in multiple subwords, we would need a method to aggregate their logits into a single score; it is best to avoid this complexity in the design of the reranking setup.",
+      "url": "https://arxiv.org/abs/2003.06713v1",
+      "pdf_file": "pdfs/monot5.pdf",
+      "sha256": "49cfcb0bcf6c5ea6b9efdb30a070c4f4268839d52e74ad5c3e27872cace61a3e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.0220205686630369
+    },
+    {
+      "source_id": "monot5:s0001",
+      "paper_id": "monot5",
+      "title": "Document Ranking with a Pretrained Sequence-to-Sequence Model",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "This work proposes a novel adaptation of a pretrained sequence-to-sequence model to the task of document ranking. Our approach is fundamentally different from a commonly-adopted classification-based formulation of ranking, based on encoder-only pretrained transformer architectures such as BERT. We show how a sequence-to-sequence model can be trained to generate relevance labels as “target words”, and how the underlying logits of these target words can be interpreted as relevance probabilities for ranking. On the popular MS MARCO passage ranking task, experimental results show that our approach is at least on par with previous classification-based models and can surpass them with larger, more-recent models. On the test collection from the TREC 2004 Robust Track, we demonstrate a zero-shot transfer-based approach that outperforms previous state-of-the-art models requiring in-dataset cross-validation. Furthermore, we find that our approach significantly outperforms an encoder-only model in a data-poor regime (i.e., with few training examples). We investigate this observation further by varying target words to probe the model’s use of latent knowledge.",
+      "url": "https://arxiv.org/abs/2003.06713v1",
+      "pdf_file": "pdfs/monot5.pdf",
+      "sha256": "49cfcb0bcf6c5ea6b9efdb30a070c4f4268839d52e74ad5c3e27872cace61a3e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.019638721630384437
+    },
+    {
+      "source_id": "monot5:s0002",
+      "paper_id": "monot5",
+      "title": "Document Ranking with a Pretrained Sequence-to-Sequence Model",
+      "section": "1 Introduction",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "A simple, straightforward formulation of ranking is to convert the task into a classification problem, and then sort the candidate items to be ranked based on the probability that each item belongs to the desired class. Applied to the document ranking problem in information retrieval—where given a query, the system’s task is to return a ranked list of documents from a large corpus that maximizes some ranking metric such as average precision or nDCG—the simplest formulation is to deploy a classifier that estimates the probability each document belongs to the “relevant” class, and then sort all the candidates by these estimates. Deep transformer models pretrained with language modeling objectives, exemplified by BERT [3], have proven highly effective in a variety of classification and sequence labeling tasks in NLP. Nogueira and Cho [9] were the first to demonstrate its effectiveness in ranking tasks. Since it is impractical to apply inference to every document in a corpus with respect to a query, these techniques are typically applied to rerank a list of candidates. In a typical end-to-end system, these candidates are from the results of a keyword search based on a “classic” IR scoring function such as BM25 [15]. This gives rise to the standard multi-stage pipeline architecture of keyword retrieval followed by reranking using one or more machine learning models [1, 10]. The contribution of this work is to adapt a pretrained sequence-to-sequence model (in our case, T5 [14]) to the task of document reranking. To our knowledge, this is a novel use of this class of models that has not been previously described in the literature.",
+      "url": "https://arxiv.org/abs/2003.06713v1",
+      "pdf_file": "pdfs/monot5.pdf",
+      "sha256": "49cfcb0bcf6c5ea6b9efdb30a070c4f4268839d52e74ad5c3e27872cace61a3e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.01905453225660103
+    },
+    {
+      "source_id": "monot5:s0007",
+      "paper_id": "monot5",
+      "title": "Document Ranking with a Pretrained Sequence-to-Sequence Model",
+      "section": "3 Experimental Setup",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "Training T5 base, large, and 3B take approximately 12, 48, and 160 hours overall, respectively, on a single TPU. We use greedy decoding during inference. Since we only use the logits of one decoding step, beam search or top-k random sampling [5] would give the same results as greedy decoding. Because Robust04 contains full-length documents, it is not feasible to directly apply our method to the entire text at once due to the length restrictions of the model. To address this issue, we first segment each document into passages by applying a sliding window of 10 sentences with a stride of 5. We then obtain a relevance probability for each passage by classifying it independently. We select the highest probability among these passages as the relevance probability of the document. 3.3 Baselines We compare our method against the following baselines: BM25: For baseline bag-of-words retrieval, we use the BM25 implementation in the Anserini opensource IR toolkit [17],2 which is based on Lucene. We adopt all the default settings. At inference time, we retrieve the top 1000 documents per query. BM25+RM3: To examine the effects of query expansion, we applied the BM25+RM3 model as described in Yang et al. [18], where it is shown to be a competitive baseline for (pre-BERT) neural ranking models. We use the implementation in Anserini, with all default settings. BM25+BERT-large: We additionally compare our method against the BERT-large condition from Nogueira et al. [10], which is a two-stage pipeline with bag-of-words retrieval (BM25) followed by a BERT reranker. Architecturally, it is the same as our method, the only difference being BERT vs. T5 as the reranking model.",
+      "url": "https://arxiv.org/abs/2003.06713v1",
+      "pdf_file": "pdfs/monot5.pdf",
+      "sha256": "49cfcb0bcf6c5ea6b9efdb30a070c4f4268839d52e74ad5c3e27872cace61a3e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.016372627639668538
+    },
+    {
+      "source_id": "monot5:s0000",
+      "paper_id": "monot5",
+      "title": "Document Ranking with a Pretrained Sequence-to-Sequence Model",
+      "section": "Front matter",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Document Ranking with a Pretrained Sequence-to-Sequence Model Rodrigo Nogueira,∗Zhiying Jiang,∗and Jimmy Lin David R. Cheriton School of Computer Science University of Waterloo",
+      "url": "https://arxiv.org/abs/2003.06713v1",
+      "pdf_file": "pdfs/monot5.pdf",
+      "sha256": "49cfcb0bcf6c5ea6b9efdb30a070c4f4268839d52e74ad5c3e27872cace61a3e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.013747616020343294
+    },
+    {
+      "source_id": "monot5:s0015",
+      "paper_id": "monot5",
+      "title": "Document Ranking with a Pretrained Sequence-to-Sequence Model",
+      "section": "4 Results and Analysis",
+      "page_start": 6,
+      "page_end": 6,
+      "text": "We swap the target words; that is, “false” indicates a relevant document and “true”, a non-relevant document. If the model is indeed exploiting latent knowledge about linguistic relations, then forcing the model to make opposite associations on the same polarity scale should lower effectiveness with respect to the baseline. • “Antonyms”. We map a relevant document to “hot” and a non-relevant document to “cold”. This preserves the use of adjectives at opposite ends of a polarity scale, but a scale that is completely unrelated to relevance. If the model were exploiting latent knowledge, we would expect effectiveness to be lower than the baseline. • “Related Words”. We map a relevant document to “apple” and a non-relevant document to a related word “orange”. These words are semantically related, but do not present a polarity contrast as before. We would expect effectiveness to be lower than the baseline. • “Unrelated Words”. We map a relevant document to “hot” and a non-relevant document to a completely unrelated word “orange”. Thus, we force the model to build an arbitrary semantic mapping. We would expect effectiveness to be lower than the baseline and also lower than using related words. • “Subwords”. We map a relevant document to the subword “_ab” and a non-relevant document to the subword “_de” (note that we carefully select single tokens after tokenization by SentencePiece to avoid the need to combine multiple logits). Here, we have removed all “semantics” from the input-to-output mapping. We would expect effectiveness to be lower than the baseline and the above conditions.",
+      "url": "https://arxiv.org/abs/2003.06713v1",
+      "pdf_file": "pdfs/monot5.pdf",
+      "sha256": "49cfcb0bcf6c5ea6b9efdb30a070c4f4268839d52e74ad5c3e27872cace61a3e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.012779683161848767
+    },
+    {
+      "source_id": "monot5:s0017",
+      "paper_id": "monot5",
+      "title": "Document Ranking with a Pretrained Sequence-to-Sequence Model",
+      "section": "4 Results and Analysis",
+      "page_start": 7,
+      "page_end": 7,
+      "text": "We note that the 95% confidence intervals are smaller with more data, which illustrates the greater instability in effectiveness when training on smaller datasets (which is expected). It is clear that the T5 model is taking advantage of latent semantic or linguistic knowledge in predicting relevance. In both the 2k and 20k settings, the subwords condition performs worse than the BM25 baseline (and the 20k score is actually lower than the 2k score). In this condition, T5 exhibits difficulty in achieving any predictive power at all. There are at least two potential factors at play: we are removing all semantic associations, as the subwords are meaningless token fragments, and furthermore, we are forcing the model to produce tokens in an order (and context) that it has not encountered during pretraining. We are unable to tease apart the effects currently, but either explanation is consistent with our intuitions. For all other target word manipulations, we are at least able to beat the BM25 baseline. Finally, our experiments are inconclusive regarding the importance of having a polarity scale in the low-data regime. Quite clearly, reversing “true” and “false” has a large impact, but T5 is more effective learning targets that are semantically related but do not present a polarity contrast (“apple” and ”orange”) than targets that encode an unrelated polarity contrast (“hot” and “cold”).",
+      "url": "https://arxiv.org/abs/2003.06713v1",
+      "pdf_file": "pdfs/monot5.pdf",
+      "sha256": "49cfcb0bcf6c5ea6b9efdb30a070c4f4268839d52e74ad5c3e27872cace61a3e",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.011802539535192124
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "how is a query-document pair turned into a numerical relevance score for ranking",
+      "paper_ids": [
+        "monot5"
+      ],
+      "facet": "inference",
+      "covered": true,
+      "claim_ids": [
+        "monot5.relevance"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.008028707990888506,
+  "evaluation_question_id": "H03"
+}

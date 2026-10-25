@@ -1,0 +1,171 @@
+{
+  "run_id": "20261024T061244_09d4b73975",
+  "created_utc": "2026-10-24T06:12:44.087773+00:00",
+  "question": "How does GraphRAG build community summaries from a knowledge graph?",
+  "mode": "explain",
+  "status": "insufficient",
+  "plan": {
+    "named_papers": [],
+    "facets": [
+      "purpose"
+    ],
+    "explicit_facets": false,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "how does graphrag build community summaries from a knowledge graph",
+        "facets": [
+          "purpose"
+        ],
+        "explicit": false,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [],
+  "comparison": [],
+  "citations": [],
+  "missing": [
+    "No supported explanation could be assembled."
+  ],
+  "warnings": [],
+  "first_stage": [
+    "ragsurvey:s0017",
+    "beir:s0012",
+    "ragsurvey:s0020",
+    "ragsurvey:s0014",
+    "recomp:s0030",
+    "ragsurvey:s0018",
+    "walert:s0011",
+    "ragsurvey:s0050"
+  ],
+  "retrieved": [
+    {
+      "source_id": "ragsurvey:s0017",
+      "paper_id": "ragsurvey",
+      "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
+      "section": "A. Retrieval Source",
+      "page_start": 7,
+      "page_end": 7,
+      "text": "Structured data, such as knowledge graphs (KGs) [86] , which are typically verified and can provide more precise information. KnowledGPT [15] generates KB search queries and stores knowledge in a personalized base, enhancing the RAG model’s knowledge richness. In response to the limitations of LLMs in understanding and answering questions about textual graphs, G-Retriever [84] integrates Graph Neural Networks (GNNs), LLMs and RAG, enhancing graph comprehension and question-answering capabilities through soft prompting of the LLM, and employs the Prize-Collecting Steiner Tree (PCST) optimization problem for targeted graph retrieval. On the contrary, it requires additional effort to build, validate, and maintain structured databases. On the contrary, it requires additional effort to build, validate, and maintain structured databases. LLMs-Generated Content. Addressing the limitations of external auxiliary information in RAG, some research has focused on exploiting LLMs’ internal knowledge. SKR [58] classifies questions as known or unknown, applying retrieval enhancement selectively. GenRead [13] replaces the retriever with an LLM generator, finding that LLM-generated contexts often contain more accurate answers due to better alignment with the pre-training objectives of causal language modeling. Selfmem [17] iteratively creates an unbounded memory pool with a retrieval-enhanced generator, using a memory selector to choose outputs that serve as dual problems to the original question, thus self-enhancing the generative model. These methodologies underscore the breadth of innovative data source utilization in RAG, striving to improve model performance and task effectiveness. 2) Retrieval Granularity: Another important factor besides the data format of the retrieval source is the granularity of the retrieved data.",
+      "url": "https://arxiv.org/abs/2312.10997v5",
+      "pdf_file": "pdfs/ragsurvey.pdf",
+      "sha256": "396a0fadeb4cd40f5c8ccc36b73a0815f6cb4d7f6bfa53b6c48c1f9aba7c7e02",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03278688524590164
+    },
+    {
+      "source_id": "beir:s0012",
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "section": "3.1 Dataset and Diversity Analysis",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "The datasets present in BEIR are selected from diverse domains ranging from Wikipedia, scientific publications, Twitter, news, to online user communities, and many more. To measure the diversity in domains, we compute the domain overlap between the pairwise datasets using a pairwise weighted Jaccard similarity [26] score on unigram word overlap between all dataset pairs. For more details on the theoretical formulation of the similarity score, please refer to Appendix F. Figure 2 shows a heatmap denoting the pairwise weighted jaccard scores and the clustered force-directed placement diagram. Nodes (or datasets) close in this graph have a high word overlap, while nodes far away in the graph have a low overlap. From Figure 2, we observe a rather low weighted Jaccard word overlap across different domains, indicating that BEIR is a challenging benchmark where approaches must generalize well to diverse out-of-distribution domains.",
+      "url": "https://arxiv.org/abs/2104.08663v4",
+      "pdf_file": "pdfs/beir.pdf",
+      "sha256": "1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03200204813108039
+    },
+    {
+      "source_id": "ragsurvey:s0020",
+      "paper_id": "ragsurvey",
+      "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
+      "section": "B. Indexing Optimization",
+      "page_start": 8,
+      "page_end": 8,
+      "text": "This method is also known as Reverse HyDE. Specifically, using LLM to generate questions that can be answered by the document, then calculating the similarity between the original question and the hypothetical question during retrieval to reduce the semantic gap between the question and the answer. 3) Structural Index: One effective method for enhancing information retrieval is to establish a hierarchical structure for the documents. By constructing In structure, RAG system can expedite the retrieval and processing of pertinent data. Hierarchical index structure. File are arranged in parentchild relationships, with chunks linked to them. Data summaries are stored at each node, aiding in the swift traversal of data and assisting the RAG system in determining which chunks to extract. This approach can also mitigate the illusion caused by block extraction issues. Knowledge Graph index. Utilize KG in constructing the hierarchical structure of documents contributes to maintaining consistency. It delineates the connections between different concepts and entities, markedly reducing the potential for illusions. Another advantage is the transformation of the information retrieval process into instructions that LLM can comprehend, thereby enhancing the accuracy of knowledge retrieval and enabling LLM to generate contextually coherent responses, thus improving the overall efficiency of the RAG system. To capture the logical relationship between document content and structure, KGP [91] proposed a method of building an index between multiple documents using KG. This KG consists of nodes (representing paragraphs or structures in the documents, such as pages and tables) and edges (indicating semantic/lexical similarity between paragraphs or relationships within the document structure), effectively addressing knowledge retrieval and reasoning problems in a multi-document environment.",
+      "url": "https://arxiv.org/abs/2312.10997v5",
+      "pdf_file": "pdfs/ragsurvey.pdf",
+      "sha256": "396a0fadeb4cd40f5c8ccc36b73a0815f6cb4d7f6bfa53b6c48c1f9aba7c7e02",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03200204813108039
+    },
+    {
+      "source_id": "ragsurvey:s0014",
+      "paper_id": "ragsurvey",
+      "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
+      "section": "A. Retrieval Source",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "RAG relies on external knowledge to enhance LLMs, while the type of retrieval source and the granularity of retrieval units both affect the final generation results. 1) Data Structure: Initially, text is s the mainstream source of retrieval. Subsequently, the retrieval source expanded to include semi-structured data (PDF) and structured data (Knowledge Graph, KG) for enhancement. In addition to retrieving from original external sources, there is also a growing trend in recent researches towards utilizing content generated by LLMs themselves for retrieval and enhancement purposes.",
+      "url": "https://arxiv.org/abs/2312.10997v5",
+      "pdf_file": "pdfs/ragsurvey.pdf",
+      "sha256": "396a0fadeb4cd40f5c8ccc36b73a0815f6cb4d7f6bfa53b6c48c1f9aba7c7e02",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029910714285714284
+    },
+    {
+      "source_id": "recomp:s0030",
+      "paper_id": "recomp",
+      "title": "RECOMP: Improving Retrieval-Augmented LMs with Compression and Selective Augmentation",
+      "section": "8 CONCLUSION",
+      "page_start": 10,
+      "page_end": 10,
+      "text": "We introduce RECOMP, a method which compresses retrieved documents into textual summaries before prepending them to improve in-context retrieval augmented language models. We present two compression models – an extractive compressor and an abstractive compressor. We design a training scheme which leverages end task signals from a blackbox LM to generate useful summaries and allowing the compression models to perform selective augmentation. Our experiments show that our compressors can improve the efficiency of retrieval augmented LMs significantly with minimal drop in performances. ACKNOWLEDGEMENT We thank the members of the UT and UW NLP community for feedback on the project. We especially thank Alisa Liu, Junyi Jessy Li and Greg Durrett for providing comments on the draft. The project is partially funded by NSF grant (IIS-2312948). ETHICS STATEMENT We use commercial language model to generate training data for our compressors, which might include factual error. We conduct careful human evaluation on the data generated and present our analysis in the paper. REPRODUCIBILITY STATEMENT We release our codes, prompt, and data generated with API access publicly.",
+      "url": "https://arxiv.org/abs/2310.04408v1",
+      "pdf_file": "pdfs/recomp.pdf",
+      "sha256": "9d8aa7881e786d6b3593fe6c60bc2e52944aee82ab6ca577097618baf8d21066",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029857397504456328
+    },
+    {
+      "source_id": "ragsurvey:s0018",
+      "paper_id": "ragsurvey",
+      "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
+      "section": "A. Retrieval Source",
+      "page_start": 7,
+      "page_end": 8,
+      "text": "2) Retrieval Granularity: Another important factor besides the data format of the retrieval source is the granularity of the retrieved data. Coarse-grained retrieval units theoretically can provide more relevant information for the problem, but they may also contain redundant content, which could distract the retriever and language models in downstream tasks [50], [87]. On the other hand, fine-grained retrieval unit granularity increases the burden of retrieval and does not guarantee semantic integrity and meeting the required knowledge. Choosing the appropriate retrieval granularity during inference can be a simple and effective strategy to improve the retrieval and downstream task performance of dense retrievers. In text, retrieval granularity ranges from fine to coarse, including Token, Phrase, Sentence, Proposition, Chunks, Document. Among them, DenseX [30]proposed the concept of using propositions as retrieval units. Propositions are defined as atomic expressions in the text, each encapsulating a unique factual segment and presented in a concise, self-contained natural language format. This approach aims to enhance retrieval precision and relevance. On the Knowledge Graph (KG), retrieval granularity includes Entity, Triplet, and sub-Graph. The granularity of retrieval can also be adapted to downstream tasks, such as retrieving Item IDs [40]in recommendation tasks and Sentence pairs [38]. Detailed information is illustrated in Table I.",
+      "url": "https://arxiv.org/abs/2312.10997v5",
+      "pdf_file": "pdfs/ragsurvey.pdf",
+      "sha256": "396a0fadeb4cd40f5c8ccc36b73a0815f6cb4d7f6bfa53b6c48c1f9aba7c7e02",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029418126757516764
+    },
+    {
+      "source_id": "walert:s0011",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "2.3 Retrieval-Augmented Generation (RAG)",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "In contrast to the precision-oriented IB approach, we sought to investigate a more open-ended methodology known as RAG [11]. Here, we cover two use cases: (i) instances where the questions the user raises vary from what is available in the FAQ, and (ii) scenarios utterances-and-slots.html process of managing a privacy-aware LLM solution in-house to avoid the potential leaking of sensitive data by using third-party solutions. We found this alternative to be a good fit for our needs, also the most flexible for our future research, e.g., experiments involving fine-tuning. in which questions can only be answered using abstractive multidocument summarization from multiple passages in the KB. The RAG approach consists of two main stages (bottom part of Figure 1). The initial stage involves retrieving potential passages that may contain the answer, while the second stage involves generating a summary from the top-Kretrieved passages. For the retrieval model, we experimented with two approaches: (i) Okapi BM25 [17] with default parameters (k1 = 1.2; b= 0.75) and (ii) dense retrieval using Dense Passage Retrieval (DPR) [10] implementations in the pyserini toolkit [13]. To generate a summary from the top-Kretrieved passages, we used the same LLM that was used to generate semantically equivalent variations of the questions for the IB approach, i.e., falcon-7b-instruct (refer Section 2.2) along with the following prompt to generate the summaries: Generate an answer to be synthesized with text-to-speech for a virtual assistant, the answer should be based on the retrieved documents for the following question. If the retrieved documents are not related to the question, then answer NA.",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029211087420042643
+    },
+    {
+      "source_id": "ragsurvey:s0050",
+      "paper_id": "ragsurvey",
+      "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
+      "section": "VIII. CONCLUSION",
+      "page_start": 16,
+      "page_end": 17,
+      "text": "The summary of this paper, as depicted in Figure 6, emphasizes RAG’s significant advancement in enhancing the capabilities of LLMs by integrating parameterized knowledge from language models with extensive non-parameterized data from external knowledge bases. The survey showcases the evolution of RAG technologies and their application on many different tasks. The analysis outlines three developmental paradigms within the RAG framework: Naive, Advanced, and Modular RAG, each representing a progressive enhancement over its predecessors. RAG’s technical integration with other AI methodologies, such as fine-tuning and reinforcement learning, has further expanded its capabilities. Despite the progress in RAG technology, there are research opportunities to improve its robustness and its ability to handle extended contexts. RAG’s application scope is expanding into multimodal domains, adapting its principles to interpret and process diverse data forms like images, videos, and code. This expansion highlights RAG’s significant practical implications for AI deployment, attracting interest from academic and industrial sectors. The growing ecosystem of RAG is evidenced by the rise in RAG-centric AI applications and the continuous development of supportive tools. As RAG’s application landscape broadens, there is a need to refine evaluation methodologies to keep pace with its evolution. Ensuring accurate and representative performance assessments is crucial for fully capturing RAG’s contributions to the AI research and development community.",
+      "url": "https://arxiv.org/abs/2312.10997v5",
+      "pdf_file": "pdfs/ragsurvey.pdf",
+      "sha256": "396a0fadeb4cd40f5c8ccc36b73a0815f6cb4d7f6bfa53b6c48c1f9aba7c7e02",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.028371628371628373
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [],
+  "elapsed_seconds": 0.014629374985815957,
+  "evaluation_question_id": "u04"
+}

@@ -1,0 +1,243 @@
+{
+  "run_id": "20261024T061243_91e0299c8e",
+  "created_utc": "2026-10-24T06:12:43.986071+00:00",
+  "question": "How did Walert perform on out-of-knowledge-base questions?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "walert"
+    ],
+    "facets": [
+      "evaluation"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "how did perform on out-of-knowledge-base questions",
+        "facets": [
+          "evaluation"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "walert.evaluation",
+      "paper_id": "walert",
+      "text": "Walert evaluates components and end-to-end answers, including out-of-knowledge-base questions. Its intent-based approach identifies 80% of the unanswerable out-of-KB questions. The tested RAG approaches attempt to generate answers for most of those questions, illustrating why a generated response is not necessarily a successful response.",
+      "facets": [
+        "evaluation",
+        "limitations"
+      ],
+      "source_ids": [
+        "walert:s0004",
+        "walert:s0015",
+        "walert:s0014"
+      ]
+    }
+  ],
+  "comparison": [],
+  "citations": [
+    {
+      "source_id": "walert:s0004",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "1 INTRODUCTION",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "Our goals are to explore the challenges and approaches for implementing a chatbot, compare various methods, and offer best practices in evaluation that stakeholders (not necessarily experts in conversational information seeking) can effectively use to assess and improve the quality of chatbot products. Using a manually curated Frequently Asked Questions (FAQ) guide from RMIT University’s School of Computing Technologies as a Knowledge Base (KB), we were able to implement a conversational agent, named Walert2, that allows potential future students to get answers to questions related to the computer science programs offered at RMIT University.3 In this demo, the primary focus was to characterize the challenges associated with integrating LLMs into the development process of voice-based conversational information-seeking systems based on an existing KB. The process allowed us to address challenges related to (i) handling private/sensitive information by deploying our instance of an open-source LLM; (ii) monitoring the problem of hallucinations (i.e., the introduction of facts that are not true) [9] and generation of inaccurate information by using a human-in-the-loop approach [6] and the inclusion of out of KB questions in our testbed; and (iii) evaluating the effectiveness of intent-based using Natural Language Understanding (NLU) and Retrieval-Augmented Generation (RAG), both at component and end-to-end levels. Our evaluation highlights shortcomings in recent RAG pipeline studies, particularly regarding the lack of ranking evaluation.",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "walert:s0015",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "3 QUANTITATIVE EVALUATION",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "Not available (No Relevant Passages) I’m sorry, I don’t have an answer. Table 2: Quantitative evaluation of the retrieval phase (NDCG) and generated answers (BERTScore and ROUGE-1), broken down by type of questions. Effectiveness for Out of KB base questions is reported with the percentage of empty rankings / “I don’t have an answer” responses. Boldface indicates the best score for each measure and ∗indicates statistically significant differences against all the other approaches according to Tukey’s HSD and significance level α= 0.01. Approach Retrieval Known (84 Questions) Inferred (12 Questions) Out of KB (10 Questions) Cutoff k NDCG BERTScore ROUGE-1 NDCG BERTScore ROUGE-1 % Unanswered BERTScore ROUGE-1 Intent-Based (IB) 0.643 0.771∗ 0.671∗ 0.083 0.332∗ 0.062 80.00 0.866∗ 0.813∗ RAG (BM25 + Falcon) 1 0.512 0.536 0.179 0.167 0.493 0.185 0.00 0.336 0.045 3 0.491 0.543 0.209 0.256 0.447 0.106 10.00 0.293 0.054 5 0.473 0.543 0.209 0.329 0.447 0.106 10.00 0.293 0.054 RAG (DPR + Falcon) 1 0.691 0.545 0.193 0.250 0.513 0.192 10.00 0.340 0.048 3 0.612 0.564 0.244 0.235 0.476 0.123 20.00 0.311 0.045 5 0.581 0.564 0.244 0.235 0.476 0.123 20.00 0.311 0.045 the Inferred questions. It is worth noting that the LLM tend to benefit from having less context (i.e., fewer passages in the prompt), achieving higher BERTScore and ROUGE-1 scores for lower cutoffs for both RAG approaches. Results also corroborate that IB performs significantly better than RAG approaches for Out of KB questions.",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "walert:s0014",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "3 QUANTITATIVE EVALUATION",
+      "page_start": 3,
+      "page_end": 4,
+      "text": "In terms of out-of-KB questions, IB performs substantially better than RAG approaches, being able to identify 80% of the unanswerable questions. RAGbased approaches fail by attempting to generate an answer for most of the questions, which means that it is likely to hallucinate instead of not warning the user about the lack of information in the KB. End-to-end evaluation. BERTScore and ROUGE-1 scores indicate that IB performs significantly better for the Known questions, whereas RAG approaches are likely to generate better answers for Pathiyan Cherumanal et al. Table 1: Examples of questions, relevant passages and gold answers in our testbed. Question Type Question Passage(s) Answer Questions with Known Answers Is the transfer from Associate Degree to Bachelors automatic? No, it is not. You are required to apply when you are closer to the completion of the Associate Degree. (Highly Relevant) No, it is not. You are required to apply when you are closer to the completion of the Associate Degree. Questions with Inferred Answers What does the final year of Computer Science (CS) program include? (1) [...] Software Engineering (SE) students will do another large in-house project and more SE electives, while CS students will do a slightly smaller project and a few more core [...]. (Partially Relevant) (2) [...] students are required by RMIT rules to do a capstone project in their final year. [...] with an industry partner [...] (Partially Relevant) It includes a small capstone project with a supervisor that work with an industry partner, as well as a few more core courses and electives. Out-of-KB Questions When does the application for program transfer open? Not available (No Relevant Passages) I’m sorry, I don’t have an answer.",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "walert:s0007",
+    "walert:s0013",
+    "walert:s0008",
+    "walert:s0016",
+    "walert:s0012",
+    "walert:s0014",
+    "walert:s0004",
+    "walert:s0015"
+  ],
+  "retrieved": [
+    {
+      "source_id": "walert:s0007",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "2.1 Data Collection and Testbed",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "Each answer ais obtained from one or more passages. We created a testbed that consists of relevance judgments at the passage level and gold answers for three types of questions: Questions with Known Answers (Known). These questions have a direct answer in the FAQ. Therefore, the corresponding passage p to the answer ain the FAQ is judged as Highly Relevant (label = 2). All questions related to the same topic have the same passage judged as relevant, which is also the gold answer (p= a). Questions with Inferred Answers (Inferred). Questions that do not have a direct answer in the FAQ, but have an answer that can be extracted from the KB, i.e., from one or more passages. Passages that partially contain relevant information to answer the question are judged as Partially Relevant (label = 1). The gold answer is manually generated by combining multiple passages. Out-of-Knowledge Base Questions (Out of KB). These questions cannot be answered with the information available in the KB – even though, these questions are within the domain and likely to be asked. Therefore, there are no relevant passages, and the gold answer consists of communicating to the user that there is no information available to answer that question. Table 1 shows example passages and answers for each question type. We have 106 questions (including variations) and 120 passages. In our collection, 84 questions have known answers (passages directly extracted from the FAQ), 12 have inferred answers, and 10 do not have an answer in the KB. These three question types in Walert our testbed provide a comprehensive evaluation that allows us to compare IB against RAG conversational approaches.",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03252247488101534
+    },
+    {
+      "source_id": "walert:s0013",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "3 QUANTITATIVE EVALUATION",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "The test collection created from the knowledge base described in Section 2, allows us to apply effectiveness evaluation practices to compare our proposed approaches at both the component and endto-end levels. Table 2 displays results for IB and RAG approaches using evaluation measures across two dimensions: (i) retrieval effectiveness (Normalized Discounted Cumulative Gain, NDCG [8]) and (ii) natural language generation (BERTScore [20] and ROUGE- 1 [12]). ROUGE and BERTScore have been used to quantify hallucinations in LLMs automatically [9]. All the results in Table 2 have been tested for statistical significance using Tukey’s HSD and significance level α= 0.01. Below, we discuss the results across two dimensions separately. Retrieval Effectiveness. When it comes to retrieving a response, the IB approach only retrieves one passage (i.e., the response associated with the recognized intent), whereas RAG approaches retrieve multiple passages for a given question (and the final response is generated using the top-kpassages). In our evaluation, we explore top-heavy cutoffs k={1,3,5} to minimize the risk of hallucinations. Table 2 shows that, for the Known questions, IB and RAG using DPR have comparable performance in terms of NDCG@1 and RAG approaches perform better with more aggressive ranking truncation (k= 1). For the Inferred questions, RAG approaches outperform IB (which can only return, at most, a passage partially relevant to the question). RAG approaches benefit from more context, and BM25 with k= 3 obtains the highest NDCG score. In terms of out-of-KB questions, IB performs substantially better than RAG approaches, being able to identify 80% of the unanswerable questions.",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.032018442622950824
+    },
+    {
+      "source_id": "walert:s0008",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "2.1 Data Collection and Testbed",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "These three question types in Walert our testbed provide a comprehensive evaluation that allows us to compare IB against RAG conversational approaches. In particular, using the questions with known answers, we can assess the system’s ability to correctly respond to questions for which we know a passage in the KB contains the complete answer. By evaluating the effectiveness of the answers for the questions with inferred answers, we can assess the system’s ability to generate answers by combining multiple (partially) relevant passages. Finally, including questions not covered in the FAQ helps assess the chatbot’s ability to identify unanswerable questions – which is a critical step in controlling hallucinations.",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031054405392392875
+    },
+    {
+      "source_id": "walert:s0016",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "4 IMPACT AND FUTURE WORK",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "We built Walert, a conversational agent that answers FAQs about programs of study offered in the School of Computing Technologies at RMIT University. The IB approach, deployed on an Amazon Echo device, was showcased as a demo at the university’s Open Day in August 2023 where potential future students learned about the use of LLM-based conversational systems and its risks and limitations. The demo, which was also showcased to visiting high-school students in September 2023, generated university-wide interest and connections, including the IT service team building a universitywide solution. There are several limitations that we are aiming to address in future work. The current demo relies upon a limited knowledge base (i.e., a manually curated FAQ). We aim to reproduce our methodology with a more extensive set of documents, including brochures and internal web pages related to the delivery of CS programs. Further research on evaluation measures (beyond BERTScore and ROUGE) is needed to evaluate the validity of generated responses. We aim to explore other evaluation measures, including those for truncated rankings [3] and other dimensions of LLM-based conversational systems [18]. Finally, we plan to deploy RAG approaches to perform online experimentation. The process of building Walert helped us not only to share complementary knowledge across our group but also to facilitate knowledge translation within the university. We believe the approach and the lessons learned can help other researchers aiming to bridge the gap between experts and practitioners interested in building (and testing) LLM-based conversational information-seeking systems.",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031009615384615385
+    },
+    {
+      "source_id": "walert:s0012",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "2.3 Retrieval-Augmented Generation (RAG)",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "If the retrieved documents are not related to the question, then answer NA. [QUESTION + LIST OF kPASSAGES] We experimented with three top-heavy kcutoffs: 1 (which is comparable to IB), 3, and 5 top retrieved passages.",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03057889822595705
+    },
+    {
+      "source_id": "walert:s0014",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "3 QUANTITATIVE EVALUATION",
+      "page_start": 3,
+      "page_end": 4,
+      "text": "In terms of out-of-KB questions, IB performs substantially better than RAG approaches, being able to identify 80% of the unanswerable questions. RAGbased approaches fail by attempting to generate an answer for most of the questions, which means that it is likely to hallucinate instead of not warning the user about the lack of information in the KB. End-to-end evaluation. BERTScore and ROUGE-1 scores indicate that IB performs significantly better for the Known questions, whereas RAG approaches are likely to generate better answers for Pathiyan Cherumanal et al. Table 1: Examples of questions, relevant passages and gold answers in our testbed. Question Type Question Passage(s) Answer Questions with Known Answers Is the transfer from Associate Degree to Bachelors automatic? No, it is not. You are required to apply when you are closer to the completion of the Associate Degree. (Highly Relevant) No, it is not. You are required to apply when you are closer to the completion of the Associate Degree. Questions with Inferred Answers What does the final year of Computer Science (CS) program include? (1) [...] Software Engineering (SE) students will do another large in-house project and more SE electives, while CS students will do a slightly smaller project and a few more core [...]. (Partially Relevant) (2) [...] students are required by RMIT rules to do a capstone project in their final year. [...] with an industry partner [...] (Partially Relevant) It includes a small capstone project with a supervisor that work with an industry partner, as well as a few more core courses and electives. Out-of-KB Questions When does the application for program transfer open? Not available (No Relevant Passages) I’m sorry, I don’t have an answer.",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029877369007803793
+    },
+    {
+      "source_id": "walert:s0004",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "1 INTRODUCTION",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "Our goals are to explore the challenges and approaches for implementing a chatbot, compare various methods, and offer best practices in evaluation that stakeholders (not necessarily experts in conversational information seeking) can effectively use to assess and improve the quality of chatbot products. Using a manually curated Frequently Asked Questions (FAQ) guide from RMIT University’s School of Computing Technologies as a Knowledge Base (KB), we were able to implement a conversational agent, named Walert2, that allows potential future students to get answers to questions related to the computer science programs offered at RMIT University.3 In this demo, the primary focus was to characterize the challenges associated with integrating LLMs into the development process of voice-based conversational information-seeking systems based on an existing KB. The process allowed us to address challenges related to (i) handling private/sensitive information by deploying our instance of an open-source LLM; (ii) monitoring the problem of hallucinations (i.e., the introduction of facts that are not true) [9] and generation of inaccurate information by using a human-in-the-loop approach [6] and the inclusion of out of KB questions in our testbed; and (iii) evaluating the effectiveness of intent-based using Natural Language Understanding (NLU) and Retrieval-Augmented Generation (RAG), both at component and end-to-end levels. Our evaluation highlights shortcomings in recent RAG pipeline studies, particularly regarding the lack of ranking evaluation.",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029857397504456328
+    },
+    {
+      "source_id": "walert:s0015",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "3 QUANTITATIVE EVALUATION",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "Not available (No Relevant Passages) I’m sorry, I don’t have an answer. Table 2: Quantitative evaluation of the retrieval phase (NDCG) and generated answers (BERTScore and ROUGE-1), broken down by type of questions. Effectiveness for Out of KB base questions is reported with the percentage of empty rankings / “I don’t have an answer” responses. Boldface indicates the best score for each measure and ∗indicates statistically significant differences against all the other approaches according to Tukey’s HSD and significance level α= 0.01. Approach Retrieval Known (84 Questions) Inferred (12 Questions) Out of KB (10 Questions) Cutoff k NDCG BERTScore ROUGE-1 NDCG BERTScore ROUGE-1 % Unanswered BERTScore ROUGE-1 Intent-Based (IB) 0.643 0.771∗ 0.671∗ 0.083 0.332∗ 0.062 80.00 0.866∗ 0.813∗ RAG (BM25 + Falcon) 1 0.512 0.536 0.179 0.167 0.493 0.185 0.00 0.336 0.045 3 0.491 0.543 0.209 0.256 0.447 0.106 10.00 0.293 0.054 5 0.473 0.543 0.209 0.329 0.447 0.106 10.00 0.293 0.054 RAG (DPR + Falcon) 1 0.691 0.545 0.193 0.250 0.513 0.192 10.00 0.340 0.048 3 0.612 0.564 0.244 0.235 0.476 0.123 20.00 0.311 0.045 5 0.581 0.564 0.244 0.235 0.476 0.123 20.00 0.311 0.045 the Inferred questions. It is worth noting that the LLM tend to benefit from having less context (i.e., fewer passages in the prompt), achieving higher BERTScore and ROUGE-1 scores for lower cutoffs for both RAG approaches. Results also corroborate that IB performs significantly better than RAG approaches for Out of KB questions.",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02976190476190476
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "how did perform on out-of-knowledge-base questions",
+      "paper_ids": [
+        "walert"
+      ],
+      "facet": "evaluation",
+      "covered": true,
+      "claim_ids": [
+        "walert.evaluation"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.006456667004385963,
+  "evaluation_question_id": "q11"
+}

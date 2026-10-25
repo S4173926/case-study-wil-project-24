@@ -1,0 +1,527 @@
+{
+  "run_id": "20261024T061244_6ff3b017a5",
+  "created_utc": "2026-10-24T06:12:44.382239+00:00",
+  "question": "What exactly do BEIR and ARES evaluate, and how is their evaluation methodology different?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "beir",
+      "ares"
+    ],
+    "facets": [
+      "evaluation"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": true,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "what exactly do and evaluate",
+        "facets": [
+          "evaluation"
+        ],
+        "explicit": true,
+        "scope": "each"
+      },
+      {
+        "id": "part2",
+        "text": "how is their evaluation methodology different",
+        "facets": [
+          "evaluation"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "beir.purpose",
+      "paper_id": "beir",
+      "text": "BEIR is a heterogeneous benchmark for zero-shot information retrieval, not a judge of generated answers. The original benchmark includes 18 publicly available datasets across diverse retrieval tasks and domains, so it tests transfer beyond a narrow training distribution.",
+      "facets": [
+        "evaluation",
+        "purpose"
+      ],
+      "source_ids": [
+        "beir:s0001",
+        "beir:s0008"
+      ]
+    },
+    {
+      "claim_id": "beir.metric",
+      "paper_id": "beir",
+      "text": "BEIR uses nDCG@10 as a common ranking measure across its datasets. nDCG accommodates both binary and graded relevance judgments, making it useful for comparing ranked retrieval results across heterogeneous tasks.",
+      "facets": [
+        "evaluation"
+      ],
+      "source_ids": [
+        "beir:s0014"
+      ]
+    },
+    {
+      "claim_id": "beir.format",
+      "paper_id": "beir",
+      "text": "BEIR standardises retrieval datasets as a corpus, queries and relevance judgments (qrels). Its software supports evaluation of different retrieval architectures on those collections using a common format.",
+      "facets": [
+        "representation",
+        "evaluation"
+      ],
+      "source_ids": [
+        "beir:s0013"
+      ]
+    },
+    {
+      "claim_id": "ares.dimensions",
+      "paper_id": "ares",
+      "text": "ARES evaluates context relevance, answer faithfulness and answer relevance for RAG systems. It assesses query–passage–answer triples and can score the retrieval and answer-generation components separately.",
+      "facets": [
+        "evaluation",
+        "purpose"
+      ],
+      "source_ids": [
+        "ares:s0003"
+      ]
+    },
+    {
+      "claim_id": "ares.judges",
+      "paper_id": "ares",
+      "text": "ARES generates synthetic query–passage–answer data from the target corpus, including positive and negative examples, and fine-tunes lightweight judges for the evaluation tasks. This differs from relying only on fixed prompts for an off-the-shelf model to judge outputs.",
+      "facets": [
+        "training",
+        "supervision",
+        "evaluation"
+      ],
+      "source_ids": [
+        "ares:s0001",
+        "ares:s0008"
+      ]
+    },
+    {
+      "claim_id": "ares.ppi",
+      "paper_id": "ares",
+      "text": "ARES combines judge predictions with a smaller human-annotated validation set using prediction-powered inference (PPI). The annotations help estimate judge error, and PPI produces confidence intervals for system-level scores. A confidence interval for an aggregate score is not certification of every individual answer.",
+      "facets": [
+        "evaluation",
+        "supervision"
+      ],
+      "source_ids": [
+        "ares:s0012",
+        "ares:s0013"
+      ]
+    }
+  ],
+  "comparison": [
+    {
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "claims": [
+        {
+          "claim_id": "beir.purpose",
+          "paper_id": "beir",
+          "text": "BEIR is a heterogeneous benchmark for zero-shot information retrieval, not a judge of generated answers. The original benchmark includes 18 publicly available datasets across diverse retrieval tasks and domains, so it tests transfer beyond a narrow training distribution.",
+          "facets": [
+            "evaluation",
+            "purpose"
+          ],
+          "source_ids": [
+            "beir:s0001",
+            "beir:s0008"
+          ]
+        },
+        {
+          "claim_id": "beir.metric",
+          "paper_id": "beir",
+          "text": "BEIR uses nDCG@10 as a common ranking measure across its datasets. nDCG accommodates both binary and graded relevance judgments, making it useful for comparing ranked retrieval results across heterogeneous tasks.",
+          "facets": [
+            "evaluation"
+          ],
+          "source_ids": [
+            "beir:s0014"
+          ]
+        },
+        {
+          "claim_id": "beir.format",
+          "paper_id": "beir",
+          "text": "BEIR standardises retrieval datasets as a corpus, queries and relevance judgments (qrels). Its software supports evaluation of different retrieval architectures on those collections using a common format.",
+          "facets": [
+            "representation",
+            "evaluation"
+          ],
+          "source_ids": [
+            "beir:s0013"
+          ]
+        }
+      ]
+    },
+    {
+      "paper_id": "ares",
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "claims": [
+        {
+          "claim_id": "ares.dimensions",
+          "paper_id": "ares",
+          "text": "ARES evaluates context relevance, answer faithfulness and answer relevance for RAG systems. It assesses query–passage–answer triples and can score the retrieval and answer-generation components separately.",
+          "facets": [
+            "evaluation",
+            "purpose"
+          ],
+          "source_ids": [
+            "ares:s0003"
+          ]
+        },
+        {
+          "claim_id": "ares.judges",
+          "paper_id": "ares",
+          "text": "ARES generates synthetic query–passage–answer data from the target corpus, including positive and negative examples, and fine-tunes lightweight judges for the evaluation tasks. This differs from relying only on fixed prompts for an off-the-shelf model to judge outputs.",
+          "facets": [
+            "training",
+            "supervision",
+            "evaluation"
+          ],
+          "source_ids": [
+            "ares:s0001",
+            "ares:s0008"
+          ]
+        },
+        {
+          "claim_id": "ares.ppi",
+          "paper_id": "ares",
+          "text": "ARES combines judge predictions with a smaller human-annotated validation set using prediction-powered inference (PPI). The annotations help estimate judge error, and PPI produces confidence intervals for system-level scores. A confidence interval for an aggregate score is not certification of every individual answer.",
+          "facets": [
+            "evaluation",
+            "supervision"
+          ],
+          "source_ids": [
+            "ares:s0012",
+            "ares:s0013"
+          ]
+        }
+      ]
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "beir:s0001",
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Existing neural information retrieval (IR) models have often been studied in homogeneous and narrow settings, which has considerably limited insights into their out-of-distribution (OOD) generalization capabilities. To address this, and to facilitate researchers to broadly evaluate the effectiveness of their models, we introduce Benchmarking-IR (BEIR), a robust and heterogeneous evaluation benchmark for information retrieval. We leverage a careful selection of 18 publicly available datasets from diverse text retrieval tasks and domains and evaluate 10 state-of-theart retrieval systems including lexical, sparse, dense, late-interaction and re-ranking architectures on the BEIR benchmark. Our results show BM25 is a robust baseline and re-ranking and late-interaction based models on average achieve the best zeroshot performances, however, at high computational costs. In contrast, dense and sparse-retrieval models are computationally more efficient but often underperform other approaches, highlighting the considerable room for improvement in their generalization capabilities. We hope this framework allows us to better evaluate and understand existing retrieval systems, and contributes to accelerating progress towards better robust and generalizable systems in the future. BEIR is publicly available at https://github.com/UKPLab/beir.",
+      "url": "https://arxiv.org/abs/2104.08663v4",
+      "pdf_file": "pdfs/beir.pdf",
+      "sha256": "1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "beir:s0008",
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "section": "3 The BEIR Benchmark",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "BEIR aims to provide a one-stop zero-shot evaluation benchmark for all diverse retrieval tasks. To construct a comprehensive evaluation benchmark, the selection methodology is crucial to collect tasks and datasets with desired properties. For BEIR, the methodology is motivated by the following three factors: (i) Diverse tasks: Information retrieval is a versatile task and the lengths of queries and indexed documents can differ between tasks. Sometimes, queries are short, like a keyword, while in other cases, they can be long like a news article. Similarly, indexed documents can sometimes be long, and for other tasks, short like a tweet. (ii) Diverse domains: Retrieval systems should be evaluated in various types of domains. From broad ones like News or Wikipedia, to highly specialized ones such as scientific publications in one particular field. Hence, we include domains which provide a representation of real-world problems and are diverse ranging from generic to specialized. (iii) Task difficulties: Our benchmark is challenging and the difficulty of a task included has to be sufficient. If a task is easily solved by any algorithm, it will not be useful to compare various models used for evaluation. We evaluated several tasks based on existing literature and selected popular tasks which we believe are recently developed, challenging and are not yet fully solved with existing approaches. (iv) Diverse annotation strategies: Creating retrieval datasets are inherently complex and are subject to annotation biases (see Section 6 for details), which hinders a fair comparison of approaches.",
+      "url": "https://arxiv.org/abs/2104.08663v4",
+      "pdf_file": "pdfs/beir.pdf",
+      "sha256": "1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "beir:s0014",
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "section": "3.3 Evaluation Metric",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "Depending upon the nature and requirements of real-world applications, retrieval tasks can be either be precision or recall focused. To obtain comparable results across models and datasets in BEIR, we argue that it is important to leverage a single evaluation metric that can be computed comparably across all tasks. Decision support metrics such as Precision and Recall which are both rank unaware are not suitable. Binary rank-aware metrics such as MRR (Mean Reciprocal Rate) and MAP (Mean Average Precision) fail to evaluate tasks with graded relevance judgements. We find that Normalised Cumulative Discount Gain (nDCG@k) provides a good balance suitable for both tasks involving binary and graded relevance judgements. We refer the reader to Wang et al. [71] for understanding the theoretical advantages of the metric. For our experiments, we utilize the Python interface of the official TREC evaluation tool [63] and compute nDCG@10 for all datasets.",
+      "url": "https://arxiv.org/abs/2104.08663v4",
+      "pdf_file": "pdfs/beir.pdf",
+      "sha256": "1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "beir:s0013",
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "section": "3.2 BEIR Software and Framework",
+      "page_start": 4,
+      "page_end": 5,
+      "text": "The BEIR software3 provides an is an easy to use Python framework (pip install beir) for model evaluation. It contains extensive wrappers to replicate experiments and evaluate models from wellknown repositories including Sentence-Transformers [53], Transformers [72], Anserini [74], DPR [31], Elasticsearch, ColBERT [32], and Universal Sentence Encoder [75]. This makes the software useful for both academia and industry. The software also provides you with all IR-based metrics from Precision, Recall, MAP (Mean Average Precision), MRR (Mean Reciprocal Rate) to nDCG 2BEIR Leaderboard: https://tinyurl.com/beir-leaderboard 3BEIR Code & documentation: https://github.com/UKPLab/beir Figure 2: Domain overlap across each pairwise dataset in the BEIR benchmark. Heatmap (left) shows the pairwise weighted jaccard similarity scores between BEIR datasets. 2D representation (right) using a forcedirected placement algorithm with NetworkX [20]. We color and mark datasets differently for different domains. (Normalised Cumulative Discount Gain) for any top-k hits. One can use the BEIR benchmark for evaluating existing models on new retrieval datasets and for evaluating new models on the included datasets. Datasets are often scattered online and are provided in various file-formats, making the evaluation of models on various datasets difficult. BEIR introduces a standard format (corpus, queries and qrels) and converts existing datasets in this easy universal data format, allowing to evaluate faster on an increasing number of datasets.",
+      "url": "https://arxiv.org/abs/2104.08663v4",
+      "pdf_file": "pdfs/beir.pdf",
+      "sha256": "1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "ares:s0003",
+      "paper_id": "ares",
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "section": "1 Introduction",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "Unfortunately, such strategies currently rely for evaluation on a fixed set of heuristically hand-written prompts, offering little adaptability to various evaluation contexts and no guarantees about quality. To evaluate RAG systems rapidly and accurately, we propose ARES, the Automated RAG Evaluation System. ARES is the first automated RAG evaluation system to generate tailored LLM judges for each component of a RAG pipeline, leading to substantial boosts in evaluation precision and accuracy compared to existing approaches like RA- GAS. Furthermore, unlike existing RAG evaluation systems, ARES provides confidence intervals for its scoring by leveraging prediction-powered inference (PPI; Angelopoulos et al. 2023). Given a corpus of documents and a RAG system, ARES reports three evaluation scores: context relevance (is the retrieved information pertinent to the test question), answer faithfulness (is the response generated by the language model properly grounded in the retrieved context), and answer relevance (is the response also relevant to the question). A good RAG system finds relevant contexts and generates answers that are both faithful and relevant. Many existing RAG evaluation frameworks require substantial human annotations for scoring. ARES significantly improves data efficiency during evaluation by only requiring three inputs: an indomain passage set, a human preference validation set of approximately 150 annotated datapoints or more, and few-shot examples of in-domain queries and answers (e.g. five examples or more), which are used for prompting LLMs in synthetic data generation. Given the corpus of in-domain passages, ARES proceeds in three stages. First, it leverages an LM to construct a synthetic dataset of question–answer pairs, derived from the passages in the corpus. Second, it defines three separate judge models to perform three classification tasks (context relevance, answer faithfulness, and answer relevance).",
+      "url": "https://arxiv.org/abs/2311.09476v2",
+      "pdf_file": "pdfs/ares.pdf",
+      "sha256": "16f092b08cce88da551a15a978b51721199e93dc95df406089813411fa51ebec",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "ares:s0001",
+      "paper_id": "ares",
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Evaluating retrieval-augmented generation (RAG) systems traditionally relies on hand annotations for input queries, passages to retrieve, and responses to generate. We introduce ARES, an Automated RAG Evaluation System, for evaluating RAG systems along the dimensions of context relevance, answer faithfulness, and answer relevance. By creating its own synthetic training data, ARES finetunes lightweight LM judges to assess the quality of individual RAG components. To mitigate potential prediction errors, ARES utilizes a small set of human-annotated datapoints for prediction-powered inference (PPI). Across eight different knowledge-intensive tasks in KILT, SuperGLUE, and AIS, ARES accurately evaluates RAG systems while using only a few hundred human annotations during evaluation. Furthermore, ARES judges remain effective across domain shifts, proving accurate even after changing the type of queries and/or documents used in the evaluated RAG systems. We make our code and datasets publicly available on Github.",
+      "url": "https://arxiv.org/abs/2311.09476v2",
+      "pdf_file": "pdfs/ares.pdf",
+      "sha256": "16f092b08cce88da551a15a978b51721199e93dc95df406089813411fa51ebec",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "ares:s0008",
+      "paper_id": "ares",
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "section": "3.1 LLM Generation of Synthetic Dataset",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "We generate synthetic queries and answers from the corpus passages using generative LLMs. The generated data represent both positive and negative examples of query–passage–answer triples (e.g., relevant/irrelevant passages and correct/incorrect answers). For generation, the LLM uses our input set of few-shot examples with in-domain passages mapped to in-domain queries and answers; the model then generates a synthetic question and answer from a given in-domain passage, allowing us to create both positive and negative training examples. We include example prompts for generating synthetic queries and answers in A.6. For creating our synthetic data, we primarily use on FLAN-T5 XXL (discussed in subsection 4.1). ARES works well with this model (see section 5) but our system can ultimately use another highquality model for generating synthetic queries and answers. We then filter out low-quality queries by testing if a given query can retrieve its original passage as the top result using its retriever. This filtering approach has been used in previous work to isolate high-quality synthetic queries (Dai et al., 2022; Saad-Falcon et al., 2023). To generate negatives for fine-tuning our LLM judges, we rely on two novel strategies, generating the same number of negatives with each strategy: 1. Weak Negative Generation: For context relevance negatives, we randomly sample indomain passages unrelated to a given synthetic query. For answer faithfulness and answer relevance negatives, we randomly sample synthetically-generated answers from other passages, which were created using FLAN-T5 XXL. 2. Strong Negative Generation: For context relevance negatives, we randomly sample indomain passages from the same document as the gold passage.",
+      "url": "https://arxiv.org/abs/2311.09476v2",
+      "pdf_file": "pdfs/ares.pdf",
+      "sha256": "16f092b08cce88da551a15a978b51721199e93dc95df406089813411fa51ebec",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "ares:s0012",
+      "paper_id": "ares",
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "section": "3.3 Ranking RAG Systems with Confidence",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "Intervals Once we have prepared our LLM judges, we need to use them to score and rank the competing RAG systems. To do this, ARES samples the in-domain query-document-answer triples produced by each RAG approach, and the judges label each triple, predicting their context relevance, answer faithfulness, and answer relevance. By averaging the individual predicted labels for each in-domain triple, we calculate the RAG system performance across each of the three metrics. In principle, we could simply report these average scores as quality metrics for each RAG system. However, these scores reflect entirely unlabeled data with predictions from a synthetically-trained LLM judge, and hence they may not be entirely accurate. As an extreme alternative, we could use just the small human preference validation set discussed previously for evaluation, reporting the extent to which each RAG system agrees with (or deviates from) the human annotations. However, an annotation-based evaluation approach would require labeling substantially more generative outputs from each RAG systems separately, which can be costly both in terms of time and financing. To combine the benefits of both, and hence boost the precision of the evaluation, ARES uses prediction-powered inference (PPI; Angelopoulos et al. 2023) to predict the system scores. PPI is a recent statistical method that provides tighter confidence intervals on a small set of annotated datapoints (i.e., our validation set) by leveraging predictions on a much larger set of non-annotated datapoints. PPI can leverage both the labeled datapoints and the ARES judge predictions on the non-annotated datapoints to construct confidence intervals for our RAG system’s performance.",
+      "url": "https://arxiv.org/abs/2311.09476v2",
+      "pdf_file": "pdfs/ares.pdf",
+      "sha256": "16f092b08cce88da551a15a978b51721199e93dc95df406089813411fa51ebec",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "ares:s0013",
+      "paper_id": "ares",
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "section": "3.3 Ranking RAG Systems with Confidence",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "PPI can leverage both the labeled datapoints and the ARES judge predictions on the non-annotated datapoints to construct confidence intervals for our RAG system’s performance. To do this, PPI uses the LLM judges on the human preference validation set to learn a rectifier function for constructing a confidence set of the ML model’s performance, using each ML prediction in the larger non-annotated dataset. The confidence set can then be used to create a tighter confidence interval for the performance of the evaluated RAG system (e.g. its context relevance, answer faithfulness, or answer relevance accuracy individually) compared to simply using annotated outputs from the evaluated RAG system. By bolstering the human preference validation set with the much larger set of datapoints with ML predictions, PPI can develop reliable confidence intervals for ML model performance that beat previous classical inference approaches. The PPI rectifier function allows us to estimate the errors of the LLM judge and generate confidence bounds for the success and failure rates of the RAG system, estimating context relevance, answer faithfulness, and answer relevance performance. Additionally, PPI allows us to estimate confidence intervals with a selected level of probability; for our experiments, we use a standard 95% alpha (probability) for our confidence interval. With the accuracy confidence interval for each component of the RAG, we find the midpoint of each confidence interval and use the midpoints to rank the RAG systems. With our ranking, we can compare different RAG systems, as well as different configurations of the same RAG system, to find the best-performing approach for a given domain.",
+      "url": "https://arxiv.org/abs/2311.09476v2",
+      "pdf_file": "pdfs/ares.pdf",
+      "sha256": "16f092b08cce88da551a15a978b51721199e93dc95df406089813411fa51ebec",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "beir:s0033",
+    "ares:s0001",
+    "beir:s0029",
+    "ares:s0006",
+    "beir:s0018",
+    "ares:s0027",
+    "beir:s0001",
+    "ares:s0023"
+  ],
+  "retrieved": [
+    {
+      "source_id": "beir:s0033",
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "section": "D Zero-shot Evaluation Tasks",
+      "page_start": 17,
+      "page_end": 18,
+      "text": "Following the selection criteria mentioned in Section 3, we include 18 evaluation datasets that span across 9 heterogeneous tasks. Each dataset mentioned below contains a document corpus denoted by T and test queries for evaluation denoted by Q. We additionally provide dataset website links in Table 5 and intuitive examples in Table 8. We now describe each task and dataset included in the BEIR benchmark below:",
+      "url": "https://arxiv.org/abs/2104.08663v4",
+      "pdf_file": "pdfs/beir.pdf",
+      "sha256": "1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.024527186761229315
+    },
+    {
+      "source_id": "ares:s0001",
+      "paper_id": "ares",
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Evaluating retrieval-augmented generation (RAG) systems traditionally relies on hand annotations for input queries, passages to retrieve, and responses to generate. We introduce ARES, an Automated RAG Evaluation System, for evaluating RAG systems along the dimensions of context relevance, answer faithfulness, and answer relevance. By creating its own synthetic training data, ARES finetunes lightweight LM judges to assess the quality of individual RAG components. To mitigate potential prediction errors, ARES utilizes a small set of human-annotated datapoints for prediction-powered inference (PPI). Across eight different knowledge-intensive tasks in KILT, SuperGLUE, and AIS, ARES accurately evaluates RAG systems while using only a few hundred human annotations during evaluation. Furthermore, ARES judges remain effective across domain shifts, proving accurate even after changing the type of queries and/or documents used in the evaluated RAG systems. We make our code and datasets publicly available on Github.",
+      "url": "https://arxiv.org/abs/2311.09476v2",
+      "pdf_file": "pdfs/ares.pdf",
+      "sha256": "16f092b08cce88da551a15a978b51721199e93dc95df406089813411fa51ebec",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03278688524590164
+    },
+    {
+      "source_id": "beir:s0029",
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "section": "A Complementing Information",
+      "page_start": 17,
+      "page_end": 17,
+      "text": "We provide the following additional sections in detail and information that complement discussions in the main paper: • Limitations of the BEIR benchmark in Appendix B. • Training and in-domain evaluation task details in Appendix C. • Description of all zero-shot tasks and datasets used in BEIR in Appendix D. • Details of dataset licenses in Appendix E. • Overview of the weighted jaccard similarity metric in Appendix F. • Overview of the capped recall at k metric in Appendix G. • Length preference for dense retrieval system in Appendix H.",
+      "url": "https://arxiv.org/abs/2104.08663v4",
+      "pdf_file": "pdfs/beir.pdf",
+      "sha256": "1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.023856578204404292
+    },
+    {
+      "source_id": "ares:s0006",
+      "paper_id": "ares",
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "section": "2 Related Work",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "The two most-closely related projects to ARES are EXAM (Sander and Dietz, 2021) and RA- GAS (James and Es, 2023). To evaluate RAG systems, the EXAM metric estimates how many exam questions a reader (simulated as a QA system) can answer correctly based on the generated response. This requires a set of queries with several associated sub-questions each, which adds a burden that ARES does not bring. RAGAS is based on a handful of heuristic hand-written prompts. These offer little adaptability to new RAG evaluation settings (e.g., new corpora) and, as we show in our evaluation, substantially underperform ARES.",
+      "url": "https://arxiv.org/abs/2311.09476v2",
+      "pdf_file": "pdfs/ares.pdf",
+      "sha256": "16f092b08cce88da551a15a978b51721199e93dc95df406089813411fa51ebec",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031754032258064516
+    },
+    {
+      "source_id": "beir:s0018",
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "section": "5 Results and Analysis",
+      "page_start": 6,
+      "page_end": 6,
+      "text": "In this section, we evaluate and analyze how retrieval models perform on the BEIR benchmark. Table 2 reports the results of all evaluated systems on the selected benchmark datasets. As a baseline, we compare our retrieval systems against BM25. Figure 3 shows, on how many datasets a respective model is able to perform better or worse than BM25. 1. In-domain performance is not a good indicator for out-of-domain generalization. We observe BM25 heavily underperforms neural approaches by 7-18 points on in-domain MS MARCO. However, BEIR reveals it to be a strong baseline for generalization and generally outperforming many other, more complex approaches. This stresses the point, that retrieval methods must be evaluated on a broad range of datasets. 2. Term-weighting fails, document expansion captures out-of-domain keyword vocabulary. DeepCT and SPARTA both use a transformer network to learn term weighting.",
+      "url": "https://arxiv.org/abs/2104.08663v4",
+      "pdf_file": "pdfs/beir.pdf",
+      "sha256": "1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.022464859437751006
+    },
+    {
+      "source_id": "ares:s0027",
+      "paper_id": "ares",
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "section": "6 Conclusion",
+      "page_start": 8,
+      "page_end": 9,
+      "text": "In this work, we present ARES, a novel automated evaluation framework for retrieval-augmented generation (RAG). ARES offers a novel training pipeline for fine-tuning lightweight LLM judges on synthetically generated queries and answers. ARES can evaluate each component of a RAG system separately to help improve system understanding and create targeted solutions, and it requires only minimal human annotations. For the eight different datasets in KILT, SuperGLUE, and AIS requiring RAG-based solutions, we found that ARES can accurately score and rank RAG systems based on context relevance, answer faithfulness, and answer relevance scores, beating the existing RAGAS automated evaluation framework. ARES is a flexible framework, and there may be variants of it that are even more powerful than the ones we explored here. Avenues to explore include GPT-4 as a replacement for human labeling (Table 4), more robust techniques for the synthetic datasets used in fine-tuning LLM judges, utilizing logits in LLM judge prediction to improve PPI confidence intervals, and testing more sophisticated LLMs as fine-tuned judges for ARES.",
+      "url": "https://arxiv.org/abs/2311.09476v2",
+      "pdf_file": "pdfs/ares.pdf",
+      "sha256": "16f092b08cce88da551a15a978b51721199e93dc95df406089813411fa51ebec",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031746031746031744
+    },
+    {
+      "source_id": "beir:s0001",
+      "paper_id": "beir",
+      "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Existing neural information retrieval (IR) models have often been studied in homogeneous and narrow settings, which has considerably limited insights into their out-of-distribution (OOD) generalization capabilities. To address this, and to facilitate researchers to broadly evaluate the effectiveness of their models, we introduce Benchmarking-IR (BEIR), a robust and heterogeneous evaluation benchmark for information retrieval. We leverage a careful selection of 18 publicly available datasets from diverse text retrieval tasks and domains and evaluate 10 state-of-theart retrieval systems including lexical, sparse, dense, late-interaction and re-ranking architectures on the BEIR benchmark. Our results show BM25 is a robust baseline and re-ranking and late-interaction based models on average achieve the best zeroshot performances, however, at high computational costs. In contrast, dense and sparse-retrieval models are computationally more efficient but often underperform other approaches, highlighting the considerable room for improvement in their generalization capabilities. We hope this framework allows us to better evaluate and understand existing retrieval systems, and contributes to accelerating progress towards better robust and generalizable systems in the future. BEIR is publicly available at https://github.com/UKPLab/beir.",
+      "url": "https://arxiv.org/abs/2104.08663v4",
+      "pdf_file": "pdfs/beir.pdf",
+      "sha256": "1925755aeb627123d1a63c66f02e5aa2432f7e92751a02bea7c8c3b6bbb6ec33",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.022347066167290888
+    },
+    {
+      "source_id": "ares:s0023",
+      "paper_id": "ares",
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "section": "5.2 ARES Performance on AIS",
+      "page_start": 7,
+      "page_end": 7,
+      "text": "WoW CNN / DM ARES Split Prediction 0.478 0.835 Correct Positive/Negative Split 0.458 0.859 ARES Judge Accuracy 62.5% 84.0% Evaluation Set Size Human Preference Data Size Table 2: ARES Results on the AIS benchmark To evaluate whether ARES can effectively gauge answer faithfulness in real RAG systems, we tested ARES on the AIS attribution benchmark (Rashkin et al., 2022). In AIS, we selected the Wizards of Wikipedia (WoW) and CNN/DM datasets; the other benchmark datasets involve either table reasoning (ToTTo) or focus on passage summarization (QRECC) so we excluded them. In WoW and CNN/DM, each evaluation example includes a query, a retrieved passage, and a generated answer (which is either faithful or non-attributed to the retrieved passage). Table 2 summarizes our AIS results. We found that ARES can effectively score the AIS datasets, getting within 2.5 accuracy points of the correct scores. Furthermore, for scoring each system, we only use 200 annotated datapoints for our human preference validation set. Our results on AIS demonstrate the ability of ARES to reliably distinguish faithful and hallucinated answers in realworld RAG systems.",
+      "url": "https://arxiv.org/abs/2311.09476v2",
+      "pdf_file": "pdfs/ares.pdf",
+      "sha256": "16f092b08cce88da551a15a978b51721199e93dc95df406089813411fa51ebec",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03128054740957967
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "what exactly do and evaluate",
+      "paper_ids": [
+        "beir"
+      ],
+      "facet": "evaluation",
+      "covered": true,
+      "claim_ids": [
+        "beir.purpose",
+        "beir.metric",
+        "beir.format"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    },
+    {
+      "part_id": "part1",
+      "question_part": "what exactly do and evaluate",
+      "paper_ids": [
+        "ares"
+      ],
+      "facet": "evaluation",
+      "covered": true,
+      "claim_ids": [
+        "ares.dimensions",
+        "ares.judges",
+        "ares.ppi"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    },
+    {
+      "part_id": "part2",
+      "question_part": "how is their evaluation methodology different",
+      "paper_ids": [
+        "beir"
+      ],
+      "facet": "evaluation",
+      "covered": true,
+      "claim_ids": [
+        "beir.purpose",
+        "beir.metric",
+        "beir.format"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    },
+    {
+      "part_id": "part2",
+      "question_part": "how is their evaluation methodology different",
+      "paper_ids": [
+        "ares"
+      ],
+      "facet": "evaluation",
+      "covered": true,
+      "claim_ids": [
+        "ares.dimensions",
+        "ares.judges",
+        "ares.ppi"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.01001741600339301,
+  "evaluation_question_id": "H09"
+}

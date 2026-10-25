@@ -1,0 +1,74 @@
+[
+  {
+    "method": "bm25",
+    "metric": "any_labelled_quote",
+    "gains": 6,
+    "losses": 0,
+    "both_yes": 25,
+    "both_no": 11
+  },
+  {
+    "method": "bm25",
+    "metric": "labelled_evidence_from_every_expected_paper",
+    "gains": 4,
+    "losses": 0,
+    "both_yes": 20,
+    "both_no": 18
+  },
+  {
+    "method": "bm25",
+    "metric": "all_labelled_quotes",
+    "gains": 4,
+    "losses": 0,
+    "both_yes": 18,
+    "both_no": 20
+  },
+  {
+    "method": "tfidf",
+    "metric": "any_labelled_quote",
+    "gains": 5,
+    "losses": 0,
+    "both_yes": 22,
+    "both_no": 15
+  },
+  {
+    "method": "tfidf",
+    "metric": "labelled_evidence_from_every_expected_paper",
+    "gains": 3,
+    "losses": 0,
+    "both_yes": 19,
+    "both_no": 20
+  },
+  {
+    "method": "tfidf",
+    "metric": "all_labelled_quotes",
+    "gains": 2,
+    "losses": 0,
+    "both_yes": 18,
+    "both_no": 22
+  },
+  {
+    "method": "hybrid",
+    "metric": "any_labelled_quote",
+    "gains": 4,
+    "losses": 0,
+    "both_yes": 26,
+    "both_no": 12
+  },
+  {
+    "method": "hybrid",
+    "metric": "labelled_evidence_from_every_expected_paper",
+    "gains": 2,
+    "losses": 0,
+    "both_yes": 21,
+    "both_no": 19
+  },
+  {
+    "method": "hybrid",
+    "metric": "all_labelled_quotes",
+    "gains": 1,
+    "losses": 0,
+    "both_yes": 20,
+    "both_no": 21
+  }
+]

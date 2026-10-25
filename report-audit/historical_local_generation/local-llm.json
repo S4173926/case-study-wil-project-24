@@ -1,0 +1,1620 @@
+{
+ "run_id": "20261020-161018",
+ "corpus_version": "902a44c3a097",
+ "questions_sha": "3dd1b667e51a",
+ "n_papers": 30,
+ "generator": "local",
+ "baseline": "fixed-200/bm25",
+ "best": "fixed-400/tfidf+route",
+ "k": 5,
+ "selection_rule": "recall@k + citation precision + unsupported flagged - false abstain (tie-break: MRR)",
+ "ground_truth_problems": [],
+ "runs": [
+  {
+   "config": "fixed-200/bm25",
+   "chunker": "fixed-200",
+   "retriever": "bm25",
+   "generator": "local:Qwen2.5-0.5B-Instruct",
+   "k": 5,
+   "tau": 0.6,
+   "n_chunks": 1504,
+   "metrics": {
+    "recall@5": 0.515,
+    "mrr": 0.382,
+    "paper_recall@5": 0.924,
+    "citation_precision": 0.889,
+    "citation_support": 0.333,
+    "faithfulness": 0.929,
+    "abstain_correct": 0.857,
+    "false_abstain": 0.152,
+    "n_answerable": 33,
+    "n_unsupported": 7
+   },
+   "questions": [
+    {
+     "qid": "q01",
+     "qtype": "single",
+     "retrieved": [
+      "atlas:23",
+      "dpr:23",
+      "ance:3",
+      "ance:13",
+      "ance:12"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 1.0,
+     "answer": "In-batch negative training [dpr:23]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": "retrieval_miss"
+    },
+    {
+     "qid": "q02",
+     "qtype": "single",
+     "retrieved": [
+      "colbert:6",
+      "colbert:0",
+      "colbert:25",
+      "colbert:16",
+      "colbert:26"
+     ],
+     "first_relevant_rank": 4,
+     "papers_hit": 1.0,
+     "answer": "ColBERT computes the relevance score between a query q and a document d using late interaction, which involves:\n\n1. [colbert:6] Independently encoding the query q and the document d using BERT. [colbert:6] Employing a cheap yet powerful interaction step that models their fine-grained similarity. [colbert:0] Delaying and yet retaining this fine-grained interaction. [colbert:0] Computing relevance as a single similarity score between two vectors. [colbert:6] The interaction step allows ColBERT to leverage the expressive power of deep LMs while simultaneously gaining the ability to pre-compute document representations offline, significantly speeding up query processing. [colbert:0]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "q03",
+     "qtype": "single",
+     "retrieved": [
+      "rag:29",
+      "rag:10",
+      "rag:36",
+      "rag:20",
+      "rag:7"
+     ],
+     "first_relevant_rank": 5,
+     "papers_hit": 1.0,
+     "answer": "RAG-Sequence generates a complete sequence while RAG-Token draws a different latent document for each target token. [rag:7]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 1.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "q04",
+     "qtype": "single",
+     "retrieved": [
+      "rag:3",
+      "rag:0",
+      "rag:1",
+      "rag:4",
+      "rag:33"
+     ],
+     "first_relevant_rank": 1,
+     "papers_hit": 1.0,
+     "answer": "Dense vector index of Wikipedia, accessed with a pre-trained neural retriever [rag:3]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 1.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "q05",
+     "qtype": "single",
+     "retrieved": [
+      "fid:10",
+      "fid:3",
+      "fid:14",
+      "selfrag:13",
+      "fid:0"
+     ],
+     "first_relevant_rank": 1,
+     "papers_hit": 1.0,
+     "answer": "Fusion-in-Decoder combines multiple retrieved passages independently in the encoder, then jointly in the decoder. [fid:10]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 1.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "q06",
+     "qtype": "single",
+     "retrieved": [
+      "realm:0",
+      "realm:2",
+      "atlas:25",
+      "realm:3",
+      "realm:18"
+     ],
+     "first_relevant_rank": 1,
+     "papers_hit": 1.0,
+     "answer": "Devlin et al., 2019]. [atlas:25]",
+     "abstained": false,
+     "citation_precision": 0.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": "wrong_paper_cited"
+    },
+    {
+     "qid": "q07",
+     "qtype": "single",
+     "retrieved": [
+      "ragas:0",
+      "ragsurvey:60",
+      "ragas:20",
+      "ragsurvey:57",
+      "ragsurvey:61"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 1.0,
+     "answer": "[RAGAS]: Retrieval Quality Generation Quality [ragas:0]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": "retrieval_miss"
+    },
+    {
+     "qid": "q08",
+     "qtype": "single",
+     "retrieved": [
+      "selfrag:4",
+      "selfrag:40",
+      "selfrag:60",
+      "selfrag:15",
+      "selfrag:14"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 1.0,
+     "answer": "reflection tokens, inspired by reward models used in reinforcement learning (Ziegler et al., 2019; Ouyang et al., 2022), are inserted offline into the original corpus by a trained critic model. [selfrag:4]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": "retrieval_miss"
+    },
+    {
+     "qid": "q09",
+     "qtype": "single",
+     "retrieved": [
+      "walert:5",
+      "walert:6",
+      "walert:4",
+      "walert:0",
+      "walert:9"
+     ],
+     "first_relevant_rank": 1,
+     "papers_hit": 1.0,
+     "answer": "INSUFFICIENT_EVIDENCE",
+     "abstained": true,
+     "citation_precision": null,
+     "citation_support": null,
+     "faithfulness": null,
+     "error": "false_abstain"
+    },
+    {
+     "qid": "q10",
+     "qtype": "single",
+     "retrieved": [
+      "rag:5",
+      "ance:33",
+      "monot5:10",
+      "walert:5",
+      "walert:20"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 1.0,
+     "answer": "In its RAG pipeline, Walert experimented with RAG-token readers and DPR readers. [ance:33]",
+     "abstained": false,
+     "citation_precision": 0.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": "retrieval_miss"
+    },
+    {
+     "qid": "q11",
+     "qtype": "single",
+     "retrieved": [
+      "walert:20",
+      "walert:6",
+      "walert:19",
+      "walert:0",
+      "walert:9"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 1.0,
+     "answer": "INSUFFICIENT_EVIDENCE",
+     "abstained": true,
+     "citation_precision": null,
+     "citation_support": null,
+     "faithfulness": null,
+     "error": "retrieval_miss+abstain"
+    },
+    {
+     "qid": "q12",
+     "qtype": "single",
+     "retrieved": [
+      "realm:18",
+      "realm:19",
+      "rag:9",
+      "realm:20",
+      "replug:15"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 1.0,
+     "answer": "In the background. [realm:18] As soon as the index builder is done, it sends the new index back to the trainer, and the process repeats. [realm:18] While asynchronous refreshes can be used for both pretraining and fine-tuning, in our experiments we only use it for pre-training. [realm:18] For fine-tuning, we just build the MIPS index once (using the pre-trained \u03b8) for simplicity and do not update Embeddoc.3 Note that we still fine-tune Embedinput, so the retrieval function is still updated from the query side. [realm:18]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": "retrieval_miss"
+    },
+    {
+     "qid": "q13",
+     "qtype": "single",
+     "retrieved": [
+      "ragas:20",
+      "ragas:0",
+      "ares:23",
+      "ares:8",
+      "ares:27"
+     ],
+     "first_relevant_rank": 2,
+     "papers_hit": 1.0,
+     "answer": "[RAGAS]: Automated Evaluation of Retrieval Augmented Generation] [ragas:0]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 1.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "q14",
+     "qtype": "comparison",
+     "retrieved": [
+      "beir:23",
+      "dpr:27",
+      "dpr:26",
+      "dpr:42",
+      "dpr:18"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 0.5,
+     "answer": "ColBERT encodes and represents the query and passage into a bag of multiple contextualized token embeddings, while DPR uses a dense-retriever approach with Faiss indexing. [beir:23]",
+     "abstained": false,
+     "citation_precision": 0.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": "retrieval_miss"
+    },
+    {
+     "qid": "q15",
+     "qtype": "comparison",
+     "retrieved": [
+      "fid:8",
+      "fid:3",
+      "fid:9",
+      "fid:14",
+      "dpr:2"
+     ],
+     "first_relevant_rank": 1,
+     "papers_hit": 0.5,
+     "answer": "RAG uses sparse Question + Passage 1 encoder, while Fusion-in-Decoder uses dense Question + Passage N encoder. [fid:3]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": "comparison_incomplete"
+    },
+    {
+     "qid": "q16",
+     "qtype": "comparison",
+     "retrieved": [
+      "selfrag:59",
+      "selfrag:13",
+      "selfrag:3",
+      "selfrag:58",
+      "selfrag:40"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 0.5,
+     "answer": "SELF-RAG checks whether a generated answer is supported by the retrieved passages by evaluating the relevance of the retrieved passages and then generating corresponding task outputs based on these evaluations. [selfrag:3]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": "retrieval_miss"
+    },
+    {
+     "qid": "q17",
+     "qtype": "comparison",
+     "retrieved": [
+      "fid:7",
+      "realm:13",
+      "rag:18",
+      "atlas:25",
+      "realm:33"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 1.0,
+     "answer": "REALM trains the retriever and language model simultaneously, while RAG uses a BERT-based \"crossencoder\" to rank documents. [rag:18]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": "retrieval_miss"
+    },
+    {
+     "qid": "q18",
+     "qtype": "single",
+     "retrieved": [
+      "ragsurvey:30",
+      "ragsurvey:29",
+      "ragsurvey:34",
+      "ragsurvey:16",
+      "contriever:3"
+     ],
+     "first_relevant_rank": 3,
+     "papers_hit": 1.0,
+     "answer": "The implementation of the query rewrite method in the Taobao, known as BEQUE [9] [ragsurvey:34] has notably enhanced recall effectiveness for long-tail queries, resulting in a rise in GMV. [ragsurvey:34] Another query transformation method is to use prompt engineering to let LLM generate a query based on the original query for subsequent retrieval. [ragsurvey:34] construct hypothetical documents (assumed answers to the original query). [ragsurvey:34] It focuses on embedding similarity from answer to answer rather than seeking embedding similarity for the problem or query. [ragsurvey:34] Using the Step-back Prompting method [10], the original query is abstracted to generate a high-level concept question (step-back question). [ragsurvey:34] In the RAG system, both the step-back question and the original query are used for retrieval, and both the results are utilized as [ragsurvey:34]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 1.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "u02",
+     "qtype": "unsupported",
+     "retrieved": [
+      "recomp:51",
+      "recomp:53",
+      "recomp:50",
+      "colbert:1",
+      "recomp:52"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 0.0,
+     "answer": "INSUFFICIENT_EVIDENCE",
+     "abstained": true,
+     "citation_precision": null,
+     "citation_support": null,
+     "faithfulness": null,
+     "error": ""
+    },
+    {
+     "qid": "u03",
+     "qtype": "unsupported",
+     "retrieved": [
+      "beir:7",
+      "colbert:50",
+      "splade:16",
+      "splade:17",
+      "beir:50"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 0.0,
+     "answer": "INSUFFICIENT_EVIDENCE",
+     "abstained": true,
+     "citation_precision": null,
+     "citation_support": null,
+     "faithfulness": null,
+     "error": ""
+    },
+    {
+     "qid": "u04",
+     "qtype": "unsupported",
+     "retrieved": [
+      "ragsurvey:25",
+      "ragsurvey:26",
+      "ragsurvey:30",
+      "recomp:36",
+      "ragsurvey:31"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 0.0,
+     "answer": "utilizing LLMs' internal knowledge. [ragsurvey:26]",
+     "abstained": false,
+     "citation_precision": 0.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": "answered_unsupported"
+    },
+    {
+     "qid": "u05",
+     "qtype": "unsupported",
+     "retrieved": [
+      "retro:74",
+      "retro:75",
+      "selfrag:88",
+      "beir:60",
+      "atlas:50"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 0.0,
+     "answer": "INSUFFICIENT_EVIDENCE",
+     "abstained": true,
+     "citation_precision": null,
+     "citation_support": null,
+     "faithfulness": null,
+     "error": ""
+    },
+    {
+     "qid": "u06",
+     "qtype": "unsupported",
+     "retrieved": [
+      "retro:106",
+      "walert:19",
+      "selfrag:65",
+      "walert:2",
+      "queryrewrite:16"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 0.0,
+     "answer": "INSUFFICIENT_EVIDENCE",
+     "abstained": true,
+     "citation_precision": null,
+     "citation_support": null,
+     "faithfulness": null,
+     "error": ""
+    },
+    {
+     "qid": "u07",
+     "qtype": "unsupported",
+     "retrieved": [
+      "ares:12",
+      "ares:27",
+      "ares:45",
+      "ares:31",
+      "ares:24"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 0.0,
+     "answer": "INSUFFICIENT_EVIDENCE",
+     "abstained": true,
+     "citation_precision": null,
+     "citation_support": null,
+     "faithfulness": null,
+     "error": ""
+    },
+    {
+     "qid": "n01",
+     "qtype": "single",
+     "retrieved": [
+      "retro:6",
+      "retro:3",
+      "retro:31",
+      "retro:49",
+      "retro:42"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 1.0,
+     "answer": "RETRO's retrieval database contains trillions of tokens. [retro:6]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": "retrieval_miss"
+    },
+    {
+     "qid": "n02",
+     "qtype": "single",
+     "retrieved": [
+      "contriever:25",
+      "contriever:5",
+      "contriever:17",
+      "realm:22",
+      "orqa:13"
+     ],
+     "first_relevant_rank": 2,
+     "papers_hit": 1.0,
+     "answer": "Contriever finds better results than the inverse Cloze task. [contriever:5]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 1.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "n03",
+     "qtype": "single",
+     "retrieved": [
+      "colbertv2:3",
+      "colbertv2:0",
+      "colbertv2:15",
+      "colbertv2:39",
+      "colbertv2:5"
+     ],
+     "first_relevant_rank": 1,
+     "papers_hit": 1.0,
+     "answer": "ColBERTv2 reduces the space footprint of late interaction by 6\u201310\u00d7, compared to typical singlevector models. [colbertv2:3]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 1.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "n04",
+     "qtype": "single",
+     "retrieved": [
+      "lostmiddle:0",
+      "ragsurvey:39",
+      "ragsurvey:40",
+      "lostmiddle:5",
+      "lostmiddle:25"
+     ],
+     "first_relevant_rank": 1,
+     "papers_hit": 1.0,
+     "answer": "INSUFFICIENT_EVIDENCE",
+     "abstained": true,
+     "citation_precision": null,
+     "citation_support": null,
+     "faithfulness": null,
+     "error": "false_abstain"
+    },
+    {
+     "qid": "n05",
+     "qtype": "single",
+     "retrieved": [
+      "flare:7",
+      "flare:0",
+      "flare:4",
+      "flare:1",
+      "flare:34"
+     ],
+     "first_relevant_rank": 2,
+     "papers_hit": 1.0,
+     "answer": "Step 2 %$ Joe Biden attended the University of Pennsylvania, where he earned a law degree. [flare:4] #% Step 3 %%% Joe Biden announced his candidacy for the 2020 presidential election on August 18, 2019. [flare:4]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "n06",
+     "qtype": "single",
+     "retrieved": [
+      "crag:4",
+      "ragsurvey:61",
+      "crag:0",
+      "ragas:20",
+      "ares:2"
+     ],
+     "first_relevant_rank": 1,
+     "papers_hit": 1.0,
+     "answer": "INSUFFICIENT_EVIDENCE",
+     "abstained": true,
+     "citation_precision": null,
+     "citation_support": null,
+     "faithfulness": null,
+     "error": "false_abstain"
+    },
+    {
+     "qid": "n07",
+     "qtype": "single",
+     "retrieved": [
+      "replug:31",
+      "replug:26",
+      "replug:27",
+      "replug:23",
+      "replug:19"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 1.0,
+     "answer": "RePLUG gives retrieved documents to the language model by prepending each retrieved document to the input and feeding it into the language model during inference. [replug:27]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": "retrieval_miss"
+    },
+    {
+     "qid": "n08",
+     "qtype": "single",
+     "retrieved": [
+      "beir:39",
+      "beir:15",
+      "beir:3",
+      "contriever:53",
+      "beir:10"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 1.0,
+     "answer": "The BEIR benchmark includes 18 retrieval datasets. [beir:3]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": "retrieval_miss"
+    },
+    {
+     "qid": "n09",
+     "qtype": "single",
+     "retrieved": [
+      "ance:3",
+      "beir:22",
+      "ance:0",
+      "ance:13",
+      "atlas:23"
+     ],
+     "first_relevant_rank": 3,
+     "papers_hit": 1.0,
+     "answer": "The ANCE algorithm selects hard training negatives globally from the entire corpus, using an asynchronously updated ANN index. [ance:0]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 1.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "n10",
+     "qtype": "single",
+     "retrieved": [
+      "atlas:0",
+      "atlas:71",
+      "atlas:1",
+      "atlas:4",
+      "atlas:6"
+     ],
+     "first_relevant_rank": 1,
+     "papers_hit": 1.0,
+     "answer": "Atlas requires 64 examples to reach over 42% accuracy on Natural Questions. [atlas:1]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 1.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "n11",
+     "qtype": "unnamed",
+     "retrieved": [
+      "retro:6",
+      "retro:8",
+      "retro:42",
+      "retro:12",
+      "retro:3"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 1.0,
+     "answer": "Retrieval dataset Frozen kNN Retriever [retro:6]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": "retrieval_miss"
+    },
+    {
+     "qid": "n12",
+     "qtype": "unnamed",
+     "retrieved": [
+      "flare:17",
+      "flare:32",
+      "flare:33",
+      "flare:18",
+      "flare:31"
+     ],
+     "first_relevant_rank": 1,
+     "papers_hit": 1.0,
+     "answer": "INSUFFICIENT_EVIDENCE",
+     "abstained": true,
+     "citation_precision": null,
+     "citation_support": null,
+     "faithfulness": null,
+     "error": "false_abstain"
+    },
+    {
+     "qid": "c01",
+     "qtype": "comparison",
+     "retrieved": [
+      "ares:45",
+      "ares:27",
+      "ares:23",
+      "ares:30",
+      "ares:34"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 0.5,
+     "answer": "1.0 0.82 1.0 RAGAS Accuracy 35.9% 68.2% 44.4% 80.1% 21.4% 75.9% GPT-3.5 Accuracy 80.5% 91.2% 81.2% 83.5% 61.3% 54.5% ARES Accuracy 85.6% 93.3% 84.5% 88.2% 70.4% 84.0% [ares:27]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 0.0,
+     "error": "retrieval_miss"
+    },
+    {
+     "qid": "c02",
+     "qtype": "comparison",
+     "retrieved": [
+      "colbertv2:28",
+      "colbertv2:11",
+      "colbertv2:15",
+      "colbertv2:38",
+      "colbertv2:35"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 0.5,
+     "answer": "ColBERTv2 improves on ColBERT by reducing their space footprint, completely off-the-shelf without architectural or training changes. [colbertv2:15]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": "retrieval_miss"
+    },
+    {
+     "qid": "c03",
+     "qtype": "comparison",
+     "retrieved": [
+      "selfrag:45",
+      "crag:33",
+      "crag:32",
+      "crag:46",
+      "crag:5"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 1.0,
+     "answer": "Self-RAG judges if the retrieved documents are useful by evaluating their relevance to the input, while CRAG judges if they are useful by assessing their completeness and usefulness. [uncited]",
+     "abstained": false,
+     "citation_precision": null,
+     "citation_support": null,
+     "faithfulness": 0.0,
+     "error": "retrieval_miss"
+    },
+    {
+     "qid": "u08",
+     "qtype": "unsupported",
+     "retrieved": [
+      "ragsurvey:65",
+      "ragsurvey:64",
+      "splade:12",
+      "colbertv2:26",
+      "beir:49"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 0.0,
+     "answer": "INSUFFICIENT_EVIDENCE",
+     "abstained": true,
+     "citation_precision": null,
+     "citation_support": null,
+     "faithfulness": null,
+     "error": ""
+    }
+   ]
+  },
+  {
+   "config": "fixed-400/tfidf+route",
+   "chunker": "fixed-400",
+   "retriever": "tfidf+route",
+   "generator": "local:Qwen2.5-0.5B-Instruct",
+   "k": 5,
+   "tau": 0.6,
+   "n_chunks": 758,
+   "metrics": {
+    "recall@5": 0.667,
+    "mrr": 0.508,
+    "paper_recall@5": 1.0,
+    "citation_precision": 1.0,
+    "citation_support": 0.387,
+    "faithfulness": 1.0,
+    "abstain_correct": 1.0,
+    "false_abstain": 0.061,
+    "n_answerable": 33,
+    "n_unsupported": 7
+   },
+   "questions": [
+    {
+     "qid": "q01",
+     "qtype": "single",
+     "retrieved": [
+      "dpr:11",
+      "dpr:5",
+      "dpr:4",
+      "dpr:0",
+      "dpr:10"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 1.0,
+     "answer": "Random, BM25, gold passages [dpr:11]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": "retrieval_miss"
+    },
+    {
+     "qid": "q02",
+     "qtype": "single",
+     "retrieved": [
+      "colbert:8",
+      "colbert:0",
+      "colbert:6",
+      "colbert:4",
+      "colbert:3"
+     ],
+     "first_relevant_rank": 1,
+     "papers_hit": 1.0,
+     "answer": "ColBERT computes the relevance score between a query q and a document d using late interaction, which involves:\n\n1. [colbert:8] **Query Encoder**: Encodes the query q into a bag of fixed-size embeddings Eq. [colbert:8] **Document Encoder**: Encodes the document d into another bag Ed. [colbert:8] **Late Interaction Mechanism**: Computes the relevance score between q and d via a summation of maximum similarity (MaxSim) operators. [colbert:8] The interaction mechanism soflies searches for each query term tq in a manner that reflects its context in the query, quantifying the strength of the \"match\" via the largest similarity score between tq and a document term td. [colbert:8] This interaction is performed offline, allowing ColBERT to efficiently compute the relevance score without feeding each query-document pair through a neural network. [colbert:0]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.5,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "q03",
+     "qtype": "single",
+     "retrieved": [
+      "rag:4",
+      "rag:3",
+      "rag:5",
+      "rag:14",
+      "rag:10"
+     ],
+     "first_relevant_rank": 2,
+     "papers_hit": 1.0,
+     "answer": "The RAG-Token model can predict each target token based on a different document, while RAG-Sequence uses the same retrieved document to generate the complete sequence. [rag:3]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 1.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "q04",
+     "qtype": "single",
+     "retrieved": [
+      "rag:2",
+      "rag:1",
+      "rag:0",
+      "rag:16",
+      "rag:21"
+     ],
+     "first_relevant_rank": 2,
+     "papers_hit": 1.0,
+     "answer": "The non-parametric memory in the RAG model is a dense vector index of Wikipedia, accessed with a pre-trained neural retriever. [rag:1]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 1.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "q05",
+     "qtype": "single",
+     "retrieved": [
+      "fid:5",
+      "fid:1",
+      "fid:4",
+      "fid:3",
+      "fid:7"
+     ],
+     "first_relevant_rank": 1,
+     "papers_hit": 1.0,
+     "answer": "Fusion-in-Decoder combines multiple retrieved passages by first retrieving supporting passages using either sparse or dense Question + Passage 1 encoders and then processing them independently from other passages by the encoder. [fid:1]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "q06",
+     "qtype": "single",
+     "retrieved": [
+      "realm:0",
+      "realm:2",
+      "realm:1",
+      "realm:9",
+      "realm:16"
+     ],
+     "first_relevant_rank": 1,
+     "papers_hit": 1.0,
+     "answer": "signal from the language modeling objective backpropagates all the way through the retriever, which must consider millions of documents in Z\u2014a signi\ufb01cant computational challenge that we address. [realm:0]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 1.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "q07",
+     "qtype": "single",
+     "retrieved": [
+      "ragas:0",
+      "ragas:1",
+      "ragas:4",
+      "ragas:10",
+      "ragas:2"
+     ],
+     "first_relevant_rank": 3,
+     "papers_hit": 1.0,
+     "answer": "Ragas measures three quality aspects for retrieval augmented generation: faithfulness, answer relevance, and context relevance. [ragas:0]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "q08",
+     "qtype": "single",
+     "retrieved": [
+      "selfrag:20",
+      "selfrag:4",
+      "selfrag:21",
+      "selfrag:7",
+      "selfrag:2"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 1.0,
+     "answer": "reflection tokens in Self-RAG used for deciding the need for retrieval and to self-evaluate generation quality. [selfrag:4]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": "retrieval_miss"
+    },
+    {
+     "qid": "q09",
+     "qtype": "single",
+     "retrieved": [
+      "walert:2",
+      "walert:3",
+      "walert:1",
+      "walert:10",
+      "walert:0"
+     ],
+     "first_relevant_rank": 1,
+     "papers_hit": 1.0,
+     "answer": "Intent-Based (IB) and RAG [walert:2]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 1.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "q10",
+     "qtype": "single",
+     "retrieved": [
+      "walert:2",
+      "walert:10",
+      "walert:9",
+      "walert:3",
+      "walert:0"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 1.0,
+     "answer": "Intent-Based (IB) and RAG [walert:2]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": "retrieval_miss"
+    },
+    {
+     "qid": "q11",
+     "qtype": "single",
+     "retrieved": [
+      "walert:10",
+      "walert:3",
+      "walert:9",
+      "walert:2",
+      "walert:0"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 1.0,
+     "answer": "INSUFFICIENT_EVIDENCE",
+     "abstained": true,
+     "citation_precision": null,
+     "citation_support": null,
+     "faithfulness": null,
+     "error": "retrieval_miss+abstain"
+    },
+    {
+     "qid": "q12",
+     "qtype": "single",
+     "retrieved": [
+      "realm:9",
+      "realm:10",
+      "realm:16",
+      "realm:8",
+      "realm:18"
+     ],
+     "first_relevant_rank": 4,
+     "papers_hit": 1.0,
+     "answer": "We run a parallel process to re-embed corpus documents and rebuild the MIPS index. [realm:16]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "q13",
+     "qtype": "single",
+     "retrieved": [
+      "ragas:0",
+      "ragas:9",
+      "ragas:10",
+      "ragas:1",
+      "ragas:2"
+     ],
+     "first_relevant_rank": 1,
+     "papers_hit": 1.0,
+     "answer": "describes its evaluation as reference-free because it aims to assess faithfulness, answer relevance, and context relevance without relying on ground truth human annotations. [ragas:9]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "q14",
+     "qtype": "comparison",
+     "retrieved": [
+      "dpr:13",
+      "colbert:7",
+      "dpr:19",
+      "colbert:8",
+      "dpr:10"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 1.0,
+     "answer": "ColBERT uses a simpler framework for balancing quality and cost, specifically prescribes a simple framework for balancing the quality and cost of neural IR, particularly deep language models like BERT. [colbert:7]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": "retrieval_miss"
+    },
+    {
+     "qid": "q15",
+     "qtype": "comparison",
+     "retrieved": [
+      "rag:8",
+      "fid:4",
+      "rag:6",
+      "fid:8",
+      "rag:18"
+     ],
+     "first_relevant_rank": 2,
+     "papers_hit": 1.0,
+     "answer": "RAG uses BM25 and DPR to fetch supporting passages, while Fusion-in-Decoder uses BM25. [fid:4]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 1.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "q16",
+     "qtype": "comparison",
+     "retrieved": [
+      "ragas:2",
+      "selfrag:29",
+      "ragas:4",
+      "selfrag:1",
+      "ragas:1"
+     ],
+     "first_relevant_rank": 3,
+     "papers_hit": 1.0,
+     "answer": "Self-RAG checks whether augmenting the continued generation with retrieved passages would be helpful, while RAGAS evaluates their relevance and generates corresponding task outputs. [selfrag:1]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "q17",
+     "qtype": "comparison",
+     "retrieved": [
+      "rag:4",
+      "realm:16",
+      "rag:12",
+      "realm:17",
+      "rag:9"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 1.0,
+     "answer": "REALM and RAG differ in how they are trained. [rag:4] REALM uses a pre-trained bi-encoder from DPR to initialize the retriever and build the document index. [rag:4] On the other hand, RAG uses a pre-trained BERTd from DPR to initialize the retriever and builds the document index. [rag:4]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": "retrieval_miss"
+    },
+    {
+     "qid": "q18",
+     "qtype": "single",
+     "retrieved": [
+      "ragsurvey:17",
+      "ragsurvey:16",
+      "ragsurvey:7",
+      "ragsurvey:14",
+      "ragsurvey:15"
+     ],
+     "first_relevant_rank": 1,
+     "papers_hit": 1.0,
+     "answer": "construct hypothetical documents (assumed answers to the original query). [ragsurvey:17]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 1.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "u02",
+     "qtype": "unsupported",
+     "retrieved": [
+      "colbert:0",
+      "colbert:19",
+      "colbert:4",
+      "colbert:1",
+      "colbert:18"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 0.0,
+     "answer": "INSUFFICIENT_EVIDENCE",
+     "abstained": true,
+     "citation_precision": null,
+     "citation_support": null,
+     "faithfulness": null,
+     "error": ""
+    },
+    {
+     "qid": "u03",
+     "qtype": "unsupported",
+     "retrieved": [
+      "beir:3",
+      "recomp:23",
+      "recomp:15",
+      "beir:25",
+      "colbertv2:13"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 0.0,
+     "answer": "INSUFFICIENT_EVIDENCE",
+     "abstained": true,
+     "citation_precision": null,
+     "citation_support": null,
+     "faithfulness": null,
+     "error": ""
+    },
+    {
+     "qid": "u04",
+     "qtype": "unsupported",
+     "retrieved": [
+      "ragsurvey:33",
+      "ragsurvey:13",
+      "ragsurvey:12",
+      "ragsurvey:15",
+      "ragsurvey:32"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 0.0,
+     "answer": "INSUFFICIENT_EVIDENCE",
+     "abstained": true,
+     "citation_precision": null,
+     "citation_support": null,
+     "faithfulness": null,
+     "error": ""
+    },
+    {
+     "qid": "u05",
+     "qtype": "unsupported",
+     "retrieved": [
+      "retro:37",
+      "retro:36",
+      "retro:39",
+      "selfrag:44",
+      "ares:18"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 0.0,
+     "answer": "INSUFFICIENT_EVIDENCE",
+     "abstained": true,
+     "citation_precision": null,
+     "citation_support": null,
+     "faithfulness": null,
+     "error": ""
+    },
+    {
+     "qid": "u06",
+     "qtype": "unsupported",
+     "retrieved": [
+      "walert:10",
+      "walert:9",
+      "walert:3",
+      "walert:0",
+      "walert:1"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 0.0,
+     "answer": "INSUFFICIENT_EVIDENCE",
+     "abstained": true,
+     "citation_precision": null,
+     "citation_support": null,
+     "faithfulness": null,
+     "error": ""
+    },
+    {
+     "qid": "u07",
+     "qtype": "unsupported",
+     "retrieved": [
+      "ragas:8",
+      "ragas:1",
+      "ragas:2",
+      "ragas:0",
+      "ragas:9"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 0.0,
+     "answer": "INSUFFICIENT_EVIDENCE",
+     "abstained": true,
+     "citation_precision": null,
+     "citation_support": null,
+     "faithfulness": null,
+     "error": ""
+    },
+    {
+     "qid": "n01",
+     "qtype": "single",
+     "retrieved": [
+      "retro:1",
+      "retro:20",
+      "retro:2",
+      "retro:21",
+      "retro:3"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 1.0,
+     "answer": "RETRO's retrieval database has 17.96 million tokens. [retro:20]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": "retrieval_miss"
+    },
+    {
+     "qid": "n02",
+     "qtype": "single",
+     "retrieved": [
+      "contriever:2",
+      "contriever:9",
+      "contriever:8",
+      "contriever:12",
+      "contriever:5"
+     ],
+     "first_relevant_rank": 1,
+     "papers_hit": 1.0,
+     "answer": "The inverse Cloze task performed better than the Contriever. [contriever:2]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 1.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "n03",
+     "qtype": "single",
+     "retrieved": [
+      "colbertv2:0",
+      "colbertv2:1",
+      "colbertv2:4",
+      "colbertv2:7",
+      "colbertv2:3"
+     ],
+     "first_relevant_rank": 1,
+     "papers_hit": 1.0,
+     "answer": "By decomposing relevance modeling into tokenlevel computations, late interaction aims to reduce the burden on the encoder: whereas single-vector models must capture complex query\u2013document relationships within one dot product, late interaction encodes meaning at the level of tokens and delegates query\u2013document matching to the interaction mechanism. [colbertv2:0] This added expressivity comes at a cost: existing late interaction systems impose an order-of-magnitude larger space footprint than single-vector models, as they must store billions of small vectors for Web-scale collections. [colbertv2:1]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 1.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "n04",
+     "qtype": "single",
+     "retrieved": [
+      "lostmiddle:2",
+      "lostmiddle:0",
+      "lostmiddle:3",
+      "lostmiddle:11",
+      "lostmiddle:20"
+     ],
+     "first_relevant_rank": 2,
+     "papers_hit": 1.0,
+     "answer": "The language models use relevant information best in the middle of their input context. [lostmiddle:2]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "n05",
+     "qtype": "single",
+     "retrieved": [
+      "flare:0",
+      "flare:3",
+      "flare:2",
+      "flare:5",
+      "flare:7"
+     ],
+     "first_relevant_rank": 1,
+     "papers_hit": 1.0,
+     "answer": "FLARE iteratively generates a temporary next sentence, use it as the query to retrieve relevant documents if it contains low-probability tokens and regenerate the next sentence until reaches the end. [flare:3]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "n06",
+     "qtype": "single",
+     "retrieved": [
+      "crag:2",
+      "crag:1",
+      "crag:0",
+      "crag:22",
+      "crag:15"
+     ],
+     "first_relevant_rank": 1,
+     "papers_hit": 1.0,
+     "answer": "A lightweight retrieval evaluator is designed to assess the overall quality of retrieved documents for a query. [crag:2]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 1.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "n07",
+     "qtype": "single",
+     "retrieved": [
+      "replug:16",
+      "replug:15",
+      "replug:1",
+      "replug:6",
+      "replug:14"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 1.0,
+     "answer": "RePLUG gives retrieved documents to the language model by first retrieving relevant documents from an external corpus using an off-the-shelf retrieval model. [replug:1]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": "retrieval_miss"
+    },
+    {
+     "qid": "n08",
+     "qtype": "single",
+     "retrieved": [
+      "beir:19",
+      "beir:7",
+      "beir:1",
+      "beir:8",
+      "beir:24"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 1.0,
+     "answer": "The BEIR benchmark includes 18 retrieval datasets for comparison and evaluation of model generalization. [beir:1]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": "retrieval_miss"
+    },
+    {
+     "qid": "n09",
+     "qtype": "single",
+     "retrieved": [
+      "ance:0",
+      "ance:1",
+      "ance:6",
+      "ance:15",
+      "ance:12"
+     ],
+     "first_relevant_rank": 1,
+     "papers_hit": 1.0,
+     "answer": "Ance selects hard training negatives globally from the entire corpus using an asynchronously updated ANN index. [ance:0]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 1.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "n10",
+     "qtype": "single",
+     "retrieved": [
+      "atlas:0",
+      "atlas:35",
+      "atlas:27",
+      "atlas:2",
+      "atlas:29"
+     ],
+     "first_relevant_rank": 1,
+     "papers_hit": 1.0,
+     "answer": "INSUFFICIENT_EVIDENCE",
+     "abstained": true,
+     "citation_precision": null,
+     "citation_support": null,
+     "faithfulness": null,
+     "error": "false_abstain"
+    },
+    {
+     "qid": "n11",
+     "qtype": "unnamed",
+     "retrieved": [
+      "retro:3",
+      "retro:5",
+      "retro:0",
+      "retro:6",
+      "retro:2"
+     ],
+     "first_relevant_rank": 3,
+     "papers_hit": 1.0,
+     "answer": "The method retrieves from a database of 2 trillion tokens. [retro:3]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "n12",
+     "qtype": "unnamed",
+     "retrieved": [
+      "flare:8",
+      "flare:15",
+      "lostmiddle:7",
+      "icralm:6",
+      "flare:16"
+     ],
+     "first_relevant_rank": 1,
+     "papers_hit": 1.0,
+     "answer": "The approach that masks out low-confidence tokens before using a sentence as a retrieval query is implicit query formation by masking and explicit query formulation through question generation. [flare:8]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 1.0,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "c01",
+     "qtype": "comparison",
+     "retrieved": [
+      "rag:9",
+      "ragas:1",
+      "ares:15",
+      "rag:2",
+      "ragas:9"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 1.0,
+     "answer": "scores and ranks RAG systems in real-world applications, averaging a Kendall's tau of 0.91 for context relevance and 0.97 for answer relevance. [ares:15] On the other hand, ARES provides accurate confidence bounds for its predictions, capturing the ground truth average outcomes for context relevance and answer relevance more than 95% of the time. [ares:15]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": "retrieval_miss"
+    },
+    {
+     "qid": "c02",
+     "qtype": "comparison",
+     "retrieved": [
+      "colbert:14",
+      "colbertv2:5",
+      "colbert:4",
+      "colbertv2:18",
+      "colbert:20"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 1.0,
+     "answer": "ColBERTv2 adopts the late interaction architecture of ColBERT, depicted in Figure 1. [colbertv2:5] It also uses vector-similarity search indexes (e.g., [1, 15]) to retrieve the top-k results directly from a large document collection, substantially improving recall over models that only re-rank the output of term-based retrieval. [colbert:4]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.0,
+     "faithfulness": 1.0,
+     "error": "retrieval_miss"
+    },
+    {
+     "qid": "c03",
+     "qtype": "comparison",
+     "retrieved": [
+      "selfrag:22",
+      "crag:2",
+      "selfrag:16",
+      "crag:23",
+      "selfrag:5"
+     ],
+     "first_relevant_rank": 2,
+     "papers_hit": 1.0,
+     "answer": "Self-RAG judges whether retrieved documents are useful by checking their relevance, reliability, and entailed information. [selfrag:22] CRAG judges them by assessing their relevance and reliability. [crag:2]",
+     "abstained": false,
+     "citation_precision": 1.0,
+     "citation_support": 0.5,
+     "faithfulness": 1.0,
+     "error": ""
+    },
+    {
+     "qid": "u08",
+     "qtype": "unsupported",
+     "retrieved": [
+      "ragsurvey:15",
+      "ragsurvey:32",
+      "contriever:8",
+      "rag:22",
+      "beir:14"
+     ],
+     "first_relevant_rank": null,
+     "papers_hit": 0.0,
+     "answer": "INSUFFICIENT_EVIDENCE",
+     "abstained": true,
+     "citation_precision": null,
+     "citation_support": null,
+     "faithfulness": null,
+     "error": ""
+    }
+   ]
+  }
+ ],
+ "tau_sweep": {
+  "config": "fixed-400/tfidf+route",
+  "points": [
+   {
+    "tau": 0.3,
+    "abstain_correct": 0.286,
+    "false_abstain": 0.0
+   },
+   {
+    "tau": 0.4,
+    "abstain_correct": 0.571,
+    "false_abstain": 0.0
+   },
+   {
+    "tau": 0.5,
+    "abstain_correct": 0.714,
+    "false_abstain": 0.03
+   },
+   {
+    "tau": 0.6,
+    "abstain_correct": 1.0,
+    "false_abstain": 0.03
+   },
+   {
+    "tau": 0.7,
+    "abstain_correct": 1.0,
+    "false_abstain": 0.061
+   },
+   {
+    "tau": 0.8,
+    "abstain_correct": 1.0,
+    "false_abstain": 0.182
+   },
+   {
+    "tau": 0.9,
+    "abstain_correct": 1.0,
+    "false_abstain": 0.242
+   }
+  ]
+ }
+}

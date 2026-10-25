@@ -1,0 +1,325 @@
+{
+  "run_id": "20261024T061244_0d71d524eb",
+  "created_utc": "2026-10-24T06:12:44.262880+00:00",
+  "question": "How do Self-RAG and CRAG each judge whether retrieved documents are useful?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "selfrag",
+      "crag"
+    ],
+    "facets": [
+      "evaluation"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": true,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "how do and each judge whether retrieved documents are useful",
+        "facets": [
+          "evaluation"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "selfrag.support",
+      "paper_id": "selfrag",
+      "text": "Self-RAG distinguishes passage relevance from support for the generated answer. ISREL assesses whether a passage is relevant; ISSUP assesses whether that passage supports the generation, and ISUSE assesses utility. These generated critique signals help select candidate continuations.",
+      "facets": [
+        "evaluation",
+        "inference"
+      ],
+      "source_ids": [
+        "selfrag:s0013",
+        "selfrag:s0003"
+      ]
+    },
+    {
+      "claim_id": "crag.evaluator",
+      "paper_id": "crag",
+      "text": "Corrective RAG (CRAG) uses a lightweight evaluator to score the relevance of retrieved documents to the query. Its confidence assessment selects a Correct, Incorrect or Ambiguous action: refine retrieved knowledge when it is judged correct, discard inadequate retrieval and seek web evidence when it is incorrect, or combine refined internal and external evidence when the judgment is ambiguous.",
+      "facets": [
+        "purpose",
+        "condition",
+        "inference",
+        "evaluation"
+      ],
+      "source_ids": [
+        "crag:s0001",
+        "crag:s0009"
+      ]
+    }
+  ],
+  "comparison": [
+    {
+      "paper_id": "selfrag",
+      "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+      "claims": [
+        {
+          "claim_id": "selfrag.support",
+          "paper_id": "selfrag",
+          "text": "Self-RAG distinguishes passage relevance from support for the generated answer. ISREL assesses whether a passage is relevant; ISSUP assesses whether that passage supports the generation, and ISUSE assesses utility. These generated critique signals help select candidate continuations.",
+          "facets": [
+            "evaluation",
+            "inference"
+          ],
+          "source_ids": [
+            "selfrag:s0013",
+            "selfrag:s0003"
+          ]
+        }
+      ]
+    },
+    {
+      "paper_id": "crag",
+      "title": "Corrective Retrieval Augmented Generation",
+      "claims": [
+        {
+          "claim_id": "crag.evaluator",
+          "paper_id": "crag",
+          "text": "Corrective RAG (CRAG) uses a lightweight evaluator to score the relevance of retrieved documents to the query. Its confidence assessment selects a Correct, Incorrect or Ambiguous action: refine retrieved knowledge when it is judged correct, discard inadequate retrieval and seek web evidence when it is incorrect, or combine refined internal and external evidence when the judgment is ambiguous.",
+          "facets": [
+            "purpose",
+            "condition",
+            "inference",
+            "evaluation"
+          ],
+          "source_ids": [
+            "crag:s0001",
+            "crag:s0009"
+          ]
+        }
+      ]
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "selfrag:s0013",
+      "paper_id": "selfrag",
+      "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+      "section": "3 SELF-RAG: LEARNING TO RETRIEVE, GENERATE AND CRITIQUE",
+      "page_start": 5,
+      "page_end": 6,
+      "text": "For each segment yt ∈y, we run C to assess whether additional passages could help to enhance generation. If retrieval is required, the retrieval special token Retrieve =Yes is added, and R retrieves the top K passages, D. For each passage, C further evaluates whether the passage is relevant and predicts ISREL . If a passage is relevant, C further evaluates whether the passage supports the model generation and predicts ISSUP . Critique tokens ISREL and ISSUP are appended after the retrieved passage or generations. At the end of the output, y (or yT ), C predicts the overall utility token ISUSE , and an augmented output with reflection tokens and the original input pair is added to Dgen. See the example training data in Figure 2. Generator learning. We train the generator model M by training on the curated corpus augmented with reflection tokens Dgen using the standard next token objective: max M E(x,y,r)∼Dgen log pM(y, r|x). (2) Unlike C training (Eq. 1), M learns to predict the target output as well as the reflection tokens. During training, we mask out the retrieved text chunks (surrounded by <p> and </p> in Figure 2) for loss calculation and expand the original vocabulary V with a set of reflection tokens { Critique , Retrieve }. Connections to prior work on learning with critique. Recent work incorporates additional critique (feedback) during training, e.g., RLHF (Ouyang et al. 2022) via PPO. While PPO relies on separate reward models during training, we compute critique offline and directly insert them into the training corpus, where the generator LM is trained with a standard LM objective. This significantly reduces training costs compared to PPO.",
+      "url": "https://arxiv.org/abs/2310.11511v1",
+      "pdf_file": "pdfs/selfrag.pdf",
+      "sha256": "d9eaa1398abac0df67a9d0933a5bf8b6d9d83d2e72da2a486073cd842dd52978",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "selfrag:s0003",
+      "paper_id": "selfrag",
+      "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+      "section": "1 INTRODUCTION",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "Subsequently, SELF-RAG concurrently processes multiple retrieved passages, evaluating their relevance and then generating corresponding task outputs (Step 2). It then generates critique tokens to criticize its own output and choose best one (Step 3) in terms of factuality and overall quality. This process differs from conventional RAG (Figure 1 left), which 1Our code and trained models are available at https://selfrag.github.io/. > > Figure 1: Overview of SELF-RAG. SELF-RAG learns to retrieve, critique, and generate text passages to enhance overall generation quality, factuality, and verifiability. consistently retrieves a fixed number of documents for generation regardless of the retrieval necessity (e.g., the bottom figure example does not require factual knowledge) and never second visits the generation quality. Moreover, SELF-RAG provides citations for each segment with its self-assessment of whether the output is supported by the passage, leading to easier fact verification. SELF-RAG trains an arbitrary LM to generate text with reflection tokens by unifying them as the next token prediction from the expanded model vocabulary. We train our generator LM on a diverse collection of text interleaved with reflection tokens and retrieved passages. Reflection tokens, inspired by reward models used in reinforcement learning (Ziegler et al., 2019; Ouyang et al., 2022), are inserted offline into the original corpus by a trained critic model. This eliminates the need to host a critic model during training, reducing overhead. The critic model, in part, is supervised on a dataset of input, output, and corresponding reflection tokens collected by prompting a propriety LM (i.e., GPT-4; OpenAI 2023).",
+      "url": "https://arxiv.org/abs/2310.11511v1",
+      "pdf_file": "pdfs/selfrag.pdf",
+      "sha256": "d9eaa1398abac0df67a9d0933a5bf8b6d9d83d2e72da2a486073cd842dd52978",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "crag:s0001",
+      "paper_id": "crag",
+      "title": "Corrective Retrieval Augmented Generation",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Large language models (LLMs) inevitably exhibit hallucinations since the accuracy of generated texts cannot be secured solely by the parametric knowledge they encapsulate. Although retrieval-augmented generation (RAG) is a practicable complement to LLMs, it relies heavily on the relevance of retrieved documents, raising concerns about how the model behaves if retrieval goes wrong. To this end, we propose the Corrective Retrieval Augmented Generation (CRAG) to improve the robustness of generation. Specifically, a lightweight retrieval evaluator is designed to assess the overall quality of retrieved documents for a query, returning a confidence degree based on which different knowledge retrieval actions can be triggered. Since retrieval from static and limited corpora can only return suboptimal documents, large-scale web searches are utilized as an extension for augmenting the retrieval results. Besides, a decompose-thenrecompose algorithm is designed for retrieved documents to selectively focus on key information and filter out irrelevant information in them. CRAG is plug-and-play and can be seamlessly coupled with various RAG-based approaches. Experiments on four datasets covering short- and long-form generation tasks show that CRAG can significantly improve the performance of RAG-based approaches. 1",
+      "url": "https://arxiv.org/abs/2401.15884v3",
+      "pdf_file": "pdfs/crag.pdf",
+      "sha256": "975aa1fd3c1b603126e93ff99d6504858b61301bf1d34c9df88ebe53a0b026cb",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "crag:s0009",
+      "paper_id": "crag",
+      "title": "Corrective Retrieval Augmented Generation",
+      "section": "4.1 Overview of Model Inference",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "Figure 2 and Algorithm 1 present an overview of CRAG at inference, which designs corrective strategies to improve the robustness of generation. Given an input query and the retrieved documents from any retriever, a lightweight retrieval evaluator is constructed to estimate the relevance score of retrieved documents to the input query (Section 4.2). The relevance score is quantified into a total of three confidence degrees and then triggered the corresponding actions: {Correct, Incorrect, Ambiguous} (Section 4.3). If the action Correct is triggered, the retrieved documents will be refined into more precise knowledge strips. This refinement operation involves knowledge decomposition, filter, and recomposition (Section 4.4). If the action Incorrect is triggered, the retrieved documents will be discarded. Instead, web searches are resorted to and regarded as complementary knowledge sources for corrections (Section 4.5). Eventually, when it cannot confidently make a correct or incorrect judgment, a soft and balanced action Ambiguous which combines both of them is triggered. After optimizing the retrieval results, an arbitrary generative model can be adopted.",
+      "url": "https://arxiv.org/abs/2401.15884v3",
+      "pdf_file": "pdfs/crag.pdf",
+      "sha256": "975aa1fd3c1b603126e93ff99d6504858b61301bf1d34c9df88ebe53a0b026cb",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "selfrag:s0032",
+    "crag:s0027",
+    "selfrag:s0008",
+    "crag:s0038",
+    "selfrag:s0012",
+    "crag:s0023",
+    "selfrag:s0003",
+    "crag:s0028"
+  ],
+  "retrieved": [
+    {
+      "source_id": "selfrag:s0032",
+      "paper_id": "selfrag",
+      "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+      "section": "A SELF-RAG DETAILS",
+      "page_start": 17,
+      "page_end": 17,
+      "text": "A.1 REFLECTION TOKENS. Definitions of reflection tokens. Below, we provide a detailed definition of reflection type and output tokens. The first three aspects will be provided at each segment level, while the final aspect is only given at each output level. • Retrieval-on-demand ( Retrieve ): Given an input and previous-step generation (if applicable), an LM determines whether the continuation requires factual grounding. No indicates retrieval is unnecessary as the sequence does not require factual grounding or may not be enhanced by knowledge retrieval, Yes indicates retrieval is necessary. We additionally have continue to use evidence, which indicates that a model can continue to use the evidence retrieved previously. For instance, a passage may contain rich factual information, and thus SELF-RAG generates multiple segments based on the passage. • Relevant ( ISREL ): Retrieved knowledge may not be always relevant to the input. This aspect indicates whether the evidence provides useful information (Relevant) or not (Irrelevant). • Supported ( ISSUP ): Attribution is the concept of whether the output is fully supported by certain evidence (Menick et al., 2022; Bohnet et al., 2022). This aspect judges how much information in the output is entailed by the evidence. We evaluate attributions in three scale, Fully supported, Partially supported, and No support / Contradictory, following Yue et al. (2023); Nakano et al. (2021). • Useful ( ISUSE ): Following the definitions from Liu et al. (2023a), we define the perceived utility as whether the response is a helpful and informative answer to the query, independently from whether it is in fact factual or not. This can be also viewed as plausibility in Menick et al. (2022).",
+      "url": "https://arxiv.org/abs/2310.11511v1",
+      "pdf_file": "pdfs/selfrag.pdf",
+      "sha256": "d9eaa1398abac0df67a9d0933a5bf8b6d9d83d2e72da2a486073cd842dd52978",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03252247488101534
+    },
+    {
+      "source_id": "crag:s0027",
+      "paper_id": "crag",
+      "title": "Corrective Retrieval Augmented Generation",
+      "section": "5.6 Robustness to Retrieval Performance",
+      "page_start": 9,
+      "page_end": 9,
+      "text": "To further verify the robustness of the proposed method to retrieval performance, we studied how the generation performance changed given different Figure 3: The generation performance of Self-RAG and Self-CRAG given different retrieval performance on the PopQA dataset with SelfRAG-LLaMA-7b. The lower horizontal line demonstrates the performance of the generator without retrieval. LLaMA2-hf-7b SelfRAG-LLaMA2-7b PopQA CRAG 54.9 59.8 RAG 50.5 52.8 RAG w. web 52.2 53.8 Self-CRAG 49.0 61.8 Self-RAG 29.0 54.9 Self-RAG w. web 24.9 57.9 Table 5: Comparison results between CRAG, Self- CRAG and RAG, Self-RAG with the same input in terms of accuracy. retrieval performance. A part of accurate retrieval results were deliberately removed at random to imitate a low-quality retriever and evaluate how the performance changed. Figure 3 demonstrated the performance change of Self-RAG and Self- CRAG on the PopQA dataset. It can be seen that the generation performance of Self-RAG and Self-CRAG dropped as the retrieval performance dropped, indicating that the generator relied heavily on the quality of the retriever. Furthermore, as the retrieval performance dropped, the generation performance of Self-CRAG dropped more slightly than that of Self-RAG. These results imply the superiority of Self-CRAG over Self-RAG on enhancing the robustness to retrieval performance.",
+      "url": "https://arxiv.org/abs/2401.15884v3",
+      "pdf_file": "pdfs/crag.pdf",
+      "sha256": "975aa1fd3c1b603126e93ff99d6504858b61301bf1d34c9df88ebe53a0b026cb",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.032266458495966696
+    },
+    {
+      "source_id": "selfrag:s0008",
+      "paper_id": "selfrag",
+      "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+      "section": "3 SELF-RAG: LEARNING TO RETRIEVE, GENERATE AND CRITIQUE",
+      "page_start": 3,
+      "page_end": 4,
+      "text": "We introduce Self-Reflective Retrieval-Augmented Generation (SELF-RAG), shown in Figure 1. SELF-RAG is a framework that enhances the quality and factuality of an LLM through retrieval and self-reflection, without sacrificing LLM’s original creativity and versatility. Our end-to-end training lets an LM M generate text informed by retrieved passages, if needed, and criticize the output by learning to generate special tokens. These reflection tokens (Table 1) signal the need for retrieval or confirm the output’s relevance, support, or completeness. In contrast, common RAG approaches retrieve passages indiscriminately, without ensuring complete support from cited sources. 3.1 PROBLEM FORMALIZATION AND OVERVIEW Formally, given input x, we train M to sequentially generate textual outputs y consisting of multiple segments y = [y1, . . . , yT ], where yt indicates a sequence of tokens for the t-th segment.3 Generated tokens in yt include text from the original vocabulary as well as the reflection tokens (Table 1). 2All work is arXived within a week of this preprint. segment unit (i.e., sub-sentence). Type Input Output Definitions x / x, y {yes, no, continue} Decides when to retrieve with R x, d {relevant, irrelevant} d provides useful information to solve x. x, d, y {fully supported, partially supported, no support} All of the verification-worthy statement in y is supported by d. x, y {5, 4, 3, 2, 1} y is a useful response to x. Table 1: Four types of reflection tokens used in SELF-RAG. Each type uses several tokens to represent its output values. The bottom three rows are three types of Critique tokens, and the bold text indicates the most desirable critique tokens. x, y, d indicate input, output, and a relevant passage, respectively.",
+      "url": "https://arxiv.org/abs/2310.11511v1",
+      "pdf_file": "pdfs/selfrag.pdf",
+      "sha256": "d9eaa1398abac0df67a9d0933a5bf8b6d9d83d2e72da2a486073cd842dd52978",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.0261986301369863
+    },
+    {
+      "source_id": "crag:s0038",
+      "paper_id": "crag",
+      "title": "Corrective Retrieval Augmented Generation",
+      "section": "B.3 Implementation Details",
+      "page_start": 15,
+      "page_end": 16,
+      "text": "Self-RAG Table 11: Ablation study for removing only a single action on the PopQA dataset in terms of accuracy. LLaMA2-hf-7b SelfRAG-LLaMA2-7b CRAG 54.9 59.8 only Correct 52.4 56.7 only Incorrect 47.0 48.5 only Ambiguous 52.7 58.0 Self-CRAG 49.0 61.8 only Correct 48.6 57.2 only Incorrect 40.8 53.3 only Ambiguous 44.9 59.8 is an advanced RAG approach that introduces a critic model to decide whether to retrieve and which retrieved document to be referred for generation. It meets our demand for deciding which action to be triggered, thus we replaced the retrieved items in Self-RAG with our processed internal knowledge for Correct, external knowledge for Incorrect, and combined knowledge for Ambiguous.",
+      "url": "https://arxiv.org/abs/2401.15884v3",
+      "pdf_file": "pdfs/crag.pdf",
+      "sha256": "975aa1fd3c1b603126e93ff99d6504858b61301bf1d34c9df88ebe53a0b026cb",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03200204813108039
+    },
+    {
+      "source_id": "selfrag:s0012",
+      "paper_id": "selfrag",
+      "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+      "section": "3 SELF-RAG: LEARNING TO RETRIEVE, GENERATE AND CRITIQUE",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "Here, we use Retrieve as an example. We prompt GPT-4 with a type-specific instruction (“Given an instruction, make a judgment on whether finding some external documents from the web helps to generate a better response.”) followed by few-shot demonstrations I the original task input x and output y to predict an appropriate reflection token as text: p(r|I, x, y). Manual assessment reveals that GPT-4 reflection token predictions show high agreement with human evaluations. We collect 4k-20k supervised training data for each type and combine them to form training data for C. Appendix Section D shows the full list of instructions, and A.1 contains more details and our analysis. Critic learning. After we collect training data Dcritic, we initialize C with a pre-trained LM and train it on Dcritic using a standard conditional language modeling objective, maximizing likelihood: max E((x,y),r)∼Dcritic log pC(r|x, y), r for reflection tokens. (1) Though the initial model can be any pre-trained LM, we use the same one as the generator LM (i.e., Llama 2-7B; Touvron et al. 2023) for C initialization. The critic achieves a higher than 90% agreement with GPT-4-based predictions on most reflection token categories (Appendix Table 5). 3.2.2 TRAINING THE GENERATOR MODEL Data collection for generator. Given an input-output pair (x, y), we augment the original output y using the retrieval and critic models to create supervised data that precisely mimics the SELF- RAG inference-time process (Section 3.1). For each segment yt ∈y, we run C to assess whether additional passages could help to enhance generation.",
+      "url": "https://arxiv.org/abs/2310.11511v1",
+      "pdf_file": "pdfs/selfrag.pdf",
+      "sha256": "d9eaa1398abac0df67a9d0933a5bf8b6d9d83d2e72da2a486073cd842dd52978",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.024481265860576206
+    },
+    {
+      "source_id": "crag:s0023",
+      "paper_id": "crag",
+      "title": "Corrective Retrieval Augmented Generation",
+      "section": "5.3 Results",
+      "page_start": 8,
+      "page_end": 8,
+      "text": "Third, the proposed method exhibited greater flexibility in replacing the underlying LLM generator. It can be seen that CRAG still showed competitive performance when the underlying LLMs was changed from SelfRAG-LLaMA2-7b to LLaMA2-hf-7b, while the performance of Self- RAG dropped significantly, even underperforming the standard RAG on several benchmarks. The reason for these results is that Self-RAG needs to be instruction-tuned using human or LLM annotated data to learn to output special critic tokens as needed, while this ability is not learned in common LLMs. CRAG does not have any requirements for this ability. As you can imagine, when more advanced LLMs are available in the future, they can be coupled with CRAG easily, while additional instruction tuning is still necessary for Self-RAG. LLaMA2-hf-7b SelfRAG-LLaMA2-7b CRAG 54.9 59.8 w/o. Correct 53.2 58.3 w/o. Incorrect 54.4 59.5 w/o. Ambiguous 54.0 59.0 Self-CRAG 49.0 61.8 w/o. Correct 43.6 59.6 w/o. Incorrect 47.7 60.8 w/o. Ambiguous 48.1 61.5 Table 2: Ablation study for removing each single action on the PopQA dataset in terms of accuracy. LLaMA2-hf-7b SelfRAG-LLaMA2-7b CRAG 54.9 59.8 w/o. refinement 49.8 54.2 w/o. rewriting 51.7 56.2 w/o. selection 50.9 58.6 Self-CRAG 49.0 61.8 w/o. refinement 35.9 52.2 w/o. rewriting 37.2 58.4 w/o. selection 24.9 57.9 Table 3: Ablation study for removing each knowledge utilization operation on the PopQA in terms of accuracy.",
+      "url": "https://arxiv.org/abs/2401.15884v3",
+      "pdf_file": "pdfs/crag.pdf",
+      "sha256": "975aa1fd3c1b603126e93ff99d6504858b61301bf1d34c9df88ebe53a0b026cb",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030776515151515152
+    },
+    {
+      "source_id": "selfrag:s0003",
+      "paper_id": "selfrag",
+      "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+      "section": "1 INTRODUCTION",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "Subsequently, SELF-RAG concurrently processes multiple retrieved passages, evaluating their relevance and then generating corresponding task outputs (Step 2). It then generates critique tokens to criticize its own output and choose best one (Step 3) in terms of factuality and overall quality. This process differs from conventional RAG (Figure 1 left), which 1Our code and trained models are available at https://selfrag.github.io/. > > Figure 1: Overview of SELF-RAG. SELF-RAG learns to retrieve, critique, and generate text passages to enhance overall generation quality, factuality, and verifiability. consistently retrieves a fixed number of documents for generation regardless of the retrieval necessity (e.g., the bottom figure example does not require factual knowledge) and never second visits the generation quality. Moreover, SELF-RAG provides citations for each segment with its self-assessment of whether the output is supported by the passage, leading to easier fact verification. SELF-RAG trains an arbitrary LM to generate text with reflection tokens by unifying them as the next token prediction from the expanded model vocabulary. We train our generator LM on a diverse collection of text interleaved with reflection tokens and retrieved passages. Reflection tokens, inspired by reward models used in reinforcement learning (Ziegler et al., 2019; Ouyang et al., 2022), are inserted offline into the original corpus by a trained critic model. This eliminates the need to host a critic model during training, reducing overhead. The critic model, in part, is supervised on a dataset of input, output, and corresponding reflection tokens collected by prompting a propriety LM (i.e., GPT-4; OpenAI 2023).",
+      "url": "https://arxiv.org/abs/2310.11511v1",
+      "pdf_file": "pdfs/selfrag.pdf",
+      "sha256": "d9eaa1398abac0df67a9d0933a5bf8b6d9d83d2e72da2a486073cd842dd52978",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.023581634068525453
+    },
+    {
+      "source_id": "crag:s0028",
+      "paper_id": "crag",
+      "title": "Corrective Retrieval Augmented Generation",
+      "section": "5.7 Consistent Supplementation of Web",
+      "page_start": 9,
+      "page_end": 10,
+      "text": "Search Knowledge This paper highlights the necessity of enhancing the retrieved context by incorporating additional information when the initial retrieval results are irrelevant and unreliable. Meanwhile, it is also crucial to confirm that the primary improvements in our method stem from the self-correction mech- TFLOPs per token executing time(s) RAG 26.5 0.363 CRAG 27.2 0.512 Self-RAG 26.5∼132.4 0.741 Self-CRAG 27.2∼80.2 0.908 Table 6: computational overhead assessment of RAG, CRAG, Self-CRAG, and Self-RAG about FLOPs per token on GPUs and executing time per instance. The upper bound of Self-CRAG is lower because only three passages are provided as input (correct, incorrect and ambiguous content). All the data in the table only represents a rough estimate of the generation phase, the retrieval and data-processing stages are not included. anism, rather than solely from the supplementary information obtained through web searches. To further demonstrate the effectiveness of the proposed self-correction mechanism, both RAG and Self-RAG were consistently supplemented with web search knowledge to ensure they had access to the same scope of the retrieved knowledge. The results in Table 5 show that consistently supplementing RAG or Self-RAG with web search knowledge can improve the performance in most cases (except Self-RAG w. web using the original LLaMA2 model), though the improvement remains limited. Furthermore, augmenting RAG or Self- RAG with the proposed self-correction mechanism significantly outperformed the models consistently supplemented with web search knowledge in all cases. This finding confirms that the observed advancements are primarily attributable to the proposed self-correction mechanism.",
+      "url": "https://arxiv.org/abs/2401.15884v3",
+      "pdf_file": "pdfs/crag.pdf",
+      "sha256": "975aa1fd3c1b603126e93ff99d6504858b61301bf1d34c9df88ebe53a0b026cb",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03076923076923077
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "how do and each judge whether retrieved documents are useful",
+      "paper_ids": [
+        "selfrag"
+      ],
+      "facet": "evaluation",
+      "covered": true,
+      "claim_ids": [
+        "selfrag.support"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    },
+    {
+      "part_id": "part1",
+      "question_part": "how do and each judge whether retrieved documents are useful",
+      "paper_ids": [
+        "crag"
+      ],
+      "facet": "evaluation",
+      "covered": true,
+      "claim_ids": [
+        "crag.evaluator"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.009938000002875924,
+  "evaluation_question_id": "c03"
+}

@@ -1,0 +1,229 @@
+{
+  "run_id": "20261024T061244_fcc3365c8e",
+  "created_utc": "2026-10-24T06:12:44.139889+00:00",
+  "question": "What does Contriever find works better than the inverse Cloze task?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "contriever"
+    ],
+    "facets": [
+      "purpose"
+    ],
+    "explicit_facets": false,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "what does find works better than the inverse cloze task",
+        "facets": [
+          "purpose"
+        ],
+        "explicit": false,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "contriever.ict",
+      "paper_id": "contriever",
+      "text": "Contriever’s ablation study finds that independent cropping works better than the Inverse Cloze Task for its unsupervised retrieval setup. Cropping can give overlapping views with the same distribution, unlike the sentence-versus-surrounding-context construction of ICT.",
+      "facets": [
+        "training",
+        "evaluation"
+      ],
+      "source_ids": [
+        "contriever:s0004",
+        "contriever:s0015"
+      ]
+    }
+  ],
+  "comparison": [],
+  "citations": [
+    {
+      "source_id": "contriever:s0004",
+      "paper_id": "contriever",
+      "title": "Unsupervised Dense Information Retrieval with Contrastive Learning",
+      "section": "1 Introduction",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "Second, in a few-shot setting, we show that our model benefits from few training examples, and obtains better results than transferring models from large datasets such as MS MARCO. Third, when used as a pre-training method before fine-tuning on MS MARCO, our technique leads to strong performance on the BEIR benchmark. We perform ablations to motivate our design choices, and show that cropping works better than the inverse Cloze task. Finally we train a multilingual dense retriever with contrastive learning and show that it achieves state-of-the-art performance. Code and pre-trained models are available here: https://github.com/facebookresearch/contriever.",
+      "url": "https://arxiv.org/abs/2112.09118v4",
+      "pdf_file": "pdfs/contriever.pdf",
+      "sha256": "7407131fd633561d8eab8701e43ca81061960b6642ae180eb86a3f367b2b8408",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "contriever:s0015",
+      "paper_id": "contriever",
+      "title": "Unsupervised Dense Information Retrieval with Contrastive Learning",
+      "section": "3.1.2 Building positive pairs from a single document",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "In the original implementation by Lee et al. (2019) the span corresponds to a sentence, and is kept in the document 10% of the time to encourage lexical matching. The Inverse Cloze Task is closely related to the Cloze task which uses the span complement (w1, ..., wa−1, wb+1, ..., wn) as the query. Independent cropping is a common independent data augmentation used for images where views are generated independently by cropping the input. In the context of text, cropping is equivalent to sampling a span of tokens. This strategy thus samples independently two spans from a document to form a positive pair. As opposed to the inverse Cloze task, in cropping both views of the example correspond to contiguous subsequence of the original data. A second difference between cropping and ICT is the fact that independent random cropping is symmetric: both the queries and documents follow the same distribution. Independent cropping also lead to overlap between the two views of the data, hence encouraging the network to learn exact matches between the query and document, in a way that is similar to lexical matching methods like BM25. In practice, we can either fix the length of the span for the query and the key, or sample them. Additional data augmentation. Finally, we also consider additional data augmentations such as random word deletion, replacement or masking. We use these perturbations in addition to random cropping.",
+      "url": "https://arxiv.org/abs/2112.09118v4",
+      "pdf_file": "pdfs/contriever.pdf",
+      "sha256": "7407131fd633561d8eab8701e43ca81061960b6642ae180eb86a3f367b2b8408",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "contriever:s0004",
+    "contriever:s0020",
+    "contriever:s0008",
+    "contriever:s0015",
+    "contriever:s0036",
+    "contriever:s0039",
+    "contriever:s0014",
+    "contriever:s0003"
+  ],
+  "retrieved": [
+    {
+      "source_id": "contriever:s0004",
+      "paper_id": "contriever",
+      "title": "Unsupervised Dense Information Retrieval with Contrastive Learning",
+      "section": "1 Introduction",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "Second, in a few-shot setting, we show that our model benefits from few training examples, and obtains better results than transferring models from large datasets such as MS MARCO. Third, when used as a pre-training method before fine-tuning on MS MARCO, our technique leads to strong performance on the BEIR benchmark. We perform ablations to motivate our design choices, and show that cropping works better than the inverse Cloze task. Finally we train a multilingual dense retriever with contrastive learning and show that it achieves state-of-the-art performance. Code and pre-trained models are available here: https://github.com/facebookresearch/contriever.",
+      "url": "https://arxiv.org/abs/2112.09118v4",
+      "pdf_file": "pdfs/contriever.pdf",
+      "sha256": "7407131fd633561d8eab8701e43ca81061960b6642ae180eb86a3f367b2b8408",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03278688524590164
+    },
+    {
+      "source_id": "contriever:s0020",
+      "paper_id": "contriever",
+      "title": "Unsupervised Dense Information Retrieval with Contrastive Learning",
+      "section": "4.1 Datasets",
+      "page_start": 6,
+      "page_end": 7,
+      "text": "Indeed, such models can process hundreds of documents, and ignore their ranking (Izacard & Grave, 2020b). While nDCG@10 is the main metric of BEIR, we are more interested in the Recall@100 to evaluate bi-encoders, as our goal is to develop retrievers that can be used in ML systems. Moreover, in many settings, retrieved documents can be re-ranked with a more powerful model such as a cross-encoder, thus improving the nDCG@10. Table 1: Unsupervised recall@k on the test sets of NaturalQuestions and TriviaQA. For Inverse Cloze Task and Masked Salient Spans we report the results of Sachan et al. (2021). The Masked Salient Spans model uses annotated named entity recognition data. For BM25 we report the results of Ma et al. (2021) NaturalQuestions TriviaQA R@5 R@20 R@100 R@5 R@20 R@100 Inverse Cloze Task (Sachan et al., 2021) 32.3 50.9 66.8 40.2 57.5 73.6 Masked salient spans (Sachan et al., 2021) 41.7 59.8 74.9 53.3 68.2 79.4 BM25 (Ma et al., 2021) - 62.9 78.3 - 76.4 83.2 Contriever 47.8 67.8 82.1 59.4 74.2 83.2 supervised model: DPR (Karpukhin et al., 2020) - 78.4 85.4 - 79.4 85.0 supervised model: FiD-KD (Izacard & Grave, 2020a) 73.8 84.3 89.3 77.0 83.6 87.7",
+      "url": "https://arxiv.org/abs/2112.09118v4",
+      "pdf_file": "pdfs/contriever.pdf",
+      "sha256": "7407131fd633561d8eab8701e43ca81061960b6642ae180eb86a3f367b2b8408",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.0315136476426799
+    },
+    {
+      "source_id": "contriever:s0008",
+      "paper_id": "contriever",
+      "title": "Unsupervised Dense Information Retrieval with Contrastive Learning",
+      "section": "2 Related work",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "These objectives were later used in pre-trained models based on transformers, such as BERT (Devlin et al., 2019) and AlBERT (Lan et al., 2019). In the context of retrieval, Lee et al. (2019) introduced the inverse cloze task (ICT), whose purpose is to predict the context surrounding a span of text. Guu et al. (2020) integrated a bi-encoder retriever model in a BERT pre-training scheme. The retrieved documents are used as additional context in the BERT task, and the whole system is trained end-to-end in an unsupervised way. Similarly, Lewis et al. (2020) proposed to jointly learn a retriever and a generative seq2seq model, using self-supervised training. Chang et al. (2020) compares different pre-training tasks for retrieval, including the inverse cloze task. In the context of natural language processing, Fang et al. (2020) proposed to apply MoCo where positive pairs of sentences are obtained using back-translation. Different works augmented the masked language modeling objective with a contrastive loss (Giorgi et al., 2020; Wu et al., 2020; Meng et al., 2021). SBERT (Reimers & Gurevych, 2019) uses a Siamese network similar to contrastive learning to learn a BERT-like model that is adapted to matching sentence embeddings. Their formulation is similar to our work but requires aligned pairs of sentences to form positive pairs while we propose to use data augmentation to leverage large unaligned textual corpora. Concurrent to this work, Gao & Callan (2021) have also shown the potential of contrastive learning for information retrieval; building on the same observation that both tasks share a similar structure.",
+      "url": "https://arxiv.org/abs/2112.09118v4",
+      "pdf_file": "pdfs/contriever.pdf",
+      "sha256": "7407131fd633561d8eab8701e43ca81061960b6642ae180eb86a3f367b2b8408",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03149801587301587
+    },
+    {
+      "source_id": "contriever:s0015",
+      "paper_id": "contriever",
+      "title": "Unsupervised Dense Information Retrieval with Contrastive Learning",
+      "section": "3.1.2 Building positive pairs from a single document",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "In the original implementation by Lee et al. (2019) the span corresponds to a sentence, and is kept in the document 10% of the time to encourage lexical matching. The Inverse Cloze Task is closely related to the Cloze task which uses the span complement (w1, ..., wa−1, wb+1, ..., wn) as the query. Independent cropping is a common independent data augmentation used for images where views are generated independently by cropping the input. In the context of text, cropping is equivalent to sampling a span of tokens. This strategy thus samples independently two spans from a document to form a positive pair. As opposed to the inverse Cloze task, in cropping both views of the example correspond to contiguous subsequence of the original data. A second difference between cropping and ICT is the fact that independent random cropping is symmetric: both the queries and documents follow the same distribution. Independent cropping also lead to overlap between the two views of the data, hence encouraging the network to learn exact matches between the query and document, in a way that is similar to lexical matching methods like BM25. In practice, we can either fix the length of the span for the query and the key, or sample them. Additional data augmentation. Finally, we also consider additional data augmentations such as random word deletion, replacement or masking. We use these perturbations in addition to random cropping.",
+      "url": "https://arxiv.org/abs/2112.09118v4",
+      "pdf_file": "pdfs/contriever.pdf",
+      "sha256": "7407131fd633561d8eab8701e43ca81061960b6642ae180eb86a3f367b2b8408",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030536130536130537
+    },
+    {
+      "source_id": "contriever:s0036",
+      "paper_id": "contriever",
+      "title": "Unsupervised Dense Information Retrieval with Contrastive Learning",
+      "section": "6 Ablation studies",
+      "page_start": 11,
+      "page_end": 12,
+      "text": "We see that on average over the BEIR benchmark, increasing the number of negatives leads to better retrieval performance, especially in the unsupervised setting. However, we note that this effect is not equally strong for all datasets. 40 MS MARCO 50 TREC COVID 22 24 26 28 30 32 NFCorpus 30 40 20 30 10 15 20 25 30 FiQA 45 ArguAna Touche-2020 10 20 30 40 50 NaturalQuestions 30 40 50 60 70 HotpotQA 65 70 75 80 85 Quora DBPedia 12 14 16 18 20 40 10 12 14 16 18 SCIDOCS 80 FEVER 40 30 20 25 CLIMATE-FEVER 70 20 60 15 50 70 SciFacts Average 30 35 40 45 65 60 55 Without MSMARCO With MSMARCO Figure 2: Impact of the number of negatives. We report nDCG@10 as a function of the queue size, with and without fine-tuning on MS MARCO. We report numbers using the MoCo framework where the keys for the negatives are computed with the momentum encoder and stored in a queue. Data augmentations. Third, we compare different ways to generate pairs of positive examples from a single document or chunk of text. In particular, we compare random cropping, which leads to pairs with overlap, and the inverse cloze task, which was previously considered to pre-train retrievers. Interestingly, as shown in Table 7, the random cropping strategy outperforms the inverse cloze task in our setting. We believe that random cropping, leading to the identical distributions of keys and queries, leads to more stable training with MoCo compared to ICT. This might explains part of the difference of performance between the two methods.",
+      "url": "https://arxiv.org/abs/2112.09118v4",
+      "pdf_file": "pdfs/contriever.pdf",
+      "sha256": "7407131fd633561d8eab8701e43ca81061960b6642ae180eb86a3f367b2b8408",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03007688828584351
+    },
+    {
+      "source_id": "contriever:s0039",
+      "paper_id": "contriever",
+      "title": "Unsupervised Dense Information Retrieval with Contrastive Learning",
+      "section": "7 Discussion",
+      "page_start": 13,
+      "page_end": 13,
+      "text": "In this work, we propose to explore the limits of contrastive pre-training to learn dense text retrievers. We use the MoCo technique, which allows to train models with a large number of negative examples. We make several interesting observations: first, we show that neural networks trained without supervision using contrastive learning exhibit good retrieval performance, which are competitive with BM25 (albeit not state-of-the-art). These results can be further improved by fine-tuning on the supervised MS MARCO dataset, leading to strong results, in particular for recall@100. Based on that observation, we use a cross-encoder to re-rank documents retrieved with our model, leading to new state-of-the-art on the competitive BEIR benchmark. We also performed extensive ablation experiments, and observed that independent random cropping seems to be a strong alternative to the inverse Cloze task for training retrievers.",
+      "url": "https://arxiv.org/abs/2112.09118v4",
+      "pdf_file": "pdfs/contriever.pdf",
+      "sha256": "7407131fd633561d8eab8701e43ca81061960b6642ae180eb86a3f367b2b8408",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029411764705882353
+    },
+    {
+      "source_id": "contriever:s0014",
+      "paper_id": "contriever",
+      "title": "Unsupervised Dense Information Retrieval with Contrastive Learning",
+      "section": "3.1.2 Building positive pairs from a single document",
+      "page_start": 4,
+      "page_end": 5,
+      "text": "A crucial element of contrastive learning is how to build positive pairs from a single input. In computer vision, this step relies on applying two independent data augmentations to the same image, resulting in two “views” that form a positive pair (Wu et al., 2018; Chen et al., 2020). While we consider similar independent text transformation, we also explore dependent transformations designed to reduce the correlation between views. Inverse Cloze Task is a data augmentation that generates two mutually exclusive views of a document, introduced in the context of retrieval by Lee et al. (2019). The first view is obtained by randomly sampling a span of tokens from a segment of text, while the complement of the span forms the second view. Specifically, given a sequence of text (w1, ..., wn), ICT samples a span (wa, ..., wb), where 1 ≤a ≤b ≤n, uses the REALM SimCSE BM25 Contriever 50 Avg. Figure 1: Unsupervised retrieval. We compare our pre-training without using any annotated data to REALM (Guu et al., 2020), SimCSE (Gao et al., 2021) and BM25. For SimCSE we report results of the model using RoBERTa large. REALM uses annotated entity recognition data for training. We highlight that our unsupervised pre-training is on par with BM25 but on 2 datasets. tokens of the span as the query and the complement (w1, ..., wa−1, wb+1, ..., wn) as the key. In the original implementation by Lee et al. (2019) the span corresponds to a sentence, and is kept in the document 10% of the time to encourage lexical matching.",
+      "url": "https://arxiv.org/abs/2112.09118v4",
+      "pdf_file": "pdfs/contriever.pdf",
+      "sha256": "7407131fd633561d8eab8701e43ca81061960b6642ae180eb86a3f367b2b8408",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.027598020555767037
+    },
+    {
+      "source_id": "contriever:s0003",
+      "paper_id": "contriever",
+      "title": "Unsupervised Dense Information Retrieval with Contrastive Learning",
+      "section": "1 Introduction",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "Moreover large annotated datasets are generally not available in languages other than English. Thus, using large collections of supervised data is not suitable to train multilingual retrieval systems. A natural alternative to transfer learning is unsupervised learning, which raises the following question: is it possible to train dense retrievers without supervision, and match the performance of BM25? Training dense retrievers without supervision can be achieved by using an auxiliary task that approximates retrieval. Given a document, one can generate a synthetic query and then train the network to retrieve the original document, among many others, given the query. The inverse Cloze task (ICT), proposed by Lee et al. (2019) to pre-train retrievers, uses a given sentence as a query and predicts the context surrounding it. While showing promising results as pre-training (Chang et al., 2020; Sachan et al., 2021), this approach still lags behind BM25 when used as a zero-shot retriever. ICT is strongly related to contrastive learning (Wu et al., 2018), which has been widely applied in computer vision (Chen et al., 2020; He et al., 2020). In particular, computer vision models trained with the latest contrastive learning methods led to features well suited to retrieval (Caron et al., 2021). We thus propose to revisit how well contrastive learning performs to train dense retrievers without supervision. In this paper, we make the following contributions. First, we show that contrastive learning can lead to strong unsupervised retrievers: our model achieves Recall@100 results competitive with BM25 on most of the BEIR benchmark. Second, in a few-shot setting, we show that our model benefits from few training examples, and obtains better results than transferring models from large datasets such as MS MARCO.",
+      "url": "https://arxiv.org/abs/2112.09118v4",
+      "pdf_file": "pdfs/contriever.pdf",
+      "sha256": "7407131fd633561d8eab8701e43ca81061960b6642ae180eb86a3f367b2b8408",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.027046783625730993
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "what does find works better than the inverse cloze task",
+      "paper_ids": [
+        "contriever"
+      ],
+      "facet": "purpose",
+      "covered": true,
+      "claim_ids": [
+        "contriever.ict"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.007352957996772602,
+  "evaluation_question_id": "n02"
+}

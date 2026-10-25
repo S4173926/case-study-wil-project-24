@@ -1,0 +1,186 @@
+{
+  "run_id": "20261024T061244_b0511b7ada",
+  "created_utc": "2026-10-24T06:12:44.118943+00:00",
+  "question": "What Kubernetes autoscaling policy did the Walert team use for peak enrolment weeks?",
+  "mode": "explain",
+  "status": "insufficient",
+  "plan": {
+    "named_papers": [
+      "walert"
+    ],
+    "facets": [
+      "purpose"
+    ],
+    "explicit_facets": false,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "what kubernetes autoscaling policy did the team use for peak enrolment weeks",
+        "facets": [
+          "purpose"
+        ],
+        "explicit": false,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [],
+  "comparison": [],
+  "citations": [],
+  "missing": [
+    "WALERT: no selected claim covers the detected request \"what kubernetes autoscaling policy did the team use for peak enrolment weeks\" (purpose).",
+    "No supported explanation could be assembled."
+  ],
+  "warnings": [],
+  "first_stage": [
+    "walert:s0016",
+    "walert:s0017",
+    "walert:s0003",
+    "walert:s0008",
+    "walert:s0012",
+    "walert:s0006",
+    "walert:s0005",
+    "walert:s0001"
+  ],
+  "retrieved": [
+    {
+      "source_id": "walert:s0016",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "4 IMPACT AND FUTURE WORK",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "We built Walert, a conversational agent that answers FAQs about programs of study offered in the School of Computing Technologies at RMIT University. The IB approach, deployed on an Amazon Echo device, was showcased as a demo at the university’s Open Day in August 2023 where potential future students learned about the use of LLM-based conversational systems and its risks and limitations. The demo, which was also showcased to visiting high-school students in September 2023, generated university-wide interest and connections, including the IT service team building a universitywide solution. There are several limitations that we are aiming to address in future work. The current demo relies upon a limited knowledge base (i.e., a manually curated FAQ). We aim to reproduce our methodology with a more extensive set of documents, including brochures and internal web pages related to the delivery of CS programs. Further research on evaluation measures (beyond BERTScore and ROUGE) is needed to evaluate the validity of generated responses. We aim to explore other evaluation measures, including those for truncated rankings [3] and other dimensions of LLM-based conversational systems [18]. Finally, we plan to deploy RAG approaches to perform online experimentation. The process of building Walert helped us not only to share complementary knowledge across our group but also to facilitate knowledge translation within the university. We believe the approach and the lessons learned can help other researchers aiming to bridge the gap between experts and practitioners interested in building (and testing) LLM-based conversational information-seeking systems.",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031754032258064516
+    },
+    {
+      "source_id": "walert:s0017",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "ACKNOWLEDGMENTS",
+      "page_start": 4,
+      "page_end": 5,
+      "text": "Walert was designed and developed in the unceded lands of the Wurundjeri and Boon Wurrung peoples of the eastern Kulin Nation. We pay our respects to their Ancestors and Elders, past, present, and emerging. This research is partially supported by the Australian Research Council (DE200100064, CE200100005) and is undertaken with the assistance of computing resources from RACE (RMIT AWS Cloud Supercomputing). We thank Amina Hossain and Santha Sumanasekara for their valuable contributions. Walert",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030309988518943745
+    },
+    {
+      "source_id": "walert:s0003",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "1 INTRODUCTION",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "Conversational agents based on Large Language Models (LLMs) such as OpenAI’s ChatGPT1 provide many benefits to stakeholders, reducing the cost of various tasks by saving time and resources, especially for closed-domain questions such as translating responses into different formats, retrieving policy documents, and preparing legal document drafts [5]. However, two major concerns arise in this Pathiyan Cherumanal et al. setting: (i) the risk of giving away sensitive data about the organization [7, 19]; and (ii) the limited access to structured and comprehensible documentation might impede practitioners (e.g., data scientists without a strong background on information retrieval) grasp of the principles, theories, and best practices influencing product quality. Efforts have been taken in this direction of bringing together researchers and experts in conversational information-seeking with industry practitioners to deal with real-world problems – as in the case of Amazon’s Alexa Prize challenges [1, 14, 16]. We aim to combine our diverse research expertise in machine learning, natural language processing, and information retrieval, to bring conversational search knowledge into action and address best practices for building an LLM-powered chatbot. Our goals are to explore the challenges and approaches for implementing a chatbot, compare various methods, and offer best practices in evaluation that stakeholders (not necessarily experts in conversational information seeking) can effectively use to assess and improve the quality of chatbot products.",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029709507042253523
+    },
+    {
+      "source_id": "walert:s0008",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "2.1 Data Collection and Testbed",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "These three question types in Walert our testbed provide a comprehensive evaluation that allows us to compare IB against RAG conversational approaches. In particular, using the questions with known answers, we can assess the system’s ability to correctly respond to questions for which we know a passage in the KB contains the complete answer. By evaluating the effectiveness of the answers for the questions with inferred answers, we can assess the system’s ability to generate answers by combining multiple (partially) relevant passages. Finally, including questions not covered in the FAQ helps assess the chatbot’s ability to identify unanswerable questions – which is a critical step in controlling hallucinations.",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029211087420042643
+    },
+    {
+      "source_id": "walert:s0012",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "2.3 Retrieval-Augmented Generation (RAG)",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "If the retrieved documents are not related to the question, then answer NA. [QUESTION + LIST OF kPASSAGES] We experimented with three top-heavy kcutoffs: 1 (which is comparable to IB), 3, and 5 top retrieved passages.",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.027364110201042444
+    },
+    {
+      "source_id": "walert:s0006",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "2.1 Data Collection and Testbed",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "We utilized a manually curated FAQ from RMIT University’s School of Computing Technologies as a KB. The FAQ contains a wide range of common questions that incoming students ask regarding course Boon Wurrung peoples. Possum skin cloaks are essential to the Traditional Owners and Custodians of the land where the authors live and work. Our chatbot, Walert, is named as a tribute to this cultural heritage [4, 15]. Figure 1: Overall architecture of the two approaches implemented in Walert: IB and RAG. offerings and academic programs related to computer science. Using the question-answer pairs in the FAQ, we generate a set of questions Qand passages P. The question set Q= {q1,q2, . . . ,qn} contains existing questions in the FAQ that have known answers (i.e., passages directly extracted from the FAQ), new questions with inferred answers (i.e., manually generated questions that have no direct answers but the answer can be inferred from multiple passages in the FAQ), and questions that do not have an answer in the KB (questions were manually generated by checking that they cannot be answered with the passages in the KB). To simulate the scenario of different users expressing similar questions differently, we generated multiple semantically equivalent variations for each unique question initially included in the FAQ. The passages set P= {p1, p2, . . . , pm} is a corpus of passages extracted from the FAQ, representing our KB. Finally, each question is associated with a gold answer from a set A= {a1, . . . ,an}. Each answer ais obtained from one or more passages.",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.027222222222222224
+    },
+    {
+      "source_id": "walert:s0005",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "2 METHODOLOGY",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "Two different approaches were used to implement the prototype of our application: Intent-Based (IB) and RAG. The first one, IB, is suitable for structured and predictable interactions (i.e., pre-defined intents), while RAG chatbots retrieve information from a KB and are better for open domain and more dynamic conversations. Figure 1 presents the overall framework for both approaches.",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.025859192525859193
+    },
+    {
+      "source_id": "walert:s0001",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "ABSTRACT",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Creating and deploying customized applications is crucial for operational success and enriching user experiences in the rapidly evolving modern business world. A prominent facet of modern user experiences is the integration of chatbots or voice assistants. The rapid evolution of Large Language Models (LLMs) has provided a powerful tool to build conversational applications. We present Walert, a customized LLM-based conversational agent able to answer frequently asked questions about computer science degrees and programs at RMIT University. Our demo aims to showcase how conversational information-seeking researchers can effectively communicate the benefits of using best practices to stakeholders interested in developing and deploying LLM-based chatbots. These practices are well-known in our community but often overlooked by practitioners who may not have access to this knowledge. The methodology and resources used in this demo serve as a bridge to facilitate knowledge transfer from experts, address industry professionals’ practical needs, and foster a collaborative environment. The data and code of the demo are available at https://github.com/rmit-ir/walert. Permission to make digital or hard copies of part or all of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. Copyrights for third-party components of this work must be honored. For all other uses, contact the owner/author(s). © 2024 Copyright held by the owner/author(s). ACM ISBN 979-8-4007-0434-5/24/03. https://doi.org/10.1145/3627508.3638309 CCS CONCEPTS • Information systems →Evaluation of retrieval results; Search interfaces; • Human-centered computing →Natural language interfaces.",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.025657894736842105
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "what kubernetes autoscaling policy did the team use for peak enrolment weeks",
+      "paper_ids": [
+        "walert"
+      ],
+      "facet": "purpose",
+      "covered": false,
+      "claim_ids": [],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "elapsed_seconds": 0.005866584018804133,
+  "evaluation_question_id": "u06"
+}

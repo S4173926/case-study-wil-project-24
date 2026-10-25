@@ -1,0 +1,294 @@
+{
+  "run_id": "20261024T061244_5a15a78c0e",
+  "created_utc": "2026-10-24T06:12:44.448433+00:00",
+  "question": "What does the FLOPS regularizer in SPLADE try to reduce, and what trade-off does it create between retrieval quality and efficiency?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "splade"
+    ],
+    "facets": [
+      "efficiency",
+      "limitations"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "what does the flops regularizer in try to reduce",
+        "facets": [
+          "efficiency"
+        ],
+        "explicit": true,
+        "scope": "each"
+      },
+      {
+        "id": "part2",
+        "text": "what trade-off does it create between retrieval quality and efficiency",
+        "facets": [
+          "efficiency",
+          "limitations"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "splade.efficiency",
+      "paper_id": "splade",
+      "text": "SPLADE's FLOPS regulariser approximates the operations needed to score query-document representations, which are related to retrieval time. It penalises high average term activations to encourage a more balanced sparse index. Increasing sparsity pressure can reduce retrieval work and index size, but can also sacrifice retrieval effectiveness; its strength therefore controls an effectiveness-efficiency trade-off rather than guaranteeing an accuracy improvement.",
+      "facets": [
+        "efficiency",
+        "limitations"
+      ],
+      "source_ids": [
+        "splade:s0011",
+        "splade:s0001",
+        "splade:s0016",
+        "splade:s0017"
+      ]
+    }
+  ],
+  "comparison": [],
+  "citations": [
+    {
+      "source_id": "splade:s0011",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "3.2 SPLADE: SParse Lexical AnD Expansion",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "Later, [20] pointed-out that minimizing the l1 norm of representations does not result in the most efficient index, as nothing ensures that posting lists are evenly distributed. Note that this is even more true for standard indexes due to the Zipfian nature of the term frequency distribution. To obtain a well-balanced index, Paria et al. [20] introduce the FLOPS regularizer, a smooth relaxation of the average number of floating-point operations necessary to compute the score of a document, and hence directly related to the retrieval time. It is defined using ajas a continuous relaxation of the activation (i.e. the term has a non zero weight) probability pjfor token j, and estimated for documents din a batch of size N N ÍN i=1 w(di) j . This gives the following regularization loss by ̄aj= 1 !2 N ∑︁ 1 N i=1 w(di) j lFLOPS = ∑︁ j∈V ̄a2 j= ∑︁ j∈V This differs from the l1 regularization used in SNRM [28] where the ̄ajare not squared: using lFLOPS thus pushes down high average term weight values, giving rise to a more balanced index. Overall loss. We propose to combine the best of both worlds for end-to-end training of sparse, expansion-aware representations of documents and queries. Thus, we discard the binary gating in SparTerm, and instead learn our log-saturated model (Eq. 4) by jointly optimizing ranking and regularization losses: L = Lrank−IBN+ λqLq reg + λdLd reg (6) where Lreg is a sparse regularization (l1 or lFLOPS). We use two distinct regularization weights (λdand λq) for queries and documents – allowing to put more pressure on the sparsity for queries, which is critical for fast retrieval.",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "splade:s0001",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "ABSTRACT",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "In neural Information Retrieval, ongoing research is directed towards improving the first retriever in ranking pipelines. Learning dense embeddings to conduct retrieval using efficient approximate nearest neighbors methods has proven to work well. Meanwhile, there has been a growing interest in learning sparse representations for documents and queries, that could inherit from the desirable properties of bag-of-words models such as the exact matching of terms and the efficiency of inverted indexes. In this work, we present a new first-stage ranker based on explicit sparsity regularization and a log-saturation effect on term weights, leading to highly sparse representations and competitive results with respect to state-ofthe-art dense and sparse methods. Our approach is simple, trained end-to-end in a single stage. We also explore the trade-off between effectiveness and efficiency, by controlling the contribution of the sparsity regularization. KEYWORDS neural networks, indexing, sparse representations, regularization ACM Reference Format: Thibault Formal, Benjamin Piwowarski, and Stéphane Clinchant. 2021. SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking. In Proceedings of ACM Conference (Conference’17). ACM, New York, NY, USA, 5 pages. https://doi.org/10.1145/nnnnnnn.nnnnnnn",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "splade:s0016",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "4 EXPERIMENTAL SETTING AND RESULTS",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "Figure 1 illustrates the tradeoff between effectiveness (MRR@10) and efficiency (FLOPS), when we vary λqand λd(varying both implies that plots are not smooth). We observe that ST exp-lFLOPS falls far behind BOW models and Figure 1: Performance vs FLOPS for SPLADE models trained with different regularization strength λon MS MARCO avg q len ≃15 avg d len ≃58 32 31 30 29 doc2query-T5 SparTerm lexical ST exp-lFLOPS SPLADE-l1 SPLADE-lFLOPS avg q len ≃6 avg d len ≃18 27 0 1 2 3 4 5 6 # FLOPS Table 2: Document and expansion terms: between parenthesis is the weight associated with the term – omitted for the second occurrence of the term in the document, and strike-through for zeros original document (doc ID: 7131647) if (1.2) bow (2.56) legs (1.18) is caused (1.29) by (0.47) the bone (1.2) alignment (1.88) issue (0.87) than you may be able (0.29) to correct (1.37) through (0.43) bow legs correction (1.05) exercises. read more here.. if bow legs is caused by the bone alignment issue than you may be able to correct through bow legs correction exercises. expansion terms (leg, 1.62) (arrow, 0.7) (exercise, 0.64) (bones, 0.63) (problem, 0.41) (treatment, 0.35) (happen, 0.29) (create, 0.22) (can, 0.14) (worse, 0.14) (effect, 0.08) (teeth, 0.06) (remove, 0.03) SPLADE in terms of efficiency. In the meantime, SPLADE reaches efficiency levels equivalent to sparse BOW models, while outperforming doc2query-T5. Interestingly, strongly regularized models still show competitive performance (e.g. FLOPS=0.05, MRR@10=0.296). Finally, the regularization effect brought by lFLOPS compared to l1 is clear: for the same level of efficiency, performance of the latter is always lower. The role of expansion.",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "splade:s0017",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "4 EXPERIMENTAL SETTING AND RESULTS",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "The role of expansion. Experiments show that the expansion brings improvements w.r.t. to the purely lexical approach by increasing recall. Additionally, representations obtained from expansionregularized models are sparser: the models learn how to balance expansion and compression, by both turning-off irrelevant dimensions and activating useful ones. On a set of 10k documents, the SPLADE-lFLOPS from Table 1 drops in average 20 terms per document, while adding 32 expansion terms. For one of our most efficient model (FLOPS=0.05), 34 terms are dropped in average, for only 5 new expansion terms. In this case, representations are extremely sparse: documents and queries contain in average 18 and 6 non-zero values respectively, and we need less that 1.4 GB to store the index on disk. Table 2 shows an example where the model performs term re-weighting by emphasizing on important terms and discarding most of the terms without information content. Expansion allows to enrich documents, either by implicitly adding stemming effects (legs →leg) or by adding relevant topic words (e.g. treatment).",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "splade:s0015",
+    "splade:s0016",
+    "splade:s0003",
+    "splade:s0018",
+    "splade:s0001",
+    "splade:s0014",
+    "splade:s0006",
+    "splade:s0011"
+  ],
+  "retrieved": [
+    {
+      "source_id": "splade:s0015",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "4 EXPERIMENTAL SETTING AND RESULTS",
+      "page_start": 3,
+      "page_end": 4,
+      "text": "By adding a log-saturation effect to the expansion model, SPLADE greatly increases sparsity – reducing the FLOPS to similar levels than BOW approaches – at no cost on performance when compared to the best first-stage rankers. In addition, we observe the advantage Table 1: Evaluation on MS MARCO passage retrieval (dev set) and TREC DL 2019 model MS MARCO dev TREC DL 2019 FLOPS MRR@10 R@1000 NDCG@10 R@1000 Dense retrieval Siamese (ours) 0.312 0.941 0.637 0.711 - ANCE [25] 0.330 0.959 0.648 - - TCT-ColBERT [15] 0.335 0.964 0.670 0.720 - Sparse retrieval BM25 0.184 0.853 0.506 0.745 0.13 DeepCT [4] 0.243 0.913 0.551 0.756 doc2query-T5 [18] 0.277 0.947 0.642 0.827 0.81 ST lexical-only [1] 0.275 0.912 - - - ST expansion [1] 0.279 0.925 - - - Our methods ST lexical-only 0.290 0.923 0.595 0.774 1.84 ST exp-l1 0.314 0.959 0.668 0.800 4.62 ST exp-lFLOPS 0.312 0.954 0.671 0.813 2.83 SPLADE-l1 0.322 0.954 0.667 0.792 0.88 SPLADE-lFLOPS 0.322 0.955 0.665 0.813 0.73 of the FLOPS regularization over l1 in order to decrease the computing cost. Note that in contrast to SparTerm, SPLADE is trained end-to end in a single step. It is also remarkably simple, compared to dense state-of-the-art baselines such as ANCE [25], and avoids resorting to approximate neighbors search, whose impact on IR metrics has not been fully evaluated yet. Effectiveness-efficiency trade-off. Figure 1 illustrates the tradeoff between effectiveness (MRR@10) and efficiency (FLOPS), when we vary λqand λd(varying both implies that plots are not smooth).",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03278688524590164
+    },
+    {
+      "source_id": "splade:s0016",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "4 EXPERIMENTAL SETTING AND RESULTS",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "Figure 1 illustrates the tradeoff between effectiveness (MRR@10) and efficiency (FLOPS), when we vary λqand λd(varying both implies that plots are not smooth). We observe that ST exp-lFLOPS falls far behind BOW models and Figure 1: Performance vs FLOPS for SPLADE models trained with different regularization strength λon MS MARCO avg q len ≃15 avg d len ≃58 32 31 30 29 doc2query-T5 SparTerm lexical ST exp-lFLOPS SPLADE-l1 SPLADE-lFLOPS avg q len ≃6 avg d len ≃18 27 0 1 2 3 4 5 6 # FLOPS Table 2: Document and expansion terms: between parenthesis is the weight associated with the term – omitted for the second occurrence of the term in the document, and strike-through for zeros original document (doc ID: 7131647) if (1.2) bow (2.56) legs (1.18) is caused (1.29) by (0.47) the bone (1.2) alignment (1.88) issue (0.87) than you may be able (0.29) to correct (1.37) through (0.43) bow legs correction (1.05) exercises. read more here.. if bow legs is caused by the bone alignment issue than you may be able to correct through bow legs correction exercises. expansion terms (leg, 1.62) (arrow, 0.7) (exercise, 0.64) (bones, 0.63) (problem, 0.41) (treatment, 0.35) (happen, 0.29) (create, 0.22) (can, 0.14) (worse, 0.14) (effect, 0.08) (teeth, 0.06) (remove, 0.03) SPLADE in terms of efficiency. In the meantime, SPLADE reaches efficiency levels equivalent to sparse BOW models, while outperforming doc2query-T5. Interestingly, strongly regularized models still show competitive performance (e.g. FLOPS=0.05, MRR@10=0.296). Finally, the regularization effect brought by lFLOPS compared to l1 is clear: for the same level of efficiency, performance of the latter is always lower. The role of expansion.",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031754032258064516
+    },
+    {
+      "source_id": "splade:s0003",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "1 INTRODUCTION",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Thus, there have been attempts to substitute standard BOW approaches by learned (neural) rankers. Designing such models poses several challenges regarding efficiency and scalability: therefore there is a need for methods where most of the computation can be done offline and online inference is fast. Dense retrieval with approximate nearest neighbors search has shown impressive results [8, 15, 26], but is still combined with BOW models because of its inability to explicitly model term matching. Hence, there has recently been a growing interest in learning sparse representations for queries and documents [1, 4, 19, 28, 29]. By doing so, models can inherit from the desirable properties of BOW models like exact-match of (possibly latent) terms, efficiency of inverted indexes and interpretability. Additionally, by modeling implicit or explicit (latent, contextualized) expansion mechanisms – similarly to standard expansion models in IR – these models can reduce the vocabulary mismatch. The contributions of this paper are threefold: (1) we build upon SparTerm [1], and show that a mild tuning of hyperparameters brings improvements that largely outperform the results reported in the original paper; (2) we propose the SParse Lexical AnD Expansion (SPLADE) model, based on a logarithmic activation and sparse regularization. SPLADE performs an efficient document expansion [1, 16], with competitive results with respect to complex training pipelines for dense models like ANCE [26]; (3) finally, we show how the sparsity regularization can be controlled to influence the trade-off between efficiency (in terms of the number of floating-point operations) and effectiveness.",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031746031746031744
+    },
+    {
+      "source_id": "splade:s0018",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "5 CONCLUSION",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "Recently, dense retrieval based on BERT has demonstrated its superiority for first-stage retrieval, questioning the competitiveness of traditional sparse models. In this work, we have proposed SPLADE, a sparse model revisiting query/document expansion. Our approach relies on in-batch negatives, logarithmic activation and FLOPS regularization to learn effective and efficient sparse representations. SPLADE is an appealing candidate for initial retrieval: it rivals the latest state-of-the-art dense retrieval models, its training procedure is straightforward, its sparsity/FLOPS can be controlled explicitly through the regularization, and it can operate on inverted indexes. In reason of its simplicity, SPLADE is a solid basis for further improvements in this line of research.",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031054405392392875
+    },
+    {
+      "source_id": "splade:s0001",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "ABSTRACT",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "In neural Information Retrieval, ongoing research is directed towards improving the first retriever in ranking pipelines. Learning dense embeddings to conduct retrieval using efficient approximate nearest neighbors methods has proven to work well. Meanwhile, there has been a growing interest in learning sparse representations for documents and queries, that could inherit from the desirable properties of bag-of-words models such as the exact matching of terms and the efficiency of inverted indexes. In this work, we present a new first-stage ranker based on explicit sparsity regularization and a log-saturation effect on term weights, leading to highly sparse representations and competitive results with respect to state-ofthe-art dense and sparse methods. Our approach is simple, trained end-to-end in a single stage. We also explore the trade-off between effectiveness and efficiency, by controlling the contribution of the sparsity regularization. KEYWORDS neural networks, indexing, sparse representations, regularization ACM Reference Format: Thibault Formal, Benjamin Piwowarski, and Stéphane Clinchant. 2021. SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking. In Proceedings of ACM Conference (Conference’17). ACM, New York, NY, USA, 5 pages. https://doi.org/10.1145/nnnnnnn.nnnnnnn",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030330882352941176
+    },
+    {
+      "source_id": "splade:s0014",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "4 EXPERIMENTAL SETTING AND RESULTS",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "Overall, we observe that: (1) our models outperform the other sparse retrieval methods by a large margin (except for recall@1000 on TREC DL); (2) the results are competitive with state-of-the-art dense retrieval methods. More specifically, our training method for ST lexical-only already outperforms the results of DeepCT as well as the results reported in the original SparTerm paper – including the model using expansion. Thanks to the additional sparse expansion mechanism, we are able to obtain results on par with state-of-the-art dense approaches on MS MARCO dev set (e.g. Recall@1000 close to 0.96 for ST exp-l1), but with a much bigger average number of FLOPS. By adding a log-saturation effect to the expansion model, SPLADE greatly increases sparsity – reducing the FLOPS to similar levels than BOW approaches – at no cost on performance when compared to the best first-stage rankers.",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02964426877470356
+    },
+    {
+      "source_id": "splade:s0006",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "2 RELATED WORKS",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "Furthermore, the latter does not include (like SNRM) an explicit sparsity regularization, which hinders its performance. Our SPLADE model relies on such regularization, as well as other key changes, that boost both the efficiency and the effectiveness of this type of models.",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02946912242686891
+    },
+    {
+      "source_id": "splade:s0011",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "3.2 SPLADE: SParse Lexical AnD Expansion",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "Later, [20] pointed-out that minimizing the l1 norm of representations does not result in the most efficient index, as nothing ensures that posting lists are evenly distributed. Note that this is even more true for standard indexes due to the Zipfian nature of the term frequency distribution. To obtain a well-balanced index, Paria et al. [20] introduce the FLOPS regularizer, a smooth relaxation of the average number of floating-point operations necessary to compute the score of a document, and hence directly related to the retrieval time. It is defined using ajas a continuous relaxation of the activation (i.e. the term has a non zero weight) probability pjfor token j, and estimated for documents din a batch of size N N ÍN i=1 w(di) j . This gives the following regularization loss by ̄aj= 1 !2 N ∑︁ 1 N i=1 w(di) j lFLOPS = ∑︁ j∈V ̄a2 j= ∑︁ j∈V This differs from the l1 regularization used in SNRM [28] where the ̄ajare not squared: using lFLOPS thus pushes down high average term weight values, giving rise to a more balanced index. Overall loss. We propose to combine the best of both worlds for end-to-end training of sparse, expansion-aware representations of documents and queries. Thus, we discard the binary gating in SparTerm, and instead learn our log-saturated model (Eq. 4) by jointly optimizing ranking and regularization losses: L = Lrank−IBN+ λqLq reg + λdLd reg (6) where Lreg is a sparse regularization (l1 or lFLOPS). We use two distinct regularization weights (λdand λq) for queries and documents – allowing to put more pressure on the sparsity for queries, which is critical for fast retrieval.",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029437229437229435
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "what does the flops regularizer in try to reduce",
+      "paper_ids": [
+        "splade"
+      ],
+      "facet": "efficiency",
+      "covered": true,
+      "claim_ids": [
+        "splade.efficiency"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    },
+    {
+      "part_id": "part2",
+      "question_part": "what trade-off does it create between retrieval quality and efficiency",
+      "paper_ids": [
+        "splade"
+      ],
+      "facet": "efficiency",
+      "covered": true,
+      "claim_ids": [
+        "splade.efficiency"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    },
+    {
+      "part_id": "part2",
+      "question_part": "what trade-off does it create between retrieval quality and efficiency",
+      "paper_ids": [
+        "splade"
+      ],
+      "facet": "limitations",
+      "covered": true,
+      "claim_ids": [
+        "splade.efficiency"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.010598958004266024,
+  "evaluation_question_id": "F03"
+}

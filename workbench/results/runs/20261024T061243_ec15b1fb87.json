@@ -1,0 +1,215 @@
+{
+  "run_id": "20261024T061243_ec15b1fb87",
+  "created_utc": "2026-10-24T06:12:43.978239+00:00",
+  "question": "Which retrieval models did Walert experiment with in its RAG pipeline?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "walert"
+    ],
+    "facets": [
+      "retrieval"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "which retrieval models did experiment with in its rag pipeline",
+        "facets": [
+          "retrieval"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "walert.retrieval",
+      "paper_id": "walert",
+      "text": "The Walert RAG experiments compare Okapi BM25 and Dense Passage Retrieval (DPR), using Pyserini implementations. Retrieved passages are supplied to Falcon-7B-Instruct to generate an answer.",
+      "facets": [
+        "retrieval",
+        "representation"
+      ],
+      "source_ids": [
+        "walert:s0011"
+      ]
+    }
+  ],
+  "comparison": [],
+  "citations": [
+    {
+      "source_id": "walert:s0011",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "2.3 Retrieval-Augmented Generation (RAG)",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "In contrast to the precision-oriented IB approach, we sought to investigate a more open-ended methodology known as RAG [11]. Here, we cover two use cases: (i) instances where the questions the user raises vary from what is available in the FAQ, and (ii) scenarios utterances-and-slots.html process of managing a privacy-aware LLM solution in-house to avoid the potential leaking of sensitive data by using third-party solutions. We found this alternative to be a good fit for our needs, also the most flexible for our future research, e.g., experiments involving fine-tuning. in which questions can only be answered using abstractive multidocument summarization from multiple passages in the KB. The RAG approach consists of two main stages (bottom part of Figure 1). The initial stage involves retrieving potential passages that may contain the answer, while the second stage involves generating a summary from the top-Kretrieved passages. For the retrieval model, we experimented with two approaches: (i) Okapi BM25 [17] with default parameters (k1 = 1.2; b= 0.75) and (ii) dense retrieval using Dense Passage Retrieval (DPR) [10] implementations in the pyserini toolkit [13]. To generate a summary from the top-Kretrieved passages, we used the same LLM that was used to generate semantically equivalent variations of the questions for the IB approach, i.e., falcon-7b-instruct (refer Section 2.2) along with the following prompt to generate the summaries: Generate an answer to be synthesized with text-to-speech for a virtual assistant, the answer should be based on the retrieved documents for the following question. If the retrieved documents are not related to the question, then answer NA.",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "walert:s0012",
+    "walert:s0008",
+    "walert:s0005",
+    "walert:s0017",
+    "walert:s0016",
+    "walert:s0004",
+    "walert:s0006",
+    "walert:s0011"
+  ],
+  "retrieved": [
+    {
+      "source_id": "walert:s0012",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "2.3 Retrieval-Augmented Generation (RAG)",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "If the retrieved documents are not related to the question, then answer NA. [QUESTION + LIST OF kPASSAGES] We experimented with three top-heavy kcutoffs: 1 (which is comparable to IB), 3, and 5 top retrieved passages.",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03278688524590164
+    },
+    {
+      "source_id": "walert:s0008",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "2.1 Data Collection and Testbed",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "These three question types in Walert our testbed provide a comprehensive evaluation that allows us to compare IB against RAG conversational approaches. In particular, using the questions with known answers, we can assess the system’s ability to correctly respond to questions for which we know a passage in the KB contains the complete answer. By evaluating the effectiveness of the answers for the questions with inferred answers, we can assess the system’s ability to generate answers by combining multiple (partially) relevant passages. Finally, including questions not covered in the FAQ helps assess the chatbot’s ability to identify unanswerable questions – which is a critical step in controlling hallucinations.",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03125763125763126
+    },
+    {
+      "source_id": "walert:s0005",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "2 METHODOLOGY",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "Two different approaches were used to implement the prototype of our application: Intent-Based (IB) and RAG. The first one, IB, is suitable for structured and predictable interactions (i.e., pre-defined intents), while RAG chatbots retrieve information from a KB and are better for open domain and more dynamic conversations. Figure 1 presents the overall framework for both approaches.",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03125
+    },
+    {
+      "source_id": "walert:s0017",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "ACKNOWLEDGMENTS",
+      "page_start": 4,
+      "page_end": 5,
+      "text": "Walert was designed and developed in the unceded lands of the Wurundjeri and Boon Wurrung peoples of the eastern Kulin Nation. We pay our respects to their Ancestors and Elders, past, present, and emerging. This research is partially supported by the Australian Research Council (DE200100064, CE200100005) and is undertaken with the assistance of computing resources from RACE (RMIT AWS Cloud Supercomputing). We thank Amina Hossain and Santha Sumanasekara for their valuable contributions. Walert",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030090497737556562
+    },
+    {
+      "source_id": "walert:s0016",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "4 IMPACT AND FUTURE WORK",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "We built Walert, a conversational agent that answers FAQs about programs of study offered in the School of Computing Technologies at RMIT University. The IB approach, deployed on an Amazon Echo device, was showcased as a demo at the university’s Open Day in August 2023 where potential future students learned about the use of LLM-based conversational systems and its risks and limitations. The demo, which was also showcased to visiting high-school students in September 2023, generated university-wide interest and connections, including the IT service team building a universitywide solution. There are several limitations that we are aiming to address in future work. The current demo relies upon a limited knowledge base (i.e., a manually curated FAQ). We aim to reproduce our methodology with a more extensive set of documents, including brochures and internal web pages related to the delivery of CS programs. Further research on evaluation measures (beyond BERTScore and ROUGE) is needed to evaluate the validity of generated responses. We aim to explore other evaluation measures, including those for truncated rankings [3] and other dimensions of LLM-based conversational systems [18]. Finally, we plan to deploy RAG approaches to perform online experimentation. The process of building Walert helped us not only to share complementary knowledge across our group but also to facilitate knowledge translation within the university. We believe the approach and the lessons learned can help other researchers aiming to bridge the gap between experts and practitioners interested in building (and testing) LLM-based conversational information-seeking systems.",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029957522915269395
+    },
+    {
+      "source_id": "walert:s0004",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "1 INTRODUCTION",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "Our goals are to explore the challenges and approaches for implementing a chatbot, compare various methods, and offer best practices in evaluation that stakeholders (not necessarily experts in conversational information seeking) can effectively use to assess and improve the quality of chatbot products. Using a manually curated Frequently Asked Questions (FAQ) guide from RMIT University’s School of Computing Technologies as a Knowledge Base (KB), we were able to implement a conversational agent, named Walert2, that allows potential future students to get answers to questions related to the computer science programs offered at RMIT University.3 In this demo, the primary focus was to characterize the challenges associated with integrating LLMs into the development process of voice-based conversational information-seeking systems based on an existing KB. The process allowed us to address challenges related to (i) handling private/sensitive information by deploying our instance of an open-source LLM; (ii) monitoring the problem of hallucinations (i.e., the introduction of facts that are not true) [9] and generation of inaccurate information by using a human-in-the-loop approach [6] and the inclusion of out of KB questions in our testbed; and (iii) evaluating the effectiveness of intent-based using Natural Language Understanding (NLU) and Retrieval-Augmented Generation (RAG), both at component and end-to-end levels. Our evaluation highlights shortcomings in recent RAG pipeline studies, particularly regarding the lack of ranking evaluation.",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029827662395050816
+    },
+    {
+      "source_id": "walert:s0006",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "2.1 Data Collection and Testbed",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "We utilized a manually curated FAQ from RMIT University’s School of Computing Technologies as a KB. The FAQ contains a wide range of common questions that incoming students ask regarding course Boon Wurrung peoples. Possum skin cloaks are essential to the Traditional Owners and Custodians of the land where the authors live and work. Our chatbot, Walert, is named as a tribute to this cultural heritage [4, 15]. Figure 1: Overall architecture of the two approaches implemented in Walert: IB and RAG. offerings and academic programs related to computer science. Using the question-answer pairs in the FAQ, we generate a set of questions Qand passages P. The question set Q= {q1,q2, . . . ,qn} contains existing questions in the FAQ that have known answers (i.e., passages directly extracted from the FAQ), new questions with inferred answers (i.e., manually generated questions that have no direct answers but the answer can be inferred from multiple passages in the FAQ), and questions that do not have an answer in the KB (questions were manually generated by checking that they cannot be answered with the passages in the KB). To simulate the scenario of different users expressing similar questions differently, we generated multiple semantically equivalent variations for each unique question initially included in the FAQ. The passages set P= {p1, p2, . . . , pm} is a corpus of passages extracted from the FAQ, representing our KB. Finally, each question is associated with a gold answer from a set A= {a1, . . . ,an}. Each answer ais obtained from one or more passages.",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.028814262023217248
+    },
+    {
+      "source_id": "walert:s0011",
+      "paper_id": "walert",
+      "title": "Walert: Putting Conversational Search Knowledge into Action by Building and Evaluating a Large Language Model-Powered Chatbot",
+      "section": "2.3 Retrieval-Augmented Generation (RAG)",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "In contrast to the precision-oriented IB approach, we sought to investigate a more open-ended methodology known as RAG [11]. Here, we cover two use cases: (i) instances where the questions the user raises vary from what is available in the FAQ, and (ii) scenarios utterances-and-slots.html process of managing a privacy-aware LLM solution in-house to avoid the potential leaking of sensitive data by using third-party solutions. We found this alternative to be a good fit for our needs, also the most flexible for our future research, e.g., experiments involving fine-tuning. in which questions can only be answered using abstractive multidocument summarization from multiple passages in the KB. The RAG approach consists of two main stages (bottom part of Figure 1). The initial stage involves retrieving potential passages that may contain the answer, while the second stage involves generating a summary from the top-Kretrieved passages. For the retrieval model, we experimented with two approaches: (i) Okapi BM25 [17] with default parameters (k1 = 1.2; b= 0.75) and (ii) dense retrieval using Dense Passage Retrieval (DPR) [10] implementations in the pyserini toolkit [13]. To generate a summary from the top-Kretrieved passages, we used the same LLM that was used to generate semantically equivalent variations of the questions for the IB approach, i.e., falcon-7b-instruct (refer Section 2.2) along with the following prompt to generate the summaries: Generate an answer to be synthesized with text-to-speech for a virtual assistant, the answer should be based on the retrieved documents for the following question. If the retrieved documents are not related to the question, then answer NA.",
+      "url": "https://arxiv.org/abs/2401.07216v1",
+      "pdf_file": "pdfs/walert.pdf",
+      "sha256": "f43be7d2070be75d1f58b1055aa7556d0ab7a0ae1f01de912558f712dbc4964d",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.028665028665028666
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "which retrieval models did experiment with in its rag pipeline",
+      "paper_ids": [
+        "walert"
+      ],
+      "facet": "retrieval",
+      "covered": true,
+      "claim_ids": [
+        "walert.retrieval"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.006742041005054489,
+  "evaluation_question_id": "q10"
+}

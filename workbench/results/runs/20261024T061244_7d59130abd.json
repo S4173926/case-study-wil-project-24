@@ -1,0 +1,171 @@
+{
+  "run_id": "20261024T061244_7d59130abd",
+  "created_utc": "2026-10-24T06:12:44.272234+00:00",
+  "question": "How does ColPali retrieve documents from page images?",
+  "mode": "explain",
+  "status": "insufficient",
+  "plan": {
+    "named_papers": [],
+    "facets": [
+      "retrieval"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "how does colpali retrieve documents from page images",
+        "facets": [
+          "retrieval"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [],
+  "comparison": [],
+  "citations": [],
+  "missing": [
+    "No supported explanation could be assembled."
+  ],
+  "warnings": [],
+  "first_stage": [
+    "ragsurvey:s0049",
+    "queryrewrite:s0016",
+    "realm:s0026",
+    "colbertv2:s0039",
+    "contriever:s0015",
+    "ragas:s0012",
+    "colbertv2:s0038",
+    "splade:s0010"
+  ],
+  "retrieved": [
+    {
+      "source_id": "ragsurvey:s0049",
+      "paper_id": "ragsurvey",
+      "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
+      "section": "F. Multi-modal RAG",
+      "page_start": 16,
+      "page_end": 16,
+      "text": "RAG has transcended its initial text-based questionanswering confines, embracing a diverse array of modal data. This expansion has spawned innovative multimodal models that integrate RAG concepts across various domains: Image. RA-CM3 [176] stands as a pioneering multimodal model of both retrieving and generating text and images. BLIP-2 [177] leverages frozen image encoders alongside LLMs for efficient visual language pre-training, enabling zeroshot image-to-text conversions. The “Visualize Before You Write” method [178] employs image generation to steer the LM’s text generation, showing promise in open-ended text generation tasks. Audio and Video. The GSS method retrieves and stitches together audio clips to convert machine-translated data into speech-translated data [179]. UEOP marks a significant advancement in end-to-end automatic speech recognition by incorporating external, offline strategies for voice-to-text conversion [180]. Additionally, KNN-based attention fusion leverages audio embeddings and semantically related text embeddings to refine ASR, thereby accelerating domain adaptation. Vid2Seq augments language models with specialized temporal markers, facilitating the prediction of event boundaries and textual descriptions within a unified output sequence [181]. Code. RBPS [182] excels in small-scale learning tasks by retrieving code examples that align with developers’ objectives through encoding and frequency analysis. This approach has demonstrated efficacy in tasks such as test assertion generation and program repair. For structured knowledge, the CoK method [106] first extracts facts pertinent to the input query from a knowledge graph, then integrates these facts as hints within the input, enhancing performance in knowledge graph question-answering tasks.",
+      "url": "https://arxiv.org/abs/2312.10997v5",
+      "pdf_file": "pdfs/ragsurvey.pdf",
+      "sha256": "396a0fadeb4cd40f5c8ccc36b73a0815f6cb4d7f6bfa53b6c48c1f9aba7c7e02",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03278688524590164
+    },
+    {
+      "source_id": "queryrewrite:s0016",
+      "paper_id": "queryrewrite",
+      "title": "Query Rewriting for Retrieval-Augmented Large Language Models",
+      "section": "4 Implementation",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "Rewriter For the frozen pipeline in §3.1, we prompt an LLM to rewrite the query with few-shot in-context learning (Brown et al., 2020; Min et al., 2022). Our prompt follows the formulation of [instruction, demonstrations, input], where the input is x. The instruction is straightforward and demonstrations are 1-3 random examples from training sets and are kept constant across all runs, mainly for the task-specific output format illustration, i.e., a short phrase as an answer for HotpotQA, and an option as an answer for MMLU. For the training scheme in §3.2, we fine-tuning a T5 as the rewriter. Retriever We use the Bing search engine as the retriever. It requires no candidate index construction like a dense retriever, nor candidates like a textbook. But it allows for a wide knowledge scope and up-to-time factuality. With Bing API, the retrieval is performed in two approaches. (i) For all retrieved web pages, we concatenate the snippets that are related sentences selected by Bing. This method is similar to using a search engine in a browser, input a query and press Enter, then collect the texts shown on the search result page. (ii) For retrieved web pages, we request the URLs and parser to get all the texts. This is similar to clicking on items on the search result page. Then we use BM25 to keep those with higher relevance scores with the query, reducing the document length. Reader The reader is a frozen LLM, where we adopt ChatGPT (gpt-3.5-turbo) and Vicuna-13B. It performs reading comprehension and prediction with few-shot in-context learning. In our prompt, following the brief instruction and the demonstrations, the input is x or [doc, ˆ ̃x] with retrieval augmentation.",
+      "url": "https://arxiv.org/abs/2305.14283v3",
+      "pdf_file": "pdfs/queryrewrite.pdf",
+      "sha256": "483472d9ccc633fe649a87f2224a09c717fcfe052c2914c50f8abce5f34dca84",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031746031746031744
+    },
+    {
+      "source_id": "realm:s0026",
+      "paper_id": "realm",
+      "title": "REALM: Retrieval-Augmented Language Model Pre-Training",
+      "section": "6. Future Work",
+      "page_start": 9,
+      "page_end": 9,
+      "text": "The work presented here is the minimal instantiation of a family of REALM-like approaches where a representation is pre-trained to perform reasoning over a large corpus of knowledge on-the-fly during inference. We are particularly optimistic about generalizations of this work to (1) structured knowledge, which would result in a generalization of Peters et al. (2019) where we would also learn the decision of which entities are informative, (2) the multi-lingual setting, e.g., retrieving knowledge in a high-resource language to better represent text in a low-resource language, and (3) the multi-modal setting, e.g., retrieving images or videos that can provide knowledge rarely observed in text.",
+      "url": "https://arxiv.org/abs/2002.08909v1",
+      "pdf_file": "pdfs/realm.pdf",
+      "sha256": "0ec1a7ab3de5514c6d3baa8af0322816d4ee7cd4c14b9f2c450cbc9da9e6b363",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.0315136476426799
+    },
+    {
+      "source_id": "colbertv2:s0039",
+      "paper_id": "colbertv2",
+      "title": "ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction",
+      "section": "B Impact of Compression",
+      "page_start": 15,
+      "page_end": 16,
+      "text": "Our residual compression approach (§3.3) preserves approximately the same quality as the uncompressed embeddings. In particular, when applied to a vanilla ColBERT model on MS MARCO whose MRR@10 is 36.2% and Recall@50 is 82.1%, the quality of the model with 2-bit compression is 36.2% MRR@10 and 82.3% Recall@50. With 1-bit compression, the model achieves 35.5% MRR@10 and 81.6% Recall@50.7 We also tested the residual compression approach on late-interaction retrievers that conduct downstream tasks, namely, ColBERT-QA (Khattab et al., 2021b) for the NaturalQuestions opendomain QA task, and Baleen (Khattab et al., 2021a) for multi-hop reasoning on HoVer for claim verification. On the NQ dev set, ColBERT-QA’s success@5 (success@20) dropped only marginally from 75.3% (84.3%) to 74.3% (84.2%) and its downstream Open-QA answer exact match dropped from 47.9% to 47.7%, when using 2-bit compression for retrieval and using the same checkpoints of ColBERT-QA otherwise. pression for ColBERT, which used binary representations as in BPR (Yamada et al., 2021a) without residual centroids, and achieves 34.8% (35.7%) MRR@10 and 80.5% (81.8%) Recall@50 with 1-bit (2-bit) binarization. Like the original ColBERT, this form of compression relied on a separate FAISS index for candidate generation. Cluster ID Most Common Tokens Most Common Clusters Per Token Token Clusters ‘photos’ Photos-Photo, Photos-Pictures-Photo ‘photos’, ‘photo’, ‘pictures’, ‘photographs’, ‘images’, ‘photography’, ‘photograph’ ‘photo’ Photo-Image-Picture, Photo-Picture-Photograph, Photo-Picture-Photography ‘pictures’ Pictures-Picture-Images, Picture-Pictures-Artists, Pictures-Photo-Picture ‘tornado’ Tornado-Hurricane-Storm, Tornadoes-Tornado-Blizzard 216932 ‘tornado’, ‘tornadoes’, ‘storm’ ‘hurricane’, ‘storms’ ‘tornadoes’ Tornadoes-Tornado-Storms, Tornadoes-Tornado-Blizzard, Tornado-Hurricane-Storm ‘storm’ Storm-Storms, Storm-Storms-Weather, Storm-Storms-Tempest Table 6: Examples of clusters taken from all MS MARCO passages. We present the tokens that appear most frequently in the selected clusters as well as additional clusters the top tokens appear in.",
+      "url": "https://arxiv.org/abs/2112.01488v3",
+      "pdf_file": "pdfs/colbertv2.pdf",
+      "sha256": "46e0a2712eabf9e0b9486120356a2110f65516fa7e0d75c35e9ee3eef9ea78c0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.0315136476426799
+    },
+    {
+      "source_id": "contriever:s0015",
+      "paper_id": "contriever",
+      "title": "Unsupervised Dense Information Retrieval with Contrastive Learning",
+      "section": "3.1.2 Building positive pairs from a single document",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "In the original implementation by Lee et al. (2019) the span corresponds to a sentence, and is kept in the document 10% of the time to encourage lexical matching. The Inverse Cloze Task is closely related to the Cloze task which uses the span complement (w1, ..., wa−1, wb+1, ..., wn) as the query. Independent cropping is a common independent data augmentation used for images where views are generated independently by cropping the input. In the context of text, cropping is equivalent to sampling a span of tokens. This strategy thus samples independently two spans from a document to form a positive pair. As opposed to the inverse Cloze task, in cropping both views of the example correspond to contiguous subsequence of the original data. A second difference between cropping and ICT is the fact that independent random cropping is symmetric: both the queries and documents follow the same distribution. Independent cropping also lead to overlap between the two views of the data, hence encouraging the network to learn exact matches between the query and document, in a way that is similar to lexical matching methods like BM25. In practice, we can either fix the length of the span for the query and the key, or sample them. Additional data augmentation. Finally, we also consider additional data augmentations such as random word deletion, replacement or masking. We use these perturbations in addition to random cropping.",
+      "url": "https://arxiv.org/abs/2112.09118v4",
+      "pdf_file": "pdfs/contriever.pdf",
+      "sha256": "7407131fd633561d8eab8701e43ca81061960b6642ae180eb86a3f367b2b8408",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030776515151515152
+    },
+    {
+      "source_id": "ragas:s0012",
+      "paper_id": "ragas",
+      "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+      "section": "4 The WikiEval Dataset",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "To evaluate the proposed framework, we ideally need examples of question-context-answer triples which are annotated with human judgments. We can then verify to what extent our metrics agree with human assessments of faithfulness, answer relevance and context relevance. Since we are not aware of any publicly available datasets that could be used for this purpose, we created a new dataset, which we refer to as WikiEval4. To construct the dataset, we first selected 50 Wikipedia pages covering events that have happened since the start of 20225. In selecting these pages, we prioritised those with recent edits. For each of the 50 pages, we then asked ChatGPT to suggest a question that can be answered based on the introductory section of the page, using the following prompt: Your task is to formulate a question from given context satisfying the rules given below: 1. The question should be fully answered from the given context. 2. The question should be framed from a part that contains non-trivial information. 3. The answer should not contain any explodinggradients/WikiEval we used in our experiments. links. 4. The question should be of moderate difficulty. 5. The question must be reasonable and must be understood and responded to by humans. 6. Do not use phrases that ’provided context’, etc in the question context: We also used ChatGPT to answer the generated question, when given the corresponding introductory section as context, using the following prompt: Answer the question using the information from the given context. question: [question] context: [context] All questions were annotated along the three considered quality dimensions by two annotators.",
+      "url": "https://arxiv.org/abs/2309.15217v2",
+      "pdf_file": "pdfs/ragas.pdf",
+      "sha256": "6c24762a3f277fd120ed1adf34b01420ecf92f18ff6d1b5435fa0a09cb804ecb",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030330882352941176
+    },
+    {
+      "source_id": "colbertv2:s0038",
+      "paper_id": "colbertv2",
+      "title": "ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction",
+      "section": "A Analysis of ColBERT’s Semantic",
+      "page_start": 15,
+      "page_end": 15,
+      "text": "The most frequently appearing tokens in cluster #917 relate to photography; these include, for example, ‘photos’ and ‘photographs’. If we then examine the additional clusters in which these tokens appear, we find that there is substantial semantic overlap between these new clusters (e.g., Photos-Photo, Photo-Image-Picture) and cluster #917. We observe a similar effect with tokens appearing in cluster #216932, comprising tornado-related terms. This analysis indicates that cluster centroids can summarize the ColBERT representations with high precision. In §3.3, we propose a residual compression mechanism that uses these centroids along with minor refinements at the dimension level to efficiently encode late-interaction vectors.",
+      "url": "https://arxiv.org/abs/2112.01488v3",
+      "pdf_file": "pdfs/colbertv2.pdf",
+      "sha256": "46e0a2712eabf9e0b9486120356a2110f65516fa7e0d75c35e9ee3eef9ea78c0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029850746268656716
+    },
+    {
+      "source_id": "splade:s0010",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "3.2 SPLADE: SParse Lexical AnD Expansion",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "model In the following, we propose slight, but essential changes to the SparTerm model that dramatically improve its performance. Model. We introduce a minor change in the importance estimation from Eq. 2, by introducing a log-saturation effect which prevents some terms to dominate and naturally ensures sparsity in representations: wj= ∑︁ i∈t log \u00001 + ReLU(wij)\u0001 (4) While it is intuitive that using a log-saturation prevents some terms from dominating – drawing a parallel with axiomatic approaches in IR and log(tf) models [9] – the implied sparsity can seem surprising at first, but, according to our experiments, it obtains better experimental results and allows already to obtain sparse solutions without any regularization. Ranking loss. Given a query qiin a batch, a positive document d+ i, a (hard) negative document d− i(e.g. coming from BM25 sampling), and a set of negative documents in the batch (positive documents from other queries) {d− i,j}j, we consider the ranking loss from [8], which can be interpreted as the maximization of the probability of the document d+ ibeing relevant among the documents d+ i,d− iand {d− i,j}: Lrank−IBN= −log es(qi,d+ i) es(qi,d+ i) + es(qi,d− i) + Í jes(qi,d− i,j) (5) The in-batch negatives (IBN) sampling strategy is widely used for training image retrieval models, and has shown to be effective in learning first-stage rankers [8, 12, 15]. Learning sparse representations. The idea of learning sparse representations for first-stage retrieval dates back to SNRM [28], via l1 regularization. Later, [20] pointed-out that minimizing the l1 norm of representations does not result in the most efficient index, as nothing ensures that posting lists are evenly distributed.",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029437229437229435
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [],
+  "elapsed_seconds": 0.019166249985573813,
+  "evaluation_question_id": "u08"
+}

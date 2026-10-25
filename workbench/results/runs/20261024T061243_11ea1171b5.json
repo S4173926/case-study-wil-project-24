@@ -1,0 +1,281 @@
+{
+  "run_id": "20261024T061243_11ea1171b5",
+  "created_utc": "2026-10-24T06:12:43.996871+00:00",
+  "question": "How does REALM keep its document index up to date while the retriever parameters change during pre-training?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "realm"
+    ],
+    "facets": [
+      "training"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "how does keep its document index up to date while the retriever parameters change during pre-training",
+        "facets": [
+          "training"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "realm.index",
+      "paper_id": "realm",
+      "text": "As retriever parameters change, REALM refreshes its index by asynchronously re-embedding and re-indexing documents every several hundred training steps. The index can be slightly stale between refreshes; scores and gradients for the retrieved top documents are recomputed using current parameters.",
+      "facets": [
+        "training",
+        "efficiency"
+      ],
+      "source_ids": [
+        "realm:s0012"
+      ]
+    },
+    {
+      "claim_id": "realm.masking",
+      "paper_id": "realm",
+      "text": "REALM masks salient spans, such as named entities and dates, to favour training examples that need world knowledge rather than only local context. The paper uses a named-entity tagger and a date regular expression for that selection.",
+      "facets": [
+        "training"
+      ],
+      "source_ids": [
+        "realm:s0014"
+      ]
+    },
+    {
+      "claim_id": "realm.pretraining",
+      "paper_id": "realm",
+      "text": "REALM pre-trains a learnable knowledge retriever using masked language modelling. Helpful documents receive learning signal through their contribution to predicting masked text, with document retrieval treated as a latent step. The model is then fine-tuned for open-domain question answering.",
+      "facets": [
+        "training",
+        "supervision",
+        "purpose"
+      ],
+      "source_ids": [
+        "realm:s0001",
+        "realm:s0008"
+      ]
+    }
+  ],
+  "comparison": [],
+  "citations": [
+    {
+      "source_id": "realm:s0012",
+      "paper_id": "realm",
+      "title": "REALM: Retrieval-Augmented Language Model Pre-Training",
+      "section": "3. Approach",
+      "page_start": 4,
+      "page_end": 5,
+      "text": "Even with this approximation, we still need an efficient way to find the top k documents. Note that the ordering of documents under p(z | x) is the same as under the relevance score f(x, z) = Embedinput(x)⊤Embeddoc(z), which is an inner product. Thus, we can employ Maximum Inner Product Search (MIPS) algorithms to find the approximate top k documents, using running time and storage space that scale sub-linearly with the number of documents (Ram & Gray, 2012; Shrivastava & Li, 2014; Shen et al., 2015). To employ MIPS, we must pre-compute Embeddoc(z) for every z ∈Z and construct an efficient search index over these embeddings. However, this data structure will no longer be consistent with p(z | x) if the parameters θ of Embeddoc are later updated. Hence, the search index goes “stale” after every gradient update on θ. Our solution is to “refresh” the index by asynchronously re-embedding and re-indexing all documents every several hundred training steps. The MIPS index is slightly stale between refreshes, but note that it is only used to select the top k documents. We recompute p(z | x) and its gradient, using the fresh θ, for these top k documents after retrieving them. In Section 4.5, we empirically demonstrate that this procedure results in stable optimization, provided that refreshes happen at a sufficiently frequent rate. Implementing asynchronous MIPS refreshes We asynchronously refresh the MIPS index by running two jobs in parallel: a primary trainer job, which performs gradient updates on the parameters, and a secondary index builder job, which embeds and indexes the documents. As shown Figure 3.",
+      "url": "https://arxiv.org/abs/2002.08909v1",
+      "pdf_file": "pdfs/realm.pdf",
+      "sha256": "0ec1a7ab3de5514c6d3baa8af0322816d4ee7cd4c14b9f2c450cbc9da9e6b363",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "realm:s0014",
+      "paper_id": "realm",
+      "title": "REALM: Retrieval-Augmented Language Model Pre-Training",
+      "section": "3. Approach",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "The multiplier r(z) is positive if and only if p(y | z, x) > p(y | x). The term p(y | z, x) is the probability of predicting the correct output y when using document z. The term p(y | x) is the expected value of p(y | x, z) when randomly sampling a document from p(z | x). Hence, document z receives a positive update whenever it performs better than expected. 3This works because pre-training already yields a good Embeddoc function. However, it is possible that refreshing the index would further improve performance. 3.4. Injecting inductive biases into pre-training In the process of developing REALM, we discovered several additional strategies that further guide the model towards meaningful retrievals, described below. Salient span masking During REALM pre-training, we want to focus on examples x that require world knowledge to predict the masked tokens. As explained in Section 2, some MLM spans only require local context. To focus on problems that require world knowledge, we mask salient spans such as “United Kingdom” or “July 1969”. We use a BERT-based tagger trained on CoNLL-2003 data (Sang & De Meulder, 2003) to identify named entities, and a regular expression to identify dates. We select and mask one of these salient spans within a sentence for the masked language modeling task. We show that this significantly outperforms other masking strategies in Section 4.5. Null document Even with salient span masking, not all masked tokens require world knowledge to predict. We model this by adding an empty null document ∅to the top k retrieved documents, allowing appropriate credit to be assigned to a consistent sink when no retrieval is necessary.",
+      "url": "https://arxiv.org/abs/2002.08909v1",
+      "pdf_file": "pdfs/realm.pdf",
+      "sha256": "0ec1a7ab3de5514c6d3baa8af0322816d4ee7cd4c14b9f2c450cbc9da9e6b363",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "realm:s0001",
+      "paper_id": "realm",
+      "title": "REALM: Retrieval-Augmented Language Model Pre-Training",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Language model pre-training has been shown to capture a surprising amount of world knowledge, crucial for NLP tasks such as question answering. However, this knowledge is stored implicitly in the parameters of a neural network, requiring ever-larger networks to cover more facts. To capture knowledge in a more modular and interpretable way, we augment language model pretraining with a latent knowledge retriever, which allows the model to retrieve and attend over documents from a large corpus such as Wikipedia, used during pre-training, fine-tuning and inference. For the first time, we show how to pretrain such a knowledge retriever in an unsupervised manner, using masked language modeling as the learning signal and backpropagating through a retrieval step that considers millions of documents. We demonstrate the effectiveness of Retrieval-Augmented Language Model pre-training (REALM) by fine-tuning on the challenging task of Open-domain Question Answering (Open-QA). We compare against state-of-theart models for both explicit and implicit knowledge storage on three popular Open-QA benchmarks, and find that we outperform all previous methods by a significant margin (4-16% absolute accuracy), while also providing qualitative benefits such as interpretability and modularity.",
+      "url": "https://arxiv.org/abs/2002.08909v1",
+      "pdf_file": "pdfs/realm.pdf",
+      "sha256": "0ec1a7ab3de5514c6d3baa8af0322816d4ee7cd4c14b9f2c450cbc9da9e6b363",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "realm:s0008",
+      "paper_id": "realm",
+      "title": "REALM: Retrieval-Augmented Language Model Pre-Training",
+      "section": "3. Approach",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "We start by formalizing REALM’s pre-training and finetuning tasks as a retrieve-then-predict generative process in Section 3.1. Then in Section 3.2, we describe the model architectures for each component of that process. In Section 3.3, we show how to implement REALM pre-training and fine-tuning by maximizing the likelihood of REALM’s generative process. En route, we address important computational challenges, explain why training works, and also discuss strategies for injecting useful inductive biases. The overall framework is illustrated in Figure 2. 3.1. REALM’s generative process For both pre-training and fine-tuning, REALM takes some input x and learns a distribution p(y | x) over possible outputs y. For pre-training, the task is masked language modeling: x is a sentence from a pre-training corpus X with some tokens masked out, and the model must predict the value of those missing tokens, y. For fine-tuning, the task is Open-QA: x is a question, and y is the answer. REALM decomposes p(y | x) into two steps: retrieve, then predict. Given an input x, we first retrieve possibly helpful documents z from a knowledge corpus Z. We model this as a sample from the distribution p(z | x). Then, we condition on both the retrieved z and the original input x to generate the output y—modeled as p(y | z, x). To obtain the overall likelihood of generating y, we treat z as a latent variable and marginalize over all possible documents z, yielding p(y | x) = X z∈Z p(y | z, x) p(z | x). (1) 3.2.",
+      "url": "https://arxiv.org/abs/2002.08909v1",
+      "pdf_file": "pdfs/realm.pdf",
+      "sha256": "0ec1a7ab3de5514c6d3baa8af0322816d4ee7cd4c14b9f2c450cbc9da9e6b363",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "realm:s0013",
+    "realm:s0023",
+    "realm:s0003",
+    "realm:s0021",
+    "realm:s0014",
+    "realm:s0001",
+    "realm:s0029",
+    "realm:s0020"
+  ],
+  "retrieved": [
+    {
+      "source_id": "realm:s0013",
+      "paper_id": "realm",
+      "title": "REALM: Retrieval-Augmented Language Model Pre-Training",
+      "section": "3. Approach",
+      "page_start": 4,
+      "page_end": 5,
+      "text": "As shown Figure 3. REALM pre-training with asynchronous MIPS refreshes. below, the trainer sends the index builder a snapshot of its parameters, θ′. The trainer then continues to train while the index builder uses θ′ to construct a new index in the background. As soon as the index builder is done, it sends the new index back to the trainer, and the process repeats. While asynchronous refreshes can be used for both pretraining and fine-tuning, in our experiments we only use it for pre-training. For fine-tuning, we just build the MIPS index once (using the pre-trained θ) for simplicity and do not update Embeddoc.3 Note that we still fine-tune Embedinput, so the retrieval function is still updated from the query side. What does the retriever learn? Since the knowledge retrieval of REALM is latent, it is not obvious how the training objective encourages meaningful retrievals. Here, we show how it rewards retrievals that improve prediction accuracy. For a given query x and document z, recall that f(x, z) is the “relevance score” that the knowledge retriever assigns to document z. We can see how a single step of gradient descent during REALM pre-training alters this score by analyzing the gradient with respect to the parameters of the knowledge retriever, θ: ∇log p(y | x) = X z∈Z r(z)∇f(x, z) p(y | x) −1 \u0015 p(z | x). r(z) = \u0014p(y | z, x) For each document z, the gradient encourages the retriever to change the score f(x, z) by r(z) — increasing if r(z) is positive, and decreasing if negative. The multiplier r(z) is positive if and only if p(y | z, x) > p(y | x).",
+      "url": "https://arxiv.org/abs/2002.08909v1",
+      "pdf_file": "pdfs/realm.pdf",
+      "sha256": "0ec1a7ab3de5514c6d3baa8af0322816d4ee7cd4c14b9f2c450cbc9da9e6b363",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03252247488101534
+    },
+    {
+      "source_id": "realm:s0023",
+      "paper_id": "realm",
+      "title": "REALM: Retrieval-Augmented Language Model Pre-Training",
+      "section": "4. Experiments",
+      "page_start": 8,
+      "page_end": 8,
+      "text": "Intuitively, the latent variable learning relies heavily on the utility of retrieval and is therefore more sensitive to a consistent learning signal. MIPS index refresh rate During pre-training, we run a parallel process to re-embed corpus documents and rebuild the MIPS index. This results in one index refresh per approximately 500 training steps. To demonstrate the importance of frequent index refreshes, we compare against using a slower refresh rate. The results in Table 2 suggests that a stale index can hurt model training, and further reducing this staleness could offer better optimization. Examples of retrieved documents Table 3 shows an example of the REALM masked language model prediction. In this example, “Fermat” is the correct word, and REALM (row (c)) gives the word a much high probability compared to the BERT model (row (a)). Since REALM manages to retrieve some documents with a related fact (row (b)), the marginalized probability of the correct answer dramatically increases. This shows that REALM is able to retrieve document to fill in the masked word even though it is trained with unsupervised text only.",
+      "url": "https://arxiv.org/abs/2002.08909v1",
+      "pdf_file": "pdfs/realm.pdf",
+      "sha256": "0ec1a7ab3de5514c6d3baa8af0322816d4ee7cd4c14b9f2c450cbc9da9e6b363",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.030117753623188408
+    },
+    {
+      "source_id": "realm:s0003",
+      "paper_id": "realm",
+      "title": "REALM: Retrieval-Augmented Language Model Pre-Training",
+      "section": "1. Introduction",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "In contrast to models that store knowledge in their parameters, this approach explicitly exposes the role of world knowledge by asking the model to decide what knowledge to retrieve and use during inference. Before making each prediction, the language model uses the retriever to retrieve documents1 from a large corpus such as Wikipedia, and then attends over those documents to help inform its prediction. Learning this model end-toend requires backpropagating through a retrieval step that considers an entire corpus of textual knowledge, as shown in Figure 1. The key intuition of REALM is to train the retriever using a performance-based signal from unsupervised text: a retrieval that improves the language model’s perplexity is helpful and should be rewarded, while an uninformative retrieval should be penalized. For example, in Figure 1, if the model needs to fill the blank in “the at the top of the pyramid”, the retriever should be rewarded for selecting a document containing “The pyramidion on top allows for less material higher up the pyramid”. We achieve this behavior by modeling our retrieve-then-predict approach as a latent variable language model and optimizing the marginal likelihood. Incorporating a large-scale neural retrieval module during pre-training constitutes a significant computational challenge, since the retriever must consider millions of candidate documents for each pre-training step, and we must backpropagate through its decisions. To address this, we structure the retriever such that the computation performed for each document can be cached and asynchronously updated, and selection of the best documents can be formulated as Maximum Inner Product Search (MIPS).",
+      "url": "https://arxiv.org/abs/2002.08909v1",
+      "pdf_file": "pdfs/realm.pdf",
+      "sha256": "0ec1a7ab3de5514c6d3baa8af0322816d4ee7cd4c14b9f2c450cbc9da9e6b363",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.029709507042253523
+    },
+    {
+      "source_id": "realm:s0021",
+      "paper_id": "realm",
+      "title": "REALM: Retrieval-Augmented Language Model Pre-Training",
+      "section": "4. Experiments",
+      "page_start": 7,
+      "page_end": 8,
+      "text": "In contrast, REALM outperforms the largest T5-11B model while being 30 times smaller. It is also important to note that T5 accesses additional reading comprehension data from SQuAD during its pre-training (100,000+ examples). Access to such data could also benefit REALM, but was not used in our experiments. Among all systems, the most direct comparison with REALM is ORQA (Lee et al., 2019), where the fine-tuning setup, hyperparameters and training data are identical. The improvement of REALM over ORQA is purely due to better pre-training methods. The results also indicate that our method of pre-training can be applied both on (1) the singlecorpus setting (X = Wikipedia, Z = Wikipedia), or (2) the separate-corpus setting (X = CC-News, Z = Wikipedia). Compared to other retrieval-based systems (Asai et al., 2019; Min et al., 2019a;b) which often retrieve from 20 to 80 documents, our system gets the overall best performance while only retrieving 5 documents. 4.5. Analysis In Table 2 we present results for NaturalQuestions-Open after ablating critical components of REALM. In addition to the end-to-end results, we also report how often the gold answer appears in the top-5 retrievals before applying any fine-tuning. The latter metric more significantly isolates the contribution of improving the retriever during pre-training. Table 3. An example where REALM utilizes retrieved documents to better predict masked tokens. It assigns much higher probability (0.129) to the correct term, “Fermat”, compared to BERT. (Note that the blank corresponds to 3 BERT wordpieces.) x: An equilateral triangle is easily constructed using a straightedge and compass, because 3 is a (a) BERT p(y = “Fermat” | x) = 1.1 × 10−14 (No retrieval.) prime.",
+      "url": "https://arxiv.org/abs/2002.08909v1",
+      "pdf_file": "pdfs/realm.pdf",
+      "sha256": "0ec1a7ab3de5514c6d3baa8af0322816d4ee7cd4c14b9f2c450cbc9da9e6b363",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.028850145288501453
+    },
+    {
+      "source_id": "realm:s0014",
+      "paper_id": "realm",
+      "title": "REALM: Retrieval-Augmented Language Model Pre-Training",
+      "section": "3. Approach",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "The multiplier r(z) is positive if and only if p(y | z, x) > p(y | x). The term p(y | z, x) is the probability of predicting the correct output y when using document z. The term p(y | x) is the expected value of p(y | x, z) when randomly sampling a document from p(z | x). Hence, document z receives a positive update whenever it performs better than expected. 3This works because pre-training already yields a good Embeddoc function. However, it is possible that refreshing the index would further improve performance. 3.4. Injecting inductive biases into pre-training In the process of developing REALM, we discovered several additional strategies that further guide the model towards meaningful retrievals, described below. Salient span masking During REALM pre-training, we want to focus on examples x that require world knowledge to predict the masked tokens. As explained in Section 2, some MLM spans only require local context. To focus on problems that require world knowledge, we mask salient spans such as “United Kingdom” or “July 1969”. We use a BERT-based tagger trained on CoNLL-2003 data (Sang & De Meulder, 2003) to identify named entities, and a regular expression to identify dates. We select and mask one of these salient spans within a sentence for the masked language modeling task. We show that this significantly outperforms other masking strategies in Section 4.5. Null document Even with salient span masking, not all masked tokens require world knowledge to predict. We model this by adding an empty null document ∅to the top k retrieved documents, allowing appropriate credit to be assigned to a consistent sink when no retrieval is necessary.",
+      "url": "https://arxiv.org/abs/2002.08909v1",
+      "pdf_file": "pdfs/realm.pdf",
+      "sha256": "0ec1a7ab3de5514c6d3baa8af0322816d4ee7cd4c14b9f2c450cbc9da9e6b363",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.028083267871170464
+    },
+    {
+      "source_id": "realm:s0001",
+      "paper_id": "realm",
+      "title": "REALM: Retrieval-Augmented Language Model Pre-Training",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Language model pre-training has been shown to capture a surprising amount of world knowledge, crucial for NLP tasks such as question answering. However, this knowledge is stored implicitly in the parameters of a neural network, requiring ever-larger networks to cover more facts. To capture knowledge in a more modular and interpretable way, we augment language model pretraining with a latent knowledge retriever, which allows the model to retrieve and attend over documents from a large corpus such as Wikipedia, used during pre-training, fine-tuning and inference. For the first time, we show how to pretrain such a knowledge retriever in an unsupervised manner, using masked language modeling as the learning signal and backpropagating through a retrieval step that considers millions of documents. We demonstrate the effectiveness of Retrieval-Augmented Language Model pre-training (REALM) by fine-tuning on the challenging task of Open-domain Question Answering (Open-QA). We compare against state-of-theart models for both explicit and implicit knowledge storage on three popular Open-QA benchmarks, and find that we outperform all previous methods by a significant margin (4-16% absolute accuracy), while also providing qualitative benefits such as interpretability and modularity.",
+      "url": "https://arxiv.org/abs/2002.08909v1",
+      "pdf_file": "pdfs/realm.pdf",
+      "sha256": "0ec1a7ab3de5514c6d3baa8af0322816d4ee7cd4c14b9f2c450cbc9da9e6b363",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.027799227799227798
+    },
+    {
+      "source_id": "realm:s0029",
+      "paper_id": "realm",
+      "title": "REALM: Retrieval-Augmented Language Model Pre-Training",
+      "section": "C. Adapting to new knowledge",
+      "page_start": 11,
+      "page_end": 11,
+      "text": "An explicit retrieval system allows us to adapt to new world knowledge simply by modifying the corpus documents. To demonstrate this ability, we replace the knowledge corpus with a more recent version of Wikipedia corpus after pre-training is done. When the input query is about a fact where the two corpora disagree, REALM can change the prediction to reflect the updated information, as exemplified in Table 4. However, even with an explicit retrieval mechanism, the knowledge-augmented encoder will still end up remembering some world knowledge, making the prediction of some input sentences not updated with the new corpus. (For instance, the model predicts “Thatcher” for “ is the prime minister of United Kingdom.” on both corpora, perhaps due to the frequent mention of her name in Wikipedia articles.)",
+      "url": "https://arxiv.org/abs/2002.08909v1",
+      "pdf_file": "pdfs/realm.pdf",
+      "sha256": "0ec1a7ab3de5514c6d3baa8af0322816d4ee7cd4c14b9f2c450cbc9da9e6b363",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.027777777777777776
+    },
+    {
+      "source_id": "realm:s0020",
+      "paper_id": "realm",
+      "title": "REALM: Retrieval-Augmented Language Model Pre-Training",
+      "section": "4. Experiments",
+      "page_start": 7,
+      "page_end": 7,
+      "text": "Ablation experiments on NQ’s development set. Zero-shot Retrieval Recall@5 Ablation Exact Match REALM 38.2 38.5 REALM retriever+Baseline encoder 37.4 38.5 Baseline retriever+REALM encoder 35.3 13.9 Baseline (ORQA) 31.3 13.9 REALM with random uniform masks 32.3 24.2 REALM with random span masks 35.3 26.1 30× stale MIPS 28.7 15.1 entire model can be run on a single machine with a 12GB GPU. Pre-training We pre-train for 200k steps on 64 Google Cloud TPUs, with a batch size of 512 and a learning rate of 3e-5, using BERT’s default optimizer. The document embedding step for the MIPS index is parallelized over 16 TPUs. For each example, we retrieve and marginalize over 8 candidate documents, including the null document ∅. We experiment with two choices of the pre-training corpus X: (1) Wikipedia, which is identical to the knowledge corpus Z, and (2) CC-News, our reproduction of the corpus of English news proposed by Liu et al. (2019). 4.4. Main results Table 1 shows the accuracy of different approaches on the three Open-QA datasets. REALM outperform all previous approaches by a significant margin. Table 1 also shows the number of parameters for each model. As reported in the concurrent work of Roberts et al. (2020), the generative Open-QA systems based on T5 are surprisingly powerful, with the largest T5-11B model outperforming the previous best Open-QA system. Increasing the size of T5 yields consistent improvement, but comes at significant computational cost (from Base to 11B, the model is 50 times larger, and gains roughly 5 points in accuracy). In contrast, REALM outperforms the largest T5-11B model while being 30 times smaller.",
+      "url": "https://arxiv.org/abs/2002.08909v1",
+      "pdf_file": "pdfs/realm.pdf",
+      "sha256": "0ec1a7ab3de5514c6d3baa8af0322816d4ee7cd4c14b9f2c450cbc9da9e6b363",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.027598020555767037
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "how does keep its document index up to date while the retriever parameters change during pre-training",
+      "paper_ids": [
+        "realm"
+      ],
+      "facet": "training",
+      "covered": true,
+      "claim_ids": [
+        "realm.index",
+        "realm.masking",
+        "realm.pretraining"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.011106916004791856,
+  "evaluation_question_id": "q12"
+}

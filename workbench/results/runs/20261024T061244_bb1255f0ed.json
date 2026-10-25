@@ -1,0 +1,505 @@
+{
+  "run_id": "20261024T061244_bb1255f0ed",
+  "created_utc": "2026-10-24T06:12:44.244797+00:00",
+  "question": "How do RAGAS and ARES differ in how they score RAG systems?",
+  "mode": "explain",
+  "status": "source_linked_explanation",
+  "plan": {
+    "named_papers": [
+      "ragas",
+      "ares"
+    ],
+    "facets": [
+      "evaluation"
+    ],
+    "explicit_facets": true,
+    "measures": [],
+    "is_comparison": true,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "how do and differ in how they score rag systems",
+        "facets": [
+          "evaluation"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [
+    {
+      "claim_id": "ragas.dimensions",
+      "paper_id": "ragas",
+      "text": "The original RAGAS paper evaluates three aspects of a RAG pipeline: faithfulness of the answer to its retrieved context, relevance of the answer to the question, and relevance or focus of the retrieved context. These are separate dimensions; a relevant answer is not automatically factually faithful.",
+      "facets": [
+        "evaluation",
+        "purpose"
+      ],
+      "source_ids": [
+        "ragas:s0008"
+      ]
+    },
+    {
+      "claim_id": "ragas.referencefree",
+      "paper_id": "ragas",
+      "text": "RAGAS is reference-free in the sense that its evaluation metrics can be computed without gold reference answers or ground-truth human annotations for the evaluated examples. The paper separately compares its metrics with human judgments to study whether the metrics are useful; that validation does not make gold annotations a required input to every score.",
+      "facets": [
+        "supervision",
+        "evaluation"
+      ],
+      "source_ids": [
+        "ragas:s0001",
+        "ragas:s0012"
+      ]
+    },
+    {
+      "claim_id": "ragas.relevance",
+      "paper_id": "ragas",
+      "text": "For answer relevance, RAGAS generates possible questions from the answer and compares their embeddings with the original question. For context relevance, it asks an LLM to select sentences useful for the question and compares the number selected with the number of context sentences.",
+      "facets": [
+        "evaluation",
+        "inference"
+      ],
+      "source_ids": [
+        "ragas:s0010",
+        "ragas:s0011"
+      ]
+    },
+    {
+      "claim_id": "ares.dimensions",
+      "paper_id": "ares",
+      "text": "ARES evaluates context relevance, answer faithfulness and answer relevance for RAG systems. It assesses query–passage–answer triples and can score the retrieval and answer-generation components separately.",
+      "facets": [
+        "evaluation",
+        "purpose"
+      ],
+      "source_ids": [
+        "ares:s0003"
+      ]
+    },
+    {
+      "claim_id": "ares.judges",
+      "paper_id": "ares",
+      "text": "ARES generates synthetic query–passage–answer data from the target corpus, including positive and negative examples, and fine-tunes lightweight judges for the evaluation tasks. This differs from relying only on fixed prompts for an off-the-shelf model to judge outputs.",
+      "facets": [
+        "training",
+        "supervision",
+        "evaluation"
+      ],
+      "source_ids": [
+        "ares:s0001",
+        "ares:s0008"
+      ]
+    },
+    {
+      "claim_id": "ares.ppi",
+      "paper_id": "ares",
+      "text": "ARES combines judge predictions with a smaller human-annotated validation set using prediction-powered inference (PPI). The annotations help estimate judge error, and PPI produces confidence intervals for system-level scores. A confidence interval for an aggregate score is not certification of every individual answer.",
+      "facets": [
+        "evaluation",
+        "supervision"
+      ],
+      "source_ids": [
+        "ares:s0012",
+        "ares:s0013"
+      ]
+    }
+  ],
+  "comparison": [
+    {
+      "paper_id": "ragas",
+      "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+      "claims": [
+        {
+          "claim_id": "ragas.dimensions",
+          "paper_id": "ragas",
+          "text": "The original RAGAS paper evaluates three aspects of a RAG pipeline: faithfulness of the answer to its retrieved context, relevance of the answer to the question, and relevance or focus of the retrieved context. These are separate dimensions; a relevant answer is not automatically factually faithful.",
+          "facets": [
+            "evaluation",
+            "purpose"
+          ],
+          "source_ids": [
+            "ragas:s0008"
+          ]
+        },
+        {
+          "claim_id": "ragas.referencefree",
+          "paper_id": "ragas",
+          "text": "RAGAS is reference-free in the sense that its evaluation metrics can be computed without gold reference answers or ground-truth human annotations for the evaluated examples. The paper separately compares its metrics with human judgments to study whether the metrics are useful; that validation does not make gold annotations a required input to every score.",
+          "facets": [
+            "supervision",
+            "evaluation"
+          ],
+          "source_ids": [
+            "ragas:s0001",
+            "ragas:s0012"
+          ]
+        },
+        {
+          "claim_id": "ragas.relevance",
+          "paper_id": "ragas",
+          "text": "For answer relevance, RAGAS generates possible questions from the answer and compares their embeddings with the original question. For context relevance, it asks an LLM to select sentences useful for the question and compares the number selected with the number of context sentences.",
+          "facets": [
+            "evaluation",
+            "inference"
+          ],
+          "source_ids": [
+            "ragas:s0010",
+            "ragas:s0011"
+          ]
+        }
+      ]
+    },
+    {
+      "paper_id": "ares",
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "claims": [
+        {
+          "claim_id": "ares.dimensions",
+          "paper_id": "ares",
+          "text": "ARES evaluates context relevance, answer faithfulness and answer relevance for RAG systems. It assesses query–passage–answer triples and can score the retrieval and answer-generation components separately.",
+          "facets": [
+            "evaluation",
+            "purpose"
+          ],
+          "source_ids": [
+            "ares:s0003"
+          ]
+        },
+        {
+          "claim_id": "ares.judges",
+          "paper_id": "ares",
+          "text": "ARES generates synthetic query–passage–answer data from the target corpus, including positive and negative examples, and fine-tunes lightweight judges for the evaluation tasks. This differs from relying only on fixed prompts for an off-the-shelf model to judge outputs.",
+          "facets": [
+            "training",
+            "supervision",
+            "evaluation"
+          ],
+          "source_ids": [
+            "ares:s0001",
+            "ares:s0008"
+          ]
+        },
+        {
+          "claim_id": "ares.ppi",
+          "paper_id": "ares",
+          "text": "ARES combines judge predictions with a smaller human-annotated validation set using prediction-powered inference (PPI). The annotations help estimate judge error, and PPI produces confidence intervals for system-level scores. A confidence interval for an aggregate score is not certification of every individual answer.",
+          "facets": [
+            "evaluation",
+            "supervision"
+          ],
+          "source_ids": [
+            "ares:s0012",
+            "ares:s0013"
+          ]
+        }
+      ]
+    }
+  ],
+  "citations": [
+    {
+      "source_id": "ragas:s0008",
+      "paper_id": "ragas",
+      "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+      "section": "3 Evaluation Strategies",
+      "page_start": 2,
+      "page_end": 3,
+      "text": "We consider a standard RAG setting, where given a question q, the system first retrieves some context c(q) and then uses the retrieved context to generate an answer as(q). When building a RAG system, we usually do not have access to human-annotated datasets or reference answers. We therefore focus on metrics that are fully self-contained and reference-free. We focus in particular three quality aspects, which we argue are of central importance. First, Faithfulness refers to the idea that the answer should be grounded in the given context. This is important to avoid hallucinations, and to ensure that the retrieved context can act as a justification for the generated answer. Indeed, RAG systems are often used in applications where the factual consistency of the generated text w.r.t. the grounded sources is highly important, e.g. in domains such as law, where information is constantly evolving. Second, Answer Relevance refers to the idea that the generated answer should address the actual question that was provided. Finally, Context Relevance refers to the idea that the retrieved context should be focused, containing as little irrelevant information as possible. This is important given the cost associated with feeding long context passages to LLMs. Moreover, when context passages are too long, LLMs are often less effective in exploiting that context, especially for information that is provided in the middle of the context passage (Liu et al., 2023). We now explain how these three quality aspects can be measured in a fully automated way, by prompting an LLM. In our implementation and experiments, all prompts are evaluated using the gpt-3.5-turbo-16k model, which is available through the OpenAI API2.",
+      "url": "https://arxiv.org/abs/2309.15217v2",
+      "pdf_file": "pdfs/ragas.pdf",
+      "sha256": "6c24762a3f277fd120ed1adf34b01420ecf92f18ff6d1b5435fa0a09cb804ecb",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "ragas:s0001",
+      "paper_id": "ragas",
+      "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "We introduce Ragas (Retrieval Augmented Generation Assessment), a framework for reference-free evaluation of Retrieval Augmented Generation (RAG) pipelines. RAG systems are composed of a retrieval and an LLM based generation module, and provide LLMs with knowledge from a reference textual database, which enables them to act as a natural language layer between a user and textual databases, reducing the risk of hallucinations. Evaluating RAG architectures is, however, challenging because there are several dimensions to consider: the ability of the retrieval system to identify relevant and focused context passages, the ability of the LLM to exploit such passages in a faithful way, or the quality of the generation itself. With Ragas, we put forward a suite of metrics which can be used to evaluate these different dimensions without having to rely on ground truth human annotations. We posit that such a framework can crucially contribute to faster evaluation cycles of RAG architectures, which is especially important given the fast adoption of LLMs.",
+      "url": "https://arxiv.org/abs/2309.15217v2",
+      "pdf_file": "pdfs/ragas.pdf",
+      "sha256": "6c24762a3f277fd120ed1adf34b01420ecf92f18ff6d1b5435fa0a09cb804ecb",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "ragas:s0012",
+      "paper_id": "ragas",
+      "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+      "section": "4 The WikiEval Dataset",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "To evaluate the proposed framework, we ideally need examples of question-context-answer triples which are annotated with human judgments. We can then verify to what extent our metrics agree with human assessments of faithfulness, answer relevance and context relevance. Since we are not aware of any publicly available datasets that could be used for this purpose, we created a new dataset, which we refer to as WikiEval4. To construct the dataset, we first selected 50 Wikipedia pages covering events that have happened since the start of 20225. In selecting these pages, we prioritised those with recent edits. For each of the 50 pages, we then asked ChatGPT to suggest a question that can be answered based on the introductory section of the page, using the following prompt: Your task is to formulate a question from given context satisfying the rules given below: 1. The question should be fully answered from the given context. 2. The question should be framed from a part that contains non-trivial information. 3. The answer should not contain any explodinggradients/WikiEval we used in our experiments. links. 4. The question should be of moderate difficulty. 5. The question must be reasonable and must be understood and responded to by humans. 6. Do not use phrases that ’provided context’, etc in the question context: We also used ChatGPT to answer the generated question, when given the corresponding introductory section as context, using the following prompt: Answer the question using the information from the given context. question: [question] context: [context] All questions were annotated along the three considered quality dimensions by two annotators.",
+      "url": "https://arxiv.org/abs/2309.15217v2",
+      "pdf_file": "pdfs/ragas.pdf",
+      "sha256": "6c24762a3f277fd120ed1adf34b01420ecf92f18ff6d1b5435fa0a09cb804ecb",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "ragas:s0010",
+      "paper_id": "ragas",
+      "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+      "section": "3 Evaluation Strategies",
+      "page_start": 3,
+      "page_end": 4,
+      "text": "Do not deviate from the specified format. statement: [statement 1] ... statement: [statement n] The final faithfulness score, F, is then computed as F = |V | |S| , where |V | is the number of statements that were supported according to the LLM and |S| is the total number of statements. Answer relevance We say that the answer as(q) is relevant if it directly addresses the question in an appropriate way. In particular, our assessment of answer relevance does not take into account factuality, but penalises cases where the answer is incomplete or where it contains redundant information. To estimate answer relevance, for the given answer as(q), we prompt the LLM to generate n potential questions qi based on as(q), as follows: Generate a question for the given answer. answer: [answer] We then obtain embeddings for all questions using the text-embedding-ada-002 model, available from the OpenAI API. For each qi, we calculate the similarity sim(q, qi) with the original question q, as the cosine between the corresponding embeddings. The answer relevance score, AR, for question q is then computed as: n X AR = 1 i=1 sim(q, qi) (1) n This metric evaluates how closely the generated answer aligns with the initial question or instruction. Context relevance The context c(q) is considered relevant to the extent that it exclusively contains information that is needed to answer the question. In particular, this metric aims to penalise the inclusion of redundant information.",
+      "url": "https://arxiv.org/abs/2309.15217v2",
+      "pdf_file": "pdfs/ragas.pdf",
+      "sha256": "6c24762a3f277fd120ed1adf34b01420ecf92f18ff6d1b5435fa0a09cb804ecb",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "ragas:s0011",
+      "paper_id": "ragas",
+      "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+      "section": "3 Evaluation Strategies",
+      "page_start": 3,
+      "page_end": 4,
+      "text": "In particular, this metric aims to penalise the inclusion of redundant information. To estimate context relevance, given a question q and its context c(q), the LLM extracts a subset of sentences, Sext, from c(q) that are crucial to answer q, using the following prompt: Please extract relevant sentences from the provided context that can potentially help answer the following question. If no relevant sentences are found, or if you believe the question cannot be answered from the given context, return the phrase \"Insufficient Information\". While extracting candidate sentences you’re not allowed to make any changes to sentences from given context. The context relevance score is then computed as: CR = number of extracted sentences total number of sentences in c(q) (2)",
+      "url": "https://arxiv.org/abs/2309.15217v2",
+      "pdf_file": "pdfs/ragas.pdf",
+      "sha256": "6c24762a3f277fd120ed1adf34b01420ecf92f18ff6d1b5435fa0a09cb804ecb",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "ares:s0003",
+      "paper_id": "ares",
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "section": "1 Introduction",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "Unfortunately, such strategies currently rely for evaluation on a fixed set of heuristically hand-written prompts, offering little adaptability to various evaluation contexts and no guarantees about quality. To evaluate RAG systems rapidly and accurately, we propose ARES, the Automated RAG Evaluation System. ARES is the first automated RAG evaluation system to generate tailored LLM judges for each component of a RAG pipeline, leading to substantial boosts in evaluation precision and accuracy compared to existing approaches like RA- GAS. Furthermore, unlike existing RAG evaluation systems, ARES provides confidence intervals for its scoring by leveraging prediction-powered inference (PPI; Angelopoulos et al. 2023). Given a corpus of documents and a RAG system, ARES reports three evaluation scores: context relevance (is the retrieved information pertinent to the test question), answer faithfulness (is the response generated by the language model properly grounded in the retrieved context), and answer relevance (is the response also relevant to the question). A good RAG system finds relevant contexts and generates answers that are both faithful and relevant. Many existing RAG evaluation frameworks require substantial human annotations for scoring. ARES significantly improves data efficiency during evaluation by only requiring three inputs: an indomain passage set, a human preference validation set of approximately 150 annotated datapoints or more, and few-shot examples of in-domain queries and answers (e.g. five examples or more), which are used for prompting LLMs in synthetic data generation. Given the corpus of in-domain passages, ARES proceeds in three stages. First, it leverages an LM to construct a synthetic dataset of question–answer pairs, derived from the passages in the corpus. Second, it defines three separate judge models to perform three classification tasks (context relevance, answer faithfulness, and answer relevance).",
+      "url": "https://arxiv.org/abs/2311.09476v2",
+      "pdf_file": "pdfs/ares.pdf",
+      "sha256": "16f092b08cce88da551a15a978b51721199e93dc95df406089813411fa51ebec",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "ares:s0001",
+      "paper_id": "ares",
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Evaluating retrieval-augmented generation (RAG) systems traditionally relies on hand annotations for input queries, passages to retrieve, and responses to generate. We introduce ARES, an Automated RAG Evaluation System, for evaluating RAG systems along the dimensions of context relevance, answer faithfulness, and answer relevance. By creating its own synthetic training data, ARES finetunes lightweight LM judges to assess the quality of individual RAG components. To mitigate potential prediction errors, ARES utilizes a small set of human-annotated datapoints for prediction-powered inference (PPI). Across eight different knowledge-intensive tasks in KILT, SuperGLUE, and AIS, ARES accurately evaluates RAG systems while using only a few hundred human annotations during evaluation. Furthermore, ARES judges remain effective across domain shifts, proving accurate even after changing the type of queries and/or documents used in the evaluated RAG systems. We make our code and datasets publicly available on Github.",
+      "url": "https://arxiv.org/abs/2311.09476v2",
+      "pdf_file": "pdfs/ares.pdf",
+      "sha256": "16f092b08cce88da551a15a978b51721199e93dc95df406089813411fa51ebec",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "ares:s0008",
+      "paper_id": "ares",
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "section": "3.1 LLM Generation of Synthetic Dataset",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "We generate synthetic queries and answers from the corpus passages using generative LLMs. The generated data represent both positive and negative examples of query–passage–answer triples (e.g., relevant/irrelevant passages and correct/incorrect answers). For generation, the LLM uses our input set of few-shot examples with in-domain passages mapped to in-domain queries and answers; the model then generates a synthetic question and answer from a given in-domain passage, allowing us to create both positive and negative training examples. We include example prompts for generating synthetic queries and answers in A.6. For creating our synthetic data, we primarily use on FLAN-T5 XXL (discussed in subsection 4.1). ARES works well with this model (see section 5) but our system can ultimately use another highquality model for generating synthetic queries and answers. We then filter out low-quality queries by testing if a given query can retrieve its original passage as the top result using its retriever. This filtering approach has been used in previous work to isolate high-quality synthetic queries (Dai et al., 2022; Saad-Falcon et al., 2023). To generate negatives for fine-tuning our LLM judges, we rely on two novel strategies, generating the same number of negatives with each strategy: 1. Weak Negative Generation: For context relevance negatives, we randomly sample indomain passages unrelated to a given synthetic query. For answer faithfulness and answer relevance negatives, we randomly sample synthetically-generated answers from other passages, which were created using FLAN-T5 XXL. 2. Strong Negative Generation: For context relevance negatives, we randomly sample indomain passages from the same document as the gold passage.",
+      "url": "https://arxiv.org/abs/2311.09476v2",
+      "pdf_file": "pdfs/ares.pdf",
+      "sha256": "16f092b08cce88da551a15a978b51721199e93dc95df406089813411fa51ebec",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "ares:s0012",
+      "paper_id": "ares",
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "section": "3.3 Ranking RAG Systems with Confidence",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "Intervals Once we have prepared our LLM judges, we need to use them to score and rank the competing RAG systems. To do this, ARES samples the in-domain query-document-answer triples produced by each RAG approach, and the judges label each triple, predicting their context relevance, answer faithfulness, and answer relevance. By averaging the individual predicted labels for each in-domain triple, we calculate the RAG system performance across each of the three metrics. In principle, we could simply report these average scores as quality metrics for each RAG system. However, these scores reflect entirely unlabeled data with predictions from a synthetically-trained LLM judge, and hence they may not be entirely accurate. As an extreme alternative, we could use just the small human preference validation set discussed previously for evaluation, reporting the extent to which each RAG system agrees with (or deviates from) the human annotations. However, an annotation-based evaluation approach would require labeling substantially more generative outputs from each RAG systems separately, which can be costly both in terms of time and financing. To combine the benefits of both, and hence boost the precision of the evaluation, ARES uses prediction-powered inference (PPI; Angelopoulos et al. 2023) to predict the system scores. PPI is a recent statistical method that provides tighter confidence intervals on a small set of annotated datapoints (i.e., our validation set) by leveraging predictions on a much larger set of non-annotated datapoints. PPI can leverage both the labeled datapoints and the ARES judge predictions on the non-annotated datapoints to construct confidence intervals for our RAG system’s performance.",
+      "url": "https://arxiv.org/abs/2311.09476v2",
+      "pdf_file": "pdfs/ares.pdf",
+      "sha256": "16f092b08cce88da551a15a978b51721199e93dc95df406089813411fa51ebec",
+      "boundary_note": "sentence-bounded excerpt"
+    },
+    {
+      "source_id": "ares:s0013",
+      "paper_id": "ares",
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "section": "3.3 Ranking RAG Systems with Confidence",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "PPI can leverage both the labeled datapoints and the ARES judge predictions on the non-annotated datapoints to construct confidence intervals for our RAG system’s performance. To do this, PPI uses the LLM judges on the human preference validation set to learn a rectifier function for constructing a confidence set of the ML model’s performance, using each ML prediction in the larger non-annotated dataset. The confidence set can then be used to create a tighter confidence interval for the performance of the evaluated RAG system (e.g. its context relevance, answer faithfulness, or answer relevance accuracy individually) compared to simply using annotated outputs from the evaluated RAG system. By bolstering the human preference validation set with the much larger set of datapoints with ML predictions, PPI can develop reliable confidence intervals for ML model performance that beat previous classical inference approaches. The PPI rectifier function allows us to estimate the errors of the LLM judge and generate confidence bounds for the success and failure rates of the RAG system, estimating context relevance, answer faithfulness, and answer relevance performance. Additionally, PPI allows us to estimate confidence intervals with a selected level of probability; for our experiments, we use a standard 95% alpha (probability) for our confidence interval. With the accuracy confidence interval for each component of the RAG, we find the midpoint of each confidence interval and use the midpoints to rank the RAG systems. With our ranking, we can compare different RAG systems, as well as different configurations of the same RAG system, to find the best-performing approach for a given domain.",
+      "url": "https://arxiv.org/abs/2311.09476v2",
+      "pdf_file": "pdfs/ares.pdf",
+      "sha256": "16f092b08cce88da551a15a978b51721199e93dc95df406089813411fa51ebec",
+      "boundary_note": "sentence-bounded excerpt"
+    }
+  ],
+  "missing": [],
+  "warnings": [
+    "Curated summaries can still contain errors or miss your intended question. Inspect the supporting passages and PDFs."
+  ],
+  "first_stage": [
+    "ragas:s0004",
+    "ares:s0024",
+    "ragas:s0001",
+    "ares:s0037",
+    "ragas:s0017",
+    "ares:s0027",
+    "ragas:s0014",
+    "ares:s0021"
+  ],
+  "retrieved": [
+    {
+      "source_id": "ragas:s0004",
+      "paper_id": "ragas",
+      "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+      "section": "1 Introduction",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "We focus on settings where reference answers may not be available, and where we want to estimate different proxies for correctness, in addition to the usefulness of the retrieved passages. The Ragas framework provides an integration with both llama-index and Langchain, the most widely used frameworks for building RAG solutions, thus enabling developers to easily integrate Ragas into their standard workflow.",
+      "url": "https://arxiv.org/abs/2309.15217v2",
+      "pdf_file": "pdfs/ragas.pdf",
+      "sha256": "6c24762a3f277fd120ed1adf34b01420ecf92f18ff6d1b5435fa0a09cb804ecb",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.027313266443701224
+    },
+    {
+      "source_id": "ares:s0024",
+      "paper_id": "ares",
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "section": "5.3 ARES Ranking of Existing RAG Systems",
+      "page_start": 7,
+      "page_end": 8,
+      "text": "We also wanted to evaluate whether ARES can score and rank existing RAG systems across both context relevance and answer relevance. For evaluation, we selected the NQ, WoW, and FEVER datasets from KILT. We consider the answer generations to be correct if they contained the KILT answer in their output. For our RAG systems, we selected three different retrievers (BM25, OpenAI Ada embeddings with cosine similarity search, and ColBERTv2 (Santhanam et al., 2022)) and three different generative LLMs (MPT-7b-Instruct (Team, 2023), GPT-3.5-Turbo, and GPT-4). Additionally, we include the Facebook RAG model (Lewis et al., 2020), which uses a DPR retriever (Karpukhin et al., 2020) and BART sequence-tosequence model (Lewis et al., 2019). During retrieval, each RAG system only retrieves one passage to assist generation. In Table 5, we found that ARES can reliably score and rank RAG systems in real-world applications, averaging a Kendall’s tau of 0.91 for context relevance and 0.97 for answer relevance. Compared to RAGAS, ARES is 0.16 higher for context relevance and 0.15 higher for answer relevance, on average. ARES also provided accurate confidence bounds for its predictions, capturing the ground truth average outcomes for context relevance and answer relevance more than 95% of the time; on average, the PPI confidence intervals were 7.4 points wide for context relevance and 6.1 points wide for answer relevance (see Figure 2 and Figure 3 for ARES vs. RAGAS). Among the models tested, the best performing retriever was ColBERTv2 while the best performing generative LLM was GPT-4.",
+      "url": "https://arxiv.org/abs/2311.09476v2",
+      "pdf_file": "pdfs/ares.pdf",
+      "sha256": "16f092b08cce88da551a15a978b51721199e93dc95df406089813411fa51ebec",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.032266458495966696
+    },
+    {
+      "source_id": "ragas:s0001",
+      "paper_id": "ragas",
+      "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "We introduce Ragas (Retrieval Augmented Generation Assessment), a framework for reference-free evaluation of Retrieval Augmented Generation (RAG) pipelines. RAG systems are composed of a retrieval and an LLM based generation module, and provide LLMs with knowledge from a reference textual database, which enables them to act as a natural language layer between a user and textual databases, reducing the risk of hallucinations. Evaluating RAG architectures is, however, challenging because there are several dimensions to consider: the ability of the retrieval system to identify relevant and focused context passages, the ability of the LLM to exploit such passages in a faithful way, or the quality of the generation itself. With Ragas, we put forward a suite of metrics which can be used to evaluate these different dimensions without having to rely on ground truth human annotations. We posit that such a framework can crucially contribute to faster evaluation cycles of RAG architectures, which is especially important given the fast adoption of LLMs.",
+      "url": "https://arxiv.org/abs/2309.15217v2",
+      "pdf_file": "pdfs/ragas.pdf",
+      "sha256": "6c24762a3f277fd120ed1adf34b01420ecf92f18ff6d1b5435fa0a09cb804ecb",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.026144907723855092
+    },
+    {
+      "source_id": "ares:s0037",
+      "paper_id": "ares",
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "section": "A.6 Synthetic Query and Answer Generation",
+      "page_start": 15,
+      "page_end": 16,
+      "text": "Additionally, we use the fine-tuned LLM judge (DeBERTa-v3-Large) for evaluation. ARES Ranking of Real RAG Systems NQ WoW FEVER C.R. A.R. C.R. A.R. C.R. A.R. Kendall’s Tau for Sampled Annotations 0.73 0.78 0.73 0.73 0.73 0.82 Kendall’s Tau for RAGAS 0.82 0.82 0.73 0.82 0.73 0.87 Kendall’s Tau for GPT-3.5 Judge 0.82 0.87 0.82 0.82 0.64 0.87 Kendall’s Tau for ARES LLM Judge 0.91 0.96 0.91 1.0 0.73 0.87 Kendall’s Tau for ARES 1.0 0.96 0.91 1.0 0.82 1.0 RAGAS Accuracy 35.9% 68.2% 44.4% 80.1% 21.4% 75.9% GPT-3.5 Accuracy 80.5% 91.2% 81.2% 83.5% 61.3% 54.5% ARES Accuracy 85.6% 93.3% 84.5% 88.2% 70.4% 84.0% Table 5: ARES Ranking on Real-World RAG Systems: For scoring context relevance and answer relevance (C.R. and A.R. in the table, respectively), we compare ARES with our fine-tuned LLM judges against sampled annotations benchmark, RAGAS, and a few-shot GPT-3.5 judge. For our sampled annotations, we gather 150 annotated datapoints from each mock RAG system and use those labels to score the system. RAGAS also uses GPT-3.5 as its judge but it uses few-shot prompts that are not targeted for each evaluation domain. Overall, we found that ARES ranked RAG systems more accurately than RAGAS and GPT-3.5 across all the explored datasets. Additionally, we include the Kendall’s taus for the ARES LLM Judge without PPI and found that PPI further boosted the ranking accuracy of the judge across the board. We selected GPT-3.5 instead of GPT-4 due to the lower financial costs required to run. For PPI in both ARES and the GPT-3.5 judge, we used 300 human annotations for our human preference validation set.",
+      "url": "https://arxiv.org/abs/2311.09476v2",
+      "pdf_file": "pdfs/ares.pdf",
+      "sha256": "16f092b08cce88da551a15a978b51721199e93dc95df406089813411fa51ebec",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.032018442622950824
+    },
+    {
+      "source_id": "ragas:s0017",
+      "paper_id": "ragas",
+      "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+      "section": "6 Conclusions",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "We have highlighted the need for automated reference-free evaluation of RAG systems. In particular, we have argued the need for an evaluation framework that can assess faithfulness (i.e. is the answer grounded in the retrieved context), answer relevance (i.e. does the answer address the question) and context relevance (i.e. is the retrieved context sufficiently focused). To support the development of such a framework, we have introduced WikiEval, a dataset which human judgements of these three different aspects. Finally, we have also described Ragas, our implementation of the three considered quality aspects. This framework is easy to use and can provide deverlopers of RAG systems with valuable insights, even in the absence of any ground truth. Our evaluation on WikiEval has shown that the predictions from Ragas are closely aligned with human predictions, especially for faithfulness and answer relevance.",
+      "url": "https://arxiv.org/abs/2309.15217v2",
+      "pdf_file": "pdfs/ragas.pdf",
+      "sha256": "6c24762a3f277fd120ed1adf34b01420ecf92f18ff6d1b5435fa0a09cb804ecb",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.0251821349382325
+    },
+    {
+      "source_id": "ares:s0027",
+      "paper_id": "ares",
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "section": "6 Conclusion",
+      "page_start": 8,
+      "page_end": 9,
+      "text": "In this work, we present ARES, a novel automated evaluation framework for retrieval-augmented generation (RAG). ARES offers a novel training pipeline for fine-tuning lightweight LLM judges on synthetically generated queries and answers. ARES can evaluate each component of a RAG system separately to help improve system understanding and create targeted solutions, and it requires only minimal human annotations. For the eight different datasets in KILT, SuperGLUE, and AIS requiring RAG-based solutions, we found that ARES can accurately score and rank RAG systems based on context relevance, answer faithfulness, and answer relevance scores, beating the existing RAGAS automated evaluation framework. ARES is a flexible framework, and there may be variants of it that are even more powerful than the ones we explored here. Avenues to explore include GPT-4 as a replacement for human labeling (Table 4), more robust techniques for the synthetic datasets used in fine-tuning LLM judges, utilizing logits in LLM judge prediction to improve PPI confidence intervals, and testing more sophisticated LLMs as fine-tuned judges for ARES.",
+      "url": "https://arxiv.org/abs/2311.09476v2",
+      "pdf_file": "pdfs/ares.pdf",
+      "sha256": "16f092b08cce88da551a15a978b51721199e93dc95df406089813411fa51ebec",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031754032258064516
+    },
+    {
+      "source_id": "ragas:s0014",
+      "paper_id": "ragas",
+      "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+      "section": "4 The WikiEval Dataset",
+      "page_start": 5,
+      "page_end": 5,
+      "text": "Rel. Ragas 0.95 0.78 0.70 GPT Score 0.72 0.52 0.63 GPT Ranking 0.54 0.40 0.52 Table 1: Agreement with human annotators in pairwise comparisons of faithfulness, answer relevance and context relevance, using the WikEval dataset (accuracy). answering the question. For the few pages without any back-links, we instead used ChatGPT to complete the given context.",
+      "url": "https://arxiv.org/abs/2309.15217v2",
+      "pdf_file": "pdfs/ragas.pdf",
+      "sha256": "6c24762a3f277fd120ed1adf34b01420ecf92f18ff6d1b5435fa0a09cb804ecb",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.025098039215686277
+    },
+    {
+      "source_id": "ares:s0021",
+      "paper_id": "ares",
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "section": "5.1 ARES Ranking",
+      "page_start": 6,
+      "page_end": 7,
+      "text": "To this end, we conducted two sets of experiments. First, we ARES Ranking of Pseudo RAG Systems NQ HotpotQA WoW FEVER MultiRC ReCoRD C.R A.R. C.R A.R. C.R A.R. C.R A.R. C.R A.R. C.R A.R. Kendall’s Tau for Sampled Annotations 0.83 0.89 0.78 0.78 0.78 0.83 0.89 0.89 0.83 0.83 0.72 0.94 Kendall’s Tau for RAGAS 0.89 0.89 0.94 0.89 0.94 0.94 0.72 0.61 0.83 0.94 0.89 0.44 Kendall’s Tau for GPT-3.5 Judge 0.89 0.94 0.67 0.94 0.94 0.89 0.78 0.78 0.83 0.89 0.83 0.94 Kendall’s Tau for ARES LLM Judge 0.89 1.0 0.89 0.94 0.94 1.0 0.83 0.72 0.94 0.83 0.78 0.83 Kendall’s Tau for ARES 0.94 1.0 0.94 0.94 1.0 1.0 0.89 0.78 0.94 0.89 0.83 0.89 RAGAS Accuracy 31.4% 71.2% 17.2% 76.0% 36.4% 77.8% 23.7% 69.2% 16.1% 75.0% 15.0% 72.8% GPT-3.5 Judge Accuracy 73.8% 95.5% 75.3% 71.6% 84.3% 85.2% 60.4% 59.6% 72.4% 60.3% 81.0% 65.8% ARES Accuracy 79.3% 97.2% 92.3% 81.3% 85.7% 96.1% 88.4% 78.5% 85.8% 82.7% 67.8% 92.3% Table 1: ARES Ranking with Fine-tuned LLM Judges vs. Sampled Annotations, RAGAS and GPT-3.5 Judge: For scoring context relevance and answer relevance (C.R. and A.R. in the table, respectively), we compare ARES with our fine-tuned LLM judges against sampled annotations benchmark, RAGAS, and a few-shot GPT-3.5 judge. For our sampled annotations, we gather 150 annotated datapoints from each mock RAG system and use those labels to score the system. RAGAS also uses GPT-3.5 as its judge but it uses few-shot prompts that are not targeted for each evaluation domain. Overall, we found that ARES ranked RAG systems more accurately than RAGAS and GPT-3.5 across all the explored datasets.",
+      "url": "https://arxiv.org/abs/2311.09476v2",
+      "pdf_file": "pdfs/ares.pdf",
+      "sha256": "16f092b08cce88da551a15a978b51721199e93dc95df406089813411fa51ebec",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.0315136476426799
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "how do and differ in how they score rag systems",
+      "paper_ids": [
+        "ragas"
+      ],
+      "facet": "evaluation",
+      "covered": true,
+      "claim_ids": [
+        "ragas.dimensions",
+        "ragas.referencefree",
+        "ragas.relevance"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    },
+    {
+      "part_id": "part1",
+      "question_part": "how do and differ in how they score rag systems",
+      "paper_ids": [
+        "ares"
+      ],
+      "facet": "evaluation",
+      "covered": true,
+      "claim_ids": [
+        "ares.dimensions",
+        "ares.judges",
+        "ares.ppi"
+      ],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "coverage_notice": "Clause coverage is a lexical/facet heuristic, not proof of semantic completeness. Original source review is still required.",
+  "elapsed_seconds": 0.007421707996400073,
+  "evaluation_question_id": "c01"
+}

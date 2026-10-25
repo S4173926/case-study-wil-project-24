@@ -1,7 +1,9 @@
-# Provenance and history
+# Development provenance and retained records
 
-The product is a constrained research interface over a fixed catalogue. Drafting of catalogue summaries and portions of engineering work used language models. Source-based development checks and mechanical tests were performed. Independent human validation must be reported only where real source-checked ratings exist.
+Software development, catalogue drafting, technical analysis and documentation used AI assistance. The catalogue contains language-model-drafted summaries with source-based development checks. Mechanical checks establish source identities and span matches; they do not establish independent human semantic review.
 
-Neutral product text is used so the interface focuses on research tasks. It does not claim that summaries or code were created without model assistance, and it does not label pending reviews as completed. This cleanup does not edit original papers, source quotations or historical evaluation artifacts.
+The final product is a constrained research interface over a fixed catalogue. It is distinct from the earlier retrieval-and-generation experiments. Original research papers, source quotations, stored claim metadata and recorded evaluation outputs retain their attribution and version identities.
 
-The exact received repaired batch is in `evidence/original_repaired_regression67.zip`. Its SHA-256 is recorded in `evidence/manifest.json`. The 67 per-run records seeded into `results/runs` are byte-identical to those in that archive. A previous local workspace remains authoritative for ratings or pilot observations added after that batch.
+The original repaired batch is [`../evidence/original_repaired_regression67.zip`](../evidence/original_repaired_regression67.zip). Its digest is recorded in [`../evidence/manifest.json`](../evidence/manifest.json). The 67 seeded per-run files in [`../results/runs/`](../results/runs/) preserve the original records. Later local ratings or pilot observations exist only where they were actually entered and exported.
+
+The repository's 25 October 2026 documentation revision removes packaging and report-preparation instructions, without changing the application engine, catalogue, source collection or recorded outcomes. A separate distribution manifest identifies the revised documentation payload; historical run hashes remain unchanged.

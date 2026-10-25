@@ -1,40 +1,17 @@
-# Evaluation evidence
+# Evaluation records
 
-- `repaired67_original.zip`: immutable uploaded 67-question repaired run, including individual
-  answers, sources and the original unfilled human scorecard.
-- `repaired67_summary.json`: the original summary copied out for convenient inspection.
-- `challenge15_before_repair.zip`: original post-freeze challenge run before its failures
-  informed the repair. It is now development/regression material, not an unused holdout.
-- `*_verification.md` and `challenge15_diagnostic_review.md`: previously delivered technical
-  review records. These are developer diagnostics, not independent human scores.
-- `human_scorecard_unfilled.csv`: supplied blank scorecard, not completed observations.
+| File | Contents |
+|---|---|
+| [`challenge15_before_repair.zip`](challenge15_before_repair.zip) | Original 15-question challenge batch, before the resulting repairs |
+| [`challenge15_diagnostic_review.md`](challenge15_diagnostic_review.md) | Source-based diagnostic review of that batch |
+| [`selection_repair_verification.md`](selection_repair_verification.md) | Recorded implementation changes and verification scope |
+| [`repaired67_original.zip`](repaired67_original.zip) | Original repaired batch, including answers, sources and its unfilled human scorecard |
+| [`repaired67_summary.json`](repaired67_summary.json) | Original summary for convenient inspection |
+| [`repaired67_verification.md`](repaired67_verification.md) | Technical regression audit and question-to-run register |
+| [`human_scorecard_unfilled.csv`](human_scorecard_unfilled.csv) | Unfilled review instrument, not completed observations |
 
-The current application also includes the original repaired run records in
-`../workbench/results/runs/` and its immutable original batch in
-`../workbench/evidence/original_repaired_regression67.zip`.
-Historical eight-paper results are in
-`../legacy/pre-presentation/rag_research_assistant/results/`.
+The analyses are AI-assisted technical diagnostics, not independent human ratings. The challenge questions became development material when their failures informed changes. The repaired batch contains 52 explanation states, one partial state and 14 insufficient-support states; these are software states, not accuracy percentages.
 
-The repaired batch has 52 explanation statuses, one partial status and 14 insufficient-support
-statuses. These are NOT accuracy grades. The code and catalogue were developed using these
-questions. The later constrained composer is not a model-only improvement over the old generator.
+The current source includes the same original repaired records in [`../workbench/results/runs/`](../workbench/results/runs/) and their original archive in [`../workbench/evidence/`](../workbench/evidence/). Historical eight-paper results are in [`../legacy/pre-presentation/rag_research_assistant/results/`](../legacy/pre-presentation/rag_research_assistant/results/). Additional dated comparisons and historical generation evidence are indexed in [`../report-audit/README.md`](../report-audit/README.md).
 
-No new human ratings, participants, pilot time savings or unseen-question accuracy results
-are included. Reviews saved only on a teammate's laptop are not available in this delivery.
-Those may be exported separately, checked for consent/privacy, and added as dated observations.
-
-To collect another regression run (not required merely to install the application):
-
-```sh
-python3 run.py --evaluate
-```
-
-To inspect source-level retrieval ablations:
-
-```sh
-cd workbench
-python3 -m workbench.cli ablation --questions eval/all52_development.jsonl --out results/ablation-new.json
-```
-
-Use a new output path and keep previous results unchanged. A test pass, valid citation ID or
-nonempty answer must not be reported as independently established factual correctness.
+An optional new regression run can be recorded from the repository root with `python3 run.py --evaluate`. This creates new outputs and does not replace the archived evidence. Independent participant outcomes or completed human-rating datasets are not included in this package.

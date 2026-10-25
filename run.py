@@ -1,4 +1,4 @@
-"""Start the unchanged portable Research Workbench from this repository."""
+"""Start the portable Research Workbench included in this repository."""
 from pathlib import Path
 import subprocess
 import sys
@@ -9,7 +9,7 @@ def main() -> int:
         return 2
     archive = Path(__file__).resolve().parent / "downloads" / "Research_Workbench.pyz"
     if not archive.is_file():
-        print("The portable assistant is missing. Complete all three upload batches or download the complete repository ZIP.", file=sys.stderr)
+        print("The portable application is missing. The repository must include downloads/Research_Workbench.pyz.", file=sys.stderr)
         return 2
     try:
         return subprocess.call([sys.executable, str(archive), *sys.argv[1:]])

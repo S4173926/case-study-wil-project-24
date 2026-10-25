@@ -1,0 +1,175 @@
+{
+  "run_id": "20261024T061244_dd8cfee3a5",
+  "created_utc": "2026-10-24T06:12:44.413080+00:00",
+  "question": "What precise nDCG@10 difference between SPLADE and Contriever was measured on a shared Kannada legal-document retrieval benchmark?",
+  "mode": "explain",
+  "status": "insufficient",
+  "plan": {
+    "named_papers": [
+      "splade",
+      "contriever"
+    ],
+    "facets": [
+      "evaluation"
+    ],
+    "explicit_facets": true,
+    "measures": [
+      "ndcg_score"
+    ],
+    "is_comparison": true,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "what precise ndcg@10 difference between and was measured on a shared kannada legal-document retrieval benchmark",
+        "facets": [
+          "evaluation"
+        ],
+        "explicit": true,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [],
+  "comparison": [],
+  "citations": [],
+  "missing": [
+    "No source-linked claim establishes the requested measurement: ndcg score."
+  ],
+  "warnings": [],
+  "first_stage": [
+    "splade:s0015",
+    "contriever:s0019",
+    "splade:s0013",
+    "contriever:s0022",
+    "splade:s0018",
+    "contriever:s0025",
+    "splade:s0016",
+    "contriever:s0024"
+  ],
+  "retrieved": [
+    {
+      "source_id": "splade:s0015",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "4 EXPERIMENTAL SETTING AND RESULTS",
+      "page_start": 3,
+      "page_end": 4,
+      "text": "By adding a log-saturation effect to the expansion model, SPLADE greatly increases sparsity – reducing the FLOPS to similar levels than BOW approaches – at no cost on performance when compared to the best first-stage rankers. In addition, we observe the advantage Table 1: Evaluation on MS MARCO passage retrieval (dev set) and TREC DL 2019 model MS MARCO dev TREC DL 2019 FLOPS MRR@10 R@1000 NDCG@10 R@1000 Dense retrieval Siamese (ours) 0.312 0.941 0.637 0.711 - ANCE [25] 0.330 0.959 0.648 - - TCT-ColBERT [15] 0.335 0.964 0.670 0.720 - Sparse retrieval BM25 0.184 0.853 0.506 0.745 0.13 DeepCT [4] 0.243 0.913 0.551 0.756 doc2query-T5 [18] 0.277 0.947 0.642 0.827 0.81 ST lexical-only [1] 0.275 0.912 - - - ST expansion [1] 0.279 0.925 - - - Our methods ST lexical-only 0.290 0.923 0.595 0.774 1.84 ST exp-l1 0.314 0.959 0.668 0.800 4.62 ST exp-lFLOPS 0.312 0.954 0.671 0.813 2.83 SPLADE-l1 0.322 0.954 0.667 0.792 0.88 SPLADE-lFLOPS 0.322 0.955 0.665 0.813 0.73 of the FLOPS regularization over l1 in order to decrease the computing cost. Note that in contrast to SparTerm, SPLADE is trained end-to end in a single step. It is also remarkably simple, compared to dense state-of-the-art baselines such as ANCE [25], and avoids resorting to approximate neighbors search, whose impact on IR metrics has not been fully evaluated yet. Effectiveness-efficiency trade-off. Figure 1 illustrates the tradeoff between effectiveness (MRR@10) and efficiency (FLOPS), when we vary λqand λd(varying both implies that plots are not smooth).",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.028850145288501453
+    },
+    {
+      "source_id": "contriever:s0019",
+      "paper_id": "contriever",
+      "title": "Unsupervised Dense Information Retrieval with Contrastive Learning",
+      "section": "4.1 Datasets",
+      "page_start": 6,
+      "page_end": 6,
+      "text": "Contriever is trained with contrastive learning on documents sampled from a mix between Wikipedia data and CCNet data (Wenzek et al., 2020), where half the batches are sampled from each source. First, we evaluate our model on two question answering datasets: NaturalQuestions (Kwiatkowski et al., 2019) and TriviaQA (Joshi et al., 2017). For both datasets, we use the open domain versions as introduced by Lee et al. (2019), and the English Wikipedia dump from Dec. 20, 2018 as the collection of documents to retrieve from. We report the top-k retrieval accuracy, i.e. the number of questions for which at least one of the top-k passages contain the answer. Second, we use the BEIR benchmark, introduced by Thakur et al. (2021), which contains 18 retrieval datasets, corresponding to nine tasks, such as fact checking or citation prediction, and covering different domains, such as Wikipedia or scientific publications. Most datasets from BEIR do not contain a training set, and the focus of the benchmark is zero-shot retrieval. However, most machine learning based retrievers are still trained on supervised data, such as the large scale retrieval dataset MS MARCO (Bajaj et al., 2016). Following standard practice, we report two metrics on this benchmark: nDCG@10 and Recall@100. The nDCG@10 focuses on the ranking of the top 10 retrieved documents, and is good at evaluating rankings returned to humans, for example in a search engine. On the other hand, Recall@100 is relevant to evaluate retrievers that are used in machine learning systems, such as question answering. Indeed, such models can process hundreds of documents, and ignore their ranking (Izacard & Grave, 2020b).",
+      "url": "https://arxiv.org/abs/2112.09118v4",
+      "pdf_file": "pdfs/contriever.pdf",
+      "sha256": "7407131fd633561d8eab8701e43ca81061960b6642ae180eb86a3f367b2b8408",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03225806451612903
+    },
+    {
+      "source_id": "splade:s0013",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "4 EXPERIMENTAL SETTING AND RESULTS",
+      "page_start": 3,
+      "page_end": 3,
+      "text": "We report Recall@1000 for both datasets, as well as the official metrics MRR@10 and NDCG@10 for MS MARCO dev set and TREC DL 2019 respectively. Since we are essentially interested in the first retrieval step, we do not consider re-rankers based on BERT, and we compare our approach to first stage rankers only – results reported on the MS MARCO leaderboard are thus not comparable to the results presented here. We compare to the following sparse approaches (1) BM25 (2) DeepCT [4] (3) doc2query-T5 [18] (4) and SparTerm [1], as well as state-of-the-art dense approaches ANCE [25] and TCT-ColBERT [15]. We report the results from the original papers. We include a pure lexical SparTerm trained with our ranking pipeline (ST lexical-only). To illustrate the benefits of the log-saturation, we add results for models trained using Eq. (2) instead of Eq. (4) (ST exp-l1 and ST exp-lFLOPS). For sparse models, we indicate an estimation of the average number of floating-point operations between a query and a document in Table 1, when available, which is defined as the expectation Eq,d hÍ j∈Vp(q) j p(d) j i where pjis the activation probability for token jin a document dor a query q. It is empirically estimated from a set of approximately 100k development queries, on the MS MARCO collection. Results are given in Table 1. Overall, we observe that: (1) our models outperform the other sparse retrieval methods by a large margin (except for recall@1000 on TREC DL); (2) the results are competitive with state-of-the-art dense retrieval methods.",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.0260840108401084
+    },
+    {
+      "source_id": "contriever:s0022",
+      "paper_id": "contriever",
+      "title": "Unsupervised Dense Information Retrieval with Contrastive Learning",
+      "section": "4.3 Results",
+      "page_start": 7,
+      "page_end": 7,
+      "text": "First, we compare the performance of fully unsupervised models, i.e., without fine-tuning on MS MARCO or other annotated data. In Table 1, we report the retrieval performance on two question answering datasets: NaturalQuestions (Kwiatkowski et al., 2019) and TriviaQA (Joshi et al., 2017). Here, our model is competitive with a strong BM25 baseline (Ma et al., 2021), for example leading to 3 points improvement for the recall@100 on NaturalQuestions. It also outperforms previously proposed dense retrievers which were trained with ICT or salient span masking. In Figure 1 we report the recall@100 performance of unsupervised models on the BEIR benchmark. Interestingly, we observe that in this setting, Contriever is competitive compared to BM25 on all datasets, but TREC-COVID and Tóuche-2020. In particular, it obtains better performance than BM25 on 11 out of 15 datasets from the benchmark for the recall@100. Contriever also outperforms previously proposed unsupervised dense retrievers, which obtains lower performance than BM25 in general. For the nDCG@10, which puts more emphasis on the very first retrieved documents, while Contriever largely closes the gap between unsupervised retrievers and BM25, it is still outperformed by BM25 as reported in Table 11. The difference is mainly due to the fact that BM25 largely outperforms Contriever on two datasets with specific features: Trec-COVID and Tóuche-2020. Trec-COVID is an information retrieval dataset related to COVID. However data used to train Contriever were collected before the COVID outbreak, thus they may not be adapted. Tóuche-2020 contains long documents, which does not seem to be very well supported by dense neural retrievers: even after supervised training, models are still lagging behind BM25.",
+      "url": "https://arxiv.org/abs/2112.09118v4",
+      "pdf_file": "pdfs/contriever.pdf",
+      "sha256": "7407131fd633561d8eab8701e43ca81061960b6642ae180eb86a3f367b2b8408",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031746031746031744
+    },
+    {
+      "source_id": "splade:s0018",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "5 CONCLUSION",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "Recently, dense retrieval based on BERT has demonstrated its superiority for first-stage retrieval, questioning the competitiveness of traditional sparse models. In this work, we have proposed SPLADE, a sparse model revisiting query/document expansion. Our approach relies on in-batch negatives, logarithmic activation and FLOPS regularization to learn effective and efficient sparse representations. SPLADE is an appealing candidate for initial retrieval: it rivals the latest state-of-the-art dense retrieval models, its training procedure is straightforward, its sparsity/FLOPS can be controlled explicitly through the regularization, and it can operate on inverted indexes. In reason of its simplicity, SPLADE is a solid basis for further improvements in this line of research.",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.025779967159277502
+    },
+    {
+      "source_id": "contriever:s0025",
+      "paper_id": "contriever",
+      "title": "Unsupervised Dense Information Retrieval with Contrastive Learning",
+      "section": "4.3 Results",
+      "page_start": 8,
+      "page_end": 9,
+      "text": "We observe that when used as pre-training, contrastive learning leads to strong performance: contriever obtains the best results among dense bi-encoder methods for the nDCG@10, and is state-of-the-art for the recall@100 (improving the average recall@100 from 65.0 to 67.1). This strong recall@100 performance can be further exploited by using a cross-encoder2 to re-rank the retrieved documents: this leads to the state-of-the-art on 8 datasets of the BEIR benchmark for the nDCG@10, as well as on average. It should be noted that our fine-tuning procedure on MS MARCO is simpler than for other retrievers, as we use a simple strategy for negative mining and do not use distillation. Our model would probably also benefits from improvements proposed by these retrievers, but this is beyond the scope of this paper. Finally, we illustrate the benefit of our retriever compared to BM25 in a few-shot setting, where we have access to a small number of in-domain retrieval examples. This setting is common in practice, and lexical based methods, like BM25, cannot leverage the small training sets to adapt its weights. In Table 3, we report nDCG@10 on three datasets from BEIR associated with the smallest training sets, ranging from 729 to 5,500 queries. We observe that on these small datasets, our pre-training leads to better results than BERT pre-training, even when BERT is fine-tuned on MS MARCO as an intermediate step. Our pre-trained model also outperforms BM25, showing the advantage of dense retriever over lexical methods in the few-shot setting. More details are given in Appendix A.3.",
+      "url": "https://arxiv.org/abs/2112.09118v4",
+      "pdf_file": "pdfs/contriever.pdf",
+      "sha256": "7407131fd633561d8eab8701e43ca81061960b6642ae180eb86a3f367b2b8408",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03125
+    },
+    {
+      "source_id": "splade:s0016",
+      "paper_id": "splade",
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "section": "4 EXPERIMENTAL SETTING AND RESULTS",
+      "page_start": 4,
+      "page_end": 4,
+      "text": "Figure 1 illustrates the tradeoff between effectiveness (MRR@10) and efficiency (FLOPS), when we vary λqand λd(varying both implies that plots are not smooth). We observe that ST exp-lFLOPS falls far behind BOW models and Figure 1: Performance vs FLOPS for SPLADE models trained with different regularization strength λon MS MARCO avg q len ≃15 avg d len ≃58 32 31 30 29 doc2query-T5 SparTerm lexical ST exp-lFLOPS SPLADE-l1 SPLADE-lFLOPS avg q len ≃6 avg d len ≃18 27 0 1 2 3 4 5 6 # FLOPS Table 2: Document and expansion terms: between parenthesis is the weight associated with the term – omitted for the second occurrence of the term in the document, and strike-through for zeros original document (doc ID: 7131647) if (1.2) bow (2.56) legs (1.18) is caused (1.29) by (0.47) the bone (1.2) alignment (1.88) issue (0.87) than you may be able (0.29) to correct (1.37) through (0.43) bow legs correction (1.05) exercises. read more here.. if bow legs is caused by the bone alignment issue than you may be able to correct through bow legs correction exercises. expansion terms (leg, 1.62) (arrow, 0.7) (exercise, 0.64) (bones, 0.63) (problem, 0.41) (treatment, 0.35) (happen, 0.29) (create, 0.22) (can, 0.14) (worse, 0.14) (effect, 0.08) (teeth, 0.06) (remove, 0.03) SPLADE in terms of efficiency. In the meantime, SPLADE reaches efficiency levels equivalent to sparse BOW models, while outperforming doc2query-T5. Interestingly, strongly regularized models still show competitive performance (e.g. FLOPS=0.05, MRR@10=0.296). Finally, the regularization effect brought by lFLOPS compared to l1 is clear: for the same level of efficiency, performance of the latter is always lower. The role of expansion.",
+      "url": "https://arxiv.org/abs/2107.05720v1",
+      "pdf_file": "pdfs/splade.pdf",
+      "sha256": "e791451960e47e69b0241d7656c6c61ce40b7c3beff92c944e163e5c3bc54c1a",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02574682290807064
+    },
+    {
+      "source_id": "contriever:s0024",
+      "paper_id": "contriever",
+      "title": "Unsupervised Dense Information Retrieval with Contrastive Learning",
+      "section": "4.3 Results",
+      "page_start": 8,
+      "page_end": 8,
+      "text": "15.3 29.6 31.4 34.7 35.0 - 34.5 37.7 Quora 78.9 82.5 24.8 85.2 83.5 83.0 85.4 83.8 86.5 82.4 DBPedia 31.3 40.9 26.3 28.1 38.4 32.8 39.2 43.5 41.3 47.1 Scidocs 15.8 16.6 7.7 12.2 14.9 14.3 14.5 15.8 16.5 17.1 FEVER 75.3 81.9 56.2 66.9 70.0 66.9 77.1 78.6 75.8 81.9 Climate-FEVER 21.3 25.3 14.8 19.8 22.8 17.5 18.4 23.5 23.7 25.8 Scifact 66.5 68.8 31.8 50.7 64.3 64.4 67.1 69.3 67.7 69.2 Avg. w/o CQA 44.0 49.5 26.3 41.3 43.7 43.1 45.1 50.6 47.5 51.2 Avg. 43.0 48.6 25.5 40.5 42.8 42.5 44.4 - 46.6 50.2 Best on 1 3 0 0 0 1 0 1 1 9 Table 3: Few-shot retrieval. Test nDCG@10 after training on a small in-domain training set. We compare BERT and our model, with and without an intermediate fine-tuning step on MS MARCO. Note that our unsupervised pre-training alone outperforms BERT with intermediate MS MARCO fine-tuning. Additional data SciFact NFCorpus FiQA # queries 2,590 5,500 BM25 - 66.5 32.5 23.6 BERT - 75.2 29.9 26.1 Contriever - 84.0 33.6 36.4 BERT ms marco 80.9 33.2 30.9 Contriever ms marco 84.8 35.8 38.1 Next, we report nDCG@10 on the BEIR benchmark for different retrievers trained on MS MARCO in Table 2 (recall@100 can be found in Table 10 of appendix). We individually report results on each dataset as well as the average over 14 datasets of the BEIR Benchmark (excluding 3 for license reasons). We observe that when used as pre-training, contrastive learning leads to strong performance: contriever obtains the best results among dense bi-encoder methods for the nDCG@10, and is state-of-the-art for the recall@100 (improving the average recall@100 from 65.0 to 67.1).",
+      "url": "https://arxiv.org/abs/2112.09118v4",
+      "pdf_file": "pdfs/contriever.pdf",
+      "sha256": "7407131fd633561d8eab8701e43ca81061960b6642ae180eb86a3f367b2b8408",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031099324975891997
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "elapsed_seconds": 0.006921583000803366,
+  "evaluation_question_id": "H12"
+}

@@ -1,0 +1,186 @@
+{
+  "run_id": "20261024T061244_c3e301a36b",
+  "created_utc": "2026-10-24T06:12:44.572896+00:00",
+  "question": "Which paper in this 30-paper collection reports improved diabetic-retinopathy diagnosis accuracy from using ColBERTv2? Cite the experiment or state that the collection does not establish it.",
+  "mode": "explain",
+  "status": "insufficient",
+  "plan": {
+    "named_papers": [
+      "colbertv2"
+    ],
+    "facets": [
+      "purpose"
+    ],
+    "explicit_facets": false,
+    "measures": [],
+    "is_comparison": false,
+    "obligations": [
+      {
+        "id": "part1",
+        "text": "which paper in this 30-paper collection reports improved diabetic-retinopathy diagnosis accuracy from using",
+        "facets": [
+          "purpose"
+        ],
+        "explicit": false,
+        "scope": "each"
+      }
+    ],
+    "generic_overview": false,
+    "planner": "clause-aware lexical intent matching; not a semantic completeness certificate"
+  },
+  "blocks": [],
+  "comparison": [],
+  "citations": [],
+  "missing": [
+    "COLBERTV2: no selected claim covers the detected request \"which paper in this 30-paper collection reports improved diabetic-retinopathy diagnosis accuracy from using\" (purpose).",
+    "No supported explanation could be assembled."
+  ],
+  "warnings": [],
+  "first_stage": [
+    "colbertv2:s0033",
+    "colbertv2:s0001",
+    "colbertv2:s0027",
+    "colbertv2:s0004",
+    "colbertv2:s0003",
+    "colbertv2:s0028",
+    "colbertv2:s0040",
+    "colbertv2:s0024"
+  ],
+  "retrieved": [
+    {
+      "source_id": "colbertv2:s0033",
+      "paper_id": "colbertv2",
+      "title": "ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction",
+      "section": "6 Conclusion",
+      "page_start": 9,
+      "page_end": 9,
+      "text": "We introduced ColBERTv2, a retriever that advances the quality and space efficiency of multivector representations. We hypothesized that cluster centroids capture context-aware semantics of the token-level representations and proposed a residual representation that leverages these patterns to dramatically reduce the footprint of multi-vector systems off-the-shelf. We then explored improved supervision for multi-vector retrieval and found that their quality improves considerably upon distillation from a cross-encoder system. The proposed ColBERTv2 considerably outperforms existing retrievers in within-domain and out-of-domain evaluations, which we conducted extensively across 28 datasets, establishing state-of-the-art quality while exhibiting competitive space footprint.",
+      "url": "https://arxiv.org/abs/2112.01488v3",
+      "pdf_file": "pdfs/colbertv2.pdf",
+      "sha256": "46e0a2712eabf9e0b9486120356a2110f65516fa7e0d75c35e9ee3eef9ea78c0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.03252247488101534
+    },
+    {
+      "source_id": "colbertv2:s0001",
+      "paper_id": "colbertv2",
+      "title": "ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction",
+      "section": "Abstract",
+      "page_start": 1,
+      "page_end": 1,
+      "text": "Neural information retrieval (IR) has greatly advanced search and other knowledgeintensive language tasks. While many neural IR methods encode queries and documents into single-vector representations, late interaction models produce multi-vector representations at the granularity of each token and decompose relevance modeling into scalable token-level computations. This decomposition has been shown to make late interaction more effective, but it inflates the space footprint of these models by an order of magnitude. In this work, we introduce ColBERTv2, a retriever that couples an aggressive residual compression mechanism with a denoised supervision strategy to simultaneously improve the quality and space footprint of late interaction. We evaluate ColBERTv2 across a wide range of benchmarks, establishing state-of-the-art quality within and outside the training domain while reducing the space footprint of late interaction models by 6–10×.",
+      "url": "https://arxiv.org/abs/2112.01488v3",
+      "pdf_file": "pdfs/colbertv2.pdf",
+      "sha256": "46e0a2712eabf9e0b9486120356a2110f65516fa7e0d75c35e9ee3eef9ea78c0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.031754032258064516
+    },
+    {
+      "source_id": "colbertv2:s0027",
+      "paper_id": "colbertv2",
+      "title": "ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction",
+      "section": "5.1 In-Domain Retrieval Quality",
+      "page_start": 8,
+      "page_end": 8,
+      "text": "Sub-table (a) reports results on BEIR and sub-table (b) reports results on the Wikipedia Open QA and the test sets of the LoTTE benchmark. On BEIR, we test ColBERTv2 and RocketQAv2 and copy the results for ANCE, TAS-B, and ColBERT from Thakur et al. (2021), for MoDIR and DPR- MSMARCO (DPR-M) from Xin et al. (2021), and for SPLADEv2 from Formal et al. (2021a).",
+      "url": "https://arxiv.org/abs/2112.01488v3",
+      "pdf_file": "pdfs/colbertv2.pdf",
+      "sha256": "46e0a2712eabf9e0b9486120356a2110f65516fa7e0d75c35e9ee3eef9ea78c0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.028814262023217248
+    },
+    {
+      "source_id": "colbertv2:s0004",
+      "paper_id": "colbertv2",
+      "title": "ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction",
+      "section": "1 Introduction",
+      "page_start": 2,
+      "page_end": 2,
+      "text": "In addition to in-domain quality, we seek a retriever that generalizes “zeroshot” to domain-specific corpora and long-tail topics, ones that are often under-represented in large public training sets. To this end, we evaluate Col- BERTv2 on a wide array of out-of-domain benchmarks. These include three Wikipedia Open-QA retrieval tests and 13 diverse retrieval and semanticsimilarity tasks from BEIR (Thakur et al., 2021). In addition, we introduce a new benchmark, dubbed LoTTE, for Long-Tail Topic-stratified Evaluation for IR that features 12 domain-specific search tests, spanning StackExchange communities and using queries from GooAQ (Khashabi et al., 2021). LoTTE focuses on relatively long-tail topics in its passages, unlike the Open-QA tests and many of the BEIR tasks, and evaluates models on their capacity to answer natural search queries with a practical intent, unlike many of BEIR’s semanticsimilarity tasks. On 22 of 28 out-of-domain tests, ColBERTv2 achieves the highest quality, outperforming the next best retriever by up to 8% relative gain, while using its compressed representations. This work makes the following contributions: 1. We propose ColBERTv2, a retriever that combines denoised supervision and residual compression, leveraging the token-level decomposition of late interaction to achieve high robustness with a reduced space footprint. 2. We introduce LoTTE, a new resource for outof-domain evaluation of retrievers. LoTTE focuses on natural information-seeking queries over long-tail topics, an important yet understudied application space. 3. We evaluate ColBERTv2 across a wide range of settings, establishing state-of-the-art quality within and outside the training domain.",
+      "url": "https://arxiv.org/abs/2112.01488v3",
+      "pdf_file": "pdfs/colbertv2.pdf",
+      "sha256": "46e0a2712eabf9e0b9486120356a2110f65516fa7e0d75c35e9ee3eef9ea78c0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02862400327131466
+    },
+    {
+      "source_id": "colbertv2:s0003",
+      "paper_id": "colbertv2",
+      "title": "ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction",
+      "section": "1 Introduction",
+      "page_start": 1,
+      "page_end": 2,
+      "text": "This added expressivity comes at a cost: existing late interaction systems impose an order-of-magnitude larger space footprint than single-vector models, as they must store billions of small vectors for Web-scale collections. Considering this challenge, it might seem more fruitful to focus instead on addressing the fragility of single-vector models (Menon et al., 2022) by introducing new supervision paradigms for negative mining (Xiong et al., 2020), pretraining (Gao and Callan, 2021), and distillation (Qu et al., 2021). Indeed, recent single-vector models with highlytuned supervision strategies (Ren et al., 2021b; Formal et al., 2021a) sometimes perform on-par or even better than “vanilla” late interaction models, and it is not necessarily clear whether late interaction architectures—with their fixed token-level inductive biases—admit similarly large gains from improved supervision. In this work, we show that late interaction retrievers naturally produce lightweight token representations that are amenable to efficient storage off-the-shelf and that they can benefit drastically from denoised supervision. We couple those in ColBERTv2,1 a new late-interaction retriever that employs a simple combination of distillation from //github.com/stanford-futuredata/ColBERT a cross-encoder and hard-negative mining (§3.2) to boost quality beyond any existing method, and then uses a residual compression mechanism (§3.3) to reduce the space footprint of late interaction by 6–10× while preserving quality. As a result, Col- BERTv2 establishes state-of-the-art retrieval quality both within and outside its training domain with a competitive space footprint with typical singlevector models. When trained on MS MARCO Passage Ranking, ColBERTv2 achieves the highest MRR@10 of any standalone retriever. In addition to in-domain quality, we seek a retriever that generalizes “zeroshot” to domain-specific corpora and long-tail topics, ones that are often under-represented in large public training sets.",
+      "url": "https://arxiv.org/abs/2112.01488v3",
+      "pdf_file": "pdfs/colbertv2.pdf",
+      "sha256": "46e0a2712eabf9e0b9486120356a2110f65516fa7e0d75c35e9ee3eef9ea78c0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.0264301860545992
+    },
+    {
+      "source_id": "colbertv2:s0028",
+      "paper_id": "colbertv2",
+      "title": "ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction",
+      "section": "5.2 Out-of-Domain Retrieval Quality",
+      "page_start": 8,
+      "page_end": 8,
+      "text": "Next, we evaluate ColBERTv2 outside the training domain using BEIR (Thakur et al., 2021), Wikipedia Open QA retrieval as in Khattab et al. (2021b), and LoTTE. We compare against a wide range of recent and state-of-the-art retrieval systems from the literature. BEIR. We start with BEIR, reporting the quality of models that do not incorporate distillation from cross-encoders, namely, ColBERT (Khattab and Zaharia, 2020), DPR-MARCO (Xin et al., 2021), ANCE (Xiong et al., 2020), and MoDIR (Xin et al., 2021), as well as models that do utilize distillation, namely, TAS-B (Hofstätter et al., 2021), SPLADEv2 (Formal et al., 2021a), and also RocketQAv2, which we test ourselves using the official checkpoint trained on MS MARCO. We divide the table into “search” (i.e., natural queries and questions) and “semantic relatednes” (e.g., citationrelatedness and claim verification) tasks to reflect the nature of queries in each dataset.5 Table 5a reports results with the official nDCG@10 metric. Among the models withationg using the publicly-available datasets in BEIR. Refer to §E for details. out distillation, we see that the vanilla ColBERT model outperforms the single-vector systems DPR, ANCE, and MoDIR across all but three tasks. Col- BERT often outpaces all three systems by large margins and, in fact, outperforms the TAS-B model, which utilizes distillation, on most datasets. Shifting our attention to models with distillation, we see a similar pattern: while distillation-based models are generally stronger than their vanilla counterparts, the models that decompose scoring into termlevel interactions, ColBERTv2 and SPLADEv2, are almost always the strongest.",
+      "url": "https://arxiv.org/abs/2112.01488v3",
+      "pdf_file": "pdfs/colbertv2.pdf",
+      "sha256": "46e0a2712eabf9e0b9486120356a2110f65516fa7e0d75c35e9ee3eef9ea78c0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.026333907056798625
+    },
+    {
+      "source_id": "colbertv2:s0040",
+      "paper_id": "colbertv2",
+      "title": "ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction",
+      "section": "B Impact of Compression",
+      "page_start": 16,
+      "page_end": 17,
+      "text": "We present the tokens that appear most frequently in the selected clusters as well as additional clusters the top tokens appear in. Figure 3: Latency vs. retrieval quality with varying parameter configurations for three datasets of different collection sizes. We sweep a range of values for the number of centroids per vector (probe), the number of bits used for residual compression, and the number of candidates. Note that retrieval quality is measured in MRR@10 for MS MARCO and Success@5 for LoTTE datasets. Results toward the bottom right corner (higher quality, lower latency) are best. Similarly, on the HoVer (Jiang et al., 2020) dev set, Baleen’s retrieval R@100 dropped from 92.2% to only 90.6% but its sentence-level exact match remained roughly the same, going from 39.2% to 39.4%. We hypothesize that the supervision methods applied in ColBERTv2 (§3.2) can also be applied to lift quality in downstream tasks by improving the recall of retrieval for these tasks. We leave such exploration for future work.",
+      "url": "https://arxiv.org/abs/2112.01488v3",
+      "pdf_file": "pdfs/colbertv2.pdf",
+      "sha256": "46e0a2712eabf9e0b9486120356a2110f65516fa7e0d75c35e9ee3eef9ea78c0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.023527793065492568
+    },
+    {
+      "source_id": "colbertv2:s0024",
+      "paper_id": "colbertv2",
+      "title": "ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction",
+      "section": "5.1 In-Domain Retrieval Quality",
+      "page_start": 7,
+      "page_end": 7,
+      "text": "Similar to related work, we train for IR tasks on MS MARCO Passage Ranking (Nguyen et al., 2016). Within the training domain, our development-set results are shown in Table 4, comparing ColBERTv2 with vanilla ColBERT as well as state-of-the-art single-vector systems. While ColBERT outperforms single-vector systems like RepBERT, ANCE, and even TAS-B, improvements in supervision such as distillation from cross-encoders enable systems like SPLADEv2, Method Official Dev (7k) Local Eval (5k) MRR@10 R@50 R@1k MRR@10 R@50 R@1k Models without Distillation or Special Pretraining RepBERT 30.4 - 94.3 - - - DPR 31.1 - 95.2 - - - ANCE 33.0 - 95.9 - - - LTRe 34.1 - 96.2 - - - ColBERT 36.0 82.9 96.8 36.7 - - Models with Distillation or Special Pretraining TAS-B 34.7 - 97.8 - - - SPLADEv2 36.8 - 97.9 37.9 84.9 98.0 PAIR 37.9 86.4 98.2 - - coCondenser 38.2 - 98.4 - - - RocketQAv2 38.8 86.2 98.1 39.8 85.8 97.9 ColBERTv2 39.7 86.8 98.4 40.8 86.3 98.3 Table 4: In-domain performance on the development set of MS MARCO Passage Ranking as well the “Local Eval” test set described by Khattab and Zaharia (2020). Dev-set results for baseline systems are from their respective papers: Zhan et al. (2020b), Xiong et al. (2020) for DPR and ANCE, Zhan et al. (2020a), Khattab and Zaharia (2020), Hofstätter et al. (2021), Gao and Callan (2021), Ren et al. (2021a), Formal et al. (2021a), and Ren et al. (2021b). PAIR, and RocketQAv2 to achieve higher quality than vanilla ColBERT.",
+      "url": "https://arxiv.org/abs/2112.01488v3",
+      "pdf_file": "pdfs/colbertv2.pdf",
+      "sha256": "46e0a2712eabf9e0b9486120356a2110f65516fa7e0d75c35e9ee3eef9ea78c0",
+      "boundary_note": "sentence-bounded excerpt",
+      "score": 0.02303732303732304
+    }
+  ],
+  "hashes": {
+    "corpus": "b3ed27e2a3bca8d2b2d3d2961bb69cd5dac86529500a8ee3ce9798ae29815f57",
+    "knowledge": "a3ce95a2eacc71571e7c37ac9a252003140614ad35f80ced8ce7f14279984b13",
+    "code": "93743fd7df0f0b0907331b23f87f79ebe85dd8c6e834c9077d9c69d2de7a90e8"
+  },
+  "notice": "Explanations are assembled from AI-curated source-linked claims, not freshly invented prose. Independent human source review remains pending.",
+  "independently_verified": false,
+  "attempts": [],
+  "clause_coverage": [
+    {
+      "part_id": "part1",
+      "question_part": "which paper in this 30-paper collection reports improved diabetic-retinopathy diagnosis accuracy from using",
+      "paper_ids": [
+        "colbertv2"
+      ],
+      "facet": "purpose",
+      "covered": false,
+      "claim_ids": [],
+      "verification": "lexical/facet coverage only; human source review required"
+    }
+  ],
+  "elapsed_seconds": 0.00912354199681431,
+  "evaluation_question_id": "F14"
+}
