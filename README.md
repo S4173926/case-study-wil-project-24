@@ -106,16 +106,6 @@ upload is a recovery snapshot. The original 12-commit history is preserved in a 
 that file does not automatically restore the old commit graph. Original author/date metadata is
 unchanged. Current uploads must use their actual upload dates and authorised account identity.
 
-## Rights, privacy and submission boundary
-
-Keep this repository private while it contains supplied research PDFs whose individual
-redistribution permissions have not all been independently checked. Grant the assessor appropriate
-access. Preserve source credits and review `workbench/LICENSE_NOTES.md` before any public release.
-No licence granting rights over third-party papers is asserted by this repository.
-
-The Trello evidence file excludes private profile and email-routing metadata. Do not add API keys,
-passwords, environment secrets, model caches or unrelated personal files.
-
 The final report, final contribution documents, genuine individual reflections and any new local
 human reviews/pilot observations are not supplied by this software package. Add actual final
 materials when available; see `docs/REMAINING_DELIVERABLES.md`. No course mark is guaranteed.
